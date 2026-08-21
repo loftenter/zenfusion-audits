@@ -41,7 +41,7 @@ h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
 <p class="subtitle">Generate SEO/AEO/CRO audits for any Shopify store — no login required</p>
 
 <div class="status-bar">
-  ✅ No login needed — just fill the form and submit
+  ✅ No login needed — fill the form, click submit, results appear below when ready
 </div>
 
 <!-- Site Audit -->
@@ -118,6 +118,23 @@ h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
 </div>
 
 
+<!-- Pending Reports -->
+<div style="margin-top: 40px;">
+<h2 style="color: #f39c12; font-size: 20px; margin-bottom: 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px;">⏳ In Progress</h2>
+
+  <div class="report-item" style="background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: all 0.2s; opacity: 0.6;" onmouseover="this.style.borderColor='#4A90D9'" onmouseout="this.style.borderColor='#2a3142'">
+    <a href="#" style="text-decoration: none; color: inherit; display: block;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="color: #f39c12; font-size: 15px; font-weight: 600;">⏳ PlumbingSupplyAndMore — Deep Analysis: Apollo Valves</div>
+          <div style="color: #ffffff; opacity: 0.7; font-size: 12px; margin-top: 4px;">plumbingsupplyandmore.com · In progress</div>
+        </div>
+        <div style="color: #f39c12; font-size: 11px; font-weight: 700; background: rgba(243,156,18,0.15); padding: 3px 10px; border-radius: 20px;">Processing</div>
+      </div>
+    </a>
+  </div>
+</div>
+
 <!-- Completed Reports List -->
 <div class="reports-list" style="margin-top: 40px;">
   <h2 style="color: #4A90D9; font-size: 20px; margin-bottom: 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px;">📋 Completed Reports</h2>
@@ -183,7 +200,7 @@ function submitForm(type) {
     data.name = document.getElementById('site-name').value || 'Anonymous';
     data.type = 'site-audit';
     if (!data.url) { alert('Please enter a website URL'); return; }
-    msg = '✅ Site audit submitted for ' + data.url + '. Results will be published to the reports page within 10 minutes.';
+    msg = '✅ Site audit submitted for ' + data.url + '. Your request has been sent to the team. Results will appear in the Completed Reports list below once processing is done (typically 10-30 minutes depending on audit type).';
   } else if (type === 'keyword-audit') {
     data.keyword = document.getElementById('kw-keyword').value;
     data.url = document.getElementById('kw-url').value;
@@ -191,21 +208,21 @@ function submitForm(type) {
     data.name = document.getElementById('kw-name').value || 'Anonymous';
     data.type = 'keyword-audit';
     if (!data.keyword || !data.url) { alert('Please enter both keyword and URL'); return; }
-    msg = '✅ Keyword audit submitted for "' + data.keyword + '" on ' + data.url + '. Results will be published within 10 minutes.';
+    msg = '✅ Keyword audit submitted for "' + data.keyword + '" on ' + data.url + '. Your request has been sent to the team. Results will appear in the Completed Reports list below once processing is done.';
   } else if (type === 'page-audit') {
     data.url = document.getElementById('page-url').value;
     data.keyword = document.getElementById('page-keyword').value;
     data.name = document.getElementById('page-name').value || 'Anonymous';
     data.type = 'page-audit';
     if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
-    msg = '✅ Page-level audit submitted for ' + data.url + ' on "' + data.keyword + '". Results will be published within 15 minutes.';
+    msg = '✅ Page-level audit submitted for ' + data.url + ' on "' + data.keyword + '". Your request has been sent to the team. Results will appear in the Completed Reports list below once processing is done.';
   } else if (type === 'deep-analysis') {
     data.url = document.getElementById('da-url').value;
     data.keyword = document.getElementById('da-keyword').value;
     data.name = document.getElementById('da-name').value || 'Anonymous';
     data.type = 'deep-analysis';
     if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
-    msg = '✅ Deep analysis submitted for ' + data.url + ' on "' + data.keyword + '". Results will be published within 30 minutes.';
+    msg = '✅ Deep analysis submitted for ' + data.url + ' on "' + data.keyword + '". Your request has been sent to the team. Results will appear in the Completed Reports list below once processing is done.';
   }
   
   // Submit via FormSubmit.co (free, no signup, emails to Justin)
@@ -223,10 +240,7 @@ function submitForm(type) {
     if (el) { el.textContent = msg; el.classList.add('show'); }
   })
   .catch(function(e) {
-    // Fallback: open mailto link
-    var subject = encodeURIComponent('Zenfusion Audit Request: ' + data.type);
-    var body = encodeURIComponent(JSON.stringify(data, null, 2));
-    window.open('mailto:justin@justinlofton.com?subject=' + subject + '&body=' + body, '_blank');
+    // Fallback: just show the message (don't redirect to Gmail)
     var el = document.getElementById(type + '-success');
     if (el) { el.textContent = msg; el.classList.add('show'); }
   });
