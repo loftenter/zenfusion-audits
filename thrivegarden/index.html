@@ -77,12 +77,12 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 <!-- Backlink Upload -->
 <div class="section">
   <div class="section-title">📤 Upload Backlink Data</div>
-  <div class="dropzone" id="dropzone-thrivegarden" onclick="document.getElementById('fileinput-thrivegarden').click()">
+  <label class="dropzone" id="dropzone-thrivegarden" for="fileinput-thrivegarden">
     <div class="icon">📁</div>
     <div class="text">Drag &amp; drop backlink files here or <strong>click to browse</strong></div>
     <div class="formats">CSV · Excel (.xlsx) · TXT (URL list) — from Ahrefs, SEMrush, Majestic, Screaming Frog</div>
-    <input type="file" id="fileinput-thrivegarden" accept=".csv,.xlsx,.xls,.txt" multiple>
-  </div>
+  </label>
+  <input type="file" id="fileinput-thrivegarden" accept=".csv,.xlsx,.xls,.txt" multiple style="display:none;">
   <div class="upload-status" id="upload-status-thrivegarden"></div>
   
   <div style="margin-top: 16px; padding: 16px; background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px;">
