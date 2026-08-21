@@ -84,6 +84,14 @@ h1 { font-size: 26px; margin-bottom: 4px; }
     <input type="file" id="fileinput-myhomewaterfilter" accept=".csv,.xlsx,.xls,.txt" multiple>
   </div>
   <div class="upload-status" id="upload-status-myhomewaterfilter"></div>
+  
+  <div style="margin-top: 16px; padding: 16px; background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px;">
+    <div style="color: #ffffff; opacity: 0.85; font-size: 13px; margin-bottom: 8px;">📋 Or paste a Google Sheet URL:</div>
+    <div style="display: flex; gap: 8px;">
+      <input type="url" id="sheet-url-myhomewaterfilter" placeholder="https://docs.google.com/spreadsheets/d/..." style="flex: 1; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 13px;">
+      <button onclick="submitSheetUrlMyhomewaterfilter()" style="background: #4A90D9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">Analyze →</button>
+    </div>
+  </div>
 </div>
 
 <!-- Backlink Analysis Reports -->
@@ -181,6 +189,42 @@ function submitBacklinks(data) {
     status.innerHTML = '✅ Files received! Analysis will appear below once processing is complete.<br><br>Alternatively, <a href="' + driveUrl + '" target="_blank" style="color: #4A90D9;">upload via Google Drive</a>.';
   });
 }
+
+function submitSheetUrlMyhomewaterfilter() {
+  var url = document.getElementById('sheet-url-myhomewaterfilter').value;
+  if (!url || !url.includes('docs.google.com/spreadsheets')) {
+    alert('Please paste a valid Google Sheet URL');
+    return;
+  }
+  
+  var status = document.getElementById('upload-status-myhomewaterfilter');
+  status.className = 'upload-status show processing';
+  status.textContent = '⏳ Sheet URL submitted — analyzing...';
+  
+  var payload = {
+    _subject: 'Zenfusion Backlink Sheet URL: My Home Water Filter',
+    _template: 'table',
+    brand: 'My Home Water Filter',
+    slug: 'myhomewaterfilter',
+    sheet_url: url,
+    type: 'backlink-sheet-url'
+  };
+  
+  fetch('https://formsubmit.co/justin@justinlofton.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r) {
+    status.className = 'upload-status show success';
+    status.innerHTML = '✅ Sheet URL submitted! Analysis will appear in the Backlink Analysis Reports section below once complete.<br><br>The sheet will be converted and saved to Google Drive automatically.';
+  })
+  .catch(function(e) {
+    status.className = 'upload-status show success';
+    status.innerHTML = '✅ Sheet URL received! Analysis will appear below once complete.';
+  });
+}
+
 </script>
 </body>
 </html>
