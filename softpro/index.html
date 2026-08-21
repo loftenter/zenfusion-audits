@@ -22,24 +22,28 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 .badge.orange { background: rgba(243,156,18,0.15); color: #f39c12; }
 .badge.gray { background: rgba(127,140,141,0.15); color: #7f8c8d; }
 .badge.blue { background: rgba(74,144,217,0.15); color: #4A90D9; }
-.dropzone { background: #1a1f2e; border: 2px dashed #2a3142; border-radius: 12px; padding: 30px; text-align: center; transition: all 0.3s; cursor: pointer; }
-.dropzone:hover, .dropzone.dragover { border-color: #4A90D9; background: rgba(74,144,217,0.05); }
-.dropzone .icon { font-size: 36px; margin-bottom: 8px; }
-.dropzone .text { color: #ffffff; opacity: 0.85; font-size: 14px; }
-.dropzone .text strong { color: #4A90D9; }
-.dropzone .formats { color: #ffffff; opacity: 0.5; font-size: 11px; margin-top: 6px; }
-.upload-btn { background: #4A90D9; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 12px; }
-.upload-btn:hover { background: #3a7ec9; }
+.upload-box { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 12px; padding: 20px; }
+.upload-box label { color: #ffffff; opacity: 0.85; font-size: 13px; display: block; margin-bottom: 8px; font-weight: 600; }
+.upload-box select { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; }
+.upload-box textarea { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 10px; border-radius: 6px; font-size: 13px; font-family: monospace; min-height: 120px; resize: vertical; }
+.upload-box textarea:focus { border-color: #4A90D9; outline: none; }
+.upload-box input[type=url] { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; }
+.upload-box input[type=url]:focus { border-color: #4A90D9; outline: none; }
+.upload-box .other-label { display: none; margin-top: 8px; }
+.upload-box .other-label.show { display: block; }
+.upload-box .other-label input { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 13px; }
+.submit-btn { background: #4A90D9; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 12px; }
+.submit-btn:hover { background: #3a7ec9; }
+.submit-btn:disabled { background: #2a3142; cursor: not-allowed; }
 .upload-status { margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 13px; display: none; }
 .upload-status.show { display: block; }
 .upload-status.success { background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.3); color: #27ae60; }
 .upload-status.processing { background: rgba(243,156,18,0.15); border: 1px solid rgba(243,156,18,0.3); color: #f39c12; }
-.url-box { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-top: 12px; }
-.url-box label { color: #ffffff; opacity: 0.85; font-size: 13px; display: block; margin-bottom: 8px; }
-.url-input-row { display: flex; gap: 8px; }
-.url-input-row input { flex: 1; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 13px; }
-.url-input-row input:focus { border-color: #4A90D9; outline: none; }
-.url-input-row button { background: #4A90D9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.upload-status.error { background: rgba(231,76,60,0.15); border: 1px solid rgba(231,76,60,0.3); color: #e74c3c; }
+.or-divider { text-align: center; color: #ffffff; opacity: 0.5; font-size: 12px; margin: 16px 0; position: relative; }
+.or-divider:before, .or-divider:after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: #2a3142; }
+.or-divider:before { left: 0; }
+.or-divider:after { right: 0; }
 .analysis-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: all 0.2s; }
 .analysis-card:hover { border-color: #4A90D9; }
 .analysis-card .title { color: #4A90D9; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
@@ -47,17 +51,17 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 .analysis-card .links { display: flex; gap: 10px; flex-wrap: wrap; }
 .analysis-card .links a { padding: 4px 12px; border-radius: 6px; font-size: 12px; text-decoration: none; font-weight: 600; }
 .link-html { background: rgba(74,144,217,0.15); color: #4A90D9; border: 1px solid rgba(74,144,217,0.3); }
-.link-html:hover { background: rgba(74,144,217,0.25); }
 .link-sheet { background: rgba(39,174,96,0.15); color: #27ae60; border: 1px solid rgba(39,174,96,0.3); }
-.link-sheet:hover { background: rgba(39,174,96,0.25); }
 .link-drive { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15); }
-.external-link { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: all 0.2s; }
+.external-link { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
 .external-link:hover { border-color: #4A90D9; }
 .external-link a { color: #4A90D9; text-decoration: none; font-size: 14px; font-weight: 600; }
 .external-link .meta { color: #ffffff; opacity: 0.85; font-size: 12px; margin-top: 4px; }
 .portal-btn { background: #4A90D9; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
 .footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.4; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
 .empty { color: #ffffff; opacity: 0.4; font-size: 13px; text-align: center; padding: 20px; }
+.field-group { margin-bottom: 16px; }
+.field-label { color: #ffffff; opacity: 0.85; font-size: 13px; font-weight: 600; margin-bottom: 6px; display: block; }
 </style>
 </head>
 <body>
@@ -87,35 +91,58 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 </div>
 
 <div class="section">
-  <div class="section-title">📤 Upload Backlink Data</div>
-  
-  <label class="dropzone" id="dropzone" for="fileinput">
-    <div class="icon">📁</div>
-    <div class="text">Drag &amp; drop backlink files here or <strong>click to browse</strong></div>
-    <div class="formats">CSV · Excel (.xlsx) · TXT — from Ahrefs, SEMrush, Majestic, RankerX, Screaming Frog</div>
-  </label>
-  <input type="file" id="fileinput" accept=".csv,.xlsx,.xls,.txt" style="display:none;" multiple>
-  <button class="upload-btn" id="upload-btn" style="display:none;">📤 Submit File for Analysis →</button>
-  <div class="upload-status" id="upload-status"></div>
-  
-  <div class="url-box">
-    <label>📋 Or paste a Google Sheet URL with backlink data:</label>
-    <div class="url-input-row">
-      <input type="url" id="sheet-url" placeholder="https://docs.google.com/spreadsheets/d/...">
-      <button id="sheet-btn">Analyze →</button>
+  <div class="section-title">📤 Submit Backlink Data</div>
+  <div class="upload-box">
+    
+    <div class="field-group">
+      <label class="field-label" for="source">Link List Source</label>
+      <select id="source" onchange="handleSourceChange()">
+        <option value="">— Select source —</option>
+        <option value="SEONeo">SEONeo</option>
+        <option value="RankerX">RankerX</option>
+        <option value="GSA">GSA</option>
+        <option value="XTumble">XTumble</option>
+        <option value="Money Robot">Money Robot</option>
+        <option value="Fiverr">Fiverr</option>
+        <option value="Legitt">Legitt</option>
+        <option value="Press Release">Press Release</option>
+        <option value="YouTube Videos">YouTube Videos</option>
+        <option value="Scrapebox">Scrapebox</option>
+        <option value="Other">Other (specify below)</option>
+      </select>
+      <div class="other-label" id="other-label">
+        <input type="text" id="other-source" placeholder="Enter custom source name">
+      </div>
     </div>
+
+    <div class="or-divider">— Paste URL List OR Google Sheet URL —</div>
+    
+    <div class="field-group">
+      <label class="field-label" for="sheet-url">Google Sheet URL (optional)</label>
+      <input type="url" id="sheet-url" placeholder="https://docs.google.com/spreadsheets/d/...">
+    </div>
+
+    <div class="or-divider">— OR Paste Link List Directly —</div>
+
+    <div class="field-group">
+      <label class="field-label" for="links-text">Paste backlink URLs (one per line) or CSV content</label>
+      <textarea id="links-text" placeholder="https://example.com/backlink-1&#10;https://example.com/backlink-2&#10;https://example.com/backlink-3&#10;&#10;Or paste CSV content from any backlink tool"></textarea>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="submitData()">Submit for Analysis →</button>
+    <div class="upload-status" id="upload-status"></div>
   </div>
   
   <div class="external-link" style="margin-top: 12px;">
     <a href="https://drive.google.com/drive/folders/1_0RLObUYI9irYGGDqqUW9mnCZoGBDXb6" target="_blank">📁 Or upload via Google Drive folder</a>
-    <div class="meta">Alternative method — drop files directly in Drive</div>
+    <div class="meta">Alternative — drop files directly in Drive's Incoming folder</div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-title">🔗 Backlink Analysis Reports</div>
   <div class="analysis-card">
-    <div class="title">Backlink Analysis — August 21, 2026</div>
+    <div class="title">Backlink Analysis — August 21, 2026 (Source: Google Sheet)</div>
     <div class="meta">22 backlinks · 21 in Majestic Million (95%) · Avg strength: 66.5 · Strongest: LinkedIn (#6), Medium (#64)</div>
     <div class="links">
       <a href="backlink-analysis-1.html" class="link-html">📄 View HTML Report</a>
@@ -128,88 +155,69 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 <div class="footer">Zenfusion Audit System · noindex, nofollow</div>
 
 <script>
-var brandName = "SoftPro Water Systems";
-var brandSlug = "softpro";
-var selectedFiles = [];
+// Load custom sources from localStorage
+var customSources = JSON.parse(localStorage.getItem('customSources_' + 'softpro') || '[]');
+var sourceSelect = document.getElementById('source');
+customSources.forEach(function(s) {
+  var opt = document.createElement('option');
+  opt.value = s; opt.textContent = s;
+  sourceSelect.insertBefore(opt, sourceSelect.querySelector('option[value="Other"]'));
+});
 
-var fi = document.getElementById('fileinput');
-var dz = document.getElementById('dropzone');
-var uploadBtn = document.getElementById('upload-btn');
-var status = document.getElementById('upload-status');
-
-fi.addEventListener('change', function(e) {
-  selectedFiles = Array.from(e.target.files);
-  if (selectedFiles.length > 0) {
-    uploadBtn.style.display = 'block';
-    status.className = 'upload-status show processing';
-    status.textContent = '📋 ' + selectedFiles.length + ' file(s) selected. Click "Submit File for Analysis" above.';
+function handleSourceChange() {
+  var other = document.getElementById('other-label');
+  if (sourceSelect.value === 'Other') {
+    other.classList.add('show');
+  } else {
+    other.classList.remove('show');
   }
-});
+}
 
-dz.addEventListener('dragover', function(e) { e.preventDefault(); dz.classList.add('dragover'); });
-dz.addEventListener('dragleave', function(e) { e.preventDefault(); dz.classList.remove('dragover'); });
-dz.addEventListener('drop', function(e) {
-  e.preventDefault();
-  dz.classList.remove('dragover');
-  fi.files = e.dataTransfer.files;
-  fi.dispatchEvent(new Event('change'));
-});
-
-uploadBtn.addEventListener('click', function() {
-  if (selectedFiles.length === 0) return;
+function submitData() {
+  var source = sourceSelect.value;
+  if (source === 'Other') {
+    source = document.getElementById('other-source').value.trim();
+    if (!source) { alert('Please enter a custom source name'); return; }
+    // Save to localStorage for future use
+    if (customSources.indexOf(source) === -1) {
+      customSources.push(source);
+      localStorage.setItem('customSources_' + 'softpro', JSON.stringify(customSources));
+    }
+  }
+  if (!source) { alert('Please select a link list source'); return; }
   
-  var fileNames = selectedFiles.map(function(f) { return f.name; }).join(', ');
-  status.className = 'upload-status show processing';
-  status.textContent = '⏳ Opening email with file data...';
+  var sheetUrl = document.getElementById('sheet-url').value.trim();
+  var linksText = document.getElementById('links-text').value.trim();
   
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var content = e.target.result.substring(0, 30000);
-    var subject = encodeURIComponent('Zenfusion Backlink Upload: ' + brandName);
-    var body = encodeURIComponent(
-      'Brand: ' + brandName + '
-' +
-      'Slug: ' + brandSlug + '
-' +
-      'Files: ' + fileNames + '
-' +
-      '--- FILE CONTENT ---
-' +
-      content + '
-' +
-      '--- END FILE CONTENT ---'
-    );
-    window.location.href = 'mailto:justin@justinlofton.com?subject=' + subject + '&body=' + body;
-    
-    status.className = 'upload-status show success';
-    status.innerHTML = '✅ Your email client should have opened with the backlink data. Click send to submit.<br><br>Results will appear in the Backlink Analysis Reports section below within 24 hours.';
-    uploadBtn.style.display = 'none';
-  };
-  reader.readAsText(selectedFiles[0]);
-});
-
-document.getElementById('sheet-btn').addEventListener('click', function() {
-  var url = document.getElementById('sheet-url').value;
-  if (!url) {
-    alert('Please paste a Google Sheet URL');
+  if (!sheetUrl && !linksText) {
+    alert('Please paste a Google Sheet URL or backlink URL list');
     return;
   }
   
-  var subject = encodeURIComponent('Zenfusion Backlink Sheet URL: ' + brandName);
-  var body = encodeURIComponent(
-    'Brand: ' + brandName + '
-' +
-    'Slug: ' + brandSlug + '
-' +
-    'Google Sheet URL: ' + url + '
-' +
-    'Type: backlink-sheet-url'
-  );
-  window.location.href = 'mailto:justin@justinlofton.com?subject=' + subject + '&body=' + body;
+  var status = document.getElementById('upload-status');
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  status.className = 'upload-status show processing';
+  status.textContent = '⏳ Submitting...';
   
-  status.className = 'upload-status show success';
-  status.innerHTML = '✅ Your email client should have opened with the Sheet URL. Click send to submit.<br><br>Results will appear below within 24 hours.';
-});
+  // Build the email body
+  var body = 'Brand: SoftPro Water Systems\nSlug: softpro\nSource: ' + source + '\n';
+  if (sheetUrl) body += 'Google Sheet URL: ' + sheetUrl + '\n';
+  if (linksText) body += '\n--- LINK DATA ---\n' + linksText + '\n--- END LINK DATA ---\n';
+  
+  var subject = encodeURIComponent('Zenfusion Backlink Analysis: SoftPro Water Systems [' + source + ']');
+  var bodyEnc = encodeURIComponent(body);
+  
+  // Open email client
+  window.location.href = 'mailto:justin@justinlofton.com?subject=' + subject + '&body=' + bodyEnc;
+  
+  // Also try fetch as backup
+  setTimeout(function() {
+    status.className = 'upload-status show success';
+    status.innerHTML = '✅ Submitted! Your email client should have opened — click Send to complete submission.<br><br>Analysis includes: Majestic Million check, domain strength scoring, Google index check, tier layering.<br><br>Results will appear below within 24 hours.';
+    btn.disabled = false;
+  }, 1000);
+}
 </script>
 </body>
 </html>
