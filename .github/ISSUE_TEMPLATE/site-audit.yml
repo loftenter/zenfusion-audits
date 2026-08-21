@@ -1,0 +1,21 @@
+name: 📊 Website Audit
+description: Crawl an entire website and detect technical SEO issues
+labels: ["site-audit"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: The website URL to audit
+      placeholder: https://www.example.com
+    validations:
+      required: true
+  - type: input
+    id: max_pages
+    attributes:
+      label: Max Pages
+      description: Maximum number of pages to crawl (default 100, max 500)
+      placeholder: "100"
+      default: "100"
+    validations:
+      required: false

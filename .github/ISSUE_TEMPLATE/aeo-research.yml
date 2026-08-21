@@ -1,0 +1,20 @@
+name: 🤖 AEO + Market Research
+description: Full 3-document deliverable (Market Analysis + Keyword Workbook + Competitive Analysis)
+labels: ["aeo-research"]
+body:
+  - type: input
+    id: client_url
+    attributes:
+      label: Client URL
+      description: The client website URL
+      placeholder: https://www.example.com
+    validations:
+      required: true
+  - type: input
+    id: core_keyword
+    attributes:
+      label: Core Keyword
+      description: The primary keyword/topic for the research
+      placeholder: salt free water softener
+    validations:
+      required: true

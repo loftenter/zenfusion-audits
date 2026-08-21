@@ -1,0 +1,29 @@
+name: 🔍 Keyword Audit
+description: Analyze top-ranking competitors for a keyword + your page
+labels: ["keyword-audit"]
+body:
+  - type: input
+    id: keyword
+    attributes:
+      label: Keyword
+      description: The target keyword to analyze
+      placeholder: best water softener
+    validations:
+      required: true
+  - type: input
+    id: target_url
+    attributes:
+      label: Target URL
+      description: Your page URL to audit against competitors
+      placeholder: https://www.example.com/best-water-softener
+    validations:
+      required: true
+  - type: input
+    id: competitor_pages
+    attributes:
+      label: Competitor Pages
+      description: Number of competitor pages to analyze (default 30)
+      placeholder: "30"
+      default: "30"
+    validations:
+      required: false

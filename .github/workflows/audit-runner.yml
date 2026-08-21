@@ -1,0 +1,91 @@
+name: Zenfusion Audit Runner
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  run-audit:
+    # Only run on issues with audit labels
+    if: contains(join(github.event.issue.labels.*.name, ','), 'site-audit') || contains(join(github.event.issue.labels.*.name, ','), 'keyword-audit') || contains(join(github.event.issue.labels.*.name, ','), 'page-audit') || contains(join(github.event.issue.labels.*.name, ','), 'aeo-research')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install google-api-python-client google-auth-oauthlib
+
+      - name: Parse issue and run audit
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_LABEL: ${{ join(github.event.issue.labels.*.name, ',') }}
+          SCRAPEOWL_API_KEY: ${{ secrets.SCRAPEOWL_API_KEY }}
+          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+          INFRANODUS_API_KEY: ${{ secrets.INFRANODUS_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/run_audit.py
+
+      - name: Upload results to GitHub Pages
+        if: always()
+        run: |
+          git config --global user.name "Zenfusion Audit Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Find the client slug from the issue
+          CLIENT_SLUG=$(echo "$ISSUE_TITLE" | sed 's/.*: //;s/[^a-z0-9]/-/g' | tr '[:upper:]' '[:lower:]' | cut -c1-40)
+          
+          # If we have results, copy them to the Pages directory
+          if [ -f /tmp/site_audit_output ]; then
+            mkdir -p "$CLIENT_SLUG"
+            cp /tmp/site_audit_output/* "$CLIENT_SLUG/" || true
+          fi
+          
+          git add -A || true
+          git commit -m "Audit results for issue #${{ github.event.issue.number }}" || true
+          git push || true
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+
+      - name: Comment on issue with results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const issueNumber = context.issue.number;
+            const label = '${{ join(github.event.issue.labels.*.name, ',') }}';
+            
+            let comment = `## ✅ Audit Complete\n\n`;
+            comment += `The audit has been processed.\n\n`;
+            comment += `**Results:**\n`;
+            comment += `- View report: https://loftenter.github.io/zenfusion-audits/\n`;
+            comment += `- Raw data: Check the commit history of this repo\n\n`;
+            comment += `_This issue will be closed automatically._`;
+            
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: issueNumber,
+              body: comment
+            });
+            
+            await github.rest.issues.update({
+              ...context.repo,
+              issue_number: issueNumber,
+              state: 'closed'
+            });
