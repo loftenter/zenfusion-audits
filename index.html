@@ -7,51 +7,96 @@
 <title>Zenfusion SEO Audit Reports</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e4e7ee; padding: 40px; max-width: 800px; margin: 0 auto; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #ffffff; padding: 40px; max-width: 900px; margin: 0 auto; }
 h1 { font-size: 28px; margin-bottom: 8px; }
-p { color: #fff; opacity: 0.9; margin-bottom: 20px; font-size: 14px; }
+p { color: #ffffff; opacity: 0.85; margin-bottom: 20px; font-size: 14px; }
 .portal-btn { background: #4A90D9; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 30px; }
 .portal-btn:hover { background: #3a7ec9; }
-.client-section { margin-bottom: 40px; }
-.client-header { font-size: 20px; color: #30C8EE; margin-bottom: 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
-.report-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 12px; padding: 20px; margin-bottom: 12px; text-decoration: none; color: inherit; transition: all 0.2s; display: block; }
-.report-card:hover { border-color: #4A90D9; transform: translateY(-2px); }
-.report-card h2 { color: #4A90D9; font-size: 17px; margin-bottom: 6px; }
-.report-card .desc { color: #fff; opacity: 0.85; font-size: 13px; }
-.report-card .badge { display: inline-block; background: #27ae60; color: white; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 6px; }
-.report-card .badge.orange { background: #f39c12; }
-.footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.9; font-size: 11px; }
+.section { margin-bottom: 40px; }
+.section-title { color: #4A90D9; font-size: 20px; margin-bottom: 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
+.brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.brand-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: all 0.2s; display: block; }
+.brand-card:hover { border-color: #4A90D9; transform: translateY(-2px); }
+.brand-card h2 { color: #4A90D9; font-size: 16px; margin-bottom: 4px; }
+.brand-card .domain { color: #ffffff; opacity: 0.7; font-size: 12px; }
+.brand-card .reports { color: #ffffff; opacity: 0.85; font-size: 12px; margin-top: 8px; }
+.brand-card .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 6px; }
+.badge.green { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.orange { background: rgba(243,156,18,0.15); color: #f39c12; }
+.badge.gray { background: rgba(127,140,141,0.15); color: #7f8c8d; }
+.footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.4; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
 </style>
 </head>
 <body>
 <h1>Zenfusion SEO Audit Reports</h1>
-<p>Technical SEO dashboards, market research, and competitive analysis for Shopify stores.</p>
+<p>Technical SEO dashboards, market research, competitive analysis, and backlink tracking for Shopify stores.</p>
 
 <a href="portal.html" class="portal-btn">🚀 Start New Audit →</a>
 
-<div class="client-section">
-<div class="client-header">SoftPro Water Systems</div>
-
-<a href="softpro/" class="report-card">
-<h2>📊 Site Audit Dashboard</h2>
-<div class="desc">Technical SEO issues, Core Web Vitals (Lighthouse), LLM crawler check, fix instructions</div>
-<span class="badge">Health: 87.6/100</span>
-</a>
-
-<a href="softpro/market-analysis.html" class="report-card">
-<h2>📈 Market Analysis — Salt Free Water Softener</h2>
-<div class="desc">Industry sizing ($9.64B market), demand drivers, 8-state regulatory landscape, competitive landscape — 24 sources cited</div>
-<span class="badge">Deep Research</span>
-</a>
-
-<a href="softpro/competitive-analysis.html" class="report-card">
-<h2>🎯 Competitive Analysis — Salt Free Water Softener</h2>
-<div class="desc">Threat rankings, SERP battlefield per cluster, AI/AEO gap analysis, 6 prioritized strategic recommendations</div>
-<span class="badge orange">Rank #44 → Gap</span>
-</a>
-
+<div class="section">
+  <div class="section-title">📋 Client Reports</div>
+  <div class="brand-grid">
+    
+    <a href="softpro/" class="brand-card">
+      <h2>SoftPro Water Systems</h2>
+      <div class="domain">softprowatersystems.com</div>
+      <div class="reports">3 reports · Site Audit + Market Analysis + Competitive Analysis</div>
+      <span class="badge green">3 reports</span>
+    </a>
+    
+    <a href="qualitywatertreatment/" class="brand-card">
+      <h2>Quality Water Treatment</h2>
+      <div class="domain">qualitywatertreatment.com</div>
+      <div class="reports">No reports yet</div>
+      <span class="badge gray">0 reports</span>
+    </a>
+    
+    <a href="plumbingsupplyandmore/" class="brand-card">
+      <h2>Plumbing Supply &amp; More</h2>
+      <div class="domain">plumbingsupplyandmore.com</div>
+      <div class="reports">No reports yet</div>
+      <span class="badge gray">0 reports</span>
+    </a>
+    
+    <a href="myhomewaterfilter/" class="brand-card">
+      <h2>My Home Water Filter</h2>
+      <div class="domain">myhomewaterfilter.com</div>
+      <div class="reports">No reports yet</div>
+      <span class="badge gray">0 reports</span>
+    </a>
+    
+    <a href="watergeneratorpros/" class="brand-card">
+      <h2>Water Generator Pros</h2>
+      <div class="domain">watergeneratorpros.com</div>
+      <div class="reports">No reports yet</div>
+      <span class="badge gray">0 reports</span>
+    </a>
+    
+    <a href="thrivegarden/" class="brand-card">
+      <h2>Thrive Garden</h2>
+      <div class="domain">thrivegarden.com</div>
+      <div class="reports">No reports yet</div>
+      <span class="badge gray">0 reports</span>
+    </a>
+    
+    <a href="elregalo/" class="brand-card" style="grid-column: span 2;">
+      <h2>El Regalo</h2>
+      <div class="domain">elregalo.com</div>
+      <div class="reports">No reports yet</div>
+      <span class="badge gray">0 reports</span>
+    </a>
+    
+  </div>
 </div>
 
-<div class="footer">Zenfusion Site Auditor v1.0 + Factor Engine v2.0 + AEO Skill + Deep Research | noindex, nofollow</div>
+<div class="section">
+  <div class="section-title">🔗 Backlink Analysis</div>
+  <p style="margin-bottom: 16px;">Each client folder on Google Drive has an Incoming folder for backlink exports. Auto-analyzed every 30 minutes.</p>
+  <a href="https://drive.google.com/drive/folders/1JMLhG7TTQgQ3gygYCxmjZRUyyst1Qhff" target="_blank" class="portal-btn" style="background: #27ae60;">📁 View All Backlink Folders →</a>
+</div>
+
+<div class="footer">
+  Zenfusion Site Auditor v1.0 + Factor Engine v2.0 + AEO Skill + Backlink Analyzer | noindex, nofollow
+</div>
 </body>
 </html>
