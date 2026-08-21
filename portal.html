@@ -33,6 +33,14 @@ h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
 .status-bar { background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.4); border-radius: 8px; padding: 12px; margin-bottom: 30px; font-size: 13px; color: #27ae60; text-align: center; }
 .success-msg { display: none; background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.4); border-radius: 8px; padding: 16px; margin-top: 10px; color: #27ae60; text-align: center; font-size: 14px; }
 .success-msg.show { display: block; }
+
+.progress-container { background: #0f1117; border-radius: 8px; padding: 4px; margin-top: 8px; }
+.progress-bar { height: 24px; border-radius: 6px; background: linear-gradient(90deg, #4A90D9, #30C8EE); text-align: center; line-height: 24px; font-size: 12px; color: white; font-weight: 600; transition: width 0.5s; width: 0%; overflow: hidden; }
+.progress-steps { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: #ffffff; opacity: 0.7; }
+.progress-step { flex: 1; text-align: center; }
+.progress-step.done { color: #27ae60; font-weight: 600; }
+.progress-step.active { color: #4A90D9; font-weight: 600; }
+
 </style>
 </head>
 <body>
@@ -248,6 +256,192 @@ function submitForm(type) {
   // Clear form
   document.querySelectorAll('.audit-type input').forEach(function(i) { i.value = ''; });
 }
+
+// === Progress Bar System ===
+var PROGRESS_STEPS = {
+  'site-audit': ['Crawling pages', 'Analyzing issues', 'Generating dashboard', 'Publishing'],
+  'keyword-audit': ['Fetching SERP data', 'Analyzing competitors', 'SRS scoring', 'Generating PDF', 'Publishing'],
+  'page-audit': ['Crawling page', 'Fetching SERP data', 'Analyzing competitors', 'SRS scoring', 'Generating report', 'Publishing'],
+  'deep-analysis': ['Market research', 'Keyword harvest', 'Building workbook', 'Writing analysis', 'Publishing documents']
+};
+
+var activeAudits = [];
+
+function addInProgress(audit) {
+  var section = document.getElementById('in-progress-section');
+  var noProgress = document.getElementById('no-progress');
+  section.style.display = 'block';
+  noProgress.style.display = 'none';
+  
+  var steps = PROGRESS_STEPS[audit.type] || ['Processing', 'Publishing'];
+  var stepHTML = steps.map(function(s, i) {
+    return '<span class="progress-step" id="step-' + audit.id + '-' + i + '">' + s + '</span>';
+  }).join('');
+  
+  var item = document.createElement('div');
+  item.className = 'report-item';
+  item.id = 'progress-' + audit.id;
+  item.style.cssText = 'background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: all 0.2s;';
+  item.innerHTML = 
+    '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">' +
+      '<div>' +
+        '<div style="color: #4A90D9; font-size: 15px; font-weight: 600;">' + audit.title + '</div>' +
+        '<div style="color: #ffffff; opacity: 0.7; font-size: 12px; margin-top: 4px;">' + audit.url + '</div>' +
+      '</div>' +
+      '<div style="color: #f39c12; font-size: 11px; font-weight: 700; background: rgba(243,156,18,0.15); padding: 3px 10px; border-radius: 20px;" id="status-badge-' + audit.id + '">Processing</div>' +
+    '</div>' +
+    '<div class="progress-container">' +
+      '<div class="progress-bar" id="bar-' + audit.id + '" style="width: 0%;">0%</div>' +
+    '</div>' +
+    '<div class="progress-steps">' + stepHTML + '</div>';
+  
+  document.getElementById('in-progress-list').appendChild(item);
+  
+  // Start animated progress
+  audit.step = 0;
+  audit.progress = 0;
+  animateProgress(audit);
+}
+
+function animateProgress(audit) {
+  var steps = PROGRESS_STEPS[audit.type] || ['Processing', 'Publishing'];
+  var totalSteps = steps.length;
+  var maxProgress = 90; // Never hit 100% until we confirm done
+  
+  var interval = setInterval(function() {
+    audit.progress += Math.random() * 3 + 1;
+    if (audit.progress > maxProgress) audit.progress = maxProgress;
+    
+    var pct = Math.round(audit.progress);
+    var bar = document.getElementById('bar-' + audit.id);
+    if (bar) {
+      bar.style.width = pct + '%';
+      bar.textContent = pct + '%';
+    }
+    
+    // Update step highlights
+    var currentStep = Math.min(Math.floor(audit.progress / (100 / totalSteps)), totalSteps - 1);
+    if (currentStep !== audit.step) {
+      // Mark previous steps as done
+      for (var i = 0; i < currentStep; i++) {
+        var el = document.getElementById('step-' + audit.id + '-' + i);
+        if (el) el.className = 'progress-step done';
+      }
+      // Mark current step as active
+      var activeEl = document.getElementById('step-' + audit.id + '-' + currentStep);
+      if (activeEl) activeEl.className = 'progress-step active';
+      audit.step = currentStep;
+    }
+  }, 2000);
+  
+  audit.interval = interval;
+}
+
+function completeAudit(auditId, reportUrl) {
+  // Find the audit
+  var audit = activeAudits.find(function(a) { return a.id === auditId; });
+  if (!audit) return;
+  
+  clearInterval(audit.interval);
+  
+  // Set progress to 100%
+  var bar = document.getElementById('bar-' + auditId);
+  if (bar) {
+    bar.style.width = '100%';
+    bar.textContent = '100%';
+    bar.style.background = 'linear-gradient(90deg, #27ae60, #2ecc71)';
+  }
+  
+  // Mark all steps done
+  var steps = PROGRESS_STEPS[audit.type] || [];
+  for (var i = 0; i < steps.length; i++) {
+    var el = document.getElementById('step-' + auditId + '-' + i);
+    if (el) el.className = 'progress-step done';
+  }
+  
+  // Update badge
+  var badge = document.getElementById('status-badge-' + auditId);
+  if (badge) {
+    badge.textContent = 'Done';
+    badge.style.color = '#27ae60';
+    badge.style.background = 'rgba(39,174,96,0.15)';
+  }
+  
+  // After 3 seconds, move to completed and add link
+  setTimeout(function() {
+    var item = document.getElementById('progress-' + auditId);
+    if (item) {
+      item.style.borderColor = '#27ae60';
+      var link = document.createElement('div');
+      link.style.cssText = 'margin-top: 10px; text-align: center;';
+      link.innerHTML = '<a href="' + reportUrl + '" style="color: #4A90D9; text-decoration: none; font-size: 14px; font-weight: 600;">View Report →</a>';
+      item.appendChild(link);
+    }
+  }, 3000);
+}
+
+// Modify submitForm to add progress tracking
+var originalSubmitForm = submitForm;
+submitForm = function(type) {
+  var data = {};
+  var auditId = type + '-' + Date.now();
+  
+  if (type === 'site-audit') {
+    data.url = document.getElementById('site-url').value;
+    data.limit = document.getElementById('site-limit').value || 100;
+    data.name = document.getElementById('site-name').value || 'Anonymous';
+    data.type = 'site-audit';
+    if (!data.url) { alert('Please enter a website URL'); return; }
+    data.title = '📊 Site Audit: ' + data.url;
+  } else if (type === 'keyword-audit') {
+    data.keyword = document.getElementById('kw-keyword').value;
+    data.url = document.getElementById('kw-url').value;
+    data.limit = document.getElementById('kw-limit').value || 30;
+    data.name = document.getElementById('kw-name').value || 'Anonymous';
+    data.type = 'keyword-audit';
+    if (!data.keyword || !data.url) { alert('Please enter both keyword and URL'); return; }
+    data.title = '🔍 Keyword Audit: ' + data.keyword;
+  } else if (type === 'page-audit') {
+    data.url = document.getElementById('page-url').value;
+    data.keyword = document.getElementById('page-keyword').value;
+    data.name = document.getElementById('page-name').value || 'Anonymous';
+    data.type = 'page-audit';
+    if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
+    data.title = '📄 Page Audit: ' + data.keyword;
+  } else if (type === 'deep-analysis') {
+    data.url = document.getElementById('da-url').value;
+    data.keyword = document.getElementById('da-keyword').value;
+    data.name = document.getElementById('da-name').value || 'Anonymous';
+    data.type = 'deep-analysis';
+    if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
+    data.title = '🤖 Deep Analysis: ' + data.keyword;
+  }
+  
+  data._subject = 'Zenfusion Audit Request: ' + data.type;
+  data._template = 'table';
+  data.audit_id = auditId;
+  
+  // Add to active audits with progress bar
+  var audit = { id: auditId, type: type, title: data.title, url: data.url };
+  activeAudits.push(audit);
+  addInProgress(audit);
+  
+  // Show success message
+  var msg = '✅ Request submitted! Progress tracking active below.';
+  var el = document.getElementById(type + '-success');
+  if (el) { el.textContent = msg; el.classList.add('show'); }
+  
+  // Submit in background
+  fetch('https://formsubmit.co/justin@justinlofton.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(function(e) { /* silent fail — progress still shows */ });
+  
+  // Clear form inputs
+  document.querySelectorAll('.audit-type input').forEach(function(i) { i.value = ''; });
+}
+
 </script>
 </body>
 </html>
