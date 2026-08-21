@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenfusion Audit Portal</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e4e7ee; min-height: 100vh; padding: 40px 20px; }
+.container { max-width: 600px; margin: 0 auto; }
+h1 { font-size: 28px; color: #fff; text-align: center; margin-bottom: 8px; }
+.subtitle { color: #fff; opacity: 0.6; text-align: center; font-size: 14px; margin-bottom: 40px; }
+.audit-type { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 12px; padding: 24px; margin-bottom: 20px; transition: all 0.2s; }
+.audit-type:hover { border-color: #4A90D9; }
+.audit-type h2 { color: #4A90D9; font-size: 18px; margin-bottom: 6px; }
+.audit-type .desc { color: #fff; opacity: 0.6; font-size: 13px; margin-bottom: 16px; }
+.audit-type input { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 14px; margin-bottom: 10px; }
+.audit-type input:focus { border-color: #4A90D9; outline: none; }
+.audit-type input::placeholder { color: #fff; opacity: 0.3; }
+.audit-type button { width: 100%; background: #4A90D9; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.audit-type button:hover { background: #3a7ec9; }
+.audit-type .fields { display: none; }
+.audit-type.expanded .fields { display: block; }
+.audit-type .header { cursor: pointer; }
+.reports-link { text-align: center; margin-top: 30px; }
+.reports-link a { color: #4A90D9; text-decoration: none; font-size: 14px; }
+.reports-link a:hover { text-decoration: underline; }
+.footer { text-align: center; margin-top: 40px; color: #fff; opacity: 0.3; font-size: 11px; }
+.note { background: rgba(74,144,217,0.1); border-left: 3px solid #4A90D9; padding: 10px 14px; border-radius: 4px; font-size: 12px; color: #fff; opacity: 0.8; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Zenfusion Audit Portal</h1>
+<p class="subtitle">Generate SEO/AEO/CRO audits for any Shopify store</p>
+
+<!-- Audit Type 1: Website Audit -->
+<div class="audit-type" id="site-audit">
+  <div class="header" onclick="toggle('site-audit')">
+    <h2>📊 Website Audit</h2>
+    <p class="desc">Crawl an entire website and detect technical SEO issues (13 categories, 176+ checks)</p>
+  </div>
+  <div class="fields">
+    <input type="url" id="site-url" placeholder="https://www.example.com">
+    <input type="number" id="site-limit" placeholder="Max pages (default 100, max 500)" value="100">
+    <button onclick="submitSiteAudit()">Start Site Audit</button>
+    <div class="note">Output: Interactive dashboard + CSV + PDF. Takes 5-10 minutes depending on page count.</div>
+  </div>
+</div>
+
+<!-- Audit Type 2: Keyword Audit (SERP + Factor Engine) -->
+<div class="audit-type" id="keyword-audit">
+  <div class="header" onclick="toggle('keyword-audit')">
+    <h2>🔍 Keyword Audit (SERP Competitors)</h2>
+    <p class="desc">Analyze top-ranking competitors for a keyword + your page — SRS scoring, factor correlation, AI Overview</p>
+  </div>
+  <div class="fields">
+    <input type="text" id="kw-keyword" placeholder="Keyword (e.g. best water softener)">
+    <input type="url" id="kw-url" placeholder="Your page URL to audit">
+    <input type="number" id="kw-limit" placeholder="Competitor pages to analyze (default 30)" value="30">
+    <button onclick="submitKeywordAudit()">Start Keyword Audit</button>
+    <div class="note">Output: SRS scored PDF report with 176 ranking factors, InfraNodus entities, Majestic Million, LLM citations.</div>
+  </div>
+</div>
+
+<!-- Audit Type 3: Page-Level Audit (Site Audit + Keyword Audit combined) -->
+<div class="audit-type" id="page-audit">
+  <div class="header" onclick="toggle('page-audit')">
+    <h2>📄 Page-Level Audit (Full Combo)</h2>
+    <p class="desc">Combined audit: technical site audit for the URL + keyword SERP analysis + SRS scoring</p>
+  </div>
+  <div class="fields">
+    <input type="url" id="page-url" placeholder="Your page URL to audit">
+    <input type="text" id="page-keyword" placeholder="Target keyword">
+    <button onclick="submitPageAudit()">Start Page-Level Audit</button>
+    <div class="note">Output: Full audit report — technical issues + SERP competitor analysis + SRS score + fix lists.</div>
+  </div>
+</div>
+
+<!-- Audit Type 4: AEO/Market Research -->
+<div class="audit-type" id="aeo-audit">
+  <div class="header" onclick="toggle('aeo-audit')">
+    <h2>🤖 AEO + Market Research</h2>
+    <p class="desc">Market Analysis + Deep Keyword Workbook + Competitive Analysis (3-document deliverable)</p>
+  </div>
+  <div class="fields">
+    <input type="url" id="aeo-url" placeholder="Client website URL">
+    <input type="text" id="aeo-keyword" placeholder="Core keyword/topic">
+    <button onclick="submitAEOAudit()">Start AEO Research</button>
+    <div class="note">Output: Market Analysis report + Keyword/AEO workbook + Competitive Analysis. Takes 15-30 minutes.</div>
+  </div>
+</div>
+
+<div class="reports-link">
+  <a href="/">← View All Audit Reports</a>
+</div>
+
+<div class="footer">
+  Zenfusion Site Auditor v1.0 + Factor Engine v2.0 + AEO Skill | noindex, nofollow
+</div>
+</div>
+
+<script>
+function toggle(id) {
+  document.querySelectorAll('.audit-type').forEach(el => {
+    if (el.id !== id) el.classList.remove('expanded');
+  });
+  document.getElementById(id).classList.toggle('expanded');
+}
+
+function submitSiteAudit() {
+  const url = document.getElementById('site-url').value;
+  const limit = document.getElementById('site-limit').value || 100;
+  if (!url) { alert('Please enter a website URL'); return; }
+  
+  // Create a GitHub issue to trigger the audit
+  const title = `Site Audit: ${url}`;
+  const body = `## Site Audit Request\n\n**URL:** ${url}\n**Max Pages:** ${limit}\n\n---\n_Automated request from Zenfusion Audit Portal_`;
+  const issueUrl = `https://github.com/loftenter/zenfusion-audits/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=site-audit`;
+  window.open(issueUrl, '_blank');
+}
+
+function submitKeywordAudit() {
+  const keyword = document.getElementById('kw-keyword').value;
+  const url = document.getElementById('kw-url').value;
+  const limit = document.getElementById('kw-limit').value || 30;
+  if (!keyword || !url) { alert('Please enter both keyword and URL'); return; }
+  
+  const title = `Keyword Audit: ${keyword}`;
+  const body = `## Keyword Audit Request\n\n**Keyword:** ${keyword}\n**Target URL:** ${url}\n**Competitor Pages:** ${limit}\n\n---\n_Automated request from Zenfusion Audit Portal_`;
+  const issueUrl = `https://github.com/loftenter/zenfusion-audits/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=keyword-audit`;
+  window.open(issueUrl, '_blank');
+}
+
+function submitPageAudit() {
+  const url = document.getElementById('page-url').value;
+  const keyword = document.getElementById('page-keyword').value;
+  if (!url || !keyword) { alert('Please enter both URL and keyword'); return; }
+  
+  const title = `Page Audit: ${keyword}`;
+  const body = `## Page-Level Audit Request\n\n**Page URL:** ${url}\n**Keyword:** ${keyword}\n\n---\n_Automated request from Zenfusion Audit Portal_`;
+  const issueUrl = `https://github.com/loftenter/zenfusion-audits/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=page-audit`;
+  window.open(issueUrl, '_blank');
+}
+
+function submitAEOAudit() {
+  const url = document.getElementById('aeo-url').value;
+  const keyword = document.getElementById('aeo-keyword').value;
+  if (!url || !keyword) { alert('Please enter both URL and keyword'); return; }
+  
+  const title = `AEO Research: ${keyword}`;
+  const body = `## AEO + Market Research Request\n\n**Client URL:** ${url}\n**Core Keyword:** ${keyword}\n\n---\n_Automated request from Zenfusion Audit Portal_`;
+  const issueUrl = `https://github.com/loftenter/zenfusion-audits/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=aeo-research`;
+  window.open(issueUrl, '_blank');
+}
+</script>
+</body>
+</html>
