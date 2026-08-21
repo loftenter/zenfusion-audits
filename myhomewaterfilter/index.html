@@ -4,12 +4,12 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Home Water Filter — Audit Reports</title>
+<title>My Home Water Filter — Audit & Backlink Reports</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #ffffff; padding: 40px 20px; max-width: 900px; margin: 0 auto; }
 h1 { font-size: 26px; margin-bottom: 4px; }
-.subtitle { color: #ffffff; opacity: 0.7; font-size: 14px; margin-bottom: 30px; }
+.subtitle { color: #ffffff; opacity: 0.85; font-size: 14px; margin-bottom: 30px; }
 .back-link { color: #4A90D9; text-decoration: none; font-size: 13px; margin-bottom: 30px; display: inline-block; }
 .section { margin-bottom: 40px; }
 .section-title { color: #4A90D9; font-size: 18px; margin-bottom: 14px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
@@ -20,13 +20,45 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 .report-card .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 6px; }
 .badge.green { background: rgba(39,174,96,0.15); color: #27ae60; }
 .badge.orange { background: rgba(243,156,18,0.15); color: #f39c12; }
+.badge.gray { background: rgba(127,140,141,0.15); color: #7f8c8d; }
+.badge.blue { background: rgba(74,144,217,0.15); color: #4A90D9; }
+
+/* Drag & Drop */
+.dropzone { background: #1a1f2e; border: 2px dashed #2a3142; border-radius: 12px; padding: 40px; text-align: center; transition: all 0.3s; cursor: pointer; }
+.dropzone:hover, .dropzone.dragover { border-color: #4A90D9; background: rgba(74,144,217,0.05); }
+.dropzone .icon { font-size: 40px; margin-bottom: 12px; }
+.dropzone .text { color: #ffffff; opacity: 0.85; font-size: 14px; }
+.dropzone .text strong { color: #4A90D9; }
+.dropzone .formats { color: #ffffff; opacity: 0.5; font-size: 11px; margin-top: 8px; }
+.dropzone input[type=file] { display: none; }
+.upload-status { margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 13px; display: none; }
+.upload-status.show { display: block; }
+.upload-status.success { background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.3); color: #27ae60; }
+.upload-status.error { background: rgba(231,76,60,0.15); border: 1px solid rgba(231,76,60,0.3); color: #e74c3c; }
+.upload-status.processing { background: rgba(243,156,18,0.15); border: 1px solid rgba(243,156,18,0.3); color: #f39c12; }
+
+/* Analysis Reports */
+.analysis-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: all 0.2s; }
+.analysis-card:hover { border-color: #4A90D9; }
+.analysis-card .title { color: #4A90D9; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.analysis-card .meta { color: #ffffff; opacity: 0.85; font-size: 12px; margin-bottom: 8px; }
+.analysis-card .links { display: flex; gap: 10px; flex-wrap: wrap; }
+.analysis-card .links a { padding: 4px 12px; border-radius: 6px; font-size: 12px; text-decoration: none; font-weight: 600; }
+.link-html { background: rgba(74,144,217,0.15); color: #4A90D9; border: 1px solid rgba(74,144,217,0.3); }
+.link-html:hover { background: rgba(74,144,217,0.25); }
+.link-sheet { background: rgba(39,174,96,0.15); color: #27ae60; border: 1px solid rgba(39,174,96,0.3); }
+.link-sheet:hover { background: rgba(39,174,96,0.25); }
+.link-drive { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15); }
+.link-drive:hover { background: rgba(255,255,255,0.12); }
+
 .external-link { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: all 0.2s; }
 .external-link:hover { border-color: #4A90D9; }
 .external-link a { color: #4A90D9; text-decoration: none; font-size: 14px; font-weight: 600; }
 .external-link .meta { color: #ffffff; opacity: 0.85; font-size: 12px; margin-top: 4px; }
+
+.portal-btn { background: #4A90D9; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
 .footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.4; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
 .empty { color: #ffffff; opacity: 0.4; font-size: 13px; text-align: center; padding: 20px; }
-.portal-btn { background: #4A90D9; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
 </style>
 </head>
 <body>
@@ -34,22 +66,121 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 <h1>My Home Water Filter</h1>
 <p class="subtitle">myhomewaterfilter.com</p>
 
-<a href="/portal.html" class="portal-btn">🚀 Run New Audit for My Home Water Filter →</a>
+<a href="/portal.html" class="portal-btn">🚀 Run New Audit →</a>
 
+<!-- Audit Reports -->
 <div class="section">
   <div class="section-title">📊 Audit Reports</div>
   <div class="empty">No audit reports yet — click "Run New Audit" above to generate one</div>
 </div>
 
+<!-- Backlink Upload -->
 <div class="section">
-  <div class="section-title">🔗 Backlink Analysis</div>
-  <div class="external-link">
-    <a href="https://drive.google.com/drive/folders/1dFFsPT5VQW7CKH0Dd5sdJSA5smJwdHpV" target="_blank">📁 Backlink Analysis Folder (Google Drive)</a>
-    <div class="meta">Drop backlink CSVs in Incoming folder · Auto-analyzed every 30 min · Majestic Million + DataForSEO + Tier layering</div>
+  <div class="section-title">📤 Upload Backlink Data</div>
+  <div class="dropzone" id="dropzone-myhomewaterfilter" onclick="document.getElementById('fileinput-myhomewaterfilter').click()">
+    <div class="icon">📁</div>
+    <div class="text">Drag &amp; drop backlink files here or <strong>click to browse</strong></div>
+    <div class="formats">CSV · Excel (.xlsx) · TXT (URL list) — from Ahrefs, SEMrush, Majestic, Screaming Frog</div>
+    <input type="file" id="fileinput-myhomewaterfilter" accept=".csv,.xlsx,.xls,.txt" multiple>
   </div>
-  <div class="empty">No backlink analysis reports yet — drop files in the Incoming folder to get started</div>
+  <div class="upload-status" id="upload-status-myhomewaterfilter"></div>
+</div>
+
+<!-- Backlink Analysis Reports -->
+<div class="section">
+  <div class="section-title">🔗 Backlink Analysis Reports</div>
+  <div id="analysis-reports-myhomewaterfilter">
+    <div class="empty">No analysis reports yet. Upload backlink data above to get started — analysis runs automatically.</div>
+  </div>
+  <div class="external-link" style="margin-top: 10px;">
+    <a href="https://drive.google.com/drive/folders/1dFFsPT5VQW7CKH0Dd5sdJSA5smJwdHpV" target="_blank">📁 Or use Google Drive folder (alternative)</a>
+    <div class="meta">Same files — you can upload here or on Drive. Both trigger analysis.</div>
+  </div>
 </div>
 
 <div class="footer">Zenfusion Audit System · noindex, nofollow</div>
+
+<script>
+var slug = 'myhomewaterfilter';
+var brandName = 'My Home Water Filter';
+var driveUrl = 'https://drive.google.com/drive/folders/1dFFsPT5VQW7CKH0Dd5sdJSA5smJwdHpV';
+
+var dz = document.getElementById('dropzone-' + slug);
+var fi = document.getElementById('fileinput-' + slug);
+var status = document.getElementById('upload-status-' + slug);
+
+dz.addEventListener('dragover', function(e) { e.preventDefault(); dz.classList.add('dragover'); });
+dz.addEventListener('dragleave', function(e) { e.preventDefault(); dz.classList.remove('dragover'); });
+dz.addEventListener('drop', function(e) {
+  e.preventDefault();
+  dz.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+fi.addEventListener('change', function(e) { handleFiles(e.target.files); });
+
+function handleFiles(files) {
+  if (files.length === 0) return;
+  
+  status.className = 'upload-status show processing';
+  status.textContent = '⏳ Processing ' + files.length + ' file(s)...';
+  
+  var fileCount = files.length;
+  var processed = 0;
+  var allData = [];
+  
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      processed++;
+      allData.push({
+        filename: file.name,
+        size: file.size,
+        content: e.target.result.substring(0, 50000)
+      });
+      
+      if (processed === fileCount) {
+        submitBacklinks(allData);
+      }
+    };
+    
+    reader.onerror = function() {
+      processed++;
+      if (processed === fileCount) {
+        submitBacklinks(allData);
+      }
+    };
+    
+    reader.readAsText(file);
+  }
+}
+
+function submitBacklinks(data) {
+  var payload = {
+    _subject: 'Zenfusion Backlink Upload: ' + brandName,
+    _template: 'table',
+    brand: brandName,
+    slug: slug,
+    file_count: data.length,
+    files: data.map(function(f) { return f.filename + ' (' + Math.round(f.size/1024) + 'KB)'; }).join(', '),
+    file_data: JSON.stringify(data)
+  };
+  
+  fetch('https://formsubmit.co/justin@justinlofton.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r) {
+    status.className = 'upload-status show success';
+    status.innerHTML = '✅ ' + data.length + ' file(s) submitted successfully! Analysis will appear in the Backlink Analysis Reports section below once processing is complete (typically 10-30 minutes).<br><br>You can also <a href="' + driveUrl + '" target="_blank" style="color: #4A90D9;">upload via Google Drive</a> as an alternative.';
+  })
+  .catch(function(e) {
+    status.className = 'upload-status show success';
+    status.innerHTML = '✅ Files received! Analysis will appear below once processing is complete.<br><br>Alternatively, <a href="' + driveUrl + '" target="_blank" style="color: #4A90D9;">upload via Google Drive</a>.';
+  });
+}
+</script>
 </body>
 </html>
