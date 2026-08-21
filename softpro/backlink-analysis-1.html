@@ -12,12 +12,13 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 h2 { font-size: 18px; color: #4A90D9; margin-top: 30px; margin-bottom: 14px; }
 .subtitle { color: #ffffff; opacity: 0.85; font-size: 14px; margin-bottom: 30px; }
 .back-link { color: #4A90D9; text-decoration: none; font-size: 13px; margin-bottom: 20px; display: inline-block; }
-.summary-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 30px; }
+.summary-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 30px; }
 .summary-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; text-align: center; }
-.summary-card .value { font-size: 28px; font-weight: 700; color: #4A90D9; }
-.summary-card .label { font-size: 11px; color: #ffffff; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.summary-card .value { font-size: 24px; font-weight: 700; color: #4A90D9; }
+.summary-card .label { font-size: 10px; color: #ffffff; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 .summary-card.green .value { color: #27ae60; }
 .summary-card.orange .value { color: #f39c12; }
+.summary-card.blue .value { color: #4A90D9; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th { background: #041952; color: white; padding: 10px 8px; text-align: left; font-size: 12px; position: sticky; top: 0; }
 td { padding: 8px; border-bottom: 1px solid #2a3142; color: #ffffff; }
@@ -27,7 +28,9 @@ tr:hover td { background: rgba(74,144,217,0.05); }
 .tier-low { background: rgba(127,140,141,0.15); color: #7f8c8d; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
 .majestic-yes { color: #27ae60; font-weight: 600; }
 .majestic-no { color: #e74c3c; }
-.strength-bar { display: inline-block; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #e74c3c, #f39c12, #27ae60); width: 60px; vertical-align: middle; margin-right: 6px; }
+.indexed-yes { color: #27ae60; font-weight: 600; }
+.indexed-no { color: #e74c3c; font-weight: 600; }
+.indexed-unknown { color: #f39c12; }
 a { color: #4A90D9; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.4; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
@@ -38,41 +41,23 @@ a:hover { text-decoration: underline; }
 <body>
 <a href="/softpro/" class="back-link">← Back to SoftPro</a>
 <h1>Backlink Analysis — SoftPro Water Systems</h1>
-<p class="subtitle">22 backlinks analyzed · DataForSEO + Majestic Million · August 21, 2026</p>
+<p class="subtitle">22 backlinks analyzed · DataForSEO + Majestic Million + Google Index Check · August 21, 2026</p>
 
 <div class="summary-cards">
-  <div class="summary-card green">
-    <div class="value">22</div>
-    <div class="label">Total Backlinks</div>
-  </div>
-  <div class="summary-card green">
-    <div class="value">21</div>
-    <div class="label">In Majestic Million</div>
-  </div>
-  <div class="summary-card">
-    <div class="value">11</div>
-    <div class="label">Tier 1 High</div>
-  </div>
-  <div class="summary-card orange">
-    <div class="value">66.6</div>
-    <div class="label">Avg Strength</div>
-  </div>
+  <div class="summary-card green"><div class="value">22</div><div class="label">Total Backlinks</div></div>
+  <div class="summary-card green"><div class="value">21</div><div class="label">In Majestic Million</div></div>
+  <div class="summary-card green"><div class="value">20</div><div class="label">Google Indexed</div></div>
+  <div class="summary-card"><div class="value">11</div><div class="label">Tier 1 High</div></div>
+  <div class="summary-card orange"><div class="value">66.5</div><div class="label">Avg Strength</div></div>
 </div>
 
 <h2>🔗 All Backlinks (Ranked by Strength — Strongest First)</h2>
 <table>
 <thead>
 <tr>
-  <th>#</th>
-  <th>Domain</th>
-  <th>Article</th>
-  <th>Live Link</th>
-  <th>Strength</th>
-  <th>Majestic Rank</th>
-  <th>Ref Domains</th>
-  <th>Backlinks</th>
-  <th>Relevance</th>
-  <th>Tier</th>
+  <th>#</th><th>Domain</th><th>Article</th><th>Live Link</th>
+  <th>Strength</th><th>Majestic</th><th>Ref Domains</th><th>Backlinks</th>
+  <th>Google Indexed?</th><th>Tier</th>
 </tr>
 </thead>
 <tbody>
@@ -80,72 +65,72 @@ a:hover { text-decoration: underline; }
   <td>1</td>
   <td><strong>linkedin.com</strong></td>
   <td>Best Carbon Filter for Frisco TX</td>
-  <td><a href="https://www.linkedin.com/pulse/best-carbon-filter-frisco-tx-muhammad-nawaz-nnlxf/" target="_blank">https://www.linkedin.com/pulse/best-carbon-filter-...</a></td>
-  <td><span class="strength-bar"></span>88.8</td>
+  <td><a href="https://www.linkedin.com/pulse/best-carbon-filter-frisco-tx-muhammad-nawaz-nnlxf/" target="_blank">https://www.linkedin.com/pulse/best-carbon-fi...</a></td>
+  <td>88.8</td>
   <td><span class="majestic-yes">#6</span></td>
   <td>14,557,350</td>
   <td>16,839,661,680</td>
-  <td>50</td>
+  <td><span class="indexed-unknown">❓ Unknown</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>2</td>
   <td><strong>medium.com</strong></td>
-  <td>Best Carbon Filter for Round Rock TX</td>
-  <td><a href="https://medium.com/@vertexprhub/best-carbon-filter-for-round-rock-tx-bc5e144f7056" target="_blank">https://medium.com/@vertexprhub/best-carbon-filter...</a></td>
-  <td><span class="strength-bar"></span>82.1</td>
+  <td>Best Carbon Filter for Round Rock T...</td>
+  <td><a href="https://medium.com/@vertexprhub/best-carbon-filter-for-round-rock-tx-bc5e144f7056" target="_blank">https://medium.com/@vertexprhub/best-carbon-f...</a></td>
+  <td>82.1</td>
   <td><span class="majestic-yes">#64</span></td>
   <td>1,438,018</td>
   <td>264,162,689</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>3</td>
   <td><strong>medium.com</strong></td>
   <td>Best Carbon Filter for Frisco TX</td>
-  <td><a href="https://medium.com/@mn9419677/best-carbon-filter-for-frisco-tx-d0f48626fa89" target="_blank">https://medium.com/@mn9419677/best-carbon-filter-f...</a></td>
-  <td><span class="strength-bar"></span>82.1</td>
+  <td><a href="https://medium.com/@mn9419677/best-carbon-filter-for-frisco-tx-d0f48626fa89" target="_blank">https://medium.com/@mn9419677/best-carbon-fil...</a></td>
+  <td>82.1</td>
   <td><span class="majestic-yes">#64</span></td>
   <td>1,438,018</td>
   <td>264,162,689</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>4</td>
   <td><strong>ameblo.jp</strong></td>
-  <td>Best Carbon Filter for San Antonio	TX</td>
-  <td><a href="https://ameblo.jp/vertexprhub/entry-12976304694.html" target="_blank">https://ameblo.jp/vertexprhub/entry-12976304694.ht...</a></td>
-  <td><span class="strength-bar"></span>79.6</td>
+  <td>Best Carbon Filter for San Antonio	...</td>
+  <td><a href="https://ameblo.jp/vertexprhub/entry-12976304694.html" target="_blank">https://ameblo.jp/vertexprhub/entry-129763046...</a></td>
+  <td>79.6</td>
   <td><span class="majestic-yes">#730</span></td>
   <td>399,200</td>
   <td>264,210,479</td>
-  <td>50</td>
+  <td><span class="indexed-unknown">❓ Unknown</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>5</td>
   <td><strong>telegra.ph</strong></td>
   <td>Best Carbon Filter for Henderson	NV</td>
-  <td><a href="https://telegra.ph/Best-Carbon-Filter-for-Henderson-NV-08-20" target="_blank">https://telegra.ph/Best-Carbon-Filter-for-Henderso...</a></td>
-  <td><span class="strength-bar"></span>79.1</td>
+  <td><a href="https://telegra.ph/Best-Carbon-Filter-for-Henderson-NV-08-20" target="_blank">https://telegra.ph/Best-Carbon-Filter-for-Hen...</a></td>
+  <td>79.1</td>
   <td><span class="majestic-yes">#409</span></td>
   <td>339,672</td>
   <td>183,940,959</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>6</td>
   <td><strong>iheart.com</strong></td>
   <td>Best Carbon Filter for Orlando FL</td>
-  <td><a href="https://www.iheart.com/podcast/269-vertex-pr-hub-329408761/episode/best-carbon-filter-for-orlando-fl-341788232" target="_blank">https://www.iheart.com/podcast/269-vertex-pr-hub-3...</a></td>
-  <td><span class="strength-bar"></span>77.1</td>
+  <td><a href="https://www.iheart.com/podcast/269-vertex-pr-hub-329408761/episode/best-carbon-filter-for-orlando-fl-341788232" target="_blank">https://www.iheart.com/podcast/269-vertex-pr-...</a></td>
+  <td>77.1</td>
   <td><span class="majestic-yes">#797</span></td>
   <td>191,741</td>
   <td>47,829,247</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
@@ -153,191 +138,191 @@ a:hover { text-decoration: underline; }
   <td><strong>codepen.io</strong></td>
   <td>Best Carbon Filter for Austin	TX</td>
   <td><a href="https://codepen.io/Deal-Done/full/yyVMzdQ" target="_blank">https://codepen.io/Deal-Done/full/yyVMzdQ</a></td>
-  <td><span class="strength-bar"></span>75.0</td>
+  <td>75.0</td>
   <td><span class="majestic-yes">#1,100</span></td>
   <td>82,966</td>
   <td>22,674,308</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>8</td>
   <td><strong>hackmd.io</strong></td>
   <td>Best Carbon Filter for Phoenix AZ</td>
-  <td><a href="https://hackmd.io/@0qB-K7sYSIe6JW3oPc-plg/best-carbon-filter-for-phoenix-az" target="_blank">https://hackmd.io/@0qB-K7sYSIe6JW3oPc-plg/best-car...</a></td>
-  <td><span class="strength-bar"></span>73.7</td>
+  <td><a href="https://hackmd.io/@0qB-K7sYSIe6JW3oPc-plg/best-carbon-filter-for-phoenix-az" target="_blank">https://hackmd.io/@0qB-K7sYSIe6JW3oPc-plg/bes...</a></td>
+  <td>73.7</td>
   <td><span class="majestic-yes">#2,793</span></td>
   <td>74,451</td>
   <td>4,655,120</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>9</td>
   <td><strong>scrapbox.io</strong></td>
   <td>Best Carbon Filter for Tampa	FL</td>
-  <td><a href="https://scrapbox.io/vertex-pr-hub/Best_Carbon_Filter_for_Tampa%09FL" target="_blank">https://scrapbox.io/vertex-pr-hub/Best_Carbon_Filt...</a></td>
-  <td><span class="strength-bar"></span>73.0</td>
+  <td><a href="https://scrapbox.io/vertex-pr-hub/Best_Carbon_Filter_for_Tampa%09FL" target="_blank">https://scrapbox.io/vertex-pr-hub/Best_Carbon...</a></td>
+  <td>73.0</td>
   <td><span class="majestic-yes">#8,307</span></td>
   <td>46,525</td>
   <td>7,604,826</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>10</td>
   <td><strong>pocketcasts.com</strong></td>
   <td>Best Carbon Filter for Frisco TX</td>
-  <td><a href="https://pocketcasts.com/podcast/vertex-pr-hub/8e784930-159f-013f-2b13-0e956d54cc61/best-carbon-filter-for-frisco-tx/3d539119-d742-4a0e-bbe4-0b8d256a1d8f" target="_blank">https://pocketcasts.com/podcast/vertex-pr-hub/8e78...</a></td>
-  <td><span class="strength-bar"></span>72.1</td>
+  <td><a href="https://pocketcasts.com/podcast/vertex-pr-hub/8e784930-159f-013f-2b13-0e956d54cc61/best-carbon-filter-for-frisco-tx/3d539119-d742-4a0e-bbe4-0b8d256a1d8f" target="_blank">https://pocketcasts.com/podcast/vertex-pr-hub...</a></td>
+  <td>72.1</td>
   <td><span class="majestic-yes">#21,534</span></td>
   <td>49,850</td>
   <td>3,647,963</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>11</td>
   <td><strong>velog.io</strong></td>
   <td>Best Carbon Filter for San Diego	CA</td>
-  <td><a href="https://velog.io/@mickman/Best-Carbon-Filter-for-San-DiegoCA" target="_blank">https://velog.io/@mickman/Best-Carbon-Filter-for-S...</a></td>
-  <td><span class="strength-bar"></span>71.7</td>
+  <td><a href="https://velog.io/@mickman/Best-Carbon-Filter-for-San-DiegoCA" target="_blank">https://velog.io/@mickman/Best-Carbon-Filter-...</a></td>
+  <td>71.7</td>
   <td><span class="majestic-yes">#5,610</span></td>
   <td>37,208</td>
   <td>1,747,057</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-high">T1-High</span></td>
 </tr>
 <tr>
   <td>12</td>
   <td><strong>indiehackers.com</strong></td>
   <td>Best Carbon Filter for Houston TX </td>
-  <td><a href="https://www.indiehackers.com/post/best-carbon-filter-for-houston-tx-8f21938af3" target="_blank">https://www.indiehackers.com/post/best-carbon-filt...</a></td>
-  <td><span class="strength-bar"></span>68.6</td>
+  <td><a href="https://www.indiehackers.com/post/best-carbon-filter-for-houston-tx-8f21938af3" target="_blank">https://www.indiehackers.com/post/best-carbon...</a></td>
+  <td>68.6</td>
   <td><span class="majestic-yes">#19,293</span></td>
   <td>14,433</td>
   <td>529,105</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>13</td>
   <td><strong>atoallinks.com</strong></td>
-  <td>Best Carbon Filter for Albuquerque NM</td>
-  <td><a href="https://www.atoallinks.com/2026/best-carbon-filter-for-albuquerque-nm" target="_blank">https://www.atoallinks.com/2026/best-carbon-filter...</a></td>
-  <td><span class="strength-bar"></span>67.6</td>
+  <td>Best Carbon Filter for Albuquerque ...</td>
+  <td><a href="https://www.atoallinks.com/2026/best-carbon-filter-for-albuquerque-nm" target="_blank">https://www.atoallinks.com/2026/best-carbon-f...</a></td>
+  <td>67.6</td>
   <td><span class="majestic-yes">#17,822</span></td>
   <td>12,683</td>
   <td>161,901</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>14</td>
   <td><strong>timebusinessnews.com</strong></td>
   <td>Best Carbon Filter for Las Vegas NV</td>
-  <td><a href="https://timebusinessnews.com/best-carbon-filter-for-las-vegas-nv/" target="_blank">https://timebusinessnews.com/best-carbon-filter-fo...</a></td>
-  <td><span class="strength-bar"></span>66.4</td>
+  <td><a href="https://timebusinessnews.com/best-carbon-filter-for-las-vegas-nv/" target="_blank">https://timebusinessnews.com/best-carbon-filt...</a></td>
+  <td>66.4</td>
   <td><span class="majestic-yes">#23,908</span></td>
   <td>10,266</td>
   <td>66,632</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>15</td>
   <td><strong>bulbapp.com</strong></td>
   <td>Best Carbon Filter for Katy TX</td>
-  <td><a href="https://www.bulbapp.com/u/best-carbon-filter-for-katy-tx" target="_blank">https://www.bulbapp.com/u/best-carbon-filter-for-k...</a></td>
-  <td><span class="strength-bar"></span>65.7</td>
+  <td><a href="https://www.bulbapp.com/u/best-carbon-filter-for-katy-tx" target="_blank">https://www.bulbapp.com/u/best-carbon-filter-...</a></td>
+  <td>65.7</td>
   <td><span class="majestic-yes">#67,815</span></td>
   <td>8,834</td>
   <td>334,758</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>16</td>
   <td><strong>siit.co</strong></td>
   <td>Best Carbon Filter for San Jose CA</td>
-  <td><a href="https://siit.co/guestposts/best-carbon-filter-for-san-jose-ca/" target="_blank">https://siit.co/guestposts/best-carbon-filter-for-...</a></td>
-  <td><span class="strength-bar"></span>62.6</td>
+  <td><a href="https://siit.co/guestposts/best-carbon-filter-for-san-jose-ca/" target="_blank">https://siit.co/guestposts/best-carbon-filter...</a></td>
+  <td>62.6</td>
   <td><span class="majestic-yes">#110,457</span></td>
   <td>5,766</td>
   <td>106,090</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>17</td>
   <td><strong>ceo.ca</strong></td>
-  <td>Best Carbon Filter for Georgetown TX</td>
-  <td><a href="https://ceo.ca/@JamesKay/best-carbon-filter-for-georgetown-tx" target="_blank">https://ceo.ca/@JamesKay/best-carbon-filter-for-ge...</a></td>
-  <td><span class="strength-bar"></span>62.3</td>
+  <td>Best Carbon Filter for Georgetown T...</td>
+  <td><a href="https://ceo.ca/@JamesKay/best-carbon-filter-for-georgetown-tx" target="_blank">https://ceo.ca/@JamesKay/best-carbon-filter-f...</a></td>
+  <td>62.3</td>
   <td><span class="majestic-yes">#117,049</span></td>
   <td>4,270</td>
   <td>217,583</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>18</td>
   <td><strong>realitysteve.com</strong></td>
   <td>Best Carbon Filter for Tucson AZ</td>
-  <td><a href="https://realitysteve.com/author/bestcarbonfilterfortucsonaz" target="_blank">https://realitysteve.com/author/bestcarbonfilterfo...</a></td>
-  <td><span class="strength-bar"></span>55.7</td>
+  <td><a href="https://realitysteve.com/author/bestcarbonfilterfortucsonaz" target="_blank">https://realitysteve.com/author/bestcarbonfil...</a></td>
+  <td>55.7</td>
   <td><span class="majestic-yes">#250,638</span></td>
   <td>2,624</td>
   <td>48,470</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>19</td>
   <td><strong>ticklethewire.com</strong></td>
-  <td>Best Carbon Filter for Jacksonville FL</td>
-  <td><a href="https://ticklethewire.com/author/Best-Carbon-Filter-for-Jacksonville-FL" target="_blank">https://ticklethewire.com/author/Best-Carbon-Filte...</a></td>
-  <td><span class="strength-bar"></span>48.5</td>
+  <td>Best Carbon Filter for Jacksonville...</td>
+  <td><a href="https://ticklethewire.com/author/Best-Carbon-Filter-for-Jacksonville-FL" target="_blank">https://ticklethewire.com/author/Best-Carbon-...</a></td>
+  <td>48.5</td>
   <td><span class="majestic-yes">#410,309</span></td>
   <td>1,751</td>
   <td>13,315</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>20</td>
   <td><strong>dobberhockey.com</strong></td>
-  <td>Best Carbon Filter for Liberty Hill	TX</td>
-  <td><a href="https://dobberhockey.com/author/Best-Carbon-Filter-for-Liberty-Hill-TX" target="_blank">https://dobberhockey.com/author/Best-Carbon-Filter...</a></td>
-  <td><span class="strength-bar"></span>45.3</td>
+  <td>Best Carbon Filter for Liberty Hill...</td>
+  <td><a href="https://dobberhockey.com/author/Best-Carbon-Filter-for-Liberty-Hill-TX" target="_blank">https://dobberhockey.com/author/Best-Carbon-F...</a></td>
+  <td>45.3</td>
   <td><span class="majestic-yes">#568,928</span></td>
   <td>1,701</td>
   <td>490,101</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>21</td>
   <td><strong>arctictrucks.com</strong></td>
-  <td>Best Carbon Filter for New Braunfels TX</td>
-  <td><a href="https://arctictrucks.com/guestpost/2026/08/20/best-carbon-filter-for-new-braunfels-tx/" target="_blank">https://arctictrucks.com/guestpost/2026/08/20/best...</a></td>
-  <td><span class="strength-bar"></span>41.2</td>
+  <td>Best Carbon Filter for New Braunfel...</td>
+  <td><a href="https://arctictrucks.com/guestpost/2026/08/20/best-carbon-filter-for-new-braunfels-tx/" target="_blank">https://arctictrucks.com/guestpost/2026/08/20...</a></td>
+  <td>41.2</td>
   <td><span class="majestic-yes">#558,650</span></td>
   <td>957</td>
   <td>3,047</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-medium">T1-Medium</span></td>
 </tr>
 <tr>
   <td>22</td>
   <td><strong>lemongrovelane.com</strong></td>
-  <td>Best Carbon Filter for Scottsdale AZ</td>
-  <td><a href="https://lemongrovelane.com/author/Best-Carbon-Filter-for-Scottsdale-AZ" target="_blank">https://lemongrovelane.com/author/Best-Carbon-Filt...</a></td>
-  <td><span class="strength-bar"></span>26.3</td>
+  <td>Best Carbon Filter for Scottsdale A...</td>
+  <td><a href="https://lemongrovelane.com/author/Best-Carbon-Filter-for-Scottsdale-AZ" target="_blank">https://lemongrovelane.com/author/Best-Carbon...</a></td>
+  <td>26.3</td>
   <td><span class="majestic-no">Not listed</span></td>
   <td>660</td>
   <td>19,032</td>
-  <td>50</td>
+  <td><span class="indexed-yes">✅ Yes</span></td>
   <td><span class="tier-low">T1-Low</span></td>
 </tr>
 </tbody>
@@ -346,27 +331,32 @@ a:hover { text-decoration: underline; }
 <h2>📊 Strategic Recommendations</h2>
 
 <div class="recommendation">
-  <strong>TOP TIER LINKS TO AMPLIFY (Tier 1-High):</strong> 11 backlinks with strength ≥70. These are your strongest links — LinkedIn (#6), Medium (#64), Ameblo (#730), Telegra.ph (#409), iHeart (#797), CodePen (#1100). Build Tier 2 links TO these pages to amplify their link juice flowing to SoftPro.
+  <strong>GOOGLE INDEX STATUS:</strong> 20 of 22 backlinks are confirmed indexed in Google. 
+The following 2 URLs need indexing:<br>• linkedin.com — https://www.linkedin.com/pulse/best-carbon-filter-frisco-tx-...<br>• ameblo.jp — https://ameblo.jp/vertexprhub/entry-12976304694.html...<br><br><strong>ACTION:</strong> Submit these URLs to your indexing service (API integration pending) to ensure Google crawls and indexes them.
 </div>
 
 <div class="recommendation">
-  <strong>MAJESTIC MILLION COVERAGE:</strong> 21 of 22 backlink domains are in the Majestic Million (95%). This is excellent — your link building is targeting strong domains. Only lemongrovelane.com is not listed.
+  <strong>TOP TIER LINKS TO AMPLIFY (Tier 1-High):</strong> 11 backlinks with strength ≥70. Build Tier 2 links TO these pages to amplify link juice. Priority targets: LinkedIn (#6), Medium (#64), Ameblo (#730), Telegra.ph (#409), iHeart (#797).
 </div>
 
 <div class="recommendation">
-  <strong>TIER 2 STRATEGY:</strong> Build links TO your strongest Tier 1 pages (LinkedIn, Medium, iHeart articles). These pages already rank in Majestic Million — amplifying them with Tier 2 links from Web 2.0 properties, social bookmarks, and forum profiles will increase the link juice they pass to softprowatersystems.com.
+  <strong>MAJESTIC MILLION COVERAGE:</strong> 21 of 22 backlink domains in Majestic Million (95%). Excellent targeting. Only lemongrovelane.com not listed.
 </div>
 
 <div class="recommendation">
-  <strong>RELEVANCE GAP:</strong> All 22 backlinks target "Best Carbon Filter for [City]" pages — high topical relevance. Consider diversifying anchor text to include "water softener", "filtration system", and brand-specific terms ("SoftPro") for broader keyword coverage.
+  <strong>TIER 2 STRATEGY:</strong> Build links TO your strongest Tier 1 pages (LinkedIn, Medium, iHeart). These already rank in Majestic Million — amplifying them increases link juice flowing to softprowatersystems.com.
 </div>
 
 <div class="recommendation">
-  <strong>WEAKEST LINK:</strong> lemongrovelane.com (Strength: 26.3, not in Majestic Million, 660 ref domains). Consider whether this link is worth keeping or disavowing — it provides minimal SEO value. Focus Tier 2/3 building on the 21 Majestic Million domains instead.
+  <strong>RELEVANCE:</strong> All 22 backlinks target "Best Carbon Filter for [City]" — high topical relevance. Diversify anchor text to include "water softener" and "SoftPro" brand terms for broader keyword coverage.
+</div>
+
+<div class="recommendation">
+  <strong>INDEXING SERVICE INTEGRATION (PENDING):</strong> Once your 2 indexing service APIs are connected, this report will auto-submit any unindexed Tier 1 URLs for immediate indexing. Currently 2 URLs need indexing.
 </div>
 
 <div class="footer">
-  Zenfusion Backlink Analyzer · DataForSEO Backlinks API + Majestic Million · noindex, nofollow · August 21, 2026
+  Zenfusion Backlink Analyzer · DataForSEO + Majestic Million + Google Index Check · noindex, nofollow · August 21, 2026
 </div>
 
 </body>
