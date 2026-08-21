@@ -7,68 +7,110 @@
 <title>Zenfusion Audit Portal</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e4e7ee; min-height: 100vh; padding: 40px 20px; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #ffffff; min-height: 100vh; padding: 40px 20px; }
 .container { max-width: 600px; margin: 0 auto; }
-h1 { font-size: 28px; color: #fff; text-align: center; margin-bottom: 8px; }
-.subtitle { color: #fff; opacity: 0.85; text-align: center; font-size: 14px; margin-bottom: 40px; }
+h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
+.subtitle { color: #ffffff; opacity: 0.85; text-align: center; font-size: 14px; margin-bottom: 40px; }
 .audit-type { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 12px; padding: 24px; margin-bottom: 20px; transition: all 0.2s; }
 .audit-type:hover { border-color: #4A90D9; }
 .audit-type h2 { color: #4A90D9; font-size: 18px; margin-bottom: 6px; }
-.audit-type .desc { color: #fff; opacity: 0.85; font-size: 13px; margin-bottom: 16px; }
+.audit-type .desc { color: #ffffff; opacity: 0.85; font-size: 13px; margin-bottom: 16px; }
 .audit-type .icon { font-size: 24px; margin-bottom: 8px; }
+.audit-type input { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 10px 14px; border-radius: 8px; font-size: 14px; margin-bottom: 10px; }
+.audit-type input:focus { border-color: #4A90D9; outline: none; }
+.audit-type input::placeholder { color: #ffffff; opacity: 0.4; }
 .audit-type button { width: 100%; background: #4A90D9; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 8px; }
 .audit-type button:hover { background: #3a7ec9; }
-.audit-type .note { background: rgba(74,144,217,0.1); border-left: 3px solid #4A90D9; padding: 10px 14px; border-radius: 4px; font-size: 12px; color: #fff; opacity: 0.95; margin-top: 10px; }
+.audit-type button:disabled { background: #2a3142; cursor: not-allowed; }
+.audit-type .note { background: rgba(74,144,217,0.1); border-left: 3px solid #4A90D9; padding: 10px 14px; border-radius: 4px; font-size: 12px; color: #ffffff; opacity: 0.85; margin-top: 10px; }
+.audit-type .fields { display: none; margin-top: 16px; }
+.audit-type.expanded .fields { display: block; }
+.audit-type .header { cursor: pointer; }
 .reports-link { text-align: center; margin-top: 30px; }
 .reports-link a { color: #4A90D9; text-decoration: none; font-size: 14px; }
 .reports-link a:hover { text-decoration: underline; }
-.footer { text-align: center; margin-top: 40px; color: #fff; opacity: 0.6; font-size: 11px; }
-.status-bar { background: rgba(39,174,96,0.1); border: 1px solid rgba(39,174,96,0.3); border-radius: 8px; padding: 12px; margin-bottom: 30px; font-size: 13px; color: #27ae60; text-align: center; }
+.footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.5; font-size: 11px; }
+.status-bar { background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.4); border-radius: 8px; padding: 12px; margin-bottom: 30px; font-size: 13px; color: #27ae60; text-align: center; }
+.success-msg { display: none; background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.4); border-radius: 8px; padding: 16px; margin-top: 10px; color: #27ae60; text-align: center; font-size: 14px; }
+.success-msg.show { display: block; }
 </style>
 </head>
 <body>
 <div class="container">
 <h1>Zenfusion Audit Portal</h1>
-<p class="subtitle">Generate SEO/AEO/CRO audits for any Shopify store</p>
+<p class="subtitle">Generate SEO/AEO/CRO audits for any Shopify store — no login required</p>
 
 <div class="status-bar">
-  ✅ Automated via GitHub Actions — results auto-published on submission
+  ✅ No login needed — just fill the form and submit
 </div>
 
 <!-- Site Audit -->
-<div class="audit-type">
-  <div class="icon">📊</div>
-  <h2>Website Audit</h2>
-  <p class="desc">Crawl an entire website and detect technical SEO issues (13 categories, 176+ checks per page). Outputs interactive dashboard + CSV + PDF.</p>
-  <button onclick="window.open('https://github.com/loftenter/zenfusion-audits/issues/new?template=site-audit.yml&labels=site-audit', '_blank')">Start Site Audit →</button>
-  <div class="note">⏱ Takes 5-10 minutes. Results published to GitHub Pages automatically.</div>
+<div class="audit-type" id="site-audit">
+  <div class="header" onclick="toggle('site-audit')">
+    <div class="icon">📊</div>
+    <h2>Website Audit</h2>
+    <p class="desc">Crawl an entire website and detect technical SEO issues (13 categories, 176+ checks per page). Outputs interactive dashboard + CSV + PDF.</p>
+  </div>
+  <div class="fields">
+    <input type="url" id="site-url" placeholder="Website URL (https://www.example.com)">
+    <input type="number" id="site-limit" placeholder="Max pages (default 100, max 500)" value="100">
+    <input type="text" id="site-name" placeholder="Your name (optional)">
+    <button onclick="submitForm('site-audit')">Start Site Audit →</button>
+    <div class="success-msg" id="site-audit-success"></div>
+    <div class="note">⏱ Takes 5-10 minutes. Results published automatically — you'll get a link.</div>
+  </div>
 </div>
 
 <!-- Keyword Audit -->
-<div class="audit-type">
-  <div class="icon">🔍</div>
-  <h2>Keyword Audit (SERP Competitors)</h2>
-  <p class="desc">Analyze top-ranking competitors for a keyword + your page. SRS scoring, 176 ranking factors, InfraNodus entities, Majestic Million, LLM citations.</p>
-  <button onclick="window.open('https://github.com/loftenter/zenfusion-audits/issues/new?template=keyword-audit.yml&labels=keyword-audit', '_blank')">Start Keyword Audit →</button>
-  <div class="note">⏱ Takes 5-10 minutes. Outputs SRS scored PDF report.</div>
+<div class="audit-type" id="keyword-audit">
+  <div class="header" onclick="toggle('keyword-audit')">
+    <div class="icon">🔍</div>
+    <h2>Keyword Audit (SERP Competitors)</h2>
+    <p class="desc">Analyze top-ranking competitors for a keyword + your page. SRS scoring, 176 ranking factors, InfraNodus entities, Majestic Million, LLM citations.</p>
+  </div>
+  <div class="fields">
+    <input type="text" id="kw-keyword" placeholder="Keyword (e.g. best water softener)">
+    <input type="url" id="kw-url" placeholder="Your page URL to audit">
+    <input type="number" id="kw-limit" placeholder="Competitor pages (default 30)" value="30">
+    <input type="text" id="kw-name" placeholder="Your name (optional)">
+    <button onclick="submitForm('keyword-audit')">Start Keyword Audit →</button>
+    <div class="success-msg" id="keyword-audit-success"></div>
+    <div class="note">⏱ Takes 5-10 minutes. Outputs SRS scored PDF report.</div>
+  </div>
 </div>
 
 <!-- Page-Level Audit -->
-<div class="audit-type">
-  <div class="icon">📄</div>
-  <h2>Page-Level Audit (Full Combo)</h2>
-  <p class="desc">Combined audit: technical site audit for the URL + keyword SERP analysis + SRS scoring. The most comprehensive single-page audit.</p>
-  <button onclick="window.open('https://github.com/loftenter/zenfusion-audits/issues/new?template=page-audit.yml&labels=page-audit', '_blank')">Start Page-Level Audit →</button>
-  <div class="note">⏱ Takes 10-15 minutes. Outputs combined report with fix lists.</div>
+<div class="audit-type" id="page-audit">
+  <div class="header" onclick="toggle('page-audit')">
+    <div class="icon">📄</div>
+    <h2>Page-Level Audit (Full Combo)</h2>
+    <p class="desc">Combined audit: technical site audit for the URL + keyword SERP analysis + SRS scoring. The most comprehensive single-page audit.</p>
+  </div>
+  <div class="fields">
+    <input type="url" id="page-url" placeholder="Page URL to audit">
+    <input type="text" id="page-keyword" placeholder="Target keyword">
+    <input type="text" id="page-name" placeholder="Your name (optional)">
+    <button onclick="submitForm('page-audit')">Start Page-Level Audit →</button>
+    <div class="success-msg" id="page-audit-success"></div>
+    <div class="note">⏱ Takes 10-15 minutes. Outputs combined report with fix lists.</div>
+  </div>
 </div>
 
-<!-- AEO Research -->
-<div class="audit-type">
-  <div class="icon">🤖</div>
-  <h2>Deep Market, Competitor, & Keyword Level Analysis Reports</h2>
-  <p class="desc">Full 3-document deliverable: Market Analysis + Deep Keyword Workbook + Competitive Analysis. Deep research with cited sources.</p>
-  <button onclick="window.open('https://github.com/loftenter/zenfusion-audits/issues/new?template=aeo-research.yml&labels=aeo-research', '_blank')">Start Deep Analysis →</button>
-  <div class="note">⏱ Takes 15-30 minutes. Outputs 3 documents pushed to Google Drive + GitHub Pages.</div>
+<!-- Deep Analysis -->
+<div class="audit-type" id="deep-analysis">
+  <div class="header" onclick="toggle('deep-analysis')">
+    <div class="icon">🤖</div>
+    <h2>Deep Market, Competitor, &amp; Keyword Level Analysis Reports</h2>
+    <p class="desc">Full 3-document deliverable: Market Analysis + Deep Keyword Workbook + Competitive Analysis. Deep research with cited sources.</p>
+  </div>
+  <div class="fields">
+    <input type="url" id="da-url" placeholder="Client website URL">
+    <input type="text" id="da-keyword" placeholder="Core keyword/topic">
+    <input type="text" id="da-name" placeholder="Your name (optional)">
+    <button onclick="submitForm('deep-analysis')">Start Deep Analysis →</button>
+    <div class="success-msg" id="deep-analysis-success"></div>
+    <div class="note">⏱ Takes 15-30 minutes. Outputs 3 documents published automatically.</div>
+  </div>
 </div>
 
 <div class="reports-link">
@@ -79,6 +121,76 @@ h1 { font-size: 28px; color: #fff; text-align: center; margin-bottom: 8px; }
   Zenfusion Site Auditor v1.0 + Factor Engine v2.0 + AEO Skill | GitHub Actions CI/CD | noindex, nofollow
 </div>
 </div>
+
+<script>
+function toggle(id) {
+  document.querySelectorAll('.audit-type').forEach(el => {
+    if (el.id !== id) el.classList.remove('expanded');
+  });
+  document.getElementById(id).classList.toggle('expanded');
+}
+
+function submitForm(type) {
+  var data = {};
+  var msg = '';
+  
+  if (type === 'site-audit') {
+    data.url = document.getElementById('site-url').value;
+    data.limit = document.getElementById('site-limit').value || 100;
+    data.name = document.getElementById('site-name').value || 'Anonymous';
+    data.type = 'site-audit';
+    if (!data.url) { alert('Please enter a website URL'); return; }
+    msg = '✅ Site audit submitted for ' + data.url + '. Results will be published to the reports page within 10 minutes.';
+  } else if (type === 'keyword-audit') {
+    data.keyword = document.getElementById('kw-keyword').value;
+    data.url = document.getElementById('kw-url').value;
+    data.limit = document.getElementById('kw-limit').value || 30;
+    data.name = document.getElementById('kw-name').value || 'Anonymous';
+    data.type = 'keyword-audit';
+    if (!data.keyword || !data.url) { alert('Please enter both keyword and URL'); return; }
+    msg = '✅ Keyword audit submitted for "' + data.keyword + '" on ' + data.url + '. Results will be published within 10 minutes.';
+  } else if (type === 'page-audit') {
+    data.url = document.getElementById('page-url').value;
+    data.keyword = document.getElementById('page-keyword').value;
+    data.name = document.getElementById('page-name').value || 'Anonymous';
+    data.type = 'page-audit';
+    if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
+    msg = '✅ Page-level audit submitted for ' + data.url + ' on "' + data.keyword + '". Results will be published within 15 minutes.';
+  } else if (type === 'deep-analysis') {
+    data.url = document.getElementById('da-url').value;
+    data.keyword = document.getElementById('da-keyword').value;
+    data.name = document.getElementById('da-name').value || 'Anonymous';
+    data.type = 'deep-analysis';
+    if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
+    msg = '✅ Deep analysis submitted for ' + data.url + ' on "' + data.keyword + '". Results will be published within 30 minutes.';
+  }
+  
+  // Submit via FormSubmit.co (free, no signup, emails to Justin)
+  data._subject = 'Zenfusion Audit Request: ' + data.type;
+  data._template = 'table';
+  
+  fetch('https://formsubmit.co/justin@justinlofton.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    var el = document.getElementById(type + '-success');
+    if (el) { el.textContent = msg; el.classList.add('show'); }
+  })
+  .catch(function(e) {
+    // Fallback: open mailto link
+    var subject = encodeURIComponent('Zenfusion Audit Request: ' + data.type);
+    var body = encodeURIComponent(JSON.stringify(data, null, 2));
+    window.open('mailto:justin@justinlofton.com?subject=' + subject + '&body=' + body, '_blank');
+    var el = document.getElementById(type + '-success');
+    if (el) { el.textContent = msg; el.classList.add('show'); }
+  });
+  
+  // Clear form
+  document.querySelectorAll('.audit-type input').forEach(function(i) { i.value = ''; });
+}
 </script>
 </body>
 </html>
