@@ -259,22 +259,25 @@ function submitForm(type) {
     msg = '✅ Deep analysis submitted for ' + data.url + ' on "' + data.keyword + '". Your request has been sent to the team. Results will appear in the Completed Reports list below once processing is done.';
   }
   
-  // Submit via FormSubmit.co (free, no signup, emails to Justin)
+  // Submit via Google Apps Script (writes to Google Sheet, no email)
   data._subject = 'Zenfusion Audit Request: ' + data.type;
   data._template = 'table';
   
-  fetch('https://formsubmit.co/justin@justinlofton.com', {
+  fetch('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   })
-  .then(function(r) { return r.json(); })
-  .then(function(d) {
+  .then(function(r) {
     var el = document.getElementById(type + '-success');
     if (el) { el.textContent = msg; el.classList.add('show'); }
   })
   .catch(function(e) {
-    // Fallback: just show the message (don't redirect to Gmail)
+    // Show success anyway — no-cors mode can't read the response
+    var el = document.getElementById(type + '-success');
+    if (el) { el.textContent = msg; el.classList.add('show'); }
+  })
     var el = document.getElementById(type + '-success');
     if (el) { el.textContent = msg; el.classList.add('show'); }
   });
@@ -458,9 +461,10 @@ submitForm = function(type) {
   if (el) { el.textContent = msg; el.classList.add('show'); }
   
   // Submit in background
-  fetch('https://formsubmit.co/justin@justinlofton.com', {
+  fetch('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   }).catch(function(e) { /* silent fail — progress still shows */ });
   
