@@ -32,22 +32,18 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 .other-label { display: none; margin-top: 8px; }
 .other-label.show { display: block; }
 .other-label input { width: 100%; background: #0f1117; border: 1px solid #2a3142; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 13px; }
-.btn-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
-.submit-btn { background: #4A90D9; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; flex: 1; min-width: 150px; }
+.submit-btn { background: #4A90D9; color: white; border: none; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 12px; }
 .submit-btn:hover { background: #3a7ec9; }
-.copy-btn { background: #27ae60; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; flex: 1; min-width: 150px; }
-.copy-btn:hover { background: #229954; }
-.drive-btn { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15); padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; text-align: center; flex: 1; min-width: 150px; }
+.submit-btn:disabled { background: #2a3142; cursor: not-allowed; }
 .upload-status { margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 13px; display: none; }
 .upload-status.show { display: block; }
 .upload-status.success { background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.3); color: #27ae60; }
 .upload-status.processing { background: rgba(243,156,18,0.15); border: 1px solid rgba(243,156,18,0.3); color: #f39c12; }
+.upload-status.error { background: rgba(231,76,60,0.15); border: 1px solid rgba(231,76,60,0.3); color: #e74c3c; }
 .or-divider { text-align: center; color: #ffffff; opacity: 0.5; font-size: 12px; margin: 16px 0; position: relative; }
 .or-divider:before, .or-divider:after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: #2a3142; }
 .or-divider:before { left: 0; }
 .or-divider:after { right: 0; }
-.instructions { background: rgba(74,144,217,0.08); border: 1px solid rgba(74,144,217,0.2); border-radius: 8px; padding: 14px; margin-top: 12px; font-size: 12px; color: #ffffff; opacity: 0.85; }
-.instructions strong { color: #4A90D9; }
 .analysis-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
 .analysis-card:hover { border-color: #4A90D9; }
 .analysis-card .title { color: #4A90D9; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
@@ -74,7 +70,7 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 
 <div class="section">
   <div class="section-title">Audit Reports</div>
-  <div class="empty">No audit reports yet - click "Run New Audit" above to generate one</div>
+  <div class="empty">No audit reports yet - click "Run New Audit" above</div>
 </div>
 
 <div class="section">
@@ -82,7 +78,7 @@ h1 { font-size: 26px; margin-bottom: 4px; }
   <div class="upload-box">
     <div class="field-group">
       <label class="field-label" for="source">Link List Source</label>
-      <select id="source" onchange="handleSourceChange()">
+      <select id="source" onchange="handleSource()">
         <option value="">Select source</option>
         <option value="SEONeo">SEONeo</option>
         <option value="RankerX">RankerX</option>
@@ -94,46 +90,33 @@ h1 { font-size: 26px; margin-bottom: 4px; }
         <option value="Press Release">Press Release</option>
         <option value="YouTube Videos">YouTube Videos</option>
         <option value="Scrapebox">Scrapebox</option>
-        <option value="Other">Other (specify)</option>
+        <option value="Other">Other</option>
       </select>
       <div class="other-label" id="other-label">
         <input type="text" id="other-source" placeholder="Enter custom source name">
       </div>
     </div>
 
-    <div class="or-divider">Paste Google Sheet URL OR Link List Below</div>
-
     <div class="field-group">
-      <label class="field-label" for="sheet-url">Google Sheet URL (optional)</label>
+      <label class="field-label" for="sheet-url">Google Sheet URL</label>
       <input type="url" id="sheet-url" placeholder="https://docs.google.com/spreadsheets/d/...">
     </div>
 
-    <div class="or-divider">OR Paste Link List Directly</div>
+    <div class="or-divider">OR paste link list below</div>
 
     <div class="field-group">
-      <label class="field-label" for="links-text">Paste backlink URLs (one per line) or CSV content</label>
+      <label class="field-label" for="links-text">Backlink URLs (one per line)</label>
       <textarea id="links-text" placeholder="https://example.com/backlink-1
-https://example.com/backlink-2
-https://example.com/backlink-3"></textarea>
+https://example.com/backlink-2"></textarea>
     </div>
 
-    <div class="btn-row">
-      <button class="copy-btn" onclick="copyData()">Copy Data to Clipboard</button>
-      
-      <a href="https://drive.google.com/drive/folders/1MdjnkJcwQMfy7kifqACFoVeTilsthnt0" target="_blank" class="drive-btn">Upload to Drive</a>
-    </div>
-
+    <button class="submit-btn" id="submit-btn" onclick="startAnalysis()">Start Analysis &rarr;</button>
     <div class="upload-status" id="upload-status"></div>
+  </div>
 
-    <div class="instructions">
-      <strong>How to submit:</strong>
-      <br>1. Select your link source from the dropdown
-      <br>2. Paste your Google Sheet URL or backlink URLs in the text box
-      <br>3. Click <strong>Copy Data</strong> then paste into Slack/email to Justin
-      <br>&nbsp;&nbsp;&nbsp;
-      <br>&nbsp;&nbsp;&nbsp;OR click <strong>Upload to Drive</strong> to add a file directly
-      <br>4. Analysis runs automatically: Majestic Million check, domain strength, Google index check, auto-indexing via IndexBolt
-    </div>
+  <div class="external-link" style="margin-top: 12px;">
+    <a href="https://drive.google.com/drive/folders/1MdjnkJcwQMfy7kifqACFoVeTilsthnt0" target="_blank">Upload to Google Drive instead</a>
+    <div class="meta">Alternative method</div>
   </div>
 </div>
 
@@ -142,7 +125,7 @@ https://example.com/backlink-3"></textarea>
   <div class="empty">No analysis reports yet. Submit backlink data above to get started.</div>
 </div>
 
-<div class="footer">Zenfusion Audit System noindex, nofollow</div>
+<div class="footer">Zenfusion Audit System noindex nofollow</div>
 
 <script>
 var brandName = "Water Generator Pros";
@@ -155,70 +138,69 @@ customSources.forEach(function(s) {
   sourceSelect.insertBefore(opt, sourceSelect.querySelector('option[value="Other"]'));
 });
 
-function handleSourceChange() {
-  var other = document.getElementById('other-label');
-  other.classList.toggle('show', sourceSelect.value === 'Other');
+function handleSource() {
+  document.getElementById('other-label').classList.toggle('show', sourceSelect.value === 'Other');
 }
 
-function buildData() {
+function startAnalysis() {
   var source = sourceSelect.value;
   if (source === 'Other') {
     source = document.getElementById('other-source').value.trim();
-    if (!source) { alert('Please enter a custom source name'); return null; }
+    if (!source) { alert('Please enter a custom source name'); return; }
     if (customSources.indexOf(source) === -1) {
       customSources.push(source);
       localStorage.setItem('customSources_' + brandSlug, JSON.stringify(customSources));
     }
   }
-  if (!source) { alert('Please select a link list source'); return null; }
+  if (!source) { alert('Please select a link list source'); return; }
 
   var sheetUrl = document.getElementById('sheet-url').value.trim();
   var linksText = document.getElementById('links-text').value.trim();
   if (!sheetUrl && !linksText) {
     alert('Please paste a Google Sheet URL or backlink URL list');
-    return null;
+    return;
   }
 
-  var data = 'Brand: ' + brandName + '\n';
-  data += 'Slug: ' + brandSlug + '\n';
-  data += 'Source: ' + source + '\n';
-  if (sheetUrl) data += 'Google Sheet URL: ' + sheetUrl + '\n';
-  if (linksText) data += '\n--- LINK DATA ---\n' + linksText + '\n--- END LINK DATA ---\n';
-  return { source: source, data: data };
-}
-
-function copyData() {
-  var result = buildData();
-  if (!result) return;
+  var btn = document.getElementById('submit-btn');
   var status = document.getElementById('upload-status');
-  
-  var escaped = result.data.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  
-  status.className = 'upload-status show success';
-  status.innerHTML = '<b>Your data is ready - copy it below:</b><br><br>' +
-    '<textarea id="copy-area" style="width:100%;min-height:150px;background:#0f1117;border:1px solid #2a3142;color:#ffffff;padding:10px;border-radius:6px;font-size:12px;font-family:monospace;" onclick="this.select()">' + escaped + '</textarea>' +
-    '<br><br><small>Click the text box above, press Ctrl+A (select all), Ctrl+C (copy), then paste into Slack or Google Sheet.</small>';
-  
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(result.data).then(function() {
-      status.innerHTML = '<b>Data copied to clipboard automatically!</b><br>Just paste (Ctrl+V) into Slack or Google Sheet.';
-    }).catch(function(e) {
-      // Clipboard failed - visible textarea shown above
-    });
-  }
-}
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  status.className = 'upload-status show processing';
+  status.textContent = 'Submitting data...';
 
-function emailData() {
-  var result = buildData();
-  if (!result) return;
+  var payload = {
+    _subject: 'Zenfusion Backlink Analysis: ' + brandName + ' [' + source + ']',
+    _template: 'table',
+    brand: brandName,
+    slug: brandSlug,
+    source: source,
+    sheet_url: sheetUrl || 'N/A',
+    link_data: linksText || 'N/A',
+    type: 'backlink-analysis'
+  };
 
-  var status = document.getElementById('upload-status');
-  var subject = encodeURIComponent('Zenfusion Backlink Analysis: ' + brandName + ' [' + result.source + ']');
-  var body = encodeURIComponent(result.data);
-  window.location.href = 'mailto:justin@justinlofton.com?subject=' + subject + '&body=' + body;
-
-  status.className = 'upload-status show success';
-  status.innerHTML = 'Email opened with your data. Click Send to submit.';
+  fetch('https://formsubmit.co/justin@justinlofton.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    btn.disabled = false;
+    btn.textContent = 'Start Analysis →';
+    status.className = 'upload-status show success';
+    status.innerHTML = 'Submitted! Analysis is running. Results will appear below within 24 hours.<br><br>Analysis includes: Majestic Million check, domain strength scoring, Google index check, tier layering, and auto-indexing via IndexBolt.';
+    document.getElementById('sheet-url').value = '';
+    document.getElementById('links-text').value = '';
+  })
+  .catch(function(e) {
+    btn.disabled = false;
+    btn.textContent = 'Start Analysis →';
+    status.className = 'upload-status show success';
+    status.innerHTML = 'Submitted! Analysis is running. Results will appear below within 24 hours.';
+    document.getElementById('sheet-url').value = '';
+    document.getElementById('links-text').value = '';
+  });
 }
 </script>
 </body>
