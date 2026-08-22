@@ -91,8 +91,8 @@ h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
 <div class="audit-type" id="page-audit">
   <div class="header" onclick="toggle('page-audit')">
     <div class="icon">📄</div>
-    <h2>Page-Level Audit (Full Combo)</h2>
-    <p class="desc">Combined audit: technical site audit for the URL + keyword SERP analysis + SRS scoring. The most comprehensive single-page audit.</p>
+    <h2>Page-Level Audit</h2>
+    <p class="desc">Full unified audit: Technical SEO (13 categories) + 177 Ranking Factors + Content Quality (6 dimensions) + SERP Competitors + Core Web Vitals + Entity Analysis + SRS Score + Dual Fix Lists</p>
   </div>
   <div class="fields">
     <input type="url" id="page-url" placeholder="Page URL to audit">
@@ -100,27 +100,12 @@ h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
     <input type="text" id="page-name" placeholder="Your name (optional)">
     <button onclick="submitForm('page-audit')">Start Page-Level Audit →</button>
     <div class="success-msg" id="page-audit-success"></div>
-    <div class="note">⏱ Takes 10-15 minutes. Outputs combined report with fix lists.</div>
+    <div class="note">⏱ Takes 10-15 minutes. Outputs comprehensive HTML report with expandable sections and dual fix lists (Developer + SEO Team).</div>
   </div>
 </div>
 
 <!-- Deep Analysis -->
-<div class="audit-type" 
-<div class="audit-type" id="page-audit">
-  <div class="header" onclick="toggleAudit('page-audit')">
-    <div class="icon">🔍</div>
-    <h2>Page-Level Audit</h2>
-    <div class="desc">Audit a single page against a target keyword — Technical SEO + 177 Ranking Factors + Content Quality + SERP Competitors + Core Web Vitals + Entity Analysis + SRS Score + Dual Fix Lists</div>
-  </div>
-  <div class="fields">
-    <input type="text" id="page-url" placeholder="Page URL (e.g., https://yoursite.com/page)">
-    <input type="text" id="page-keyword" placeholder="Target Keyword (e.g., salt free water softener)">
-    <button onclick="submitPageAudit()">Start Page Audit →</button>
-    <div class="note">Integrates ALL audit systems: Site Auditor (13 categories) + Factor Engine (177 factors) + Content Auditor (6 dimensions) + DataForSEO SERP + Lighthouse + InfraNodus + SRS Composite Score. Comprehensive HTML report with dual fix lists (Developer + SEO Team).</div>
-  </div>
-</div>
-
-id="deep-analysis">
+<div class="audit-type" id="deep-analysis">
   <div class="header" onclick="toggle('deep-analysis')">
     <div class="icon">🤖</div>
     <h2>Deep Market, Competitor, &amp; Keyword Level Analysis Reports</h2>
@@ -481,50 +466,6 @@ submitForm = function(type) {
   
   // Clear form inputs
   document.querySelectorAll('.audit-type input').forEach(function(i) { i.value = ''; });
-}
-
-
-function submitPageAudit() {
-  var url = document.getElementById('page-url').value.trim();
-  var keyword = document.getElementById('page-keyword').value.trim();
-  if (!url || !keyword) {
-    alert('Please enter both a page URL and a target keyword.');
-    return;
-  }
-  // Submit via FormSubmit
-  var formData = new FormData();
-  formData.append('audit_type', 'page-audit');
-  formData.append('page_url', url);
-  formData.append('keyword', keyword);
-  formData.append('_subject', 'Zenfusion Page Audit Request: ' + keyword);
-  
-  fetch('https://formsubmit.co/ajax/justin@justinlofton.com', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  }).then(function(r) { return r.json(); })
-    .then(function(data) {
-      var status = document.getElementById('page-audit-status') || document.createElement('div');
-      status.id = 'page-audit-status';
-      status.style.cssText = 'background:rgba(39,174,96,0.15);border-left:3px solid #27ae60;padding:14px;border-radius:4px;margin-top:12px;color:#fff;font-size:14px';
-      status.innerHTML = '<strong>✅ Submitted!</strong> Page audit for "' + keyword + '" is now running. Results will appear on the brand page within 24 hours.';
-      var form = document.getElementById('page-audit');
-      form.appendChild(status);
-      document.getElementById('page-url').value = '';
-      document.getElementById('page-keyword').value = '';
-    }).catch(function(err) {
-      // Fallback: show success anyway since FormSubmit may have delivered
-      var status = document.getElementById('page-audit-status') || document.createElement('div');
-      status.id = 'page-audit-status';
-      status.style.cssText = 'background:rgba(39,174,96,0.15);border-left:3px solid #27ae60;padding:14px;border-radius:4px;margin-top:12px;color:#fff;font-size:14px';
-      status.innerHTML = '<strong>✅ Submitted!</strong> Page audit for "' + keyword + '" is now running. Results will appear on the brand page within 24 hours.';
-      var form = document.getElementById('page-audit');
-      form.appendChild(status);
-      document.getElementById('page-url').value = '';
-      document.getElementById('page-keyword').value = '';
-    });
-}
-
-</script>
+}</script>
 </body>
 </html>
