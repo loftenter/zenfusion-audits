@@ -8,7 +8,7 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0f1117; color: #ffffff; padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
-h1 { font-size: 32px; margin-bottom: 4px; }
+h1 { font-size: 42px; margin-bottom: 4px; }
 .url-headline { font-size: 20px; font-weight: bold; color: #ffffff; margin-bottom: 4px; word-break: break-all; }
 .keyword-tag { display: inline-block; background: #1a1f2e; border: 1px solid #4A90D9; color: #4A90D9; padding: 3px 12px; border-radius: 12px; font-size: 12px; margin-bottom: 20px; }
 .subtitle { color: #ffffff; opacity: 0.85; font-size: 14px; margin-bottom: 30px; }
@@ -33,7 +33,7 @@ h1 { font-size: 32px; margin-bottom: 4px; }
 .score-bar .num { width: 40px; text-align: right; font-size: 13px; font-weight: 600; color: #ffffff; }
 .green-bg { background: #27ae60; }
 .orange-bg { background: #f39c12; }
-.red-bg { background: #e74c3c; }
+.red-bg { background: #cc0000; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th { background: #041952; color: white; padding: 8px; text-align: left; font-size: 12px; }
 td { padding: 8px; border-bottom: 1px solid #2a3142; color: #ffffff; }
@@ -50,7 +50,7 @@ tr:hover { background: #1a1f2e; }
 .topic-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
 .topic-on-track { background: rgba(39,174,96,0.15); color: #27ae60; }
 .topic-to-add { background: rgba(243,156,18,0.15); color: #f39c12; }
-.topic-over-used { background: rgba(231,76,60,0.15); color: #e74c3c; }
+.topic-over-used { background: rgba(231,76,60,0.15); color: #cc0000; }
 .factor-group { margin-bottom: 12px; }
 .factor-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #1a1f2e; font-size: 12px; }
 .factor-name { color: #ffffff; opacity: 0.85; }
@@ -62,7 +62,7 @@ tr:hover { background: #1a1f2e; }
 a { color: #4A90D9; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .fix-item { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; font-size: 13px; color: #ffffff; }
-.fix-p0 { border-left: 3px solid #e74c3c; }
+.fix-p0 { border-left: 3px solid #cc0000; }
 .fix-p1 { border-left: 3px solid #f39c12; }
 .fix-p2 { border-left: 3px solid #27ae60; }
 .fix-col-title { font-size: 16px; font-weight: 600; color: #4A90D9; margin-bottom: 10px; }
@@ -74,10 +74,11 @@ a:hover { text-decoration: underline; }
 .cwv-metric { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #2a3142; font-size: 13px; }
 .ai-status { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
 .footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.4; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
-.grid-2 { display: block; gap: 20px; }
+.stack-vertical { display: block; }
 .entity-badge { display: inline-block; background: rgba(74,144,217,0.15); border: 1px solid #4A90D9; color: #4A90D9; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
 .cluster-badge { display: inline-block; background: rgba(39,174,96,0.15); border: 1px solid #27ae60; color: #27ae60; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
 .gap-badge { display: inline-block; background: rgba(243,156,18,0.15); border: 1px solid #f39c12; color: #f39c12; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
+.stack-vertical { display: block; }
 </style>
 </head>
 <body>
@@ -89,7 +90,7 @@ a:hover { text-decoration: underline; }
 <!-- 1. SRS Score Gauge + 3 SRS Cards -->
 <div class="section">
   <div class="score-gauge">
-    <div class="score-value">48</div>
+    <div class="score-value">50</div>
     <div class="score-label">SRS Composite Score (0-100)</div>
   </div>
   <div class="srs-cards">
@@ -99,18 +100,18 @@ a:hover { text-decoration: underline; }
     </div>
     <div class="srs-card">
       <div class="card-title">Relevance</div>
-      <div class="card-score" style="color: #e74c3c">22</div>
+      <div class="card-score" style="color: #cc0000">22</div>
     </div>
     <div class="srs-card">
       <div class="card-title">Signal</div>
-      <div class="card-score" style="color: #f39c12">50</div>
+      <div class="card-score" style="color: #f39c12">56</div>
     </div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-title expandable">Content Quality (6 Dimensions)</div>
-  <div class="detail">
+  <div class="detail show">
     <div class="score-breakdown">
       <div class="score-bar"><div class="name">Content Hierarchy</div><div class="bar"><div class="fill green-bg" style="width: 95%"></div></div><div class="num">95</div></div>
       <div class="score-bar"><div class="name">Factuality</div><div class="bar"><div class="fill red-bg" style="width: 25%"></div></div><div class="num">25</div></div>
@@ -125,7 +126,7 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">Technical SEO Issues (13 Categories)</div>
-  <div class="detail">
+  <div class="detail show">
     <div class="cat-group">
       <div class="cat-group-title">Content relevance (3 issues)</div>
       <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has alt tags with one word</span><div class="fix">Severity: Opportunity</div></div>
@@ -320,13 +321,13 @@ a:hover { text-decoration: underline; }
       <div class="factor-row"><span class="factor-name">ai_target_mentioned</span><span class="factor-value">0</span></div>
       <div class="factor-row"><span class="factor-name">ai_target_cited</span><span class="factor-value">0</span></div>
       <div class="factor-row"><span class="factor-name">ai_citation_count</span><span class="factor-value">0</span></div>
-      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">4</span></div>
       <div class="factor-row"><span class="factor-name">ai_overview_length</span><span class="factor-value">1608</span></div>
       <div class="factor-row"><span class="factor-name">ai_product_count</span><span class="factor-value">8</span></div>
-      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">4</span></div>
       <div class="factor-row"><span class="factor-name">ai_entity_overlap_pct</span><span class="factor-value">52.5</span></div>
       <div class="factor-row"><span class="factor-name">ai_has_overview</span><span class="factor-value">1</span></div>
-      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">4743</span></div>
+      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">3324</span></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Shopify (20 factors)</div>
@@ -374,32 +375,32 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">SERP Competitors & AI Overview</div>
-  <div class="detail">
+  <div class="detail show">
     <table>
       <tr><th>Rank</th><th>Domain</th><th>Title</th></tr>
       <tr><td>1</td><td><a href="https://www.culligan.com/blog/pros-and-cons-of-salt-free-water-softeners" target="_blank">www.culligan.com</a></td><td>Pros and cons of salt-free water softeners</td></tr>
       <tr><td>2</td><td><a href="https://www.reddit.com/r/homeowners/comments/10kqf17/saltfree_water_softeners_worth_it/" target="_blank">www.reddit.com</a></td><td>Salt-free water softeners worth it? : r/homeowners</td></tr>
-      <tr><td>3</td><td><a href="https://aquasureusa.com/collections/serene-salt-free?srsltid=AfmBOoo8mzRvodgSSWtCq072Ja9V7d-Z9ZZZWS4mySspe5fJQh6urhDb" target="_blank">aquasureusa.com</a></td><td>Serene Series Salt-Free Water Conditioning Systems</td></tr>
-      <tr><td>4</td><td><a href="https://nuvoh2o.com/home-water-softener/?srsltid=AfmBOoqZMXuIzTBQWx6uIinrDbyaDpWP4xunCMQ9gO1Nl0Xz8uIYfLeS" target="_blank">nuvoh2o.com</a></td><td>Home Water Softener</td></tr>
+      <tr><td>3</td><td><a href="https://aquasureusa.com/collections/serene-salt-free?srsltid=AfmBOorP4ofsInAeouGByanWv_lneAwQWdb5wsupJmEEUQmfHi5F9Rrg" target="_blank">aquasureusa.com</a></td><td>Serene Series Salt-Free Water Conditioning Systems</td></tr>
+      <tr><td>4</td><td><a href="https://nuvoh2o.com/home-water-softener/?srsltid=AfmBOop-uVuMpJDgz9fxciXZTE2cFA79RfKa_5jMe89EPV3vs6X_6HjL" target="_blank">nuvoh2o.com</a></td><td>Home Water Softener</td></tr>
       <tr><td>5</td><td><a href="https://www.youtube.com/watch?v=ewtRDBtBDwI" target="_blank">www.youtube.com</a></td><td>Salt - Free Water Softeners: Scam or Legit?</td></tr>
-      <tr><td>6</td><td><a href="https://www.aquasana.com/whole-house-water-filters/salt-free-water-conditioner-100365583.html?srsltid=AfmBOoreHgK4wsyDITxHh4p0M3uBxRfLCWmoe5sG-og2RHelu5Qe7SUm" target="_blank">www.aquasana.com</a></td><td>Salt-Free Water Conditioner</td></tr>
-      <tr><td>7</td><td><a href="https://www.springwellwater.com/product/dual-systems/water-filter-salt-free-conditioner/?srsltid=AfmBOoozzfgQqGMEyzH_6w3BNIPb2eiLm3LrGlWDIY-yP-TPXoJ6Pvwv" target="_blank">www.springwellwater.com</a></td><td>Water Filter and Salt-Free FutureSoft® System</td></tr>
+      <tr><td>6</td><td><a href="https://www.aquasana.com/whole-house-water-filters/salt-free-water-conditioner-100365583.html?srsltid=AfmBOorpOmRVzgKgtPy-bSsPczkJ1uwK4MBFbqX9kylRgtBsH6iSVz_O" target="_blank">www.aquasana.com</a></td><td>Salt-Free Water Conditioner</td></tr>
+      <tr><td>7</td><td><a href="https://www.springwellwater.com/product/dual-systems/water-filter-salt-free-conditioner/?srsltid=AfmBOopVQyx0phtF4xRxRCIBFggqJYktq4pK6N_s7otMc1PK-6ZavnTz" target="_blank">www.springwellwater.com</a></td><td>Water Filter and Salt-Free FutureSoft® System</td></tr>
       <tr><td>8</td><td><a href="https://waterfilterguru.com/best-salt-free-water-softener/" target="_blank">waterfilterguru.com</a></td><td>6 Best Salt-Free Water Softener Systems of 2026</td></tr>
-      <tr><td>9</td><td><a href="https://www.homedepot.com/b/Plumbing-Water-Filters-Water-Softeners-Water-Softener-Systems/Salt-Free/N-5yc1vZc6sbZ1z1zten" target="_blank">www.homedepot.com</a></td><td>Salt Free - Water Softener Systems</td></tr>
-      <tr><td>10</td><td><a href="https://qualitywaterlab.com/softeners/salt-free/" target="_blank">qualitywaterlab.com</a></td><td>Best Salt-Free Water Softeners for Scale Control</td></tr>
-      <tr><td>11</td><td><a href="https://www.culliganwater.com/resources/salt-free-water-softeners/?srsltid=AfmBOooxgq_BlN4dbwqxOkcnRP78ktCp_4ujZOyGTNxlx3p8_AGdQfJU" target="_blank">www.culliganwater.com</a></td><td>Salt-Free Water Softener Info | Culligan Water Resources</td></tr>
-      <tr><td>12</td><td><a href="https://www.youtube.com/watch?v=m7MammU7cD0" target="_blank">www.youtube.com</a></td><td>7 Best Salt-Free Water Softeners</td></tr>
-      <tr><td>13</td><td><a href="https://kindwater.com/products/whole-house-salt-free-water-softener?srsltid=AfmBOoqHC2Ek-ezLnSRr0WgylPTO8GHgOjYCFbqWtYhSSIr2eMlkQC-_" target="_blank">kindwater.com</a></td><td>Whole House Salt-Free Water Softener</td></tr>
-      <tr><td>14</td><td><a href="https://www.amazon.com/saltless-water-softener/s?k=saltless+water+softener" target="_blank">www.amazon.com</a></td><td>Saltless Water Softener</td></tr>
-      <tr><td>15</td><td><a href="https://www.youtube.com/watch?v=8t8uRNdx0Ho" target="_blank">www.youtube.com</a></td><td>Water Softener vs Salt Free Water Conditioner. What is the .</td></tr>
+      <tr><td>9</td><td><a href="https://qualitywaterlab.com/softeners/salt-free/" target="_blank">qualitywaterlab.com</a></td><td>Best Salt-Free Water Softeners for Scale Control</td></tr>
+      <tr><td>10</td><td><a href="https://www.culliganwater.com/resources/salt-free-water-softeners/?srsltid=AfmBOorvvbzfvnQ_aPWchSq9uahBdIc_Gb3756Mt0tOSlkXBDXIUanVl" target="_blank">www.culliganwater.com</a></td><td>Salt-Free Water Softener Info | Culligan Water Resources</td></tr>
+      <tr><td>11</td><td><a href="https://www.youtube.com/watch?v=m7MammU7cD0" target="_blank">www.youtube.com</a></td><td>7 Best Salt-Free Water Softeners</td></tr>
+      <tr><td>12</td><td><a href="https://kindwater.com/products/whole-house-salt-free-water-softener?srsltid=AfmBOorKnLgCs4NuhtnnpY9Pufj8IvH134cB8NRi1kwMCtRU1XXcD42T" target="_blank">kindwater.com</a></td><td>Whole House Salt-Free Water Softener</td></tr>
+      <tr><td>13</td><td><a href="https://www.amazon.com/saltless-water-softener/s?k=saltless+water+softener" target="_blank">www.amazon.com</a></td><td>Saltless Water Softener</td></tr>
+      <tr><td>14</td><td><a href="https://www.youtube.com/watch?v=8t8uRNdx0Ho" target="_blank">www.youtube.com</a></td><td>Water Softener vs Salt Free Water Conditioner. What is the .</td></tr>
+      <tr><td>15</td><td><a href="https://uswatersystems.com/collections/salt-free-softener-alternatives?srsltid=AfmBOopAy6bnXUdyevW0Cf7D6ek5I1GKSbwbCr8hTo3A9zXAYZmAlXJw" target="_blank">uswatersystems.com</a></td><td>Salt-Free Water Softener Alternatives</td></tr>
     </table>
     <div class="ai-status" style="margin-top: 16px;">
       <strong style="color: #27ae60;">AI Overview Found</strong><br>
       <span style="font-size: 13px; color: #ffffff; opacity: 0.85;">
-        Citations: 11 · Source Diversity: 2 · Products: 8
+        Citations: 11 · Source Diversity: 4 · Products: 8
       </span><br>
       <span style="font-size: 12px; color: #ffffff; opacity: 0.7; margin-top: 4px; display: block;">
-        Cited domains: www.google.com, google.com
+        Cited domains: www.reddit.com, www.youtube.com, www.google.com, www.culligan.com
       </span>
       <div style="margin-top: 8px;"><strong style="font-size: 12px; color: #4A90D9;">People Also Ask:</strong><br>        <span style="font-size: 12px; color: #ffffff; opacity: 0.8;">• Are saltless water softeners any good?</span><br>
         <span style="font-size: 12px; color: #ffffff; opacity: 0.8;">• What are the disadvantages of salt-free water softeners?</span><br>
@@ -414,21 +415,27 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">Core Web Vitals (Lighthouse)</div>
-  <div class="detail">
+  <div class="detail show">
     <div class="lighthouse-scores">
-      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #e74c3c">0</div></div>
-      <div class="lh-card"><div class="lh-title">Accessibility</div><div class="lh-score" style="color: #e74c3c">0</div></div>
-      <div class="lh-card"><div class="lh-title">Best Practices</div><div class="lh-score" style="color: #e74c3c">0</div></div>
-      <div class="lh-card"><div class="lh-title">SEO</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #f39c12">57</div></div>
+      <div class="lh-card"><div class="lh-title">Accessibility</div><div class="lh-score" style="color: #27ae60">78</div></div>
+      <div class="lh-card"><div class="lh-title">Best Practices</div><div class="lh-score" style="color: #f39c12">46</div></div>
+      <div class="lh-card"><div class="lh-title">SEO</div><div class="lh-score" style="color: #27ae60">85</div></div>
     </div>
     <div style="margin-top: 12px;">
+      <div class="cwv-metric"><span>First Contentful Paint</span><span style="color: #27ae60; font-weight: 600;">0.9 s</span></div>
+      <div class="cwv-metric"><span>Largest Contentful Paint</span><span style="color: #cc0000; font-weight: 600;">2.7 s</span></div>
+      <div class="cwv-metric"><span>Cumulative Layout Shift</span><span style="color: #27ae60; font-weight: 600;">0.036</span></div>
+      <div class="cwv-metric"><span>Total Blocking Time</span><span style="color: #cc0000; font-weight: 600;">510 ms</span></div>
+      <div class="cwv-metric"><span>Speed Index</span><span style="color: #cc0000; font-weight: 600;">2.6 s</span></div>
+      <div class="cwv-metric"><span>Time to Interactive</span><span style="color: #cc0000; font-weight: 600;">7.4 s</span></div>
     </div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-title expandable">Structure Metrics (with Target Ranges)</div>
-  <div class="detail">
+  <div class="detail show">
     <table>
       <tr><th>Metric</th><th>Value</th><th>Target</th><th>Status</th></tr>
       <tr><td>Words</td><td>2168</td><td>900-2500</td><td><span class="in-range">✓ In range</span></td></tr>
@@ -447,7 +454,7 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">Schema Analysis (Score: 20/100)</div>
-  <div class="detail">
+  <div class="detail show">
     <p style="font-size: 13px; color: #ffffff; margin-bottom: 8px;">Found: WebPage, BreadcrumbList</p>
     <p style="font-size: 13px; color: #27ae60; margin-bottom: 8px;">Critical found: BreadcrumbList</p>
     <p style="font-size: 13px; color: #f39c12;">Missing: Article, Organization, Author, FAQPage, Review</p>
@@ -456,8 +463,8 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">Entity & Topical Analysis (InfraNodus)</div>
-  <div class="detail">
-      <button id="copy-entities" style="background:#4A90D9;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;font-size:13px;margin-bottom:10px">Click to Copy All Entities</button>
+  <div class="detail show">
+      <button id="copy-entities" style="background:#4A90D9;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:10px">Click to Copy All Entities</button>
       <div id="copy-status" style="font-size:12px;color:#27ae60;margin-bottom:8px;display:none">Copied to clipboard!</div>
       
     <p style="font-size: 13px; color: #ffffff; margin-bottom: 10px;">Entities: 150 · Edges: 592 · Clusters: 8 · Content Gaps: 10 · Diversity: 0.0</p>
@@ -499,7 +506,7 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">Topics / Keyword Tracking</div>
-  <div class="detail">
+  <div class="detail show">
     <div style="margin-bottom: 8px;"><strong style="font-size: 13px; color: #27ae60;">On Track:</strong><br>
       <span class="topic-badge topic-on-track">softeners</span>
     </div>
@@ -514,12 +521,11 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title expandable">Fix Lists (Developer + SEO Team)</div>
-  <div class="detail">
-    <div class="grid-2">
+  <div class="detail show">
+    <div class="stack-vertical">
       <div>
         <div class="fix-col-title">Developer Fix List</div>
-        <div class="fix-priority">P0 — Critical (1)</div>
-        <div class="fix-item fix-p0">Critical: Lighthouse performance score below 50</div>
+        <div class="fix-priority">P0 — Critical (0)</div>
         <div class="fix-priority">P1 — Important (11)</div>
         <div class="fix-item fix-p1">Avoid excessive DOM width</div>
         <div class="fix-item fix-p1">Twitter card incomplete</div>
@@ -530,8 +536,8 @@ a:hover { text-decoration: underline; }
         <div class="fix-item fix-p1">Add FAQPage schema markup</div>
         <div class="fix-item fix-p1">Add Review schema markup</div>
         <div class="fix-item fix-p1">Add JSON-LD structured data</div>
-        <div class="fix-item fix-p1">Improve Lighthouse accessibility score (currently 0)</div>
-        <div class="fix-item fix-p1">Improve Lighthouse seo score (currently 0)</div>
+        <div class="fix-item fix-p1">Improve Lighthouse performance (currently 57)</div>
+        <div class="fix-item fix-p1">Improve Lighthouse accessibility score (currently 78)</div>
         <div class="fix-priority">P2 — Nice to Have (10)</div>
         <div class="fix-item fix-p2">Add dimensions to images</div>
         <div class="fix-item fix-p2">Defer offscreen images</div>
@@ -583,7 +589,7 @@ a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-title">Strategic Recommendations</div>
-  <div class="recommendation"><strong>Critical Priority:</strong> Overall SRS score is below 50. Focus on fixing all P0 items before anything else.</div>
+  <div class="recommendation"><strong>Improvement Needed:</strong> SRS score is moderate. Address P0 and P1 items to reach competitive levels.</div>
   <div class="recommendation"><strong>Relevance:</strong> Improve keyword targeting: add keyword to title, H1, first 100 words, and increase LSI term coverage.</div>
   <div class="recommendation"><strong>Signal:</strong> Boost authority signals: add citations, author schema, trust badges, and improve page speed.</div>
   <div class="recommendation"><strong>Title-to-Query Alignment:</strong> Update title tag and H1 to include the exact target keyword phrase.</div>
@@ -592,7 +598,7 @@ a:hover { text-decoration: underline; }
   <div class="recommendation"><strong>AI Overview:</strong> Google AI Overview exists for this keyword with 11 citations. Optimize content to get cited.</div>
   <div class="recommendation"><strong>Content Gaps:</strong> InfraNodus found 10 content gaps. Add missing entities to improve topical coverage.</div>
   <div class="recommendation"><strong>SERP Competition:</strong> Analyze top 10 competitors for content length, structure, and schema patterns to match.</div>
-  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 0/100. Optimize images, reduce JS, and enable lazy loading.</div>
+  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 57/100. Optimize images, reduce JS, and enable lazy loading.</div>
 
 <div style="margin-top: 16px; background: #1a1f2e; border: 1px solid #2a3142; border-radius: 8px; padding: 12px 16px; font-size: 13px;">
   <strong style="color: #4A90D9;">Google Index Status:</strong>
@@ -608,28 +614,25 @@ a:hover { text-decoration: underline; }
 <script>
 document.querySelectorAll('.expandable').forEach(function(el) {
   el.addEventListener('click', function() {
-    var section = el.closest('.section') || el.parentElement;
-    if (!section) return;
-    var detail = section.querySelector('.detail');
-    if (detail) {
+    var detail = el.nextElementSibling;
+    if (detail && detail.classList.contains('detail')) {
       detail.classList.toggle('show');
     }
   });
 });
 </script>
 
-document.getElementById('copy-entities').addEventListener('click', function() {
+<script>
+document.getElementById('copy-entities') && document.getElementById('copy-entities').addEventListener('click', function() {
   var badges = document.querySelectorAll('.entity-badge');
   var entities = [];
   badges.forEach(function(b) { entities.push(b.textContent.trim()); });
   var text = entities.join(', ');
   navigator.clipboard.writeText(text).then(function() {
     var status = document.getElementById('copy-status');
-    status.style.display = 'block';
-    setTimeout(function() { status.style.display = 'none'; }, 3000);
+    if (status) { status.style.display = 'block'; setTimeout(function() { status.style.display = 'none'; }, 3000); }
   });
 });
-
-
+</script>
 </body>
 </html>
