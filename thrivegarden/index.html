@@ -190,39 +190,22 @@ function buildData() {
 function copyData() {
   var result = buildData();
   if (!result) return;
-
   var status = document.getElementById('upload-status');
-
-  // Use clipboard API
-  if (navigator.clipboard) {
+  
+  var escaped = result.data.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  
+  status.className = 'upload-status show success';
+  status.innerHTML = '<b>Your data is ready - copy it below:</b><br><br>' +
+    '<textarea id="copy-area" style="width:100%;min-height:150px;background:#0f1117;border:1px solid #2a3142;color:#ffffff;padding:10px;border-radius:6px;font-size:12px;font-family:monospace;" onclick="this.select()">' + escaped + '</textarea>' +
+    '<br><br><small>Click the text box above, press Ctrl+A (select all), Ctrl+C (copy), then paste into Slack or Google Sheet.</small>';
+  
+  if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(result.data).then(function() {
-      status.className = 'upload-status show success';
-      status.innerHTML = 'Copied! Paste this data into Slack, email, or the Google Sheet.\n\nAnalysis will be run once Justin receives the data.';
-    }).catch(function() {
-      // Fallback: select and copy
-      fallbackCopy(result.data);
+      status.innerHTML = '<b>Data copied to clipboard automatically!</b><br>Just paste (Ctrl+V) into Slack or Google Sheet.';
+    }).catch(function(e) {
+      // Clipboard failed - visible textarea shown above
     });
-  } else {
-    fallbackCopy(result.data);
   }
-}
-
-function fallbackCopy(text) {
-  var ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed';
-  ta.style.opacity = 0;
-  document.body.appendChild(ta);
-  ta.select();
-  try {
-    document.execCommand('copy');
-    var status = document.getElementById('upload-status');
-    status.className = 'upload-status show success';
-    status.innerHTML = 'Copied! Paste into Slack, email, or Google Sheet.';
-  } catch(e) {
-    alert('Copy failed. Please manually copy the data.');
-  }
-  document.body.removeChild(ta);
 }
 
 function emailData() {
