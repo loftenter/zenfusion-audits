@@ -263,7 +263,7 @@ function submitForm(type) {
   data._subject = 'Zenfusion Audit Request: ' + data.type;
   data._template = 'table';
   
-  fetch('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
@@ -461,7 +461,7 @@ submitForm = function(type) {
   if (el) { el.textContent = msg; el.classList.add('show'); }
   
   // Submit in background
-  fetch('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },

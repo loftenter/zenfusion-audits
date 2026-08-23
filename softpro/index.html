@@ -209,7 +209,7 @@ function startAnalysis() {
   };
 
   var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-  navigator.sendBeacon('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', blob);
+  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', blob);
 
   setTimeout(function() {
     btn.disabled = false;
