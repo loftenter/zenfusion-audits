@@ -169,14 +169,33 @@ function startAnalysis() {
   status.textContent = 'Submitting data...';
 
   var payload = {
-    _subject: 'Zenfusion Backlink Analysis: ' + brandName + ' [' + source + ']',
-    _template: 'table',
-    brand: brandName,
-    slug: brandSlug,
-    source: source,
-    sheet_url: sheetUrl || 'N/A',
-    link_data: linksText || 'N/A',
-    type: 'backlink-analysis'
+    var btn = document.getElementById('submit-btn');
+    var status = document.getElementById('upload-status');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    
+    var sourceSelect = document.getElementById('link-source');
+    var source = sourceSelect ? sourceSelect.value : '';
+    var customSource = document.getElementById('custom-source') ? document.getElementById('custom-source').value : '';
+    if (source === 'Other' && customSource) source = customSource;
+    
+    var sheetUrl = document.getElementById('sheet-url') ? document.getElementById('sheet-url').value : '';
+    var linkList = document.getElementById('link-list') ? document.getElementById('link-list').value : '';
+    var payload = { brand: 'Plumbing Supply & More', source: source, sheet_url: sheetUrl, link_list: linkList };
+    
+    // Use sendBeacon (fire-and-forget, no hang)
+    var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+    navigator.sendBeacon('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', blob);
+    
+    // Show success immediately (sendBeacon doesn't return a response)
+    setTimeout(function() {
+      btn.disabled = false;
+      btn.textContent = 'Start Analysis →';
+      status.className = 'upload-status show success';
+      status.innerHTML = 'Submitted! Analysis is running. Results will appear below within 24 hours.<br><br>Analysis includes: Majestic Million check, domain strength scoring, Google index check, tier layering, and auto-indexing via IndexBolt.';
+      document.getElementById('sheet-url').value = '';
+      document.getElementById('link-list').value = '';
+    }, 500);
   };
 
   fetch('https://script.google.com/macros/s/AKfycby9XQndOky2cZruBHgV6RkSzeNgpcQzvW694zHJupoKK-v8HQhq1giKEKKt2KUvv-Cm/exec', {
