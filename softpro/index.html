@@ -142,18 +142,18 @@ https://example.com/backlink-2"></textarea>
 <div class="section">
   <div class="section-title">Backlink Analysis Reports</div>
   <div class="analysis-card">
+    <div class="title">Backlink Analysis - Legitt (60 URLs)</div>
+    <div class="meta">60 URLs | 41 in Majestic Million | 9 Tier 1-High | Avg Strength 49.0 | Aug 22, 2026</div>
+    <div class="links">
+      <a href="/zenfusion-audits/softpro/backlink-analysis-3-legitt.html" class="link-html" target="_blank">View HTML</a>
+    </div>
+  </div>
+  <div class="analysis-card">
     <div class="title">Backlink Analysis - Aug 21, 2026 (Source: Google Sheet)</div>
     <div class="meta">22 backlinks - 21 in Majestic Million (95%) - Avg strength: 66.5</div>
     <div class="links">
       <a href="backlink-analysis-1.html" class="link-html">View HTML Report</a>
       <a href="https://docs.google.com/spreadsheets/d/14eejnepzXZ95NXdRQBSqtefDaCO8DXFq1eWqDCv3rQ0/edit" target="_blank" class="link-sheet">Open Google Sheet</a>
-    </div>
-  </div>
-  <div class="analysis-card">
-    <div class="title">Backlink Analysis - Legitt (60 URLs)</div>
-    <div class="meta">60 URLs | 41 in Majestic Million | 9 Tier 1-High | Avg Strength 49.0 | Aug 22, 2026</div>
-    <div class="links">
-      <a href="/zenfusion-audits/softpro/backlink-analysis-3-legitt.html" class="link-html" target="_blank">View HTML</a>
     </div>
   </div>
   <div class="analysis-card">
@@ -163,74 +163,4 @@ https://example.com/backlink-2"></textarea>
       <a href="backlink-analysis-2-rankerx.html" class="link-html">View HTML Report</a>
     </div>
   </div>
-</div>
 
-<div class="footer">Zenfusion Audit System noindex nofollow</div>
-
-<script>
-var brandName = "SoftPro Water Systems";
-var brandSlug = "softpro";
-var customSources = JSON.parse(localStorage.getItem('customSources_' + brandSlug) || '[]');
-var sourceSelect = document.getElementById('source');
-customSources.forEach(function(s) {
-  var opt = document.createElement('option');
-  opt.value = s; opt.textContent = s;
-  sourceSelect.insertBefore(opt, sourceSelect.querySelector('option[value="Other"]'));
-});
-
-function handleSource() {
-  document.getElementById('other-label').classList.toggle('show', sourceSelect.value === 'Other');
-}
-
-function startAnalysis() {
-  var source = sourceSelect.value;
-  if (source === 'Other') {
-    source = document.getElementById('other-source').value.trim();
-    if (!source) { alert('Please enter a custom source name'); return; }
-    if (customSources.indexOf(source) === -1) {
-      customSources.push(source);
-      localStorage.setItem('customSources_' + brandSlug, JSON.stringify(customSources));
-    }
-  }
-  if (!source) { alert('Please select a link list source'); return; }
-
-  var sheetUrl = document.getElementById('sheet-url').value.trim();
-  var linksText = document.getElementById('links-text').value.trim();
-  if (!sheetUrl && !linksText) {
-    alert('Please paste a Google Sheet URL or backlink URL list');
-    return;
-  }
-
-  var btn = document.getElementById('submit-btn');
-  var status = document.getElementById('upload-status');
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
-  status.className = 'upload-status show processing';
-  status.textContent = 'Submitting data...';
-
-  var payload = {
-    brand: brandName,
-    source: source,
-    sheet_url: sheetUrl,
-    link_list: linksText
-  };
-
-  var formData = new FormData();
-    formData.append('brand', payload.brand);
-    formData.append('source', payload.source);
-    formData.append('sheet_url', payload.sheet_url);
-    formData.append('link_list', payload.link_list);
-    navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
-
-  setTimeout(function() {
-    btn.disabled = false;
-    btn.textContent = 'Start Analysis \u2192';
-    status.className = 'upload-status show success';
-    status.innerHTML = 'Submitted! Analysis is running. Results will appear below within 24 hours.<br><br>Analysis includes: Majestic Million check, domain strength scoring, Google index check, tier layering, and auto-indexing via IndexBolt.';
-    document.getElementById('sheet-url').value = '';
-    document.getElementById('links-text').value = '';
-  }, 500);
-}
-</script>
-</body>
-</html>
