@@ -270,14 +270,7 @@ function submitForm(type) {
     var el = document.getElementById(type + '-success');
     if (el) { el.textContent = msg; el.classList.add('show'); }
   }, 500);
-  .catch(function(e) {
-    // Show success anyway — no-cors mode can't read the response
-    var el = document.getElementById(type + '-success');
-    if (el) { el.textContent = msg; el.classList.add('show'); }
-  })
-    var el = document.getElementById(type + '-success');
-    if (el) { el.textContent = msg; el.classList.add('show'); }
-  });
+
   
   // Clear form
   document.querySelectorAll('.audit-type input').forEach(function(i) { i.value = ''; });
