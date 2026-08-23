@@ -213,7 +213,74 @@ h1 { font-size: 28px; color: #ffffff; text-align: center; margin-bottom: 8px; }
 </div>
 
 
-<!-- Completed Reports List -->
+<!-- 
+<!-- Add New Brand -->
+<div class="section">
+  <div class="section-title">Add New Brand</div>
+  <div style="background:#1a1f2e;border:1px solid #2a3142;border-radius:12px;padding:24px;margin-bottom:20px">
+    <p style="color:#fff;opacity:0.85;font-size:13px;margin-bottom:16px">Add a new brand to the system. This kicks off: Market Analysis, Competitor Analysis, Keyword Research Workbook, Site Audit, Backlink Profile, and creates a brand page on GitHub Pages.</p>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <input type="text" id="new-brand-name" placeholder="Brand Name (e.g., SoftPro Water Systems)" style="width:100%;background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+      <input type="text" id="new-brand-url" placeholder="Website URL (e.g., https://softprowatersystems.com)" style="width:100%;background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+      <select id="new-brand-platform" style="background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+        <option value="">Select Platform</option>
+        <option value="shopify">Shopify</option>
+        <option value="wordpress">WordPress</option>
+        <option value="magento">Magento</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" id="new-brand-keyword" placeholder="Primary Keyword" style="background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+      <input type="text" id="new-brand-competitors" placeholder="Competitors (comma-separated)" style="background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <select id="new-brand-geography" style="background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+        <option value="US">United States</option>
+        <option value="NA">North America</option>
+        <option value="EU">Europe</option>
+        <option value="GLOBAL">Global</option>
+      </select>
+      <select id="new-brand-biztype" style="background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+        <option value="ecommerce">E-commerce</option>
+        <option value="leadgen">Lead Generation</option>
+        <option value="info">Informational</option>
+      </select>
+    </div>
+    
+    <button onclick="addNewBrand()" style="background:#27ae60;color:white;border:none;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;width:100%;margin-top:8px">Add Brand &amp; Start Full Research →</button>
+    <div id="new-brand-status" style="margin-top:12px;display:none;padding:14px;border-radius:8px;font-size:14px"></div>
+  </div>
+</div>
+
+<!-- Backlink Gap Analysis -->
+<div class="section">
+  <div class="section-title">Backlink Gap Analysis</div>
+  <div style="background:#1a1f2e;border:1px solid #2a3142;border-radius:12px;padding:24px;margin-bottom:20px">
+    <p style="color:#fff;opacity:0.85;font-size:13px;margin-bottom:16px">Compare your backlink profile vs a competitor. Shows links they have that you don't, with anchor text, page linked to, domain strength, and opportunity scores.</p>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <input type="text" id="gap-brand-url" placeholder="Your Domain (e.g., softprowatersystems.com)" style="width:100%;background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+      <input type="text" id="gap-competitor-url" placeholder="Competitor Domain (e.g., aquasana.com)" style="width:100%;background:#0f1117;border:1px solid #2a3142;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px">
+    </div>
+    
+    <button onclick="runGapAnalysis()" style="background:#4A90D9;color:white;border:none;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;width:100%;margin-top:8px">Run Backlink Gap Analysis →</button>
+    <div id="gap-status" style="margin-top:12px;display:none;padding:14px;border-radius:8px;font-size:14px"></div>
+    
+    <div style="margin-top:16px;padding-top:16px;border-top:1px solid #2a3142">
+      <p style="color:#4A90D9;font-size:13px;font-weight:600;margin-bottom:8px">Completed Gap Analyses:</p>
+      <a href="/zenfusion-audits/softpro/backlink-gap-vs-aquasana.html" style="display:inline-block;background:#1a1f2e;border:1px solid #2a3142;border-radius:8px;padding:10px 16px;margin:4px;text-decoration:none;color:inherit">
+        <div style="color:#4A90D9;font-size:14px;font-weight:600">SoftPro vs Aquasana</div>
+        <div style="color:#fff;opacity:0.6;font-size:12px;margin-top:2px">430 missing links · 45 in Majestic Million · Aug 22, 2026</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+Completed Reports List -->
 <div class="reports-list" style="margin-top: 40px;">
   <h2 style="color: #4A90D9; font-size: 20px; margin-bottom: 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px;">📋 Completed Reports</h2>
   
@@ -465,7 +532,75 @@ function completeAudit(auditId, reportUrl) {
 }
 
 
+
+function addNewBrand() {
+  var name = document.getElementById('new-brand-name').value.trim();
+  var url = document.getElementById('new-brand-url').value.trim();
+  var platform = document.getElementById('new-brand-platform').value;
+  var keyword = document.getElementById('new-brand-keyword').value.trim();
+  var competitors = document.getElementById('new-brand-competitors').value.trim();
+  var geo = document.getElementById('new-brand-geography').value;
+  var biz = document.getElementById('new-brand-biztype').value;
+  
+  if (!name || !url || !keyword) {
+    alert('Please enter Brand Name, Website URL, and Primary Keyword');
+    return;
+  }
+  
+  var status = document.getElementById('new-brand-status');
+  status.style.display = 'block';
+  status.style.background = 'rgba(243,156,18,0.15)';
+  status.style.borderLeft = '3px solid #f39c12';
+  status.style.color = '#f39c12';
+  status.innerHTML = 'Adding brand and starting full research pipeline... This includes: Market Analysis, Competitor Analysis, Keyword Research Workbook, Site Audit, and Backlink Profile. Results will appear on the new brand page within 24 hours.';
+  
+  var formData = new FormData();
+  formData.append('brand', name);
+  formData.append('source', 'new-brand');
+  formData.append('sheet_url', url);
+  formData.append('link_list', JSON.stringify({platform: platform, keyword: keyword, competitors: competitors, geography: geo, business_type: biz}));
+  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
+  
+  setTimeout(function() {
+    status.style.background = 'rgba(39,174,96,0.15)';
+    status.style.borderLeft = '3px solid #27ae60';
+    status.style.color = '#27ae60';
+    status.innerHTML = '✅ Brand submitted! Full research pipeline is running. The new brand page will be created on GitHub Pages within 24 hours with all reports.';
+  }, 500);
+}
+
+function runGapAnalysis() {
+  var brandUrl = document.getElementById('gap-brand-url').value.trim();
+  var competitorUrl = document.getElementById('gap-competitor-url').value.trim();
+  
+  if (!brandUrl || !competitorUrl) {
+    alert('Please enter both your domain and competitor domain');
+    return;
+  }
+  
+  var status = document.getElementById('gap-status');
+  status.style.display = 'block';
+  status.style.background = 'rgba(243,156,18,0.15)';
+  status.style.borderLeft = '3px solid #f39c12';
+  status.style.color = '#f39c12';
+  status.innerHTML = 'Running backlink gap analysis... Fetching backlinks for both domains via DataForSEO, comparing profiles, scoring opportunities.';
+  
+  var formData = new FormData();
+  formData.append('brand', 'Gap Analysis');
+  formData.append('source', 'backlink-gap');
+  formData.append('sheet_url', brandUrl);
+  formData.append('link_list', competitorUrl);
+  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
+  
+  setTimeout(function() {
+    status.style.background = 'rgba(39,174,96,0.15)';
+    status.style.borderLeft = '3px solid #27ae60';
+    status.style.color = '#27ae60';
+    status.innerHTML = '✅ Analysis submitted! Fetching backlinks for both domains, finding missing link opportunities. Report will be published to the brand page within 24 hours.';
+  }, 500);
+}
 </script>
+
 </body>
 </html><div class="section">
   <div class="section-title">Backlink Analysis — Submit & View Reports</div>
