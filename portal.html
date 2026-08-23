@@ -288,6 +288,7 @@ var activeAudits = [];
 
 function addInProgress(audit) {
   var section = document.getElementById('in-progress-section');
+  if (!section) return; // Safety check
   var noProgress = document.getElementById('no-progress');
   section.style.display = 'block';
   noProgress.style.display = 'none';
@@ -399,65 +400,6 @@ function completeAudit(auditId, reportUrl) {
   }, 3000);
 }
 
-// Modify submitForm to add progress tracking
-var originalSubmitForm = submitForm;
-submitForm = function(type) {
-  var data = {};
-  var auditId = type + '-' + Date.now();
-  
-  if (type === 'site-audit') {
-    data.url = document.getElementById('site-url').value;
-    data.limit = document.getElementById('site-limit').value || 100;
-    data.name = document.getElementById('site-name').value || 'Anonymous';
-    data.type = 'site-audit';
-    if (!data.url) { alert('Please enter a website URL'); return; }
-    data.title = '📊 Site Audit: ' + data.url;
-  } else if (type === 'keyword-audit') {
-    data.keyword = document.getElementById('kw-keyword').value;
-    data.url = document.getElementById('kw-url').value;
-    data.limit = document.getElementById('kw-limit').value || 30;
-    data.name = document.getElementById('kw-name').value || 'Anonymous';
-    data.type = 'keyword-audit';
-    if (!data.keyword || !data.url) { alert('Please enter both keyword and URL'); return; }
-    data.title = '🔍 Keyword Audit: ' + data.keyword;
-  } else if (type === 'page-audit') {
-    data.url = document.getElementById('page-url').value;
-    data.keyword = document.getElementById('page-keyword').value;
-    data.name = document.getElementById('page-name').value || 'Anonymous';
-    data.type = 'page-audit';
-    if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
-    data.title = '📄 Page Audit: ' + data.keyword;
-  } else if (type === 'deep-analysis') {
-    data.url = document.getElementById('da-url').value;
-    data.keyword = document.getElementById('da-keyword').value;
-    data.name = document.getElementById('da-name').value || 'Anonymous';
-    data.type = 'deep-analysis';
-    if (!data.url || !data.keyword) { alert('Please enter both URL and keyword'); return; }
-    data.title = '🤖 Deep Analysis: ' + data.keyword;
-  }
-  
-  data._subject = 'Zenfusion Audit Request: ' + data.type;
-  data._template = 'table';
-  data.audit_id = auditId;
-  
-  // Add to active audits with progress bar
-  var audit = { id: auditId, type: type, title: data.title, url: data.url };
-  activeAudits.push(audit);
-  addInProgress(audit);
-  
-  // Show success message
-  var msg = '✅ Request submitted! Progress tracking active below.';
-  var el = document.getElementById(type + '-success');
-  if (el) { el.textContent = msg; el.classList.add('show'); }
-  
-  // Submit in background
-  var formData = new FormData();
-  for (var key in data) { formData.append(key, data[key]); }
-  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
-  setTimeout(function() {
-    var el = document.getElementById(type + '-success');
-    if (el) { el.textContent = msg; el.classList.add('show'); }
-  }, 500);
-}</script>
+
 </body>
 </html>
