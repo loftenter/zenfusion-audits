@@ -63,6 +63,8 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 </style>
 </head>
 <body>
+<a href="/zenfusion-audits/portal.html" style="background:#4A90D9;color:white;padding:8px 18px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;display:inline-block;margin-bottom:20px">Go to Dashboard</a>
+
 <a href="/zenfusion-audits/" class="back-link">&larr; All Clients</a>
 <h1>SoftPro Water Systems</h1>
 <p class="subtitle">softprowatersystems.com</p>
@@ -164,3 +166,67 @@ https://example.com/backlink-2"></textarea>
     </div>
   </div>
 
+<script>
+var brandName = "SoftPro Water Systems";
+var brandSlug = "softpro";
+var customSources = JSON.parse(localStorage.getItem('customSources_' + brandSlug) || '[]');
+var sourceSelect = document.getElementById('source');
+if (sourceSelect) {
+  customSources.forEach(function(s) {
+    var opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    sourceSelect.insertBefore(opt, sourceSelect.querySelector('option[value="Other"]'));
+  });
+}
+
+function handleSource() {
+  var otherLabel = document.getElementById('other-label');
+  if (otherLabel) otherLabel.classList.toggle('show', sourceSelect.value === 'Other');
+}
+
+function startAnalysis() {
+  var source = sourceSelect ? sourceSelect.value : '';
+  if (source === 'Other') {
+    source = document.getElementById('other-source') ? document.getElementById('other-source').value.trim() : '';
+    if (!source) { alert('Please enter a custom source name'); return; }
+    if (customSources.indexOf(source) === -1) {
+      customSources.push(source);
+      localStorage.setItem('customSources_' + brandSlug, JSON.stringify(customSources));
+    }
+  }
+  if (!source) { alert('Please select a link list source'); return; }
+
+  var sheetUrl = document.getElementById('sheet-url') ? document.getElementById('sheet-url').value.trim() : '';
+  var linksText = document.getElementById('links-text') ? document.getElementById('links-text').value.trim() : '';
+  if (!sheetUrl && !linksText) {
+    alert('Please paste a Google Sheet URL or backlink URL list');
+    return;
+  }
+
+  var btn = document.getElementById('submit-btn');
+  var status = document.getElementById('upload-status');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  if (status) { status.className = 'upload-status show processing'; status.textContent = 'Submitting data...'; }
+
+  var formData = new FormData();
+  formData.append('brand', brandName);
+  formData.append('source', source);
+  formData.append('sheet_url', sheetUrl);
+  formData.append('link_list', linksText);
+  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
+
+  setTimeout(function() {
+    btn.disabled = false;
+    btn.textContent = 'Start Analysis \u2192';
+    if (status) {
+      status.className = 'upload-status show success';
+      status.innerHTML = 'Submitted! Analysis is running. Results will appear below within 24 hours.';
+    }
+    if (document.getElementById('sheet-url')) document.getElementById('sheet-url').value = '';
+    if (document.getElementById('links-text')) document.getElementById('links-text').value = '';
+  }, 500);
+}
+</script>
+</body></body>
+</html>
