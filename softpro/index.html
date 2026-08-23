@@ -208,8 +208,12 @@ function startAnalysis() {
     link_list: linksText
   };
 
-  var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', blob);
+  var formData = new FormData();
+    formData.append('brand', payload.brand);
+    formData.append('source', payload.source);
+    formData.append('sheet_url', payload.sheet_url);
+    formData.append('link_list', payload.link_list);
+    navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
 
   setTimeout(function() {
     btn.disabled = false;
