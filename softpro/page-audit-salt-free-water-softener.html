@@ -46,7 +46,7 @@ tr:hover { background: #1a1f2e; }
 .dot-yellow { background: #f39c12; }
 .dot-green { background: #27ae60; }
 .issue-card .name { font-weight: 600; color: #ffffff; }
-.issue-card .fix { font-size: 14px; color: #ffffff; opacity: 0.85; margin-top: 4px; }
+.issue-card .fix { font-size: 12px; color: #ffffff; opacity: 0.7; margin-top: 4px; }
 .topic-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
 .topic-on-track { background: rgba(39,174,96,0.15); color: #27ae60; }
 .topic-to-add { background: rgba(243,156,18,0.15); color: #f39c12; }
@@ -78,7 +78,6 @@ a:hover { text-decoration: underline; }
 .entity-badge { display: inline-block; background: rgba(74,144,217,0.15); border: 1px solid #4A90D9; color: #4A90D9; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
 .cluster-badge { display: inline-block; background: rgba(39,174,96,0.15); border: 1px solid #27ae60; color: #27ae60; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
 .gap-badge { display: inline-block; background: rgba(243,156,18,0.15); border: 1px solid #f39c12; color: #f39c12; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px; }
-.stack-vertical { display: block; }
 </style>
 </head>
 <body>
@@ -131,44 +130,44 @@ a:hover { text-decoration: underline; }
   <div class="detail show">
     <div class="cat-group">
       <div class="cat-group-title">Content relevance (3 issues)</div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has alt tags with one word</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">11 alt tags use only one word. Add descriptive alt text with keywords for each image.<br>Severity: Opportunity</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">H1 too long</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Current H1 length exceeds recommended 60 chars. Current title: "" (0 chars). Target: 30-60 chars.<br>Severity: Notice</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Text to code ratio < 10%</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">The text-to-HTML ratio is below 10%. Reduce HTML bloat, remove inline styles, and increase content.<br>Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has alt tags with one word</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">H1 too long</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Text to code ratio < 10%</span><div class="fix">Severity: Notice</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Duplicate content (1 issues)</div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">H1 = Alt</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">H1 tag matches an image alt tag. Make them unique — H1 should be the page heading, alt should describe the image.<br>Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">H1 = Alt</span><div class="fix">Severity: Opportunity</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Links (3 issues)</div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Has an internal link with no anchor text</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">14 internal links have no visible anchor text. Add descriptive anchor text with relevant keywords.<br>Severity: Opportunity</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has less than 10 internal backlinks</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Add more internal links from other pages to this page using relevant anchor text.<br>Severity: Opportunity</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has nofollow outgoing internal links</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">25 internal links use nofollow. Remove nofollow from internal links — it blocks link equity flow.<br>Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Has an internal link with no anchor text</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has less than 10 internal backlinks</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has nofollow outgoing internal links</span><div class="fix">Severity: Notice</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Page speed (4 issues)</div>
-      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM width</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">The DOM has too many elements at the same depth. Flatten the HTML structure and reduce nesting.<br>Severity: Warning</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Add dimensions to images</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Some images lack width/height attributes. Add dimensions to prevent layout shift (CLS).<br>Severity: Opportunity</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Defer offscreen images</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Load below-the-fold images lazily with loading="lazy" to improve page speed.<br>Severity: Opportunity</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Comments in code has more than 1000 symbols</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">15 HTML comments exceed 1000 characters. Remove or minify long comments to reduce page size.<br>Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM width</span><div class="fix">Severity: Warning</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Add dimensions to images</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Defer offscreen images</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Comments in code has more than 1000 symbols</span><div class="fix">Severity: Opportunity</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Security (1 issues)</div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page contains form with GET method</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">2 forms use GET instead of POST. Switch to POST for forms that submit sensitive data.<br>Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page contains form with GET method</span><div class="fix">Severity: Notice</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Internal (1 issues)</div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Multiple Google Tag Manager codes</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Multiple GTM containers detected. Consolidate to a single GTM container.<br>Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Multiple Google Tag Manager codes</span><div class="fix">Severity: Notice</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Social media (1 issues)</div>
-      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Twitter card incomplete</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Severity: Warning</div></div>
+      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Twitter card incomplete</span><div class="fix">Severity: Warning</div></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Code validation (3 issues)</div>
-      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Page has identical HTML id attributes</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Severity: Warning</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Table has no caption</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Severity: Opportunity</div></div>
-      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has tags with style attributes</span><div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Page has identical HTML id attributes</span><div class="fix">Severity: Warning</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Table has no caption</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has tags with style attributes</span><div class="fix">Severity: Notice</div></div>
     </div>
     <p style="font-size: 13px; color: #ffffff; opacity: 0.85; margin-top: 10px;">Summary: 0 Critical · 3 Warnings · 8 Opportunities · 6 Notices</p>
   </div>
@@ -323,13 +322,13 @@ a:hover { text-decoration: underline; }
       <div class="factor-row"><span class="factor-name">ai_target_mentioned</span><span class="factor-value">0</span></div>
       <div class="factor-row"><span class="factor-name">ai_target_cited</span><span class="factor-value">0</span></div>
       <div class="factor-row"><span class="factor-name">ai_citation_count</span><span class="factor-value">0</span></div>
-      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">4</span></div>
-      <div class="factor-row"><span class="factor-name">ai_overview_length</span><span class="factor-value">1608</span></div>
-      <div class="factor-row"><span class="factor-name">ai_product_count</span><span class="factor-value">8</span></div>
-      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">4</span></div>
-      <div class="factor-row"><span class="factor-name">ai_entity_overlap_pct</span><span class="factor-value">52.5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_overview_length</span><span class="factor-value">1572</span></div>
+      <div class="factor-row"><span class="factor-name">ai_product_count</span><span class="factor-value">13</span></div>
+      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_entity_overlap_pct</span><span class="factor-value">58.3</span></div>
       <div class="factor-row"><span class="factor-name">ai_has_overview</span><span class="factor-value">1</span></div>
-      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">3324</span></div>
+      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">2930</span></div>
     </div>
     <div class="cat-group">
       <div class="cat-group-title">Shopify (20 factors)</div>
@@ -380,29 +379,29 @@ a:hover { text-decoration: underline; }
   <div class="detail show">
     <table>
       <tr><th>Rank</th><th>Domain</th><th>Title</th></tr>
-      <tr><td>1</td><td><a href="https://www.culligan.com/blog/pros-and-cons-of-salt-free-water-softeners" target="_blank">www.culligan.com</a></td><td>Pros and cons of salt-free water softeners</td></tr>
+      <tr><td>1</td><td><a href="https://aquasureusa.com/collections/serene-salt-free?srsltid=AfmBOooSh2uPucVFYkccLhL1YkA7pTwNFJASyS9Twk1L3mgvoCZujKpN" target="_blank">aquasureusa.com</a></td><td>Serene Series Salt-Free Water Conditioning Systems</td></tr>
       <tr><td>2</td><td><a href="https://www.reddit.com/r/homeowners/comments/10kqf17/saltfree_water_softeners_worth_it/" target="_blank">www.reddit.com</a></td><td>Salt-free water softeners worth it? : r/homeowners</td></tr>
-      <tr><td>3</td><td><a href="https://aquasureusa.com/collections/serene-salt-free?srsltid=AfmBOorP4ofsInAeouGByanWv_lneAwQWdb5wsupJmEEUQmfHi5F9Rrg" target="_blank">aquasureusa.com</a></td><td>Serene Series Salt-Free Water Conditioning Systems</td></tr>
-      <tr><td>4</td><td><a href="https://nuvoh2o.com/home-water-softener/?srsltid=AfmBOop-uVuMpJDgz9fxciXZTE2cFA79RfKa_5jMe89EPV3vs6X_6HjL" target="_blank">nuvoh2o.com</a></td><td>Home Water Softener</td></tr>
-      <tr><td>5</td><td><a href="https://www.youtube.com/watch?v=ewtRDBtBDwI" target="_blank">www.youtube.com</a></td><td>Salt - Free Water Softeners: Scam or Legit?</td></tr>
-      <tr><td>6</td><td><a href="https://www.aquasana.com/whole-house-water-filters/salt-free-water-conditioner-100365583.html?srsltid=AfmBOorpOmRVzgKgtPy-bSsPczkJ1uwK4MBFbqX9kylRgtBsH6iSVz_O" target="_blank">www.aquasana.com</a></td><td>Salt-Free Water Conditioner</td></tr>
-      <tr><td>7</td><td><a href="https://www.springwellwater.com/product/dual-systems/water-filter-salt-free-conditioner/?srsltid=AfmBOopVQyx0phtF4xRxRCIBFggqJYktq4pK6N_s7otMc1PK-6ZavnTz" target="_blank">www.springwellwater.com</a></td><td>Water Filter and Salt-Free FutureSoft® System</td></tr>
+      <tr><td>3</td><td><a href="https://nuvoh2o.com/home-water-softener/?srsltid=AfmBOorp5sC5Oc71BA_fuPwFWfyQdygXic4BO-KwNtg4raqfGHaiVs2R" target="_blank">nuvoh2o.com</a></td><td>Home Water Softener</td></tr>
+      <tr><td>4</td><td><a href="https://www.culligan.com/blog/pros-and-cons-of-salt-free-water-softeners" target="_blank">www.culligan.com</a></td><td>Pros and cons of salt-free water softeners</td></tr>
+      <tr><td>5</td><td><a href="https://www.aquasana.com/whole-house-water-filters/salt-free-water-conditioner-100365583.html?srsltid=AfmBOorkMO2JQdBbsJkxU_EgD-CD0S97bH2297txzKbyJibbhLEMSomG" target="_blank">www.aquasana.com</a></td><td>Salt-Free Water Conditioner</td></tr>
+      <tr><td>6</td><td><a href="https://www.youtube.com/watch?v=ewtRDBtBDwI" target="_blank">www.youtube.com</a></td><td>Salt - Free Water Softeners: Scam or Legit?</td></tr>
+      <tr><td>7</td><td><a href="https://www.springwellwater.com/product/dual-systems/water-filter-salt-free-conditioner/?srsltid=AfmBOordSd0uUg4XQKw8YSXRla6K1S8ehZpTRGCb_EVscjvTvR1jLT3t" target="_blank">www.springwellwater.com</a></td><td>Water Filter and Salt-Free FutureSoft® System</td></tr>
       <tr><td>8</td><td><a href="https://waterfilterguru.com/best-salt-free-water-softener/" target="_blank">waterfilterguru.com</a></td><td>6 Best Salt-Free Water Softener Systems of 2026</td></tr>
-      <tr><td>9</td><td><a href="https://qualitywaterlab.com/softeners/salt-free/" target="_blank">qualitywaterlab.com</a></td><td>Best Salt-Free Water Softeners for Scale Control</td></tr>
-      <tr><td>10</td><td><a href="https://www.culliganwater.com/resources/salt-free-water-softeners/?srsltid=AfmBOorvvbzfvnQ_aPWchSq9uahBdIc_Gb3756Mt0tOSlkXBDXIUanVl" target="_blank">www.culliganwater.com</a></td><td>Salt-Free Water Softener Info | Culligan Water Resources</td></tr>
-      <tr><td>11</td><td><a href="https://www.youtube.com/watch?v=m7MammU7cD0" target="_blank">www.youtube.com</a></td><td>7 Best Salt-Free Water Softeners</td></tr>
-      <tr><td>12</td><td><a href="https://kindwater.com/products/whole-house-salt-free-water-softener?srsltid=AfmBOorKnLgCs4NuhtnnpY9Pufj8IvH134cB8NRi1kwMCtRU1XXcD42T" target="_blank">kindwater.com</a></td><td>Whole House Salt-Free Water Softener</td></tr>
-      <tr><td>13</td><td><a href="https://www.amazon.com/saltless-water-softener/s?k=saltless+water+softener" target="_blank">www.amazon.com</a></td><td>Saltless Water Softener</td></tr>
-      <tr><td>14</td><td><a href="https://www.youtube.com/watch?v=8t8uRNdx0Ho" target="_blank">www.youtube.com</a></td><td>Water Softener vs Salt Free Water Conditioner. What is the .</td></tr>
-      <tr><td>15</td><td><a href="https://uswatersystems.com/collections/salt-free-softener-alternatives?srsltid=AfmBOopAy6bnXUdyevW0Cf7D6ek5I1GKSbwbCr8hTo3A9zXAYZmAlXJw" target="_blank">uswatersystems.com</a></td><td>Salt-Free Water Softener Alternatives</td></tr>
+      <tr><td>9</td><td><a href="https://www.homedepot.com/b/Plumbing-Water-Filters-Water-Softeners-Water-Softener-Systems/Salt-Free/N-5yc1vZc6sbZ1z1zten" target="_blank">www.homedepot.com</a></td><td>Salt Free - Water Softener Systems</td></tr>
+      <tr><td>10</td><td><a href="https://qualitywaterlab.com/softeners/salt-free/" target="_blank">qualitywaterlab.com</a></td><td>Best Salt-Free Water Softeners for Scale Control</td></tr>
+      <tr><td>11</td><td><a href="https://kindwater.com/products/whole-house-salt-free-water-softener?srsltid=AfmBOoq2pbd7ATJqz2AgDiCyOA3QG483htKiWcbNBU5682k8hHjWR51f" target="_blank">kindwater.com</a></td><td>Whole House Salt-Free Water Softener</td></tr>
+      <tr><td>12</td><td><a href="https://www.youtube.com/watch?v=m7MammU7cD0" target="_blank">www.youtube.com</a></td><td>7 Best Salt-Free Water Softeners</td></tr>
+      <tr><td>13</td><td><a href="https://www.culliganwater.com/resources/salt-free-water-softeners/?srsltid=AfmBOorMBjwXRxE_rN6J-Ctqx6CwllDFaZuAJnWmjBODWZOIA4n_3U7z" target="_blank">www.culliganwater.com</a></td><td>Salt-Free Water Softener Info | Culligan Water Resources</td></tr>
+      <tr><td>14</td><td><a href="https://www.amazon.com/saltless-water-softener/s?k=saltless+water+softener" target="_blank">www.amazon.com</a></td><td>Saltless Water Softener</td></tr>
+      <tr><td>15</td><td><a href="https://www.youtube.com/watch?v=8t8uRNdx0Ho" target="_blank">www.youtube.com</a></td><td>Water Softener vs Salt Free Water Conditioner. What is the .</td></tr>
     </table>
     <div class="ai-status" style="margin-top: 16px;">
       <strong style="color: #27ae60;">AI Overview Found</strong><br>
       <span style="font-size: 13px; color: #ffffff; opacity: 0.85;">
-        Citations: 11 · Source Diversity: 4 · Products: 8
+        Citations: 11 · Source Diversity: 5 · Products: 13
       </span><br>
-      <span style="font-size: 14px; color: #ffffff; opacity: 0.85; margin-top: 4px; display: block;">
-        Cited domains: www.reddit.com, www.youtube.com, www.google.com, www.culligan.com
+      <span style="font-size: 12px; color: #ffffff; opacity: 0.7; margin-top: 4px; display: block;">
+        Cited domains: www.youtube.com, www.reddit.com, www.google.com, nuvoh2o.com, www.aquasana.com
       </span>
       <div style="margin-top: 8px;"><strong style="font-size: 12px; color: #4A90D9;">People Also Ask:</strong><br>        <span style="font-size: 12px; color: #ffffff; opacity: 0.8;">• Are saltless water softeners any good?</span><br>
         <span style="font-size: 12px; color: #ffffff; opacity: 0.8;">• What are the disadvantages of salt-free water softeners?</span><br>
@@ -419,18 +418,18 @@ a:hover { text-decoration: underline; }
   <div class="section-title expandable">Core Web Vitals (Lighthouse)</div>
   <div class="detail show">
     <div class="lighthouse-scores">
-      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #f39c12">57</div></div>
+      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #f39c12">51</div></div>
       <div class="lh-card"><div class="lh-title">Accessibility</div><div class="lh-score" style="color: #27ae60">78</div></div>
       <div class="lh-card"><div class="lh-title">Best Practices</div><div class="lh-score" style="color: #f39c12">46</div></div>
       <div class="lh-card"><div class="lh-title">SEO</div><div class="lh-score" style="color: #27ae60">85</div></div>
     </div>
     <div style="margin-top: 12px;">
-      <div class="cwv-metric"><span>First Contentful Paint</span><span style="color: #27ae60; font-weight: 600;">0.9 s</span></div>
-      <div class="cwv-metric"><span>Largest Contentful Paint</span><span style="color: #cc0000; font-weight: 600;">2.7 s</span></div>
+      <div class="cwv-metric"><span>First Contentful Paint</span><span style="color: #27ae60; font-weight: 600;">0.8 s</span></div>
+      <div class="cwv-metric"><span>Largest Contentful Paint</span><span style="color: #cc0000; font-weight: 600;">2.6 s</span></div>
       <div class="cwv-metric"><span>Cumulative Layout Shift</span><span style="color: #27ae60; font-weight: 600;">0.036</span></div>
-      <div class="cwv-metric"><span>Total Blocking Time</span><span style="color: #cc0000; font-weight: 600;">510 ms</span></div>
-      <div class="cwv-metric"><span>Speed Index</span><span style="color: #cc0000; font-weight: 600;">2.6 s</span></div>
-      <div class="cwv-metric"><span>Time to Interactive</span><span style="color: #cc0000; font-weight: 600;">7.4 s</span></div>
+      <div class="cwv-metric"><span>Total Blocking Time</span><span style="color: #cc0000; font-weight: 600;">960 ms</span></div>
+      <div class="cwv-metric"><span>Speed Index</span><span style="color: #cc0000; font-weight: 600;">2.8 s</span></div>
+      <div class="cwv-metric"><span>Time to Interactive</span><span style="color: #cc0000; font-weight: 600;">7.2 s</span></div>
     </div>
   </div>
 </div>
@@ -527,83 +526,74 @@ a:hover { text-decoration: underline; }
   <div class="section-title expandable">AI-Written Examples for SEO Team (Click to Expand)</div>
   <div class="detail show">
     <p style="font-size:14px;color:#fff;opacity:0.85;margin-bottom:16px">
-      Copy-paste ready examples optimized for the target keyword "salt free water softener".
-      Each includes the core keyword or a highly similar variation, relevant entities, and click-worthy framing.
-      Choose one from each category and update in Shopify Admin &rarr; Pages &rarr; Edit page.
+      Copy-paste ready examples optimized for "salt free water softener". Each includes core keyword or secondary variation, relevant entities, and click-worthy framing.
     </p>
-
     <div class="issue-card" style="border-left:3px solid #4A90D9">
       <span class="name" style="font-size:15px;color:#4A90D9">Meta Title Examples (30-60 chars)</span>
       <div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">
         <strong>1.</strong> Salt Free Water Softener: 15 Tested Systems Ranked (47 chars)<br>
-        <span style="font-size:12px;opacity:0.6">Includes core keyword + "tested" (trust signal) + "ranked" (click-worthy)</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "tested" (trust) + "ranked" (click-worthy)</span><br><br>
         <strong>2.</strong> Best Salt Free Water Softener Systems (2026 Guide) (48 chars)<br>
-        <span style="font-size:12px;opacity:0.6">Includes core keyword + "best" (intent match) + year + "guide" (depth signal)</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "best" (intent) + year + "guide" (depth)</span><br><br>
         <strong>3.</strong> Salt Free Water Softener Reviews: Which Works Best? (48 chars)<br>
-        <span style="font-size:12px;opacity:0.6">Includes core keyword + "reviews" (transactional intent) + question hook</span>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "reviews" (transactional) + question hook</span>
       </div>
     </div>
-
     <div class="issue-card" style="border-left:3px solid #4A90D9">
       <span class="name" style="font-size:15px;color:#4A90D9">Meta Description Examples (120-160 chars)</span>
       <div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">
-        <strong>1.</strong> Looking for the best salt free water softener? We tested 15 saltless water conditioning systems for whole house filtration. See which models actually work and save money. (158 chars)<br>
+        <strong>1.</strong> Looking for the best salt free water softener? We tested 15 saltless water conditioning systems for whole house filtration. See which models actually work. (155 chars)<br>
         <span style="font-size:12px;opacity:0.6">Core keyword + "saltless" (entity) + "whole house" (entity) + "save money" (click trigger)</span><br><br>
-        <strong>2.</strong> Salt free water softener systems tested and ranked. Compare saltless water conditioners by filtration capacity, warranty, and price. Find the right system for your home. (160 chars)<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "saltless" + "warranty" (entity) + "filtration capacity" (entity) + "home" (entity)</span><br><br>
-        <strong>3.</strong> Not sure which salt free water softener works? We reviewed 15 saltless systems for hard water treatment. See real test results, pros, cons, and pricing for each model. (158 chars)<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "saltless" + "hard water" (entity) + "test results" (trust) + "pricing" (intent)</span>
+        <strong>2.</strong> Salt free water softener systems tested and ranked. Compare saltless water conditioners by filtration capacity, warranty, and price for your home. (152 chars)<br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "saltless" + "warranty" (entity) + "filtration capacity" (entity)</span><br><br>
+        <strong>3.</strong> Not sure which salt free water softener works? We reviewed 15 saltless systems for hard water treatment. See real test results, pros, cons, and pricing. (158 chars)<br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "saltless" + "hard water" (entity) + "test results" (trust)</span>
       </div>
     </div>
-
     <div class="issue-card" style="border-left:3px solid #4A90D9">
-      <span class="name" style="font-size:15px;color:#4A90D9">H1 Examples (1 only)</span>
+      <span class="name" style="font-size:15px;color:#4A90D9">H1 Examples</span>
       <div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">
-        <strong>1.</strong> 15 Salt Free Water Softener Systems Tested &amp; Ranked (2026)<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "tested" + "ranked" + year for freshness</span><br><br>
+        <strong>1.</strong> 15 Salt Free Water Softener Systems Tested & Ranked (2026)<br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "tested" + "ranked" + year</span><br><br>
         <strong>2.</strong> The Complete Guide to Salt Free Water Softeners<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "complete guide" (depth signal + entity "guide")</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "complete guide" (depth signal)</span><br><br>
         <strong>3.</strong> Salt Free Water Softener Reviews: We Tested 15 Systems<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "reviews" + "we tested" (first-person trust signal)</span>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "reviews" + "we tested" (trust signal)</span>
       </div>
     </div>
-
     <div class="issue-card" style="border-left:3px solid #4A90D9">
-      <span class="name" style="font-size:15px;color:#4A90D9">H2 Examples (use 2-20)</span>
+      <span class="name" style="font-size:15px;color:#4A90D9">H2 Examples</span>
       <div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">
         <strong>1.</strong> How Salt Free Water Softeners Work<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "how" (informational intent) + entity "softeners"</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "how" (informational) + entity "softeners"</span><br><br>
         <strong>2.</strong> Salt Free vs Salt Water Softener: Which Is Better?<br>
         <span style="font-size:12px;opacity:0.6">Core keyword + comparison + "better" (decision intent)</span><br><br>
         <strong>3.</strong> Top 15 Saltless Water Conditioner Systems Compared<br>
-        <span style="font-size:12px;opacity:0.6">Secondary keyword "saltless" + "conditioner" (entity) + "compared" (transactional)</span>
+        <span style="font-size:12px;opacity:0.6">Secondary keyword "saltless" + "conditioner" (entity) + "compared"</span>
       </div>
     </div>
-
     <div class="issue-card" style="border-left:3px solid #4A90D9">
-      <span class="name" style="font-size:15px;color:#4A90D9">H3 Examples (sub-sections under H2s)</span>
+      <span class="name" style="font-size:15px;color:#4A90D9">H3 Examples</span>
       <div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">
         <strong>1.</strong> What Is TAC Technology in Salt Free Water Softeners?<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "TAC" (entity from InfraNodus) + question format for featured snippets</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "TAC" (entity) + question for featured snippets</span><br><br>
         <strong>2.</strong> Salt Free Water Softener Installation Cost Breakdown<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "installation" (entity) + "cost" (transactional intent)</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "installation" (entity) + "cost" (transactional)</span><br><br>
         <strong>3.</strong> Best Saltless Water Softener for Well Water<br>
-        <span style="font-size:12px;opacity:0.6">Secondary keyword "saltless" + "well water" (entity) + "best" (commercial intent)</span>
+        <span style="font-size:12px;opacity:0.6">Secondary keyword "saltless" + "well water" (entity) + "best"</span>
       </div>
     </div>
-
     <div class="issue-card" style="border-left:3px solid #4A90D9">
       <span class="name" style="font-size:15px;color:#4A90D9">Image ALT Text Examples</span>
       <div class="detail" style="font-size:14px;color:#fff;opacity:0.85;margin-top:10px;padding-top:8px;border-top:1px solid #2a3142">
         <strong>1.</strong> Salt free water softener system installed in a whole house filtration setup<br>
-        <span style="font-size:12px;opacity:0.6">Core keyword + "whole house" (entity) + "filtration" (entity) + descriptive context</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Core keyword + "whole house" (entity) + "filtration" (entity)</span><br><br>
         <strong>2.</strong> Comparison chart of 15 saltless water softener systems by price and filtration capacity<br>
-        <span style="font-size:12px;opacity:0.6">Secondary keyword "saltless" + "comparison" + "price" + "filtration capacity" (entities)</span><br><br>
+        <span style="font-size:12px;opacity:0.6">Secondary keyword "saltless" + "comparison" + "price" + "filtration capacity"</span><br><br>
         <strong>3.</strong> SoftPro salt free water softener unit with dual-stage carbon filter<br>
-        <span style="font-size:12px;opacity:0.6">Brand name + core keyword + "carbon filter" (entity) + product detail</span>
+        <span style="font-size:12px;opacity:0.6">Brand + core keyword + "carbon filter" (entity) + product detail</span>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -624,7 +614,7 @@ a:hover { text-decoration: underline; }
         <div class="fix-item fix-p1">Add FAQPage schema markup</div>
         <div class="fix-item fix-p1">Add Review schema markup</div>
         <div class="fix-item fix-p1">Add JSON-LD structured data</div>
-        <div class="fix-item fix-p1">Improve Lighthouse performance (currently 57)</div>
+        <div class="fix-item fix-p1">Improve Lighthouse performance (currently 51)</div>
         <div class="fix-item fix-p1">Improve Lighthouse accessibility score (currently 78)</div>
         <div class="fix-priority">P2 — Nice to Have (10)</div>
         <div class="fix-item fix-p2">Add dimensions to images</div>
@@ -686,7 +676,7 @@ a:hover { text-decoration: underline; }
   <div class="recommendation"><strong>AI Overview:</strong> Google AI Overview exists for this keyword with 11 citations. Optimize content to get cited.</div>
   <div class="recommendation"><strong>Content Gaps:</strong> InfraNodus found 10 content gaps. Add missing entities to improve topical coverage.</div>
   <div class="recommendation"><strong>SERP Competition:</strong> Analyze top 10 competitors for content length, structure, and schema patterns to match.</div>
-  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 57/100. Optimize images, reduce JS, and enable lazy loading.</div>
+  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 51/100. Optimize images, reduce JS, and enable lazy loading.</div>
 
 <div style="margin-top: 16px; background: #1a1f2e; border: 1px solid #2a3142; border-radius: 8px; padding: 12px 16px; font-size: 13px;">
   <strong style="color: #4A90D9;">Google Index Status:</strong>
@@ -704,12 +694,10 @@ document.querySelectorAll('.expandable, .issue-card').forEach(function(el) {
   el.style.cursor = 'pointer';
   el.addEventListener('click', function(e) {
     if (e.target.tagName === 'A') return;
-    var detail = this.querySelector('.detail');
-    if (!detail) {
-      detail = this.nextElementSibling;
-      if (!detail || !detail.classList.contains('detail')) return;
+    var detail = this.querySelector('.detail') || el.nextElementSibling;
+    if (detail && detail.classList.contains('detail')) {
+      detail.classList.toggle('show');
     }
-    detail.classList.toggle('show');
   });
 });
 </script>
