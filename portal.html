@@ -264,7 +264,10 @@ function submitForm(type) {
   data._template = 'table';
   
   var formData = new FormData();
-  for (var key in data) { formData.append(key, data[key]); }
+  formData.append('brand', data.name || 'Portal');
+  formData.append('source', data.type || 'audit');
+  formData.append('sheet_url', data.url || '');
+  formData.append('link_list', data.keyword || '');
   navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
   setTimeout(function() {
     var el = document.getElementById(type + '-success');
