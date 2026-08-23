@@ -184,8 +184,8 @@ function startAnalysis() {
     mode: 'no-cors', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   })
-  .then(function(r) { return r.json(); })
-  .then(function(d) {
+  .then(function(r) {
+    // no-cors mode: response is opaque, just show success
     btn.disabled = false;
     btn.textContent = 'Start Analysis →';
     status.className = 'upload-status show success';
