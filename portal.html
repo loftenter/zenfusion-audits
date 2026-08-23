@@ -263,16 +263,13 @@ function submitForm(type) {
   data._subject = 'Zenfusion Audit Request: ' + data.type;
   data._template = 'table';
   
-  fetch('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-  .then(function(r) {
+  var formData = new FormData();
+  for (var key in data) { formData.append(key, data[key]); }
+  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
+  setTimeout(function() {
     var el = document.getElementById(type + '-success');
     if (el) { el.textContent = msg; el.classList.add('show'); }
-  })
+  }, 500);
   .catch(function(e) {
     // Show success anyway — no-cors mode can't read the response
     var el = document.getElementById(type + '-success');
@@ -461,15 +458,13 @@ submitForm = function(type) {
   if (el) { el.textContent = msg; el.classList.add('show'); }
   
   // Submit in background
-  fetch('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).catch(function(e) { /* silent fail — progress still shows */ });
-  
-  // Clear form inputs
-  document.querySelectorAll('.audit-type input').forEach(function(i) { i.value = ''; });
+  var formData = new FormData();
+  for (var key in data) { formData.append(key, data[key]); }
+  navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzDJgJ6hhIN2Bv4_wnqVLCgOKuVUP9wig94iGdmR2fXHATVQb571OGWUEZyACad0z0u/exec', formData);
+  setTimeout(function() {
+    var el = document.getElementById(type + '-success');
+    if (el) { el.textContent = msg; el.classList.add('show'); }
+  }, 500);
 }</script>
 </body>
 </html>
