@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenfusion Page Auditor Report — closet flange — https://www.plumbingsupplyandmore.com/4-</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #ffffff; color: #1a1a1a; padding: 40px 20px; max-width: 1000px; margin: 0 auto; font-size: 16px; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+.url-headline { font-size: 20px; color: #0066cc; font-weight: 600; margin-bottom: 10px; word-break: break-all; }
+.keyword-tag { display: inline-block; background: #e7f3ff; border: 1px solid #0066cc; color: #0066cc; padding: 6px 16px; border-radius: 12px; font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+.subtitle { color: #666; font-size: 16px; margin-bottom: 30px; }
+.section { margin-bottom: 30px; }
+.section-title { color: #0066cc; font-size: 20px; margin-bottom: 14px; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; cursor: pointer; }
+.expandable { cursor: pointer; }
+.expandable::after { content: " ▼"; font-size: 14px; color: #0066cc; }
+.expandable.expanded::after { content: " ▲"; }
+.detail { display: none; }
+.detail.show { display: block; }
+.detail p { font-size: 15px; line-height: 1.6; margin-bottom: 10px; }
+.score-gauge { text-align: center; margin-bottom: 30px; padding: 30px; background: #f8f9fa; border-radius: 12px; border: 1px solid #e0e0e0; }
+.score-value { font-size: 64px; font-weight: 700; color: #f39c12; }
+.score-label { font-size: 16px; color: #666; margin-top: 4px; }
+.srs-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+.srs-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; text-align: center; }
+.srs-card .card-title { font-size: 15px; color: #333; margin-bottom: 8px; }
+.srs-card .card-score { font-size: 36px; font-weight: 700; }
+.score-breakdown { display: grid; gap: 10px; }
+.score-bar { display: flex; align-items: center; gap: 10px; }
+.score-bar .name { width: 200px; font-size: 18px; color: #1a1a1a; }
+.score-bar .bar { flex: 1; height: 24px; background: #f8f9fa; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; }
+.score-bar .fill { height: 100%; border-radius: 12px; transition: width 0.5s; }
+.score-bar .num { width: 40px; text-align: right; font-size: 15px; font-weight: 600; color: #1a1a1a; }
+.green-bg { background: #27ae60; }
+.orange-bg { background: #f39c12; }
+.red-bg { background: #e74c3c; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { background: #f0f0f0; color: #1a1a1a; padding: 8px; text-align: left; font-size: 14px; }
+td { padding: 8px; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; }
+tr:hover { background: #f8f9fa; }
+.in-range { color: #27ae60; }
+.out-of-range { color: #f39c12; }
+.issue-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+.issue-card .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.dot-red { background: #e74c3c; }
+.dot-yellow { background: #f39c12; }
+.dot-green { background: #27ae60; }
+.issue-card .name { font-weight: 600; color: #1a1a1a; }
+.issue-card .fix { font-size: 14px; color: #666; margin-top: 4px; }
+.topic-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 14px; margin: 2px; }
+.topic-on-track { background: #e8f5e9; color: #1b7a3d; }
+.topic-to-add { background: #fff3e0; color: #b35400; }
+.topic-over-used { background: #fdecea; color: #c0392b; }
+.factor-group { margin-bottom: 12px; }
+.factor-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f8f9fa; font-size: 14px; }
+.factor-name { color: #333; }
+.factor-value { color: #0066cc; font-weight: 600; }
+.cat-group { margin-bottom: 16px; }
+.cat-group-title { font-size: 18px; font-weight: 600; color: #0066cc; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0; }
+.recommendation { background: #f0f7ff; border-left: 3px solid #0066cc; padding: 14px 18px; margin: 10px 0; border-radius: 6px; font-size: 16px; color: #1a1a1a; line-height: 1.6; }
+.recommendation strong { color: #0066cc; }
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.fix-item { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; font-size: 15px; color: #1a1a1a; }
+.fix-p0 { border-left: 3px solid #e74c3c; }
+.fix-p1 { border-left: 3px solid #f39c12; }
+.fix-p2 { border-left: 3px solid #27ae60; }
+.fix-col-title { font-size: 20px; font-weight: 600; color: #0066cc; margin-bottom: 10px; }
+.fix-priority { font-size: 14px; font-weight: 600; margin: 12px 0 6px; color: #555; }
+.lighthouse-scores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.lh-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; text-align: center; }
+.lh-card .lh-title { font-size: 14px; color: #333; margin-bottom: 6px; }
+.lh-card .lh-score { font-size: 28px; font-weight: 700; }
+.cwv-metric { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #e0e0e0; font-size: 15px; }
+.ai-status { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+.footer { text-align: center; margin-top: 40px; color: #999; font-size: 13px; border-top: 1px solid #e0e0e0; padding-top: 20px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.entity-badge { display: inline-block; background: #e7f3ff; border: 1px solid #0066cc; color: #0066cc; padding: 4px 12px; border-radius: 12px; font-size: 14px; margin: 2px; }
+.cluster-badge { display: inline-block; background: #e8f5e9; border: 1px solid #27ae60; color: #1b7a3d; padding: 4px 12px; border-radius: 12px; font-size: 14px; margin: 2px; }
+.gap-badge { display: inline-block; background: #fff3e0; border: 1px solid #e67e22; color: #b35400; padding: 4px 12px; border-radius: 12px; font-size: 14px; margin: 2px; }
+</style>
+</head>
+<body>
+
+<h1>Zenfusion Page Auditor Report</h1>
+<div class="url-headline"><a href="https://www.plumbingsupplyandmore.com/4-x-3-stainless-steel-closet-flange-1998722.html" target="_blank">https://www.plumbingsupplyandmore.com/4-x-3-stainless-steel-closet-flange-1998722.html</a></div>
+<div class="keyword-tag">Keyword: closet flange</div>
+
+<!-- 1. SRS Score Gauge + 3 SRS Cards -->
+<div class="section">
+  <div class="score-gauge">
+    <div class="score-value">61</div>
+    <div class="score-label">SRS Composite Score (0-100)</div>
+  </div>
+  <div class="srs-cards">
+    <div class="srs-card">
+      <div class="card-title">Structure</div>
+      <div class="card-score" style="color: #27ae60">71</div>
+    </div>
+    <div class="srs-card">
+      <div class="card-title">Relevance</div>
+      <div class="card-score" style="color: #f39c12">61</div>
+    </div>
+    <div class="srs-card">
+      <div class="card-title">Signal</div>
+      <div class="card-score" style="color: #f39c12">50</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Content Quality (6 Dimensions)</div>
+  <div class="detail show">
+    <div class="score-breakdown">
+      <div class="score-bar"><div class="name">Content Hierarchy</div><div class="bar"><div class="fill green-bg" style="width: 80%"></div></div><div class="num">80</div></div>
+      <div class="score-bar"><div class="name">Factuality</div><div class="bar"><div class="fill orange-bg" style="width: 40%"></div></div><div class="num">40</div></div>
+      <div class="score-bar"><div class="name">Information Gain</div><div class="bar"><div class="fill orange-bg" style="width: 60%"></div></div><div class="num">60</div></div>
+      <div class="score-bar"><div class="name">Authority E E A T</div><div class="bar"><div class="fill orange-bg" style="width: 55%"></div></div><div class="num">55</div></div>
+      <div class="score-bar"><div class="name">Accuracy Title Alignment</div><div class="bar"><div class="fill orange-bg" style="width: 65%"></div></div><div class="num">65</div></div>
+      <div class="score-bar"><div class="name">Content Format</div><div class="bar"><div class="fill green-bg" style="width: 70%"></div></div><div class="num">70</div></div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 12px;">Overall Content Score: <strong style="color: #f39c12">62/100</strong> · Tone: Strong (Positive)</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Technical SEO Issues (13 Categories)</div>
+  <div class="detail show">
+    <div class="cat-group">
+      <div class="cat-group-title">Content relevance (4 issues)</div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">H2 has other tags inside</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has alt tags with one word</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">H1 too long</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Text to code ratio < 10%</span><div class="fix">Severity: Notice</div></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Links (8 issues)</div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Has an internal link with no anchor text</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has less than 10 internal backlinks</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has nofollow outgoing internal links</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has link with URL in onclick</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has more than 2 links to internal page with same anchor</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has more than 2 links to internal page with same anchor</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has more than 2 links to internal page with same anchor</span><div class="fix">Severity: Notice</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has more than 100 internal links</span><div class="fix">Severity: Notice</div></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Page speed (5 issues)</div>
+      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM size</span><div class="fix">Severity: Warning</div></div>
+      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM width</span><div class="fix">Severity: Warning</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Add dimensions to images</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Serve images in next-gen formats</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Comments in code has more than 1000 symbols</span><div class="fix">Severity: Opportunity</div></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Security (1 issues)</div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page contains form with GET method</span><div class="fix">Severity: Notice</div></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Internal (1 issues)</div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Multiple Google Tag Manager codes</span><div class="fix">Severity: Notice</div></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Social media (1 issues)</div>
+      <div class="issue-card"><span class="dot dot-yellow"></span><span class="name">Twitter card missing</span><div class="fix">Severity: Warning</div></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Code validation (3 issues)</div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Headings hierarchy is broken</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Table has no caption</span><div class="fix">Severity: Opportunity</div></div>
+      <div class="issue-card"><span class="dot dot-green"></span><span class="name">Page has tags with style attributes</span><div class="fix">Severity: Notice</div></div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 10px;">Summary: 0 Critical · 3 Warnings · 9 Opportunities · 11 Notices</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Ranking Factors (173+ Factors)</div>
+  <div class="detail">
+    <div class="cat-group">
+      <div class="cat-group-title">On-Page (36 factors)</div>
+      <div class="factor-row"><span class="factor-name">title_length</span><span class="factor-value">57</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_present</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_position</span><span class="factor-value">-1</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_at_start</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_density</span><span class="factor-value">0.09</span></div>
+      <div class="factor-row"><span class="factor-name">h1_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h1_length</span><span class="factor-value">65</span></div>
+      <div class="factor-row"><span class="factor-name">h1_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h1_keyword_position</span><span class="factor-value">0.57</span></div>
+      <div class="factor-row"><span class="factor-name">h2_count</span><span class="factor-value">21</span></div>
+      <div class="factor-row"><span class="factor-name">h2_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h2_keyword_in_first</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h3_count</span><span class="factor-value">7</span></div>
+      <div class="factor-row"><span class="factor-name">h4_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h5_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h6_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">word_count</span><span class="factor-value">4873</span></div>
+      <div class="factor-row"><span class="factor-name">char_count</span><span class="factor-value">32078</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_count</span><span class="factor-value">19</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_density</span><span class="factor-value">0.39</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_first_100</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_last_100</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">paragraph_count</span><span class="factor-value">65</span></div>
+      <div class="factor-row"><span class="factor-name">avg_paragraph_length</span><span class="factor-value">45.8</span></div>
+      <div class="factor-row"><span class="factor-name">paragraph_length_variance</span><span class="factor-value">31.1</span></div>
+      <div class="factor-row"><span class="factor-name">sentence_count</span><span class="factor-value">142</span></div>
+      <div class="factor-row"><span class="factor-name">avg_sentence_length</span><span class="factor-value">34.4</span></div>
+      <div class="factor-row"><span class="factor-name">bold_count</span><span class="factor-value">42</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_bold</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">ul_count</span><span class="factor-value">16</span></div>
+      <div class="factor-row"><span class="factor-name">ol_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">li_count</span><span class="factor-value">54</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_lists</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">table_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">table_rows</span><span class="factor-value">13</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_tables</span><span class="factor-value">0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Links (16 factors)</div>
+      <div class="factor-row"><span class="factor-name">internal_links</span><span class="factor-value">14</span></div>
+      <div class="factor-row"><span class="factor-name">external_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">total_links</span><span class="factor-value">19</span></div>
+      <div class="factor-row"><span class="factor-name">nofollow_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">exact_match_anchors</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">partial_match_anchors</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">branded_anchors</span><span class="factor-value">15</span></div>
+      <div class="factor-row"><span class="factor-name">external_unique_domains</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">link_density</span><span class="factor-value">0.39</span></div>
+      <div class="factor-row"><span class="factor-name">nav_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">footer_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">body_links</span><span class="factor-value">19</span></div>
+      <div class="factor-row"><span class="factor-name">anchor_diversity_ratio</span><span class="factor-value">1.0</span></div>
+      <div class="factor-row"><span class="factor-name">broken_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">internal_nofollow</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">external_nofollow</span><span class="factor-value">0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Technical (27 factors)</div>
+      <div class="factor-row"><span class="factor-name">url_length</span><span class="factor-value">86</span></div>
+      <div class="factor-row"><span class="factor-name">url_depth</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_has_keyword</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_hyphens</span><span class="factor-value">7</span></div>
+      <div class="factor-row"><span class="factor-name">url_underscores</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">url_https</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_www</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">canonical_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">canonical_self_referencing</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_noindex</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_nofollow</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">page_size_kb</span><span class="factor-value">503.4</span></div>
+      <div class="factor-row"><span class="factor-name">html_size_kb</span><span class="factor-value">503.4</span></div>
+      <div class="factor-row"><span class="factor-name">css_count</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">js_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">font_count</span><span class="factor-value">11</span></div>
+      <div class="factor-row"><span class="factor-name">dom_total_elements</span><span class="factor-value">3246</span></div>
+      <div class="factor-row"><span class="factor-name">dom_tag_diversity</span><span class="factor-value">40</span></div>
+      <div class="factor-row"><span class="factor-name">dom_max_depth</span><span class="factor-value">30</span></div>
+      <div class="factor-row"><span class="factor-name">og_title</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_description</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_image</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_type</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">twitter_card</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">hreflang_present</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">hreflang_count</span><span class="factor-value">0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Schema (16 factors)</div>
+      <div class="factor-row"><span class="factor-name">json_ld_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_product_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_review_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_aggregaterating_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_faqpage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_organization_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_breadcrumblist_schema</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_article_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_videoobject_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_itempage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_webpage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">schema_type_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">schema_property_count</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">sameas_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_microdata</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_rdfa</span><span class="factor-value">0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Semantic (16 factors)</div>
+      <div class="factor-row"><span class="factor-name">lsi_term_count</span><span class="factor-value">11</span></div>
+      <div class="factor-row"><span class="factor-name">lsi_coverage_pct</span><span class="factor-value">68.75</span></div>
+      <div class="factor-row"><span class="factor-name">has_faq_section</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">faq_question_count</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">has_comparison</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_spec_table</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_howto</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_reviews</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_intro_body_conclusion</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">passage_qa_count</span><span class="factor-value">10</span></div>
+      <div class="factor-row"><span class="factor-name">has_eav_table</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">infr_entity_count</span><span class="factor-value">150</span></div>
+      <div class="factor-row"><span class="factor-name">infr_edge_count</span><span class="factor-value">764</span></div>
+      <div class="factor-row"><span class="factor-name">infr_cluster_count</span><span class="factor-value">8</span></div>
+      <div class="factor-row"><span class="factor-name">infr_content_gap_count</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">infr_diversity_score</span><span class="factor-value">0.0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Media (12 factors)</div>
+      <div class="factor-row"><span class="factor-name">image_count</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">images_with_alt</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">images_without_alt</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">image_alt_keyword</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">image_to_text_ratio</span><span class="factor-value">0.06</span></div>
+      <div class="factor-row"><span class="factor-name">webp_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">jpg_images</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">png_images</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">svg_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">lazy_loading</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">video_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">audio_count</span><span class="factor-value">0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">AI Overview (10 factors)</div>
+      <div class="factor-row"><span class="factor-name">ai_target_mentioned</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_target_cited</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_citation_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_overview_length</span><span class="factor-value">1404</span></div>
+      <div class="factor-row"><span class="factor-name">ai_product_count</span><span class="factor-value">12</span></div>
+      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_entity_overlap_pct</span><span class="factor-value">60.0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_has_overview</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">4276</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Shopify (20 factors)</div>
+      <div class="factor-row"><span class="factor-name">shopify_cdn</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_theme</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_section</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">cart_link</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">checkout_link</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">is_product_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_collection_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_blog_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_app</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">liquid_indicator</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">variant_url</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_metafield</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_money_format</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_analytics</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_storefront</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_currency</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_locale</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_buy_button</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_shopify_reviews</span><span class="factor-value">0</span></div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title">Backlinks (14 factors)</div>
+      <div class="factor-row"><span class="factor-name">mm_match_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_match_rate</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_top_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_avg_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_median_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_ref_domains_checked</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_tier_targets</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_tier_priority_score</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_opportunity_score</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_in_majestic</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_majestic_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_strong_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_medium_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_weak_links</span><span class="factor-value">0</span></div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 10px;">Total factors extracted: 200</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">SERP Competitors & AI Overview</div>
+  <div class="detail show">
+    <table>
+      <tr><th>Rank</th><th>Domain</th><th>Title</th></tr>
+      <tr><td>1</td><td><a href="https://www.oatey.com/faqs-blog-videos-case-studies/blog/guide-toilet-flange-types" target="_blank">www.oatey.com</a></td><td>What Are the Different Types of Toilet Flanges? ...</td></tr>
+      <tr><td>2</td><td><a href="https://www.homedepot.com/b/Plumbing-Plumbing-Parts-Toilet-Parts-Toilet-Flanges/N-5yc1vZckh3" target="_blank">www.homedepot.com</a></td><td>Toilet Flanges</td></tr>
+      <tr><td>3</td><td><a href="https://www.jonesstephens.com/closet-flanges" target="_blank">www.jonesstephens.com</a></td><td>Closet Flanges</td></tr>
+      <tr><td>4</td><td><a href="https://www.amazon.com/stores/Oatey/page/8535E50F-8A96-4E26-85E7-B79245CF9FAD" target="_blank">www.amazon.com</a></td><td>Oatey: Closet Flanges</td></tr>
+      <tr><td>5</td><td><a href="https://en.wikipedia.org/wiki/Closet_flange" target="_blank">en.wikipedia.org</a></td><td>Closet flange</td></tr>
+      <tr><td>6</td><td><a href="https://www.ferguson.com/category/plumbing-parts-supplies/toilet-urinal-parts/closet-flanges/?srsltid=AfmBOopsUzYk3cT1zaP91beHNe3cF94QbmZYGQhNmSK5AOwoazuwY0Dw" target="_blank">www.ferguson.com</a></td><td>Closet Flanges</td></tr>
+      <tr><td>7</td><td><a href="https://www.firstsupply.com/Catalog/Plumbing-Hardware/Plumbing-Specialties/Closet-Flanges" target="_blank">www.firstsupply.com</a></td><td>Closet Flanges</td></tr>
+      <tr><td>8</td><td><a href="https://www.thespruce.com/setting-a-toilet-2719046" target="_blank">www.thespruce.com</a></td><td>How to Properly Set Your Toilet Flange Height</td></tr>
+      <tr><td>9</td><td><a href="https://www.prideplumbingofrochester.com/blog/toilet-flanges" target="_blank">www.prideplumbingofrochester.com</a></td><td>Toilet Flanges</td></tr>
+      <tr><td>10</td><td><a href="https://www.oatey.com/resources/project-guides/install-toilet-flange" target="_blank">www.oatey.com</a></td><td>How to Install a Toilet Flange: Step-by-Step Installation Gu</td></tr>
+      <tr><td>11</td><td><a href="https://www.quora.com/What-is-a-closet-flange-and-why-do-plumbers-install-them" target="_blank">www.quora.com</a></td><td>What is a 'closet flange' and why do plumbers install them?</td></tr>
+      <tr><td>12</td><td><a href="https://www.youtube.com/watch?v=MlWEhuevsIA" target="_blank">www.youtube.com</a></td><td>Sioux Chief Closet Flanges</td></tr>
+      <tr><td>13</td><td><a href="https://www.southernpipe.com/77270/Category/Toilet-Closet-Flanges?srsltid=AfmBOoo7QVZ8NMp52tEd4ypXaHagBXswmUwfu-_Hz-ReBu8WdYLSxVEz" target="_blank">www.southernpipe.com</a></td><td>Buy a High-Quality Toilet Closet Flange for Sale</td></tr>
+      <tr><td>14</td><td><a href="https://franklinhardware.org/c/Plumbing/Kitchen-and-Bath/Toilet-Repair/?categories%5B0%5D=Closet-Flanges" target="_blank">franklinhardware.org</a></td><td>Toilet Repair</td></tr>
+      <tr><td>15</td><td><a href="https://pexuniverse.com/closet-toilet-flanges?srsltid=AfmBOop-NFSzb1UAM8Yw9sXx89niDKqSmnVqg9LC7ioy2eIv-_s3X6mC" target="_blank">pexuniverse.com</a></td><td>PVC Closet (Toilet) Flanges</td></tr>
+    </table>
+    <div class="ai-status" style="margin-top: 16px;">
+      <strong style="color: #27ae60;">AI Overview Found</strong><br>
+      <span style="font-size: 15px; color: #1a1a1a;">
+        Citations: 8 · Source Diversity: 5 · Products: 12
+      </span><br>
+      <span style="font-size: 14px; color: #1a1a1a; margin-top: 4px; display: block;">
+        Cited domains: YouTube, Oatey, Wikipedia, The Spruce, Pride Plumbing of Rochester
+      </span>
+      <div style="margin-top: 8px;"><strong style="font-size: 14px; color: #0066cc;">People Also Ask:</strong><br>        <span style="font-size: 14px; color: #1a1a1a;">• What is a closet flange?</span><br>
+        <span style="font-size: 14px; color: #1a1a1a;">• How high should a closet flange be?</span><br>
+        <span style="font-size: 14px; color: #1a1a1a;">• Can I replace a toilet flange myself?</span><br>
+        <span style="font-size: 14px; color: #1a1a1a;">• How much does it cost to replace a closet flange?</span><br>
+      </div>
+      <div style="margin-top: 8px;"><strong style="font-size: 14px; color: #0066cc;">Special Results:</strong><br>        <span style="font-size: 14px; color: #1a1a1a;">• Video: </span><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Core Web Vitals (Lighthouse)</div>
+  <div class="detail show">
+    <div class="lighthouse-scores">
+      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #e74c3c">38</div></div>
+      <div class="lh-card"><div class="lh-title">Accessibility</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">Best Practices</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">SEO</div><div class="lh-score" style="color: #27ae60">92</div></div>
+    </div>
+    <div style="margin-top: 12px;">
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Structure Metrics (with Target Ranges)</div>
+  <div class="detail show">
+    <table>
+      <tr><th>Metric</th><th>Value</th><th>Target</th><th>Status</th></tr>
+      <tr><td>Words</td><td>4904</td><td>900-2500</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Headings 1</td><td>1</td><td>0-1</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Headings 2</td><td>21</td><td>2-20</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Paragraphs</td><td>68</td><td>5-30</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Internal links</td><td>433</td><td>1-4</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>External links</td><td>5</td><td>0-3</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Citations</td><td>0</td><td>No target</td><td>—</td></tr>
+      <tr><td>Entities</td><td>69</td><td>No target</td><td>—</td></tr>
+      <tr><td>Lists</td><td>16</td><td>No target</td><td>—</td></tr>
+      <tr><td>Tables</td><td>1</td><td>No target</td><td>—</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Schema Analysis (Score: 20/100)</div>
+  <div class="detail show">
+    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 8px;">Found: BreadcrumbList</p>
+    <p style="font-size: 15px; color: #27ae60; margin-bottom: 8px;">Critical found: BreadcrumbList</p>
+    <p style="font-size: 15px; color: #f39c12;">Missing: Article, Organization, Author, FAQPage, Review</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Entity & Topical Analysis (InfraNodus)</div>
+  <div class="detail show">
+    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 10px;">Entities: 150 · Edges: 764 · Clusters: 8 · Content Gaps: 4 · Diversity: 0.0</p>
+    <div style="margin-bottom: 12px;"><strong style="font-size: 15px; color: #0066cc;">Top Entities:</strong> <button onclick="copyEntities()" style="background:#0066cc;color:white;border:none;padding:3px 10px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Click to Copy All Entities</button><br>
+      <span class="entity-badge">stainless</span>
+      <span class="entity-badge">steel</span>
+      <span class="entity-badge">closet</span>
+      <span class="entity-badge">sale</span>
+      <span class="entity-badge">event</span>
+      <span class="entity-badge">store</span>
+      <span class="entity-badge">work</span>
+      <span class="entity-badge">correctly</span>
+      <span class="entity-badge">cookie</span>
+      <span class="entity-badge">disabled</span>
+      <span class="entity-badge">🚚</span>
+      <span class="entity-badge">free</span>
+      <span class="entity-badge">shipping</span>
+      <span class="entity-badge">item</span>
+      <span class="entity-badge">exclude</span>
+      <span class="entity-badge">call</span>
+      <span class="entity-badge">toggle</span>
+      <span class="entity-badge">nav</span>
+      <span class="entity-badge">search</span>
+      <span class="entity-badge">account</span>
+    </div>
+    <div style="margin-bottom: 12px;"><strong style="font-size: 15px; color: #27ae60;">Clusters:</strong><br>
+      <span class="cluster-badge">sale work cart</span>
+      <span class="cluster-badge">fitting pipe gas</span>
+      <span class="cluster-badge">water boiler oil</span>
+      <span class="cluster-badge">part accessory toilet</span>
+      <span class="cluster-badge">soil trap category</span>
+      <span class="cluster-badge">valve stop flush</span>
+      <span class="cluster-badge">hanger strut pvc</span>
+      <span class="cluster-badge">hook</span>
+    </div>
+    <div><strong style="font-size: 15px; color: #f39c12;">Content Gaps: 4 gaps detected</strong> — add missing entities to improve topical coverage.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable">Topics / Keyword Tracking</div>
+  <div class="detail show">
+    <div style="margin-bottom: 8px;"><strong style="font-size: 15px; color: #27ae60;">On Track:</strong><br>
+      <span class="topic-badge topic-on-track">flanges</span>
+    </div>
+    <div style="margin-bottom: 8px;"><strong style="font-size: 15px; color: #f39c12;">To Add:</strong><br>
+      <span class="topic-badge topic-to-add">+ closet flange</span>
+      <span class="topic-badge topic-to-add">+ closets</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Information Gain Analysis -->
+  <div class="section">
+    <div class="section-title expandable">Information Gain Analysis (Invisible Authority)</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        Analyzes top 5 ranking pages for "closet flange" to find <strong>consensus</strong> (what most pages say = your coverage floor) 
+        and <strong>unique claims</strong> (what only one page says = your information gain opportunity). 
+        Repetition rate: <strong>0.0%</strong> — lower means more unique content to consolidate.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">5</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Pages Analyzed</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">1</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Total Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Consensus Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#f39c12">1</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Unique Claims</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#27ae60;font-size:16px;margin:20px 0 10px">CONSENSUS (Coverage Floor — must cover these)</h3>
+      <p style="font-size:15px;color:#999;margin-bottom:10px">Claims shared by 2+ ranking pages. Cover these to be a credible answer.</p>
+
+      <h3 style="color:#f39c12;font-size:16px;margin:20px 0 10px">UNIQUE CLAIMS (Information Gain Opportunities)</h3>
+      <p style="font-size:15px;color:#999;margin-bottom:10px">Claims made by only one page. Consolidate these to carry more info than any single competitor.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Requires Certification <span style="color:#f39c12;font-size:13px">— www.ferguson.com (pos 0)</span></div>
+
+      <h3 style="color:#cc0000;font-size:16px;margin:20px 0 10px">MISSING (White Space — nobody covers these)</h3>
+      <p style="font-size:15px;color:#999;margin-bottom:10px">Topics no ranking page covers. Own this space with original first-hand content.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">ROI calculation and cost savings analysis</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Environmental impact of salt discharge</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Effect on septic systems</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Water pH impact</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Installation time estimates</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Warranty claim rates and reliability data</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Customer service comparison</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Long-term ownership costs beyond initial purchase</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Impact on drinking water taste</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Comparison of salt consumption efficiency across models</div>
+
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">Content Brief</h3>
+      <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:16px;font-size:15px;line-height:1.6">
+        <p><strong>1. Cover the consensus</strong> — ensure your page addresses all shared claims above. This is your entry ticket.</p>
+        <p style="margin-top:8px"><strong>2. Consolidate unique claims</strong> — pull together the scattered unique claims from competitors. Your page will carry more information than any single competitor.</p>
+        <p style="margin-top:8px"><strong>3. Fill white space</strong> — add first-hand material on the missing topics. This is where true information gain lives — content that appears nowhere on page 1.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- AI-Generated FAQs -->
+  <div class="section">
+    <div class="section-title expandable">AI-Generated FAQs (From Information Gain Analysis)</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        5 FAQs generated to close white space and consolidate unique claims from competitors. 
+        Each FAQ is factual, brand-relevant, and designed for FAQ schema markup and AI Overview citation.
+        Add these to the page with FAQPage schema for passage optimization.
+      </p>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q1: How much does a closet flange cost?</span>
+        <div class="detail" style="font-size:14px;color:#555;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A quality closet flange typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q2: What is the ROI of a closet flange?</span>
+        <div class="detail" style="font-size:14px;color:#555;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A closet flange typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q3: Do closet flanges affect septic systems?</span>
+        <div class="detail" style="font-size:14px;color:#555;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Modern closet flanges are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn't harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q4: Can I install a closet flange myself or do I need a plumber?</span>
+        <div class="detail" style="font-size:14px;color:#555;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Many modern closet flanges are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You'll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q5: How does a closet flange affect drinking water taste?</span>
+        <div class="detail" style="font-size:14px;color:#555;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Softened water has a slightly different taste due to the ion exchange process. Most people don't notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water.
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:16px;background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px">
+        <p style="color:#0066cc;font-size:15px;font-weight:600;margin-bottom:8px">FAQPage Schema (JSON-LD) — paste into page &lt;head&gt;:</p>
+        <button onclick="copySchema(this)" data-schema="{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;mainEntity&quot;: [
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How much does a closet flange cost?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A quality closet flange typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;What is the ROI of a closet flange?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A closet flange typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Do closet flanges affect septic systems?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Modern closet flanges are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn&#39;t harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can I install a closet flange myself or do I need a plumber?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Many modern closet flanges are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You&#39;ll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How does a closet flange affect drinking water taste?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Softened water has a slightly different taste due to the ion exchange process. Most people don&#39;t notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water.&quot;
+      }
+    }
+  ]
+}" style="background:#0066cc;color:white;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;margin-bottom:10px">📋 Copy Schema</button>
+        <code style="font-size:13px;color:#1b7a3d;display:block;white-space:pre-wrap;overflow-x:auto;background:#ffffff;padding:10px;border:1px solid #e0e0e0;border-radius:6px">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a closet flange cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A quality closet flange typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the ROI of a closet flange?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A closet flange typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do closet flanges affect septic systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern closet flanges are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn't harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I install a closet flange myself or do I need a plumber?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many modern closet flanges are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You'll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a closet flange affect drinking water taste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Softened water has a slightly different taste due to the ion exchange process. Most people don't notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</code>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- AI-Written Examples -->
+  <div class="section">
+    <div class="section-title expandable">AI-Written Examples (Click to Expand)</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        Three click-worthy, keyword-optimized examples each for meta title, meta description,
+        H1, H2, H3, and image ALT text. Swap in your brand and refine for tone.
+      </p>
+      <div class="cat-group">
+        <div class="cat-group-title">Meta Title (under 60 chars, include core keyword)</div>
+        <p style="font-size:15px;color:#999;margin-bottom:6px">Click-worthy, includes core keyword, stays under 60 characters.</p>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best closet flange for Closet (2024 Reviews) <span style="opacity:0.5;font-size:13px">(44 chars)</span> <button onclick="copyText(this)" data-text="Best closet flange for Closet (2024 Reviews)" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Closet Flange: Top-Rated Systems for Clean Water <span style="opacity:0.5;font-size:13px">(48 chars)</span> <button onclick="copyText(this)" data-text="Closet Flange: Top-Rated Systems for Clean Water" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best closet flange Systems — Expert Buying Guide <span style="opacity:0.5;font-size:13px">(48 chars)</span> <button onclick="copyText(this)" data-text="Best closet flange Systems — Expert Buying Guide" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">Meta Description (120-160 chars, compelling)</div>
+        <p style="font-size:15px;color:#999;margin-bottom:6px">Includes keyword, compelling, 120-160 characters.</p>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Looking for the best closet flange? Compare top-rated systems for closet, see real cost data, and find the right fit for your home. Expert reviews & buying g <span style="opacity:0.5;font-size:13px">(157 chars)</span> <button onclick="copyText(this)" data-text="Looking for the best closet flange? Compare top-rated systems for closet, see real cost data, and find the right fit for your home. Expert reviews & buying g" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Discover the best closet flange for clean, soft water. We compare features, prices, and certifications to help you choose. Read our 2024 expert guide now. <span style="opacity:0.5;font-size:13px">(154 chars)</span> <button onclick="copyText(this)" data-text="Discover the best closet flange for clean, soft water. We compare features, prices, and certifications to help you choose. Read our 2024 expert guide now." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Find your ideal closet flange — reviews, installation tips, and cost breakdowns. See which systems rank best for closet and stainless. <span style="opacity:0.5;font-size:13px">(134 chars)</span> <button onclick="copyText(this)" data-text="Find your ideal closet flange — reviews, installation tips, and cost breakdowns. See which systems rank best for closet and stainless." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H1 (include keyword, compelling)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best closet flange for Closet — Expert Reviews & Recommendations <span style="opacity:0.5;font-size:13px">(64 chars)</span> <button onclick="copyText(this)" data-text="Best closet flange for Closet — Expert Reviews & Recommendations" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Closet Flange Systems: Complete Buyer's Guide for Cleaner Water <span style="opacity:0.5;font-size:13px">(63 chars)</span> <button onclick="copyText(this)" data-text="Closet Flange Systems: Complete Buyer's Guide for Cleaner Water" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Top closet flange Picks — Reviews, Costs & Expert Advice <span style="opacity:0.5;font-size:13px">(56 chars)</span> <button onclick="copyText(this)" data-text="Top closet flange Picks — Reviews, Costs & Expert Advice" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H2 (include keyword or secondary keyword)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best closet flange Systems for Closet <span style="opacity:0.5;font-size:13px">(37 chars)</span> <button onclick="copyText(this)" data-text="Best closet flange Systems for Closet" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Cost & ROI of a closet flange <span style="opacity:0.5;font-size:13px">(29 chars)</span> <button onclick="copyText(this)" data-text="Cost & ROI of a closet flange" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Stainless: What You Need to Know <span style="opacity:0.5;font-size:13px">(32 chars)</span> <button onclick="copyText(this)" data-text="Stainless: What You Need to Know" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H3 (include keyword or entity)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Top-Rated closet flange Brands <span style="opacity:0.5;font-size:13px">(30 chars)</span> <button onclick="copyText(this)" data-text="Top-Rated closet flange Brands" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">How Closet Flange Works <span style="opacity:0.5;font-size:13px">(23 chars)</span> <button onclick="copyText(this)" data-text="How Closet Flange Works" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Installing a closet flange in Closet <span style="opacity:0.5;font-size:13px">(36 chars)</span> <button onclick="copyText(this)" data-text="Installing a closet flange in Closet" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">Image ALT text (include keyword, descriptive)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Closet Flange system installed in a home utility room <span style="opacity:0.5;font-size:13px">(53 chars)</span> <button onclick="copyText(this)" data-text="Closet Flange system installed in a home utility room" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Cross-section diagram of a closet flange showing resin tank and control valve <span style="opacity:0.5;font-size:13px">(77 chars)</span> <button onclick="copyText(this)" data-text="Cross-section diagram of a closet flange showing resin tank and control valve" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Comparison chart of the best closet flange models for closet <span style="opacity:0.5;font-size:13px">(60 chars)</span> <button onclick="copyText(this)" data-text="Comparison chart of the best closet flange models for closet" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Keywords Everywhere Data -->
+  <div class="section">
+    <div class="section-title expandable">Keyword Data (Keywords Everywhere — Prepaid)</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        Search volume, CPC, competition, and 12-month trend for "closet flange". 
+        Data from Keywords Everywhere (prepaid credits — saves DataForSEO API costs).
+        KE credits remaining: <strong>396,890</strong>
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">1,900</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Monthly Volume</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">$0.27</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">CPC</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#cc0000">Very High</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Competition (1.00)</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#f39c12">10.9%</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Seasonality</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">1,958</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Avg Monthly</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">12-Month Search Trend</h3>
+      <div style="display:flex;align-items:flex-end;gap:4px;height:80px;margin:10px 0;padding:10px;background:#f8f9fa;border-radius:8px">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Aug</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">2,400</div><div style="width:100%;height:100%;min-height:2px;background:#0066cc;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Sep</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">2,400</div><div style="width:100%;height:100%;min-height:2px;background:#0066cc;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Oct</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Nov</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Dec</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jan</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Feb</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Mar</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Apr</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">May</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,900</div><div style="width:100%;height:79%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jun</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">1,600</div><div style="width:100%;height:67%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jul</div></div>
+      </div>
+
+      <div style="margin-top:16px">
+        <h3 style="color:#f39c12;font-size:14px;margin-bottom:8px">Seasonality Insight</h3>
+        <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#555">
+          <strong>Peak:</strong> September 2025 (2,400) | <strong>Low:</strong> July 2026 (1,600) | <strong>Seasonality:</strong> 10.9% variance
+          <br><em style="font-size:14px">Content should be updated/refreshed before peak season. Low seasonality — consistent year-round demand.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Deep SERP Scan -->
+  <div class="section">
+    <div class="section-title expandable">Deep SERP Scan — Top 100 Results (Claims, Problems & PAA)</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        Scanned top 92 organic results for "closet flange". Found
+        <strong>213 unique claims</strong>,
+        <strong>18 industry problems/issues</strong>,
+        <strong>4 People Also Ask questions</strong>, and
+        <strong>0 related searches</strong>.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">213</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#cc0000">18</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Problems/Issues</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#f39c12">4</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">People Also Ask</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Related Searches</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#cc0000;font-size:16px;margin:20px 0 10px">INDUSTRY PROBLEMS & ISSUES</h3>
+      <p style="font-size:15px;color:#999;margin-bottom:10px">Common complaints, failures, and concerns from across the top 100 results. Address these to build trust.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Anchor the Flange to the Subfloor Securely fasten the toilet flange to the subfloor using stainless steel or corrosion-resistant screws <span style="color:#cc0000;font-size:13px">— www.oatey.com (pos 8)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">For screen reader problems with this website, please call 1-888-827-4223 or Email Us <span style="color:#cc0000;font-size:13px">— www.acehardware.com (pos 18)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">50 Inch ID Outlet WHC250-250-SS 304 Polished Stainless Steel Pair of Wesdon Collectors $49 <span style="color:#cc0000;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">00 Inch ID Outlet WHC300-300-SS 304 Polished Stainless Steel Pair of Wesdon Collectors $69 <span style="color:#cc0000;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">50 Inch ID Outlet WHC300-250 409 Stainless Steel Pair of Wesdon Collectors $63 <span style="color:#cc0000;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">50 Inch ID Outlet WHC300-250-SS 304 Polished Stainless Steel Pair of Wesdon Collectors $67 <span style="color:#cc0000;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">67 4" x 3" Toilet flange with knockout test cap ABS Base w/Stainless Steel Ring $11 <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">16 4" x 3" 1-1/2" offset ABS toilet flange ABS Base w/Stainless Steel Ring $16 <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">14 1/2" - 5/8" Extender Kit Includes one each extender flange , gasket , 1/8" and 1/2" spacers and 6 each self-tapping stainless steel screws $22 <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">16 3/4" - 7/8" Extender Kit Includes one each extender flange , gasket , 1/8" and 3/4" spacers and 6 each self-tapping stainless steel screws $23 <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">80 1/4" - 1-5/8" Extender Kit Includes all four spacer sizes, one extender flange , one gasket and 6 each self-tapping stainless steel screws $31 <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">81 Self-tapping pan head screw - stainless steel - (set of 6 Each) 2-1/2&quot; Length $2 <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Additionally, Oatey flanges resist corrosion and wear, making them ideal for both residential and commercial applications <span style="color:#cc0000;font-size:13px">— www.oatey.com (pos 60)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Here is a breakdown of repair and adjustment products: Product Features Twist-N-Set® Repair Flanges Designed to replace broken closet flanges <span style="color:#cc0000;font-size:13px">— www.oatey.com (pos 73)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Oatey® Set-Rite® Toilet Flange Spacer Kit A patented kit with four individual spacers to prevent leaks from improper double-stacking of wax <span style="color:#cc0000;font-size:13px">— www.oatey.com (pos 73)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">It is important to choose the right one to ensure a secure, leak-free installation <span style="color:#cc0000;font-size:13px">— www.oatey.com (pos 73)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Choose stainless steel rings where corrosion is a risk <span style="color:#cc0000;font-size:13px">— www.oatey.com (pos 86)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">99 Black Swan Jumbo 1-1/8" Toilet Flange and Wax Gasket - For 3" &amp; 4" Waste Lines SKU: CF-8005 $7 <span style="color:#cc0000;font-size:13px">— www.parksupplyofamerica.com (pos 89)</span></div>
+      <h3 style="color:#f39c12;font-size:16px;margin:20px 0 10px">PEOPLE ALSO ASK</h3>
+      <p style="font-size:15px;color:#999;margin-bottom:10px">Real questions searchers are asking. Answer these on your page for passage ranking.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">What is a closet flange?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">How high should a closet flange be?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Can I replace a toilet flange myself?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">How much does it cost to replace a closet flange?</div>
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">ADDITIONAL CLAIMS (from positions 11-100)</h3>
+      <p style="font-size:15px;color:#999;margin-bottom:10px">Claims found beyond the top 10 results that may not be covered by any page 1 competitor.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">If you are currently using Internet Explorer we recommend you switch to Edge or another supported browser to enjoy the best experience Oatey <span style="color:#0066cc;font-size:13px">— www.oatey.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">The full process takes 2-4 hours for intermediate DIYers <span style="color:#0066cc;font-size:13px">— www.oatey.com (pos 8)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">00 Offer is valid for lower 48 states only <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 15)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">length==1 && shipping" class="free_shipping"> + Free Shipping --> {{ USDFormatter(( (!m <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 15)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">quantity_per_mqty }} = 99" class="free_shipping"> + Free Shipping ({{ USDFormatter( (!m <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 15)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">pickup_discount ) }} Free Shipping on any qty Discontinued 0 && product <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 15)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">discount_price Automatic $123 <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 15)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">title" class="img-responsive"> Filter Filter Clear &nbsp;In Stock only &nbsp;Free Shipping Search Filters --> Apply Filter Clear 0 ? ('/' + c <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 15)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">* Need it faster? 2 Hour Delivery available starting at $5 <span style="color:#0066cc;font-size:13px">— www.acehardware.com (pos 18)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">* Terms Apply PAID Same Day Delivery Banner for Desktop here &#8600; FAST Same Day Delivery Qualifying orders start at $9 <span style="color:#0066cc;font-size:13px">— www.acehardware.com (pos 18)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">* Need it faster? 2 Hour Delivery available at checkout <span style="color:#0066cc;font-size:13px">— www.acehardware.com (pos 18)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">99 Add Sponsored $ 49 99 current price $49 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">99 Add Sponsored $ 69 99 current price $69 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">69 Add Sponsored $ 63 69 current price $63 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">62 Add Sponsored $ 67 62 current price $67 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">82 Add $ 11 82 current price $11 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">1 reviews Overall pick Danco HydroSeat Toilet Flange Repair Kit, Plastic (10672X) $19 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">97 Overall pick Add $ 19 97 current price $19 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">PVC Twist-N-Set Open Toilet Flange $30 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">43 Add $ 30 43 current price $30 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">PVC Closet Flange with Plastic Ring without Test Cap $12 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">07 Add $ 12 07 current price $12 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">35 reviews Oatey Toilet Flange, PVC 43553 $19 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">32 Add $ 19 32 current price $19 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 23)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">91 As low as $29 <span style="color:#0066cc;font-size:13px">— www.ussupply.com (pos 26)</span></div>
+
+    </div>
+  </div>
+
+
+  <!-- GSC Real Search Data -->
+  <div class="section">
+    <div class="section-title expandable">Google Search Console — Real Performance Data</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        Real Google search data (impressions, clicks, CTR, position) from Search Console. Free API — not estimated.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">4</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Impressions (keyword)</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Clicks</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#f39c12">0.00%</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">CTR</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#e74c3c">30.5</div>
+          <div style="font-size:13px;color:#555;text-transform:uppercase;margin-top:4px">Avg Position</div>
+        </div>
+      </div>
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">Page Performance (last 28 days)</h3>
+      <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#555;margin-bottom:16px">
+        <b>Page impressions:</b> 169 | <b>Clicks:</b> 2 | <b>CTR:</b> 1.18% | <b>Position:</b> 1.7
+      </div>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">Top Queries for This Page</h3>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">* <span style="color:#0066cc;font-size:13px">imp=25 clicks=0 pos=1.0</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">888pm <span style="color:#0066cc;font-size:13px">imp=1 clicks=0 pos=1.0</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">sioux chief pvc open closet flange 888-p <span style="color:#0066cc;font-size:13px">imp=128 clicks=0 pos=1.0</span></div>
+    </div>
+  </div>
+
+
+  <!-- Perplexity AEO Citation Test -->
+  <div class="section">
+    <div class="section-title expandable">AEO Citation Test — Perplexity Sonar AI</div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#555;margin-bottom:16px">
+        Tested whether this page/brand is cited in Perplexity's AI answer for "closet flange". <span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:14px;font-weight:600">❌ NOT CITED</span>
+        Cost: $0.0053 | Total citations in answer: 18
+      </p>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">All 18 Citations in AI Answer</h3>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.jonesstephens.com — <a href="https://www.jonesstephens.com/closet-flanges" target="_blank" style="color:#0066cc">https://www.jonesstephens.com/closet-flanges</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">en.wikipedia.org — <a href="https://en.wikipedia.org/wiki/Closet_flange" target="_blank" style="color:#0066cc">https://en.wikipedia.org/wiki/Closet_flange</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.kreo.net — <a href="https://www.kreo.net/glossary/closet-flange" target="_blank" style="color:#0066cc">https://www.kreo.net/glossary/closet-flange</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.localsearch.com.au — <a href="https://www.localsearch.com.au/guides/plumbers/what-is-a-closet-flange" target="_blank" style="color:#0066cc">https://www.localsearch.com.au/guides/plumbers/what-is-a-clo</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.oatey.com — <a href="https://www.oatey.com/faqs-blog-videos-case-studies/blog/guide-toilet-flange-types" target="_blank" style="color:#0066cc">https://www.oatey.com/faqs-blog-videos-case-studies/blog/gui</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">constructionbids.ai — <a href="https://constructionbids.ai/resources/glossary/closet-flange" target="_blank" style="color:#0066cc">https://constructionbids.ai/resources/glossary/closet-flange</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.amazon.com — <a href="https://www.amazon.com/Oatey-43495-Closet-Flange-3-Inch/dp/B0069KYJRK" target="_blank" style="color:#0066cc">https://www.amazon.com/Oatey-43495-Closet-Flange-3-Inch/dp/B</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.oatey.com — <a href="https://www.oatey.com/products/p_038753435879/oatey-spigot-fit-closet-flange" target="_blank" style="color:#0066cc">https://www.oatey.com/products/p_038753435879/oatey-spigot-f</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.amazon.com — <a href="https://www.amazon.com/Oatey-43507-Closet-Flange-3-Inch/dp/B0069KWI1O" target="_blank" style="color:#0066cc">https://www.amazon.com/Oatey-43507-Closet-Flange-3-Inch/dp/B</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.homedepot.com — <a href="https://www.homedepot.com/b/Plumbing-Plumbing-Parts-Toilet-Parts-Toilet-Flanges/N-5yc1vZckh3" target="_blank" style="color:#0066cc">https://www.homedepot.com/b/Plumbing-Plumbing-Parts-Toilet-P</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.ussupply.com — <a href="https://www.ussupply.com/4-x-3-pvc-slip-closet-flange-with-metal-ring-type-dwv-adjustable-6809.html" target="_blank" style="color:#0066cc">https://www.ussupply.com/4-x-3-pvc-slip-closet-flange-with-m</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.supplyhouse.com — <a href="https://www.supplyhouse.com/Cast-Iron-Closet-Flanges-23290000" target="_blank" style="color:#0066cc">https://www.supplyhouse.com/Cast-Iron-Closet-Flanges-2329000</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.oatey.com — <a href="https://www.oatey.com/products/p_038753435091/oatey-level-fit-closet-flange-plastic-ring" target="_blank" style="color:#0066cc">https://www.oatey.com/products/p_038753435091/oatey-level-fi</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.amazon.com — <a href="https://www.amazon.com/Oatey-43651-Closet-Flange-4-Inch/dp/B0002YU3YM" target="_blank" style="color:#0066cc">https://www.amazon.com/Oatey-43651-Closet-Flange-4-Inch/dp/B</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.firstsupply.com — <a href="https://www.firstsupply.com/Catalog/Plumbing-Hardware/Plumbing-Specialties/Closet-Flanges" target="_blank" style="color:#0066cc">https://www.firstsupply.com/Catalog/Plumbing-Hardware/Plumbi</a></div>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">AI Answer Preview</h3>
+      <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#555;line-height:1.5">A **closet flange** is the plumbing fitting that **anchors a toilet to the floor** and **connects the toilet to the drain pipe**; it is also commonly called a **toilet flange**.[2][3][5]
+
+Key points:
+
+- It helps create a **watertight seal** with the wax ring so leaks, odors, and sewer gases do not escape.[5][6]
+- It is usually mounted **on top of or flush with the finished floor** and secured with screws or bolts.[2][6][8]
+- Common materials include **PVC, ABS, brass, cast iron, and lead**.[2]
+-...</div>
+    </div>
+  </div>
+
+
+<div class="section">
+  <div class="section-title expandable">Fix Lists (Developer + SEO Team)</div>
+  <div class="detail show">
+    <div>
+      <div>
+        <div class="fix-col-title">Developer Fix List</div>
+        <div class="fix-priority">P0 — Critical (1)</div>
+        <div class="fix-item fix-p0">Critical: Lighthouse performance score below 50</div>
+        <div class="fix-priority">P1 — Important (9)</div>
+        <div class="fix-item fix-p1">Avoid excessive DOM size</div>
+        <div class="fix-item fix-p1">Avoid excessive DOM width</div>
+        <div class="fix-item fix-p1">Twitter card missing</div>
+        <div class="fix-item fix-p1">Add Article schema markup</div>
+        <div class="fix-item fix-p1">Add Organization schema markup</div>
+        <div class="fix-item fix-p1">Add Author schema markup</div>
+        <div class="fix-item fix-p1">Add FAQPage schema markup</div>
+        <div class="fix-item fix-p1">Add Review schema markup</div>
+        <div class="fix-item fix-p1">Add twitter:card meta tag</div>
+        <div class="fix-priority">P2 — Nice to Have (12)</div>
+        <div class="fix-item fix-p2">Add dimensions to images</div>
+        <div class="fix-item fix-p2">Serve images in next-gen formats</div>
+        <div class="fix-item fix-p2">Comments in code has more than 1000 symbols</div>
+        <div class="fix-item fix-p2">Page has alt tags with one word</div>
+        <div class="fix-item fix-p2">Page has nofollow outgoing internal links</div>
+        <div class="fix-item fix-p2">Page has link with URL in onclick</div>
+        <div class="fix-item fix-p2">Page has more than 2 links to internal page with same anchor</div>
+        <div class="fix-item fix-p2">Page has more than 100 internal links</div>
+        <div class="fix-item fix-p2">Page contains form with GET method</div>
+        <div class="fix-item fix-p2">Multiple Google Tag Manager codes</div>
+        <div class="fix-item fix-p2">Page has tags with style attributes</div>
+        <div class="fix-item fix-p2">Add hreflang tags for international targeting</div>
+      </div>
+      <div>
+        <div class="fix-col-title">SEO Team Fix List</div>
+        <div class="fix-priority">P0 — Critical (2)</div>
+        <div class="fix-item fix-p0">Keyword not in title tag: Add 'closet flange' to title</div>
+        <div class="fix-item fix-p0">Add target keyword to title tag</div>
+        <div class="fix-priority">P1 — Important (18)</div>
+        <div class="fix-item fix-p1">21 H2 tags (target: 2-20): Consolidate some H2 sections</div>
+        <div class="fix-item fix-p1">H2 to H5 skip: Fix heading hierarchy</div>
+        <div class="fix-item fix-p1">H3 to H6 skip: Fix heading hierarchy</div>
+        <div class="fix-item fix-p1">No citations found: Add blockquotes or citations to support claims</div>
+        <div class="fix-item fix-p1">No authority links (.gov/.edu/.org): Add 1-3 links to authoritative sources</div>
+        <div class="fix-item fix-p1">No author attribution: Add author name or bio</div>
+        <div class="fix-item fix-p1">No datePublished schema: Add datePublished to JSON-LD</div>
+        <div class="fix-item fix-p1">Keyword not found in content: Add 'closet flange' to the content</div>
+        <div class="fix-item fix-p1">Short paragraphs: Expand paragraphs to 3-7 sentences</div>
+        <div class="fix-item fix-p1">Missing schema: Article, Organization, Author: Add missing JSON-LD schema</div>
+        <div class="fix-item fix-p1">No author info: Add author attribution</div>
+        <div class="fix-item fix-p1">No About page link: Add link to About page</div>
+        <div class="fix-item fix-p1">Keyword not in first paragraph: Add 'closet flange' early in content</div>
+        <div class="fix-item fix-p1">Word count 4904 (target 900-2500): Consider trimming content</div>
+        <div class="fix-item fix-p1">68 paragraphs (target 5-30): Merge short paragraphs</div>
+        <div class="fix-item fix-p1">Internal links 429 (target 1-4): Trim low-value internal links</div>
+        <div class="fix-item fix-p1">External links 5 (target 0-3): Review external links</div>
+        <div class="fix-item fix-p1">Add alt text to 1 images without alt</div>
+        <div class="fix-priority">P2 — Nice to Have (7)</div>
+        <div class="fix-item fix-p2">H2 has other tags inside</div>
+        <div class="fix-item fix-p2">Has an internal link with no anchor text</div>
+        <div class="fix-item fix-p2">Page has less than 10 internal backlinks</div>
+        <div class="fix-item fix-p2">Headings hierarchy is broken</div>
+        <div class="fix-item fix-p2">Table has no caption</div>
+        <div class="fix-item fix-p2">H1 too long</div>
+        <div class="fix-item fix-p2">Text to code ratio < 10%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Strategic Recommendations</div>
+  <div class="recommendation"><strong>Improvement Needed:</strong> SRS score is moderate. Address P0 and P1 items to reach competitive levels.</div>
+  <div class="recommendation"><strong>Signal:</strong> Boost authority signals: add citations, author schema, trust badges, and improve page speed.</div>
+  <div class="recommendation"><strong>Title-to-Query Alignment:</strong> Update title tag and H1 to include the exact target keyword phrase.</div>
+  <div class="recommendation"><strong>E-E-A-T:</strong> Add author schema, Organization schema, contact info, and trust signals (certifications, guarantees).</div>
+  <div class="recommendation"><strong>Factuality:</strong> Add citations, data sources, and authority outbound links (.gov/.edu/.org).</div>
+  <div class="recommendation"><strong>Information Gain:</strong> Add original analysis, unique data, and reduce template/boilerplate content.</div>
+  <div class="recommendation"><strong>AI Overview:</strong> Google AI Overview exists for this keyword with 8 citations. Optimize content to get cited.</div>
+  <div class="recommendation"><strong>Content Gaps:</strong> InfraNodus found 4 content gaps. Add missing entities to improve topical coverage.</div>
+  <div class="recommendation"><strong>SERP Competition:</strong> Analyze top 10 competitors for content length, structure, and schema patterns to match.</div>
+  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 38/100. Optimize images, reduce JS, and enable lazy loading.</div>
+  <div class="recommendation"><strong>🤖 LLM Citation Opportunity:</strong> No LLM-favorite domain backlinks detected. Targeting LLM citation sources is the highest-leverage off-page strategy for AI search visibility.</div>
+  <div class="recommendation"><strong>🤖 Top LLM Target Platforms (S-Tier):</strong> 🟢 <strong>reddit.com</strong>: Ads + niche subreddit comments + AMAs<br>🟢 <strong>wikipedia.org</strong>: Earn WP:RS coverage first → Wikidata-first strategy<br>🟢 <strong>youtube.com</strong>: Podcast guesting + transcripts + creator sponsorships<br>🟢 <strong>forbes.com</strong>: Tech Council $3,300/yr OR pursue editorial via Qwoted<br>🟢 <strong>businessinsider.com</strong>: Featured.com + Qwoted + BI Reviews samples</div>
+  <div class="recommendation"><strong>🤖 LLM Council Programs (Paid Paths):</strong> &bull; Forbes Councils (standard 1-yr) (forbes.com): $3,300<br>&bull; Forbes Councils Premium (1-yr) (forbes.com): $7,400<br>&bull; Forbes BrandVoice Stories (forbes.com): $50,000 (4 articles, 2-mo)<br>&bull; Forbes BrandVoice Elite (forbes.com): $300,000 min (4-mo @ $75K/mo)<br>&bull; Forbes BrandVoice Special Features (forbes.com): $200,000 min (2-mo @ $100K/mo)<br><em>Note: Council links are typically nofollow but drive LLM citation via brand visibility.</em></div>
+  <div class="recommendation"><strong>🤖 Reddit Strategy:</strong> Target Reddit with niche subreddit engagement. Strategy: Ads + niche subreddit comments + AMAs. Reddit is an S-tier LLM citation source — actively cited by ChatGPT, Claude, and Perplexity.</div>
+  <div class="recommendation"><strong>🤖 Forbes Council:</strong> Pursue Forbes Council at $3,300/yr for LLM citation. S-tier domain heavily cited by LLMs. All Forbes Council links are nofollow, but the brand visibility drives organic citations from LLMs.</div>
+
+<div style="margin-top: 16px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; font-size: 15px;">
+  <strong style="color: #0066cc;">Google Index Status:</strong>
+  <span style="color: #27ae60;">
+    Indexed (2 pages found)
+  </span>
+</div>
+
+<div class="footer">
+  Zenfusion Unified Page Auditor v1.0 &middot; Integrates site_auditor + factor_engine + content_auditor + DataForSEO + InfraNodus &middot; noindex, nofollow
+</div>
+
+<script>
+// Expand/collapse — script is at end of <body> so the DOM is fully parsed;
+// no DOMContentLoaded wrapper needed.
+(function() {
+  document.querySelectorAll('.expandable').forEach(function(el) {
+    var detail = el.nextElementSibling;
+    if (detail && detail.classList.contains('detail')) {
+      // Sync the ▲/▼ indicator with the current open/closed state
+      if (detail.classList.contains('show')) {
+        el.classList.add('expanded');
+      }
+      el.addEventListener('click', function() {
+        detail.classList.toggle('show');
+        el.classList.toggle('expanded');
+      });
+    }
+  });
+})();
+function copySchema(btn) {
+  var text = btn.getAttribute('data-schema');
+  // getAttribute auto-decodes HTML entities, so we get the raw JSON back.
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✅ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+    }).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✅ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+  }
+}
+function copyEntities() {
+  var entities = document.querySelectorAll('.entity-badge');
+  var text = Array.from(entities).map(function(e) { return e.textContent; }).join(', ');
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Entities copied to clipboard!');
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('Entities copied to clipboard!');
+  });
+}
+function copyText(btn) {
+  var text = btn.getAttribute('data-text');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy'; }, 2000);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
