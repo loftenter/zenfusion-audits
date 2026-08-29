@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenfusion Page Auditor Report — toilet seat — https://www.plumbingsupplyandmore.com/ch</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #ffffff; color: #1a1a1a; padding: 40px 20px; max-width: 1000px; margin: 0 auto; font-size: 16px; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+.url-headline { font-size: 20px; color: #0066cc; font-weight: 600; margin-bottom: 10px; word-break: break-all; }
+.keyword-tag { display: inline-block; background: #e7f3ff; border: 1px solid #0066cc; color: #0066cc; padding: 6px 16px; border-radius: 12px; font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+.subtitle { color: #444; font-size: 16px; margin-bottom: 30px; }
+.section { margin-bottom: 30px; }
+.section-title { color: #0066cc; font-size: 20px; margin-bottom: 14px; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; cursor: pointer; }
+.expandable { cursor: pointer; }
+.expandable::after { content: " ▼"; font-size: 14px; color: #0066cc; }
+.expandable.expanded::after { content: " ▲"; }
+.detail { display: none; }
+.detail.show { display: block; }
+.detail p { font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
+.score-gauge { text-align: center; margin-bottom: 30px; padding: 30px; background: #f8f9fa; border-radius: 12px; border: 1px solid #e0e0e0; }
+.score-value { font-size: 64px; font-weight: 700; color: #0066cc; }
+.score-label { font-size: 16px; color: #444; margin-top: 4px; }
+.srs-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+.srs-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; text-align: center; }
+.srs-card .card-title { font-size: 16px; color: #333; margin-bottom: 8px; }
+.srs-card .card-score { font-size: 36px; font-weight: 700; }
+.score-breakdown { display: grid; gap: 10px; }
+.score-bar { display: flex; align-items: center; gap: 10px; }
+.score-bar .name { width: 200px; font-size: 18px; color: #1a1a1a; }
+.score-bar .bar { flex: 1; height: 24px; background: #f8f9fa; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; }
+.score-bar .fill { height: 100%; border-radius: 12px; transition: width 0.5s; }
+.score-bar .num { width: 40px; text-align: right; font-size: 16px; font-weight: 600; color: #1a1a1a; }
+.green-bg { background: #27ae60; }
+.orange-bg { background: #f39c12; }
+.red-bg { background: #e74c3c; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th { background: #0066cc; color: #ffffff; padding: 10px; text-align: left; font-size: 15px; }
+td { padding: 10px; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-size: 15px; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+td.wrap { white-space: normal; max-width: 400px; }
+tr:hover { background: #f8f9fa; }
+.in-range { color: #27ae60; font-weight: 600; }
+.out-of-range { color: #e74c3c; font-weight: 600; }
+.issue-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+.issue-card .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.dot-red { background: #e74c3c; }
+.dot-yellow { background: #f39c12; }
+.dot-green { background: #27ae60; }
+.issue-card .name { font-weight: 600; color: #1a1a1a; font-size: 16px; }
+.issue-card .fix { font-size: 15px; color: #444; margin-top: 4px; }
+.topic-badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.topic-on-track { background: #e8f5e9; color: #1b7a3d; }
+.topic-to-add { background: #fff3e0; color: #b35400; }
+.topic-over-used { background: #fdecea; color: #c0392b; }
+.factor-group { margin-bottom: 12px; }
+.factor-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 16px; }
+.factor-name { color: #333; }
+.factor-value { color: #0066cc; font-weight: 700; }
+.cat-group { margin-bottom: 16px; }
+.cat-group-title { font-size: 18px; font-weight: 600; color: #0066cc; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0; }
+.recommendation { background: #f0f7ff; border-left: 3px solid #0066cc; padding: 14px 18px; margin: 10px 0; border-radius: 6px; font-size: 16px; color: #1a1a1a; line-height: 1.6; }
+.recommendation strong { color: #0066cc; }
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.fix-item { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; font-size: 16px; color: #1a1a1a; }
+.fix-p0 { border-left: 3px solid #e74c3c; }
+.fix-p1 { border-left: 3px solid #f39c12; }
+.fix-p2 { border-left: 3px solid #27ae60; }
+.fix-col-title { font-size: 20px; font-weight: 600; color: #0066cc; margin-bottom: 10px; }
+.fix-priority { font-size: 16px; font-weight: 600; margin: 12px 0 6px; color: #444; }
+.lighthouse-scores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.lh-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; text-align: center; }
+.lh-card .lh-title { font-size: 15px; color: #333; margin-bottom: 6px; }
+.lh-card .lh-score { font-size: 28px; font-weight: 700; }
+.cwv-metric { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e0e0e0; font-size: 16px; }
+.ai-status { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+.footer { text-align: center; margin-top: 40px; color: #666; font-size: 15px; border-top: 1px solid #e0e0e0; padding-top: 20px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.entity-badge { display: inline-block; background: #e7f3ff; border: 1px solid #0066cc; color: #0066cc; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.cluster-badge { display: inline-block; background: #e8f5e9; border: 1px solid #27ae60; color: #1b7a3d; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.gap-badge { display: inline-block; background: #fdecea; border: 1px solid #e74c3c; color: #c0392b; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.char-count { color: #0066cc; font-weight: 600; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<h1>Zenfusion Page Auditor Report</h1>
+<div class="url-headline"><a href="https://www.plumbingsupplyandmore.com/church-540ec-346-toilet-seat-with-cover-round-front-wood-biscuit-92439.html" target="_blank">https://www.plumbingsupplyandmore.com/church-540ec-346-toilet-seat-with-cover-round-front-wood-biscuit-92439.html</a></div>
+<div class="keyword-tag">Keyword: toilet seat</div>
+
+<!-- 1. SRS Score Gauge + 3 SRS Cards -->
+<div class="section">
+  <div class="score-gauge">
+    <div class="score-value">68</div>
+    <div class="score-label">SRS Composite Score (0-100)</div>
+  </div>
+  <div class="srs-cards">
+    <div class="srs-card">
+      <div class="card-title">Structure</div>
+      <div class="card-score" style="color: #27ae60">72</div>
+    </div>
+    <div class="srs-card">
+      <div class="card-title">Relevance</div>
+      <div class="card-score" style="color: #27ae60">86</div>
+    </div>
+    <div class="srs-card">
+      <div class="card-title">Signal</div>
+      <div class="card-score" style="color: #0066cc">46</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Content Quality (6 Dimensions)</strong></div>
+  <div class="detail show">
+    <div class="score-breakdown">
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Content Hierarchy</div><div class="bar"><div class="fill green-bg" style="width: 90%"></div></div><div class="num" style="font-weight:700">90</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Factuality</div><div class="bar"><div class="fill red-bg" style="width: 15%"></div></div><div class="num" style="font-weight:700">15</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Information Gain</div><div class="bar"><div class="fill green-bg" style="width: 75%"></div></div><div class="num" style="font-weight:700">75</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Authority E E A T</div><div class="bar"><div class="fill orange-bg" style="width: 50%"></div></div><div class="num" style="font-weight:700">50</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Accuracy Title Alignment</div><div class="bar"><div class="fill green-bg" style="width: 83%"></div></div><div class="num" style="font-weight:700">83</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Content Format</div><div class="bar"><div class="fill green-bg" style="width: 70%"></div></div><div class="num" style="font-weight:700">70</div></div>
+    <div style="margin-top:16px"><div style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:10px">Issues Found (16)</div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">H2 to H5 skip</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> H2 to H5 skip</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Fix heading hierarchy</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">H3 to H6 skip</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> H3 to H6 skip</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Fix heading hierarchy</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No citations found</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No citations found</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add blockquotes or citations to support claims</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No data source references</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No data source references</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add phrases like 'according to' or 'study shows'</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No authority links (.gov/.edu/.org)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No authority links (.gov/.edu/.org)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add 1-3 links to authoritative sources</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No author attribution</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No author attribution</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add author name or bio</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No datePublished schema</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No datePublished schema</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add datePublished to JSON-LD</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Short paragraphs</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Short paragraphs</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Expand paragraphs to 3-7 sentences</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Missing schema: Article, Organization, Author</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Missing schema: Article, Organization, Author</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add missing JSON-LD schema</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No author info</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No author info</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add author attribution</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No About page link</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No About page link</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add link to About page</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Keyword not in first paragraph</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Keyword not in first paragraph</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add 'toilet seat' early in content</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Word count 4360 (target 900-2500)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Word count 4360 (target 900-2500)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Consider trimming content</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">53 paragraphs (target 5-30)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> 53 paragraphs (target 5-30)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Merge short paragraphs</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Internal links 434 (target 1-4)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Internal links 434 (target 1-4)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Trim low-value internal links</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">External links 5 (target 0-3)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> External links 5 (target 0-3)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Review external links</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 12px;">Overall Content Score: <strong style="color: #0066cc">64/100</strong> · Tone: Strong (Positive)</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Technical SEO Issues (13 Categories)</strong></div>
+  <div class="detail show">
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Content relevance (3 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has alt tags with one word</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Some images have alt text that is only one word, which does not provide enough context for accessibility or SEO.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Expand alt text to descriptive phrases (3-7 words) that include relevant keywords and accurately describe the image.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">H1 too long</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The H1 heading exceeds 60 characters, which may get truncated in some search results.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Shorten the H1 to under 60 characters while keeping the target keyword near the beginning.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Text to code ratio < 10%</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The ratio of visible text to HTML code is below 10%, indicating heavy code overhead relative to content.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Reduce HTML bloat by removing inline styles, minimizing JavaScript, and moving CSS to external files. Add more text content.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Links (8 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Has an internal link with no anchor text</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> An internal link on the page has no visible anchor text (empty or image-only link without alt text).</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add descriptive anchor text to all internal links. If using an image link, add alt text to the image.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has less than 10 internal backlinks</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Fewer than 10 internal pages link to this page, indicating weak internal linking.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add more internal links from relevant pages to this page. Use varied anchor text with target keywords.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has nofollow outgoing internal links</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Internal links on the page use rel="nofollow", which prevents search engines from following them.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Remove rel="nofollow" from internal links. Nofollow should only be used for untrusted external links.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has link with URL in onclick</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> A link on the page uses JavaScript onclick instead of a proper href attribute, which search engines may not follow.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Replace onclick-based links with standard <a href> links. If JavaScript navigation is needed, add a noscript fallback.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has more than 2 links to internal page with same anchor</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page links to the same internal URL more than twice with identical anchor text, which can look spammy.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Consolidate duplicate links or vary the anchor text for each link to the same page.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has more than 2 links to internal page with same anchor</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page links to the same internal URL more than twice with identical anchor text, which can look spammy.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Consolidate duplicate links or vary the anchor text for each link to the same page.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has more than 2 links to internal page with same anchor</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page links to the same internal URL more than twice with identical anchor text, which can look spammy.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Consolidate duplicate links or vary the anchor text for each link to the same page.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has more than 100 internal links</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page has over 100 internal links, which dilutes link equity and can look spammy to search engines.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Reduce the number of internal links to under 100. Remove unnecessary links, especially from navigation and footer areas.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Page speed (5 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM size</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-yellow;font-weight:600">Warning</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page has a large DOM (many elements), which slows down rendering and JavaScript execution.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Reduce DOM elements by simplifying the page structure, removing unnecessary wrappers, and using CSS instead of nested divs.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM width</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-yellow;font-weight:600">Warning</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The DOM tree is very wide (many siblings at one level), which can slow rendering.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Restructure the page to reduce the number of sibling elements at each level. Group related elements in containers.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Add dimensions to images</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Some images do not have width and height attributes, which can cause layout shifts as images load.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add width and height attributes to all <img> tags to prevent Cumulative Layout Shift (CLS).</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Serve images in next-gen formats</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Images are served in older formats (JPEG, PNG) instead of modern formats (WebP, AVIF) that offer better compression.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Convert images to WebP or AVIF format. Use <picture> tags with fallbacks for older browsers.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Comments in code has more than 1000 symbols</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The HTML contains large code comments (>1000 characters), adding unnecessary page weight.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Remove or minify HTML comments, especially in production. Keep only essential comments.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Security (1 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page contains form with GET method</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> A form on the page uses the GET method, which exposes form data in the URL and can be cached by search engines.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Change the form method to POST for forms that submit sensitive data. GET is fine for search forms.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Internal (2 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Long URLs</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The URL is very long (>100 characters), which can be truncated in search results and is harder to share.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Shorten the URL by removing unnecessary words, parameters, or subdirectories. Keep it descriptive but concise.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Multiple Google Tag Manager codes</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Multiple GTM container codes are installed, which can cause duplicate tracking and data issues.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Remove duplicate GTM containers. Keep only one GTM container per page.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Social media (1 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-yellow"></span><span class="name">Twitter card missing</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-yellow;font-weight:600">Warning</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page has no Twitter Card meta tags, so links will not generate rich previews on Twitter/X.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add Twitter Card meta tags: twitter:card, twitter:title, twitter:description, and twitter:image.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Code validation (3 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Headings hierarchy is broken</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The heading structure skips levels (e.g., H1 → H3 without H2), which confuses search engines about content hierarchy.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Fix heading order: H1 → H2 → H3 → H4. Never skip heading levels. Use CSS for styling, not heading tags.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Table has no caption</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> A table on the page does not have a <caption> element, which helps screen readers and SEO understand table content.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add a <caption> element to each table describing its contents.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has tags with style attributes</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Elements on the page use inline style attributes instead of external CSS, which increases page size and reduces maintainability.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Move inline styles to external CSS classes. This reduces HTML size and improves caching.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 10px;">Summary: 0 Critical · 3 Warnings · 8 Opportunities · 12 Notices</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Ranking Factors (173+ Factors)</strong></div>
+  <div class="detail">
+    <div class="cat-group">
+      <div class="cat-group-title expandable">On-Page (36 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">title_length</span><span class="factor-value">55</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_position</span><span class="factor-value">0.33</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_at_start</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_density</span><span class="factor-value">0.22</span></div>
+      <div class="factor-row"><span class="factor-name">h1_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h1_length</span><span class="factor-value">87</span></div>
+      <div class="factor-row"><span class="factor-name">h1_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h1_keyword_position</span><span class="factor-value">0.22</span></div>
+      <div class="factor-row"><span class="factor-name">h2_count</span><span class="factor-value">19</span></div>
+      <div class="factor-row"><span class="factor-name">h2_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h2_keyword_in_first</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h3_count</span><span class="factor-value">10</span></div>
+      <div class="factor-row"><span class="factor-name">h4_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h5_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h6_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">word_count</span><span class="factor-value">4329</span></div>
+      <div class="factor-row"><span class="factor-name">char_count</span><span class="factor-value">28298</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_count</span><span class="factor-value">10</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_density</span><span class="factor-value">0.23</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_first_100</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_last_100</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">paragraph_count</span><span class="factor-value">50</span></div>
+      <div class="factor-row"><span class="factor-name">avg_paragraph_length</span><span class="factor-value">45.86</span></div>
+      <div class="factor-row"><span class="factor-name">paragraph_length_variance</span><span class="factor-value">36.22</span></div>
+      <div class="factor-row"><span class="factor-name">sentence_count</span><span class="factor-value">151</span></div>
+      <div class="factor-row"><span class="factor-name">avg_sentence_length</span><span class="factor-value">28.9</span></div>
+      <div class="factor-row"><span class="factor-name">bold_count</span><span class="factor-value">31</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_bold</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">ul_count</span><span class="factor-value">15</span></div>
+      <div class="factor-row"><span class="factor-name">ol_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">li_count</span><span class="factor-value">55</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_lists</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">table_count</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">table_rows</span><span class="factor-value">23</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_tables</span><span class="factor-value">1</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Links (16 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">internal_links</span><span class="factor-value">17</span></div>
+      <div class="factor-row"><span class="factor-name">external_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">total_links</span><span class="factor-value">22</span></div>
+      <div class="factor-row"><span class="factor-name">nofollow_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">exact_match_anchors</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">partial_match_anchors</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">branded_anchors</span><span class="factor-value">17</span></div>
+      <div class="factor-row"><span class="factor-name">external_unique_domains</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">link_density</span><span class="factor-value">0.51</span></div>
+      <div class="factor-row"><span class="factor-name">nav_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">footer_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">body_links</span><span class="factor-value">22</span></div>
+      <div class="factor-row"><span class="factor-name">anchor_diversity_ratio</span><span class="factor-value">1.0</span></div>
+      <div class="factor-row"><span class="factor-name">broken_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">internal_nofollow</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">external_nofollow</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Technical (27 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">url_length</span><span class="factor-value">113</span></div>
+      <div class="factor-row"><span class="factor-name">url_depth</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_has_keyword</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_hyphens</span><span class="factor-value">11</span></div>
+      <div class="factor-row"><span class="factor-name">url_underscores</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">url_https</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_www</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">canonical_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">canonical_self_referencing</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_noindex</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_nofollow</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">page_size_kb</span><span class="factor-value">509.0</span></div>
+      <div class="factor-row"><span class="factor-name">html_size_kb</span><span class="factor-value">509.0</span></div>
+      <div class="factor-row"><span class="factor-name">css_count</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">js_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">font_count</span><span class="factor-value">11</span></div>
+      <div class="factor-row"><span class="factor-name">dom_total_elements</span><span class="factor-value">3264</span></div>
+      <div class="factor-row"><span class="factor-name">dom_tag_diversity</span><span class="factor-value">41</span></div>
+      <div class="factor-row"><span class="factor-name">dom_max_depth</span><span class="factor-value">30</span></div>
+      <div class="factor-row"><span class="factor-name">og_title</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_description</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_image</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_type</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">twitter_card</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">hreflang_present</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">hreflang_count</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Schema (16 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">json_ld_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_product_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_review_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_aggregaterating_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_faqpage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_organization_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_breadcrumblist_schema</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_article_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_videoobject_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_itempage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_webpage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">schema_type_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">schema_property_count</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">sameas_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_microdata</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_rdfa</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Semantic (16 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">lsi_term_count</span><span class="factor-value">11</span></div>
+      <div class="factor-row"><span class="factor-name">lsi_coverage_pct</span><span class="factor-value">68.75</span></div>
+      <div class="factor-row"><span class="factor-name">has_faq_section</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">faq_question_count</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">has_comparison</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_spec_table</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_howto</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_reviews</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_intro_body_conclusion</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">passage_qa_count</span><span class="factor-value">13</span></div>
+      <div class="factor-row"><span class="factor-name">has_eav_table</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">infr_entity_count</span><span class="factor-value">150</span></div>
+      <div class="factor-row"><span class="factor-name">infr_edge_count</span><span class="factor-value">771</span></div>
+      <div class="factor-row"><span class="factor-name">infr_cluster_count</span><span class="factor-value">10</span></div>
+      <div class="factor-row"><span class="factor-name">infr_content_gap_count</span><span class="factor-value">7</span></div>
+      <div class="factor-row"><span class="factor-name">infr_diversity_score</span><span class="factor-value">0.0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Media (12 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">image_count</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">images_with_alt</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">images_without_alt</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">image_alt_keyword</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">image_to_text_ratio</span><span class="factor-value">0.07</span></div>
+      <div class="factor-row"><span class="factor-name">webp_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">jpg_images</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">png_images</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">svg_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">lazy_loading</span><span class="factor-value">3</span></div>
+      <div class="factor-row"><span class="factor-name">video_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">audio_count</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">AI Overview (10 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">ai_target_mentioned</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_target_cited</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_citation_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_overview_length</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_product_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_entity_overlap_pct</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_has_overview</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Shopify (20 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">shopify_cdn</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_theme</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_section</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">cart_link</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">checkout_link</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">is_product_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_collection_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_blog_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_app</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">liquid_indicator</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">variant_url</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_metafield</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_money_format</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_analytics</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_storefront</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_currency</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_locale</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_buy_button</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_shopify_reviews</span><span class="factor-value">1</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Backlinks (14 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">mm_match_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_match_rate</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_top_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_avg_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_median_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_ref_domains_checked</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_tier_targets</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_tier_priority_score</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_opportunity_score</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_in_majestic</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_majestic_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_strong_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_medium_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_weak_links</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 10px;">Total factors extracted: 200</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>SERP Competitors & AI Overview</strong></div>
+  <div class="detail show">
+    <table>
+      <tr><th>Rank</th><th>Domain</th><th>Title</th></tr>
+      <tr><td>1</td><td><a href="https://www.toiletseats.com/p/?srsltid=AfmBOoqR0-3Q4ItBoSkdOCWvXzmrGH8fEIZfAs5kYYpeACaBZF0g-kMG" target="_blank">www.toiletseats.com</a></td><td>Shop Toilet Seat Products</td></tr>
+      <tr><td>2</td><td><a href="https://www.lowes.com/c/Toilets-toilet-seats-Bathroom" target="_blank">www.lowes.com</a></td><td>Toilets & Toilet Seats</td></tr>
+      <tr><td>3</td><td><a href="https://www.homedepot.com/b/Bath-Toilets-Toilet-Seats/N-5yc1vZceq5" target="_blank">www.homedepot.com</a></td><td>Toilet Seats</td></tr>
+      <tr><td>4</td><td><a href="https://www.amazon.com/Best-Sellers-Toilet-Seats/zgbs/hi/542642011" target="_blank">www.amazon.com</a></td><td>Amazon Best Sellers: Best Toilet Seats</td></tr>
+      <tr><td>5</td><td><a href="https://www.facebook.com/ThisOldHouse/videos/how-to-choose-a-new-toilet-seat/30695386120076470/" target="_blank">www.facebook.com</a></td><td>Round or elongated? Plastic or wood? Richard Trethewey ...</td></tr>
+      <tr><td>6</td><td><a href="https://www.ferguson.com/category/bathroom-plumbing/toilets%2C-toilet-seats-urinals/toilet-seats-bidet-seats/?srsltid=AfmBOookfUN3fvxGLye09DHbYQRhRNV8eObgxktMDvX-sNQ93YpVy3Nr" target="_blank">www.ferguson.com</a></td><td>Toilet Seats & Bidet Seats</td></tr>
+      <tr><td>7</td><td><a href="https://www.youtube.com/watch?v=9cZ1ElVe-aE" target="_blank">www.youtube.com</a></td><td>Top 5 Toilet Seat Picks for 2026 [Expert Review]</td></tr>
+      <tr><td>8</td><td><a href="https://www.truevalue.com/shop/bath/toilets-toilet-seats/" target="_blank">www.truevalue.com</a></td><td>Toilet Seat</td></tr>
+      <tr><td>9</td><td><a href="https://www.lowes.com/n/buying-guide/toilet-seat-buying-guide" target="_blank">www.lowes.com</a></td><td>Toilet Seat Options & Features</td></tr>
+      <tr><td>10</td><td><a href="https://www.amazon.com/live/video/02b5ad0c65854fa496c5d3ef1fe824cd" target="_blank">www.amazon.com</a></td><td>Watch Best Toilet Seat? | Mayfair Elongated Wood Toilet Lid </td></tr>
+      <tr><td>11</td><td><a href="https://www.target.com/c/toilet-seats-bath-fixtures-home-improvement/-/N-xk7vq" target="_blank">www.target.com</a></td><td>Toilet Seats</td></tr>
+      <tr><td>12</td><td><a href="https://www.youtube.com/watch?v=jw8OTIrKtGk" target="_blank">www.youtube.com</a></td><td>Toilet Seat Shapes and Fittings: Choose the Right One for ..</td></tr>
+      <tr><td>13</td><td><a href="https://www.thespruce.com/best-toilet-seats-4153537" target="_blank">www.thespruce.com</a></td><td>The 20 Best Toilet Seats</td></tr>
+      <tr><td>14</td><td><a href="https://www.plumbingsupply.com/index-toiletseats.html" target="_blank">www.plumbingsupply.com</a></td><td>Toilet seats, toilet accessories, and toilet parts</td></tr>
+      <tr><td>15</td><td><a href="https://www.youtube.com/watch?v=Ld5d2mcXhW0" target="_blank">www.youtube.com</a></td><td>How to Choose and Install a Toilet Seat</td></tr>
+    </table>
+    <div class="ai-status"><strong style="color: #0066cc;">No AI Overview detected</strong> for this keyword.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Core Web Vitals (Lighthouse)</strong></div>
+  <div class="detail show">
+    <div class="lighthouse-scores">
+      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #e74c3c">38</div></div>
+      <div class="lh-card"><div class="lh-title">Accessibility</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">Best Practices</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">SEO</div><div class="lh-score" style="color: #27ae60">92</div></div>
+    </div>
+    <div style="margin-top: 12px;">
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Structure Metrics (with Target Ranges)</strong></div>
+  <div class="detail show">
+    <table>
+      <tr><th>Metric</th><th>Value</th><th>Target</th><th>Status</th></tr>
+      <tr><td>Words</td><td>4360</td><td>900-2500</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Headings 1</td><td>1</td><td>0-1</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Headings 2</td><td>19</td><td>2-20</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Paragraphs</td><td>53</td><td>5-30</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Internal links</td><td>438</td><td>1-4</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>External links</td><td>5</td><td>0-3</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>Citations</td><td>0</td><td>No target</td><td>—</td></tr>
+      <tr><td>Entities</td><td>69</td><td>No target</td><td>—</td></tr>
+      <tr><td>Lists</td><td>15</td><td>No target</td><td>—</td></tr>
+      <tr><td>Tables</td><td>2</td><td>No target</td><td>—</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Schema Analysis (Score: 20/100)</strong></div>
+  <div class="detail show">
+    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 8px;">Found: BreadcrumbList</p>
+    <p style="font-size: 15px; color: #27ae60; margin-bottom: 8px;">Critical found: BreadcrumbList</p>
+    <p style="font-size: 15px; color: #0066cc;">Missing: Article, Organization, Author, FAQPage, Review</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Entity & Topical Analysis (InfraNodus)</strong></div>
+  <div class="detail show">
+    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 10px;">Entities: 150 · Edges: 771 · Clusters: 10 · Content Gaps: 7 · Diversity: 0.0</p>
+    <div style="margin-bottom: 12px;"><strong style="font-size: 15px; color: #0066cc;">Top Entities:</strong> <button onclick="copyEntities()" style="background:#0066cc;color:white;border:none;padding:3px 10px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Click to Copy All Entities</button><br>
+      <span class="entity-badge">toilet</span>
+      <span class="entity-badge">seat</span>
+      <span class="entity-badge">cover</span>
+      <span class="entity-badge">sale</span>
+      <span class="entity-badge">event</span>
+      <span class="entity-badge">store</span>
+      <span class="entity-badge">work</span>
+      <span class="entity-badge">correctly</span>
+      <span class="entity-badge">cookie</span>
+      <span class="entity-badge">disabled</span>
+      <span class="entity-badge">🚚</span>
+      <span class="entity-badge">free</span>
+      <span class="entity-badge">shipping</span>
+      <span class="entity-badge">item</span>
+      <span class="entity-badge">exclude</span>
+      <span class="entity-badge">call</span>
+      <span class="entity-badge">toggle</span>
+      <span class="entity-badge">nav</span>
+      <span class="entity-badge">search</span>
+      <span class="entity-badge">account</span>
+    </div>
+    <div style="margin-bottom: 12px;"><strong style="font-size: 15px; color: #27ae60;">Clusters:</strong><br>
+      <span class="cluster-badge">fitting pipe gas</span>
+      <span class="cluster-badge">water part boiler</span>
+      <span class="cluster-badge">cart requisition account</span>
+      <span class="cluster-badge">sale work toilet</span>
+      <span class="cluster-badge">soil trap category</span>
+      <span class="cluster-badge">accessory faucet washing</span>
+      <span class="cluster-badge">valve stop flush</span>
+      <span class="cluster-badge">hanger strut pvc</span>
+    </div>
+    <div><strong style="font-size: 15px; color: #0066cc;">Content Gaps: 7 gaps detected</strong> — add missing entities to improve topical coverage.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Topics / Keyword Tracking</strong></div>
+  <div class="detail show">
+    <div style="margin-bottom: 8px;"><strong style="font-size: 15px; color: #27ae60;">On Track:</strong><br>
+      <span class="topic-badge topic-on-track">toilet seat</span>
+      <span class="topic-badge topic-on-track">toilets</span>
+      <span class="topic-badge topic-on-track">seats</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Information Gain Analysis -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Information Gain Analysis (Invisible Authority)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Analyzes top 4 ranking pages for "toilet seat" to find <strong>consensus</strong> (what most pages say = your coverage floor) 
+        and <strong>unique claims</strong> (what only one page says = your information gain opportunity). 
+        Repetition rate: <strong>0.0%</strong> — lower means more unique content to consolidate.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">4</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Pages Analyzed</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">1</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Total Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Consensus Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color: #0066cc">1</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Unique Claims</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#27ae60;font-size:16px;margin:20px 0 10px">CONSENSUS (Coverage Floor — must cover these)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Claims shared by 2+ ranking pages. Cover these to be a credible answer.</p>
+
+      <h3 style="color: #0066cc;font-size:16px;margin:20px 0 10px">UNIQUE CLAIMS (Information Gain Opportunities)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Claims made by only one page. Consolidate these to carry more info than any single competitor.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Elongated toilets are usually 2 inches longer than standard toilet shapes and require more space than round models. <span style="color: #0066cc;font-size:13px">— www.lowes.com (pos 0)</span></div>
+
+      <h3 style="color:#cc0000;font-size:16px;margin:20px 0 10px">MISSING (White Space — nobody covers these)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Topics no ranking page covers. Own this space with original first-hand content.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">ROI calculation and cost savings analysis</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Environmental impact of salt discharge</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Effect on septic systems</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Water pH impact</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Installation time estimates</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Warranty claim rates and reliability data</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Customer service comparison</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Long-term ownership costs beyond initial purchase</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Impact on drinking water taste</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Effect on water pressure</div>
+
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">Content Brief</h3>
+      <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:16px;font-size:15px;line-height:1.6">
+        <p><strong>1. Cover the consensus</strong> — ensure your page addresses all shared claims above. This is your entry ticket.</p>
+        <p style="margin-top:8px"><strong>2. Consolidate unique claims</strong> — pull together the scattered unique claims from competitors. Your page will carry more information than any single competitor.</p>
+        <p style="margin-top:8px"><strong>3. Fill white space</strong> — add first-hand material on the missing topics. This is where true information gain lives — content that appears nowhere on page 1.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- AI-Generated FAQs -->
+  <div class="section">
+    <div class="section-title expandable"><strong>AI-Generated FAQs (From Information Gain Analysis)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        6 FAQs generated to close white space and consolidate unique claims from competitors. 
+        Each FAQ is factual, brand-relevant, and designed for FAQ schema markup and AI Overview citation.
+        Add these to the page with FAQPage schema for passage optimization.
+      </p>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q1: How much does a toilet seat cost?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A quality toilet seat typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q2: What is the ROI of a toilet seat?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A toilet seat typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q3: Do toilet seats affect septic systems?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Modern toilet seats are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn't harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q4: Can I install a toilet seat myself or do I need a plumber?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Many modern toilet seats are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You'll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q5: Do toilet seats affect water pressure?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A properly sized toilet seat should not noticeably reduce water pressure. Systems with 1-inch valves maintain pressure even during peak usage. If you notice reduced pressure after installation, it may indicate the system needs regeneration, the resin bed needs cleaning, or the softener is undersized for your household's peak flow rate.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q6: How does a toilet seat affect drinking water taste?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Softened water has a slightly different taste due to the ion exchange process. Most people don't notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water.
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:16px;background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px">
+        <p style="color:#0066cc;font-size:15px;font-weight:600;margin-bottom:8px">FAQPage Schema (JSON-LD) — paste into page &lt;head&gt;:</p>
+        <button onclick="copySchema(this)" data-schema="{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;mainEntity&quot;: [
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How much does a toilet seat cost?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A quality toilet seat typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;What is the ROI of a toilet seat?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A toilet seat typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Do toilet seats affect septic systems?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Modern toilet seats are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn&#39;t harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can I install a toilet seat myself or do I need a plumber?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Many modern toilet seats are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You&#39;ll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Do toilet seats affect water pressure?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A properly sized toilet seat should not noticeably reduce water pressure. Systems with 1-inch valves maintain pressure even during peak usage. If you notice reduced pressure after installation, it may indicate the system needs regeneration, the resin bed needs cleaning, or the softener is undersized for your household&#39;s peak flow rate.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How does a toilet seat affect drinking water taste?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Softened water has a slightly different taste due to the ion exchange process. Most people don&#39;t notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water.&quot;
+      }
+    }
+  ]
+}" style="background:#0066cc;color:white;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;margin-bottom:10px">📋 Copy Schema</button>
+        <code style="font-size:13px;color:#1b7a3d;display:block;white-space:pre-wrap;overflow-x:auto;background:#ffffff;padding:10px;border:1px solid #e0e0e0;border-radius:6px">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a toilet seat cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A quality toilet seat typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the ROI of a toilet seat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A toilet seat typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do toilet seats affect septic systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern toilet seats are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn't harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I install a toilet seat myself or do I need a plumber?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many modern toilet seats are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You'll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do toilet seats affect water pressure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A properly sized toilet seat should not noticeably reduce water pressure. Systems with 1-inch valves maintain pressure even during peak usage. If you notice reduced pressure after installation, it may indicate the system needs regeneration, the resin bed needs cleaning, or the softener is undersized for your household's peak flow rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a toilet seat affect drinking water taste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Softened water has a slightly different taste due to the ion exchange process. Most people don't notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</code>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- AI-Written Examples -->
+  <div class="section">
+    <div class="section-title expandable"><strong>AI-Written Examples (Click to Expand)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Three click-worthy, keyword-optimized examples each for meta title, meta description,
+        H1, H2, H3, and image ALT text. Swap in your brand and refine for tone.
+      </p>
+      <div class="cat-group">
+        <div class="cat-group-title">Meta Title (under 60 chars, include core keyword)</div>
+        <p style="font-size:15px;color:#444;margin-bottom:6px">Click-worthy, includes core keyword, stays under 60 characters.</p>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best toilet seat for Cover (2024 Reviews) <span style="color:#0066cc;font-weight:600">(41 chars)</span> <button onclick="copyText(this)" data-text="Best toilet seat for Cover (2024 Reviews)" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Toilet Seat: Top-Rated Systems for Clean Water <span style="color:#0066cc;font-weight:600">(46 chars)</span> <button onclick="copyText(this)" data-text="Toilet Seat: Top-Rated Systems for Clean Water" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best toilet seat Systems — Expert Buying Guide <span style="color:#0066cc;font-weight:600">(46 chars)</span> <button onclick="copyText(this)" data-text="Best toilet seat Systems — Expert Buying Guide" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">Meta Description (120-160 chars, compelling)</div>
+        <p style="font-size:15px;color:#444;margin-bottom:6px">Includes keyword, compelling, 120-160 characters.</p>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Looking for the best toilet seat? Compare top-rated systems for cover, see real cost data, and find the right fit for your home. Expert reviews & buying guide. <span style="color:#0066cc;font-weight:600">(159 chars)</span> <button onclick="copyText(this)" data-text="Looking for the best toilet seat? Compare top-rated systems for cover, see real cost data, and find the right fit for your home. Expert reviews & buying guide." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Discover the best toilet seat for clean, soft water. We compare features, prices, and certifications to help you choose. Read our 2024 expert guide now. <span style="color:#0066cc;font-weight:600">(152 chars)</span> <button onclick="copyText(this)" data-text="Discover the best toilet seat for clean, soft water. We compare features, prices, and certifications to help you choose. Read our 2024 expert guide now." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Find your ideal toilet seat — reviews, installation tips, and cost breakdowns. See which systems rank best for cover and toilet. <span style="color:#0066cc;font-weight:600">(128 chars)</span> <button onclick="copyText(this)" data-text="Find your ideal toilet seat — reviews, installation tips, and cost breakdowns. See which systems rank best for cover and toilet." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H1 (include keyword, compelling)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best toilet seat for Cover — Expert Reviews & Recommendations <span style="color:#0066cc;font-weight:600">(61 chars)</span> <button onclick="copyText(this)" data-text="Best toilet seat for Cover — Expert Reviews & Recommendations" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Toilet Seat Systems: Complete Buyer's Guide for Cleaner Water <span style="color:#0066cc;font-weight:600">(61 chars)</span> <button onclick="copyText(this)" data-text="Toilet Seat Systems: Complete Buyer's Guide for Cleaner Water" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Top toilet seat Picks — Reviews, Costs & Expert Advice <span style="color:#0066cc;font-weight:600">(54 chars)</span> <button onclick="copyText(this)" data-text="Top toilet seat Picks — Reviews, Costs & Expert Advice" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H2 (include keyword or secondary keyword)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best toilet seat Systems for Cover <span style="color:#0066cc;font-weight:600">(34 chars)</span> <button onclick="copyText(this)" data-text="Best toilet seat Systems for Cover" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Cost & ROI of a toilet seat <span style="color:#0066cc;font-weight:600">(27 chars)</span> <button onclick="copyText(this)" data-text="Cost & ROI of a toilet seat" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Toilet: What You Need to Know <span style="color:#0066cc;font-weight:600">(29 chars)</span> <button onclick="copyText(this)" data-text="Toilet: What You Need to Know" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H3 (include keyword or entity)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Top-Rated toilet seat Brands <span style="color:#0066cc;font-weight:600">(28 chars)</span> <button onclick="copyText(this)" data-text="Top-Rated toilet seat Brands" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">How Toilet Seat Works <span style="color:#0066cc;font-weight:600">(21 chars)</span> <button onclick="copyText(this)" data-text="How Toilet Seat Works" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Installing a toilet seat in Cover <span style="color:#0066cc;font-weight:600">(33 chars)</span> <button onclick="copyText(this)" data-text="Installing a toilet seat in Cover" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">Image ALT text (include keyword, descriptive)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Toilet Seat system installed in a home utility room <span style="color:#0066cc;font-weight:600">(51 chars)</span> <button onclick="copyText(this)" data-text="Toilet Seat system installed in a home utility room" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Cross-section diagram of a toilet seat showing resin tank and control valve <span style="color:#0066cc;font-weight:600">(75 chars)</span> <button onclick="copyText(this)" data-text="Cross-section diagram of a toilet seat showing resin tank and control valve" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Comparison chart of the best toilet seat models for cover <span style="color:#0066cc;font-weight:600">(57 chars)</span> <button onclick="copyText(this)" data-text="Comparison chart of the best toilet seat models for cover" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Keywords Everywhere Data -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Keyword Data (Keywords Everywhere — Prepaid)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Search volume, CPC, competition, and 12-month trend for "toilet seat". 
+        Data from Keywords Everywhere (prepaid credits — saves DataForSEO API costs).
+        KE credits remaining: <strong>371,373</strong>
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">74,000</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Monthly Volume</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">$0.16</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">CPC</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#cc0000">Very High</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Competition (1.00)</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color: #0066cc">10.1%</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Seasonality</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">75,625</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Avg Monthly</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">12-Month Search Trend</h3>
+      <div style="display:flex;align-items:flex-end;gap:4px;height:80px;margin:10px 0;padding:10px;background:#f8f9fa;border-radius:8px">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">90,500</div><div style="width:100%;height:100%;min-height:2px;background:#0066cc;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Aug</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">90,500</div><div style="width:100%;height:100%;min-height:2px;background:#0066cc;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Sep</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Oct</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Nov</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Dec</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jan</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Feb</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">60,500</div><div style="width:100%;height:67%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Mar</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Apr</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">May</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jun</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">74,000</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jul</div></div>
+      </div>
+
+      <div style="margin-top:16px">
+        <h3 style="color: #0066cc;font-size:14px;margin-bottom:8px">Seasonality Insight</h3>
+        <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#444">
+          <strong>Peak:</strong> August 2025 (90,500) | <strong>Low:</strong> March 2026 (60,500) | <strong>Seasonality:</strong> 10.1% variance
+          <br><em style="font-size:14px">Content should be updated/refreshed before peak season. Low seasonality — consistent year-round demand.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Deep SERP Scan -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Deep SERP Scan — Top 100 Results (Claims, Problems & PAA)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Scanned top 73 organic results for "toilet seat". Found
+        <strong>220 unique claims</strong>,
+        <strong>1 industry problems/issues</strong>,
+        <strong>4 People Also Ask questions</strong>, and
+        <strong>0 related searches</strong>.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">220</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#cc0000">1</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Problems/Issues</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color: #0066cc">4</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">People Also Ask</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Related Searches</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#cc0000;font-size:16px;margin:20px 0 10px">INDUSTRY PROBLEMS & ISSUES</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Common complaints, failures, and concerns from across the top 100 results. Address these to build trust.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">For screen reader problems with this website, please call 1-888-827-4223 or Email Us <span style="color:#cc0000;font-size:13px">— www.acehardware.com (pos 19)</span></div>
+      <h3 style="color: #0066cc;font-size:16px;margin:20px 0 10px">PEOPLE ALSO ASK</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Real questions searchers are asking. Answer these on your page for passage ranking.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">How do I know which toilet seat will fit my toilet?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Do all toilet seats fit all toilets?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Is it better to have a wooden or plastic toilet seat?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">What's the best toilet seat to get?</div>
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">ADDITIONAL CLAIMS (from positions 11-100)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Claims found beyond the top 10 results that may not be covered by any page 1 competitor.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">26 &raquo; Displaying 1 &ndash; 12 of 310 Load More Loading <span style="color:#0066cc;font-size:13px">— www.toiletseats.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 29,207 $41 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">3 out of 5 stars 18,382 $36 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">5 out of 5 stars 8,911 $17 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">3 out of 5 stars 10,850 $31 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 15,884 $16 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 38,062 $16 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">5 out of 5 stars 19,570 $46 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">6 out of 5 stars 9,381 $57 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">1 out of 5 stars 2,333 $24 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">2 out of 5 stars 2,511 $19 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">5 out of 5 stars 9,748 $32 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 14,460 $11 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">3 out of 5 stars 2,248 $35 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 11,583 $15 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 8,784 $34 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">2 out of 5 stars 12,294 $35 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">3 out of 5 stars 6,430 $27 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 2,539 $79 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">3 out of 5 stars 434 $26 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">3 out of 5 stars 854 $26 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">2 out of 5 stars 5,896 $37 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">7 out of 5 stars 678 $39 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">2 out of 5 stars 3,829 $29 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 out of 5 stars 9,952 $29 <span style="color:#0066cc;font-size:13px">— www.amazon.com (pos 4)</span></div>
+
+    </div>
+  </div>
+
+
+  <!-- GSC Real Search Data -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Google Search Console — Real Performance Data</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Real Google search data (impressions, clicks, CTR, position) from Search Console. Free API — not estimated.
+      </p>
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">Page Performance (last 28 days)</h3>
+      <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#444;margin-bottom:16px">
+        <b>Page impressions:</b> 23 | <b>Clicks:</b> 0 | <b>CTR:</b> 0.00% | <b>Position:</b> 1.0
+      </div>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">Top Queries for This Page</h3>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">* <span style="color:#0066cc;font-size:13px">imp=23 clicks=0 pos=1.0</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">church 540ec toilet seat <span style="color:#0066cc;font-size:13px">imp=1 clicks=0 pos=14.0</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">what color is this? <span style="color:#0066cc;font-size:13px">imp=1 clicks=0 pos=1.0</span></div>
+    </div>
+  </div>
+
+
+  <!-- Perplexity AEO Citation Test -->
+  <div class="section">
+    <div class="section-title expandable"><strong>AEO Citation Test — Perplexity Sonar AI</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Tested whether this page/brand is cited in Perplexity's AI answer for "toilet seat". <span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:14px;font-weight:600">❌ NOT CITED</span>
+        Cost: $0.0054 | Total citations in answer: 20
+      </p>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">All 20 Citations in AI Answer</h3>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.homedepot.com — <a href="https://www.homedepot.com/b/Bath-Toilets-Toilet-Seats/N-5yc1vZceq5" target="_blank" style="color:#0066cc">https://www.homedepot.com/b/Bath-Toilets-Toilet-Seats/N-5yc1</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.amazon.com — <a href="https://www.amazon.com/Best-Sellers-Toilet-Seats/zgbs/hi/542642011" target="_blank" style="color:#0066cc">https://www.amazon.com/Best-Sellers-Toilet-Seats/zgbs/hi/542</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.lowes.com — <a href="https://www.lowes.com/c/Toilets-toilet-seats-Bathroom" target="_blank" style="color:#0066cc">https://www.lowes.com/c/Toilets-toilet-seats-Bathroom</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">en.wikipedia.org — <a href="https://en.wikipedia.org/wiki/Toilet_seat" target="_blank" style="color:#0066cc">https://en.wikipedia.org/wiki/Toilet_seat</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.toiletseats.com — <a href="https://www.toiletseats.com/p/" target="_blank" style="color:#0066cc">https://www.toiletseats.com/p/</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.amazon.com — <a href="https://www.amazon.com/toilet-seat/s?k=toilet+seat" target="_blank" style="color:#0066cc">https://www.amazon.com/toilet-seat/s?k=toilet+seat</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.screwfix.com — <a href="https://www.screwfix.com/c/bathrooms-kitchens/toilet-seats/cat820048" target="_blank" style="color:#0066cc">https://www.screwfix.com/c/bathrooms-kitchens/toilet-seats/c</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.lowes.com — <a href="https://www.lowes.com/pl/toilets-toilet-seats/toilet-seats/4294737208" target="_blank" style="color:#0066cc">https://www.lowes.com/pl/toilets-toilet-seats/toilet-seats/4</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.acehardware.com — <a href="https://www.acehardware.com/departments/home-and-decor/bath/toilet-seats" target="_blank" style="color:#0066cc">https://www.acehardware.com/departments/home-and-decor/bath/</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.lowes.com — <a href="https://www.lowes.com/n/buying-guide/toilet-seat-buying-guide" target="_blank" style="color:#0066cc">https://www.lowes.com/n/buying-guide/toilet-seat-buying-guid</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.homedepot.ca — <a href="https://www.homedepot.ca/en/home/categories/bath/toilets-toilet-seats-and-bidets/toilet-seats.html" target="_blank" style="color:#0066cc">https://www.homedepot.ca/en/home/categories/bath/toilets-toi</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.kohler.com — <a href="https://www.kohler.com/en/inspiration/buying-guides/toilet-seat-buying-guide" target="_blank" style="color:#0066cc">https://www.kohler.com/en/inspiration/buying-guides/toilet-s</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">frankwebb.com — <a href="https://frankwebb.com/collections/category-parts-and-maintenance-toilet-parts-toilet-seats-c30203" target="_blank" style="color:#0066cc">https://frankwebb.com/collections/category-parts-and-mainten</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.bunnings.com.au — <a href="https://www.bunnings.com.au/products/bathroom-plumbing/bathroom/toilets/seats" target="_blank" style="color:#0066cc">https://www.bunnings.com.au/products/bathroom-plumbing/bathr</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.kohler.com — <a href="https://www.kohler.com/en/products/toilet-seats-bidet-seats" target="_blank" style="color:#0066cc">https://www.kohler.com/en/products/toilet-seats-bidet-seats</a></div>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">AI Answer Preview</h3>
+      <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#444;line-height:1.5">A **toilet seat** is the hinged seat-and-lid assembly attached to a toilet bowl; if you’re shopping for one, the main thing is to match the **shape** and **size** of your bowl. Toilet seats are commonly **round** or **elongated**, and several retailers note that not all seats fit all toilets.[4][10][12][13]
+
+If you want to buy one, the most useful product categories are:
+
+- **Basic replacement seats**: standard plastic, wood, or cushioned vinyl models.[8][10]
+- **Slow-close seats**: close quietl...</div>
+    </div>
+  </div>
+
+
+<div class="section">
+  <div class="section-title expandable"><strong>Fix Lists (Developer + SEO Team)</strong></div>
+  <div class="detail show">
+    <div>
+      <div class="fix-col-title">Developer Fix List</div>
+        <div class="fix-priority">P0 — Critical (1)</div>
+        <div class="fix-item fix-p0 expandable" style="cursor:pointer">Critical: Lighthouse performance score below 50 <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P1 — Important (9)</div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Avoid excessive DOM size <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Reduce DOM elements by simplifying the page structure, removing unnecessary wrappers, and using CSS instead of nested divs.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Avoid excessive DOM width <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Restructure the page to reduce the number of sibling elements at each level. Group related elements in containers.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Twitter card missing <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add Twitter Card meta tags: twitter:card, twitter:title, twitter:description, and twitter:image.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Article schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Organization schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Author schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add FAQPage schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add a FAQ section with 5-10 questions and answers related to the target keyword. Add FAQPage JSON-LD schema.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Review schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add twitter:card meta tag <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P2 — Nice to Have (13)</div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Add dimensions to images <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add width and height attributes to all <img> tags to prevent Cumulative Layout Shift (CLS).</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Serve images in next-gen formats <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Convert images to WebP or AVIF format. Use <picture> tags with fallbacks for older browsers.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Comments in code has more than 1000 symbols <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Remove or minify HTML comments, especially in production. Keep only essential comments.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has alt tags with one word <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Expand alt text to descriptive phrases (3-7 words) that include relevant keywords and accurately describe the image.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has nofollow outgoing internal links <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Remove rel="nofollow" from internal links. Nofollow should only be used for untrusted external links.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has link with URL in onclick <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Replace onclick-based links with standard <a href> links. If JavaScript navigation is needed, add a noscript fallback.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has more than 2 links to internal page with same anchor <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Consolidate duplicate links or vary the anchor text for each link to the same page.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has more than 100 internal links <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Reduce the number of internal links to under 100. Remove unnecessary links, especially from navigation and footer areas.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page contains form with GET method <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Change the form method to POST for forms that submit sensitive data. GET is fine for search forms.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Long URLs <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Shorten the URL by removing unnecessary words, parameters, or subdirectories. Keep it descriptive but concise.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Multiple Google Tag Manager codes <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Remove duplicate GTM containers. Keep only one GTM container per page.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has tags with style attributes <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Move inline styles to external CSS classes. This reduces HTML size and improves caching.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Add hreflang tags for international targeting <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add hreflang tags in the <head> for each language/region version of the page.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <div class="fix-col-title">SEO Team Fix List</div>
+        <div class="fix-priority">P0 — Critical (0)</div>
+        <div class="fix-priority">P1 — Important (18)</div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">H2 to H5 skip: Fix heading hierarchy <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">H3 to H6 skip: Fix heading hierarchy <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No citations found: Add blockquotes or citations to support claims <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add blockquotes, citations, or links to authoritative sources (.gov, .edu, .org) to support factual claims. Example: 'According to the EPA...'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No data source references: Add phrases like 'according to' or 'study shows' <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No authority links (.gov/.edu/.org): Add 1-3 links to authoritative sources <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add an author name and short bio at the top or bottom of the page. Link to the author's profile page. Example: 'Written by [Name], Water Treatment Specialist with 15+ years experience'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No author attribution: Add author name or bio <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add an author name and short bio at the top or bottom of the page. Link to the author's profile page. Example: 'Written by [Name], Water Treatment Specialist with 15+ years experience'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No datePublished schema: Add datePublished to JSON-LD <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Short paragraphs: Expand paragraphs to 3-7 sentences <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Merge short paragraphs into 3-7 sentence blocks with clear topic sentences. Remove one-sentence paragraphs.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Missing schema: Article, Organization, Author: Add missing JSON-LD schema <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add JSON-LD structured data for the page type. For articles: Article schema. For products: Product + Offer schema. For FAQs: FAQPage schema.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No author info: Add author attribution <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add an author name and short bio at the top or bottom of the page. Link to the author's profile page. Example: 'Written by [Name], Water Treatment Specialist with 15+ years experience'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No About page link: Add link to About page <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Keyword not in first paragraph: Add 'toilet seat' early in content <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add the target keyword to the first 100 words of the page. Example: 'When looking for the best water softener for city water...'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Word count 4360 (target 900-2500): Consider trimming content <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Adjust content length to match the top-ranking pages (typically 900-2,500 words). Trim redundant sections or add depth where thin.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">53 paragraphs (target 5-30): Merge short paragraphs <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Internal links 434 (target 1-4): Trim low-value internal links <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">External links 5 (target 0-3): Review external links <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add alt text to 1 images without alt <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Signal score low — improve E-E-A-T and authority signals <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add author bio, citations, outbound links to authority sites, schema markup, and original data/research to boost E-E-A-T.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P2 — Nice to Have (6)</div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Has an internal link with no anchor text <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add descriptive anchor text to all internal links. If using an image link, add alt text to the image.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has less than 10 internal backlinks <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add more internal links from relevant pages to this page. Use varied anchor text with target keywords.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Headings hierarchy is broken <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Fix heading order: H1 → H2 → H3 → H4. Never skip heading levels. Use CSS for styling, not heading tags.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Table has no caption <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add a <caption> element to each table describing its contents.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">H1 too long <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Shorten the H1 to under 60 characters while keeping the target keyword near the beginning.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Text to code ratio < 10% <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Reduce HTML bloat by removing inline styles, minimizing JavaScript, and moving CSS to external files. Add more text content.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Strategic Recommendations</div>
+  <div class="recommendation"><strong>Improvement Needed:</strong> SRS score is moderate. Address P0 and P1 items to reach competitive levels.</div>
+  <div class="recommendation"><strong>Signal:</strong> Boost authority signals: add citations, author schema, trust badges, and improve page speed.</div>
+  <div class="recommendation"><strong>E-E-A-T:</strong> Add author schema, Organization schema, contact info, and trust signals (certifications, guarantees).</div>
+  <div class="recommendation"><strong>Factuality:</strong> Add citations, data sources, and authority outbound links (.gov/.edu/.org).</div>
+  <div class="recommendation"><strong>AI Overview:</strong> No AI Overview detected yet. Structure content with clear Q&A format to increase chances of citation.</div>
+  <div class="recommendation"><strong>Content Gaps:</strong> InfraNodus found 7 content gaps. Add missing entities to improve topical coverage.</div>
+  <div class="recommendation"><strong>SERP Competition:</strong> Analyze top 10 competitors for content length, structure, and schema patterns to match.</div>
+  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 38/100. Optimize images, reduce JS, and enable lazy loading.</div>
+  <div class="recommendation"><strong>🤖 LLM Citation Opportunity:</strong> No LLM-favorite domain backlinks detected. Targeting LLM citation sources is the highest-leverage off-page strategy for AI search visibility.</div>
+  <div class="recommendation"><strong>🤖 Top LLM Target Platforms (S-Tier):</strong> 🟢 <strong>reddit.com</strong>: Ads + niche subreddit comments + AMAs<br>🟢 <strong>wikipedia.org</strong>: Earn WP:RS coverage first → Wikidata-first strategy<br>🟢 <strong>youtube.com</strong>: Podcast guesting + transcripts + creator sponsorships<br>🟢 <strong>forbes.com</strong>: Tech Council $3,300/yr OR pursue editorial via Qwoted<br>🟢 <strong>businessinsider.com</strong>: Featured.com + Qwoted + BI Reviews samples</div>
+  <div class="recommendation"><strong>🤖 LLM Council Programs (Paid Paths):</strong> &bull; Forbes Councils (standard 1-yr) (forbes.com): $3,300<br>&bull; Forbes Councils Premium (1-yr) (forbes.com): $7,400<br>&bull; Forbes BrandVoice Stories (forbes.com): $50,000 (4 articles, 2-mo)<br>&bull; Forbes BrandVoice Elite (forbes.com): $300,000 min (4-mo @ $75K/mo)<br>&bull; Forbes BrandVoice Special Features (forbes.com): $200,000 min (2-mo @ $100K/mo)<br><em>Note: Council links are typically nofollow but drive LLM citation via brand visibility.</em></div>
+  <div class="recommendation"><strong>🤖 Reddit Strategy:</strong> Target Reddit with niche subreddit engagement. Strategy: Ads + niche subreddit comments + AMAs. Reddit is an S-tier LLM citation source — actively cited by ChatGPT, Claude, and Perplexity.</div>
+  <div class="recommendation"><strong>🤖 Forbes Council:</strong> Pursue Forbes Council at $3,300/yr for LLM citation. S-tier domain heavily cited by LLMs. All Forbes Council links are nofollow, but the brand visibility drives organic citations from LLMs.</div>
+
+<div style="margin-top: 16px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; font-size: 15px;">
+  <strong style="color: #0066cc;">Google Index Status:</strong>
+  <span style="color: #27ae60;">
+    Indexed (2 pages found)
+  </span>
+</div>
+
+<div class="footer">
+  Zenfusion Unified Page Auditor v1.0 &middot; Integrates site_auditor + factor_engine + content_auditor + DataForSEO + InfraNodus &middot; noindex, nofollow
+</div>
+
+<script>
+// Expand/collapse — script is at end of <body> so the DOM is fully parsed;
+// no DOMContentLoaded wrapper needed.
+(function() {
+  document.querySelectorAll('.expandable').forEach(function(el) {
+    // Check nextElementSibling first (section-title pattern)
+    var detail = el.nextElementSibling;
+    if (!detail || !detail.classList.contains('detail')) {
+      // Check first child with .detail class (issue-card pattern)
+      detail = el.querySelector(':scope > .detail');
+    }
+    if (detail && detail.classList.contains('detail')) {
+      // Sync the ▲/▼ indicator with the current open/closed state
+      if (detail.classList.contains('show')) {
+        el.classList.add('expanded');
+      }
+      el.addEventListener('click', function(e) {
+        // Don't toggle if clicking a link or button inside
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+        detail.classList.toggle('show');
+        el.classList.toggle('expanded');
+      });
+    }
+  });
+})();
+function copySchema(btn) {
+  var text = btn.getAttribute('data-schema');
+  // getAttribute auto-decodes HTML entities, so we get the raw JSON back.
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✅ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+    }).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✅ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+  }
+}
+function copyEntities() {
+  var entities = document.querySelectorAll('.entity-badge');
+  var text = Array.from(entities).map(function(e) { return e.textContent; }).join(', ');
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Entities copied to clipboard!');
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('Entities copied to clipboard!');
+  });
+}
+function copyText(btn) {
+  var text = btn.getAttribute('data-text');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy'; }, 2000);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
