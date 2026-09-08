@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenfusion — Portfolio SEO Audit — September 2026</title>
+  <style>
+    :root {
+      --brand:        #1B2A4A;
+      --brand-light:  #2C3E6B;
+      --accent:       #4A90D9;
+      --accent-light: #EBF5FB;
+      --green:        #27AE60;
+      --green-bg:     #EAFAF1;
+      --amber:        #F39C12;
+      --amber-bg:     #FEF9E7;
+      --red:          #E74C3C;
+      --red-bg:       #FDEDEC;
+      --gray:         #7F8C8D;
+      --gray-bg:      #F0F0F0;
+      --bg:           #F4F6F9;
+      --card:         #FFFFFF;
+      --text:         #2C3E50;
+      --border:       #E0E6ED;
+      --font:         -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text);
+           font-size: 14px; line-height: 1.5; }
+    a { color: var(--accent); text-decoration: none; }
+    .site-header { background: var(--brand); color: white; padding: 20px 40px;
+                    display: flex; align-items: center; gap: 20px; }
+    .site-header .header-text h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+    .site-header .header-meta { font-size: 12px; opacity: 0.65; margin-top: 3px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
+    .section-title { font-size: 16px; font-weight: 700; color: var(--brand);
+      margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+      display: flex; align-items: center; gap: 8px; }
+    .section-title:first-of-type { margin-top: 0; }
+    .takeaway { background: var(--accent-light); border-left: 4px solid var(--accent);
+      padding: 10px 16px; border-radius: 0 6px 6px 0; font-size: 13px; margin-top: 12px; }
+    .takeaway strong { color: var(--brand); }
+    .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+    .dot-green { background: var(--green); }
+    .dot-amber { background: var(--amber); }
+    .dot-red { background: var(--red); }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
+    .badge-red { background: var(--red-bg); color: var(--red); }
+    .badge-amber { background: var(--amber-bg); color: #B7770D; }
+    .badge-green { background: var(--green-bg); color: var(--green); }
+    .badge-gray { background: var(--gray-bg); color: var(--gray); }
+    .badge-blue { background: var(--accent-light); color: var(--accent); }
+    .summary-wrap { border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
+    .summary-table { width: 100%; border-collapse: collapse; background: var(--card); }
+    .summary-table thead tr { background: var(--brand); }
+    .summary-table th { color: white; padding: 10px 14px; text-align: left;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; white-space: nowrap; }
+    .summary-table td { padding: 11px 14px; font-size: 13px;
+      border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .summary-table tbody tr:last-child td { border-bottom: none; }
+    .summary-table tbody tr:hover td { background: #F7FAFF; }
+    .summary-table .client-name { font-weight: 600; }
+    .summary-table .domain { font-size: 11px; color: var(--gray); margin-top: 1px; }
+    .score-cell { font-weight: 700; font-size: 15px; }
+    .overall-cell { display: flex; align-items: center; gap: 7px; font-weight: 700; }
+    .priority-list { list-style: none; }
+    .priority-item { background: var(--card); border-radius: 8px; padding: 14px 18px;
+      margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      display: grid; grid-template-columns: 36px 1fr auto; gap: 14px; align-items: start; }
+    .priority-num { font-size: 22px; font-weight: 800; color: var(--accent); line-height: 1; padding-top: 2px; }
+    .priority-client-label { font-size: 11px; font-weight: 700; color: var(--gray);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+    .priority-issue { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+    .priority-fix { font-size: 12px; color: var(--gray); }
+    .priority-badges { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+    details.client-section { background: var(--card); border-radius: 10px;
+      margin-bottom: 12px; box-shadow: 0 1px 5px rgba(0,0,0,0.07); overflow: hidden; }
+    details.client-section summary { padding: 16px 22px; cursor: pointer; list-style: none;
+      display: flex; align-items: center; gap: 12px; user-select: none; }
+    details.client-section summary::-webkit-details-marker { display: none; }
+    details.client-section summary .summary-name { font-weight: 700; font-size: 15px; flex: 1; }
+    details.client-section summary .summary-domain { font-size: 12px; color: var(--gray); }
+    details.client-section summary .summary-scores { display: flex; gap: 10px;
+      align-items: center; font-size: 12px; color: var(--gray); }
+    details.client-section summary .chevron { font-size: 11px; color: var(--gray); transition: transform 0.2s; }
+    details.client-section[open] summary .chevron { transform: rotate(90deg); }
+    details.client-section[open] summary { border-bottom: 1px solid var(--border); }
+    .client-body { padding: 20px 22px 24px; }
+    .scores-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+    .score-card { background: var(--bg); border-radius: 8px; padding: 14px 12px;
+      text-align: center; border: 1px solid var(--border); }
+    .score-card .score-val { font-size: 30px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .score-card .score-label { font-size: 11px; color: var(--gray); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.4px; }
+    .score-green { color: var(--green); }
+    .score-amber { color: var(--amber); }
+    .score-red { color: var(--red); }
+    .score-gray { color: var(--gray); }
+    .cwv-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+    .cwv-card { background: var(--bg); border-radius: 8px; padding: 12px 14px;
+      border: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .cwv-icon { font-size: 18px; }
+    .cwv-val { font-size: 17px; font-weight: 700; }
+    .cwv-name { font-size: 11px; color: var(--gray); }
+    .client-sub-title { font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; color: var(--brand); margin: 18px 0 8px; }
+    .client-sub-title:first-child { margin-top: 0; }
+    .issues-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .issues-table th { text-align: left; padding: 7px 10px; background: var(--bg);
+      color: var(--gray); font-weight: 700; font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.4px; border-bottom: 1px solid var(--border); }
+    .issues-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); }
+    .issues-table tr:last-child td { border-bottom: none; }
+    .issues-table .issue-text { font-weight: 600; margin-bottom: 2px; }
+    .issues-table .fix-text { color: var(--gray); }
+    .flags-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+    .flag { display: flex; align-items: center; gap: 6px; padding: 5px 10px;
+      border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .flag-pass { background: var(--green-bg); color: var(--green); }
+    .flag-fail { background: var(--red-bg); color: var(--red); }
+    .flag-warn { background: var(--amber-bg); color: #B7770D; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat-card { background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px; }
+    .stat-val { font-size: 20px; font-weight: 700; color: var(--text); }
+    .stat-label { font-size: 11px; color: var(--gray); margin-top: 2px; }
+    .serp-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .serp-item { display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 12px; background: var(--bg); border-radius: 6px;
+      font-size: 12px; border: 1px solid var(--border); }
+    .serp-feature-name { font-weight: 600; }
+    .serp-pct { color: var(--gray); }
+    .copy-block { background: #F0F4FF; border: 1px solid #C8D8F5;
+      border-radius: 8px; padding: 14px 16px; margin-top: 20px; }
+    .copy-block-header { display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 10px; }
+    .copy-block-title { font-size: 11px; font-weight: 700; color: var(--brand);
+      text-transform: uppercase; letter-spacing: 0.5px; }
+    .copy-btn { font-size: 11px; background: var(--brand); color: white;
+      border: none; border-radius: 4px; padding: 4px 10px; cursor: pointer;
+      font-weight: 600; }
+    .copy-btn:hover { background: var(--brand-light); }
+    .copy-block pre { font-size: 12px; line-height: 1.7; white-space: pre-wrap;
+      font-family: 'SF Mono', 'Consolas', 'Menlo', monospace; color: var(--text); }
+    .client-takeaway { margin-top: 16px; background: var(--accent-light);
+      border-left: 3px solid var(--accent); padding: 9px 14px;
+      border-radius: 0 6px 6px 0; font-size: 13px; }
+    .alert-banner { display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+    .alert-critical { background: var(--red-bg); color: var(--red); border: 1px solid #F5C6C2; }
+    .alert-high { background: var(--amber-bg); color: #B7770D; border: 1px solid #FAD9A1; }
+    footer { text-align: center; padding: 24px 40px; font-size: 11px;
+      color: var(--gray); border-top: 1px solid var(--border); margin-top: 40px; }
+    .onpage-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+    .onpage-stat-card { background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+    .onpage-stat-num { font-size: 22px; font-weight: 800; line-height: 1; min-width: 32px; }
+    .onpage-stat-num.has-issues { color: var(--red); }
+    .onpage-stat-num.ok { color: var(--green); }
+    .onpage-stat-label { font-size: 11px; color: var(--gray); line-height: 1.3; }
+    .onpage-issues-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .onpage-issues-table th { text-align: left; padding: 7px 10px; background: var(--bg);
+      color: var(--gray); font-weight: 700; font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.4px; border-bottom: 1px solid var(--border); }
+    .onpage-issues-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .onpage-issues-table tr:last-child td { border-bottom: none; }
+    .onpage-issues-table .page-url { font-size: 11px; color: var(--accent); word-break: break-all; max-width: 260px; }
+    .action-items-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .action-item { background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px; display: grid;
+      grid-template-columns: 28px 1fr auto; gap: 10px; align-items: start; }
+    .action-num { font-size: 16px; font-weight: 800; color: var(--brand); line-height: 1.2; }
+    .action-issue { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+    .action-pages { font-size: 11px; color: var(--gray); margin-bottom: 2px; }
+    .action-fix { font-size: 12px; color: var(--text); }
+    @media print { .copy-btn { display: none; }
+      details.client-section { break-inside: avoid; }
+      details.client-section[open] { display: block; } }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-text">
+    <h1>Zenfusion — Portfolio SEO Audit</h1>
+    <div class="header-meta">September 2026 &nbsp;·&nbsp; Generated September 08, 2026 &nbsp;·&nbsp; 2 brands</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="section-title">📊 Portfolio Overview</div>
+  <div class="summary-wrap">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Technical Health</th>
+          <th>Visibility</th>
+          <th>Backlink Risk</th>
+          <th>SERP Displacement</th>
+          <th>Critical Issues</th>
+          <th>Overall</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>
+              <div class="client-name">softprowatersystems.com</div>
+              <div class="domain">softprowatersystems.com</div>
+            </td>
+            <td><span class="score-cell score-amber">85/100</span></td>
+            <td><span class="score-cell score-green">94/100</span></td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td>0% of keywords</td>
+            <td><span class="badge badge-red">0 issues</span></td>
+            <td>
+              <div class="overall-cell">
+                <span class="dot dot-green"></span>
+                93/100
+              </div>
+            </td>
+          </tr>
+<tr>
+            <td>
+              <div class="client-name">qualitywatertreatment.com</div>
+              <div class="domain">qualitywatertreatment.com</div>
+            </td>
+            <td><span class="score-cell score-amber">56/100</span></td>
+            <td><span class="score-cell score-green">96/100</span></td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td>0% of keywords</td>
+            <td><span class="badge badge-red">0 issues</span></td>
+            <td>
+              <div class="overall-cell">
+                <span class="dot dot-green"></span>
+                84/100
+              </div>
+            </td>
+          </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div class="takeaway"><strong>Portfolio snapshot:</strong> 0 of 2 brands are in the red, 0 amber, 2 green. softprowatersystems.com has the highest overall health score (93/100). </div>
+
+  <div class="section-title">🎯 Cross-Portfolio Top 10 Fixes This Week</div>
+  <ol class="priority-list">
+    <li class="priority-item">
+        <div class="priority-num">1</div>
+        <div>
+          <div class="priority-client-label">qualitywatertreatment.com</div>
+          <div class="priority-issue">Poor Lighthouse performance score (16/100)</div>
+          <div class="priority-fix">→ Optimize page speed: compress images, reduce JS, use lazy loading</div>
+        </div>
+        <div class="priority-badges">
+          <span class="badge badge-amber">HIGH</span>
+          <span class="badge badge-blue">HIGH impact</span>
+          <span class="badge badge-gray">HIGH effort</span>
+        </div>
+      </li>
+<li class="priority-item">
+        <div class="priority-num">2</div>
+        <div>
+          <div class="priority-client-label">qualitywatertreatment.com</div>
+          <div class="priority-issue">Poor LCP (5232ms > 4000ms threshold)</div>
+          <div class="priority-fix">→ Optimize largest contentful paint: preload hero images, reduce server response time</div>
+        </div>
+        <div class="priority-badges">
+          <span class="badge badge-amber">HIGH</span>
+          <span class="badge badge-blue">HIGH impact</span>
+          <span class="badge badge-gray">HIGH effort</span>
+        </div>
+      </li>
+<li class="priority-item">
+        <div class="priority-num">3</div>
+        <div>
+          <div class="priority-client-label">qualitywatertreatment.com</div>
+          <div class="priority-issue">Poor CLS (0.680 > 0.25 threshold)</div>
+          <div class="priority-fix">→ Set explicit dimensions for images, ads, and dynamic content</div>
+        </div>
+        <div class="priority-badges">
+          <span class="badge badge-amber">HIGH</span>
+          <span class="badge badge-blue">MEDIUM impact</span>
+          <span class="badge badge-gray">MEDIUM effort</span>
+        </div>
+      </li>
+
+  </ol>
+  <div class="takeaway"><strong>Where to focus:</strong> Focus on CRITICAL issues first — they affect indexability and should be resolved before any content investment. Cross-brand patterns indicate systemic issues worth a template fix.</div>
+
+  <div class="section-title">🔍 Per-Brand Detail</div>
+  <details class="client-section">
+    <summary>
+      <span class="dot dot-green"></span>
+      <span class="summary-name">softprowatersystems.com</span>
+      <span class="summary-domain">softprowatersystems.com</span>
+      <div class="summary-scores">
+        Tech 85 · Vis 94 · LOW risk
+      </div>
+      <span class="chevron">▶</span>
+    </summary>
+    <div class="client-body">
+      
+      <div class="client-sub-title">Lighthouse Scores</div>
+      <div class="scores-row">
+        <div class="score-card"><div class="score-val score-amber">80</div><div class="score-label">Performance</div></div>
+        <div class="score-card"><div class="score-val score-green">92</div><div class="score-label">SEO</div></div>
+        <div class="score-card"><div class="score-val score-green">96</div><div class="score-label">Accessibility</div></div>
+        <div class="score-card"><div class="score-val score-amber">73</div><div class="score-label">Best Practices</div></div>
+      </div>
+      <div class="client-sub-title">Core Web Vitals</div>
+      <div class="cwv-row">
+        <div class="cwv-card"><div class="cwv-icon">🖼</div><div><div class="cwv-val score-amber">2.68s</div><div class="cwv-name">LCP</div></div></div>
+        <div class="cwv-card"><div class="cwv-icon">⏱</div><div><div class="cwv-val score-green">0ms</div><div class="cwv-name">TBT</div></div></div>
+        <div class="cwv-card"><div class="cwv-icon">📐</div><div><div class="cwv-val score-green">0.057</div><div class="cwv-name">CLS</div></div></div>
+      </div>
+      <div class="client-sub-title">Indexability</div>
+      <div class="flags-row">
+        <span class="flag flag-pass">✓ HTTPS</span>
+        <span class="flag flag-pass">✓ robots.txt</span>
+        <span class="flag flag-pass">✓ Canonical</span>
+        <span class="flag flag-pass">✓ H1</span>
+        <span class="flag flag-pass">✓ Meta title</span>
+        <span class="flag flag-pass">✓ Meta description</span>
+      </div>
+      <div class="client-sub-title">Technical On-Page Deep Scan (1 pages crawled)</div>
+      <div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing title</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Title too short / long</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing meta description</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing H1</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Multiple H1s</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing canonical</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Non-HTTPS pages</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Pages with broken links</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num">96 ms</div>
+            <div class="onpage-stat-label">Avg page load time</div>
+          </div>
+
+      <div class="client-sub-title" style="margin-top:14px">On-Page Issues by Page</div>
+      <p style='color:var(--gray);font-size:12px'>No per-page issues found.</p>
+      <div class="client-sub-title" style="margin-top:14px">Action Items (prioritized)</div>
+      <p style='color:var(--gray);font-size:12px'>No action items.</p>
+      <div class="client-sub-title">Top Issues (all categories)</div>
+      <table class="issues-table">
+        <thead><tr><th style="width:90px">Severity</th><th style="width:90px">Category</th><th>Issue</th><th>Fix</th></tr></thead>
+        <tbody><tr><td colspan='4' style='color:var(--gray)'>No issues found.</td></tr></tbody>
+      </table>
+      <div class="client-sub-title">Organic Visibility</div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-val">52.7K</div><div class="stat-label">Est. Monthly Organic Visits</div></div>
+        <div class="stat-card"><div class="stat-val">19.2K</div><div class="stat-label">Ranked Keywords</div></div>
+        <div class="stat-card"><div class="stat-val">2.1K</div><div class="stat-label">Referring Domains</div></div>
+      </div>
+      <div class="client-sub-title">SERP Feature Displacement (0% of keywords)</div>
+      <ul class="serp-list"><li class='serp-item'><span class='serp-feature-name'>No SERP features displacing rankings</span></li></ul>
+      <div class="client-sub-title">Backlink Health</div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-val">2.1K</div><div class="stat-label">Referring Domains</div></div>
+        <div class="stat-card"><div class="stat-val">87.4K</div><div class="stat-label">Total Backlinks</div></div>
+        <div class="stat-val" style="display:none">0</div>
+        <div class="stat-card"><div class="stat-val score-red">0/100</div><div class="stat-label">Spam Score</div></div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-block-header">
+          <span class="copy-block-title">📋 Copy fixes for softprowatersystems.com</span>
+          <button class="copy-btn" onclick="copyFixes('fixes-softprowatersystems-com')">Copy</button>
+        </div>
+        <pre id="fixes-softprowatersystems-com">No issues found.</pre>
+      </div>
+      <div class="client-takeaway">Overall health: 93/100 (green). 0 issues found, 0 critical. Traffic estimate: 52.7K/mo, 19.2K ranked keywords, 2.1K referring domains.</div>
+    </div>
+  </details>
+<details class="client-section">
+    <summary>
+      <span class="dot dot-green"></span>
+      <span class="summary-name">qualitywatertreatment.com</span>
+      <span class="summary-domain">qualitywatertreatment.com</span>
+      <div class="summary-scores">
+        Tech 56 · Vis 96 · LOW risk
+      </div>
+      <span class="chevron">▶</span>
+    </summary>
+    <div class="client-body">
+      
+      <div class="client-sub-title">Lighthouse Scores</div>
+      <div class="scores-row">
+        <div class="score-card"><div class="score-val score-red">16</div><div class="score-label">Performance</div></div>
+        <div class="score-card"><div class="score-val score-amber">77</div><div class="score-label">SEO</div></div>
+        <div class="score-card"><div class="score-val score-amber">78</div><div class="score-label">Accessibility</div></div>
+        <div class="score-card"><div class="score-val score-amber">54</div><div class="score-label">Best Practices</div></div>
+      </div>
+      <div class="client-sub-title">Core Web Vitals</div>
+      <div class="cwv-row">
+        <div class="cwv-card"><div class="cwv-icon">🖼</div><div><div class="cwv-val score-red">5.2s</div><div class="cwv-name">LCP</div></div></div>
+        <div class="cwv-card"><div class="cwv-icon">⏱</div><div><div class="cwv-val score-amber">564ms</div><div class="cwv-name">TBT</div></div></div>
+        <div class="cwv-card"><div class="cwv-icon">📐</div><div><div class="cwv-val score-red">0.680</div><div class="cwv-name">CLS</div></div></div>
+      </div>
+      <div class="client-sub-title">Indexability</div>
+      <div class="flags-row">
+        <span class="flag flag-pass">✓ HTTPS</span>
+        <span class="flag flag-pass">✓ robots.txt</span>
+        <span class="flag flag-pass">✓ Canonical</span>
+        <span class="flag flag-pass">✓ H1</span>
+        <span class="flag flag-pass">✓ Meta title</span>
+        <span class="flag flag-pass">✓ Meta description</span>
+      </div>
+      <div class="client-sub-title">Technical On-Page Deep Scan (1 pages crawled)</div>
+      <div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing title</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num has-issues">1</div>
+            <div class="onpage-stat-label">Title too short / long</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing meta description</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing H1</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Multiple H1s</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Missing canonical</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Non-HTTPS pages</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num ok">0</div>
+            <div class="onpage-stat-label">Pages with broken links</div>
+          </div>
+<div class="onpage-stat-card">
+            <div class="onpage-stat-num">99 ms</div>
+            <div class="onpage-stat-label">Avg page load time</div>
+          </div>
+
+      <div class="client-sub-title" style="margin-top:14px">On-Page Issues by Page</div>
+      <table class="onpage-issues-table">
+          <thead><tr><th>Page URL</th><th>Issue</th><th style="width:90px">Severity</th></tr></thead>
+          <tbody><tr>
+              <td><div class="page-url">https://qualitywatertreatment.com</div></td>
+              <td>Title length suboptimal (68 chars)</td>
+              <td><span class="badge badge-gray">MEDIUM</span></td>
+            </tr>
+</tbody>
+        </table>
+      <div class="client-sub-title" style="margin-top:14px">Action Items (prioritized)</div>
+      <ol class="action-items-list"><li class="action-item">
+              <div class="action-num">1</div>
+              <div>
+                <div class="action-issue">Title length suboptimal (68 chars)</div>
+                <div class="action-pages">Affects: https://qualitywatertreatment.com</div>
+              </div>
+              <span class="badge badge-gray">MEDIUM</span>
+            </li>
+</ol>
+      <div class="client-sub-title">Top Issues (all categories)</div>
+      <table class="issues-table">
+        <thead><tr><th style="width:90px">Severity</th><th style="width:90px">Category</th><th>Issue</th><th>Fix</th></tr></thead>
+        <tbody><tr>
+              <td><span class="badge badge-amber">HIGH</span></td>
+              <td><span class="badge badge-gray">Technical</span></td>
+              <td><div class="issue-text">Poor Lighthouse performance score (16/100)</div></td>
+              <td><div class="fix-text">Optimize page speed: compress images, reduce JS, use lazy loading</div></td>
+            </tr>
+<tr>
+              <td><span class="badge badge-amber">HIGH</span></td>
+              <td><span class="badge badge-gray">Technical</span></td>
+              <td><div class="issue-text">Poor LCP (5232ms > 4000ms threshold)</div></td>
+              <td><div class="fix-text">Optimize largest contentful paint: preload hero images, reduce server response time</div></td>
+            </tr>
+<tr>
+              <td><span class="badge badge-amber">HIGH</span></td>
+              <td><span class="badge badge-gray">Technical</span></td>
+              <td><div class="issue-text">Poor CLS (0.680 > 0.25 threshold)</div></td>
+              <td><div class="fix-text">Set explicit dimensions for images, ads, and dynamic content</div></td>
+            </tr>
+</tbody>
+      </table>
+      <div class="client-sub-title">Organic Visibility</div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-val">61.9K</div><div class="stat-label">Est. Monthly Organic Visits</div></div>
+        <div class="stat-card"><div class="stat-val">22.7K</div><div class="stat-label">Ranked Keywords</div></div>
+        <div class="stat-card"><div class="stat-val">1.2K</div><div class="stat-label">Referring Domains</div></div>
+      </div>
+      <div class="client-sub-title">SERP Feature Displacement (0% of keywords)</div>
+      <ul class="serp-list"><li class='serp-item'><span class='serp-feature-name'>No SERP features displacing rankings</span></li></ul>
+      <div class="client-sub-title">Backlink Health</div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-val">1.2K</div><div class="stat-label">Referring Domains</div></div>
+        <div class="stat-card"><div class="stat-val">5.7K</div><div class="stat-label">Total Backlinks</div></div>
+        <div class="stat-val" style="display:none">0</div>
+        <div class="stat-card"><div class="stat-val score-red">0/100</div><div class="stat-label">Spam Score</div></div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-block-header">
+          <span class="copy-block-title">📋 Copy fixes for qualitywatertreatment.com</span>
+          <button class="copy-btn" onclick="copyFixes('fixes-qualitywatertreatment-com')">Copy</button>
+        </div>
+        <pre id="fixes-qualitywatertreatment-com">[HIGH] Poor Lighthouse performance score (16/100)
+  Fix: Optimize page speed: compress images, reduce JS, use lazy loading
+
+[HIGH] Poor LCP (5232ms > 4000ms threshold)
+  Fix: Optimize largest contentful paint: preload hero images, reduce server response time
+
+[HIGH] Poor CLS (0.680 > 0.25 threshold)
+  Fix: Set explicit dimensions for images, ads, and dynamic content</pre>
+      </div>
+      <div class="client-takeaway">Overall health: 84/100 (green). 3 issues found, 0 critical. Traffic estimate: 61.9K/mo, 22.7K ranked keywords, 1.2K referring domains.</div>
+    </div>
+  </details>
+
+
+</div>
+
+<footer>
+  Zenfusion · Portfolio SEO Audit · September 2026<br>
+  <span style="opacity:0.6">SEO Data collected via DataForSEO</span>
+</footer>
+
+<script>
+  function copyFixes(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.textContent).then(() => {
+      const btn = el.closest('.copy-block').querySelector('.copy-btn');
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = orig, 1800);
+    });
+  }
+</script>
+</body>
+</html>
