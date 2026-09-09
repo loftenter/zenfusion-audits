@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Competitor Page Monitor Report — softprowatersystems.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f8f9fb; color: #1a1d28; line-height: 1.6; padding: 20px 40px;
+  }
+  a { color: #2563eb; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 { font-size: 28px; margin-bottom: 4px; font-weight: 700; color: #0f172a; }
+  h2 { font-size: 22px; margin-bottom: 16px; padding-bottom: 10px;
+       border-bottom: 1px solid #e2e8f0; color: #0f172a; }
+  h3 { font-size: 16px; color: #334155; margin: 20px 0 10px; }
+  .subtitle { color: #64748b; font-size: 14px; margin-bottom: 30px; }
+  .generated { color: #94a3b8; font-size: 12px; }
+  .muted { color: #94a3b8; font-size: 13px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+           gap: 16px; margin-bottom: 36px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+          padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .card-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+                color: #64748b; margin-bottom: 8px; }
+  .card-value { font-size: 32px; font-weight: 700; color: #0f172a; }
+  .card-sub { font-size: 13px; color: #94a3b8; margin-top: 4px; }
+
+  .section { margin-bottom: 36px; }
+  .table-wrap { overflow-x: auto; margin-bottom: 36px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff;
+          border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { text-align: left; padding: 10px 12px; background: #f1f5f9; color: #475569;
+       font-weight: 600; text-transform: uppercase; font-size: 11px;
+       letter-spacing: 0.05em; border-bottom: 2px solid #e2e8f0; }
+  td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+  tr:hover td { background: #f8fafc; }
+  td.domain { font-weight: 600; color: #0f172a; }
+  td.url { max-width: 260px; overflow: hidden; text-overflow: ellipsis;
+           white-space: nowrap; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .bar-wrap { background: #e2e8f0; border-radius: 4px; height: 18px; min-width: 60px; }
+  .bar { background: #2563eb; border-radius: 4px; height: 18px; }
+
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px;
+           font-size: 11px; font-weight: 600; text-transform: lowercase; }
+  .badge-blog { background: #dbeafe; color: #1e40af; }
+  .badge-product { background: #dcfce7; color: #166534; }
+  .badge-landing { background: #fef3c7; color: #92400e; }
+  .badge-other { background: #f1f5f9; color: #64748b; }
+  .badge-unknown { background: #f1f5f9; color: #64748b; }
+
+  .parent-row { cursor: pointer; }
+  .child-row { display: none; background: #f8fafc; }
+  .child-row td { padding: 12px 16px; }
+  .toggle-cell { text-align: center; color: #94a3b8; font-size: 14px; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 12px; color: #475569; }
+
+  .gap-alert { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+               padding: 16px 20px; margin-bottom: 20px; }
+  .gap-alert h3 { color: #991b1b; margin-top: 0; }
+
+  .rec-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+              padding: 20px 24px; }
+  .rec-list li { margin-bottom: 10px; color: #334155; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 768px) { .two-col, .detail-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <h1>Competitor Page Monitor Report</h1>
+  <p class="subtitle">Client: <strong>softprowatersystems.com</strong> &middot;
+     Scanning: aquasana.com, culligan.com, springwellwater.com &middot; Window: last 30 days</p>
+  <p class="generated">Generated 2026-09-09 17:31 UTC &middot; Zenfusion competitor_page_monitor v1.0</p>
+
+  <div class="cards">
+    
+        <div class="card">
+          <div class="card-label">New Pages Found</div>
+          <div class="card-value">82</div>
+          <div class="card-sub">across 3 competitors</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Competitors Scanned</div>
+          <div class="card-value">3</div>
+          <div class="card-sub">aquasana.com, culligan.com, springwellwater.com</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Top Topic</div>
+          <div class="card-value">water filtration</div>
+          <div class="card-sub">49 pages</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Avg Word Count</div>
+          <div class="card-value">1900</div>
+          <div class="card-sub">across new pages</div>
+        </div>
+  </div>
+
+  <div class="section">
+    <h2>New Pages by Domain</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Domain</th><th>New Pages</th></tr></thead>
+        <tbody><tr><td class="domain">aquasana.com</td><td class="num">50</td></tr><tr><td class="domain">springwellwater.com</td><td class="num">26</td></tr><tr><td class="domain">culligan.com</td><td class="num">6</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Publishing Timeline</h2>
+    <svg viewBox="0 0 900 190" width="100%" style="max-height:190px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px">
+    <text x="140" y="18" font-size="12" fill="#475569" font-weight="600">Publishing timeline (last 30 days)</text>
+    <text x="140.0" y="182" font-size="10" fill="#64748b" text-anchor="middle">08/10</text><text x="310.3" y="182" font-size="10" fill="#64748b" text-anchor="middle">08/17</text><text x="480.7" y="182" font-size="10" fill="#64748b" text-anchor="middle">08/24</text><text x="651.0" y="182" font-size="10" fill="#64748b" text-anchor="middle">08/31</text><text x="821.3" y="182" font-size="10" fill="#64748b" text-anchor="middle">09/07</text>
+    <text x="130" y="54" font-size="11" fill="#334155" text-anchor="end" font-weight="600">aquasana.com</text><line x1="140" y1="50" x2="870" y2="50" stroke="#e2e8f0" stroke-width="1"/><circle cx="845.7" cy="50" r="14" fill="#2563eb" opacity="0.75"><title>aquasana.com — 2026-09-09: 50 new page(s)</title></circle><text x="845.7" y="54" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">50</text><text x="130" y="104" font-size="11" fill="#334155" text-anchor="end" font-weight="600">culligan.com</text><line x1="140" y1="100" x2="870" y2="100" stroke="#e2e8f0" stroke-width="1"/><circle cx="651.0" cy="100" r="12" fill="#2563eb" opacity="0.75"><title>culligan.com — 2026-09-01: 4 new page(s)</title></circle><text x="651.0" y="104" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">4</text><circle cx="699.7" cy="100" r="6" fill="#2563eb" opacity="0.75"><title>culligan.com — 2026-09-03: 1 new page(s)</title></circle><circle cx="188.7" cy="100" r="6" fill="#2563eb" opacity="0.75"><title>culligan.com — 2026-08-13: 1 new page(s)</title></circle><text x="130" y="154" font-size="11" fill="#334155" text-anchor="end" font-weight="600">springwellwater.com</text><line x1="140" y1="150" x2="870" y2="150" stroke="#e2e8f0" stroke-width="1"/><circle cx="213.0" cy="150" r="14" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-08-14: 10 new page(s)</title></circle><text x="213.0" y="154" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">10</text><circle cx="724.0" cy="150" r="6" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-09-04: 1 new page(s)</title></circle><circle cx="821.3" cy="150" r="14" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-09-08: 7 new page(s)</title></circle><text x="821.3" y="154" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">7</text><circle cx="845.7" cy="150" r="12" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-09-09: 4 new page(s)</title></circle><text x="845.7" y="154" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">4</text><circle cx="626.7" cy="150" r="6" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-08-31: 1 new page(s)</title></circle><circle cx="675.3" cy="150" r="6" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-09-02: 1 new page(s)</title></circle><circle cx="383.3" cy="150" r="6" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-08-21: 1 new page(s)</title></circle><circle cx="699.7" cy="150" r="6" fill="#2563eb" opacity="0.75"><title>springwellwater.com — 2026-09-03: 1 new page(s)</title></circle>
+    </svg>
+  </div>
+
+  <div class="section">
+    <h2>New Pages Detail</h2>
+    <p class="muted">Click any row to expand details (H1, meta description, internal links, schema).</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Domain</th><th>URL</th><th>Title</th><th>Publish Date</th>
+          <th>Topic</th><th>Words</th><th>Type</th><th></th>
+        </tr></thead>
+        <tbody>
+        <tr class="parent-row" onclick="toggle('row-0')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-water-filters/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-water-filters/</a></td>
+          <td>Whole House Water Filters &amp; Filtration Systems | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">3,040</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-0">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> WHOLE HOUSE WATER FILTERS</div>
+              <div><strong>Meta Description:</strong> Aquasana&#x27;s whole house water filters provide healthy, great-tasting water from every tap in your home. Tested to reduce chlorine, lead and more — order today!</div>
+              <div><strong>Internal Links:</strong> 56</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-1')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filters/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filters/</a></td>
+          <td>Under Sink Water Filters &amp; Filtration Systems | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,191</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-1">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> UNDER SINK WATER FILTERS</div>
+              <div><strong>Meta Description:</strong> Our easy-to-install under sink water filters remove up to 99% of 90 harmful contaminants including lead. Shop our award-winning under sink systems now!</div>
+              <div><strong>Internal Links:</strong> 62</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-2')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/waters-journey-through-the-body-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/waters-journey-through-the-body-pd.html</a></td>
+          <td>Where does water go when you drink it? | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>General</td>
+          <td class="num">1,517</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-2">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Where does water go when you drink it?</div>
+              <div><strong>Meta Description:</strong> After you take a sip of water, it travels from the mouth to the esophagus, to the stomach, and then the absorption process begins in the small intestine.</div>
+              <div><strong>Internal Links:</strong> 49</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-3')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/how-to-install-a-water-softener-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/how-to-install-a-water-softener-pd.html</a></td>
+          <td>How to Install a Water Softener in 9 Steps | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water softener</td>
+          <td class="num">1,664</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-3">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> How to Install a Water Softener in 9 Steps</div>
+              <div><strong>Meta Description:</strong> Get step-by-step instructions on how to install a water softener including where to set it up and what you&#x27;ll need for installation.</div>
+              <div><strong>Internal Links:</strong> 48</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-4')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/boiled-water-vs-filtered-water-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/boiled-water-vs-filtered-water-pd.html</a></td>
+          <td>Boiled Water vs. Filtered Water | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>comparison</td>
+          <td class="num">1,545</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-4">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Boiled Water vs. Filtered Water</div>
+              <div><strong>Meta Description:</strong> How does boiling water compare to filtering it? Find out what purification method is best at removing contaminants in case of an emergency.</div>
+              <div><strong>Internal Links:</strong> 56</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-5')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/is-distilled-water-good-to-drink-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/is-distilled-water-good-to-drink-pd.html</a></td>
+          <td>Is Distilled Water Good to Drink? | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>General</td>
+          <td class="num">1,855</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-5">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Is Distilled Water Good to Drink?</div>
+              <div><strong>Meta Description:</strong> Learn what distilled water is, its pros and cons, and helps you decide whether it’s a good choice for everyday drinking.</div>
+              <div><strong>Internal Links:</strong> 51</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-6')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/the-pros-and-cons-of-reverse-osmosis-filtration-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/the-pros-and-cons-of-reverse-osmosis-filtration-pd.html</a></td>
+          <td>The Benefits of Reverse Osmosis Water | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,801</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-6">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> The Benefits of Reverse Osmosis Water</div>
+              <div><strong>Meta Description:</strong> With reverse osmosis being the most effective water filtration method on the market, it comes with a lot of benefits. Learn the pros and cons of RO here.</div>
+              <div><strong>Internal Links:</strong> 57</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-7')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/how-to-make-fruit-infused-water-recipes-ideas-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/how-to-make-fruit-infused-water-recipes-ideas-pd.html</a></td>
+          <td>How to Make Fruit Infused Water: Recipes &amp; Ideas | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>General</td>
+          <td class="num">1,028</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-7">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> How to Make Fruit Infused Water: Recipes &amp; Ideas</div>
+              <div><strong>Meta Description:</strong> How to make fruit infused water. Learn more about its benefits and refreshing recipes.</div>
+              <div><strong>Internal Links:</strong> 45</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-8')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filters/claryum-3-stage/brushed-nickel-100391689.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filters/claryum-3-stage/brushed-nickel-100391689.html</a></td>
+          <td>3-Stage Claryum® Under Sink Water Filter | WQA Certified | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">2,231</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-8">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Claryum® 3-Stage</div>
+              <div><strong>Meta Description:</strong> Shop our new and improved Claryum® 3-Stage, which is WQA-certified to reduce up to 99.99% of lead, microplastics, PFAS, VOCS, pharmaceuticals, and more</div>
+              <div><strong>Internal Links:</strong> 53</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-9')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/whole-house-uv-lamps-replacements/uv-lamp-replacement-aquvl330c-100318212.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/whole-house-uv-lamps-replacements/uv-lamp-replacement-aquvl330c-100318212.html</a></td>
+          <td>UV Replacement Lamp (AQ-UV-L330C) | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,358</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-9">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> UV Replacement Lamp (AQ-UV-L330C)</div>
+              <div><strong>Meta Description:</strong> UV Replacement Lamp for Aquasana&#x27;s UV Filter (AQ-UV-L330C), which lasts for 12 months and sterilizes bacteria and viruses. Shop now!</div>
+              <div><strong>Internal Links:</strong> 43</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-10')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/shower-head-water-filters/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/shower-head-water-filters/</a></td>
+          <td>Easy Install Shower Filters for Chlorine Removal | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,645</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-10">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> SHOWER FILTERS</div>
+              <div><strong>Meta Description:</strong> Enjoy softer hair and skin with our award-winning shower filters. Our patented coconut shell carbon is proven to reduce 90% of chlorine from your water.</div>
+              <div><strong>Internal Links:</strong> 49</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-11')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/</a></td>
+          <td>Aquasana Water Filters | Whole House Water Filtration Systems</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">710</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-11">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Meet clean, healthy water</div>
+              <div><strong>Meta Description:</strong> Enjoy clean and great-tasting water straight from your faucet! Aquasana offers drinking water filters, shower filters &amp;amp; whole house systems at an amazing price.</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-12')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-products/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-products/</a></td>
+          <td>All Water Filter Products | Shop Aquasana Filters &amp; Accessories</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,484</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-12">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> ALL AQUASANA PRODUCTS</div>
+              <div><strong>Meta Description:</strong> Find the entire collection of Aquasana whole house filters, drinking water filters, replacement filters and other filters &amp; accessories here. Browse today!</div>
+              <div><strong>Internal Links:</strong> 76</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-13')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-softeners/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-softeners/</a></td>
+          <td>Water Softeners | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>hard water</td>
+          <td class="num">2,028</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-13">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> WATER SOFTENERS</div>
+              <div><strong>Meta Description:</strong> Aquasana&#x27;s water softeners address hard water to provide softer, scale-free, and spotless water throughout your home — order today!</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-14')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/</a></td>
+          <td>Replacement Water Filters | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,625</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-14">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> WATER FILTER REPLACEMENTS</div>
+              <div><strong>Meta Description:</strong> Buy Aquasana filter replacement cartridges for all whole house systems, drinking water filters and shower filters before they wear out. See current deals!</div>
+              <div><strong>Internal Links:</strong> 60</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-15')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filters/claryum-3-stage-max-flow/brushed-nickel-100391704.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filters/claryum-3-stage-max-flow/brushed-nickel-100391704.html</a></td>
+          <td>3-Stage Claryum Fast Flow Rate Under Sink Water Filter | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,259</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-15">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Claryum® 3-Stage Max Flow</div>
+              <div><strong>Meta Description:</strong> Reduce up to 99.99% of 78 contaminants and get 44% faster flow rate with our new and improved Claryum® 3-Stage Max Flow.</div>
+              <div><strong>Internal Links:</strong> 52</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-16')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filters/claryum-2-stage/brushed-nickel-100391677.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filters/claryum-2-stage/brushed-nickel-100391677.html</a></td>
+          <td>2-Stage Claryum® Under Sink Water Filter | WQA Certified | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">2,172</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-16">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Claryum® 2-Stage</div>
+              <div><strong>Meta Description:</strong> Reduce up to 99.99% of 78 contaminants with our new and improved Claryum® 2-Stage, which filters 15x more contaminants than the leading pitcher filter!</div>
+              <div><strong>Internal Links:</strong> 53</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-17')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/shower-head-water-filters/standard-shower-head-100236176.html?bvstate=pg%3a53%2fct%3ar" target="_blank" rel="nofollow noopener">https://www.aquasana.com/shower-head-water-filters/standard-shower-head-100236176.html?bvstate=pg%3a53%2fct%3ar</a></td>
+          <td>Shower Filter with Included Shower Head | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,733</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-17">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Shower Filter</div>
+              <div><strong>Meta Description:</strong> Our shower filter with included shower head is easy to install and reduces over 90% of chlorine. Breathe easy, and enjoy shinier hair and softer skin.</div>
+              <div><strong>Internal Links:</strong> 42</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-18')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/shower-head-water-filters/standard-shower-head-100236176.html?bvstate=pg%3a69%2fct%3ar" target="_blank" rel="nofollow noopener">https://www.aquasana.com/shower-head-water-filters/standard-shower-head-100236176.html?bvstate=pg%3a69%2fct%3ar</a></td>
+          <td>Shower Filter with Included Shower Head | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,733</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-18">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Shower Filter</div>
+              <div><strong>Meta Description:</strong> Our shower filter with included shower head is easy to install and reduces over 90% of chlorine. Breathe easy, and enjoy shinier hair and softer skin.</div>
+              <div><strong>Internal Links:</strong> 42</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-19')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filters/claryum-direct-connect-100329886.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filters/claryum-direct-connect-100329886.html</a></td>
+          <td>Claryum Direct Connect Under Sink Water Filter | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">2,014</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-19">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Claryum® Direct Connect</div>
+              <div><strong>Meta Description:</strong> Enjoy clean, healthy water with our easy to install and fast-flowing Claryum Direct Connect, which removes up to 99% of 78 contaminants including lead and PFOA/PFOS.</div>
+              <div><strong>Internal Links:</strong> 47</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-20')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/whole-house-uv-lamps-replacements/uv-lamp-replacement-100236803.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/whole-house-uv-lamps-replacements/uv-lamp-replacement-100236803.html</a></td>
+          <td>UV Replacement Lamp | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,285</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-20">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> UV Replacement Lamp</div>
+              <div><strong>Meta Description:</strong> UV Replacement Lamp for Aquasana&#x27;s UV Filter, which lasts for 12 months and sterilizes up to 99.8% of bacteria and viruses. Shop now!</div>
+              <div><strong>Internal Links:</strong> 43</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-21')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filter-replacements/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filter-replacements/</a></td>
+          <td>Under Sink Water Filters | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">927</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-21">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> —</div>
+              <div><strong>Meta Description:</strong> Shop the best selection of Under Sink water filters from Aquasana - order today!</div>
+              <div><strong>Internal Links:</strong> 48</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-22')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/under-sink-water-filter-replacements/claryum-direct-connect-replacement-cartridge-100329887.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/under-sink-water-filter-replacements/claryum-direct-connect-replacement-cartridge-100329887.html</a></td>
+          <td>Claryum Direct Connect Replacement Filter Cartridge | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,662</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-22">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Claryum® Direct Connect Replacement Cartridge</div>
+              <div><strong>Meta Description:</strong> Purchase a replacement cartridge for the Aquasana Claryum® Direct Connect under sink water filter. We recommend replacing the cartridge every 6 months or 784 gallons.</div>
+              <div><strong>Internal Links:</strong> 45</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-23')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/countertop-water-filters/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/countertop-water-filters/</a></td>
+          <td>Countertop Water Filters &amp; Filtration Systems | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,879</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-23">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> COUNTERTOP WATER FILTERS</div>
+              <div><strong>Meta Description:</strong> Instantly transform tap water into healthy, great-tasting water with our countertop water filters — which reduce 78 contaminants including lead and mercury.</div>
+              <div><strong>Internal Links:</strong> 42</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-24')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/countertop-water-filter-replacements/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/countertop-water-filter-replacements/</a></td>
+          <td>Countertop Water Filters | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">615</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-24">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> —</div>
+              <div><strong>Meta Description:</strong> Shop the best selection of Countertop water filters from Aquasana - order today!</div>
+              <div><strong>Internal Links:</strong> 44</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-25')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/contact-us" target="_blank" rel="nofollow noopener">https://www.aquasana.com/contact-us</a></td>
+          <td>Contact Us | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">302</td>
+          <td><span class="badge badge-other">other</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-25">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Contact Us</div>
+              <div><strong>Meta Description:</strong> Contact an Aquasana sales representative or product support specialist for your water filter system questions or concerns. Call toll free 866-662-6885.</div>
+              <div><strong>Internal Links:</strong> 36</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-26')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/locate-an-installer" target="_blank" rel="nofollow noopener">https://www.aquasana.com/locate-an-installer</a></td>
+          <td>Locate an Installer | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">291</td>
+          <td><span class="badge badge-other">other</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-26">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Locate an Installer</div>
+              <div><strong>Meta Description:</strong> Find a local professional to install your Aquasana water filtration system.</div>
+              <div><strong>Internal Links:</strong> 36</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-27')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-water-filters/rhino-100365488.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-water-filters/rhino-100365488.html</a></td>
+          <td>Rhino® Whole House Water Filter | 1 Million Gallons | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,950</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-27">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Rhino®</div>
+              <div><strong>Meta Description:</strong> Shop our Rhino® Whole House Water Filter, independently tested to remove 97% of chlorine for 1 million gallons or up to 10 years.</div>
+              <div><strong>Internal Links:</strong> 51</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-28')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/parts-accessories/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/parts-accessories/</a></td>
+          <td>Water Filter Parts and Accessories | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">647</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-28">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> PARTS AND ACCESSORIES</div>
+              <div><strong>Meta Description:</strong> Find all accessories, parts, and attachments needed for your water filter systems here. Aquasana systems have easy to replace parts and accessories!</div>
+              <div><strong>Internal Links:</strong> 57</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-29')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/product-installation-videos.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/product-installation-videos.html</a></td>
+          <td>Product Installation and Replacement Videos | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">438</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-29">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Product Installation and Replacement Videos</div>
+              <div><strong>Meta Description:</strong> Watch video tutorials for product installation and replacement of Aquasana water filter systems.</div>
+              <div><strong>Internal Links:</strong> 36</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-30')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/product-owners-manuals.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/product-owners-manuals.html</a></td>
+          <td>Product Owner&#x27;s Manuals | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>maintenance</td>
+          <td class="num">720</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-30">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Aquasana Product Owner&#x27;s Manuals</div>
+              <div><strong>Meta Description:</strong> Learn more about Aquasana products and how to install and maintain them.</div>
+              <div><strong>Internal Links:</strong> 90</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-31')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/parts-accessories/sleeves-and-bottle-caps-6-pack-100236761.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/parts-accessories/sleeves-and-bottle-caps-6-pack-100236761.html</a></td>
+          <td>Glass Water Bottles | AQ-6005 18 Oz 6-Pack | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">521</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-31">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Sleeves and Bottle Caps - 6 Pack - Multicolor</div>
+              <div><strong>Meta Description:</strong> Bottle your own with 18 oz glass water bottles. BPA, cadmium and lead-free glass maintains great taste and is better for the environment.</div>
+              <div><strong>Internal Links:</strong> 37</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-32')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/sign-in" target="_blank" rel="nofollow noopener">https://www.aquasana.com/sign-in</a></td>
+          <td>Sign In | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">277</td>
+          <td><span class="badge badge-other">other</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-32">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Sign in</div>
+              <div><strong>Meta Description:</strong> Log in to your existing Aquasana account or create a new one. Get started with Aquasana&#x27;s water filtration systems today!</div>
+              <div><strong>Internal Links:</strong> 41</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-33')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-water-filters/rhino-max-flow-100362408.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-water-filters/rhino-max-flow-100362408.html</a></td>
+          <td>Rhino® Max Flow Whole House Water Filter | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">3,030</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-33">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Rhino® Max Flow</div>
+              <div><strong>Meta Description:</strong> Shop our Rhino® Max Flow Whole House Water Filter, independently tested to remove 97% of chlorine for 1 million gallons or up to 10 years at a flow rate of 14 gpm.</div>
+              <div><strong>Internal Links:</strong> 50</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-34')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-water-filters/optimh2o-lead-100314311.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-water-filters/optimh2o-lead-100314311.html</a></td>
+          <td>Whole House Water Filters &amp; Filtration Systems | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">3,040</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-34">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> WHOLE HOUSE WATER FILTERS</div>
+              <div><strong>Meta Description:</strong> Aquasana&#x27;s whole house water filters provide healthy, great-tasting water from every tap in your home. Tested to reduce chlorine, lead and more — order today!</div>
+              <div><strong>Internal Links:</strong> 56</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-35')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/reverse-osmosis-water-filters/smart-flow-reverse-osmosis/chrome-100385796.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/reverse-osmosis-water-filters/smart-flow-reverse-osmosis/chrome-100385796.html</a></td>
+          <td>SmartFlow® Reverse Osmosis Water Filter | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">3,500</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-35">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> SmartFlow® Reverse Osmosis</div>
+              <div><strong>Meta Description:</strong> Shop our SmartFlow® Reverse Osmosis water filter, tested &amp; certified to reduce up to 99.99% of 90 contaminants including fluoride, arsenic, chlorine, and more.</div>
+              <div><strong>Internal Links:</strong> 48</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-36')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/under-sink-water-filters/smart-flow-reverse-osmosis/chrome-100385796.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/under-sink-water-filters/smart-flow-reverse-osmosis/chrome-100385796.html</a></td>
+          <td>SmartFlow® Reverse Osmosis Water Filter | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">3,500</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-36">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> SmartFlow® Reverse Osmosis</div>
+              <div><strong>Meta Description:</strong> Shop our SmartFlow® Reverse Osmosis water filter, tested &amp; certified to reduce up to 99.99% of 90 contaminants including fluoride, arsenic, chlorine, and more.</div>
+              <div><strong>Internal Links:</strong> 48</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-37')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/whole-house-post-filter-replacements/post-filter-replacement-100307778.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/whole-house-post-filter-replacements/post-filter-replacement-100307778.html</a></td>
+          <td>10&quot; Replacement Post-Filter Cartridge | Whole House | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">2,263</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-37">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Post-Filter Replacement</div>
+              <div><strong>Meta Description:</strong> 10 inch post-filter replacement cartridges for Aquasana whole house water filter systems. Remove insoluble minerals. Replace every 6 months. Order now!</div>
+              <div><strong>Internal Links:</strong> 40</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-38')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/whole-house-pre-filter-replacements/low-maintenance-pre-filter-replacement-100343308.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/whole-house-pre-filter-replacements/low-maintenance-pre-filter-replacement-100343308.html</a></td>
+          <td>Low Maintenance Pre-Filter Replacement | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">845</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-38">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Low Maintenance Pre-Filter Replacement</div>
+              <div><strong>Meta Description:</strong> Replacement filter for Aquasana&#x27;s Low Maintenance Pre-Filter, which lasts for 6 months and prevents dirt and debris from clogging the main filter unit.</div>
+              <div><strong>Internal Links:</strong> 40</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-39')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-filter-replacements/shower-filter-replacements/shower-replacement-cartridge-100236244.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-filter-replacements/shower-filter-replacements/shower-replacement-cartridge-100236244.html</a></td>
+          <td>Replacement Shower Filter Cartridge | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">1,501</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-39">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Shower Filter Replacement Cartridge</div>
+              <div><strong>Meta Description:</strong> Replacement filter for all Aquasana shower filter models. Reduce chlorine and other contaminants for healthier water. Replace every 6 months. Order today!</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-40')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-water-filters/rhino-well-water-with-uv-filter-100403461.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-water-filters/rhino-well-water-with-uv-filter-100403461.html</a></td>
+          <td>Rhino® Well Water with UV Whole House Filter | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">2,939</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-40">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Rhino® Well Water with UV</div>
+              <div><strong>Meta Description:</strong> Shop our Rhino® Well Water with UV Whole House Filter, which protects against bacteria, viruses, and other contaminants commonly found in well water.</div>
+              <div><strong>Internal Links:</strong> 50</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-41')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-water-filters/salt-free-water-conditioner-100365583.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-water-filters/salt-free-water-conditioner-100365583.html</a></td>
+          <td>Salt-Free Water Conditioner | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>salt-free</td>
+          <td class="num">2,108</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-41">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Salt-Free Water Conditioner</div>
+              <div><strong>Meta Description:</strong> Shop our Salt-Free Water Conditioner, which protects your home&#x27;s pipes, plumbing, and appliances from scale buildup without the use of harsh chemicals or salt.</div>
+              <div><strong>Internal Links:</strong> 42</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-42')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-softeners/simplysoft-40000-grain-water-softener-100381840.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-softeners/simplysoft-40000-grain-water-softener-100381840.html</a></td>
+          <td>SimplySoft® 40,000 Grain Softener | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>hard water</td>
+          <td class="num">2,328</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-42">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> SimplySoft® 40,000 Grain Softener</div>
+              <div><strong>Meta Description:</strong> Shop our SimplySoft® 40,000 Grain Softener, IAPMO certified to reduce water hardness and delivers soft, scale-free, and spotless water throughout your home!</div>
+              <div><strong>Internal Links:</strong> 47</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-43')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/whole-house-uv-lamps-replacements/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/whole-house-uv-lamps-replacements/</a></td>
+          <td>Whole House - UV Lamps Water Filters | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">783</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-43">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> —</div>
+              <div><strong>Meta Description:</strong> Shop the best selection of Whole House - UV Lamps water filters from Aquasana - order today!</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-44')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/parts-accessories/sleeves-and-bottle-caps-6-pack-100236761.html?bvstate=pg%3a12%2fct%3ar" target="_blank" rel="nofollow noopener">https://www.aquasana.com/parts-accessories/sleeves-and-bottle-caps-6-pack-100236761.html?bvstate=pg%3a12%2fct%3ar</a></td>
+          <td>Glass Water Bottles | AQ-6005 18 Oz 6-Pack | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>contaminants</td>
+          <td class="num">521</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-44">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Sleeves and Bottle Caps - 6 Pack - Multicolor</div>
+              <div><strong>Meta Description:</strong> Bottle your own with 18 oz glass water bottles. BPA, cadmium and lead-free glass maintains great taste and is better for the environment.</div>
+              <div><strong>Internal Links:</strong> 37</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-45')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/find-the-water-for-life-option-thats-right-for-you/" target="_blank" rel="nofollow noopener">https://www.aquasana.com/find-the-water-for-life-option-thats-right-for-you/</a></td>
+          <td>Water for Life Program | Replacement Filter Auto-Ship | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">748</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-45">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> —</div>
+              <div><strong>Meta Description:</strong> Aquasana&#x27;s Water for Life program is designed to keep you happier and healthier for life!</div>
+              <div><strong>Internal Links:</strong> 69</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-46')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/water-softeners/simplysoft-60000-grain-water-softener-100381867.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/water-softeners/simplysoft-60000-grain-water-softener-100381867.html</a></td>
+          <td>SimplySoft® 60,000 Grain Softener | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>hard water</td>
+          <td class="num">2,290</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-46">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> SimplySoft® 60,000 Grain Softener</div>
+              <div><strong>Meta Description:</strong> Shop our SimplySoft® 60,000 Grain Softener, IAPMO certified to reduce water hardness and delivers soft, scale-free, and spotless water throughout your home!</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-47')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/artesian-water-natures-filter-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/artesian-water-natures-filter-pd.html</a></td>
+          <td>What Is Artesian Water and Is It Good for You? | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>well water</td>
+          <td class="num">1,259</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-47">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> What is Artesian Water and Is It Good for You?</div>
+              <div><strong>Meta Description:</strong> Learn about what artesian water is and why it can still contain the contaminants found in most well water, despite being considered healthy.</div>
+              <div><strong>Internal Links:</strong> 52</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-48')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/average-water-usage-in-the-united-states-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/average-water-usage-in-the-united-states-pd.html</a></td>
+          <td>Average Water Usage in the United States | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>General</td>
+          <td class="num">1,754</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-48">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Average Water Usage in the United States</div>
+              <div><strong>Meta Description:</strong> The average family uses more than 300 gallons of water per day. Learn where most of this water usage comes from and what you can do to reduce your use.</div>
+              <div><strong>Internal Links:</strong> 50</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-49')">
+          <td class="domain">aquasana.com</td>
+          <td class="url"><a href="https://www.aquasana.com/info/what-is-a-typical-home-water-flow-rate-pd.html" target="_blank" rel="nofollow noopener">https://www.aquasana.com/info/what-is-a-typical-home-water-flow-rate-pd.html</a></td>
+          <td>What is a Typical Home Water Flow Rate? | Aquasana</td>
+          <td class="num">2026-09-09</td>
+          <td>General</td>
+          <td class="num">1,521</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-49">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> What is a Typical Home Water Flow Rate?</div>
+              <div><strong>Meta Description:</strong> Calculating your residential water flow rate is as easy as 1, 2, 3.</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-50')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/shop/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/shop/</a></td>
+          <td>Shop SpringWell Water Filtration Systems</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">538</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-50">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Springwell Water Filtration Products</div>
+              <div><strong>Meta Description:</strong> Shop SpringWell water filtration systems, including whole house filters, water softeners, well and under sink systems for cleaner water at your tap.</div>
+              <div><strong>Internal Links:</strong> 73</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-51')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product-category/well-water/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product-category/well-water/</a></td>
+          <td>Well Water Filter Systems</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">673</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-51">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Well Water Filter Systems</div>
+              <div><strong>Meta Description:</strong> Shop well water filtration systems that remove iron, bacteria, sediment, and more. Discover multi-stage whole home well water filter options.</div>
+              <div><strong>Internal Links:</strong> 70</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-52')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/dual-systems/water-filter-salt-softener/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/dual-systems/water-filter-salt-softener/</a></td>
+          <td>Water Filter &amp; Salt Softener Combo System</td>
+          <td class="num">2026-09-09</td>
+          <td>hard water</td>
+          <td class="num">3,301</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-52">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Water Filter and Salt Based Water Softener System</div>
+              <div><strong>Meta Description:</strong> Water filter and softener combo systems remove chlorine, chloramine, and PFAS plus hardness minerals on city water for odor-free, scale-free water. Shop the combo now.</div>
+              <div><strong>Internal Links:</strong> 71</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-53')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/water-filters/whole-house-water-filters/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/water-filters/whole-house-water-filters/</a></td>
+          <td>Whole House Water Filter System</td>
+          <td class="num">2026-09-09</td>
+          <td>water filtration</td>
+          <td class="num">3,414</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-53">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Whole House Water Filter System</div>
+              <div><strong>Meta Description:</strong> Remove chlorine, chloramine, and PFAS from city water for cleaner, better-tasting water at every tap with no pressure drop. Shop whole house water fiilter system today.</div>
+              <div><strong>Internal Links:</strong> 69</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-54')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/water-filters/tannin-softener-system/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/water-filters/tannin-softener-system/</a></td>
+          <td>Tannin Filter &amp; Softener System</td>
+          <td class="num">2026-09-08</td>
+          <td>water softener</td>
+          <td class="num">2,995</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-54">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Tannin Removal System</div>
+              <div><strong>Meta Description:</strong> Tannin filter and softener system for well water. Remove tannins and get your water back to clear at every tap. Shop the system now.</div>
+              <div><strong>Internal Links:</strong> 66</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-55')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/well-water/calcite-ph-neutralizer/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/well-water/calcite-ph-neutralizer/</a></td>
+          <td>Water pH Neutralizer</td>
+          <td class="num">2026-09-08</td>
+          <td>contaminants</td>
+          <td class="num">2,745</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-55">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Calcite pH Neutralizer</div>
+              <div><strong>Meta Description:</strong> Neutralize acidic water and raise low pH with calcite media that reduces copper and lead leaching from your pipes. Shop now.</div>
+              <div><strong>Internal Links:</strong> 68</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-56')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/uv-systems/uv-water-purification-system/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/uv-systems/uv-water-purification-system/</a></td>
+          <td>UV Water Filter &amp; Purification System</td>
+          <td class="num">2026-09-08</td>
+          <td>drinking water</td>
+          <td class="num">2,652</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-56">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> UV Water Purification System</div>
+              <div><strong>Meta Description:</strong> Kill bacteria and viruses without chemicals for safe, clean drinking water throughout your home with a UV water filter. Shop now.</div>
+              <div><strong>Internal Links:</strong> 67</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-57')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/water-softeners/salt-water-softeners/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/water-softeners/salt-water-softeners/</a></td>
+          <td>Salt Water Softener System</td>
+          <td class="num">2026-09-08</td>
+          <td>water softener</td>
+          <td class="num">3,260</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-57">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Salt Based Water Softener System</div>
+              <div><strong>Meta Description:</strong> Remove hard water minerals for true soft water at every tap, prevent scale and spots, and enjoy softer skin. Shop now.</div>
+              <div><strong>Internal Links:</strong> 69</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-58')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/well-water/well-water-filter-and-salt-based-water-softener/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/well-water/well-water-filter-and-salt-based-water-softener/</a></td>
+          <td>SpringWell (WSSS) Well + Salt Based System</td>
+          <td class="num">2026-09-08</td>
+          <td>water softener</td>
+          <td class="num">3,190</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-58">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Well Water Filter and Salt Based Water Softener</div>
+              <div><strong>Meta Description:</strong> SpringWell&#x27;s Well Water and Salt Based Softener at factory direct pricing. Save today!</div>
+              <div><strong>Internal Links:</strong> 67</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-59')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/well-water/well-water-filter-and-salt-free-water-softener/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/well-water/well-water-filter-and-salt-free-water-softener/</a></td>
+          <td>SpringWell WSSF - Well Water Filtration &amp; Futuresoft Combo</td>
+          <td class="num">2026-09-08</td>
+          <td>water filtration</td>
+          <td class="num">3,327</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-59">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Well Water Filter and Salt-Free Water Conditioner (Softener Alternative)</div>
+              <div><strong>Meta Description:</strong> This SpringWell Well Water System combo is what you need If you have a private well and have Iron, Manganese, Sulfur as well as hard water that is causing limescale/calcium build up on your plumbing, </div>
+              <div><strong>Internal Links:</strong> 67</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-60')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/well-water/chemical-injection-system/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/well-water/chemical-injection-system/</a></td>
+          <td>Chemical Injection System</td>
+          <td class="num">2026-09-08</td>
+          <td>well water</td>
+          <td class="num">2,626</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-60">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Chemical Injection System</div>
+              <div><strong>Meta Description:</strong> Remove bacteria from well water with a chlorination injection system that delivers cleaner, safer water at every tap.</div>
+              <div><strong>Internal Links:</strong> 66</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-61')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/5-micron-sediment-filters-with-o-rings-and-lube-2-pack/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/5-micron-sediment-filters-with-o-rings-and-lube-2-pack/</a></td>
+          <td>5 Micron Sediment Filter Replacement 2-Pack</td>
+          <td class="num">2026-09-04</td>
+          <td>water filtration</td>
+          <td class="num">2,508</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-61">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Replacement Sediment Filter – 10 inch</div>
+              <div><strong>Meta Description:</strong> Trap dirt, sand and rust to protect your water filtration system with a 5 micron sediment filter 2-pack.</div>
+              <div><strong>Internal Links:</strong> 67</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-62')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/neoprene-jacket/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/neoprene-jacket/</a></td>
+          <td>Water Filter Neoprene Jacket</td>
+          <td class="num">2026-09-03</td>
+          <td>water filtration</td>
+          <td class="num">2,489</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-62">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Neoprene Jacket</div>
+              <div><strong>Meta Description:</strong> Guard your water filter against condensation, dust, and everyday wear with a protective neoprene jacket. Shop the jacket now.</div>
+              <div><strong>Internal Links:</strong> 65</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-63')">
+          <td class="domain">culligan.com</td>
+          <td class="url"><a href="https://quench.culligan.com/product/bevi-countertop-flavored-sparkling-dispenser/" target="_blank" rel="nofollow noopener">https://quench.culligan.com/product/bevi-countertop-flavored-sparkling-dispenser/</a></td>
+          <td>Bevi 1.5 Countertop Flavored and Sparkling Water Dispenser | Culligan Quench</td>
+          <td class="num">2026-09-03</td>
+          <td>General</td>
+          <td class="num">1,485</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-63">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Bevi 1.5 Countertop Flavored and Sparkling Water Dispenser</div>
+              <div><strong>Meta Description:</strong> The Bevi countertop sparkling water dispenser offers refreshing flavored, chilled still and sparkling water on-demand for your office!</div>
+              <div><strong>Internal Links:</strong> 46</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-64')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/</a></td>
+          <td>SpringWell Water Filtration Systems</td>
+          <td class="num">2026-09-02</td>
+          <td>water filtration</td>
+          <td class="num">733</td>
+          <td><span class="badge badge-landing">landing</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-64">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> —</div>
+              <div><strong>Meta Description:</strong> SpringWell water filtration systems</div>
+              <div><strong>Internal Links:</strong> 72</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-65')">
+          <td class="domain">culligan.com</td>
+          <td class="url"><a href="https://quench.culligan.com/product/98050-98550-water-nugget-ice-dispenser-50-lbs/" target="_blank" rel="nofollow noopener">https://quench.culligan.com/product/98050-98550-water-nugget-ice-dispenser-50-lbs/</a></td>
+          <td>980-50 Water Dispenser and Ice Machine | Culligan Quench</td>
+          <td class="num">2026-09-01</td>
+          <td>water filtration</td>
+          <td class="num">1,555</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-65">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> 980-50 Water Dispenser and Ice Machine</div>
+              <div><strong>Meta Description:</strong> Provides filtered drinking water and chewable nugget ice for the office. Contact Culligan Quench to rent an ice maker today!</div>
+              <div><strong>Internal Links:</strong> 45</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-66')">
+          <td class="domain">culligan.com</td>
+          <td class="url"><a href="https://quench.culligan.com/product/96016-96516-water-nugget-ice-dispenser-16-lbs/" target="_blank" rel="nofollow noopener">https://quench.culligan.com/product/96016-96516-water-nugget-ice-dispenser-16-lbs/</a></td>
+          <td>960-16/965-16 Water Dispenser and Ice Machine | Culligan Quench</td>
+          <td class="num">2026-09-01</td>
+          <td>water filtration</td>
+          <td class="num">1,542</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-66">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> 960-16/965-16 Water Dispenser and Ice Machine</div>
+              <div><strong>Meta Description:</strong> Level up your hydration with the Culligan Quench 960-16, a filtered water cooler and ice maker that makes chewable ice &amp; fresh drinking water</div>
+              <div><strong>Internal Links:</strong> 44</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-67')">
+          <td class="domain">culligan.com</td>
+          <td class="url"><a href="https://quench.culligan.com/product/98030-98530-water-nugget-ice-dispenser-30-lbs/" target="_blank" rel="nofollow noopener">https://quench.culligan.com/product/98030-98530-water-nugget-ice-dispenser-30-lbs/</a></td>
+          <td>980-30 Water Dispenser and Ice Machine | Culligan Quench</td>
+          <td class="num">2026-09-01</td>
+          <td>water filtration</td>
+          <td class="num">1,620</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-67">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> 980-30 Water Dispenser and Ice Machine</div>
+              <div><strong>Meta Description:</strong> This innovative water and ice dispenser offers ambient unlimited filtered water and up to 380 lbs of chewable nugget ice a day!</div>
+              <div><strong>Internal Links:</strong> 45</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-68')">
+          <td class="domain">culligan.com</td>
+          <td class="url"><a href="https://quench.culligan.com/product/98012-98512-water-nugget-ice-dispenser-12-lbs/" target="_blank" rel="nofollow noopener">https://quench.culligan.com/product/98012-98512-water-nugget-ice-dispenser-12-lbs/</a></td>
+          <td>980-12 Water Dispenser and Ice Machine | Culligan Quench</td>
+          <td class="num">2026-09-01</td>
+          <td>water filtration</td>
+          <td class="num">1,609</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-68">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> 980-12 Water Dispenser and Ice Machine</div>
+              <div><strong>Meta Description:</strong> A high-capacity bottleless water cooler and ice maker, provides filtered drinking water and chewable Chewblet® ice for the office.</div>
+              <div><strong>Internal Links:</strong> 45</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-69')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/bypass-valve-cs/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/bypass-valve-cs/</a></td>
+          <td>Water Softener Bypass Valve</td>
+          <td class="num">2026-08-31</td>
+          <td>water softener</td>
+          <td class="num">2,436</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-69">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Bypass Valve CS</div>
+              <div><strong>Meta Description:</strong> Divert water around your softener for simple maintenance and servicing with a water softener bypass valve.</div>
+              <div><strong>Internal Links:</strong> 65</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-70')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/contact-2/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/contact-2/</a></td>
+          <td>Contact | SpringWell Water</td>
+          <td class="num">2026-08-21</td>
+          <td>well water</td>
+          <td class="num">360</td>
+          <td><span class="badge badge-other">other</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-70">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Contact Us</div>
+              <div><strong>Meta Description:</strong> Contact our support team for help with products, orders or installation. Reach us by phone or live chat today.</div>
+              <div><strong>Internal Links:</strong> 62</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-71')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/luminor-11-gpm-uv/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/luminor-11-gpm-uv/</a></td>
+          <td>Luminor 11 GPM | UV Replacement Bulb</td>
+          <td class="num">2026-08-14</td>
+          <td>contaminants</td>
+          <td class="num">2,510</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-71">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> UV Replacement Bulb – 15 GPM</div>
+              <div><strong>Meta Description:</strong> Luminor 11 GPM UV replacement bulb keeps your system killing bacteria.</div>
+              <div><strong>Internal Links:</strong> 66</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-72')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/adapters/installation-connector-1-inch/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/adapters/installation-connector-1-inch/</a></td>
+          <td>1 Inch Water Filter Installation Connector</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">2,437</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-72">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Installation Connector – 1 inch</div>
+              <div><strong>Meta Description:</strong> Link your water filter system to your plumbing for a secure, leak-free fit with a 1 inch installation connector.</div>
+              <div><strong>Internal Links:</strong> 67</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-73')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/50ft-drain-line/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/50ft-drain-line/</a></td>
+          <td>50 Ft RO Drain Line</td>
+          <td class="num">2026-08-14</td>
+          <td>reverse osmosis</td>
+          <td class="num">2,389</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-73">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> 50 ft Drain Line</div>
+              <div><strong>Meta Description:</strong> Connect your reverse osmosis system to your drain for reliable, leak-free flow with a 50 ft RO drain line.</div>
+              <div><strong>Internal Links:</strong> 65</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-74')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/carbon-replacement-media/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/carbon-replacement-media/</a></td>
+          <td>Carbon Filter | Replacement Media</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">2,515</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-74">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Replacement Media – Carbon Filter</div>
+              <div><strong>Meta Description:</strong> Refresh your system with whole house carbon filter replacement media for continued chlorine and contaminant removal.</div>
+              <div><strong>Internal Links:</strong> 67</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-75')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/bypass-valve-cl/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/bypass-valve-cl/</a></td>
+          <td>Water Filter Bypass Valve</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">2,435</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-75">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Bypass Valve CL</div>
+              <div><strong>Meta Description:</strong> Divert water around your system for easy maintenance and carbon tank servicing with a water filter bypass valve.</div>
+              <div><strong>Internal Links:</strong> 65</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-76')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/under-sink-filtration/moen-reverse-osmosis-water-filtration-system-with-sip-faucet-bundle/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/under-sink-filtration/moen-reverse-osmosis-water-filtration-system-with-sip-faucet-bundle/</a></td>
+          <td>Moen 4-Stage Reverse Osmosis System &amp; Faucet Bundle</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">2,600</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-76">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Moen Reverse Osmosis Water Filtration System with Sip Faucet Bundle</div>
+              <div><strong>Meta Description:</strong> Get an under sink 4-stage Moen reverse osmosis system and matching sip faucet for clean, great-tasting drinking water. Shop the bundle now.</div>
+              <div><strong>Internal Links:</strong> 68</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-77')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/truemed-eligible-water-filters/whole-house-lead-cyst-removal-system/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/truemed-eligible-water-filters/whole-house-lead-cyst-removal-system/</a></td>
+          <td>Lead Water Filter System</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">2,725</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-77">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Lead &amp; Cyst Removal System</div>
+              <div><strong>Meta Description:</strong> Lead water filter system removes up to 99.95% of lead with 0.5-micron filtration, smart monitoring, and 100,000-gallon capacity. Shop the system now.</div>
+              <div><strong>Internal Links:</strong> 69</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-78')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/whole-house-water-system-installation-guide/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/whole-house-water-system-installation-guide/</a></td>
+          <td>Whole-House Water System Installation Guide | SpringWell</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">3,180</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-78">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Whole-House Water System Installation Guide</div>
+              <div><strong>Meta Description:</strong> Learn how to install a SpringWell whole-house water filtration system with this step-by-step DIY guide. Tools, prep tips, and installation best practices included.</div>
+              <div><strong>Internal Links:</strong> 82</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-79')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/coupon-promo-codes/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/coupon-promo-codes/</a></td>
+          <td>Save Over 55% - SpringWell Coupon Codes &amp; Promo Codes - SpringWell Water Filtrat</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">424</td>
+          <td><span class="badge badge-other">other</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-79">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> —</div>
+              <div><strong>Meta Description:</strong> SpringWell Water Filtration Systems Save Over 55% - SpringWell Coupon Codes &amp; Promo Codes</div>
+              <div><strong>Internal Links:</strong> 62</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-80')">
+          <td class="domain">springwellwater.com</td>
+          <td class="url"><a href="https://www.springwellwater.com/product/replacements/spanner-wrench-replacement/" target="_blank" rel="nofollow noopener">https://www.springwellwater.com/product/replacements/spanner-wrench-replacement/</a></td>
+          <td>Filter Spanner Wrench</td>
+          <td class="num">2026-08-14</td>
+          <td>water filtration</td>
+          <td class="num">2,414</td>
+          <td><span class="badge badge-product">product</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-80">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Spanner Wrench</div>
+              <div><strong>Meta Description:</strong> Open your water filter housing easily for quick cartridge changes and maintenance with a filter spanner wrench.</div>
+              <div><strong>Internal Links:</strong> 65</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr>
+        <tr class="parent-row" onclick="toggle('row-81')">
+          <td class="domain">culligan.com</td>
+          <td class="url"><a href="https://quench.culligan.com/sparkling-water-dispensers/" target="_blank" rel="nofollow noopener">https://quench.culligan.com/sparkling-water-dispensers/</a></td>
+          <td>Sparkling Water Makers &amp; Dispenser | Culligan Quench</td>
+          <td class="num">2026-08-13</td>
+          <td>water filtration</td>
+          <td class="num">2,036</td>
+          <td><span class="badge badge-blog">blog</span></td>
+          <td class="toggle-cell">▾</td>
+        </tr>
+        <tr class="child-row" id="row-81">
+          <td colspan="8">
+            <div class="detail-grid">
+              <div><strong>H1:</strong> Sparkling Water Makers &amp; Taps</div>
+              <div><strong>Meta Description:</strong> Find the right sparkling water maker for your business. Check out our filtered sparkling water dispensers made for hospitality and offices.</div>
+              <div><strong>Internal Links:</strong> 60</div>
+              <div><strong>Schema Types:</strong> —</div>
+            </div>
+          </td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Content Strategy Analysis</h2>
+    <div class="two-col">
+      <div>
+        <h3>Topics Competitors Are Targeting</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>Pages</th><th>Share</th><th>%</th></tr></thead>
+            <tbody><tr><td>water filtration</td><td class="num">49</td><td><div class="bar-wrap"><div class="bar" style="width:59%"></div></div></td><td class="num">60%</td></tr><tr><td>contaminants</td><td class="num">10</td><td><div class="bar-wrap"><div class="bar" style="width:12%"></div></div></td><td class="num">12%</td></tr><tr><td>General</td><td class="num">6</td><td><div class="bar-wrap"><div class="bar" style="width:7%"></div></div></td><td class="num">7%</td></tr><tr><td>water softener</td><td class="num">5</td><td><div class="bar-wrap"><div class="bar" style="width:6%"></div></div></td><td class="num">6%</td></tr><tr><td>hard water</td><td class="num">4</td><td><div class="bar-wrap"><div class="bar" style="width:4%"></div></div></td><td class="num">5%</td></tr><tr><td>well water</td><td class="num">3</td><td><div class="bar-wrap"><div class="bar" style="width:3%"></div></div></td><td class="num">4%</td></tr><tr><td>comparison</td><td class="num">1</td><td><div class="bar-wrap"><div class="bar" style="width:1%"></div></div></td><td class="num">1%</td></tr><tr><td>maintenance</td><td class="num">1</td><td><div class="bar-wrap"><div class="bar" style="width:1%"></div></div></td><td class="num">1%</td></tr><tr><td>salt-free</td><td class="num">1</td><td><div class="bar-wrap"><div class="bar" style="width:1%"></div></div></td><td class="num">1%</td></tr><tr><td>drinking water</td><td class="num">1</td><td><div class="bar-wrap"><div class="bar" style="width:1%"></div></div></td><td class="num">1%</td></tr><tr><td>reverse osmosis</td><td class="num">1</td><td><div class="bar-wrap"><div class="bar" style="width:1%"></div></div></td><td class="num">1%</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>Page Types Being Created</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Pages</th><th>%</th></tr></thead>
+            <tbody><tr><td><span class="badge badge-blog">blog</span></td><td class="num">39</td><td class="num">48%</td></tr><tr><td><span class="badge badge-product">product</span></td><td class="num">30</td><td class="num">37%</td></tr><tr><td><span class="badge badge-landing">landing</span></td><td class="num">8</td><td class="num">10%</td></tr><tr><td><span class="badge badge-other">other</span></td><td class="num">5</td><td class="num">6%</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Gap Alert</h2>
+    <div class="gap-alert">
+      <h3>Competitor pages targeting keywords the client doesn't cover</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>URL</th><th>Title</th><th>Topic</th><th>Type</th><th>Gap Reason</th></tr></thead>
+          <tbody><tr><td colspan="5" class="muted">No gaps detected — client covers the same topics as new competitor pages.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Recommendations</h2>
+    <ul class="rec-list">
+      <li>Create content targeting &#x27;water filtration&#x27; — competitors published 49 new page(s) on this topic. This is an active content area.</li><li>Create content targeting &#x27;contaminants&#x27; — competitors published 10 new page(s) on this topic. This is an active content area.</li><li>Create content targeting &#x27;General&#x27; — competitors published 6 new page(s) on this topic. This is an active content area.</li><li>Competitors are investing heavily in blog content (39 pages). Match their publishing cadence with in-depth, well-researched articles.</li><li>Competitor pages average 1900 words — in-depth content. Match or exceed their depth and add unique data, visuals, or original research.</li>
+    </ul>
+  </div>
+
+  <p class="generated" style="margin-top:40px">SEO data collected via DataForSEO. This report is internal — noindex/nofollow.</p>
+
+<script>
+function toggle(id) {
+  var el = document.getElementById(id);
+  if (el) { el.style.display = (el.style.display === 'table-row') ? 'none' : 'table-row'; }
+}
+</script>
+</body>
+</html>
