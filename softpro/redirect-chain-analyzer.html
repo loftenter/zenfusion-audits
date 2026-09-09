@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Redirect Chain Analyzer Report</title>
+<style>
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --green: #10b981;
+    --green-bg: #d1fae5;
+    --amber: #f59e0b;
+    --amber-bg: #fef3c7;
+    --red: #ef4444;
+    --red-bg: #fee2e2;
+    --blue: #3b82f6;
+    --blue-bg: #dbeafe;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:var(--bg); color:var(--text); padding:24px; line-height:1.6; }
+h1 { font-size:28px; font-weight:700; margin-bottom:8px; }
+.subtitle { color:var(--text-muted); font-size:14px; margin-bottom:32px; }
+.container { max-width:1200px; margin:0 auto; }
+.section { margin-bottom:40px; }
+.section-title { font-size:20px; font-weight:600; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+
+/* Summary cards */
+.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px; }
+.card { background:var(--card-bg); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); border:1px solid var(--border); }
+.card-value { font-size:36px; font-weight:700; color:var(--primary); }
+.card-label { font-size:13px; color:var(--text-muted); margin-top:4px; text-transform:uppercase; letter-spacing:0.5px; }
+.card.issue .card-value { color:var(--red); }
+.card.redirect .card-value { color:var(--amber); }
+
+/* Issue distribution */
+.issue-bar-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.issue-bar-label { width:200px; font-size:14px; font-weight:500; }
+.issue-bar-track { flex:1; height:24px; background:var(--border); border-radius:6px; overflow:hidden; }
+.issue-bar-fill { height:100%; background:var(--primary); border-radius:6px; transition:width 0.3s; }
+.issue-bar-count { width:40px; text-align:right; font-weight:600; }
+
+/* Table */
+table { width:100%; border-collapse:collapse; background:var(--card-bg); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+th { background:var(--primary); color:white; padding:12px 16px; text-align:left; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+td { padding:12px 16px; border-bottom:1px solid var(--border); font-size:14px; }
+tr:last-child td { border-bottom:none; }
+.row-ok { }
+.row-warning { background:var(--amber-bg); }
+.row-issue { background:var(--red-bg); }
+tr:hover { opacity:0.85; }
+
+/* Chain steps */
+.chain-detail { padding:16px; background:#f1f5f9; border-radius:8px; margin:4px 0; }
+.chain-step { display:flex; align-items:center; gap:10px; padding:6px 0; font-size:13px; font-family:'SF Mono',Monaco,monospace; }
+.step-arrow { color:var(--primary); font-weight:bold; width:20px; text-align:center; }
+.step-url { flex:1; word-break:break-all; color:var(--text); }
+.step-status { color:var(--text-muted); font-weight:600; min-width:40px; }
+.step-loc { color:var(--blue); word-break:break-all; }
+.step-type { color:var(--text-muted); min-width:60px; }
+.step-final .step-url { color:var(--green); font-weight:600; }
+.step-redirect .step-url { color:var(--amber); }
+.badge { background:var(--blue-bg); padding:2px 8px; border-radius:4px; font-size:12px; }
+
+/* Full chains */
+.full-chain-block { background:var(--card-bg); border-radius:var(--radius); padding:24px; margin-bottom:16px; box-shadow:var(--shadow); border:1px solid var(--border); }
+.chain-title { font-size:16px; font-weight:600; margin-bottom:8px; word-break:break-all; }
+.issue-tags { margin-bottom:12px; }
+.issue-tag { display:inline-block; background:var(--red-bg); color:var(--red); padding:2px 10px; border-radius:4px; font-size:12px; margin-right:4px; margin-bottom:4px; font-weight:500; }
+
+/* Recommendations */
+.rec-list { list-style:none; }
+.rec-list li { background:var(--card-bg); border-left:4px solid var(--primary); padding:12px 16px; margin-bottom:8px; border-radius:0 8px 8px 0; box-shadow:var(--shadow); font-size:14px; }
+.rec-list strong { color:var(--primary-dark); }
+
+.footer { text-align:center; color:var(--text-muted); font-size:12px; margin-top:40px; padding-top:20px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>🔗 Redirect Chain Analyzer Report</h1>
+    <p class="subtitle">Generated on 2026-09-09 14:52:07</p>
+
+    <!-- Summary Cards -->
+    <div class="section">
+        <h2 class="section-title">Summary</h2>
+        <div class="cards">
+            <div class="card"><div class="card-value">3</div><div class="card-label">Total URLs Checked</div></div>
+            <div class="card redirect"><div class="card-value">1</div><div class="card-label">URLs with Redirects</div></div>
+            <div class="card issue"><div class="card-value">0</div><div class="card-label">URLs with Issues</div></div>
+            <div class="card"><div class="card-value">1.0</div><div class="card-label">Avg Chain Length</div></div>
+            <div class="card"><div class="card-value">1</div><div class="card-label">Max Chain Length</div></div>
+        </div>
+    </div>
+
+    <!-- Issue Distribution -->
+    <div class="section">
+        <h2 class="section-title">Issue Distribution</h2>
+        <p>No issues detected across all URLs.</p>
+    </div>
+
+    <!-- URL Redirect Table -->
+    <div class="section">
+        <h2 class="section-title">URL Redirect Summary</h2>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Click a row to expand the full redirect chain.</p>
+        <table>
+            <thead><tr><th>Original URL</th><th>Final URL</th><th>Hops</th><th>Status Codes</th><th>Issues</th></tr></thead>
+            <tbody>
+            <tr class="row-ok" onclick="document.getElementById('chain_0').style.display = (document.getElementById('chain_0').style.display === 'none' ? 'block' : 'none');" style="cursor:pointer;">
+                <td>https://softprowatersystems.com</td>
+                <td>https://softprowatersystems.com</td>
+                <td>0</td>
+                <td>200</td>
+                <td>N/A</td>
+            </tr>
+            <tr><td colspan="5" style="padding:0;border:none;">
+                
+            </td></tr>
+            <tr class="row-warning" onclick="document.getElementById('chain_1').style.display = (document.getElementById('chain_1').style.display === 'none' ? 'block' : 'none');" style="cursor:pointer;">
+                <td>https://www.softprowatersystems.com</td>
+                <td>https://softprowatersystems.com/</td>
+                <td>1</td>
+                <td>301 → 200</td>
+                <td>N/A</td>
+            </tr>
+            <tr><td colspan="5" style="padding:0;border:none;">
+                
+            <div class="chain-detail" id="chain_1" style="display:none;">
+                
+                <div class="chain-step step-redirect">
+                    <span class="step-arrow"></span>
+                    <span class="step-url">https://www.softprowatersystems.com</span>
+                    <span class="step-status">301</span>
+                    <span class="step-loc">https://softprowatersystems.com/</span>
+                    <span class="step-type">301</span>
+                </div>
+                <div class="chain-step step-final">
+                    <span class="step-arrow">→</span>
+                    <span class="step-url">https://softprowatersystems.com/</span>
+                    <span class="step-status">200</span>
+                    <span class="step-loc"></span>
+                    <span class="step-type"></span>
+                </div>
+            </div>
+            </td></tr>
+            <tr class="row-ok" onclick="document.getElementById('chain_2').style.display = (document.getElementById('chain_2').style.display === 'none' ? 'block' : 'none');" style="cursor:pointer;">
+                <td>https://softprowatersystems.com/products/softpro-elite-water-softener</td>
+                <td>https://softprowatersystems.com/products/softpro-elite-water-softener</td>
+                <td>0</td>
+                <td>200</td>
+                <td>N/A</td>
+            </tr>
+            <tr><td colspan="5" style="padding:0;border:none;">
+                
+            </td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Full Redirect Chains -->
+    <div class="section">
+        <h2 class="section-title">Full Redirect Chains</h2>
+        
+        <div class="full-chain-block">
+            <h3 class="chain-title">https://www.softprowatersystems.com</h3>
+            <div class="issue-tags"></div>
+            
+                <div class="chain-step step-redirect">
+                    <span class="step-arrow"></span>
+                    <span class="step-url">https://www.softprowatersystems.com</span>
+                    <span class="step-status badge">301</span>
+                    <span class="step-loc">https://softprowatersystems.com/</span>
+                    <span class="step-type">301</span>
+                </div>
+                <div class="chain-step step-final">
+                    <span class="step-arrow">→</span>
+                    <span class="step-url">https://softprowatersystems.com/</span>
+                    <span class="step-status badge">200</span>
+                    <span class="step-loc"></span>
+                    <span class="step-type"></span>
+                </div>
+        </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="section">
+        <h2 class="section-title">Recommendations</h2>
+        <p>No actionable issues found. All redirects are direct and appropriate.</p>
+    </div>
+
+    <div class="footer">
+        Redirect Chain Analyzer — Zenfusion SEO Tools
+    </div>
+</div>
+</body>
+</html>
