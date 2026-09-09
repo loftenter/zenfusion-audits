@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>SERP Feature Analysis — best water softener</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        background: #ffffff;
+        color: #1a1a1a;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 24px;
+    }
+    h1 {
+        color: #0066cc;
+        font-size: 28px;
+        margin-bottom: 4px;
+    }
+    h2 {
+        color: #1a1a1a;
+        font-size: 22px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+    .subtitle {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+    .section {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 24px;
+        margin-bottom: 20px;
+    }
+    .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .summary-card {
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        text-align: center;
+    }
+    .summary-card .card-label {
+        font-size: 13px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+    }
+    .summary-card .card-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        word-break: break-word;
+    }
+    .green-bg { background: #27ae60; border-color: #27ae60; }
+    .green-bg .card-label, .green-bg .card-value { color: #ffffff; }
+    .orange-bg { background: #f39c12; border-color: #f39c12; }
+    .orange-bg .card-label, .orange-bg .card-value { color: #ffffff; }
+    .neutral { background: #f8f9fa; }
+    .feature-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 12px;
+    }
+    .feature-card.won {
+        border-color: #27ae60;
+        border-left: 4px solid #27ae60;
+    }
+    .feature-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    .feature-name {
+        font-weight: 600;
+        font-size: 17px;
+        color: #1a1a1a;
+    }
+    .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .badge-won { background: #27ae60; color: #fff; }
+    .badge-present { background: #f39c12; color: #fff; }
+    .badge-absent { background: #e0e0e0; color: #666; }
+    .badge-missed { background: #e74c3c; color: #fff; }
+    .comp-list {
+        font-size: 14px;
+        color: #444;
+        margin-top: 6px;
+    }
+    .comp-domain {
+        display: inline-block;
+        background: #f0f0f0;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin: 2px 2px;
+        font-size: 13px;
+    }
+    .recommendation {
+        margin-top: 8px;
+        padding: 10px 14px;
+        background: #f0f7ff;
+        border-left: 3px solid #0066cc;
+        border-radius: 4px;
+        font-size: 15px;
+        color: #333;
+    }
+    .absent-summary {
+        padding: 12px 16px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #666;
+        margin-top: 8px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+    }
+    th, td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e0e0e0;
+        color: #333;
+    }
+    th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+    tr.target-row {
+        background: #e8f5e9;
+    }
+    tr.target-row td {
+        font-weight: 600;
+    }
+    td.pos {
+        text-align: center;
+        font-weight: 700;
+        width: 50px;
+    }
+    td.domain {
+        color: #666;
+        font-size: 14px;
+        width: 200px;
+    }
+    td.url-cell {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    td.url-cell a, td a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+    td.url-cell a:hover, td a:hover {
+        text-decoration: underline;
+    }
+    .ai-overview-box {
+        max-height: 400px;
+        overflow-y: auto;
+        background: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 16px;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #333;
+        white-space: pre-wrap;
+        margin-bottom: 12px;
+    }
+    .cited-domains {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #444;
+    }
+    .cited-domain {
+        display: inline-block;
+        background: #e3f2fd;
+        color: #0066cc;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin: 2px;
+        font-size: 13px;
+    }
+    .paa-item {
+        padding: 12px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .paa-item:last-child { border-bottom: none; }
+    .paa-question {
+        font-size: 16px;
+        color: #1a1a1a;
+        margin-bottom: 4px;
+    }
+    .paa-answer {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 4px;
+    }
+    .paa-source {
+        font-size: 13px;
+        color: #888;
+    }
+    .paa-source a { color: #0066cc; text-decoration: none; }
+    .featured-snippet-box {
+        background: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 16px;
+        margin-bottom: 12px;
+    }
+    .fs-title {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+    .fs-desc {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 6px;
+    }
+    .fs-source { font-size: 13px; color: #888; }
+    .fs-source a { color: #0066cc; text-decoration: none; }
+    .comp-table td.comp-cell {
+        font-size: 14px;
+        color: #555;
+    }
+    .rec-item {
+        padding: 12px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .rec-item:last-child { border-bottom: none; }
+    .rec-item strong {
+        color: #0066cc;
+        font-size: 16px;
+    }
+    .rec-item p {
+        color: #444;
+        margin-top: 4px;
+    }
+    .muted { color: #888; font-size: 15px; }
+    .footer {
+        text-align: center;
+        padding: 20px;
+        color: #aaa;
+        font-size: 13px;
+    }
+</style>
+</head>
+<body>
+    <h1>SERP Feature Analysis</h1>
+    <p class="subtitle">Keyword: <strong>best water softener</strong> &nbsp;|&nbsp; URL: <strong>https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</strong> &nbsp;|&nbsp; Fetched: 2026-09-08T20:32:00.116302</p>
+
+    
+    <div class="overview-grid">
+        <div class="summary-card neutral">
+            <div class="card-label">Keyword</div>
+            <div class="card-value">best water softener</div>
+        </div>
+        <div class="summary-card neutral">
+            <div class="card-label">Target Domain</div>
+            <div class="card-value">softprowatersystems.com</div>
+        </div>
+        <div class="summary-card neutral">
+            <div class="card-label">Features Won</div>
+            <div class="card-value">0</div>
+        </div>
+        <div class="summary-card orange-bg">
+            <div class="card-label">Features Missed</div>
+            <div class="card-value">3</div>
+        </div>
+        <div class="summary-card neutral">
+            <div class="card-label">Total SERP Features</div>
+            <div class="card-value">3</div>
+        </div>
+        <div class="summary-card neutral">
+            <div class="card-label">Total Results</div>
+            <div class="card-value">0</div>
+        </div>
+        <div class="summary-card neutral">
+            <div class="card-label">Target Organic Position</div>
+            <div class="card-value">17</div>
+        </div>
+        <div class="summary-card neutral">
+            <div class="card-label">SE Domain</div>
+            <div class="card-value">google.com</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>SERP Feature Cards</h2>
+        
+        <div class="feature-card ">
+            <div class="feature-card-header">
+                <span class="feature-name">People Also Ask</span>
+                <span class="badge badge-present">Present — Not Featured</span>
+            </div>
+            
+            <div class="recommendation"><strong>How to win:</strong> Win PAA by adding an FAQ section answering the exact PAA questions shown. Use FAQPage schema markup. Each answer should be 40-50 words and directly address the question.</div>
+        </div>
+        <div class="feature-card ">
+            <div class="feature-card-header">
+                <span class="feature-name">AI Overview</span>
+                <span class="badge badge-present">Present — Not Featured</span>
+            </div>
+            <div class="comp-list"><strong>Competitors in this feature:</strong> <span class="comp-domain">midatlanticwater.net</span>, <span class="comp-domain">thespruce.com</span>, <span class="comp-domain">youtube.com</span>, <span class="comp-domain">google.com</span></div>
+            <div class="recommendation"><strong>How to win:</strong> Structure content for AI extraction: concise summaries at the top of the page, clear factual statements with numbers, FAQ schema, and authoritative citations. Aim to be cited as a source by providing unique data, comparisons, and expert quotes.</div>
+        </div>
+        <div class="feature-card ">
+            <div class="feature-card-header">
+                <span class="feature-name">Image Results</span>
+                <span class="badge badge-present">Present — Not Featured</span>
+            </div>
+            
+            <div class="recommendation"><strong>How to win:</strong> Win image results by adding descriptive alt text with the keyword, high-quality images, descriptive filenames, and ImageObject schema.</div>
+        </div><div class="absent-summary"><strong>Absent features:</strong> Featured Snippet, People Also Search, Local Pack, Local Map, Video Carousel, Video Carousel, Image Results, News, Top Stories, Shopping, Twitter / X, Questions, Knowledge Graph, Carousel, Recipes, Jobs, Flights, Hotels, Pack, Events, Discussions, Recipes, Podcasts, Scholarly Articles, Study Listings, Top Sights, Things to Know, Refine Reviews, Perspectives, Short Videos</div>
+    </div>
+
+    <div class="section">
+        <h2>Organic Results</h2>
+        <table>
+            <thead>
+                <tr><th style="width:50px;">Pos</th><th>Title</th><th style="width:200px;">Domain</th><th>URL</th></tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                <td class="pos">2</td>
+                <td><a href="https://waterfilterguru.com/best-water-softener-reviews/" target="_blank" rel="noopener nofollow">Best Water Softener Systems of 2026</a></td>
+                <td class="domain">waterfilterguru.com</td>
+                <td class="url-cell"><a href="https://waterfilterguru.com/best-water-softener-reviews/" target="_blank" rel="noopener nofollow">https://waterfilterguru.com/best-water-softener-reviews/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">4</td>
+                <td><a href="https://uswatersystems.com/collections/best-whole-home-water-softeners?srsltid=AfmBOooBJeZXUQJFQcbjnm9v9vuZZ28-IbJ4VQ_Ur4A_DiO-MbcZGDLl" target="_blank" rel="noopener nofollow">Best Whole Home Water Softeners (Full Comparison &amp; ...</a></td>
+                <td class="domain">uswatersystems.com</td>
+                <td class="url-cell"><a href="https://uswatersystems.com/collections/best-whole-home-water-softeners?srsltid=AfmBOooBJeZXUQJFQcbjnm9v9vuZZ28-IbJ4VQ_Ur4A_DiO-MbcZGDLl" target="_blank" rel="noopener nofollow">https://uswatersystems.com/collections/best-whole-home-water-softeners?srsltid=AfmBOooBJeZXUQJFQcbjnm9v9vuZZ28-IbJ4VQ_Ur4A_DiO-MbcZGDLl</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">5</td>
+                <td><a href="https://www.consumerreports.org/home-garden/water-dispensing-and-filtering/what-to-know-about-hard-water-and-water-softeners-a5041799957/" target="_blank" rel="noopener nofollow">Got Hard Water? Here&#x27;s What to Know About Water Softeners</a></td>
+                <td class="domain">www.consumerreports.org</td>
+                <td class="url-cell"><a href="https://www.consumerreports.org/home-garden/water-dispensing-and-filtering/what-to-know-about-hard-water-and-water-softeners-a5041799957/" target="_blank" rel="noopener nofollow">https://www.consumerreports.org/home-garden/water-dispensing-and-filtering/what-to-know-about-hard-water-and-water-softeners-a5041799957/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">6</td>
+                <td><a href="https://qualitywatertreatment.com/pages/best-water-softener-brands?srsltid=AfmBOopEmuSCx6qwm4gjcq92BOPR9OgFEGB-joA2AOr4fmPu8J4c-gMh" target="_blank" rel="noopener nofollow">Water Softener Brands: Trusted Reviews 🇺🇸 Sep, 2026</a></td>
+                <td class="domain">qualitywatertreatment.com</td>
+                <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/best-water-softener-brands?srsltid=AfmBOopEmuSCx6qwm4gjcq92BOPR9OgFEGB-joA2AOr4fmPu8J4c-gMh" target="_blank" rel="noopener nofollow">https://qualitywatertreatment.com/pages/best-water-softener-brands?srsltid=AfmBOopEmuSCx6qwm4gjcq92BOPR9OgFEGB-joA2AOr4fmPu8J4c-gMh</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">7</td>
+                <td><a href="https://www.reddit.com/r/WaterTreatment/comments/1h0np62/water_softener_recommendations/" target="_blank" rel="noopener nofollow">Water Softener recommendations : r/WaterTreatment</a></td>
+                <td class="domain">www.reddit.com</td>
+                <td class="url-cell"><a href="https://www.reddit.com/r/WaterTreatment/comments/1h0np62/water_softener_recommendations/" target="_blank" rel="noopener nofollow">https://www.reddit.com/r/WaterTreatment/comments/1h0np62/water_softener_recommendations/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">10</td>
+                <td><a href="https://midatlanticwater.net/blogs/faqs/best-water-softener-for-well-water?srsltid=AfmBOopk3LHWOcRoy_ikQTJZAQCpv6ffsqE8OyQ5_-Ece3rqDLkuA6ZD" target="_blank" rel="noopener nofollow">Best Water Softener for Well Water: Fleck 5600SXT (2026)</a></td>
+                <td class="domain">midatlanticwater.net</td>
+                <td class="url-cell"><a href="https://midatlanticwater.net/blogs/faqs/best-water-softener-for-well-water?srsltid=AfmBOopk3LHWOcRoy_ikQTJZAQCpv6ffsqE8OyQ5_-Ece3rqDLkuA6ZD" target="_blank" rel="noopener nofollow">https://midatlanticwater.net/blogs/faqs/best-water-softener-for-well-water?srsltid=AfmBOopk3LHWOcRoy_ikQTJZAQCpv6ffsqE8OyQ5_-Ece3rqDLkuA6ZD</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">11</td>
+                <td><a href="https://www.lowes.com/pl/water-filtration-water-softeners/water-softeners/4294822072" target="_blank" rel="noopener nofollow">Water Softener Systems for Clean Water</a></td>
+                <td class="domain">www.lowes.com</td>
+                <td class="url-cell"><a href="https://www.lowes.com/pl/water-filtration-water-softeners/water-softeners/4294822072" target="_blank" rel="noopener nofollow">https://www.lowes.com/pl/water-filtration-water-softeners/water-softeners/4294822072</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">12</td>
+                <td><a href="https://www.youtube.com/watch?v=zBy2L7f22xc" target="_blank" rel="noopener nofollow">Best Water Softeners for Hard Water</a></td>
+                <td class="domain">www.youtube.com</td>
+                <td class="url-cell"><a href="https://www.youtube.com/watch?v=zBy2L7f22xc" target="_blank" rel="noopener nofollow">https://www.youtube.com/watch?v=zBy2L7f22xc</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">13</td>
+                <td><a href="https://www.reddit.com/r/WaterTreatment/comments/1hqoae3/water_softener_recommendations/" target="_blank" rel="noopener nofollow">Water Softener Recommendations? : r/WaterTreatment</a></td>
+                <td class="domain">www.reddit.com</td>
+                <td class="url-cell"><a href="https://www.reddit.com/r/WaterTreatment/comments/1hqoae3/water_softener_recommendations/" target="_blank" rel="noopener nofollow">https://www.reddit.com/r/WaterTreatment/comments/1hqoae3/water_softener_recommendations/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">14</td>
+                <td><a href="https://www.homedepot.com/b/Plumbing-Water-Filters-Water-Softeners-Water-Softener-Systems/N-5yc1vZc6sb" target="_blank" rel="noopener nofollow">Water Softener Systems</a></td>
+                <td class="domain">www.homedepot.com</td>
+                <td class="url-cell"><a href="https://www.homedepot.com/b/Plumbing-Water-Filters-Water-Softeners-Water-Softener-Systems/N-5yc1vZc6sb" target="_blank" rel="noopener nofollow">https://www.homedepot.com/b/Plumbing-Water-Filters-Water-Softeners-Water-Softener-Systems/N-5yc1vZc6sb</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">15</td>
+                <td><a href="https://www.weilhammerplumbing.com/blog/best-water-softener-brands-for-your-home/" target="_blank" rel="noopener nofollow">Best Water Softener Brands for Your Home</a></td>
+                <td class="domain">www.weilhammerplumbing.com</td>
+                <td class="url-cell"><a href="https://www.weilhammerplumbing.com/blog/best-water-softener-brands-for-your-home/" target="_blank" rel="noopener nofollow">https://www.weilhammerplumbing.com/blog/best-water-softener-brands-for-your-home/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">16</td>
+                <td><a href="https://watersystemadvisor.com/best-water-softeners" target="_blank" rel="noopener nofollow">Best Water Softeners - Home Water Advisor</a></td>
+                <td class="domain">watersystemadvisor.com</td>
+                <td class="url-cell"><a href="https://watersystemadvisor.com/best-water-softeners" target="_blank" rel="noopener nofollow">https://watersystemadvisor.com/best-water-softeners</a></td>
+            </tr>
+<tr class="target-row">
+                <td class="pos">17</td>
+                <td><a href="https://www.softprowatersystems.com/pages/plumbers-rank-water-softeners-reliability-performance?srsltid=AfmBOoqjiWkY4K4qDc24VGGzyID5OjQgasrxSI1TF1aMQgGGlFd34w5l" target="_blank" rel="noopener nofollow">Plumbers Rank Various Brands of Water Softeners 🇺🇸 Sep ...</a></td>
+                <td class="domain">www.softprowatersystems.com</td>
+                <td class="url-cell"><a href="https://www.softprowatersystems.com/pages/plumbers-rank-water-softeners-reliability-performance?srsltid=AfmBOoqjiWkY4K4qDc24VGGzyID5OjQgasrxSI1TF1aMQgGGlFd34w5l" target="_blank" rel="noopener nofollow">https://www.softprowatersystems.com/pages/plumbers-rank-water-softeners-reliability-performance?srsltid=AfmBOoqjiWkY4K4qDc24VGGzyID5OjQgasrxSI1TF1aMQgGGlFd34w5l</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">18</td>
+                <td><a href="https://www.youtube.com/watch?v=hqrsa4ahAEQ" target="_blank" rel="noopener nofollow">How To Choose the BEST WATER SOFTENER For Your Family</a></td>
+                <td class="domain">www.youtube.com</td>
+                <td class="url-cell"><a href="https://www.youtube.com/watch?v=hqrsa4ahAEQ" target="_blank" rel="noopener nofollow">https://www.youtube.com/watch?v=hqrsa4ahAEQ</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">19</td>
+                <td><a href="https://www.northlandwater.com/post/top-rated-water-softeners-for-homes-your-guide-to-the-best-rated-water-softeners" target="_blank" rel="noopener nofollow">Top Rated Water Softeners for Homes: Your Guide to the Best ...</a></td>
+                <td class="domain">www.northlandwater.com</td>
+                <td class="url-cell"><a href="https://www.northlandwater.com/post/top-rated-water-softeners-for-homes-your-guide-to-the-best-rated-water-softeners" target="_blank" rel="noopener nofollow">https://www.northlandwater.com/post/top-rated-water-softeners-for-homes-your-guide-to-the-best-rated-water-softeners</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">21</td>
+                <td><a href="https://www.thespruce.com/best-water-softeners-4158685" target="_blank" rel="noopener nofollow">The 2 Best Water Softeners The Spruce Has Tested</a></td>
+                <td class="domain">www.thespruce.com</td>
+                <td class="url-cell"><a href="https://www.thespruce.com/best-water-softeners-4158685" target="_blank" rel="noopener nofollow">https://www.thespruce.com/best-water-softeners-4158685</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">22</td>
+                <td><a href="https://www.youtube.com/watch?v=Cm12u6HFcIc" target="_blank" rel="noopener nofollow">8 Best Water Softener Systems For 2026 To Know Before Buying</a></td>
+                <td class="domain">www.youtube.com</td>
+                <td class="url-cell"><a href="https://www.youtube.com/watch?v=Cm12u6HFcIc" target="_blank" rel="noopener nofollow">https://www.youtube.com/watch?v=Cm12u6HFcIc</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">24</td>
+                <td><a href="https://www.callmother.com/blogs/best-water-softener-brands" target="_blank" rel="noopener nofollow">Best Water Softener Systems &amp; Brands: Plumber Picks</a></td>
+                <td class="domain">www.callmother.com</td>
+                <td class="url-cell"><a href="https://www.callmother.com/blogs/best-water-softener-brands" target="_blank" rel="noopener nofollow">https://www.callmother.com/blogs/best-water-softener-brands</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">26</td>
+                <td><a href="https://www.bhg.com/best-water-softeners-8751529" target="_blank" rel="noopener nofollow">The 2 Best Water Softeners of 2026, Tested by BHG</a></td>
+                <td class="domain">www.bhg.com</td>
+                <td class="url-cell"><a href="https://www.bhg.com/best-water-softeners-8751529" target="_blank" rel="noopener nofollow">https://www.bhg.com/best-water-softeners-8751529</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">27</td>
+                <td><a href="https://qualitywaterlab.com/softeners/" target="_blank" rel="noopener nofollow">Best Water Softener Systems: 6 Expert Picks for 2026 - QWL</a></td>
+                <td class="domain">qualitywaterlab.com</td>
+                <td class="url-cell"><a href="https://qualitywaterlab.com/softeners/" target="_blank" rel="noopener nofollow">https://qualitywaterlab.com/softeners/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">28</td>
+                <td><a href="https://qualitywatertreatment.com/pages/performance-breakdown-water-softener-brands?srsltid=AfmBOoonkZox9GpxGIZVwYps0mnt0LjyeDeYFFMdvvJBoBp1wGsjNocF" target="_blank" rel="noopener nofollow">Top Water Softener Brands by Consumer Reports</a></td>
+                <td class="domain">qualitywatertreatment.com</td>
+                <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/performance-breakdown-water-softener-brands?srsltid=AfmBOoonkZox9GpxGIZVwYps0mnt0LjyeDeYFFMdvvJBoBp1wGsjNocF" target="_blank" rel="noopener nofollow">https://qualitywatertreatment.com/pages/performance-breakdown-water-softener-brands?srsltid=AfmBOoonkZox9GpxGIZVwYps0mnt0LjyeDeYFFMdvvJBoBp1wGsjNocF</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">29</td>
+                <td><a href="https://www.youtube.com/watch?v=u5MMQIwLVc4" target="_blank" rel="noopener nofollow">Best Water Softener Systems Reviewed – Which One Should ...</a></td>
+                <td class="domain">www.youtube.com</td>
+                <td class="url-cell"><a href="https://www.youtube.com/watch?v=u5MMQIwLVc4" target="_blank" rel="noopener nofollow">https://www.youtube.com/watch?v=u5MMQIwLVc4</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">30</td>
+                <td><a href="https://www.riverbendhome.com/collections/watersoft?srsltid=AfmBOorvVRVzROqAj4lmPZd198w1Ssc7wmNPBTWQid0w5fgHDgWa_GBh" target="_blank" rel="noopener nofollow">WaterSoft Water Softeners &amp; Filtration Systems for Home Use</a></td>
+                <td class="domain">www.riverbendhome.com</td>
+                <td class="url-cell"><a href="https://www.riverbendhome.com/collections/watersoft?srsltid=AfmBOorvVRVzROqAj4lmPZd198w1Ssc7wmNPBTWQid0w5fgHDgWa_GBh" target="_blank" rel="noopener nofollow">https://www.riverbendhome.com/collections/watersoft?srsltid=AfmBOorvVRVzROqAj4lmPZd198w1Ssc7wmNPBTWQid0w5fgHDgWa_GBh</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">31</td>
+                <td><a href="https://www.amazon.com/Water-Softeners-Top-Brands-Filtration/s?keywords=Water+Softeners&amp;rh=n%3A6810592011%2Cp_n_g-101014971069111%3A119653281011&amp;c=ts&amp;ts_id=6810592011" target="_blank" rel="noopener nofollow">Top Brands / Water Softeners / Water Filtration &amp; Softeners</a></td>
+                <td class="domain">www.amazon.com</td>
+                <td class="url-cell"><a href="https://www.amazon.com/Water-Softeners-Top-Brands-Filtration/s?keywords=Water+Softeners&amp;rh=n%3A6810592011%2Cp_n_g-101014971069111%3A119653281011&amp;c=ts&amp;ts_id=6810592011" target="_blank" rel="noopener nofollow">https://www.amazon.com/Water-Softeners-Top-Brands-Filtration/s?keywords=Water+Softeners&amp;rh=n%3A6810592011%2Cp_n_g-101014971069111%3A119653281011&amp;c=ts&amp;ts_id=6810592011</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">32</td>
+                <td><a href="https://www.youtube.com/watch?v=eZ2wn4eXiZk" target="_blank" rel="noopener nofollow">Best Water Softeners and WHY!</a></td>
+                <td class="domain">www.youtube.com</td>
+                <td class="url-cell"><a href="https://www.youtube.com/watch?v=eZ2wn4eXiZk" target="_blank" rel="noopener nofollow">https://www.youtube.com/watch?v=eZ2wn4eXiZk</a></td>
+            </tr>
+<tr class="target-row">
+                <td class="pos">33</td>
+                <td><a href="https://www.softprowatersystems.com/pages/how-various-brands-of-water-softeners-rank-reliability-performance-nsf-certification-exposed?srsltid=AfmBOop1MSq_8OKp6yspKw4xh_8wbSgJuvHMS8qKUNXDy560UvzphLo8" target="_blank" rel="noopener nofollow">Water Softeners: Reliability Ranking &amp; NSF Exposed 🇺🇸 ...</a></td>
+                <td class="domain">www.softprowatersystems.com</td>
+                <td class="url-cell"><a href="https://www.softprowatersystems.com/pages/how-various-brands-of-water-softeners-rank-reliability-performance-nsf-certification-exposed?srsltid=AfmBOop1MSq_8OKp6yspKw4xh_8wbSgJuvHMS8qKUNXDy560UvzphLo8" target="_blank" rel="noopener nofollow">https://www.softprowatersystems.com/pages/how-various-brands-of-water-softeners-rank-reliability-performance-nsf-certification-exposed?srsltid=AfmBOop1MSq_8OKp6yspKw4xh_8wbSgJuvHMS8qKUNXDy560UvzphLo8</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">34</td>
+                <td><a href="https://www.abc27.com/reviews/br/home-br/home-improvement-br/best-water-softener-for-hard-water/" target="_blank" rel="noopener nofollow">Best water softener for hard water</a></td>
+                <td class="domain">www.abc27.com</td>
+                <td class="url-cell"><a href="https://www.abc27.com/reviews/br/home-br/home-improvement-br/best-water-softener-for-hard-water/" target="_blank" rel="noopener nofollow">https://www.abc27.com/reviews/br/home-br/home-improvement-br/best-water-softener-for-hard-water/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">35</td>
+                <td><a href="https://mcgowanh2o.com/what-are-the-best-water-softeners-to-buy/" target="_blank" rel="noopener nofollow">What Are the Best Water Softeners to Buy?</a></td>
+                <td class="domain">mcgowanh2o.com</td>
+                <td class="url-cell"><a href="https://mcgowanh2o.com/what-are-the-best-water-softeners-to-buy/" target="_blank" rel="noopener nofollow">https://mcgowanh2o.com/what-are-the-best-water-softeners-to-buy/</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">36</td>
+                <td><a href="https://qualitywatertreatment.com/pages/best-rated-water-softeners-consumer-reports?srsltid=AfmBOopvoiCN6KP4w_z8qV8V-hbemxI13Iz5AUIYXeksZpOg1bQx-okU" target="_blank" rel="noopener nofollow">Consumer Reports&#x27; Best Rated Water Softeners</a></td>
+                <td class="domain">qualitywatertreatment.com</td>
+                <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/best-rated-water-softeners-consumer-reports?srsltid=AfmBOopvoiCN6KP4w_z8qV8V-hbemxI13Iz5AUIYXeksZpOg1bQx-okU" target="_blank" rel="noopener nofollow">https://qualitywatertreatment.com/pages/best-rated-water-softeners-consumer-reports?srsltid=AfmBOopvoiCN6KP4w_z8qV8V-hbemxI13Iz5AUIYXeksZpOg1bQx-okU</a></td>
+            </tr>
+<tr class="">
+                <td class="pos">37</td>
+                <td><a href="https://www.purehousewater.com/softeners/best-water-softener/" target="_blank" rel="noopener nofollow">Best Water Softener (2026): Picks by Type - PureHouse Water</a></td>
+                <td class="domain">www.purehousewater.com</td>
+                <td class="url-cell"><a href="https://www.purehousewater.com/softeners/best-water-softener/" target="_blank" rel="noopener nofollow">https://www.purehousewater.com/softeners/best-water-softener/</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+        <div class="section">
+            <h2>AI Overview <span class="badge badge-missed">Target Not Cited</span></h2>
+            <div class="ai-overview-box">The   is the best overall water softener for most homes because of its reliable digital valve and long-lasting build. 
+
+ Top Water Softener Picks
+
+- Best Overall:  48,000 Grain ($1,495 - $1,895). It uses digital demand regeneration to save salt and water by only recharging when needed. It handles 3 to 4 bathrooms easily. 
+- Best for Efficiency:  (https://www.softprowatersystems.com/products/softpro-elite-water-softener) (~$1,447). It cuts salt and water waste by up to 50% with precision brining technology and smart upflow regeneration. 
+- Best Budget Option:  48,000 Grain (~$630). It is a great affordable system that also helps reduce iron and scale buildup for smaller households.
+- Best Compact Budget:  32,000 Grain (~$489). It works well for smaller homes or tight spaces with basic 1-to-2 bathroom layouts. 
+
+ Key Features to Consider
+
+- Grain Capacity: Higher grain numbers mean the system treats more water before it needs to clean itself (regenerate).
+- Regeneration Type: Metered (demand-based) systems track your exact water use. They save you money on salt compared to older timer-based units.
+- Resin Quality: Look for 10% crosslink resin instead of standard 8% resin. It resists chlorine damage and lasts much longer. 
+
+To help narrow down the best choice for your home, please tell me:
+
+- How many people live in your household and how many bathrooms you have
+- Whether your water comes from city water or a private well 
+- Your target budget for the system</div>
+            <div class="cited-domains"><strong>Cited domains (9):</strong> <span class="cited-domain">midatlanticwater.net</span>, <span class="cited-domain">thespruce.com</span>, <span class="cited-domain">youtube.com</span>, <span class="cited-domain">google.com</span></div>
+            <div class="recommendation"><strong>How to win AI Overview:</strong> Structure content for AI extraction: concise summaries at the top of the page, clear factual statements with numbers, FAQ schema, and authoritative citations. Aim to be cited as a source by providing unique data, comparisons, and expert quotes.</div>
+        </div>
+    
+        <div class="section">
+            <h2>People Also Ask (4 questions)</h2>
+            
+            <div class="paa-item">
+                <div class="paa-question"><strong>1. Which brand of water softener system is the best?</strong></div>
+                <div class="paa-answer"></div>
+                <div class="paa-source">Source: <a href="" target="_blank" rel="noopener nofollow"></a></div>
+            </div>
+            <div class="paa-item">
+                <div class="paa-question"><strong>2. Which water softener is the best?</strong></div>
+                <div class="paa-answer"></div>
+                <div class="paa-source">Source: <a href="" target="_blank" rel="noopener nofollow"></a></div>
+            </div>
+            <div class="paa-item">
+                <div class="paa-question"><strong>3. What type of water softener is the most effective?</strong></div>
+                <div class="paa-answer"></div>
+                <div class="paa-source">Source: <a href="" target="_blank" rel="noopener nofollow"></a></div>
+            </div>
+            <div class="paa-item">
+                <div class="paa-question"><strong>4. Can I write off a water softener on my taxes?</strong></div>
+                <div class="paa-answer"></div>
+                <div class="paa-source">Source: <a href="" target="_blank" rel="noopener nofollow"></a></div>
+            </div>
+            <div class="recommendation"><strong>How to win PAA:</strong> Win PAA by adding an FAQ section answering the exact PAA questions shown. Use FAQPage schema markup. Each answer should be 40-50 words and directly address the question.</div>
+        </div>
+    
+        <div class="section">
+            <h2>Featured Snippet</h2>
+            <p class="muted">No featured snippet present for this keyword.</p>
+        </div>
+    
+    <div class="section">
+        <h2>Competition Analysis</h2>
+        <p class="muted">Features where competitors appear but the target URL does not.</p>
+        <table class="comp-table">
+            <thead>
+                <tr><th>SERP Feature</th><th>Status</th><th>Competitors Present</th></tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>People Also Ask</td>
+                <td><span class="badge badge-present">Present — Not Featured</span></td>
+                <td class="comp-cell">—</td>
+            </tr>
+            <tr>
+                <td>AI Overview</td>
+                <td><span class="badge badge-present">Present — Not Featured</span></td>
+                <td class="comp-cell">midatlanticwater.net, thespruce.com, youtube.com, google.com</td>
+            </tr>
+            <tr>
+                <td>Image Results</td>
+                <td><span class="badge badge-present">Present — Not Featured</span></td>
+                <td class="comp-cell">—</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Recommendations</h2>
+        
+            <div class="rec-item">
+                <strong>People Also Ask</strong>
+                <p>Win PAA by adding an FAQ section answering the exact PAA questions shown. Use FAQPage schema markup. Each answer should be 40-50 words and directly address the question.</p>
+            </div>
+            <div class="rec-item">
+                <strong>AI Overview</strong>
+                <p>Structure content for AI extraction: concise summaries at the top of the page, clear factual statements with numbers, FAQ schema, and authoritative citations. Aim to be cited as a source by providing unique data, comparisons, and expert quotes.</p>
+            </div>
+            <div class="rec-item">
+                <strong>Image Results</strong>
+                <p>Win image results by adding descriptive alt text with the keyword, high-quality images, descriptive filenames, and ImageObject schema.</p>
+            </div>
+    </div>
+
+    <div class="footer">
+        Generated by serp_feature_check.py &nbsp;|&nbsp; Data via DataForSEO SERP API &nbsp;|&nbsp; 2026-09-08 20:32:00
+    </div>
+</body>
+</html>

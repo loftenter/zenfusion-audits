@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Instant Page Audit — https://www.softprowatersystems.com/products/softpro-elite-w</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --primary: #4f46e5;
+    --primary-light: #eef2ff;
+    --critical: #ef4444;
+    --critical-light: #fef2f2;
+    --warning: #f59e0b;
+    --warning-light: #fffbeb;
+    --pass: #10b981;
+    --pass-light: #f0fdf4;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: 700; }
+  .header .meta { font-size: 13px; color: var(--text-muted); }
+  .badge {
+    display: inline-block; padding: 4px 12px; border-radius: 20px;
+    font-size: 12px; font-weight: 600;
+  }
+  .badge-score { background: var(--primary-light); color: var(--primary); }
+  .section {
+    background: var(--card-bg); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px;
+  }
+  .section h2 { font-size: 18px; margin-bottom: 16px; }
+  /* Summary cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .card {
+    border-radius: var(--radius); padding: 20px; text-align: center;
+  }
+  .card.critical { background: var(--critical-light); border: 1px solid #fecaca; }
+  .card.warning { background: var(--warning-light); border: 1px solid #fde68a; }
+  .card.pass { background: var(--pass-light); border: 1px solid #bbf7d0; }
+  .card .number { font-size: 36px; font-weight: 800; line-height: 1; }
+  .card.critical .number { color: var(--critical); }
+  .card.warning .number { color: var(--warning); }
+  .card.pass .number { color: var(--pass); }
+  .card .label { font-size: 14px; font-weight: 600; margin-top: 6px; color: var(--text-muted); }
+  /* Overview grid */
+  .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .overview-item { display: flex; flex-direction: column; }
+  .overview-item .key { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 4px; }
+  .overview-item .val { font-size: 15px; font-weight: 600; word-break: break-word; }
+  /* Table */
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  th { font-weight: 600; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  tr:last-child td { border-bottom: none; }
+  .sev {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .sev-critical { background: var(--critical-light); color: var(--critical); }
+  .sev-warning { background: var(--warning-light); color: var(--warning); }
+  .sev-pass { background: var(--pass-light); color: var(--pass); }
+  .expand-btn {
+    cursor: pointer; background: none; border: none; color: var(--primary);
+    font-size: 13px; font-weight: 600; padding: 0;
+  }
+  .expand-btn:hover { text-decoration: underline; }
+  .detail-row { display: none; }
+  .detail-row.open { display: table-row; }
+  .detail-row td { background: var(--bg); padding: 16px; }
+  .detail-content { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .detail-content .block { }
+  .detail-content .block h4 { font-size: 12px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .detail-content .block p { font-size: 13px; }
+  /* Elements table */
+  .elem-table td { vertical-align: top; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    display: inline-block; padding: 2px 8px; background: var(--primary-light);
+    color: var(--primary); border-radius: 4px; font-size: 12px; margin-bottom: 4px;
+  }
+  .tag-list .tag { max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Recommendations */
+  .rec-list { list-style: none; counter-reset: rec; }
+  .rec-list li {
+    counter-increment: rec; padding: 10px 0 10px 36px; position: relative;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .rec-list li:last-child { border-bottom: none; }
+  .rec-list li::before {
+    content: counter(rec); position: absolute; left: 0; top: 10px;
+    width: 24px; height: 24px; border-radius: 50%; background: var(--primary);
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+  }
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text-muted); }
+  .footer a { color: var(--primary); text-decoration: none; }
+  @media (max-width: 768px) {
+    .detail-content { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div>
+      <h1>⚡ Instant Page Audit</h1>
+      <div class="meta">Generated 2026-09-08 20:32:05 · v1.0 · DataForSEO on_page/instant_pages</div>
+    </div>
+    <div>
+      <span class="badge badge-score">On-Page Score: 98.17</span>
+    </div>
+  </div>
+
+  <!-- Page Overview -->
+  <div class="section">
+    <h2>📋 Page Overview</h2>
+    <div class="overview-grid">
+      <div class="overview-item">
+        <div class="key">URL</div>
+        <div class="val">https://softprowatersystems.com/products/softpro-elite-water-softener</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">Title</div>
+        <div class="val">SoftPro™ Elite Smart HE 🇺🇸 Best Water Softener for City Water</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">Meta Description</div>
+        <div class="val">Introducing the Industry&amp;#39;s Best Water Softener for City Water...The SoftPro™ Elite Smart HE Water Softener. Join 100,000+ Happy Homeowners!</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">Word Count</div>
+        <div class="val">9,590</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">Page Size</div>
+        <div class="val">706 KB</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">HTTP Status</div>
+        <div class="val">200</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">Canonical URL</div>
+        <div class="val">https://softprowatersystems.com/products/softpro-elite-water-softener</div>
+      </div>
+      <div class="overview-item">
+        <div class="key">On-Page Score</div>
+        <div class="val">98.17</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Issue Summary Cards -->
+  <div class="section">
+    <h2>📊 Issue Summary</h2>
+    <div class="cards">
+      <div class="card critical">
+        <div class="number">0</div>
+        <div class="label">Critical Issues</div>
+      </div>
+      <div class="card warning">
+        <div class="number">5</div>
+        <div class="label">Warnings</div>
+      </div>
+      <div class="card pass">
+        <div class="number">8</div>
+        <div class="label">Passed Checks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Issue Details -->
+  <div class="section">
+    <h2>🔍 Issue Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:90px">Severity</th>
+          <th style="width:140px">Category</th>
+          <th>Issue</th>
+          <th style="width:80px">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="sev sev-warning">Warning</span></td>
+          <td>Title</td>
+          <td>Title too long (63 chars)</td>
+          <td><button class="expand-btn" onclick="toggleDetail(0)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-0">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>Title is 63 characters, exceeding the recommended maximum of 60. Search engines may truncate it.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>Shorten the title to 30-60 characters while keeping primary keywords.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Meta Description</td>
+          <td>Meta description optimal</td>
+          <td><button class="expand-btn" onclick="toggleDetail(1)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-1">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>Description is 143 characters — within the recommended range.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Headings</td>
+          <td>Single H1 tag present</td>
+          <td><button class="expand-btn" onclick="toggleDetail(2)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-2">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>H1: &quot;SoftPro™ Elite Smart HE - Best Water Softener for City Water&quot;</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Canonical</td>
+          <td>Canonical tag present</td>
+          <td><button class="expand-btn" onclick="toggleDetail(3)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-3">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>Canonical URL: https://softprowatersystems.com/products/softpro-elite-water-softener</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-warning">Warning</span></td>
+          <td>Hreflang</td>
+          <td>Hreflang not available via instant API</td>
+          <td><button class="expand-btn" onclick="toggleDetail(4)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-4">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>The DataForSEO instant_pages endpoint does not return hreflang tag data. For multi-region sites, verify hreflang tags manually.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>If targeting multiple languages/regions, add &lt;link rel=&quot;alternate&quot; hreflang=&quot;xx-YY&quot; href=&quot;...&quot; /&gt; tags.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>HTTPS</td>
+          <td>Page served over HTTPS</td>
+          <td><button class="expand-btn" onclick="toggleDetail(5)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-5">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>The page is served over a secure HTTPS connection.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Images</td>
+          <td>All images have alt text (172 images)</td>
+          <td><button class="expand-btn" onclick="toggleDetail(6)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-6">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>All images on the page have alt text attributes.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-warning">Warning</span></td>
+          <td>Schema</td>
+          <td>Missing structured data</td>
+          <td><button class="expand-btn" onclick="toggleDetail(7)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-7">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>No schema.org structured data found. Schema helps search engines understand page content and enables rich results.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>Add relevant schema.org markup (e.g., Product, Article, BreadcrumbList) via JSON-LD in the page head.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Broken Links</td>
+          <td>No broken links</td>
+          <td><button class="expand-btn" onclick="toggleDetail(8)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-8">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>All links on the page return valid responses.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Page Size</td>
+          <td>Page size acceptable (0.69 MB)</td>
+          <td><button class="expand-btn" onclick="toggleDetail(9)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-9">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>Page size is 0.69 MB, within acceptable limits.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-pass">Pass</span></td>
+          <td>Open Graph</td>
+          <td>All key OG tags present (11 tags)</td>
+          <td><button class="expand-btn" onclick="toggleDetail(10)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-10">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>Essential Open Graph tags (og:title, og:description, og:image, og:url) are present.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>No action needed.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-warning">Warning</span></td>
+          <td>Performance</td>
+          <td>Render-blocking resources detected</td>
+          <td><button class="expand-btn" onclick="toggleDetail(11)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-11">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>The page has render-blocking CSS or JavaScript resources.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>Defer non-critical JS, inline critical CSS, or use async loading.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="sev sev-warning">Warning</span></td>
+          <td>Content</td>
+          <td>Low content volume (9590 words)</td>
+          <td><button class="expand-btn" onclick="toggleDetail(12)">▼ View</button></td>
+        </tr>
+        <tr class="detail-row" id="detail-12">
+          <td colspan="4">
+            <div class="detail-content">
+              <div class="block">
+                <h4>Description</h4>
+                <p>The page has relatively little text content, which may limit keyword relevance signals.</p>
+              </div>
+              <div class="block">
+                <h4>Recommended Fix</h4>
+                <p>Add more substantive, relevant content to the page.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- On-Page Elements -->
+  <div class="section">
+    <h2>🏗️ On-Page Elements</h2>
+    <table class="elem-table">
+      <thead>
+        <tr><th style="width:180px">Element</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Title Tag</strong></td><td>SoftPro™ Elite Smart HE 🇺🇸 Best Water Softener for City Water <span style="color:var(--text-muted)">(63 chars)</span></td></tr>
+        <tr><td><strong>Meta Description</strong></td><td>Introducing the Industry&amp;#39;s Best Water Softener for City Water...The SoftPro™ Elite Smart HE Water Softener. Join 100,000+ Happy Homeowners! <span style="color:var(--text-muted)">(143 chars)</span></td></tr>
+        <tr><td><strong>Canonical</strong></td><td>https://softprowatersystems.com/products/softpro-elite-water-softener</td></tr>
+        <tr><td><strong>H1 Tags (1)</strong></td><td><div class="tag-list"><span class="tag">SoftPro™ Elite Smart HE - Best Water Softener for City Water</span></div></td></tr>
+        <tr><td><strong>H2 Tags (26)</strong></td><td><div class="tag-list"><span class="tag">Why homeowners choose SoftPro Elite over others</span><span class="tag">Soft Water That Changes Everything...</span><span class="tag">3 Easy Steps to Complete Transformation</span><span class="tag">Installation Made Easy For Everyone</span><span class="tag">The Value Advantage Your Home Will Feel Every Day</span><span class="tag">A Free Gift That Protects Your System ($59 value)</span><span class="tag">Your SoftPro is Almost Home...</span><span class="tag">Confidence You Can Feel From Day One</span><span class="tag">see what our customers are saying</span><span class="tag">Frequently Asked Questions</span> <span style="color:var(--text-muted)">+16 more</span></div></td></tr>
+        <tr><td><strong>H3 Tags (22)</strong></td><td><div class="tag-list"><span class="tag">Valuable Addons</span><span class="tag">PRODUCT DETAILS &amp; DESCRIPTION</span><span class="tag">WHAT YOU GET WHEN YOU ORDER</span><span class="tag">WHY HOMEOWNERS CHOOSE SOFTPRO ELITE</span><span class="tag">SYSTEM INSTALLATION DETAILS</span><span class="tag">LIFETIME WARRANTY &amp; 60-DAY MONEY BACK GUARANTEE</span><span class="tag">Reviewed by 900+ Happy Customers</span><span class="tag">Discover what makes SoftPro the clear choice for families who want truly better water...</span><span class="tag">Customer Reviews</span><span class="tag">It&#x27;s never been easier to experience soft, clean water from every tap in your home...</span> <span style="color:var(--text-muted)">+12 more</span></div></td></tr>
+        <tr><td><strong>H4 Tags (10)</strong></td><td><div class="tag-list"><span class="tag">Finally, soft water in every faucet — guaranteed, or your money back. The professional grade, high-e</span><span class="tag">Upflow Regeneration</span><span class="tag">Soft Water Quick-Recharge</span><span class="tag">Precision Brining</span><span class="tag">Soft Water Brine Tank Refill</span> <span style="color:var(--text-muted)">+5 more</span></div></td></tr>
+        <tr><td><strong>H5 Tags (0)</strong></td><td><em style="color:var(--text-muted)">None found</em></td></tr>
+        <tr><td><strong>H6 Tags (0)</strong></td><td><em style="color:var(--text-muted)">None found</em></td></tr>
+        <tr><td><strong>Images</strong></td><td>172 images on page · All images have alt text</td></tr>
+        <tr><td><strong>Internal Links</strong></td><td>61</td></tr>
+        <tr><td><strong>External Links</strong></td><td>23</td></tr>
+        <tr><td><strong>Scripts</strong></td><td>33 scripts · 0 bytes</td></tr>
+        <tr><td><strong>Stylesheets</strong></td><td>0 stylesheets · 0 bytes</td></tr>
+        <tr><td><strong>Schema / Structured Data</strong></td><td>❌ Missing</td></tr>
+        <tr><td><strong>HTTPS</strong></td><td>✅ Yes</td></tr>
+        <tr><td><strong>Robots Meta</strong></td><td>Index: follow · DataForSEO checks for robots directives</td></tr>
+        <tr><td><strong>Open Graph Tags</strong></td><td><div class="tag-list"><span class="tag">og:site_name</span><span class="tag">og:url</span><span class="tag">og:title</span><span class="tag">og:type</span><span class="tag">og:description</span><span class="tag">og:image</span><span class="tag">og:image:secure_url</span><span class="tag">og:image:width</span><span class="tag">og:image:height</span><span class="tag">og:price:amount</span><span class="tag">og:price:currency</span></div></td></tr>
+        <tr><td><strong>Page Load Time</strong></td><td>123 ms total · 123 ms to interactive</td></tr>
+        <tr><td><strong>Cumulative Layout Shift</strong></td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Quick Recommendations -->
+  <div class="section">
+    <h2>✅ Quick Recommendations</h2>
+    <ol class="rec-list">
+      <li>Fix: Title too long (63 chars) — Shorten the title to 30-60 characters while keeping primary keywords.</li>
+      <li>Fix: Hreflang not available via instant API — If targeting multiple languages/regions, add &lt;link rel=&quot;alternate&quot; hreflang=&quot;xx-YY&quot; href=&quot;...&quot; /&gt; tags.</li>
+      <li>Fix: Missing structured data — Add relevant schema.org markup (e.g., Product, Article, BreadcrumbList) via JSON-LD in the page head.</li>
+      <li>Fix: Render-blocking resources detected — Defer non-critical JS, inline critical CSS, or use async loading.</li>
+      <li>Fix: Low content volume (9590 words) — Add more substantive, relevant content to the page.</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Generated by <strong>Instant Page Audit</strong> v1.0 · Powered by <a href="https://dataforseo.com">DataForSEO</a> on_page/instant_pages API</p>
+    <p>Single-URL instant audit · One API call · No crawling · No SERP comparison</p>
+  </div>
+
+</div>
+
+<script>
+  function toggleDetail(idx) {
+    const row = document.getElementById('detail-' + idx);
+    row.classList.toggle('open');
+    const btn = event.target;
+    btn.textContent = row.classList.contains('open') ? '▲ Hide' : '▼ View';
+  }
+</script>
+</body>
+</html>

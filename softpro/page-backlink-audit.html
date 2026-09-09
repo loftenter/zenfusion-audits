@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Page Backlink Audit — softprowatersystems.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  a { color: #0066cc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    margin-top: 36px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1a1a1a;
+  }
+  .subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .subtitle a { color: #0066cc; }
+  .generated { color: #94a3b8; font-size: 12px; }
+
+  /* Summary cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+  .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .card-sub {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+
+  /* Tier & anchor distribution */
+  .dist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  .dist-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .dist-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+  }
+  .tier-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .tier-label {
+    width: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .tier-bar-wrap {
+    flex: 1;
+    height: 22px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .tier-bar {
+    height: 100%;
+    border-radius: 4px;
+    min-width: 2px;
+    transition: width 0.3s;
+  }
+  .tier-count {
+    font-size: 13px;
+    color: #64748b;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 36px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #f8f9fb;
+    color: #475569;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+  }
+  tr:hover td { background: #f8f9fb; }
+  tr.expandable { cursor: pointer; }
+  tr.expand-detail td { background: #f8f9fb; padding: 12px 20px; }
+  .detail-box { padding: 8px 0; }
+  .detail-list {
+    list-style: none;
+    margin-top: 8px;
+    font-size: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .detail-list li {
+    padding: 4px 0;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .detail-table {
+    width: 100%;
+    font-size: 12px;
+    box-shadow: none;
+  }
+  .detail-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .detail-table td:first-child {
+    font-weight: 600;
+    color: #64748b;
+    width: 120px;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+  td.rank { color: #94a3b8; font-weight: 700; text-align: center; width: 36px; }
+  td.domain { font-weight: 600; color: #1a1a1a; }
+  td.anchor { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #64748b; }
+  .anchor-type { font-size: 10px; color: #94a3b8; font-style: italic; }
+  .src-domain { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .url-cell { max-width: 250px; overflow: hidden; }
+  .url-cell a { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-df { background: #dcfce7; color: #16a34a; }
+  .badge-nf { background: #fef3c7; color: #d97706; }
+
+  /* Timeline */
+  .timeline-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 20px 0;
+    min-height: 160px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .tl-month {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+    flex-shrink: 0;
+  }
+  .tl-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 100px;
+  }
+  .tl-bar {
+    width: 12px;
+    min-height: 2px;
+    border-radius: 2px 2px 0 0;
+  }
+  .tl-new { background: #16a34a; }
+  .tl-lost { background: #ef4444; }
+  .tl-label { font-size: 11px; color: #64748b; margin-top: 6px; }
+  .tl-count { font-size: 10px; color: #94a3b8; }
+  .timeline-legend {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: #64748b;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Recommendations */
+  .recs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .rec-card {
+    display: flex;
+    gap: 16px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .rec-rank {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0066cc;
+    min-width: 40px;
+    text-align: center;
+    padding-top: 2px;
+  }
+  .rec-body { font-size: 14px; color: #334155; line-height: 1.6; }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    color: #94a3b8;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .dist-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Page Backlink Audit</h1>
+<p class="subtitle">
+  Target page: <a href="https://www.softprowatersystems.com/pages/best-water-softener-for-city-water" target="_blank" rel="noopener noindex nofollow">https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</a><br>
+  Domain: <strong>softprowatersystems.com</strong>
+  &nbsp;·&nbsp; Target keyword: <strong>best water softener for city water</strong>
+  &nbsp;·&nbsp; Brand: <strong>softprowatersystems</strong>
+  &nbsp;·&nbsp; <span class="generated">Generated 2026-09-08T20:32:49</span>
+</p>
+
+<!-- Summary Cards -->
+<h2>Summary</h2>
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Total Backlinks</div>
+    <div class="card-value">5</div>
+    <div class="card-sub">Links pointing to this page</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Referring Domains</div>
+    <div class="card-value">5</div>
+    <div class="card-sub">Unique linking domains</div>
+  </div>
+  <div class="card">
+    <div class="card-label">DoFollow Links</div>
+    <div class="card-value" style="color:#16a34a">0</div>
+    <div class="card-sub">0% of total · 5 NoFollow</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Avg Domain Strength</div>
+    <div class="card-value" style="color:#0066cc">256.2</div>
+    <div class="card-sub">DataForSEO domain_from_rank (0-1000)</div>
+  </div>
+</div>
+
+<!-- Quality Distribution -->
+<h2>Backlink Quality Distribution</h2>
+<div class="dist-grid">
+  <div class="dist-card">
+    <div class="dist-title">Tier Distribution (by Domain Strength + Majestic Rank)</div>
+    
+        <div class="tier-row">
+          <span class="tier-label" style="color:#16a34a">Tier 1</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:0.0%;background:#16a34a"></div>
+          </div>
+          <span class="tier-count">0 (0%)</span>
+        </div>
+        <div class="tier-row">
+          <span class="tier-label" style="color:#d97706">Tier 2</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:0.0%;background:#d97706"></div>
+          </div>
+          <span class="tier-count">0 (0%)</span>
+        </div>
+        <div class="tier-row">
+          <span class="tier-label" style="color:#94a3b8">Tier 3</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:100.0%;background:#94a3b8"></div>
+          </div>
+          <span class="tier-count">5 (100%)</span>
+        </div>
+  </div>
+  <div class="dist-card">
+    <div class="dist-title">Anchor Text Analysis</div>
+    
+        <div class="tier-row">
+          <span class="tier-label" style="color:#2563eb">Exact Match</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:100.0%;background:#2563eb"></div>
+          </div>
+          <span class="tier-count">5 (100%)</span>
+        </div>
+        <div class="tier-row">
+          <span class="tier-label" style="color:#7c3aed">Partial Match</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:0.0%;background:#7c3aed"></div>
+          </div>
+          <span class="tier-count">0 (0%)</span>
+        </div>
+        <div class="tier-row">
+          <span class="tier-label" style="color:#16a34a">Branded</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:0.0%;background:#16a34a"></div>
+          </div>
+          <span class="tier-count">0 (0%)</span>
+        </div>
+        <div class="tier-row">
+          <span class="tier-label" style="color:#d97706">Generic</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:0.0%;background:#d97706"></div>
+          </div>
+          <span class="tier-count">0 (0%)</span>
+        </div>
+        <div class="tier-row">
+          <span class="tier-label" style="color:#94a3b8">Empty</span>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar" style="width:0.0%;background:#94a3b8"></div>
+          </div>
+          <span class="tier-count">0 (0%)</span>
+        </div>
+  </div>
+</div>
+
+<!-- Top Referring Domains -->
+<h2>Top Referring Domains (click to expand)</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>Total Links</th>
+        <th>DoFollow</th>
+        <th>NoFollow</th>
+        <th>Domain Strength</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="expandable" data-domain="lifestyle.claritypointe.com">
+          <td class="rank">1</td>
+          <td class="domain"><a href="https://lifestyle.claritypointe.com" target="_blank" rel="noopener noindex nofollow">lifestyle.claritypointe.com</a></td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">186</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="6">
+            <div class="detail-box">
+              <strong>All backlinks from lifestyle.claritypointe.com:</strong>
+              <ul class="detail-list">
+                <li><a href="https://lifestyle.claritypointe.com/story/775084/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.claritypointe.com/story/775084/softpro-water-systems-details-why-the-softpro-water</a> — anchor: &quot;best water softener for city water&quot; — NoFollow — 2026-09-03</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-domain="lifestyle.massnews.com">
+          <td class="rank">2</td>
+          <td class="domain"><a href="https://lifestyle.massnews.com" target="_blank" rel="noopener noindex nofollow">lifestyle.massnews.com</a></td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">304</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="6">
+            <div class="detail-box">
+              <strong>All backlinks from lifestyle.massnews.com:</strong>
+              <ul class="detail-list">
+                <li><a href="https://lifestyle.massnews.com/story/846197/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.massnews.com/story/846197/softpro-water-systems-details-why-the-softpro-water-soft</a> — anchor: &quot;best water softener for city water&quot; — NoFollow — 2026-09-01</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-domain="lifestyle.infotechinc.net">
+          <td class="rank">3</td>
+          <td class="domain"><a href="https://lifestyle.infotechinc.net" target="_blank" rel="noopener noindex nofollow">lifestyle.infotechinc.net</a></td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">245</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="6">
+            <div class="detail-box">
+              <strong>All backlinks from lifestyle.infotechinc.net:</strong>
+              <ul class="detail-list">
+                <li><a href="https://lifestyle.infotechinc.net/story/849788/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.infotechinc.net/story/849788/softpro-water-systems-details-why-the-softpro-water-s</a> — anchor: &quot;best water softener for city water&quot; — NoFollow — 2026-09-01</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-domain="lifestyle.mmminimal.com">
+          <td class="rank">4</td>
+          <td class="domain"><a href="https://lifestyle.mmminimal.com" target="_blank" rel="noopener noindex nofollow">lifestyle.mmminimal.com</a></td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">287</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="6">
+            <div class="detail-box">
+              <strong>All backlinks from lifestyle.mmminimal.com:</strong>
+              <ul class="detail-list">
+                <li><a href="https://lifestyle.mmminimal.com/story/845629/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.mmminimal.com/story/845629/softpro-water-systems-details-why-the-softpro-water-sof</a> — anchor: &quot;best water softener for city water&quot; — NoFollow — 2026-08-30</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-domain="lifestyle.middletownlifemagazine.com">
+          <td class="rank">5</td>
+          <td class="domain"><a href="https://lifestyle.middletownlifemagazine.com" target="_blank" rel="noopener noindex nofollow">lifestyle.middletownlifemagazine.com</a></td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">259</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="6">
+            <div class="detail-box">
+              <strong>All backlinks from lifestyle.middletownlifemagazine.com:</strong>
+              <ul class="detail-list">
+                <li><a href="https://lifestyle.middletownlifemagazine.com/story/660641/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.middletownlifemagazine.com/story/660641/softpro-water-systems-details-why-the-soft</a> — anchor: &quot;best water softener for city water&quot; — NoFollow — 2026-08-29</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- New vs Lost Timeline -->
+<h2>New vs Lost Backlinks Timeline</h2>
+<div class="timeline-legend">
+  <span><span class="legend-dot" style="background:#16a34a"></span>New (first_seen)</span>
+  <span><span class="legend-dot" style="background:#ef4444"></span>Lost (last_seen, nofollow)</span>
+</div>
+<div class="timeline-wrap">
+  
+          <div class="tl-month">
+            <div class="tl-bars">
+              <div class="tl-bar tl-new" style="height:33%" title="2 new"></div>
+              <div class="tl-bar tl-lost" style="height:33%" title="2 lost"></div>
+            </div>
+            <div class="tl-label">2026-08</div>
+            <div class="tl-count">2+/2-</div>
+          </div>
+          <div class="tl-month">
+            <div class="tl-bars">
+              <div class="tl-bar tl-new" style="height:50%" title="3 new"></div>
+              <div class="tl-bar tl-lost" style="height:50%" title="3 lost"></div>
+            </div>
+            <div class="tl-label">2026-09</div>
+            <div class="tl-count">3+/3-</div>
+          </div>
+</div>
+
+<!-- Full Backlink Table -->
+<h2>Full Backlink Table (click rows to expand) — 5 links</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Source URL</th>
+        <th>Anchor</th>
+        <th>Domain Strength</th>
+        <th>DF/NF</th>
+        <th>Type</th>
+        <th>Majestic</th>
+        <th>First Seen</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="expandable" data-bl-idx="1">
+          <td class="rank">1</td>
+          <td class="url-cell"><a href="https://lifestyle.massnews.com/story/846197/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.massnews.com/story/846197/softpro-water-systems-details-why-th</a><div class="src-domain">lifestyle.massnews.com</div></td>
+          <td class="anchor" title="best water softener for city water">best water softener for city water<div class="anchor-type">exact_match</div></td>
+          <td class="num">304</td>
+          <td><span class="badge badge-nf">NF</span></td>
+          <td class="num">backlink</td>
+          <td class="num">—</td>
+          <td class="num">2026-09-01</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="8">
+            <div class="detail-box">
+              <table class="detail-table">
+                <tr><td>Source URL</td><td><a href="https://lifestyle.massnews.com/story/846197/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.massnews.com/story/846197/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/</a></td></tr>
+                <tr><td>Target URL</td><td>https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</td></tr>
+                <tr><td>Anchor Text</td><td>&quot;best water softener for city water&quot; (exact_match)</td></tr>
+                <tr><td>Domain From</td><td>lifestyle.massnews.com (DS: 304, Majestic: —)</td></tr>
+                <tr><td>Link Type</td><td>backlink (NoFollow)</td></tr>
+                <tr><td>First Seen</td><td>2026-09-01</td></tr>
+                <tr><td>Last Seen</td><td>2026-09-01</td></tr>
+                <tr><td>Quality Tier</td><td><span class="badge badge-tier" style="background:#94a3b820;color:#94a3b8">Tier 3</span></td></tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-bl-idx="2">
+          <td class="rank">2</td>
+          <td class="url-cell"><a href="https://lifestyle.mmminimal.com/story/845629/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.mmminimal.com/story/845629/softpro-water-systems-details-why-t</a><div class="src-domain">lifestyle.mmminimal.com</div></td>
+          <td class="anchor" title="best water softener for city water">best water softener for city water<div class="anchor-type">exact_match</div></td>
+          <td class="num">287</td>
+          <td><span class="badge badge-nf">NF</span></td>
+          <td class="num">backlink</td>
+          <td class="num">—</td>
+          <td class="num">2026-08-30</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="8">
+            <div class="detail-box">
+              <table class="detail-table">
+                <tr><td>Source URL</td><td><a href="https://lifestyle.mmminimal.com/story/845629/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.mmminimal.com/story/845629/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/</a></td></tr>
+                <tr><td>Target URL</td><td>https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</td></tr>
+                <tr><td>Anchor Text</td><td>&quot;best water softener for city water&quot; (exact_match)</td></tr>
+                <tr><td>Domain From</td><td>lifestyle.mmminimal.com (DS: 287, Majestic: —)</td></tr>
+                <tr><td>Link Type</td><td>backlink (NoFollow)</td></tr>
+                <tr><td>First Seen</td><td>2026-08-30</td></tr>
+                <tr><td>Last Seen</td><td>2026-08-30</td></tr>
+                <tr><td>Quality Tier</td><td><span class="badge badge-tier" style="background:#94a3b820;color:#94a3b8">Tier 3</span></td></tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-bl-idx="3">
+          <td class="rank">3</td>
+          <td class="url-cell"><a href="https://lifestyle.middletownlifemagazine.com/story/660641/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.middletownlifemagazine.com/story/660641/softpro-water-systems-</a><div class="src-domain">lifestyle.middletownlifemagazine.com</div></td>
+          <td class="anchor" title="best water softener for city water">best water softener for city water<div class="anchor-type">exact_match</div></td>
+          <td class="num">259</td>
+          <td><span class="badge badge-nf">NF</span></td>
+          <td class="num">backlink</td>
+          <td class="num">—</td>
+          <td class="num">2026-08-29</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="8">
+            <div class="detail-box">
+              <table class="detail-table">
+                <tr><td>Source URL</td><td><a href="https://lifestyle.middletownlifemagazine.com/story/660641/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.middletownlifemagazine.com/story/660641/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/</a></td></tr>
+                <tr><td>Target URL</td><td>https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</td></tr>
+                <tr><td>Anchor Text</td><td>&quot;best water softener for city water&quot; (exact_match)</td></tr>
+                <tr><td>Domain From</td><td>lifestyle.middletownlifemagazine.com (DS: 259, Majestic: —)</td></tr>
+                <tr><td>Link Type</td><td>backlink (NoFollow)</td></tr>
+                <tr><td>First Seen</td><td>2026-08-29</td></tr>
+                <tr><td>Last Seen</td><td>2026-08-29</td></tr>
+                <tr><td>Quality Tier</td><td><span class="badge badge-tier" style="background:#94a3b820;color:#94a3b8">Tier 3</span></td></tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-bl-idx="4">
+          <td class="rank">4</td>
+          <td class="url-cell"><a href="https://lifestyle.infotechinc.net/story/849788/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.infotechinc.net/story/849788/softpro-water-systems-details-why</a><div class="src-domain">lifestyle.infotechinc.net</div></td>
+          <td class="anchor" title="best water softener for city water">best water softener for city water<div class="anchor-type">exact_match</div></td>
+          <td class="num">245</td>
+          <td><span class="badge badge-nf">NF</span></td>
+          <td class="num">backlink</td>
+          <td class="num">—</td>
+          <td class="num">2026-09-01</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="8">
+            <div class="detail-box">
+              <table class="detail-table">
+                <tr><td>Source URL</td><td><a href="https://lifestyle.infotechinc.net/story/849788/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.infotechinc.net/story/849788/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/</a></td></tr>
+                <tr><td>Target URL</td><td>https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</td></tr>
+                <tr><td>Anchor Text</td><td>&quot;best water softener for city water&quot; (exact_match)</td></tr>
+                <tr><td>Domain From</td><td>lifestyle.infotechinc.net (DS: 245, Majestic: —)</td></tr>
+                <tr><td>Link Type</td><td>backlink (NoFollow)</td></tr>
+                <tr><td>First Seen</td><td>2026-09-01</td></tr>
+                <tr><td>Last Seen</td><td>2026-09-01</td></tr>
+                <tr><td>Quality Tier</td><td><span class="badge badge-tier" style="background:#94a3b820;color:#94a3b8">Tier 3</span></td></tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="expandable" data-bl-idx="5">
+          <td class="rank">5</td>
+          <td class="url-cell"><a href="https://lifestyle.claritypointe.com/story/775084/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.claritypointe.com/story/775084/softpro-water-systems-details-w</a><div class="src-domain">lifestyle.claritypointe.com</div></td>
+          <td class="anchor" title="best water softener for city water">best water softener for city water<div class="anchor-type">exact_match</div></td>
+          <td class="num">186</td>
+          <td><span class="badge badge-nf">NF</span></td>
+          <td class="num">backlink</td>
+          <td class="num">—</td>
+          <td class="num">2026-09-03</td>
+        </tr>
+        <tr class="expand-detail" style="display:none">
+          <td colspan="8">
+            <div class="detail-box">
+              <table class="detail-table">
+                <tr><td>Source URL</td><td><a href="https://lifestyle.claritypointe.com/story/775084/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/" target="_blank" rel="noopener noindex nofollow">https://lifestyle.claritypointe.com/story/775084/softpro-water-systems-details-why-the-softpro-water-softener-for-city-water-resists-municipal-disinfectants/</a></td></tr>
+                <tr><td>Target URL</td><td>https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</td></tr>
+                <tr><td>Anchor Text</td><td>&quot;best water softener for city water&quot; (exact_match)</td></tr>
+                <tr><td>Domain From</td><td>lifestyle.claritypointe.com (DS: 186, Majestic: —)</td></tr>
+                <tr><td>Link Type</td><td>backlink (NoFollow)</td></tr>
+                <tr><td>First Seen</td><td>2026-09-03</td></tr>
+                <tr><td>Last Seen</td><td>2026-09-03</td></tr>
+                <tr><td>Quality Tier</td><td><span class="badge badge-tier" style="background:#94a3b820;color:#94a3b8">Tier 3</span></td></tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Recommendations -->
+<h2>Recommendations for Link Building</h2>
+<div class="recs">
+  
+        <div class="rec-card">
+          <div class="rec-rank">1</div>
+          <div class="rec-body">Low dofollow ratio (0%). Most links are nofollow — prioritize acquiring dofollow links from authoritative sites to pass link equity.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">2</div>
+          <div class="rec-body">Average domain strength is moderate (256.2/1000). Target domains with DS &gt;= 700 for Tier 1 link building.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">3</div>
+          <div class="rec-body">Only 0% of backlinks are Tier 1 (DS &gt;= 700 or Majestic top 10k). Prioritize outreach to high-authority domains.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">4</div>
+          <div class="rec-body">High exact-match anchor ratio (100%). This risks over-optimization penalties — diversify with branded and partial-match anchors.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">5</div>
+          <div class="rec-body">Low branded anchor ratio (0%). Build brand awareness — branded anchors are natural and safe.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">6</div>
+          <div class="rec-body">Only 5 referring domains. Focus on domain diversification — acquire links from new referring domains.</div>
+        </div>
+</div>
+
+<div class="footer">
+  Page Backlink Audit · Zenfusion SEO · DataForSEO API · Majestic Million<br>
+  Endpoints: backlinks/live · summary/live<br>
+  Generated 2026-09-08T20:32:49 · <code style="color:#cbd5e1">https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</code>
+</div>
+
+<script>
+  // Expandable rows
+  document.querySelectorAll('tr.expandable').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var detail = row.nextElementSibling;
+      if (detail && detail.classList.contains('expand-detail')) {
+        detail.style.display = detail.style.display === 'none' ? 'table-row' : 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
