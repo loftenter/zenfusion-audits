@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Anchor Text Analysis — qualitywatertreatment.com</title>
+<style>
+  :root {
+    --bg:#f8fafc; --card:#fff; --border:#e5e7eb; --text:#111827;
+    --muted:#6b7280; --accent:#3b82f6;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.6; padding:20px; }
+  h1 { font-size:1.6rem; margin-bottom:4px; }
+  h2 { font-size:1.1rem; margin-bottom:10px; }
+  .muted { color:var(--muted); font-size:.9rem; }
+  .header { margin-bottom:20px; }
+  .header .muted { margin-top:2px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px; margin-bottom:20px; }
+  .card { background:var(--card); border:1px solid var(--border);
+    border-radius:10px; padding:18px; margin-bottom:20px; }
+  .stat-card { background:var(--card); border:1px solid var(--border);
+    border-radius:10px; padding:16px; }
+  .stat-card .label { font-size:.78rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.05em; }
+  .stat-card .value { font-size:1.5rem; font-weight:700; margin-top:4px; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    margin-bottom:20px; }
+  @media (max-width:768px) { .two-col { grid-template-columns:1fr; } }
+  .pie-wrap { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .legend { display:flex; flex-direction:column; gap:6px; }
+  .legend-item { display:flex; align-items:center; gap:8px; font-size:.88rem; }
+  .legend-swatch { width:14px; height:14px; border-radius:3px; display:inline-block; }
+  .legend-pct { font-weight:700; margin-left:auto; }
+  .risk-gauge { display:flex; align-items:center; gap:16px; }
+  .risk-bar { flex:1; height:12px; background:#e5e7eb; border-radius:6px; overflow:hidden; }
+  .risk-fill { height:100%; border-radius:6px; background:#f59e0b;
+    width:32%; transition:width .3s; }
+  .risk-badge { padding:4px 14px; border-radius:20px; font-weight:700; font-size:.9rem; }
+  .type-badge { padding:2px 10px; border-radius:12px; font-size:.78rem; font-weight:600; }
+  table.data-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+  table.data-table th { text-align:left; padding:10px 12px; background:#f1f5f9;
+    border-bottom:2px solid var(--border); font-weight:600; font-size:.8rem;
+    text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  table.data-table td { padding:10px 12px; border-bottom:1px solid var(--border); }
+  table.data-table tbody tr:hover { background:#f9fafb; }
+  .num { text-align:right; font-variant-numeric:tabular-nums; }
+  .anchor-text { max-width:300px; word-break:break-word; }
+  .table-wrap { max-height:500px; overflow-y:auto; }
+  .table-controls { margin-bottom:10px; display:flex; gap:8px; flex-wrap:wrap; }
+  .filter-btn { padding:4px 12px; border:1px solid var(--border); border-radius:6px;
+    background:#fff; cursor:pointer; font-size:.82rem; }
+  .filter-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .rec-list { padding-left:20px; }
+  .rec-list li { margin-bottom:6px; }
+  .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.82rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Anchor Text Analysis</h1>
+  <p class="muted">qualitywatertreatment.com — Generated 2026-09-08 20:56</p>
+</div>
+
+<!-- Overview cards -->
+<div class="cards">
+  <div class="stat-card">
+    <div class="label">Total Backlinks</div>
+    <div class="value">4,404</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Unique Anchors</div>
+    <div class="value">100</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Top Anchor</div>
+    <div class="value" style="font-size:1rem;line-height:1.4">—</div>
+    <div class="muted" style="font-size:.8rem">Type: empty</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Dofollow Ratio</div>
+    <div class="value">0.0%</div>
+    <div class="muted" style="font-size:.8rem">0 dofollow</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Anchor Texts Returned</div>
+    <div class="value">100</div>
+  </div>
+</div>
+
+<!-- Two-column: pie + risk -->
+<div class="two-col">
+  <div class="card">
+    <h2>Distribution</h2>
+    <div class="pie-wrap"><svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg"><path d="M 130.0,130.0 L 130.0,10.0 A 120.0,120.0 0 0 1 234.9,71.7 Z" fill="#ef4444" stroke="#fff" stroke-width="1.5"/><path d="M 130.0,130.0 L 234.9,71.7 A 120.0,120.0 0 0 1 65.3,231.1 Z" fill="#f59e0b" stroke="#fff" stroke-width="1.5"/><path d="M 130.0,130.0 L 65.3,231.1 A 120.0,120.0 0 0 1 48.9,218.5 Z" fill="#3b82f6" stroke="#fff" stroke-width="1.5"/><path d="M 130.0,130.0 L 48.9,218.5 A 120.0,120.0 0 0 1 40.8,49.7 Z" fill="#8b5cf6" stroke="#fff" stroke-width="1.5"/><path d="M 130.0,130.0 L 40.8,49.7 A 120.0,120.0 0 0 1 130.0,10.0 Z" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/><circle cx="130.0" cy="130.0" r="66.0" fill="#fff"/><text x="130.0" y="126.0" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">Anchor</text><text x="130.0" y="142.0" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">Text</text></svg><div class="legend"><div class="legend-item"><span class="legend-swatch" style="background:#ef4444"></span><span class="legend-label">Exact Match</span><span class="legend-pct">16.9%</span></div><div class="legend-item"><span class="legend-swatch" style="background:#f59e0b"></span><span class="legend-label">Partial Match</span><span class="legend-pct">42.1%</span></div><div class="legend-item"><span class="legend-swatch" style="background:#3b82f6"></span><span class="legend-label">Generic</span><span class="legend-pct">2.8%</span></div><div class="legend-item"><span class="legend-swatch" style="background:#8b5cf6"></span><span class="legend-label">Naked Url</span><span class="legend-pct">24.9%</span></div><div class="legend-item"><span class="legend-swatch" style="background:#9ca3af"></span><span class="legend-label">Empty</span><span class="legend-pct">13.3%</span></div></div></div>
+  </div>
+  <div class="card">
+    <h2>Over-Optimization Risk</h2>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+        <div style="font-size:2.4rem;font-weight:800;color:#f59e0b">32</div>
+        <div>/ 100</div>
+        <span class="risk-badge" style="background:#f59e0b20;color:#f59e0b;border:1px solid #f59e0b">Monitor</span>
+      </div>
+      <div class="risk-gauge">
+        <div class="risk-bar"><div class="risk-fill"></div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">
+        Score based on exact-match share, branded ratio, diversity, and
+        concentration. Lower is better.
+      </p>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Type</th><th class="num">Count</th><th class="num">BL</th>
+      <th class="num">%</th><th class="num">Safe ≤</th><th>Status</th></tr></thead>
+      <tbody><tr><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">17</td><td class="num">745</td><td class="num">16.9%</td><td class="num">10.0%</td><td>◆ Monitor</td></tr><tr><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">31</td><td class="num">1,856</td><td class="num">42.1%</td><td class="num">30.0%</td><td>◆ Monitor</td></tr><tr><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">7</td><td class="num">121</td><td class="num">2.8%</td><td class="num">20.0%</td><td>✓ Safe</td></tr><tr><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">44</td><td class="num">1,095</td><td class="num">24.9%</td><td class="num">10.0%</td><td>◆ Monitor</td></tr><tr><td><span class="type-badge" style="background:#9ca3af20;color:#9ca3af">empty</span></td><td class="num">1</td><td class="num">587</td><td class="num">13.3%</td><td class="num">5.0%</td><td>◆ Monitor</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Anchor table -->
+<div class="card">
+  <h2>Anchor Text Detail</h2>
+  <div class="table-controls">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="exact_match">Exact Match</button>
+    <button class="filter-btn" data-filter="partial_match">Partial Match</button>
+    <button class="filter-btn" data-filter="branded">Branded</button>
+    <button class="filter-btn" data-filter="generic">Generic</button>
+    <button class="filter-btn" data-filter="naked_url">Naked URL</button>
+    <button class="filter-btn" data-filter="image_alt">Image Alt</button>
+    <button class="filter-btn" data-filter="empty">Empty</button>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr>
+        <th>Anchor Text</th><th>Type</th><th class="num">Backlinks</th>
+        <th class="num">% of Total</th><th class="num">Dofollow</th>
+        <th class="num">Ref Domains</th>
+      </tr></thead>
+      <tbody><tr class="anchor-row" data-type="empty"><td class="anchor-text">(empty)</td><td><span class="type-badge" style="background:#9ca3af20;color:#9ca3af">empty</span></td><td class="num">587</td><td class="num">13.3%</td><td class="num">0</td><td class="num">43</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Installing Your Fleck Water Softener - Quality Water Treatment <span title="Flagged" style="color:#ef4444">⚠</span></td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">306</td><td class="num">6.9%</td><td class="num">0</td><td class="num">5</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">SoftPro Elite HE Water Softener for City Water</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">231</td><td class="num">5.2%</td><td class="num">0</td><td class="num">77</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Quality Water Treatment, Inc.</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">208</td><td class="num">4.7%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">qualitywatertreatment</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">176</td><td class="num">4.0%</td><td class="num">0</td><td class="num">149</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">INSTALLATION &amp; START-UP - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">164</td><td class="num">3.7%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">water softener for well water</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">161</td><td class="num">3.7%</td><td class="num">0</td><td class="num">55</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/collections/best-selling-water-softeners</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">161</td><td class="num">3.7%</td><td class="num">0</td><td class="num">140</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/collections/best-whole-house-water-softeners-f</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">140</td><td class="num">3.2%</td><td class="num">0</td><td class="num">102</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">qualitywatertreatment.com</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">134</td><td class="num">3.0%</td><td class="num">0</td><td class="num">117</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">water softener</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">123</td><td class="num">2.8%</td><td class="num">0</td><td class="num">41</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">Quality Water Treatment</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">88</td><td class="num">2.0%</td><td class="num">0</td><td class="num">15</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">eliminate iron contamination</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">80</td><td class="num">1.8%</td><td class="num">0</td><td class="num">80</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Iron Master AIO iron filtration system</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">80</td><td class="num">1.8%</td><td class="num">0</td><td class="num">80</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">HE Elite Water Softener line</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">80</td><td class="num">1.8%</td><td class="num">0</td><td class="num">80</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Fleck 5600 Econominder - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">70</td><td class="num">1.6%</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Fast, Easy Settings For Even Greater water Savings.</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">70</td><td class="num">1.6%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">Water Treatment System</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">68</td><td class="num">1.5%</td><td class="num">0</td><td class="num">7</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">How To Choose The Best Iron Filter Or PH Filter For Your ... <span title="Flagged" style="color:#ef4444">⚠</span></td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">60</td><td class="num">1.4%</td><td class="num">0</td><td class="num">7</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">55</td><td class="num">1.2%</td><td class="num">0</td><td class="num">24</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/products/ironmaster-1-5-cubic-foot</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">53</td><td class="num">1.2%</td><td class="num">0</td><td class="num">47</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Installing Your Fleck 5600SXT Water Softener</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">50</td><td class="num">1.1%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">water softener systems</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">45</td><td class="num">1.0%</td><td class="num">0</td><td class="num">45</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">water softeners</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">45</td><td class="num">1.0%</td><td class="num">0</td><td class="num">45</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Whole House Water Filters</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">45</td><td class="num">1.0%</td><td class="num">0</td><td class="num">45</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/products/softpro-best-water-softener-for-well-</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">44</td><td class="num">1.0%</td><td class="num">0</td><td class="num">43</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Water Conditioning Control System Installation, Operation And ...</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">38</td><td class="num">0.9%</td><td class="num">0</td><td class="num">4</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/collections/best-whole-house-water-softeners-f</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">33</td><td class="num">0.7%</td><td class="num">0</td><td class="num">33</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">Website</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">32</td><td class="num">0.7%</td><td class="num">0</td><td class="num">5</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">fleckwatersoftener.com</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">32</td><td class="num">0.7%</td><td class="num">0</td><td class="num">28</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Installing Your Clack WS1 Of WS1.25 Water Softener</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">32</td><td class="num">0.7%</td><td class="num">0</td><td class="num">6</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/products/softpro-eco-well-water-softener</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">30</td><td class="num">0.7%</td><td class="num">0</td><td class="num">30</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/products/softpro-water-softeners</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">30</td><td class="num">0.7%</td><td class="num">0</td><td class="num">30</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/collections/softpro-water-softeners</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">28</td><td class="num">0.6%</td><td class="num">0</td><td class="num">27</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Service Manual - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">28</td><td class="num">0.6%</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Premium Residential Model - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">24</td><td class="num">0.5%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">WaterDrop Water Filter</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">22</td><td class="num">0.5%</td><td class="num">0</td><td class="num">11</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Installation &amp; Instruction Manual - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">22</td><td class="num">0.5%</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">How The Twin-Tank Softener Works. - Quality Water Treatment <span title="Flagged" style="color:#ef4444">⚠</span></td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">20</td><td class="num">0.5%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/uncover-best-salt-free-water-softeners</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">19</td><td class="num">0.4%</td><td class="num">0</td><td class="num">18</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/products/salt-free-water-softeners-softpro</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">18</td><td class="num">0.4%</td><td class="num">0</td><td class="num">18</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">Click here to make a
+          one time payment.</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">18</td><td class="num">0.4%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">INSTALLATION &amp; START-UP INSTRUCTIONS PROSOFT CS1.25 METERED ...</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">18</td><td class="num">0.4%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">Visit Website</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">18</td><td class="num">0.4%</td><td class="num">0</td><td class="num">5</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Network Service qualityw</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">17</td><td class="num">0.4%</td><td class="num">0</td><td class="num">17</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">SoftPro City Water Softener System</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">16</td><td class="num">0.4%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">here</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">16</td><td class="num">0.4%</td><td class="num">0</td><td class="num">11</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/discover-best-salt-free-water-softeners</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">15</td><td class="num">0.3%</td><td class="num">0</td><td class="num">15</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/consumer-secrets-exposed-fluoride-water-</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">15</td><td class="num">0.3%</td><td class="num">0</td><td class="num">14</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Softpro Elite Water Softener Installation Video</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">15</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/how-best-salt-free-water-softeners-compa</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">14</td><td class="num">0.3%</td><td class="num">0</td><td class="num">13</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">Start Service Form</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">14</td><td class="num">0.3%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Installing Your Fleck Water Softener</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">14</td><td class="num">0.3%</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">9100TS System Training - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">14</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Water Softeners - Fleck 7000SXT System Information</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">13</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-salt-free-water-softeners-vs-salt-b</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">11</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/why-choose-best-salt-free-water-softener</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">12</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/fluoride-filter-installation-options-opt</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">12</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/budget-friendly-fluoride-filters-effecti</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">12</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/is-it-worth-it-to-buy-fluoride-water-fil</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">12</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">17</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">INSTALLATION OF THE TERMINATOR SYSTEM - Quality Water Treatment <span title="Flagged" style="color:#ef4444">⚠</span></td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Nelsen Scale Prevention Systems - Quality Water Treatment</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">V3435EE EE Programming And Front Cover Manual</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">SoftPro Salt-Free Water Softener</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">12</td><td class="num">0.3%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">WaterDrop Filters</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">11</td><td class="num">0.2%</td><td class="num">0</td><td class="num">11</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">customer complaints</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">11</td><td class="num">0.2%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-salt-free-water-softeners-protectio</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">11</td><td class="num">0.2%</td><td class="num">0</td><td class="num">11</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-water-softener-for-hard-water-why-n</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">11</td><td class="num">0.2%</td><td class="num">0</td><td class="num">11</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">Stop Service Form</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">11</td><td class="num">0.2%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">11</td><td class="num">0.2%</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">AWG</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">5</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-salt-free-water-softeners-guide</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/amazing-benefits-of-salt-free-water-soft</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/what-customers-are-saying-fluoride-water</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/fluoride-filter-installation-options-tec</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/fluoride-filter-installation-options-diy</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/this-one-decision-to-buy-fluoride-water-</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">18</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">Stop! Watch this before Buying a Fleck Water Softener from Amazon</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">best softener water</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">1</td></tr>
+<tr class="anchor-row" data-type="generic"><td class="anchor-text">website</td><td><span class="type-badge" style="background:#3b82f620;color:#3b82f6">generic</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">10</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">SoftPro Iron Master AIO Water Filtration System</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">3</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">Quality Water Treatment - #1 Best Water Filters, Ionizers ... <span title="Flagged" style="color:#ef4444">⚠</span></td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">http://www.qualitywatertreatment.com/city_water_guide.htm</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">10</td><td class="num">0.2%</td><td class="num">0</td><td class="num">7</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/fluoride-filter-installation-options-pra</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-water-softener-for-hard-water-expla</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/before-you-buy-fluoride-water-filter-onl</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/fluoride-filter-installation-options-why</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/shocking-benefits-of-buying-fluoride-wat</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/do-more-expensive-fluoride-filters-offer</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/how-much-to-spend-on-replacement-filters</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="partial_match"><td class="anchor-text">SoftPro Elite Well Water Softener System</td><td><span class="type-badge" style="background:#f59e0b20;color:#f59e0b">partial match</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">2</td></tr>
+<tr class="anchor-row" data-type="exact_match"><td class="anchor-text">Content from Wetlands.org</td><td><span class="type-badge" style="background:#ef444420;color:#ef4444">exact match</span></td><td class="num">9</td><td class="num">0.2%</td><td class="num">0</td><td class="num">9</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/whole-house-iron-filtration-systems-what</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">8</td><td class="num">0.2%</td><td class="num">0</td><td class="num">7</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/well-water-filtration-vs-softening-key-d</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">8</td><td class="num">0.2%</td><td class="num">0</td><td class="num">8</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-salt-free-water-softeners-solution</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">8</td><td class="num">0.2%</td><td class="num">0</td><td class="num">8</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/essential-costs-replacement-filters-fluo</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">8</td><td class="num">0.2%</td><td class="num">0</td><td class="num">8</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-water-softener-for-hard-water-evalu</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">8</td><td class="num">0.2%</td><td class="num">0</td><td class="num">8</td></tr>
+<tr class="anchor-row" data-type="naked_url"><td class="anchor-text">https://qualitywatertreatment.com/pages/best-water-softener-for-hard-water-works</td><td><span class="type-badge" style="background:#8b5cf620;color:#8b5cf6">naked url</span></td><td class="num">8</td><td class="num">0.2%</td><td class="num">0</td><td class="num">8</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card"><h2>⚠ Penalty Risk Indicators</h2><p class="muted">Anchors flagged for manual review:</p><table class="data-table"><thead><tr><th>Anchor</th><th>Type</th><th>Backlinks</th><th>Flags</th></tr></thead><tbody><tr><td class="anchor-text">Installing Your Fleck Water Softener - Quality Water Treatme</td><td>partial match</td><td class="num">306</td><td>keyword-stuffed (long)</td></tr>
+<tr><td class="anchor-text">How To Choose The Best Iron Filter Or PH Filter For Your ...</td><td>partial match</td><td class="num">60</td><td>keyword-stuffed (long)</td></tr>
+<tr><td class="anchor-text">How The Twin-Tank Softener Works. - Quality Water Treatment</td><td>partial match</td><td class="num">20</td><td>keyword-stuffed (long)</td></tr>
+<tr><td class="anchor-text">INSTALLATION OF THE TERMINATOR SYSTEM - Quality Water Treatm</td><td>partial match</td><td class="num">12</td><td>keyword-stuffed (long)</td></tr>
+<tr><td class="anchor-text">Quality Water Treatment - #1 Best Water Filters, Ionizers ..</td><td>partial match</td><td class="num">10</td><td>keyword-stuffed (long)</td></tr></tbody></table></div>
+
+<!-- Recommendations -->
+<div class="card">
+  <h2>Recommendations</h2>
+  <ul class="rec-list"><li>Exact-match anchors at 16.9% — monitor closely. Aim to keep below 10% for a natural profile.</li><li>Increase branded anchor text from 0.0% toward 40-60%. Branded anchors are the strongest natural signal.</li><li>Add more generic anchors (currently 2.8%). Natural profiles include &quot;click here&quot;, &quot;read more&quot;, etc.</li></ul>
+</div>
+
+<div class="footer">
+  Zenfusion Anchor Text Analysis — noindex/nofollow — DataForSEO backlinks/anchors/live
+</div>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b =>
+        b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.anchor-row').forEach(row => {
+        if (filter === 'all' || row.dataset.type === filter) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
