@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>SERP Feature Landscape — water softener</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        background: #ffffff;
+        color: #1a1a1a;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h1 {
+        color: #1a1a1a;
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+    h2 {
+        color: #1a1a1a;
+        font-size: 24px;
+        margin-top: 36px;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+    h3 {
+        color: #1a1a1a;
+        font-size: 20px;
+        margin-top: 24px;
+        margin-bottom: 12px;
+    }
+    a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .subtitle {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+    .metric-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .metric-card {
+        background: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px 24px;
+        min-width: 140px;
+        flex: 1;
+        text-align: center;
+    }
+    .card-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #0066cc;
+    }
+    .card-label {
+        font-size: 13px;
+        color: #666;
+        margin-top: 4px;
+    }
+    table.data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+    table.data-table th {
+        background: #f8f9fa;
+        color: #1a1a1a;
+        font-weight: 600;
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+    table.data-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+    table.data-table td.center {
+        text-align: center;
+    }
+    table.data-table tr:hover {
+        background: #f8f9fa;
+    }
+    .chart-container {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+        overflow-x: auto;
+    }
+    .ai-sample-card, .fs-sample-card {
+        background: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 16px;
+        margin-bottom: 12px;
+    }
+    .ai-sample-kw, .fs-sample-kw {
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    .ai-sample-text, .fs-sample-desc {
+        font-size: 14px;
+        color: #444;
+        max-height: 200px;
+        overflow-y: auto;
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+    .ai-sample-cited, .fs-sample-domain {
+        font-size: 13px;
+        color: #666;
+    }
+    .paa-list {
+        list-style: none;
+        counter-reset: paa-counter;
+    }
+    .paa-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        counter-increment: paa-counter;
+    }
+    .paa-list li::before {
+        content: counter(paa-counter) ".";
+        font-weight: 700;
+        color: #0066cc;
+        margin-right: 8px;
+    }
+    .q-count {
+        background: #e8f0fe;
+        color: #0066cc;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 6px;
+    }
+    .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .badge-present { background: #f39c12; color: #fff; }
+    .badge-type { background: #e8f0fe; color: #0066cc; margin-right: 6px; }
+    .badge-row { margin: 12px 0; }
+    .opp-card, .rec-card {
+        background: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-left: 4px solid #0066cc;
+        border-radius: 6px;
+        padding: 16px;
+        margin-bottom: 12px;
+    }
+    .opp-header, .rec-feature {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+    .opp-owner {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 8px;
+    }
+    .opp-rec, .rec-text {
+        font-size: 14px;
+        color: #444;
+    }
+    .section {
+        margin-bottom: 32px;
+    }
+    footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        font-size: 13px;
+        color: #999;
+    }
+</style>
+</head>
+<body>
+    <h1>SERP Feature Landscape Report</h1>
+    <p class="subtitle">Seed keyword: <strong>water softener</strong>
+    | Target domain: <strong>softprowatersystems.com</strong>
+    | Generated: 2026-09-08 21:51 CST</p>
+
+    <div class="section">
+        <h2>Market Overview</h2>
+        <div class="metric-row">
+            <div class="metric-card"><div class="card-value">10</div><div class="card-label">Keywords Analyzed</div></div>
+            <div class="metric-card"><div class="card-value">5</div><div class="card-label">Unique SERP Features</div></div>
+            <div class="metric-card"><div class="card-value">7</div><div class="card-label">AI Overview Present</div></div>
+            <div class="metric-card"><div class="card-value">0</div><div class="card-label">Featured Snippets</div></div>
+            <div class="metric-card"><div class="card-value">40</div><div class="card-label">PAA Questions</div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Feature Frequency Table</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>SERP Feature</th>
+                    <th>Appearance %</th>
+                    <th>Keywords</th>
+                    <th>Avg Position</th>
+                    <th>Top Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td><strong>People Also Ask</strong></td>
+                <td class="center">100.0%</td>
+                <td class="center">10/10</td>
+                <td class="center">—</td>
+                <td>—</td>
+            </tr>
+<tr>
+                <td><strong>AI Overview</strong></td>
+                <td class="center">70.0%</td>
+                <td class="center">7/10</td>
+                <td class="center">1.0</td>
+                <td><span style="color:#666;">google.com</span></td>
+            </tr>
+<tr>
+                <td><strong>Image Results</strong></td>
+                <td class="center">70.0%</td>
+                <td class="center">7/10</td>
+                <td class="center">59.0</td>
+                <td>—</td>
+            </tr>
+<tr>
+                <td><strong>Video Carousel</strong></td>
+                <td class="center">30.0%</td>
+                <td class="center">3/10</td>
+                <td class="center">5.7</td>
+                <td><span style="color:#666;">youtube · water filter guru</span></td>
+            </tr>
+<tr>
+                <td><strong>Local Pack</strong></td>
+                <td class="center">10.0%</td>
+                <td class="center">1/10</td>
+                <td class="center">1.0</td>
+                <td>—</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Feature Dominance Chart</h2>
+        <div class="chart-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220" style="width:100%;max-width:700px;height:auto;">
+<rect width="700" height="220" fill="#ffffff"/>
+<rect x="180" y="20" width="440" height="28" fill="#f0f0f0" rx="3"/>
+<rect x="180" y="20" width="440" height="28" fill="#004c99" rx="3"/>
+<text x="170" y="40" text-anchor="end" font-size="13" fill="#1a1a1a" font-family="sans-serif">People Also Ask</text>
+<text x="628" y="40" font-size="13" fill="#1a1a1a" font-family="sans-serif">100.0%</text>
+<rect x="180" y="56" width="440" height="28" fill="#f0f0f0" rx="3"/>
+<rect x="180" y="56" width="308" height="28" fill="#0066cc" rx="3"/>
+<text x="170" y="76" text-anchor="end" font-size="13" fill="#1a1a1a" font-family="sans-serif">AI Overview</text>
+<text x="628" y="76" font-size="13" fill="#1a1a1a" font-family="sans-serif">70.0%</text>
+<rect x="180" y="92" width="440" height="28" fill="#f0f0f0" rx="3"/>
+<rect x="180" y="92" width="308" height="28" fill="#0066cc" rx="3"/>
+<text x="170" y="112" text-anchor="end" font-size="13" fill="#1a1a1a" font-family="sans-serif">Image Results</text>
+<text x="628" y="112" font-size="13" fill="#1a1a1a" font-family="sans-serif">70.0%</text>
+<rect x="180" y="128" width="440" height="28" fill="#f0f0f0" rx="3"/>
+<rect x="180" y="128" width="132" height="28" fill="#4d94db" rx="3"/>
+<text x="170" y="148" text-anchor="end" font-size="13" fill="#1a1a1a" font-family="sans-serif">Video Carousel</text>
+<text x="628" y="148" font-size="13" fill="#1a1a1a" font-family="sans-serif">30.0%</text>
+<rect x="180" y="164" width="440" height="28" fill="#f0f0f0" rx="3"/>
+<rect x="180" y="164" width="44" height="28" fill="#80b3ff" rx="3"/>
+<text x="170" y="184" text-anchor="end" font-size="13" fill="#1a1a1a" font-family="sans-serif">Local Pack</text>
+<text x="628" y="184" font-size="13" fill="#1a1a1a" font-family="sans-serif">10.0%</text>
+</svg>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>AI Overview Analysis</h2>
+        
+    <div class="metric-row">
+        <div class="metric-card"><div class="card-value">7/10</div><div class="card-label">AI Overview Appears</div></div>
+        <div class="metric-card"><div class="card-value">70.0%</div><div class="card-label">Of Keywords</div></div>
+        <div class="metric-card"><div class="card-value">13</div><div class="card-label">Unique Cited Domains</div></div>
+        <div class="metric-card"><div class="card-value">0</div><div class="card-label">Target Cited</div></div>
+    </div>
+    
+        <h3>Cited Domains in AI Overview</h3>
+        <table class="data-table">
+            <thead><tr><th>Domain</th><th>Citations</th></tr></thead>
+            <tbody><tr><td>google.com</td><td class="center">7</td></tr><tr><td>qualitywatertreatment.com</td><td class="center">5</td></tr><tr><td>midatlanticwater.net</td><td class="center">5</td></tr><tr><td>youtube.com</td><td class="center">4</td></tr><tr><td>reddit.com</td><td class="center">2</td></tr><tr><td>bhg.com</td><td class="center">2</td></tr><tr><td>uswatersystems.com</td><td class="center">1</td></tr><tr><td>aquahomesupply.com</td><td class="center">1</td></tr><tr><td>homedepot.com</td><td class="center">1</td></tr><tr><td>waterfiltercomparisons.com</td><td class="center">1</td></tr><tr><td>consumerreports.org</td><td class="center">1</td></tr><tr><td>modernize.com</td><td class="center">1</td></tr><tr><td>diamondcrystalsalt.com</td><td class="center">1</td></tr></tbody>
+        </table>
+    <h3>AI Overview Content Samples</h3><div class="ai-sample-card">
+                    <div class="ai-sample-kw">Keyword: <strong>best water softener</strong> (9 citations)</div>
+                    <div class="ai-sample-text">The best overall water softener is the  , prized for its digital metered demand and long-term durability. 
+
+ Top Water Softener Picks
+
+- Best Overall:  ($1,100–$1,200) features a digital demand valve that regenerates only when necessary, 10% crosslink resin for enhanced chlorine resistance, and a solid reputation for DIY or professional setup. 
+- Best High-Efficiency/DIY Runner-Up:  (https://www.softprowatersystems.com/products/softpro-elite-water-softener) (around $1,447) cuts salt and water waste significantly through precision brining and upflow regeneration, making it ideal for city or wel</div>
+                    <div class="ai-sample-cited"><strong>Cited:</strong> uswatersystems.com, qualitywatertreatment.com, midatlanticwater.net, google.com, youtube.com</div>
+                </div><div class="ai-sample-card">
+                    <div class="ai-sample-kw">Keyword: <strong>best water softener system</strong> (7 citations)</div>
+                    <div class="ai-sample-text">The  (https://www.softprowatersystems.com/products/softpro-elite-water-softener) is the best overall water softener system due to its high-efficiency demand regeneration, precision brining, and ability to cut salt waste by up to 50%. 
+
+ Top Water Softener Systems
+
+- Best Overall:  starts around $1,100 to $2,607 depending on configuration. It features upflow regeneration, digital tracking, and precision brining that minimizes salt and water consumption.
+- Best Runner-Up / Performance: SpringWell SS1 (priced around $1,500–$1,700) delivers a 97.5% hardness reduction and maintains high flow rates </div>
+                    <div class="ai-sample-cited"><strong>Cited:</strong> qualitywatertreatment.com, reddit.com, google.com, youtube.com, midatlanticwater.net</div>
+                </div><div class="ai-sample-card">
+                    <div class="ai-sample-kw">Keyword: <strong>best water softener for city water</strong> (11 citations)</div>
+                    <div class="ai-sample-text">The best overall water softener for city water is the  (https://www.softprowatersystems.com/products/softpro-elite-water-softener?variant=42271878250538&amp;country=US&amp;currency=USD&amp;utm_medium=product_sync&amp;utm_source=google&amp;utm_content=sag_organic&amp;utm_campaign=sag_organic&amp;srsltid=AfmBOooGnMRrks6j4b1KGxMjbpRbRJBi0gu-CVY7N2F2TsqA-cmWHL-IFhw) , which costs around $2,700 and uses up to 75% less salt than traditional models.
+
+ Top Choices for City Water
+
+Best traditional salt-based system. It features demand-based regeneration and protects resin against municipal chlorine. Best salt-free hybrid system. </div>
+                    <div class="ai-sample-cited"><strong>Cited:</strong> google.com, bhg.com, midatlanticwater.net</div>
+                </div><div class="ai-sample-card">
+                    <div class="ai-sample-kw">Keyword: <strong>best water softener for well water</strong> (15 citations)</div>
+                    <div class="ai-sample-text">The best water softener for well water is the  , which costs around $1,327 and uses up to 50% to 75% less salt due to its smart upflow regeneration technology. 
+
+ Top Water Softeners for Well Water
+
+- Best Overall:  
+	- Price: Around $1,327
+	- Features: Upflow demand-initiated regeneration, precision brining, and fine mesh resin that handles hardness and low-level dissolved iron (up to 3 ppm).
+	- Best For: Efficiency, salt savings, and automated adjustment to daily water use. 
+- Best Value / DIY:  (48,000 Grain) 
+	- Price: Around $879 to $1,097
+	- Features: Digital metered control valve, durab</div>
+                    <div class="ai-sample-cited"><strong>Cited:</strong> qualitywatertreatment.com, youtube.com, google.com, aquahomesupply.com, midatlanticwater.net, homedepot.com</div>
+                </div><div class="ai-sample-card">
+                    <div class="ai-sample-kw">Keyword: <strong>water softener reviews</strong> (12 citations)</div>
+                    <div class="ai-sample-text">The  is `top-rated overall` for reliability, value, and DIY performance, typically costing between $600 and $1,895 depending on the grain capacity. 
+
+ Top-Rated Water Softener Systems
+
+- Best Overall Value / Reliability:  
+	- Price: Around $1,495 – $1,895
+	- Why it rates high: Features a legendary control valve, electronic demand regeneration, and strong long-term durability. 
+- Best High-Efficiency Pick:  
+	- Price: Around $1,447
+	- Why it rates high: Cuts salt and water usage by up to 64% using upflow regeneration and handles severe hardness up to 110 grains per gallon (GPG).
+- Best Budget /</div>
+                    <div class="ai-sample-cited"><strong>Cited:</strong> waterfiltercomparisons.com, qualitywatertreatment.com, google.com, consumerreports.org, midatlanticwater.net</div>
+                </div>
+    
+    </div>
+
+    <div class="section">
+        <h2>People Also Ask Analysis</h2>
+        
+    <div class="metric-row">
+        <div class="metric-card"><div class="card-value">10/10</div><div class="card-label">Keywords with PAA</div></div>
+        <div class="metric-card"><div class="card-value">100.0%</div><div class="card-label">PAA Presence</div></div>
+        <div class="metric-card"><div class="card-value">40</div><div class="card-label">Total Questions</div></div>
+        <div class="metric-card"><div class="card-value">33</div><div class="card-label">Unique Questions</div></div>
+    </div>
+    <h3>Common Questions Across Keywords</h3>
+    <ol class="paa-list"><li><span class="q-count">3x</span> Which water softener is the best?</li><li><span class="q-count">2x</span> What type of water softener is the most effective?</li><li><span class="q-count">2x</span> What brand of water softener is the best?</li><li><span class="q-count">2x</span> What water softener do plumbers recommend?</li><li><span class="q-count">2x</span> What is the average cost of a water softener?</li><li><span class="q-count">2x</span> Do I need a plumber to install a water softener?</li><li><span class="q-count">1x</span> Which brand of water softener system is the best?</li><li><span class="q-count">1x</span> Can I write off a water softener on my taxes?</li><li><span class="q-count">1x</span> What are the top-rated whole house water softener systems?</li><li><span class="q-count">1x</span> What kind of water softener do I need for city water?</li><li><span class="q-count">1x</span> What is the best water filtration system for city water?</li><li><span class="q-count">1x</span> Which brand of water softener is considered the most reliable?</li><li><span class="q-count">1x</span> What is the best water softener for well water according to Consumer Reports?</li><li><span class="q-count">1x</span> What type of water softener salt is best for well water?</li><li><span class="q-count">1x</span> Do you need a special water softener for well water?</li><li><span class="q-count">1x</span> What is the number one rated water softener?</li><li><span class="q-count">1x</span> What are the disadvantages of water softeners?</li><li><span class="q-count">1x</span> How much should a good water softener cost?</li><li><span class="q-count">1x</span> Is it worth putting in a water softener?</li><li><span class="q-count">1x</span> How much does Home Depot charge to install a water softener per?</li></ol>
+    
+    
+    </div>
+
+    <div class="section">
+        <h2>Featured Snippet Analysis</h2>
+        
+    <div class="metric-row">
+        <div class="metric-card"><div class="card-value">0/10</div><div class="card-label">Keywords with FS</div></div>
+        <div class="metric-card"><div class="card-value">0.0%</div><div class="card-label">FS Presence</div></div>
+        <div class="metric-card"><div class="card-value">0</div><div class="card-label">Target Owns</div></div>
+        <div class="metric-card"><div class="card-value">0</div><div class="card-label">Unique Owners</div></div>
+    </div>
+    
+    
+    <p>No featured snippets found across analyzed keywords.</p>
+    
+    </div>
+
+    <div class="section">
+        <h2>Opportunities for softprowatersystems.com</h2>
+        <div class="opp-card">
+                    <div class="opp-header">
+                        <strong>People Also Ask</strong>
+                        <span class="badge badge-present">100.0% present</span>
+                    </div>
+                    <div class="opp-owner">Currently owned by: —</div>
+                    <div class="opp-rec">Win PAA by adding an FAQ section answering the exact PAA questions shown. Use FAQPage schema markup. Each answer should be 40-50 words and directly address the question.</div>
+                </div><div class="opp-card">
+                    <div class="opp-header">
+                        <strong>AI Overview</strong>
+                        <span class="badge badge-present">70.0% present</span>
+                    </div>
+                    <div class="opp-owner">Currently owned by: google.com</div>
+                    <div class="opp-rec">Structure content for AI extraction: concise summaries at the top of the page, clear factual statements with numbers, FAQ schema, and authoritative citations. Aim to be cited as a source by providing unique data, comparisons, and expert quotes.</div>
+                </div><div class="opp-card">
+                    <div class="opp-header">
+                        <strong>Image Results</strong>
+                        <span class="badge badge-present">70.0% present</span>
+                    </div>
+                    <div class="opp-owner">Currently owned by: —</div>
+                    <div class="opp-rec">Win image results by adding descriptive alt text with the keyword, high-quality images, descriptive filenames, and ImageObject schema.</div>
+                </div><div class="opp-card">
+                    <div class="opp-header">
+                        <strong>Video Carousel</strong>
+                        <span class="badge badge-present">30.0% present</span>
+                    </div>
+                    <div class="opp-owner">Currently owned by: youtube · water filter guru</div>
+                    <div class="opp-rec">Win the video carousel by publishing a relevant YouTube video with the keyword in the title/description, adding timestamps, and embedding it on the target page with VideoObject schema.</div>
+                </div><div class="opp-card">
+                    <div class="opp-header">
+                        <strong>Local Pack</strong>
+                        <span class="badge badge-present">10.0% present</span>
+                    </div>
+                    <div class="opp-owner">Currently owned by: —</div>
+                    <div class="opp-rec">Win the Local Pack by claiming/optimizing your Google Business Profile, building local citations (NAP consistency), getting reviews with keywords, and creating location-specific landing pages if applicable.</div>
+                </div>
+    </div>
+
+    <div class="section">
+        <h2>Feature-Specific Recommendations</h2>
+        <div class="rec-card">
+                <div class="rec-feature">People Also Ask <span class="badge badge-present">100.0%</span></div>
+                <div class="rec-text">Win PAA by adding an FAQ section answering the exact PAA questions shown. Use FAQPage schema markup. Each answer should be 40-50 words and directly address the question.</div>
+            </div><div class="rec-card">
+                <div class="rec-feature">AI Overview <span class="badge badge-present">70.0%</span></div>
+                <div class="rec-text">Structure content for AI extraction: concise summaries at the top of the page, clear factual statements with numbers, FAQ schema, and authoritative citations. Aim to be cited as a source by providing unique data, comparisons, and expert quotes.</div>
+            </div><div class="rec-card">
+                <div class="rec-feature">Image Results <span class="badge badge-present">70.0%</span></div>
+                <div class="rec-text">Win image results by adding descriptive alt text with the keyword, high-quality images, descriptive filenames, and ImageObject schema.</div>
+            </div><div class="rec-card">
+                <div class="rec-feature">Video Carousel <span class="badge badge-present">30.0%</span></div>
+                <div class="rec-text">Win the video carousel by publishing a relevant YouTube video with the keyword in the title/description, adding timestamps, and embedding it on the target page with VideoObject schema.</div>
+            </div><div class="rec-card">
+                <div class="rec-feature">Local Pack <span class="badge badge-present">10.0%</span></div>
+                <div class="rec-text">Win the Local Pack by claiming/optimizing your Google Business Profile, building local citations (NAP consistency), getting reviews with keywords, and creating location-specific landing pages if applicable.</div>
+            </div>
+    </div>
+
+    <footer>
+        <p>Report generated by serp_feature_landscape.py | DataForSEO SERP API | 2026-09-08 21:51 CST</p>
+        <p>noindex,nofollow — this report is for internal use only</p>
+    </footer>
+</body>
+</html>

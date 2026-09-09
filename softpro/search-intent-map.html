@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Search Intent Map — water softener</title>
+<style>
+  :root { --primary:#1F2937; --accent:#2563EB; --success:#16A34A; --warn:#D97706;
+          --bg:#F3F4F6; --muted:#6B7280; --grid:#E5E7EB; --soft:#EFF6FF; }
+  * { box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+         margin:0; color:var(--primary); background:#fff; line-height:1.5; }
+  .wrap { max-width:1100px; margin:0 auto; padding:32px; }
+  header { border-bottom:3px solid var(--accent); padding-bottom:16px; margin-bottom:24px; }
+  h1 { margin:0; font-size:28px; }
+  .meta { color:var(--muted); font-size:13px; margin-top:4px; }
+  h2 { color:var(--accent); border-bottom:1px solid var(--grid); padding-bottom:6px; margin-top:36px; }
+  .kpis { display:flex; gap:12px; flex-wrap:wrap; margin:16px 0; }
+  .kpi { background:var(--bg); border-top:3px solid var(--accent); border-radius:6px;
+          padding:14px 18px; min-width:160px; flex:1; }
+  .kpi .label { font-size:11px; text-transform:uppercase; color:var(--muted); letter-spacing:.04em; }
+  .kpi .value { font-size:22px; font-weight:700; margin-top:4px; }
+  .kpi .sub { font-size:11px; color:var(--muted); }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:13px; }
+  th { background:var(--primary); color:#fff; text-align:left; padding:8px 10px; font-weight:600; }
+  td { padding:8px 10px; border-bottom:1px solid var(--grid); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--bg); }
+  .chart-row { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .chart-cell { flex:1; min-width:280px; }
+  .funnel-wrap { overflow-x:auto; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .muted { color:var(--muted); font-size:13px; }
+  .filter-bar { background:var(--bg); padding:10px 14px; border-radius:6px; margin:12px 0; }
+  .filter-bar select, .filter-bar input { font-size:13px; border:1px solid var(--grid); border-radius:4px; }
+  #kwTable { max-height:600px; overflow-y:auto; }
+  .rec-card { border:1px solid var(--grid); border-radius:6px; margin:12px 0; overflow:hidden; }
+  .rec-head { background:var(--bg); padding:8px 14px; display:flex; align-items:center; gap:10px; }
+  .rec-priority { color:#fff; font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; }
+  .rec-intent { font-size:12px; color:var(--muted); }
+  .rec-num { margin-left:auto; font-size:12px; color:var(--muted); }
+  .rec-title { padding:10px 14px 4px; font-weight:600; font-size:14px; }
+  .rec-detail { padding:4px 14px 12px; font-size:13px; color:var(--primary); }
+  footer { margin-top:40px; padding-top:16px; border-top:1px solid var(--grid);
+           color:var(--muted); font-size:11px; text-align:center; }
+  script { display:none; }
+</style>
+<script>
+function filterKeywords() {
+  var intent = document.getElementById('intentFilter').value;
+  var search = document.getElementById('kwSearch').value.toLowerCase();
+  var rows = document.querySelectorAll('.kw-row');
+  rows.forEach(function(row) {
+    var show = (intent === 'all' || row.dataset.intent === intent) &&
+               (search === '' || row.dataset.kw.includes(search));
+    row.style.display = show ? '' : 'none';
+  });
+}
+</script>
+</head><body><div class="wrap">
+<header><h1>Search Intent Map — water softener</h1>
+<div class="meta">2026-09-08 21:43 • US / en • 100 keywords • domain: softprowatersystems.com</div></header>
+<div class="kpis">
+<div class="kpi"><div class="label">Total Keywords</div><div class="value">100</div><div class="sub">in market universe</div></div>
+<div class="kpi"><div class="label">Total Search Volume</div><div class="value">3,467,190</div><div class="sub">monthly searches</div></div>
+<div class="kpi"><div class="label">Avg Difficulty</div><div class="value">14.8</div><div class="sub">/ 100</div></div>
+<div class="kpi"><div class="label">Avg CPC</div><div class="value">$5.4</div><div class="sub">per click</div></div>
+</div>
+<h2>Intent Distribution</h2>
+<div class="chart-row">
+<div class="chart-cell"><svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+<circle cx="130.0" cy="130.0" r="126.0" fill="#F3F4F6"/>
+<path d="M 130.0 8.0 A 122.0 122.0 0 1 1 98.2 247.8 L 103.9 226.5 A 100.0 100.0 0 1 0 130.0 30.0 Z" fill="#2563EB" stroke="#fff" stroke-width="1.5"/>
+<path d="M 98.2 247.8 A 122.0 122.0 0 0 1 30.8 201.0 L 48.7 188.2 A 100.0 100.0 0 0 0 103.9 226.5 Z" fill="#D97706" stroke="#fff" stroke-width="1.5"/>
+<path d="M 30.8 201.0 A 122.0 122.0 0 0 1 124.0 8.1 L 125.1 30.1 A 100.0 100.0 0 0 0 48.7 188.2 Z" fill="#16A34A" stroke="#fff" stroke-width="1.5"/>
+<path d="M 124.0 8.1 A 122.0 122.0 0 0 1 130.0 8.0 L 130.0 30.0 A 100.0 100.0 0 0 0 125.1 30.1 Z" fill="#7C3AED" stroke="#fff" stroke-width="1.5"/>
+<text x="130.0" y="124.0" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#1F2937;">3,467,190</text>
+<text x="130.0" y="142.0" text-anchor="middle" style="font-size:10px;fill:#6B7280;">Total Vol</text>
+</svg></div>
+<div class="chart-cell"><table><tr><th>Intent</th><th>Keywords</th><th>Volume</th><th>Share</th><th>Avg Diff</th></tr>
+<tr><td><span class="dot" style="background:#2563EB"></span><b>Informational</b></td><td>39</td><td>1,879,100</td><td>54.2%</td><td>17.0</td></tr>
+<tr><td><span class="dot" style="background:#D97706"></span><b>Commercial</b></td><td>26</td><td>378,600</td><td>10.9%</td><td>14.0</td></tr>
+<tr><td><span class="dot" style="background:#16A34A"></span><b>Transactional</b></td><td>34</td><td>1,182,390</td><td>34.1%</td><td>12.9</td></tr>
+<tr><td><span class="dot" style="background:#7C3AED"></span><b>Navigational</b></td><td>1</td><td>27,100</td><td>0.8%</td><td>11.0</td></tr>
+</table></div>
+</div>
+<h2>Buying Journey Funnel</h2>
+<div class="funnel-wrap"><svg width="700" height="280" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+<text x="10" y="44.0" style="font-size:13px;font-weight:600;fill:#1F2937;">Informational</text>
+<rect x="150" y="20" width="430" height="40" rx="4" fill="#2563EB" opacity="0.9"/>
+<text x="588" y="45.0" style="font-size:12px;font-weight:600;fill:#1F2937;">1,879,100/mo (100.0%)</text>
+<text x="10" y="96.0" style="font-size:13px;font-weight:600;fill:#1F2937;">Commercial</text>
+<rect x="150" y="72" width="87" height="40" rx="4" fill="#D97706" opacity="0.9"/>
+<text x="245" y="97.0" style="font-size:12px;font-weight:600;fill:#1F2937;">378,600/mo (20.1%)</text>
+<text x="10" y="148.0" style="font-size:13px;font-weight:600;fill:#1F2937;">Transactional</text>
+<rect x="150" y="124" width="271" height="40" rx="4" fill="#16A34A" opacity="0.9"/>
+<text x="429" y="149.0" style="font-size:12px;font-weight:600;fill:#1F2937;">1,182,390/mo (62.9%)</text>
+<text x="10" y="200.0" style="font-size:13px;font-weight:600;fill:#1F2937;">Navigational</text>
+<rect x="150" y="176" width="20" height="40" rx="4" fill="#7C3AED" opacity="0.9"/>
+<text x="178" y="201.0" style="font-size:12px;font-weight:600;fill:#1F2937;">27,100/mo (1.4%)</text>
+</svg></div>
+<p class="muted">The funnel shows where market demand sits in the buying journey: Informational (awareness) → Commercial (research) → Transactional (purchase) → Navigational (branded).</p>
+<h2>Page Type Map — What Google Ranks by Intent</h2>
+<table><tr><th>Intent</th><th>Product</th><th>Collection</th><th>Blog</th><th>Homepage</th><th>Review</th><th>Other</th><th>Dominant Type</th></tr>
+<tr><td><span class="dot" style="background:#2563EB"></span><b>Informational</b></td><td>1</td><td>3</td><td>4</td><td>5</td><td>3</td><td>16</td><td><b>Other</b></td></tr>
+<tr><td><span class="dot" style="background:#D97706"></span><b>Commercial</b></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>5</td><td><b>Other</b></td></tr>
+<tr><td><span class="dot" style="background:#16A34A"></span><b>Transactional</b></td><td>0</td><td>5</td><td>4</td><td>3</td><td>9</td><td>20</td><td><b>Other</b></td></tr>
+<tr><td><span class="dot" style="background:#7C3AED"></span><b>Navigational</b></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><b>—</b></td></tr>
+<tr style="font-weight:600;background:var(--soft)"><td>Overall</td><td>1</td><td>10</td><td>8</td><td>8</td><td>13</td><td>41</td><td>—</td></tr>
+</table>
+<h2>Keyword Table by Intent</h2>
+<div class="filter-bar">
+<label>Filter by intent: </label>
+<select id="intentFilter" onchange="filterKeywords()"><option value="all">All Intents</option>
+<option value="informational">Informational (39)</option>
+<option value="commercial">Commercial (26)</option>
+<option value="transactional">Transactional (34)</option>
+<option value="navigational">Navigational (1)</option>
+</select>
+<input type="text" id="kwSearch" placeholder="Search keywords..." oninput="filterKeywords()" style="margin-left:12px;padding:4px 8px;width:200px">
+</div>
+<table id="kwTable"><thead><tr><th>Keyword</th><th>Intent</th><th>Volume</th><th>Difficulty</th><th>CPC</th><th>SERP Page Type</th></tr></thead><tbody>
+<tr class="kw-row" data-intent="informational" data-kw="water"><td>water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>673,000</td><td>91</td><td>$7.20</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="bacteriostatic water"><td>bacteriostatic water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>165,000</td><td>0</td><td>$5.37</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="reverse osmosis water filter"><td>reverse osmosis water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>165,000</td><td>42</td><td>$3.76</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="primo water"><td>primo water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>135,000</td><td>8</td><td>$1.83</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="softener for water"><td>softener for water</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>110,000</td><td>21</td><td>$7.00</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water filter"><td>water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>110,000</td><td>18</td><td>$3.29</td><td>Comparison / Review Site</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="hard water softener"><td>hard water softener</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>90,500</td><td>35</td><td>$4.20</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="distilled water for neti pot"><td>distilled water for neti pot</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>90,500</td><td>13</td><td>$0.74</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water softener system"><td>water softener system</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>74,000</td><td>16</td><td>$10.57</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="home water filtration system"><td>home water filtration system</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>74,000</td><td>32</td><td>$8.40</td><td>Other</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water filtration system"><td>water filtration system</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>74,000</td><td>14</td><td>$7.91</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="berkey water filter"><td>berkey water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>74,000</td><td>33</td><td>$4.35</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="gripe water"><td>gripe water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>60,500</td><td>34</td><td>$0.39</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="mom water"><td>mom water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>60,500</td><td>0</td><td>$0.21</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="purified water"><td>purified water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>60,500</td><td>18</td><td>$2.74</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="under sink water filter"><td>under sink water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>60,500</td><td>12</td><td>$4.27</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="primo water dispenser"><td>primo water dispenser</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>49,500</td><td>7</td><td>$1.90</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="h2o: just add water"><td>h2o: just add water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>49,500</td><td>32</td><td>$0.33</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="evian water"><td>evian water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>40,500</td><td>15</td><td>$1.27</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="smart water"><td>smart water</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>40,500</td><td>16</td><td>$0.58</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water pressure gauge"><td>water pressure gauge</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>40,500</td><td>0</td><td>$0.51</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="well water testing"><td>well water testing</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>40,500</td><td>15</td><td>$9.45</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water softener installation"><td>water softener installation</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>33,100</td><td>2</td><td>$19.56</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="hint water"><td>hint water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>33,100</td><td>15</td><td>$1.90</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="reverse osmosis water"><td>reverse osmosis water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>33,100</td><td>30</td><td>$4.80</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="zerowater water filters"><td>zerowater water filters</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>33,100</td><td>16</td><td>$1.25</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="h2o just add water cast"><td>h2o just add water cast</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>33,100</td><td>10</td><td>$0.01</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="h2o: just add water cast"><td>h2o: just add water cast</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>33,100</td><td>10</td><td>$0.01</td><td>—</td></tr>
+<tr class="kw-row" data-intent="navigational" data-kw="american water login"><td>american water login</td><td><span class="dot" style="background:#7C3AED"></span>Navigational</td><td>27,100</td><td>11</td><td>$1.25</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water purifier"><td>water purifier</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>27,100</td><td>46</td><td>$2.53</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water meter"><td>water meter</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>27,100</td><td>5</td><td>$2.80</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="well water filtration system"><td>well water filtration system</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>27,100</td><td>9</td><td>$6.78</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="kangen water machine"><td>kangen water machine</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>27,100</td><td>16</td><td>$1.48</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water softener repair"><td>water softener repair</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>22,200</td><td>0</td><td>$19.60</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water test kit"><td>water test kit</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>22,200</td><td>8</td><td>$3.41</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="ro water system"><td>ro water system</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>22,200</td><td>33</td><td>$4.71</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="deionized water"><td>deionized water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>22,200</td><td>19</td><td>$5.19</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="essentia water"><td>essentia water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>22,200</td><td>5</td><td>$0.54</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="pur water filter"><td>pur water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>22,200</td><td>2</td><td>$0.59</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="best water filter"><td>best water filter</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>22,200</td><td>34</td><td>$3.45</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="well water test kit"><td>well water test kit</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>22,200</td><td>9</td><td>$5.26</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="atmospheric water generator"><td>atmospheric water generator</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>22,200</td><td>6</td><td>$0.50</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="best water filters for home"><td>best water filters for home</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>22,200</td><td>25</td><td>$6.37</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water monitor"><td>water monitor</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>22,200</td><td>1</td><td>$2.07</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="culligan water filter"><td>culligan water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>22,200</td><td>11</td><td>$4.68</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water purification systems"><td>water purification systems</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>22,200</td><td>42</td><td>$8.94</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water softener system for home"><td>water softener system for home</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>18,100</td><td>16</td><td>$11.20</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="hard water"><td>hard water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>18,100</td><td>47</td><td>$3.70</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water dispenser for home"><td>water dispenser for home</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>18,100</td><td>5</td><td>$1.59</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water hardness test kit"><td>water hardness test kit</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>18,100</td><td>0</td><td>$1.18</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="tap water"><td>tap water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>18,100</td><td>23</td><td>$1.93</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water pitcher"><td>water pitcher</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>18,100</td><td>14</td><td>$0.93</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="cool water"><td>cool water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>18,100</td><td>3</td><td>$0.85</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="reverse osmosis system for home"><td>reverse osmosis system for home</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>18,100</td><td>42</td><td>$5.78</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="aquafina water"><td>aquafina water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>18,100</td><td>3</td><td>$0.59</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water softener maintenance"><td>water softener maintenance</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>14,800</td><td>0</td><td>$13.51</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="is water polar"><td>is water polar</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>14,800</td><td>16</td><td>—</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="reverse osmosis water filter system"><td>reverse osmosis water filter system</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>14,800</td><td>44</td><td>$5.20</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="aqua water"><td>aqua water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>14,800</td><td>28</td><td>$0.90</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="ai water usage"><td>ai water usage</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>14,800</td><td>35</td><td>$7.90</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="core water"><td>core water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>14,800</td><td>5</td><td>$0.36</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="aquatru water filter"><td>aquatru water filter</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>14,800</td><td>7</td><td>$2.41</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water vapor"><td>water vapor</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>14,800</td><td>16</td><td>$0.39</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="salt free water softener"><td>salt free water softener</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>12,100</td><td>7</td><td>$8.36</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water distiller"><td>water distiller</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>12,100</td><td>10</td><td>$1.18</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="reverse osmosis water filtration system"><td>reverse osmosis water filtration system</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>12,100</td><td>44</td><td>$6.30</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water filter replacement"><td>water filter replacement</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>12,100</td><td>0</td><td>$2.56</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="kinetico water softener"><td>kinetico water softener</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>9,900</td><td>18</td><td>$8.10</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="well water softener"><td>well water softener</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>9,900</td><td>0</td><td>$7.13</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water filters for home"><td>water filters for home</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>9,900</td><td>29</td><td>$7.14</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="primo water delivery"><td>primo water delivery</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>9,900</td><td>16</td><td>$4.39</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="rorra water filter"><td>rorra water filter</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>9,900</td><td>4</td><td>$2.01</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water softener system installation"><td>water softener system installation</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>8,100</td><td>3</td><td>$18.62</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="salt based water softener system"><td>salt based water softener system</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>8,100</td><td>0</td><td>$4.65</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="aquasure water softener"><td>aquasure water softener</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>8,100</td><td>0</td><td>$2.62</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="water texture"><td>water texture</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>8,100</td><td>0</td><td>$15.74</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="berkey water filter system"><td>berkey water filter system</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>8,100</td><td>33</td><td>$5.61</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="whole house water filter system installation"><td>whole house water filter system installation</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>8,100</td><td>0</td><td>$18.70</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="rheem water softener"><td>rheem water softener</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>6,600</td><td>0</td><td>$1.43</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="best water softener"><td>best water softener</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>6,600</td><td>0</td><td>$5.44</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="home water test kit"><td>home water test kit</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>6,600</td><td>29</td><td>$4.05</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="helix water"><td>helix water</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>6,600</td><td>0</td><td>$0.30</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="best water softener system"><td>best water softener system</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>5,400</td><td>15</td><td>$7.99</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="saltless water softener"><td>saltless water softener</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>5,400</td><td>9</td><td>$9.11</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water softener menards"><td>water softener menards</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>4,400</td><td>0</td><td>$2.52</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="best water softener system for home"><td>best water softener system for home</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>4,400</td><td>0</td><td>$9.39</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water softener salt bridge"><td>water softener salt bridge</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>4,400</td><td>0</td><td>$2.40</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="springwell water softener"><td>springwell water softener</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>3,600</td><td>14</td><td>$5.69</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="whole house water softener system"><td>whole house water softener system</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>3,600</td><td>12</td><td>$8.52</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water softener salt delivery"><td>water softener salt delivery</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>2,900</td><td>0</td><td>$8.55</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="home water softener systems"><td>home water softener systems</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>2,900</td><td>23</td><td>$14.19</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="rainsoft water softener"><td>rainsoft water softener</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>2,900</td><td>15</td><td>$10.61</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="water softener system companies"><td>water softener system companies</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>2,900</td><td>22</td><td>$23.54</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="culligan water softener system"><td>culligan water softener system</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>2,400</td><td>0</td><td>$10.60</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="best water softeners"><td>best water softeners</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>1,900</td><td>1</td><td>$5.48</td><td>—</td></tr>
+<tr class="kw-row" data-intent="informational" data-kw="alamo water softeners"><td>alamo water softeners</td><td><span class="dot" style="background:#2563EB"></span>Informational</td><td>1,600</td><td>4</td><td>$5.80</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="salt water softener system"><td>salt water softener system</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>1,000</td><td>16</td><td>$4.92</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water softener replacement"><td>water softener replacement</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>1,000</td><td>0</td><td>$16.48</td><td>—</td></tr>
+<tr class="kw-row" data-intent="commercial" data-kw="discount water softeners"><td>discount water softeners</td><td><span class="dot" style="background:#D97706"></span>Commercial</td><td>1,000</td><td>12</td><td>$6.25</td><td>—</td></tr>
+<tr class="kw-row" data-intent="transactional" data-kw="water softener installation diagram"><td>water softener installation diagram</td><td><span class="dot" style="background:#16A34A"></span>Transactional</td><td>590</td><td>0</td><td>$5.79</td><td>—</td></tr>
+</tbody></table>
+<h2>Content Gap — Informational Keywords Without Matching Content</h2>
+<p class="muted">30 informational keywords where <b>softprowatersystems.com</b> does not rank and blog/guide content is needed:</p>
+<table><tr><th>Keyword</th><th>Volume</th><th>Difficulty</th><th>SERP Dominant Type</th><th>Opportunity</th></tr>
+<tr><td>water</td><td>673,000</td><td>91</td><td>Other</td><td>No presence in SERP</td></tr>
+<tr><td>bacteriostatic water</td><td>165,000</td><td>0</td><td>Other</td><td>No presence in SERP</td></tr>
+<tr><td>primo water</td><td>135,000</td><td>8</td><td>Other</td><td>No presence in SERP</td></tr>
+<tr><td>water softener system</td><td>74,000</td><td>16</td><td>Other</td><td>No presence in SERP</td></tr>
+<tr><td>gripe water</td><td>60,500</td><td>34</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>mom water</td><td>60,500</td><td>0</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>purified water</td><td>60,500</td><td>18</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>h2o: just add water</td><td>49,500</td><td>32</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>evian water</td><td>40,500</td><td>15</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>well water testing</td><td>40,500</td><td>15</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>hint water</td><td>33,100</td><td>15</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>reverse osmosis water</td><td>33,100</td><td>30</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>h2o just add water cast</td><td>33,100</td><td>10</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>h2o: just add water cast</td><td>33,100</td><td>10</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>water meter</td><td>27,100</td><td>5</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>water softener repair</td><td>22,200</td><td>0</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>water test kit</td><td>22,200</td><td>8</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>ro water system</td><td>22,200</td><td>33</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>deionized water</td><td>22,200</td><td>19</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>essentia water</td><td>22,200</td><td>5</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>water monitor</td><td>22,200</td><td>1</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>hard water</td><td>18,100</td><td>47</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>tap water</td><td>18,100</td><td>23</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>cool water</td><td>18,100</td><td>3</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>aquafina water</td><td>18,100</td><td>3</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>is water polar</td><td>14,800</td><td>16</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>aqua water</td><td>14,800</td><td>28</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>ai water usage</td><td>14,800</td><td>35</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>core water</td><td>14,800</td><td>5</td><td>unknown</td><td>No presence in SERP</td></tr>
+<tr><td>aquatru water filter</td><td>14,800</td><td>7</td><td>unknown</td><td>No presence in SERP</td></tr>
+</table>
+<h2>Commercial Keywords Without Collection Pages</h2>
+<p class="muted">26 commercial keywords where <b>softprowatersystems.com</b> does not rank:</p>
+<table><tr><th>Keyword</th><th>Volume</th><th>Difficulty</th><th>SERP Type</th><th>Recommended Page</th></tr>
+<tr><td>hard water softener</td><td>90,500</td><td>35</td><td>Other</td><td>Comparison/landing page</td></tr>
+<tr><td>smart water</td><td>40,500</td><td>16</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>zerowater water filters</td><td>33,100</td><td>16</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>best water filter</td><td>22,200</td><td>34</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>well water test kit</td><td>22,200</td><td>9</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>best water filters for home</td><td>22,200</td><td>25</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water purification systems</td><td>22,200</td><td>42</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water softener system for home</td><td>18,100</td><td>16</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water hardness test kit</td><td>18,100</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water softener maintenance</td><td>14,800</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water filters for home</td><td>9,900</td><td>29</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>salt based water softener system</td><td>8,100</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>aquasure water softener</td><td>8,100</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>best water softener</td><td>6,600</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>home water test kit</td><td>6,600</td><td>29</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>best water softener system</td><td>5,400</td><td>15</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water softener menards</td><td>4,400</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>best water softener system for home</td><td>4,400</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>springwell water softener</td><td>3,600</td><td>14</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>whole house water softener system</td><td>3,600</td><td>12</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>home water softener systems</td><td>2,900</td><td>23</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>rainsoft water softener</td><td>2,900</td><td>15</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>water softener system companies</td><td>2,900</td><td>22</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>culligan water softener system</td><td>2,400</td><td>0</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>best water softeners</td><td>1,900</td><td>1</td><td>unknown</td><td>Comparison/landing page</td></tr>
+<tr><td>discount water softeners</td><td>1,000</td><td>12</td><td>unknown</td><td>Comparison/landing page</td></tr>
+</table>
+<h2>Recommendations for Content Creation by Intent</h2>
+<div class="rec-card">
+<div class="rec-head"><span class="rec-priority" style="background:#DC2626">High</span><span class="rec-intent">Informational</span><span class="rec-num">#1</span></div>
+<div class="rec-title">Build editorial/blog content for 54.2% of market demand</div>
+<div class="rec-detail">Informational queries account for 1,879,100/mo searches (54.2% of market). Create comprehensive guides, how-to articles, and educational content to capture top-of-funnel traffic.</div>
+</div>
+<div class="rec-card">
+<div class="rec-head"><span class="rec-priority" style="background:#DC2626">High</span><span class="rec-intent">Transactional</span><span class="rec-num">#2</span></div>
+<div class="rec-title">Optimize product/collection pages for 34.1% transactional demand</div>
+<div class="rec-detail">Transactional queries (1,182,390/mo) represent bottom-of-funnel buying intent. Ensure product pages, pricing pages, and collection pages are optimized with clear CTAs and schema markup.</div>
+</div>
+<footer>Generated 2026-09-08 21:43 • DataForSEO data • Search Intent Map — noindex/nofollow</footer>
+</div></body></html>
