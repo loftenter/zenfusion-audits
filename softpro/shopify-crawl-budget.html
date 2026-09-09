@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Shopify Crawl Budget Analysis — softprowatersystems.com</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           background: #fff; color: #1a1a1a; font-size: 16px; line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 32px 24px; }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; color: #1a1a1a; }
+    h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #1a1a1a;
+          border-bottom: 2px solid #eee; padding-bottom: 8px; }
+    .subtitle { font-size: 14px; color: #888; margin-bottom: 24px; }
+    .cards { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+    .card { flex: 1; min-width: 150px; padding: 18px; border-radius: 8px; text-align: center; }
+    .card .num { font-size: 28px; font-weight: 700; }
+    .card .label { font-size: 12px; margin-top: 4px; }
+    .card-total { background: #f5f5f5; border: 1px solid #ddd; }
+    .card-total .num { color: #1a1a1a; }
+    .card-waste { background: #fdf2f2; border: 1px solid #e74c3c; }
+    .card-waste .num { color: #e74c3c; }
+    .card-index { background: #fef6f6; border: 1px solid #c0392b; }
+    .card-index .num { color: #c0392b; }
+    .card-idxwaste { background: #fff8f0; border: 1px solid #e67e22; }
+    .card-idxwaste .num { color: #e67e22; }
+    .card-healthy { background: #f0faf4; border: 1px solid #27ae60; }
+    .card-healthy .num { color: #27ae60; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    th { text-align: left; padding: 10px 12px; background: #f5f5f5; font-size: 14px;
+          font-weight: 600; border-bottom: 2px solid #ddd; }
+    td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 14px;
+          word-break: break-word; }
+    tr:hover { background: #fafafa; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px;
+            background: #f5f5f5; padding: 1px 4px; border-radius: 3px; }
+    .codeblock { background: #1e1e1e; color: #f8f8f2; padding: 16px; border-radius: 8px;
+                  overflow-x: auto; font-family: "SF Mono", Menlo, Consolas, monospace;
+                  font-size: 13px; line-height: 1.5; margin-bottom: 16px;
+                  white-space: pre-wrap; }
+    details { margin-bottom: 16px; }
+    summary { cursor: pointer; font-weight: 600; padding: 10px 12px;
+                background: #f5f5f5; border-radius: 4px; }
+    details[open] summary { border-bottom: 1px solid #ddd; border-radius: 4px 4px 0 0; }
+    .budget-box { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px;
+                    padding: 16px 20px; margin-bottom: 24px; }
+    .budget-box ul { margin: 8px 0 0 20px; }
+    .meta { font-size: 13px; color: #aaa; margin-top: 40px; padding-top: 16px;
+             border-top: 1px solid #eee; }
+    @media (max-width: 700px) { .cards { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shopify Crawl Budget Analysis</h1>
+    <div class="subtitle">softprowatersystems.com · Generated 2026-09-09 17:04:44 · v1.0</div>
+
+    <!-- Summary Cards -->
+    <h2>Summary</h2>
+    <div class="cards">
+      
+    <div class="card card-total"><div class="num">50</div>
+      <div class="label">Total URLs</div></div>
+    <div class="card card-waste"><div class="num">0</div>
+      <div class="label">Crawl Waste (0%)</div></div>
+    <div class="card card-index"><div class="num">0</div>
+      <div class="label">Est. Wasted Budget / 200-URL cycle</div></div>
+    <div class="card card-idxwaste"><div class="num">0</div>
+      <div class="label">Indexable Waste</div></div>
+    <div class="card card-healthy"><div class="num">50</div>
+      <div class="label">Healthy</div></div>
+    </div>
+
+    <!-- SVG Distribution -->
+    <h2>URL Type Distribution</h2>
+    <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;"><rect x="0" y="0" width="520" height="280" fill="#fff" rx="8"/><rect x="30" y="66.0" width="80" height="164.0" fill="#27ae60" rx="4"/><text x="70.0" y="58.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">41</text><text x="70.0" y="250" text-anchor="middle" font-size="12" fill="#1a1a1a">Products</text><rect x="130" y="230.0" width="80" height="0.0" fill="#3498db" rx="4"/><text x="170.0" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">0</text><text x="170.0" y="250" text-anchor="middle" font-size="12" fill="#1a1a1a">Collections</text><rect x="230" y="230.0" width="80" height="0.0" fill="#f39c12" rx="4"/><text x="270.0" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">0</text><text x="270.0" y="250" text-anchor="middle" font-size="12" fill="#1a1a1a">Duplicates</text><rect x="330" y="230.0" width="80" height="0.0" fill="#e74c3c" rx="4"/><text x="370.0" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">0</text><text x="370.0" y="250" text-anchor="middle" font-size="12" fill="#1a1a1a">Waste</text><rect x="430" y="194.0" width="80" height="36.0" fill="#95a5a6" rx="4"/><text x="470.0" y="186.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">9</text><text x="470.0" y="250" text-anchor="middle" font-size="12" fill="#1a1a1a">Other</text><line x1="10" y1="230" x2="510" y2="230" stroke="#ccc" stroke-width="1"/></svg>
+
+    <!-- URL type counts -->
+    <details open>
+      <summary>URL type breakdown (50 URLs)</summary>
+      <table>
+        <thead><tr><th>Type</th><th style="text-align:center;">Count</th>
+          <th style="text-align:center;">% of Total</th></tr></thead>
+        <tbody><tr><td>product</td>
+          <td style="text-align:center;">41</td>
+          <td style="text-align:center;">82.0%</td></tr><tr><td>page</td>
+          <td style="text-align:center;">8</td>
+          <td style="text-align:center;">16.0%</td></tr><tr><td>other</td>
+          <td style="text-align:center;">1</td>
+          <td style="text-align:center;">2.0%</td></tr></tbody>
+      </table>
+    </details>
+
+    <!-- Crawl Waste Breakdown -->
+    <h2>Crawl Waste Breakdown</h2>
+    <details open>
+      <summary>0 waste / indexable-waste URLs (click to collapse)</summary>
+      <table>
+        <thead><tr>
+          <th>URL</th><th style="text-align:center;">Type</th>
+          <th style="text-align:center;">Classification</th>
+          <th>Reason Flagged</th>
+          <th style="text-align:center;">Recommendation</th>
+        </tr></thead>
+        <tbody><tr><td colspan="5" style="text-align:center;color:#888;">No crawl waste detected</td></tr></tbody>
+      </table>
+    </details>
+
+    <!-- robots.txt recommendations -->
+    <h2>robots.txt Recommendations</h2>
+    <p style="margin-bottom:12px;color:#666;">Shopify's robots.txt is partially
+    managed, but these rules can be added via the theme or a custom robots.txt
+    app. Rules marked <span style="color:#e74c3c;font-weight:bold;">●</span> were
+    matched by discovered waste URLs; <span style="color:#aaa;">○</span> are
+    preventive.</p>
+    <table>
+      <thead><tr><th>Rule</th><th>Target</th><th style="text-align:center;">Status</th></tr></thead>
+      <tbody><tr>
+          <td><code>Disallow: /collections/all*</code></td>
+          <td>/collections/all and its pagination</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /*?variant=</code></td>
+          <td>Product variant URLs</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /*?pr_prod_strat=</code></td>
+          <td>Shopify product-strategy faceted URLs</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /*?view=</code></td>
+          <td>Alternate view/template URLs</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /*?sort_by=</code></td>
+          <td>Sort/filter URLs</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /*?filter*</code></td>
+          <td>Faceted filter URLs</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /search</code></td>
+          <td>Internal search result pages</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /cart</code></td>
+          <td>Cart page</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /checkout</code></td>
+          <td>Checkout page</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /checkouts</code></td>
+          <td>Checkout page (alt path)</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /account</code></td>
+          <td>Account pages</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /blogs/*/tagged/*</code></td>
+          <td>Blog tag pages</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr><tr>
+          <td><code>Disallow: /collections/*/tagged/*</code></td>
+          <td>Collection tag pages</td>
+          <td style="text-align:center;"><span style="color:#aaa;">○</span> preventive</td></tr></tbody>
+    </table>
+    <h3 style="margin:16px 0 8px;font-size:16px;">Copyable robots.txt block</h3>
+    <div class="codeblock"># Shopify crawl-budget robots.txt additions
+# (Shopify&#x27;s robots.txt is partially managed; add these via theme
+#  or a custom robots.txt app where possible.)
+User-agent: *
+Disallow: /collections/all*
+Disallow: /*?variant=
+Disallow: /*?pr_prod_strat=
+Disallow: /*?view=
+Disallow: /*?sort_by=
+Disallow: /*?filter*
+Disallow: /search
+Disallow: /cart
+Disallow: /checkout
+Disallow: /checkouts
+Disallow: /account
+Disallow: /blogs/*/tagged/*
+Disallow: /collections/*/tagged/*</div>
+
+    <!-- Meta robots recommendations -->
+    <h2>Meta Robots Recommendations</h2>
+    <p style="margin-bottom:12px;color:#666;">Pages that should carry a
+    <code>noindex</code> (and where applicable <code>nofollow</code>) meta robots
+    tag, applied via the Shopify theme's <code>head</code> liquid.</p>
+    <table>
+      <thead><tr>
+        <th style="text-align:center;">Page Type</th>
+        <th>Recommendation</th>
+        <th style="text-align:center;">URLs</th>
+        <th>Sample URLs</th>
+      </tr></thead>
+      <tbody><tr><td colspan="4" style="text-align:center;color:#888;">No meta robots changes needed</td></tr></tbody>
+    </table>
+
+    <!-- Crawl budget estimation -->
+    <h2>Crawl Budget Estimation</h2>
+    
+    <div class="budget-box">
+      <p><strong>Googlebot crawl cycle estimate (nominal 200 URLs):</strong></p>
+      <ul>
+        <li>Wasted on crawl-waste URLs: <strong>0</strong>
+            (0% of a 200-URL cycle)</li>
+        <li>Crawl waste as % of discovered URLs: <strong>0%</strong></li>
+        <li>Indexable waste (needs noindex): <strong>0</strong></li>
+        <li>Healthy URLs worth crawling: <strong>50</strong></li>
+      </ul>
+      <p style="margin-top:8px;color:#666;">Recovering the wasted crawl budget lets Googlebot
+      re-crawl product and collection pages more frequently, improving indexation freshness
+      and discovery of new/updated products.</p>
+    </div>
+
+    <div class="meta">
+      Generated by <strong>Shopify Crawl Budget Analyzer</strong> v1.0 ·
+      <meta name="robots" content="noindex,nofollow">
+    </div>
+  </div>
+</body>
+</html>
