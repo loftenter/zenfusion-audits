@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Link Velocity Report — qualitywatertreatment.com</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #fff; line-height: 1.6; padding: 20px 40px; max-width: 1200px; margin: 0 auto; }
+a { color: #4A90D9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+h2 { color: #4A90D9; font-size: 20px; margin: 36px 0 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
+.subtitle { color: #8892a6; font-size: 14px; margin-bottom: 8px; }
+.generated { color: #5c6578; font-size: 12px; margin-bottom: 30px; }
+
+/* Summary cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.card { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; }
+.card-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #8892a6; margin-bottom: 8px; }
+.card-value { font-size: 28px; font-weight: 700; color: #fff; }
+.card-sub { font-size: 13px; color: #5c6578; margin-top: 4px; }
+.card-value.pos { color: #27ae60; }
+.card-value.neg { color: #e74c3c; }
+
+/* SVG chart */
+.chart-container { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; margin-bottom: 36px; overflow-x: auto; }
+.chart-title { font-size: 14px; color: #8892a6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+th { text-align: left; padding: 10px 12px; background: #1a1d28; color: #8892a6; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #2a3142; }
+td { padding: 8px 12px; border-bottom: 1px solid #1e2230; font-size: 13px; }
+td.rank { color: #5c6578; font-weight: 700; width: 30px; }
+td.num { text-align: right; color: #4A90D9; font-weight: 600; }
+td.num.lost { color: #e74c3c; }
+td.net-pos { color: #27ae60; font-weight: 700; }
+td.net-neg { color: #e74c3c; font-weight: 700; }
+td.domain { font-weight: 600; }
+td.anchor { color: #b0b8c8; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tr.client-row { background: rgba(74,144,217,0.08); }
+.comp-pill { font-size: 11px; color: #8892a6; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+.badge.client-badge { background: rgba(74,144,217,0.2); color: #4A90D9; margin-left: 6px; }
+.badge.df { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.nf { background: rgba(127,140,141,0.15); color: #7f8c8d; }
+
+/* Speed ranking bars */
+.speed-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1e2230; }
+.speed-rank { color: #5c6578; font-weight: 700; min-width: 30px; font-size: 14px; }
+.speed-domain { min-width: 200px; font-weight: 600; font-size: 14px; }
+.speed-bar-container { flex: 1; background: #1e2230; border-radius: 6px; height: 24px; overflow: hidden; }
+.speed-bar { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
+.speed-bar.bar-pos { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+.speed-bar.bar-neg { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+.speed-value { min-width: 80px; text-align: right; font-weight: 700; font-size: 14px; }
+
+/* Intercept cards */
+.comp-intercept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.comp-intercept-card { background: #1a1d28; border: 1px solid #2a3142; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+.comp-intercept-card .comp-name { font-size: 14px; font-weight: 700; color: #4A90D9; }
+.comp-intercept-card .comp-count { font-size: 13px; color: #27ae60; font-weight: 600; }
+.comp-intercept-card .comp-avg-ds { font-size: 12px; color: #8892a6; }
+
+/* Recommendations */
+.recommendation { background: #1a1d28; border: 1px solid #2a3142; border-left: 4px solid #4A90D9; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+.recommendation .rec-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.recommendation .rec-body { font-size: 13px; color: #b0b8c8; }
+
+/* Expandable */
+.expandable { display: none; }
+.expandable.show { display: block; }
+.expand-toggle { color: #4A90D9; cursor: pointer; font-size: 14px; font-weight: 600; margin-bottom: 12px; display: inline-block; }
+.expand-toggle:hover { text-decoration: underline; }
+
+.empty { color: #5c6578; font-size: 13px; padding: 12px; text-align: center; }
+.footer { text-align: center; margin-top: 40px; color: #5c6578; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>📊 Link Velocity Report: qualitywatertreatment.com</h1>
+<p class="subtitle">Competitor comparison over 90 days</p>
+<p class="generated">Generated: 2026-09-09T10:57:12</p>
+
+<!-- Summary Cards -->
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Client Growth Rate</div>
+    <div class="card-value pos">+7.1</div>
+    <div class="card-sub">new links / day</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Top Competitor Growth</div>
+    <div class="card-value pos">+681.2</div>
+    <div class="card-sub">softprowatersystems.com</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Client Net Link Change</div>
+    <div class="card-value pos">+646</div>
+    <div class="card-sub">over 90 days</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Avg Competitor Net Change</div>
+    <div class="card-value pos">+27,742</div>
+    <div class="card-sub">competitor average</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Link Intercepts</div>
+    <div class="card-value">369</div>
+    <div class="card-sub">outreach opportunities</div>
+  </div>
+</div>
+
+<!-- Velocity Chart -->
+<h2>📈 Link Velocity Comparison</h2>
+<div class="chart-container">
+  <div class="chart-title">New Backlinks Per Day — qualitywatertreatment.com vs Competitors</div>
+  <svg width="900" height="360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+  <rect width="900" height="360" fill="#0f1117" rx="8"/>
+  <text x="42" y="324.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">0</text><line x1="50" y1="320.0" x2="700" y2="320.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="249.00593683210639" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">6316</text><line x1="50" y1="245.00593683210639" x2="700" y2="245.00593683210639" stroke="#1e2230" stroke-width="1"/><text x="42" y="174.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">12633</text><line x1="50" y1="170.0" x2="700" y2="170.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="99.00593683210639" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">18949</text><line x1="50" y1="95.00593683210639" x2="700" y2="95.00593683210639" stroke="#1e2230" stroke-width="1"/><text x="42" y="24.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">25266</text><line x1="50" y1="20.0" x2="700" y2="20.0" stroke="#1e2230" stroke-width="1"/>
+  <polyline points="50.0,320.0 57.2,320.0 64.4,320.0 71.7,320.0 78.9,320.0 86.1,320.0 93.3,320.0 100.6,320.0 107.8,319.9 115.0,320.0 122.2,320.0 129.4,320.0 136.7,319.9 143.9,320.0 151.1,320.0 158.3,320.0 165.6,320.0 172.8,320.0 180.0,320.0 187.2,320.0 194.4,320.0 201.7,319.9 208.9,320.0 216.1,320.0 223.3,320.0 230.6,320.0 237.8,319.8 245.0,319.9 252.2,320.0 259.4,319.9 266.7,320.0 273.9,320.0 281.1,319.8 288.3,320.0 295.6,319.9 302.8,319.6 310.0,319.9 317.2,319.9 324.4,319.9 331.7,319.9 338.9,319.8 346.1,319.9 353.3,319.9 360.6,319.9 367.8,319.8 375.0,319.9 382.2,319.9 389.4,319.9 396.7,320.0 403.9,320.0 411.1,320.0 418.3,320.0 425.6,319.8 432.8,319.9 440.0,319.8 447.2,319.9 454.4,319.8 461.7,320.0 468.9,319.9 476.1,319.9 483.3,319.7 490.6,319.8 497.8,319.8 505.0,319.8 512.2,319.3 519.4,319.8 526.7,319.8 533.9,319.8 541.1,320.0 548.3,319.9 555.6,320.0 562.8,319.9 570.0,319.9 577.2,319.8 584.4,319.8 591.7,319.8 598.9,319.7 606.1,319.9 613.3,319.5 620.6,319.8 627.8,319.5 635.0,319.9 642.2,319.8 649.4,319.6 656.7,319.8 663.9,320.0 671.1,320.0 678.3,320.0 685.6,320.0 692.8,320.0 700.0,320.0" fill="none" stroke="#4A90D9" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,316.3 64.4,296.5 71.7,316.9 78.9,317.6 86.1,318.8 93.3,317.7 100.6,315.4 107.8,314.8 115.0,313.5 122.2,315.4 129.4,315.6 136.7,314.7 143.9,315.9 151.1,314.5 158.3,314.5 165.6,314.8 172.8,315.6 180.0,315.1 187.2,315.7 194.4,315.2 201.7,314.0 208.9,312.0 216.1,320.0 223.3,320.0 230.6,320.0 237.8,313.1 245.0,312.4 252.2,314.7 259.4,315.7 266.7,313.7 273.9,312.3 281.1,309.8 288.3,304.8 295.6,309.8 302.8,310.1 310.0,314.8 317.2,315.1 324.4,319.1 331.7,313.7 338.9,312.7 346.1,313.9 353.3,313.1 360.6,309.8 367.8,314.8 375.0,316.4 382.2,313.8 389.4,313.5 396.7,319.5 403.9,320.0 411.1,315.1 418.3,315.0 425.6,316.1 432.8,309.6 440.0,264.1 447.2,316.3 454.4,316.5 461.7,316.7 468.9,317.4 476.1,316.1 483.3,58.9 490.6,318.2 497.8,317.9 505.0,318.3 512.2,318.1 519.4,317.7 526.7,314.9 533.9,310.5 541.1,313.5 548.3,314.5 555.6,316.6 562.8,317.3 570.0,315.9 577.2,317.1 584.4,315.9 591.7,316.3 598.9,315.3 606.1,316.0 613.3,315.5 620.6,318.7 627.8,308.7 635.0,315.3 642.2,316.2 649.4,316.5 656.7,317.2 663.9,319.7 671.1,320.0 678.3,320.0 685.6,320.0 692.8,313.3 700.0,319.6" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,320.0 64.4,319.2 71.7,320.0 78.9,320.0 86.1,320.0 93.3,320.0 100.6,319.9 107.8,320.0 115.0,320.0 122.2,320.0 129.4,319.3 136.7,314.1 143.9,213.4 151.1,159.6 158.3,238.0 165.6,319.7 172.8,320.0 180.0,20.0 187.2,309.1 194.4,320.0 201.7,320.0 208.9,320.0 216.1,320.0 223.3,320.0 230.6,320.0 237.8,320.0 245.0,320.0 252.2,320.0 259.4,320.0 266.7,320.0 273.9,320.0 281.1,304.8 288.3,213.3 295.6,307.6 302.8,320.0 310.0,320.0 317.2,319.4 324.4,319.6 331.7,319.9 338.9,319.2 346.1,319.3 353.3,318.1 360.6,319.5 367.8,319.0 375.0,319.3 382.2,319.3 389.4,319.7 396.7,320.0 403.9,320.0 411.1,320.0 418.3,319.5 425.6,320.0 432.8,319.6 440.0,319.7 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,320.0 497.8,320.0 505.0,319.9 512.2,320.0 519.4,320.0 526.7,320.0 533.9,320.0 541.1,320.0 548.3,320.0 555.6,320.0 562.8,320.0 570.0,320.0 577.2,320.0 584.4,319.2 591.7,305.9 598.9,319.2 606.1,320.0 613.3,320.0 620.6,320.0 627.8,319.3 635.0,319.1 642.2,319.3 649.4,319.3 656.7,320.0 663.9,320.0 671.1,320.0 678.3,320.0 685.6,320.0 692.8,320.0 700.0,320.0" fill="none" stroke="#f39c12" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,320.0 64.4,320.0 71.7,320.0 78.9,319.5 86.1,320.0 93.3,319.1 100.6,320.0 107.8,320.0 115.0,319.9 122.2,320.0 129.4,320.0 136.7,320.0 143.9,318.4 151.1,320.0 158.3,320.0 165.6,320.0 172.8,320.0 180.0,320.0 187.2,320.0 194.4,316.6 201.7,315.1 208.9,320.0 216.1,320.0 223.3,320.0 230.6,320.0 237.8,320.0 245.0,307.6 252.2,319.1 259.4,320.0 266.7,320.0 273.9,318.3 281.1,320.0 288.3,320.0 295.6,319.9 302.8,320.0 310.0,319.8 317.2,318.9 324.4,318.5 331.7,319.6 338.9,319.5 346.1,318.2 353.3,318.4 360.6,319.6 367.8,319.0 375.0,319.7 382.2,319.7 389.4,319.7 396.7,320.0 403.9,320.0 411.1,320.0 418.3,319.9 425.6,319.0 432.8,319.4 440.0,319.4 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,320.0 497.8,320.0 505.0,320.0 512.2,320.0 519.4,320.0 526.7,320.0 533.9,319.5 541.1,319.9 548.3,320.0 555.6,320.0 562.8,320.0 570.0,318.4 577.2,319.1 584.4,319.8 591.7,316.8 598.9,319.8 606.1,320.0 613.3,319.3 620.6,319.1 627.8,319.2 635.0,319.0 642.2,318.4 649.4,319.6 656.7,319.1 663.9,320.0 671.1,320.0 678.3,320.0 685.6,320.0 692.8,319.9 700.0,319.7" fill="none" stroke="#9b59b6" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,318.1 64.4,319.8 71.7,319.8 78.9,319.9 86.1,319.9 93.3,319.3 100.6,320.0 107.8,318.2 115.0,320.0 122.2,320.0 129.4,320.0 136.7,320.0 143.9,319.8 151.1,319.8 158.3,319.8 165.6,320.0 172.8,319.9 180.0,320.0 187.2,320.0 194.4,320.0 201.7,320.0 208.9,320.0 216.1,320.0 223.3,320.0 230.6,320.0 237.8,319.1 245.0,320.0 252.2,320.0 259.4,320.0 266.7,320.0 273.9,314.2 281.1,320.0 288.3,319.2 295.6,320.0 302.8,320.0 310.0,320.0 317.2,320.0 324.4,320.0 331.7,319.8 338.9,319.7 346.1,320.0 353.3,319.9 360.6,320.0 367.8,319.9 375.0,320.0 382.2,319.5 389.4,320.0 396.7,320.0 403.9,320.0 411.1,320.0 418.3,320.0 425.6,320.0 432.8,320.0 440.0,320.0 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,320.0 497.8,320.0 505.0,320.0 512.2,320.0 519.4,320.0 526.7,320.0 533.9,320.0 541.1,320.0 548.3,320.0 555.6,320.0 562.8,320.0 570.0,320.0 577.2,320.0 584.4,319.5 591.7,300.9 598.9,320.0 606.1,320.0 613.3,320.0 620.6,319.5 627.8,320.0 635.0,320.0 642.2,320.0 649.4,319.7 656.7,320.0 663.9,320.0 671.1,320.0 678.3,320.0 685.6,320.0 692.8,320.0 700.0,320.0" fill="none" stroke="#1abc9c" stroke-width="2" opacity="0.85"/>
+  <line x1="50" y1="320" x2="700" y2="320" stroke="#2a3142" stroke-width="1.5"/>
+  <text x="50.0" y="335" fill="#5c6578" font-size="10" text-anchor="middle" font-family="sans-serif">06-11</text><text x="375.0" y="335" fill="#5c6578" font-size="10" text-anchor="middle" font-family="sans-serif">07-26</text><text x="700.0" y="335" fill="#5c6578" font-size="10" text-anchor="middle" font-family="sans-serif">09-09</text>
+  
+        <rect x="710" y="20" width="12" height="12" fill="#4A90D9" rx="2"/>
+        <text x="728" y="30" fill="#b0b8c8" font-size="12" font-family="sans-serif">qualitywatertreatment.com</text>
+        <rect x="710" y="42" width="12" height="12" fill="#e74c3c" rx="2"/>
+        <text x="728" y="52" fill="#b0b8c8" font-size="12" font-family="sans-serif">softprowatersystems.com</text>
+        <rect x="710" y="64" width="12" height="12" fill="#f39c12" rx="2"/>
+        <text x="728" y="74" fill="#b0b8c8" font-size="12" font-family="sans-serif">aquasana.com</text>
+        <rect x="710" y="86" width="12" height="12" fill="#9b59b6" rx="2"/>
+        <text x="728" y="96" fill="#b0b8c8" font-size="12" font-family="sans-serif">culligan.com</text>
+        <rect x="710" y="108" width="12" height="12" fill="#1abc9c" rx="2"/>
+        <text x="728" y="118" fill="#b0b8c8" font-size="12" font-family="sans-serif">springwellwater.com</text>
+</svg>
+</div>
+
+<!-- Velocity Comparison Table -->
+<h2>📋 Velocity Comparison Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Domain</th>
+      <th>New Links</th>
+      <th>Lost Links</th>
+      <th>Net Change</th>
+      <th>New Ref Domains</th>
+      <th>Growth Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+        <tr class="">
+          <td class="rank">🥇</td>
+          <td class="domain">softprowatersystems.com</td>
+          <td class="num">61,992</td>
+          <td class="num lost">5</td>
+          <td class="num net-pos">+61,987</td>
+          <td class="num">369</td>
+          <td class="num net-pos">+681.2/day</td>
+        </tr>
+        <tr class="">
+          <td class="rank">🥈</td>
+          <td class="domain">aquasana.com</td>
+          <td class="num">69,872</td>
+          <td class="num lost">11,455</td>
+          <td class="num net-pos">+58,417</td>
+          <td class="num">49</td>
+          <td class="num net-pos">+642.0/day</td>
+        </tr>
+        <tr class="client-row">
+          <td class="rank">🥉</td>
+          <td class="domain">qualitywatertreatment.com <span class="badge client-badge">CLIENT</span></td>
+          <td class="num">806</td>
+          <td class="num lost">160</td>
+          <td class="num net-pos">+646</td>
+          <td class="num">111</td>
+          <td class="num net-pos">+7.1/day</td>
+        </tr>
+        <tr class="">
+          <td class="rank">4</td>
+          <td class="domain">culligan.com</td>
+          <td class="num">4,344</td>
+          <td class="num lost">4,071</td>
+          <td class="num net-pos">+273</td>
+          <td class="num">108</td>
+          <td class="num net-pos">+3.0/day</td>
+        </tr>
+        <tr class="">
+          <td class="rank">5</td>
+          <td class="domain">springwellwater.com</td>
+          <td class="num">2,945</td>
+          <td class="num lost">12,653</td>
+          <td class="num net-neg">-9,708</td>
+          <td class="num">56</td>
+          <td class="num net-neg">-106.7/day</td>
+        </tr>
+  </tbody>
+</table>
+
+<!-- Link Building Speed Ranking -->
+<h2>🏆 Link Building Speed Ranking</h2>
+<div class="chart-container">
+  <div class="chart-title">Who's Building Links Fastest? (net new links per day)</div>
+  
+        <div class="speed-row ">
+          <span class="speed-rank">#1</span>
+          <span class="speed-domain">softprowatersystems.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:100.0%"></div>
+          </div>
+          <span class="speed-value net-pos">+681.2/day</span>
+        </div>
+        <div class="speed-row ">
+          <span class="speed-rank">#2</span>
+          <span class="speed-domain">aquasana.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:94.2%"></div>
+          </div>
+          <span class="speed-value net-pos">+642.0/day</span>
+        </div>
+        <div class="speed-row client-row">
+          <span class="speed-rank">#3</span>
+          <span class="speed-domain">qualitywatertreatment.com ⭐</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:2.0%"></div>
+          </div>
+          <span class="speed-value net-pos">+7.1/day</span>
+        </div>
+        <div class="speed-row ">
+          <span class="speed-rank">#4</span>
+          <span class="speed-domain">culligan.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:2.0%"></div>
+          </div>
+          <span class="speed-value net-pos">+3.0/day</span>
+        </div>
+        <div class="speed-row ">
+          <span class="speed-rank">#5</span>
+          <span class="speed-domain">springwellwater.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-neg" style="width:15.7%"></div>
+          </div>
+          <span class="speed-value net-neg">-106.7/day</span>
+        </div>
+</div>
+
+<!-- Link Intercepts -->
+<h2>🎯 New Link Intercepts</h2>
+<p class="subtitle">Domains linking to competitors in the last 30 days but NOT to qualitywatertreatment.com</p>
+
+
+        <div class="comp-intercept-card">
+          <span class="comp-name">softprowatersystems.com</span>
+          <span class="comp-count">45 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 326</span>
+        </div>
+        <div class="comp-intercept-card">
+          <span class="comp-name">aquasana.com</span>
+          <span class="comp-count">106 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 206</span>
+        </div>
+        <div class="comp-intercept-card">
+          <span class="comp-name">culligan.com</span>
+          <span class="comp-count">170 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 223</span>
+        </div>
+        <div class="comp-intercept-card">
+          <span class="comp-name">springwellwater.com</span>
+          <span class="comp-count">48 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 139</span>
+        </div>
+
+<span class="expand-toggle" onclick="document.getElementById('intercepts-table').classList.toggle('show')">
+  ▼ Show/Hide 369 Intercept Domains
+</span>
+<div id="intercepts-table" class="expandable">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>Domain Strength</th>
+        <th>Type</th>
+        <th>Anchor Text</th>
+        <th>First Seen</th>
+        <th>Competitor</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="rank">1</td>
+          <td class="domain"><a href="https://4.bing.com" target="_blank" rel="noopener noindex nofollow">4.bing.com</a></td>
+          <td class="num">720</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">aquasana.com</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td class="domain"><a href="https://yellowpages.com" target="_blank" rel="noopener noindex nofollow">yellowpages.com</a></td>
+          <td class="num">654</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Website</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td class="domain"><a href="https://localitybiz.com" target="_blank" rel="noopener noindex nofollow">localitybiz.com</a></td>
+          <td class="num">636</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">culligan.com</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td class="domain"><a href="https://jobs.lever.co" target="_blank" rel="noopener noindex nofollow">jobs.lever.co</a></td>
+          <td class="num">618</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td class="domain"><a href="https://mapquest.com" target="_blank" rel="noopener noindex nofollow">mapquest.com</a></td>
+          <td class="num">604</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Web</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td class="domain"><a href="https://runsignup.com" target="_blank" rel="noopener noindex nofollow">runsignup.com</a></td>
+          <td class="num">595</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td class="domain"><a href="https://spynews.ro" target="_blank" rel="noopener noindex nofollow">spynews.ro</a></td>
+          <td class="num">584</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">springwellwater.com</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td class="domain"><a href="https://manuzoid.com" target="_blank" rel="noopener noindex nofollow">manuzoid.com</a></td>
+          <td class="num">564</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">9</td>
+          <td class="domain"><a href="https://everydayhealth.com" target="_blank" rel="noopener noindex nofollow">everydayhealth.com</a></td>
+          <td class="num">556</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan Water</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">10</td>
+          <td class="domain"><a href="https://grokipedia.com" target="_blank" rel="noopener noindex nofollow">grokipedia.com</a></td>
+          <td class="num">556</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.springwellwater.com/average-household-water-flow</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">11</td>
+          <td class="domain"><a href="https://handsdown.ai" target="_blank" rel="noopener noindex nofollow">handsdown.ai</a></td>
+          <td class="num">543</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Visit Website</td>
+          <td>2026-08-12</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">12</td>
+          <td class="domain"><a href="https://truthfinder.com" target="_blank" rel="noopener noindex nofollow">truthfinder.com</a></td>
+          <td class="num">539</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">13</td>
+          <td class="domain"><a href="https://truthfinder.com" target="_blank" rel="noopener noindex nofollow">truthfinder.com</a></td>
+          <td class="num">539</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">14</td>
+          <td class="domain"><a href="https://startup.jobs" target="_blank" rel="noopener noindex nofollow">startup.jobs</a></td>
+          <td class="num">537</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://quench.culligan.com/</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">15</td>
+          <td class="domain"><a href="https://jobgether.com" target="_blank" rel="noopener noindex nofollow">jobgether.com</a></td>
+          <td class="num">531</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://quench.culligan.com/</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">16</td>
+          <td class="domain"><a href="https://info.nsf.org" target="_blank" rel="noopener noindex nofollow">info.nsf.org</a></td>
+          <td class="num">530</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Visit this company&#x27;s website</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">17</td>
+          <td class="domain"><a href="https://cage.report" target="_blank" rel="noopener noindex nofollow">cage.report</a></td>
+          <td class="num">528</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">culligan.com</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">18</td>
+          <td class="domain"><a href="https://swkong.com" target="_blank" rel="noopener noindex nofollow">swkong.com</a></td>
+          <td class="num">527</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Whole House Water Filtration Systems</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">19</td>
+          <td class="domain"><a href="https://swkong.com" target="_blank" rel="noopener noindex nofollow">swkong.com</a></td>
+          <td class="num">527</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Water You Love</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">20</td>
+          <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a></td>
+          <td class="num">525</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">21</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a></td>
+          <td class="num">524</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Discover more</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">22</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a></td>
+          <td class="num">524</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">softprowatersystems.com</td>
+          <td>2026-08-10</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">23</td>
+          <td class="domain"><a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a></td>
+          <td class="num">523</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Fluoride Filtration</td>
+          <td>2026-08-10</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">24</td>
+          <td class="domain"><a href="https://wikiwand.com" target="_blank" rel="noopener noindex nofollow">wikiwand.com</a></td>
+          <td class="num">511</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">the original</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">25</td>
+          <td class="domain"><a href="https://forum.lowyat.net" target="_blank" rel="noopener noindex nofollow">forum.lowyat.net</a></td>
+          <td class="num">510</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.aquasana.com/info/water-filter-...urifier-pd.htm</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">26</td>
+          <td class="domain"><a href="https://dandb.com" target="_blank" rel="noopener noindex nofollow">dandb.com</a></td>
+          <td class="num">507</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">27</td>
+          <td class="domain"><a href="https://superpages.com" target="_blank" rel="noopener noindex nofollow">superpages.com</a></td>
+          <td class="num">501</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Visit Website</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">28</td>
+          <td class="domain"><a href="https://straitsresearch.com" target="_blank" rel="noopener noindex nofollow">straitsresearch.com</a></td>
+          <td class="num">497</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana Inc.</td>
+          <td>2026-08-23</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">29</td>
+          <td class="domain"><a href="https://straitsresearch.com" target="_blank" rel="noopener noindex nofollow">straitsresearch.com</a></td>
+          <td class="num">497</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan International Company</td>
+          <td>2026-08-23</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">30</td>
+          <td class="domain"><a href="https://dexknows.com" target="_blank" rel="noopener noindex nofollow">dexknows.com</a></td>
+          <td class="num">491</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Visit Website</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">31</td>
+          <td class="domain"><a href="https://remoteok.com" target="_blank" rel="noopener noindex nofollow">remoteok.com</a></td>
+          <td class="num">477</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana</td>
+          <td>2026-08-24</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">32</td>
+          <td class="domain"><a href="https://moen.com" target="_blank" rel="noopener noindex nofollow">moen.com</a></td>
+          <td class="num">452</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SpringWell</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">33</td>
+          <td class="domain"><a href="https://webyourself.eu" target="_blank" rel="noopener noindex nofollow">webyourself.eu</a></td>
+          <td class="num">450</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">best iron filter for well water</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">34</td>
+          <td class="domain"><a href="https://redlib.private.coffee" target="_blank" rel="noopener noindex nofollow">redlib.private.coffee</a></td>
+          <td class="num">449</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.aquasana.com/info/what-states-have-pfas-contamin</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">35</td>
+          <td class="domain"><a href="https://austinchronicle.com" target="_blank" rel="noopener noindex nofollow">austinchronicle.com</a></td>
+          <td class="num">445</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">unit</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">36</td>
+          <td class="domain"><a href="https://rockyhollowlakehouse.com" target="_blank" rel="noopener noindex nofollow">rockyhollowlakehouse.com</a></td>
+          <td class="num">444</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">shower head filter</td>
+          <td>2026-08-13</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">37</td>
+          <td class="domain"><a href="https://au.kevinmurphy.com.au" target="_blank" rel="noopener noindex nofollow">au.kevinmurphy.com.au</a></td>
+          <td class="num">444</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">38</td>
+          <td class="domain"><a href="https://gitea.coderpath.com" target="_blank" rel="noopener noindex nofollow">gitea.coderpath.com</a></td>
+          <td class="num">441</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/do-activated-carbo</td>
+          <td>2026-08-14</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">39</td>
+          <td class="domain"><a href="https://transpireinsight.com" target="_blank" rel="noopener noindex nofollow">transpireinsight.com</a></td>
+          <td class="num">439</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan</td>
+          <td>2026-08-12</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">40</td>
+          <td class="domain"><a href="https://controller.catholic.edu" target="_blank" rel="noopener noindex nofollow">controller.catholic.edu</a></td>
+          <td class="num">436</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://culliganquench.com</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">41</td>
+          <td class="domain"><a href="https://prosple.com" target="_blank" rel="noopener noindex nofollow">prosple.com</a></td>
+          <td class="num">432</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">42</td>
+          <td class="domain"><a href="https://anchorage.newsnetmedia.com" target="_blank" rel="noopener noindex nofollow">anchorage.newsnetmedia.com</a></td>
+          <td class="num">428</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">This story</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">43</td>
+          <td class="domain"><a href="https://energyjobline.com" target="_blank" rel="noopener noindex nofollow">energyjobline.com</a></td>
+          <td class="num">425</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://culligan.com</td>
+          <td>2026-08-24</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">44</td>
+          <td class="domain"><a href="https://bookmarkja.com" target="_blank" rel="noopener noindex nofollow">bookmarkja.com</a></td>
+          <td class="num">423</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/collections/iron-well-wa</td>
+          <td>2026-08-27</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">45</td>
+          <td class="domain"><a href="https://bookmarknap.com" target="_blank" rel="noopener noindex nofollow">bookmarknap.com</a></td>
+          <td class="num">421</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/typical-lifespan-o</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">46</td>
+          <td class="domain"><a href="https://listingbookmarks.com" target="_blank" rel="noopener noindex nofollow">listingbookmarks.com</a></td>
+          <td class="num">420</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/cloudy-water-warni</td>
+          <td>2026-08-27</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">47</td>
+          <td class="domain"><a href="https://tealbookmarks.com" target="_blank" rel="noopener noindex nofollow">tealbookmarks.com</a></td>
+          <td class="num">420</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/collections/best-water-s</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">48</td>
+          <td class="domain"><a href="https://git.extra.eiffel.com" target="_blank" rel="noopener noindex nofollow">git.extra.eiffel.com</a></td>
+          <td class="num">416</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/budget-friendly-fl</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">49</td>
+          <td class="domain"><a href="https://loggyourlife.com" target="_blank" rel="noopener noindex nofollow">loggyourlife.com</a></td>
+          <td class="num">413</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">shower head filter</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">50</td>
+          <td class="domain"><a href="https://donorofdoneer.com" target="_blank" rel="noopener noindex nofollow">donorofdoneer.com</a></td>
+          <td class="num">412</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">shower head filter</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">51</td>
+          <td class="domain"><a href="https://milled.com" target="_blank" rel="noopener noindex nofollow">milled.com</a></td>
+          <td class="num">412</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">52</td>
+          <td class="domain"><a href="https://donorofdoneer.com" target="_blank" rel="noopener noindex nofollow">donorofdoneer.com</a></td>
+          <td class="num">412</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">53</td>
+          <td class="domain"><a href="https://traversecity.com" target="_blank" rel="noopener noindex nofollow">traversecity.com</a></td>
+          <td class="num">406</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">54</td>
+          <td class="domain"><a href="https://worlds-directory.com" target="_blank" rel="noopener noindex nofollow">worlds-directory.com</a></td>
+          <td class="num">401</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/how-much-to-spend-</td>
+          <td>2026-08-11</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">55</td>
+          <td class="domain"><a href="https://golocal247.com" target="_blank" rel="noopener noindex nofollow">golocal247.com</a></td>
+          <td class="num">398</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">| Website</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">56</td>
+          <td class="domain"><a href="https://brieflycodes.com" target="_blank" rel="noopener noindex nofollow">brieflycodes.com</a></td>
+          <td class="num">395</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Shop at Aquasana Home Water Filters</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">57</td>
+          <td class="domain"><a href="https://stayindirectory.com" target="_blank" rel="noopener noindex nofollow">stayindirectory.com</a></td>
+          <td class="num">392</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/exposed-budget-fri</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">58</td>
+          <td class="domain"><a href="https://heliskidirectory.com" target="_blank" rel="noopener noindex nofollow">heliskidirectory.com</a></td>
+          <td class="num">392</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/fluoride-filter-in</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">59</td>
+          <td class="domain"><a href="https://foodsafetytech.com" target="_blank" rel="noopener noindex nofollow">foodsafetytech.com</a></td>
+          <td class="num">388</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Industrial water softeners</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">60</td>
+          <td class="domain"><a href="https://belovdigital.agency" target="_blank" rel="noopener noindex nofollow">belovdigital.agency</a></td>
+          <td class="num">383</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan Water</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">61</td>
+          <td class="domain"><a href="https://ktvz.com" target="_blank" rel="noopener noindex nofollow">ktvz.com</a></td>
+          <td class="num">382</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">This story</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">62</td>
+          <td class="domain"><a href="https://couponfollow.com" target="_blank" rel="noopener noindex nofollow">couponfollow.com</a></td>
+          <td class="num">381</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Verified Site</td>
+          <td>2026-08-14</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">63</td>
+          <td class="domain"><a href="https://designnominees.com" target="_blank" rel="noopener noindex nofollow">designnominees.com</a></td>
+          <td class="num">381</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">64</td>
+          <td class="domain"><a href="https://social.biblepay.org" target="_blank" rel="noopener noindex nofollow">social.biblepay.org</a></td>
+          <td class="num">380</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">&quot; target=&quot;_blank&quot;&gt;&gt;</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">65</td>
+          <td class="domain"><a href="https://fr.moen.ca" target="_blank" rel="noopener noindex nofollow">fr.moen.ca</a></td>
+          <td class="num">374</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SpringWell</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">66</td>
+          <td class="domain"><a href="https://git.adambissen.me" target="_blank" rel="noopener noindex nofollow">git.adambissen.me</a></td>
+          <td class="num">373</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/why-commercial-flu</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">67</td>
+          <td class="domain"><a href="https://joinrise.co" target="_blank" rel="noopener noindex nofollow">joinrise.co</a></td>
+          <td class="num">373</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-23</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">68</td>
+          <td class="domain"><a href="https://gitea.accept.dev.dbf.nl" target="_blank" rel="noopener noindex nofollow">gitea.accept.dev.dbf.nl</a></td>
+          <td class="num">371</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/fluoride-filter-in</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">69</td>
+          <td class="domain"><a href="https://git.f4e.lol" target="_blank" rel="noopener noindex nofollow">git.f4e.lol</a></td>
+          <td class="num">371</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/fluoride-filter-in</td>
+          <td>2026-08-10</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">70</td>
+          <td class="domain"><a href="https://siteprice.org" target="_blank" rel="noopener noindex nofollow">siteprice.org</a></td>
+          <td class="num">371</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-24</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">71</td>
+          <td class="domain"><a href="https://infoupdate.org" target="_blank" rel="noopener noindex nofollow">infoupdate.org</a></td>
+          <td class="num">367</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-19</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">72</td>
+          <td class="domain"><a href="https://getskill.work" target="_blank" rel="noopener noindex nofollow">getskill.work</a></td>
+          <td class="num">361</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/buy-fluoride-water</td>
+          <td>2026-08-21</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">73</td>
+          <td class="domain"><a href="https://camtalking.com" target="_blank" rel="noopener noindex nofollow">camtalking.com</a></td>
+          <td class="num">360</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Website
+                                    https://www.sof</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">74</td>
+          <td class="domain"><a href="https://thejobnetwork.com" target="_blank" rel="noopener noindex nofollow">thejobnetwork.com</a></td>
+          <td class="num">360</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://quench.culligan.com/&amp;nbsp</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">75</td>
+          <td class="domain"><a href="https://culligancares.org" target="_blank" rel="noopener noindex nofollow">culligancares.org</a></td>
+          <td class="num">357</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">76</td>
+          <td class="domain"><a href="https://gitea.wsszn.com" target="_blank" rel="noopener noindex nofollow">gitea.wsszn.com</a></td>
+          <td class="num">354</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/top-secret-local-f</td>
+          <td>2026-08-10</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">77</td>
+          <td class="domain"><a href="https://thehydrojug.com" target="_blank" rel="noopener noindex nofollow">thehydrojug.com</a></td>
+          <td class="num">354</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">staying hydrated helps</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">78</td>
+          <td class="domain"><a href="https://web.miramarpembrokepines.org" target="_blank" rel="noopener noindex nofollow">web.miramarpembrokepines.org</a></td>
+          <td class="num">352</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan Miramar - Consolidated Water Group</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">79</td>
+          <td class="domain"><a href="https://netinfluencer.com" target="_blank" rel="noopener noindex nofollow">netinfluencer.com</a></td>
+          <td class="num">351</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://quench.culligan.com/</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">80</td>
+          <td class="domain"><a href="https://cleaneatingmag.com" target="_blank" rel="noopener noindex nofollow">cleaneatingmag.com</a></td>
+          <td class="num">348</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">aquasana.com</td>
+          <td>2026-08-27</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">81</td>
+          <td class="domain"><a href="https://career.io" target="_blank" rel="noopener noindex nofollow">career.io</a></td>
+          <td class="num">347</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-24</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">82</td>
+          <td class="domain"><a href="https://wellnessalliance.org" target="_blank" rel="noopener noindex nofollow">wellnessalliance.org</a></td>
+          <td class="num">347</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">clean drinking water</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">83</td>
+          <td class="domain"><a href="https://jackcooper.com" target="_blank" rel="noopener noindex nofollow">jackcooper.com</a></td>
+          <td class="num">346</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana Clean Water Machine</td>
+          <td>2026-08-21</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">84</td>
+          <td class="domain"><a href="https://search.abc-directory.com" target="_blank" rel="noopener noindex nofollow">search.abc-directory.com</a></td>
+          <td class="num">345</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.aquasana.com</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">85</td>
+          <td class="domain"><a href="https://getclera.com" target="_blank" rel="noopener noindex nofollow">getclera.com</a></td>
+          <td class="num">343</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">culligan.com</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">86</td>
+          <td class="domain"><a href="https://git.wikiofdark.art" target="_blank" rel="noopener noindex nofollow">git.wikiofdark.art</a></td>
+          <td class="num">340</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/real-customers-buy</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">87</td>
+          <td class="domain"><a href="https://wcareachamber.org" target="_blank" rel="noopener noindex nofollow">wcareachamber.org</a></td>
+          <td class="num">338</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com/locations/in/richmond</td>
+          <td>2026-08-14</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">88</td>
+          <td class="domain"><a href="https://partnerbase.com" target="_blank" rel="noopener noindex nofollow">partnerbase.com</a></td>
+          <td class="num">329</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">culligan.com</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">89</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a></td>
+          <td class="num">326</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">► SoftPro</td>
+          <td>2026-08-15</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">90</td>
+          <td class="domain"><a href="https://members.greenecountychamber.com" target="_blank" rel="noopener noindex nofollow">members.greenecountychamber.com</a></td>
+          <td class="num">326</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">91</td>
+          <td class="domain"><a href="https://git.veraskolivna.net" target="_blank" rel="noopener noindex nofollow">git.veraskolivna.net</a></td>
+          <td class="num">325</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/replacement-filter</td>
+          <td>2026-08-12</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">92</td>
+          <td class="domain"><a href="https://culliganwater.com" target="_blank" rel="noopener noindex nofollow">culliganwater.com</a></td>
+          <td class="num">325</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">93</td>
+          <td class="domain"><a href="https://drmyattswellnessclub.com" target="_blank" rel="noopener noindex nofollow">drmyattswellnessclub.com</a></td>
+          <td class="num">320</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Shower-head filters are inexpensive and reliable.</td>
+          <td>2026-08-17</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">94</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a></td>
+          <td class="num">319</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">click through the following website page</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">95</td>
+          <td class="domain"><a href="https://classreport.org" target="_blank" rel="noopener noindex nofollow">classreport.org</a></td>
+          <td class="num">319</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Business Website</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">96</td>
+          <td class="domain"><a href="https://theferosempire.com" target="_blank" rel="noopener noindex nofollow">theferosempire.com</a></td>
+          <td class="num">316</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">mouse click the up coming post</td>
+          <td>2026-08-13</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">97</td>
+          <td class="domain"><a href="https://gitea.jnyuxia.com" target="_blank" rel="noopener noindex nofollow">gitea.jnyuxia.com</a></td>
+          <td class="num">312</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/real-customers-buy</td>
+          <td>2026-08-17</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">98</td>
+          <td class="domain"><a href="https://fertilis.io" target="_blank" rel="noopener noindex nofollow">fertilis.io</a></td>
+          <td class="num">310</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">read here</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">99</td>
+          <td class="domain"><a href="https://thepricer.org" target="_blank" rel="noopener noindex nofollow">thepricer.org</a></td>
+          <td class="num">308</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Max Flow replacement tank</td>
+          <td>2026-08-11</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">100</td>
+          <td class="domain"><a href="https://thepricer.org" target="_blank" rel="noopener noindex nofollow">thepricer.org</a></td>
+          <td class="num">308</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">combo-system price listing</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">101</td>
+          <td class="domain"><a href="https://gitea.originaltech.cn" target="_blank" rel="noopener noindex nofollow">gitea.originaltech.cn</a></td>
+          <td class="num">307</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/best-fluoride-filt</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">102</td>
+          <td class="domain"><a href="https://brockvillechamber.com" target="_blank" rel="noopener noindex nofollow">brockvillechamber.com</a></td>
+          <td class="num">307</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.culligan.com/locations/on/brockville</td>
+          <td>2026-08-21</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">103</td>
+          <td class="domain"><a href="https://bbux.me" target="_blank" rel="noopener noindex nofollow">bbux.me</a></td>
+          <td class="num">305</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-15</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">104</td>
+          <td class="domain"><a href="https://thepricer.org" target="_blank" rel="noopener noindex nofollow">thepricer.org</a></td>
+          <td class="num">305</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">bottleless cooler monthly price includes service</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">105</td>
+          <td class="domain"><a href="https://bandana.com" target="_blank" rel="noopener noindex nofollow">bandana.com</a></td>
+          <td class="num">304</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-13</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">106</td>
+          <td class="domain"><a href="https://zerowater.com" target="_blank" rel="noopener noindex nofollow">zerowater.com</a></td>
+          <td class="num">302</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Track My Order</td>
+          <td>2026-08-20</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">107</td>
+          <td class="domain"><a href="https://maocafe.com" target="_blank" rel="noopener noindex nofollow">maocafe.com</a></td>
+          <td class="num">301</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">푸르설타민상담</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">108</td>
+          <td class="domain"><a href="https://waterfilteradvisor.com" target="_blank" rel="noopener noindex nofollow">waterfilteradvisor.com</a></td>
+          <td class="num">299</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">this home tannin-filter guidance</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">109</td>
+          <td class="domain"><a href="https://toxigon.com" target="_blank" rel="noopener noindex nofollow">toxigon.com</a></td>
+          <td class="num">298</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SoftPro Water Systems</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">110</td>
+          <td class="domain"><a href="https://app.qureos.com" target="_blank" rel="noopener noindex nofollow">app.qureos.com</a></td>
+          <td class="num">298</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-13</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">111</td>
+          <td class="domain"><a href="https://simpleshowing.com" target="_blank" rel="noopener noindex nofollow">simpleshowing.com</a></td>
+          <td class="num">296</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">extend the life of your home appliances</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">112</td>
+          <td class="domain"><a href="https://gitea.doinlab.com" target="_blank" rel="noopener noindex nofollow">gitea.doinlab.com</a></td>
+          <td class="num">295</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/why-best-fluoride-</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">113</td>
+          <td class="domain"><a href="https://lifestyle.capitalcityrock.com" target="_blank" rel="noopener noindex nofollow">lifestyle.capitalcityrock.com</a></td>
+          <td class="num">294</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">This story</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">114</td>
+          <td class="domain"><a href="https://airdriechamber.ab.ca" target="_blank" rel="noopener noindex nofollow">airdriechamber.ab.ca</a></td>
+          <td class="num">292</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan Water</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">115</td>
+          <td class="domain"><a href="https://wefranch.com" target="_blank" rel="noopener noindex nofollow">wefranch.com</a></td>
+          <td class="num">291</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Website</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">116</td>
+          <td class="domain"><a href="https://jobera.com" target="_blank" rel="noopener noindex nofollow">jobera.com</a></td>
+          <td class="num">291</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">117</td>
+          <td class="domain"><a href="https://odp.org" target="_blank" rel="noopener noindex nofollow">odp.org</a></td>
+          <td class="num">290</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">118</td>
+          <td class="domain"><a href="https://waterfilteradvisor.com" target="_blank" rel="noopener noindex nofollow">waterfilteradvisor.com</a></td>
+          <td class="num">289</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana&#x27;s filter lifespan guide</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">119</td>
+          <td class="domain"><a href="https://waterfilteradvisor.com" target="_blank" rel="noopener noindex nofollow">waterfilteradvisor.com</a></td>
+          <td class="num">289</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan&#x27;s reverse osmosis maintenance guide</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">120</td>
+          <td class="domain"><a href="https://shop.culligan.ie" target="_blank" rel="noopener noindex nofollow">shop.culligan.ie</a></td>
+          <td class="num">287</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan HE</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">121</td>
+          <td class="domain"><a href="https://illuminatelabs.org" target="_blank" rel="noopener noindex nofollow">illuminatelabs.org</a></td>
+          <td class="num">285</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">independently tested and certified</td>
+          <td>2026-08-27</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">122</td>
+          <td class="domain"><a href="https://nsnheadlines.com" target="_blank" rel="noopener noindex nofollow">nsnheadlines.com</a></td>
+          <td class="num">284</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">123</td>
+          <td class="domain"><a href="https://culturalartsalliance.com" target="_blank" rel="noopener noindex nofollow">culturalartsalliance.com</a></td>
+          <td class="num">284</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-27</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">124</td>
+          <td class="domain"><a href="https://buildingbiologyinstitute.org" target="_blank" rel="noopener noindex nofollow">buildingbiologyinstitute.org</a></td>
+          <td class="num">282</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Filtration never before available in a pitcher</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">125</td>
+          <td class="domain"><a href="https://tecupdate.com" target="_blank" rel="noopener noindex nofollow">tecupdate.com</a></td>
+          <td class="num">280</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.culligan.com</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">126</td>
+          <td class="domain"><a href="https://katoz.io" target="_blank" rel="noopener noindex nofollow">katoz.io</a></td>
+          <td class="num">279</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">최신대출디비팜</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">127</td>
+          <td class="domain"><a href="https://lifestyle.social-matic.com" target="_blank" rel="noopener noindex nofollow">lifestyle.social-matic.com</a></td>
+          <td class="num">274</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Check out the #1 Rated Water Softener of 2026</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">128</td>
+          <td class="domain"><a href="https://git.mingliqiye.com" target="_blank" rel="noopener noindex nofollow">git.mingliqiye.com</a></td>
+          <td class="num">273</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/local-fluoride-fil</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">129</td>
+          <td class="domain"><a href="https://blog.jobhuntmode.com" target="_blank" rel="noopener noindex nofollow">blog.jobhuntmode.com</a></td>
+          <td class="num">273</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana Career Page</td>
+          <td>2026-08-19</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">130</td>
+          <td class="domain"><a href="https://healthtree.org" target="_blank" rel="noopener noindex nofollow">healthtree.org</a></td>
+          <td class="num">272</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">transport</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">131</td>
+          <td class="domain"><a href="https://chicorec.gov" target="_blank" rel="noopener noindex nofollow">chicorec.gov</a></td>
+          <td class="num">272</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan of Chico</td>
+          <td>2026-08-30</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">132</td>
+          <td class="domain"><a href="https://africa2063.iambrandsdev.com" target="_blank" rel="noopener noindex nofollow">africa2063.iambrandsdev.com</a></td>
+          <td class="num">271</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">&quot; target=&quot;_blank&quot;&gt;&gt;</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">133</td>
+          <td class="domain"><a href="https://harveywatersofteners.co.uk" target="_blank" rel="noopener noindex nofollow">harveywatersofteners.co.uk</a></td>
+          <td class="num">271</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Locations Worldwide</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">134</td>
+          <td class="domain"><a href="https://pendium.ai" target="_blank" rel="noopener noindex nofollow">pendium.ai</a></td>
+          <td class="num">269</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">135</td>
+          <td class="domain"><a href="https://wellwatertestingbystate.com" target="_blank" rel="noopener noindex nofollow">wellwatertestingbystate.com</a></td>
+          <td class="num">267</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SpringWell Filtration Whole-house well water filtration. Rem</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">136</td>
+          <td class="domain"><a href="https://pullnerfilter.com" target="_blank" rel="noopener noindex nofollow">pullnerfilter.com</a></td>
+          <td class="num">265</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana, Inc.</td>
+          <td>2026-08-17</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">137</td>
+          <td class="domain"><a href="https://wikinewsportal.com" target="_blank" rel="noopener noindex nofollow">wikinewsportal.com</a></td>
+          <td class="num">264</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SoftPro™ Chlorine+ Carbon Whole House Water Filter</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">138</td>
+          <td class="domain"><a href="https://petsitusa.com" target="_blank" rel="noopener noindex nofollow">petsitusa.com</a></td>
+          <td class="num">263</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">natural cleaners work well in the bathroom</td>
+          <td>2026-08-14</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">139</td>
+          <td class="domain"><a href="https://cherylnunn.com" target="_blank" rel="noopener noindex nofollow">cherylnunn.com</a></td>
+          <td class="num">261</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Best Price for SoftPro Fluoride and Chlorine Filter</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">140</td>
+          <td class="domain"><a href="https://echobookmarks.win" target="_blank" rel="noopener noindex nofollow">echobookmarks.win</a></td>
+          <td class="num">257</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">This ice machine is ideal for restaurants with tight schedul</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">141</td>
+          <td class="domain"><a href="https://devicedaily.com" target="_blank" rel="noopener noindex nofollow">devicedaily.com</a></td>
+          <td class="num">254</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Vero Water</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">142</td>
+          <td class="domain"><a href="https://culliganventura.com" target="_blank" rel="noopener noindex nofollow">culliganventura.com</a></td>
+          <td class="num">252</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Referral Rewards</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">143</td>
+          <td class="domain"><a href="https://baggageandbug.com" target="_blank" rel="noopener noindex nofollow">baggageandbug.com</a></td>
+          <td class="num">250</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SoftPro Water Systems</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">144</td>
+          <td class="domain"><a href="https://fittyfoody.com" target="_blank" rel="noopener noindex nofollow">fittyfoody.com</a></td>
+          <td class="num">250</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Netw</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">145</td>
+          <td class="domain"><a href="https://mothertruckeryoga.com" target="_blank" rel="noopener noindex nofollow">mothertruckeryoga.com</a></td>
+          <td class="num">248</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Winter Hydration Tips To Keep You Healthy</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">146</td>
+          <td class="domain"><a href="https://thinkup.com" target="_blank" rel="noopener noindex nofollow">thinkup.com</a></td>
+          <td class="num">241</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">147</td>
+          <td class="domain"><a href="https://drtomroselle.com" target="_blank" rel="noopener noindex nofollow">drtomroselle.com</a></td>
+          <td class="num">239</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-10</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">148</td>
+          <td class="domain"><a href="https://elowise.ng" target="_blank" rel="noopener noindex nofollow">elowise.ng</a></td>
+          <td class="num">238</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Water Purifier</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">149</td>
+          <td class="domain"><a href="https://energyrates.ca" target="_blank" rel="noopener noindex nofollow">energyrates.ca</a></td>
+          <td class="num">238</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-08-17</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">150</td>
+          <td class="domain"><a href="https://houseandhomeonline.com" target="_blank" rel="noopener noindex nofollow">houseandhomeonline.com</a></td>
+          <td class="num">237</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">1</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">151</td>
+          <td class="domain"><a href="https://thesoutherneronline.com" target="_blank" rel="noopener noindex nofollow">thesoutherneronline.com</a></td>
+          <td class="num">237</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">the growing concern of single use plastics.</td>
+          <td>2026-08-18</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">152</td>
+          <td class="domain"><a href="https://git.lamby.gay" target="_blank" rel="noopener noindex nofollow">git.lamby.gay</a></td>
+          <td class="num">236</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/should-you-buy-flu</td>
+          <td>2026-08-11</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">153</td>
+          <td class="domain"><a href="https://culliganiowa.com" target="_blank" rel="noopener noindex nofollow">culliganiowa.com</a></td>
+          <td class="num">236</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals &amp; Timers</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">154</td>
+          <td class="domain"><a href="https://prbreakfastclub.com" target="_blank" rel="noopener noindex nofollow">prbreakfastclub.com</a></td>
+          <td class="num">236</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan</td>
+          <td>2026-08-17</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">155</td>
+          <td class="domain"><a href="https://mrwatergeek.com" target="_blank" rel="noopener noindex nofollow">mrwatergeek.com</a></td>
+          <td class="num">235</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">this</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">156</td>
+          <td class="domain"><a href="https://git.zapthisblog.com" target="_blank" rel="noopener noindex nofollow">git.zapthisblog.com</a></td>
+          <td class="num">233</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/best-fluoride-filt</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">157</td>
+          <td class="domain"><a href="https://sigforum.com" target="_blank" rel="noopener noindex nofollow">sigforum.com</a></td>
+          <td class="num">233</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.culligan.com/produ...water-filter-systems</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">158</td>
+          <td class="domain"><a href="https://myfloridasolar.com" target="_blank" rel="noopener noindex nofollow">myfloridasolar.com</a></td>
+          <td class="num">233</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">warranty-related service work</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">159</td>
+          <td class="domain"><a href="https://applyall.com" target="_blank" rel="noopener noindex nofollow">applyall.com</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-23</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">160</td>
+          <td class="domain"><a href="https://pms-servicedapartments.com" target="_blank" rel="noopener noindex nofollow">pms-servicedapartments.com</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Suggested Reading</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">161</td>
+          <td class="domain"><a href="https://culliganwaterindiana.com" target="_blank" rel="noopener noindex nofollow">culliganwaterindiana.com</a></td>
+          <td class="num">230</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals &amp; Timers</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">162</td>
+          <td class="domain"><a href="https://watertechadvice.com" target="_blank" rel="noopener noindex nofollow">watertechadvice.com</a></td>
+          <td class="num">230</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Check Out Springwell’s Well Water Filter</td>
+          <td>2026-08-29</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">163</td>
+          <td class="domain"><a href="https://big-map.net" target="_blank" rel="noopener noindex nofollow">big-map.net</a></td>
+          <td class="num">229</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.culligan.com/dealer-locator/bozeman-mt/</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">164</td>
+          <td class="domain"><a href="https://notunsokaal.com" target="_blank" rel="noopener noindex nofollow">notunsokaal.com</a></td>
+          <td class="num">228</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Official Login Link</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">165</td>
+          <td class="domain"><a href="https://duckduckgo.github.io" target="_blank" rel="noopener noindex nofollow">duckduckgo.github.io</a></td>
+          <td class="num">227</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.aquasana.com</td>
+          <td>2026-08-27</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">166</td>
+          <td class="domain"><a href="https://kiwi.archworks.co" target="_blank" rel="noopener noindex nofollow">kiwi.archworks.co</a></td>
+          <td class="num">225</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.aquasana.com/</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">167</td>
+          <td class="domain"><a href="https://culliganwaterminnesota.com" target="_blank" rel="noopener noindex nofollow">culliganwaterminnesota.com</a></td>
+          <td class="num">225</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals &amp; Timers</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">168</td>
+          <td class="domain"><a href="https://fakirra.com.ua" target="_blank" rel="noopener noindex nofollow">fakirra.com.ua</a></td>
+          <td class="num">224</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">water filtration types</td>
+          <td>2026-08-24</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">169</td>
+          <td class="domain"><a href="https://culliganofwestbranch.com" target="_blank" rel="noopener noindex nofollow">culliganofwestbranch.com</a></td>
+          <td class="num">224</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals &amp; Timers</td>
+          <td>2026-08-31</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">170</td>
+          <td class="domain"><a href="https://freedomwatersystems.com" target="_blank" rel="noopener noindex nofollow">freedomwatersystems.com</a></td>
+          <td class="num">221</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Aquasana Whole House Water Filtration Systems</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">171</td>
+          <td class="domain"><a href="https://culligannc.com" target="_blank" rel="noopener noindex nofollow">culligannc.com</a></td>
+          <td class="num">218</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals &amp; Timers</td>
+          <td>2026-08-23</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">172</td>
+          <td class="domain"><a href="https://theforbestimes.com" target="_blank" rel="noopener noindex nofollow">theforbestimes.com</a></td>
+          <td class="num">216</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Netw</td>
+          <td>2026-08-21</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">173</td>
+          <td class="domain"><a href="https://theforbestimes.com" target="_blank" rel="noopener noindex nofollow">theforbestimes.com</a></td>
+          <td class="num">216</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Netw</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">174</td>
+          <td class="domain"><a href="https://savingsays.ca" target="_blank" rel="noopener noindex nofollow">savingsays.ca</a></td>
+          <td class="num">214</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Contact Support</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">175</td>
+          <td class="domain"><a href="https://hardwaterhq.com" target="_blank" rel="noopener noindex nofollow">hardwaterhq.com</a></td>
+          <td class="num">213</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Compare water softeners &amp; conditioners</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">176</td>
+          <td class="domain"><a href="https://findmyremote.ai" target="_blank" rel="noopener noindex nofollow">findmyremote.ai</a></td>
+          <td class="num">213</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-19</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">177</td>
+          <td class="domain"><a href="https://hardwaterhq.com" target="_blank" rel="noopener noindex nofollow">hardwaterhq.com</a></td>
+          <td class="num">213</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Compare whole-house softeners</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">178</td>
+          <td class="domain"><a href="https://jobply.ai" target="_blank" rel="noopener noindex nofollow">jobply.ai</a></td>
+          <td class="num">210</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.culligan.com</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">179</td>
+          <td class="domain"><a href="https://rethinksurvival.com" target="_blank" rel="noopener noindex nofollow">rethinksurvival.com</a></td>
+          <td class="num">209</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Article: Average Water Usage per Home in USA</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">180</td>
+          <td class="domain"><a href="https://rethinksurvival.com" target="_blank" rel="noopener noindex nofollow">rethinksurvival.com</a></td>
+          <td class="num">209</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan Gravity Water Filter</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">181</td>
+          <td class="domain"><a href="https://culligansanantonio.com" target="_blank" rel="noopener noindex nofollow">culligansanantonio.com</a></td>
+          <td class="num">208</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals &amp; Timers</td>
+          <td>2026-08-28</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">182</td>
+          <td class="domain"><a href="https://culliganescondido.com" target="_blank" rel="noopener noindex nofollow">culliganescondido.com</a></td>
+          <td class="num">208</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Clear Link PRO™</td>
+          <td>2026-08-17</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">183</td>
+          <td class="domain"><a href="https://hoursfinder.com" target="_blank" rel="noopener noindex nofollow">hoursfinder.com</a></td>
+          <td class="num">208</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Billings  Culligan Water</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">184</td>
+          <td class="domain"><a href="https://thewaterhub.org" target="_blank" rel="noopener noindex nofollow">thewaterhub.org</a></td>
+          <td class="num">207</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">aquasana.com</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">185</td>
+          <td class="domain"><a href="https://thewaterhub.org" target="_blank" rel="noopener noindex nofollow">thewaterhub.org</a></td>
+          <td class="num">207</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">springwellwater.com</td>
+          <td>2026-08-25</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">186</td>
+          <td class="domain"><a href="https://support.wattsup.com.au" target="_blank" rel="noopener noindex nofollow">support.wattsup.com.au</a></td>
+          <td class="num">204</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">water softener with well water</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">softprowatersystems.com</td>
+        </tr>
+        <tr>
+          <td class="rank">187</td>
+          <td class="domain"><a href="https://betulcrime.com" target="_blank" rel="noopener noindex nofollow">betulcrime.com</a></td>
+          <td class="num">203</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Netw</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">188</td>
+          <td class="domain"><a href="https://leadafi.com" target="_blank" rel="noopener noindex nofollow">leadafi.com</a></td>
+          <td class="num">199</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://quench.culligan.com/</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">189</td>
+          <td class="domain"><a href="https://worldbusinesspromote.com" target="_blank" rel="noopener noindex nofollow">worldbusinesspromote.com</a></td>
+          <td class="num">198</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">springwellwater.com</td>
+          <td>2026-09-02</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+        <tr>
+          <td class="rank">190</td>
+          <td class="domain"><a href="https://yoda.wiki" target="_blank" rel="noopener noindex nofollow">yoda.wiki</a></td>
+          <td class="num">196</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">the original</td>
+          <td>2026-08-12</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">191</td>
+          <td class="domain"><a href="https://chicago13point1.com" target="_blank" rel="noopener noindex nofollow">chicago13point1.com</a></td>
+          <td class="num">196</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Get the details</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">192</td>
+          <td class="domain"><a href="https://hisoair.com" target="_blank" rel="noopener noindex nofollow">hisoair.com</a></td>
+          <td class="num">195</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">multi-stage systems</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">193</td>
+          <td class="domain"><a href="https://culliganh2o.com" target="_blank" rel="noopener noindex nofollow">culliganh2o.com</a></td>
+          <td class="num">191</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Manuals - Softeners, Filters, ROs &amp; Bottled Water</td>
+          <td>2026-08-26</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">194</td>
+          <td class="domain"><a href="https://spotsnow.io" target="_blank" rel="noopener noindex nofollow">spotsnow.io</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">aquasana.com</td>
+          <td>2026-08-23</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">195</td>
+          <td class="domain"><a href="https://robuta.com" target="_blank" rel="noopener noindex nofollow">robuta.com</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">9 Ways to Filter Water to Make it Safer | Aquasana</td>
+          <td>2026-08-16</td>
+          <td class="comp-pill">aquasana.com</td>
+        </tr>
+        <tr>
+          <td class="rank">196</td>
+          <td class="domain"><a href="https://spotsnow.io" target="_blank" rel="noopener noindex nofollow">spotsnow.io</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">culligan.com</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">197</td>
+          <td class="domain"><a href="https://robuta.com" target="_blank" rel="noopener noindex nofollow">robuta.com</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan Quench | Office &amp; Workplace Water Coolers</td>
+          <td>2026-08-24</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">198</td>
+          <td class="domain"><a href="https://tradewithcanadians.ca" target="_blank" rel="noopener noindex nofollow">tradewithcanadians.ca</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">culligansaskatoon.com</td>
+          <td>2026-09-01</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">199</td>
+          <td class="domain"><a href="https://megmcmillin.com" target="_blank" rel="noopener noindex nofollow">megmcmillin.com</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Culligan</td>
+          <td>2026-08-22</td>
+          <td class="comp-pill">culligan.com</td>
+        </tr>
+        <tr>
+          <td class="rank">200</td>
+          <td class="domain"><a href="https://robuta.com" target="_blank" rel="noopener noindex nofollow">robuta.com</a></td>
+          <td class="num">190</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Well Water Iron Filter System</td>
+          <td>2026-09-03</td>
+          <td class="comp-pill">springwellwater.com</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Recommendations -->
+<h2>💡 Recommendations</h2>
+<div class="recommendation">
+  <div class="rec-title">⚠️ You're #3 in Link Velocity</div>
+  <div class="rec-body">softprowatersystems.com is building links 674.1/day faster than qualitywatertreatment.com. Increase outreach velocity to close the gap. Current rate: +7.1/day vs leader: +681.2/day.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🎯 Target 369 Intercept Domains for Outreach</div>
+  <div class="rec-body">These domains recently started linking to competitors but NOT to qualitywatertreatment.com. Top targets by domain strength: 4.bing.com, yellowpages.com, localitybiz.com, jobs.lever.co, mapquest.com. Prioritize dofollow links from high domain strength sites.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: culligan.com's New Linking Domains</div>
+  <div class="rec-body">170 domains linked to culligan.com but not to qualitywatertreatment.com in the last 30 days (avg domain strength: 223). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: aquasana.com's New Linking Domains</div>
+  <div class="rec-body">106 domains linked to aquasana.com but not to qualitywatertreatment.com in the last 30 days (avg domain strength: 206). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: springwellwater.com's New Linking Domains</div>
+  <div class="rec-body">48 domains linked to springwellwater.com but not to qualitywatertreatment.com in the last 30 days (avg domain strength: 139). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: softprowatersystems.com's New Linking Domains</div>
+  <div class="rec-body">45 domains linked to softprowatersystems.com but not to qualitywatertreatment.com in the last 30 days (avg domain strength: 326). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div>
+
+<div class="footer">
+  Generated by Zenfusion Competitive Link Velocity Analyzer | DataForSEO Backlinks API | noindex, nofollow
+</div>
+
+<script>
+// Expandable intercepts table
+</script>
+</body>
+</html>
