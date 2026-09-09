@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Softpro — SEO Dashboard</title>
+<style>
+:root {
+  --bg: #ffffff; --surface: #f8f9fa; --border: #e0e0e0; --text: #1a1a1a;
+  --muted: #6b7280; --accent: #0066cc; --accent-dark: #004999;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg); color: var(--text); margin: 0; font-size: 15px; line-height: 1.5;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
+
+/* Header */
+.dashboard-header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 28px;
+  padding-bottom: 20px; border-bottom: 2px solid var(--border);
+}
+.dashboard-header h1 { font-size: 28px; font-weight: 700; margin: 0; color: var(--text); }
+.dashboard-header .brand-mark {
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.dashboard-header .brand-mark .dot {
+  width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+}
+.header-meta { text-align: right; color: var(--muted); font-size: 13px; }
+.header-meta .updated { font-weight: 600; color: var(--text); }
+
+/* KPI row */
+.kpi-row {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 32px;
+}
+.kpi-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 14px; text-align: center; box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.kpi-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.kpi-value { font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1.1; word-break: break-word; }
+.kpi-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-top: 6px; }
+.kpi-sub { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.kpi-src { font-size: 10px; color: #aaa; margin-top: 4px; }
+
+/* Quick actions */
+.quick-actions {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+}
+.quick-actions a {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+  font-size: 14px; font-weight: 600; color: var(--text); transition: all .15s ease;
+}
+.quick-actions a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+/* Toolbar: search + filter chips */
+.toolbar { margin-bottom: 20px; }
+.toolbar .search {
+  width: 100%; padding: 11px 14px; font-size: 14px; border: 1px solid var(--border);
+  border-radius: 8px; margin-bottom: 12px;
+}
+.toolbar .search:focus { outline: none; border-color: var(--accent); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+  border: 1px solid var(--border); border-radius: 999px; background: var(--bg);
+  font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s ease;
+}
+.chip:hover { border-color: var(--accent); }
+.chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.chip-count { font-size: 11px; opacity: .7; }
+
+/* Level sections */
+.level-section { margin-bottom: 36px; }
+.level-header { margin-bottom: 14px; }
+.level-header h2 { font-size: 19px; font-weight: 700; display: inline; margin: 0; }
+.level-icon { margin-right: 8px; }
+.level-count { color: var(--muted); font-weight: 400; font-size: 15px; }
+.level-desc { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px;
+}
+.report-card {
+  display: block; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px; box-shadow: var(--shadow);
+  color: var(--text); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.report-card:hover {
+  transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  border-color: var(--accent); text-decoration: none;
+}
+.card-top {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 3px solid; margin: -14px -14px 10px; padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.card-level { font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+.card-date { font-size: 12px; color: var(--muted); }
+.card-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
+.card-desc { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.card-metric {
+  display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent);
+  background: rgba(0,102,204,.08); padding: 2px 8px; border-radius: 6px; margin-bottom: 8px;
+}
+.card-meta { font-size: 11px; color: #999; word-break: break-all; }
+.empty { color: var(--muted); font-size: 14px; padding: 12px 0; }
+
+.footer {
+  margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted);
+}
+.footer h3 { font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--text); }
+.footer ul { margin: 0; padding-left: 18px; }
+.footer li { margin-bottom: 3px; }
+
+.no-results { display: none; text-align: center; padding: 40px; color: var(--muted); font-size: 16px; }
+
+@media (max-width: 900px) {
+  .kpi-row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-header { flex-direction: column; align-items: flex-start; }
+  .header-meta { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="dashboard-header">
+    <div class="brand-mark">
+      <span class="dot"></span>
+      <h1>Softpro — SEO Dashboard</h1>
+    </div>
+    <div class="header-meta">
+      <div class="updated">Last updated 2026-09-09 19:28 UTC</div>
+      <div>87 reports · 6 categories</div>
+    </div>
+  </header>
+
+  <div class="kpi-row">
+    
+    <div class="kpi-card">
+      <div class="kpi-value">85</div>
+      <div class="kpi-label">Site Health Score</div>
+      <div class="kpi-sub">72 critical · 532 warnings</div>
+      <div class="kpi-src">site-audit-report.html</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">52,686</div>
+      <div class="kpi-label">Est. Monthly Traffic</div>
+      <div class="kpi-sub">Visibility Index 16.7</div>
+      <div class="kpi-src">seo-visibility-report.html</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">19,176</div>
+      <div class="kpi-label">Keywords Ranked</div>
+      <div class="kpi-sub">7 in Top 10 · 2 in Top 3</div>
+      <div class="kpi-src">seo-visibility-report.html</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">89,457</div>
+      <div class="kpi-label">Total Backlinks</div>
+      <div class="kpi-sub">Domain-wide total</div>
+      <div class="kpi-src">seo-visibility-report.html</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">2,252</div>
+      <div class="kpi-label">Referring Domains</div>
+      <div class="kpi-sub">Domain Rating 58.7</div>
+      <div class="kpi-src">seo-visibility-report.html</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">50.0%</div>
+      <div class="kpi-label">AI Visibility Rate</div>
+      <div class="kpi-sub">LLM mention rate</div>
+      <div class="kpi-src">ai-visibility-report.html</div>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <a href="#" onclick="alert('Run from CLI: python3 ~/.hermes/scripts/site_auditor.py --domain softpro.com');return false">🔍 Run Site Audit</a>
+    <a href="keyword-rank-tracker.html">📈 Check Rankings</a>
+    <a href="backlink-analysis-1.html">🔗 Backlink Report</a>
+    <a href="ai-visibility-report.html">🤖 AI Visibility</a>
+    <a href="seo-visibility-report.html">📊 SEO Visibility</a>
+    <a href="reports.html">📋 All Reports</a>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" class="search" id="search" placeholder="Search reports by title, keyword, or filename…" autocomplete="off">
+    <div class="chips" id="chips">
+      <button class="chip active" data-filter="all">All (87)</button>
+      <button class="chip" data-filter="domain">🌐 Domain-Level <span class="chip-count">12</span></button><button class="chip" data-filter="page">📄 Page-Level <span class="chip-count">23</span></button><button class="chip" data-filter="backlink">🔗 Backlink <span class="chip-count">31</span></button><button class="chip" data-filter="market">📊 Market <span class="chip-count">4</span></button><button class="chip" data-filter="competitor">⚔️ Competitor <span class="chip-count">9</span></button><button class="chip" data-filter="keyword">🔑 Keyword <span class="chip-count">8</span></button>
+    </div>
+  </div>
+
+  <div id="no-results" class="no-results">No reports match your search.</div>
+
+  <section class="level-section" data-level="domain">
+        <div class="level-header" id="level-domain">
+          <span class="level-icon">🌐</span>
+          <h2>Domain-Level <span class="level-count">(12)</span></h2>
+          <p class="level-desc">Site-wide technical &amp; visibility audits</p>
+        </div><div class="card-grid">
+    <a class="report-card" href="scheduled-report-summary.html" data-level="domain"
+       data-title="scheduled report summary — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Scheduled Report Summary — softprowatersystems.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">scheduled-report-summary.html · 5.8 KB</div>
+    </a>
+    <a class="report-card" href="portfolio-audit.html" data-level="domain"
+       data-title="zenfusion — portfolio seo audit — september 2026" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Zenfusion — Portfolio SEO Audit — September 2026</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">portfolio-audit.html · 30.6 KB</div>
+    </a>
+    <a class="report-card" href="seo-visibility-report.html" data-level="domain"
+       data-title="seo visibility report — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">SEO Visibility Report — softprowatersystems.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      <div class="card-metric">Est. Traffic 52,686</div>
+      <div class="card-meta">seo-visibility-report.html · 10.6 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/referring-timeline-uswater.html" data-level="domain"
+       data-title="referring domains timeline — uswatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Referring Domains Timeline — uswatersystems.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">referring-timeline-uswater.html · 54.4 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/referring-timeline-springwell.html" data-level="domain"
+       data-title="referring domains timeline — springwellwater.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Referring Domains Timeline — springwellwater.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">referring-timeline-springwell.html · 54.6 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/referring-timeline-softpro.html" data-level="domain"
+       data-title="referring domains timeline — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Referring Domains Timeline — softprowatersystems.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">referring-timeline-softpro.html · 39.2 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/referring-timeline-qwt.html" data-level="domain"
+       data-title="referring domains timeline — qualitywatertreatment.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Referring Domains Timeline — qualitywatertreatment.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">referring-timeline-qwt.html · 41.7 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/referring-timeline-culligan.html" data-level="domain"
+       data-title="referring domains timeline — culligan.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Referring Domains Timeline — culligan.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">referring-timeline-culligan.html · 59.6 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/referring-timeline-aquasana.html" data-level="domain"
+       data-title="referring domains timeline — aquasana.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Referring Domains Timeline — aquasana.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">referring-timeline-aquasana.html · 59.4 KB</div>
+    </a>
+    <a class="report-card" href="domain-history-audit.html" data-level="domain"
+       data-title="domain history audit — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Domain History Audit — softprowatersystems.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      
+      <div class="card-meta">domain-history-audit.html · 66.2 KB</div>
+    </a>
+    <a class="report-card" href="ai-visibility-report.html" data-level="domain"
+       data-title="ai visibility report — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">AI Visibility Report — softprowatersystems.com</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      <div class="card-metric">50.0%</div>
+      <div class="card-meta">ai-visibility-report.html · 15.1 KB</div>
+    </a>
+    <a class="report-card" href="site-audit-report.html" data-level="domain"
+       data-title="site audit — softpro water systems" data-date="2026-09-07">
+      <div class="card-top" style="border-top-color:#0066cc">
+        <span class="card-level" style="color:#0066cc">DOMAIN</span>
+        <span class="card-date">2026-09-07</span>
+      </div>
+      <div class="card-title">Site Audit — SoftPro Water Systems</div>
+      <div class="card-desc">Site-wide technical &amp; visibility audits</div>
+      <div class="card-metric">85</div>
+      <div class="card-meta">site-audit-report.html · 525.6 KB</div>
+    </a></div></section><section class="level-section" data-level="page">
+        <div class="level-header" id="level-page">
+          <span class="level-icon">📄</span>
+          <h2>Page-Level <span class="level-count">(23)</span></h2>
+          <p class="level-desc">Per-URL audits — speed, content, on-page</p>
+        </div><div class="card-grid">
+    <a class="report-card" href="local-seo-grid-tracker.html" data-level="page"
+       data-title="local seo grid tracker — water softener" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Local SEO Grid Tracker — water softener</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">local-seo-grid-tracker.html · 19.9 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-softpro-elite-v14.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/prod" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/prod</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-softpro-elite-v14.html · 165.3 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-softpro-elite-v15.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/prod" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/prod</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-softpro-elite-v15.html · 165.5 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-softpro-elite-v16.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/prod" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/prod</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-softpro-elite-v16.html · 171.6 KB</div>
+    </a>
+    <a class="report-card" href="structured-data-audit.html" data-level="page"
+       data-title="schema audit report — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Schema Audit Report — softprowatersystems.com</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">structured-data-audit.html · 12.2 KB</div>
+    </a>
+    <a class="report-card" href="page-speed-deep-dive.html" data-level="page"
+       data-title="page speed deep dive — https://www.softprowatersystems.com/pages/best-water-softener-for-city-water" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Page Speed Deep Dive — https://www.softprowatersystems.com/pages/best-water-softener-for-city-water</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-speed-deep-dive.html · 1.2 MB</div>
+    </a>
+    <a class="report-card" href="page-speed-audit.html" data-level="page"
+       data-title="page speed audit — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Page Speed Audit — softprowatersystems.com</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-speed-audit.html · 52.8 KB</div>
+    </a>
+    <a class="report-card" href="instant-page-audit.html" data-level="page"
+       data-title="instant page audit — https://www.softprowatersystems.com/products/softpro-elite-w" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Instant Page Audit — https://www.softprowatersystems.com/products/softpro-elite-w</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">instant-page-audit.html · 23.7 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v13.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-09-01">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-09-01</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v13.html · 148.1 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v11.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-31">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-31</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v11.html · 153.1 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v12.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-31">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-31</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v12.html · 147.5 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v10.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-28">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-28</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v10.html · 147.7 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v8.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-28">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-28</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v8.html · 134.8 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v9.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-28">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-28</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v9.html · 146.9 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v6.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v6.html · 99.6 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v6b.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v6b.html · 99.6 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v7.html" data-level="page"
+       data-title="zenfusion page auditor report — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Zenfusion Page Auditor Report — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v7.html · 103.2 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-full-v2.html" data-level="page"
+       data-title="unified page audit — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Unified Page Audit — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-full-v2.html · 65.0 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-full-v3.html" data-level="page"
+       data-title="unified page audit — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Unified Page Audit — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-full-v3.html · 92.6 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v4.html" data-level="page"
+       data-title="unified page audit — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Unified Page Audit — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v4.html · 92.9 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-v5.html" data-level="page"
+       data-title="unified page audit — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">Unified Page Audit — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-v5.html · 96.1 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-best-water-softener-ig.html" data-level="page"
+       data-title="unified page audit — best water softener — https://www.softprowatersystems.com/page" data-date="2026-08-26">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-26</span>
+      </div>
+      <div class="card-title">Unified Page Audit — best water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-best-water-softener-ig.html · 66.6 KB</div>
+    </a>
+    <a class="report-card" href="page-audit-salt-free-water-softener.html" data-level="page"
+       data-title="unified page audit — salt free water softener — https://www.softprowatersystems.com/page" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#7c3aed">
+        <span class="card-level" style="color:#7c3aed">PAGE</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Unified Page Audit — salt free water softener — https://www.softprowatersystems.com/page</div>
+      <div class="card-desc">Per-URL audits — speed, content, on-page</div>
+      
+      <div class="card-meta">page-audit-salt-free-water-softener.html · 51.3 KB</div>
+    </a></div></section><section class="level-section" data-level="backlink">
+        <div class="level-header" id="level-backlink">
+          <span class="level-icon">🔗</span>
+          <h2>Backlink <span class="level-count">(31)</span></h2>
+          <p class="level-desc">Link profile, anchors, gaps, toxic-link reports</p>
+        </div><div class="card-grid">
+    <a class="report-card" href="toxic-link-detection.html" data-level="backlink"
+       data-title="toxic link report — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Toxic Link Report — softprowatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">toxic-link-detection.html · 96.3 KB</div>
+    </a>
+    <a class="report-card" href="backlink-alerts.html" data-level="backlink"
+       data-title="backlink alert report — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Backlink Alert Report — softprowatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-alerts.html · 170.3 KB</div>
+    </a>
+    <a class="report-card" href="page-backlink-audit.html" data-level="backlink"
+       data-title="page backlink audit — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Page Backlink Audit — softprowatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">page-backlink-audit.html · 31.2 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/lost-recovery-uswater.html" data-level="backlink"
+       data-title="lost backlink recovery report: uswatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Lost Backlink Recovery Report: uswatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">lost-recovery-uswater.html · 15.8 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/lost-recovery-springwell.html" data-level="backlink"
+       data-title="lost backlink recovery report: springwellwater.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Lost Backlink Recovery Report: springwellwater.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">lost-recovery-springwell.html · 537.1 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/lost-recovery-softpro.html" data-level="backlink"
+       data-title="lost backlink recovery report: softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Lost Backlink Recovery Report: softprowatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">lost-recovery-softpro.html · 189.4 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/lost-recovery-qwt.html" data-level="backlink"
+       data-title="lost backlink recovery report: qualitywatertreatment.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Lost Backlink Recovery Report: qualitywatertreatment.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">lost-recovery-qwt.html · 16.0 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/lost-recovery-culligan.html" data-level="backlink"
+       data-title="lost backlink recovery report: culligan.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Lost Backlink Recovery Report: culligan.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">lost-recovery-culligan.html · 80.9 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/lost-recovery-aquasana.html" data-level="backlink"
+       data-title="lost backlink recovery report: aquasana.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Lost Backlink Recovery Report: aquasana.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">lost-recovery-aquasana.html · 32.8 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-17-fluoride-filters.html" data-level="backlink"
+       data-title="backlink analysis — fluoride filter articles" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Backlink Analysis — Fluoride Filter Articles</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-17-fluoride-filters.html · 11.7 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/anchor-text-uswater.html" data-level="backlink"
+       data-title="anchor text analysis — uswatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Anchor Text Analysis — uswatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">anchor-text-uswater.html · 46.0 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/anchor-text-springwell.html" data-level="backlink"
+       data-title="anchor text analysis — springwellwater.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Anchor Text Analysis — springwellwater.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">anchor-text-springwell.html · 41.5 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/anchor-text-softpro.html" data-level="backlink"
+       data-title="anchor text analysis — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Anchor Text Analysis — softprowatersystems.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">anchor-text-softpro.html · 42.8 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/anchor-text-qwt.html" data-level="backlink"
+       data-title="anchor text analysis — qualitywatertreatment.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Anchor Text Analysis — qualitywatertreatment.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">anchor-text-qwt.html · 42.9 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/anchor-text-culligan.html" data-level="backlink"
+       data-title="anchor text analysis — culligan.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Anchor Text Analysis — culligan.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">anchor-text-culligan.html · 41.1 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/anchor-text-aquasana.html" data-level="backlink"
+       data-title="anchor text analysis — aquasana.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Anchor Text Analysis — aquasana.com</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">anchor-text-aquasana.html · 42.8 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-16-carbon-filter-both-sheets.html" data-level="backlink"
+       data-title="backlink analysis — carbon filter articles (both sheets)" data-date="2026-09-01">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-09-01</span>
+      </div>
+      <div class="card-title">Backlink Analysis — Carbon Filter Articles (Both Sheets)</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-16-carbon-filter-both-sheets.html · 19.7 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-15-carbon-filter.html" data-level="backlink"
+       data-title="backlink analysis — carbon filter articles" data-date="2026-08-28">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-28</span>
+      </div>
+      <div class="card-title">Backlink Analysis — Carbon Filter Articles</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-15-carbon-filter.html · 12.9 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-14-gssssa.html" data-level="backlink"
+       data-title="gssssa softpro links - backlink analysis" data-date="2026-08-27">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-27</span>
+      </div>
+      <div class="card-title">GSSSSA SoftPro Links - Backlink Analysis</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-14-gssssa.html · 1.7 MB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-13-rankteam.html" data-level="backlink"
+       data-title="rank team articles - softpro" data-date="2026-08-25">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-25</span>
+      </div>
+      <div class="card-title">Rank Team Articles - SoftPro</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-13-rankteam.html · 94.5 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-12-big.html" data-level="backlink"
+       data-title="big backlink sheet - softpro" data-date="2026-08-25">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-25</span>
+      </div>
+      <div class="card-title">BIG Backlink Sheet - SoftPro</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-12-big.html · 4.3 MB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-10-sheet10.html" data-level="backlink"
+       data-title="sheet 10 (500 urls) - softpro water systems" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">Sheet 10 (500 URLs) - SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-10-sheet10.html · 175.7 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-5-pdf.html" data-level="backlink"
+       data-title="pdf submission - softpro water systems" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">PDF Submission - SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-5-pdf.html · 20.5 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-9-new-sheet.html" data-level="backlink"
+       data-title="new sheet (200 urls) - softpro water systems" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">New Sheet (200 URLs) - SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-9-new-sheet.html · 68.7 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-4-legitt2.html" data-level="backlink"
+       data-title="legitt batch 2 - softpro water systems" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">Legitt Batch 2 - SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-4-legitt2.html · 31.2 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-8-combined.html" data-level="backlink"
+       data-title="combined sheets (71 urls) - softpro water systems" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">Combined Sheets (71 URLs) - SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-8-combined.html · 24.1 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-7-carbon-filter2.html" data-level="backlink"
+       data-title="carbon filter guest posts batch 2 - softpro water systems" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">Carbon Filter Guest Posts Batch 2 - SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-7-carbon-filter2.html · 9.3 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-6-carbon-filter.html" data-level="backlink"
+       data-title="backlink analysis - carbon filter guest posts - softpro" data-date="2026-08-24">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-24</span>
+      </div>
+      <div class="card-title">Backlink Analysis - Carbon Filter Guest Posts - SoftPro</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-6-carbon-filter.html · 9.6 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-2-rankerx.html" data-level="backlink"
+       data-title="backlink analysis — softpro — rankerx — aug 21, 2026" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Backlink Analysis — SoftPro — RankerX — Aug 21, 2026</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-2-rankerx.html · 136.7 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-1.html" data-level="backlink"
+       data-title="backlink analysis — softpro water systems" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Backlink Analysis — SoftPro Water Systems</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      <div class="card-metric">22 backlinks</div>
+      <div class="card-meta">backlink-analysis-1.html · 16.4 KB</div>
+    </a>
+    <a class="report-card" href="backlink-analysis-3-legitt.html" data-level="backlink"
+       data-title="backlink analysis - legitt - softpro" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#0891b2">
+        <span class="card-level" style="color:#0891b2">BACKLINK</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Backlink Analysis - Legitt - SoftPro</div>
+      <div class="card-desc">Link profile, anchors, gaps, toxic-link reports</div>
+      
+      <div class="card-meta">backlink-analysis-3-legitt.html · 21.8 KB</div>
+    </a></div></section><section class="level-section" data-level="market">
+        <div class="level-header" id="level-market">
+          <span class="level-icon">📊</span>
+          <h2>Market <span class="level-count">(4)</span></h2>
+          <p class="level-desc">Demand trends, SERP landscape, seasonality</p>
+        </div><div class="card-grid">
+    <a class="report-card" href="seasonal-trends.html" data-level="market"
+       data-title="seasonal trends — water softener" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#059669">
+        <span class="card-level" style="color:#059669">MARKET</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Seasonal Trends — water softener</div>
+      <div class="card-desc">Demand trends, SERP landscape, seasonality</div>
+      
+      <div class="card-meta">seasonal-trends.html · 57.9 KB</div>
+    </a>
+    <a class="report-card" href="serp-feature-landscape.html" data-level="market"
+       data-title="serp feature landscape — water softener" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#059669">
+        <span class="card-level" style="color:#059669">MARKET</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">SERP Feature Landscape — water softener</div>
+      <div class="card-desc">Demand trends, SERP landscape, seasonality</div>
+      
+      <div class="card-meta">serp-feature-landscape.html · 23.8 KB</div>
+    </a>
+    <a class="report-card" href="serp-feature-check.html" data-level="market"
+       data-title="serp feature analysis — best water softener" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#059669">
+        <span class="card-level" style="color:#059669">MARKET</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">SERP Feature Analysis — best water softener</div>
+      <div class="card-desc">Demand trends, SERP landscape, seasonality</div>
+      
+      <div class="card-meta">serp-feature-check.html · 35.8 KB</div>
+    </a>
+    <a class="report-card" href="market-analysis.html" data-level="market"
+       data-title="market analysis — salt free water softener — softpro" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#059669">
+        <span class="card-level" style="color:#059669">MARKET</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Market Analysis — Salt Free Water Softener — SoftPro</div>
+      <div class="card-desc">Demand trends, SERP landscape, seasonality</div>
+      
+      <div class="card-meta">market-analysis.html · 17.6 KB</div>
+    </a></div></section><section class="level-section" data-level="competitor">
+        <div class="level-header" id="level-competitor">
+          <span class="level-icon">⚔️</span>
+          <h2>Competitor <span class="level-count">(9)</span></h2>
+          <p class="level-desc">Competitor content, link velocity, page monitors</p>
+        </div><div class="card-grid">
+    <a class="report-card" href="share-of-voice-trend.html" data-level="competitor"
+       data-title="share of voice trend report — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Share of Voice Trend Report — softprowatersystems.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">share-of-voice-trend.html · 22.9 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/competitive-link-velocity-qwt.html" data-level="competitor"
+       data-title="link velocity report — qualitywatertreatment.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Link Velocity Report — qualitywatertreatment.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">competitive-link-velocity-qwt.html · 106.9 KB</div>
+    </a>
+    <a class="report-card" href="competitor-page-monitor.html" data-level="competitor"
+       data-title="competitor page monitor report — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Competitor Page Monitor Report — softprowatersystems.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">competitor-page-monitor.html · 109.4 KB</div>
+    </a>
+    <a class="report-card" href="competitor-content-gap.html" data-level="competitor"
+       data-title="competitor content gap — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Competitor Content Gap — softprowatersystems.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">competitor-content-gap.html · 75.1 KB</div>
+    </a>
+    <a class="report-card" href="backlinks/competitive-link-velocity.html" data-level="competitor"
+       data-title="link velocity report — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Link Velocity Report — softprowatersystems.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">competitive-link-velocity.html · 105.6 KB</div>
+    </a>
+    <a class="report-card" href="backlink-gap-softpro-vs-aquasana-v2.html" data-level="competitor"
+       data-title="backlink gap analysis: softprowatersystems.com vs aquasana.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Backlink Gap Analysis: softprowatersystems.com vs aquasana.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">backlink-gap-softpro-vs-aquasana-v2.html · 260.7 KB</div>
+    </a>
+    <a class="report-card" href="ig-analysis-best-water-softener.html" data-level="competitor"
+       data-title="information gain analysis — best water softener (softpro)" data-date="2026-08-26">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-08-26</span>
+      </div>
+      <div class="card-title">Information Gain Analysis — Best Water Softener (SoftPro)</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">ig-analysis-best-water-softener.html · 25.7 KB</div>
+    </a>
+    <a class="report-card" href="competitive-analysis.html" data-level="competitor"
+       data-title="competitive analysis — salt free water softener — softpro" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Competitive Analysis — Salt Free Water Softener — SoftPro</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">competitive-analysis.html · 9.9 KB</div>
+    </a>
+    <a class="report-card" href="backlink-gap-vs-aquasana.html" data-level="competitor"
+       data-title="backlink gap analysis: softprowatersystems.com vs aquasana.com" data-date="2026-08-22">
+      <div class="card-top" style="border-top-color:#dc2626">
+        <span class="card-level" style="color:#dc2626">COMPETITOR</span>
+        <span class="card-date">2026-08-22</span>
+      </div>
+      <div class="card-title">Backlink Gap Analysis: softprowatersystems.com vs aquasana.com</div>
+      <div class="card-desc">Competitor content, link velocity, page monitors</div>
+      
+      <div class="card-meta">backlink-gap-vs-aquasana.html · 392.1 KB</div>
+    </a></div></section><section class="level-section" data-level="keyword">
+        <div class="level-header" id="level-keyword">
+          <span class="level-icon">🔑</span>
+          <h2>Keyword <span class="level-count">(8)</span></h2>
+          <p class="level-desc">Rankings, difficulty, intent, cannibalization</p>
+        </div><div class="card-grid">
+    <a class="report-card" href="keyword-rank-tracker.html" data-level="keyword"
+       data-title="keyword rank tracker — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Keyword Rank Tracker — softprowatersystems.com</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      <div class="card-metric">15 tracked</div>
+      <div class="card-meta">keyword-rank-tracker.html · 20.2 KB</div>
+    </a>
+    <a class="report-card" href="content-decay-detector.html" data-level="keyword"
+       data-title="content decay report — softprowatersystems.com" data-date="2026-09-09">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-09-09</span>
+      </div>
+      <div class="card-title">Content Decay Report — softprowatersystems.com</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      
+      <div class="card-meta">content-decay-detector.html · 3.0 MB</div>
+    </a>
+    <a class="report-card" href="search-intent-map.html" data-level="keyword"
+       data-title="search intent map — water softener" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Search Intent Map — water softener</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      
+      <div class="card-meta">search-intent-map.html · 40.0 KB</div>
+    </a>
+    <a class="report-card" href="keyword-difficulty-map.html" data-level="keyword"
+       data-title="keyword difficulty map — water softener" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Keyword Difficulty Map — water softener</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      
+      <div class="card-meta">keyword-difficulty-map.html · 21.2 KB</div>
+    </a>
+    <a class="report-card" href="content-plan-water-softener.html" data-level="keyword"
+       data-title="content plan — water softener" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Content Plan — water softener</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      
+      <div class="card-meta">content-plan-water-softener.html · 329.7 KB</div>
+    </a>
+    <a class="report-card" href="cannibalization-report.html" data-level="keyword"
+       data-title="cannibalization report — softprowatersystems.com" data-date="2026-09-08">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-09-08</span>
+      </div>
+      <div class="card-title">Cannibalization Report — softprowatersystems.com</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      
+      <div class="card-meta">cannibalization-report.html · 42.7 KB</div>
+    </a>
+    <a class="report-card" href="keyword-dashboard.html" data-level="keyword"
+       data-title="keyword opportunity dashboard — softpro" data-date="2026-08-28">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-08-28</span>
+      </div>
+      <div class="card-title">Keyword Opportunity Dashboard — SoftPro</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      <div class="card-metric">4,889 gap keywords</div>
+      <div class="card-meta">keyword-dashboard.html · 106.0 KB</div>
+    </a>
+    <a class="report-card" href="collection-opportunities.html" data-level="keyword"
+       data-title="collection creation opportunities — softpro" data-date="2026-08-28">
+      <div class="card-top" style="border-top-color:#d97706">
+        <span class="card-level" style="color:#d97706">KEYWORD</span>
+        <span class="card-date">2026-08-28</span>
+      </div>
+      <div class="card-title">Collection Creation Opportunities — SoftPro</div>
+      <div class="card-desc">Rankings, difficulty, intent, cannibalization</div>
+      
+      <div class="card-meta">collection-opportunities.html · 769.5 KB</div>
+    </a></div></section>
+
+  <footer class="footer">
+    <h3>Data Sources</h3>
+    <ul>
+      <li>DataForSEO — SERP, keywords, backlinks, visibility metrics</li>
+      <li>Screaming Frog / site_auditor.py — technical crawl &amp; site health</li>
+      <li>Google Search Console — query &amp; page performance</li>
+      <li>LLM Visibility — ChatGPT, Gemini, Perplexity, Claude (ai_visibility_helper.py)</li>
+      <li>Majestic / backlink_gap_analyzer.py — referring domains &amp; link gaps</li>
+    </ul>
+    <p style="margin-top:10px">Generated by <code>portal_dashboard.py</code> · Zenfusion SEO Suite · 2026-09-09 19:28 UTC</p>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  const search = document.getElementById('search');
+  const chips = document.getElementById('chips');
+  const sections = document.querySelectorAll('.level-section');
+  const noResults = document.getElementById('no-results');
+  let activeFilter = 'all';
+
+  function applyFilter() {
+    const q = search.value.trim().toLowerCase();
+    let visibleCount = 0;
+    sections.forEach(function(sec) {
+      const lv = sec.getAttribute('data-level');
+      // Hide whole section if level filter is active and doesn't match.
+      const levelOk = (activeFilter === 'all' || activeFilter === lv);
+      let sectionVisible = 0;
+      sec.querySelectorAll('.report-card').forEach(function(card) {
+        const title = card.getAttribute('data-title') || '';
+        const text = card.textContent.toLowerCase();
+        const matches = (q === '' || title.indexOf(q) !== -1 || text.indexOf(q) !== -1);
+        const show = levelOk && matches;
+        card.style.display = show ? '' : 'none';
+        if (show) sectionVisible++;
+      });
+      sec.style.display = (levelOk && sectionVisible > 0) ? '' : 'none';
+      if (levelOk) visibleCount += sectionVisible;
+    });
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  search.addEventListener('input', applyFilter);
+  chips.addEventListener('click', function(e) {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    chips.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeFilter = chip.getAttribute('data-filter');
+    applyFilter();
+  });
+})();
+</script>
+</body>
+</html>
