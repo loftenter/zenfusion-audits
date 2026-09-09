@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Shopify Schema Audit — softprowatersystems.com</title>
+<style>
+  :root {
+    --bg:#f4f6fb; --card:#ffffff; --text:#1a2233; --muted:#6b7280;
+    --border:#e3e8f0; --accent:#3b6fe0; --accent-light:#e8f0ff;
+    --green:#16a34a; --red:#dc2626; --amber:#d97706; --code-bg:#1e293b;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+         background:var(--bg); color:var(--text); margin:0; padding:0; }
+  .wrap { max-width:1100px; margin:0 auto; padding:32px 24px; }
+  h1 { font-size:1.8rem; margin:0 0 4px; }
+  h2 { font-size:1.25rem; margin:32px 0 16px; }
+  .sub { color:var(--muted); font-size:.95rem; margin:0 0 24px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin-bottom:32px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .card .label { font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+  .card .value { font-size:2rem; font-weight:700; margin:4px 0 0; }
+  .card .value.green { color:var(--green); }
+  .card .value.red { color:var(--red); }
+  .card .value.amber { color:var(--amber); }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  th, td { padding:10px 14px; text-align:left; font-size:.9rem; border-bottom:1px solid var(--border); }
+  th { background:var(--accent-light); font-weight:600; }
+  tr:last-child td { border-bottom:none; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:6px; font-size:.75rem; font-weight:600; }
+  .badge.product { background:#fef3c7; color:#92400e; }
+  .badge.collection { background:#dbeafe; color:#1e40af; }
+  .badge.blog { background:#e0e7ff; color:#3730a3; }
+  .badge.homepage { background:#dcfce7; color:#166534; }
+  .badge.page { background:#f1f5f9; color:#475569; }
+  .badge.other { background:#fee2e2; color:#991b1b; }
+  details { background:var(--card); border:1px solid var(--border); border-radius:8px; margin:8px 0; padding:0; }
+  summary { cursor:pointer; padding:12px 16px; font-weight:600; font-size:.9rem; }
+  details[open] summary { border-bottom:1px solid var(--border); }
+  .fix-block { padding:12px 16px; }
+  pre { background:var(--code-bg); color:#e2e8f0; padding:14px; border-radius:8px; overflow-x:auto; font-size:.8rem; line-height:1.5; white-space:pre-wrap; word-wrap:break-word; }
+  .coverage-bar { height:8px; border-radius:4px; background:#e3e8f0; margin:4px 0; width:100%; }
+  .coverage-bar > div { height:100%; border-radius:4px; background:var(--accent); }
+  .priority { display:flex; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--border); }
+  .priority:last-child { border:none; }
+  .priority .rank { width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem; flex-shrink:0; }
+  .priority .impact-high { color:var(--red); font-weight:600; font-size:.8rem; }
+  .priority .impact-med { color:var(--amber); font-weight:600; font-size:.8rem; }
+  .priority .impact-low { color:var(--green); font-weight:600; font-size:.8rem; }
+  .footer { margin-top:40px; padding:16px 0; border-top:1px solid var(--border); color:var(--muted); font-size:.8rem; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Shopify Schema Audit</h1>
+<p class="sub">softprowatersystems.com · 2026-09-09 23:27 UTC · 20 pages audited</p>
+<div class="cards">
+<div class="card"><div class="label">Total Pages</div><div class="value">20</div></div>
+<div class="card"><div class="label">With Schema</div><div class="value green">19</div></div>
+<div class="card"><div class="label">Missing Critical Schema</div><div class="value red">2</div></div>
+<div class="card"><div class="label">Schema Score</div><div class="value green">92</div></div>
+</div>
+<h2>Schema Coverage by Page Type</h2>
+<table><thead><tr><th>Page Type</th><th>Total</th><th>With Schema</th><th>Coverage</th></tr></thead><tbody>
+<tr><td><span class="badge product">Product Page</span></td><td>18</td><td>18</td><td><div class="coverage-bar"><div style="width:100.0%"></div></div>100.0%</td></tr>
+<tr><td><span class="badge homepage">Homepage</span></td><td>1</td><td>1</td><td><div class="coverage-bar"><div style="width:100.0%"></div></div>100.0%</td></tr>
+<tr><td><span class="badge other">Other Page</span></td><td>1</td><td>0</td><td><div class="coverage-bar"><div style="width:0.0%"></div></div>0.0%</td></tr>
+</tbody></table>
+<h2>Missing Schema (15 pages)</h2>
+<table><thead><tr><th>URL</th><th>Page Type</th><th>Expected Schema</th><th>Missing</th></tr></thead><tbody>
+<tr><td><a href="https://softprowatersystems.com/" target="_blank">https://softprowatersystems.com/</a></td><td><span class="badge homepage">Homepage</span></td><td>Organization, WebSite</td><td>Organization: sameAs</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/softpro-elite-water-softener" target="_blank">https://softprowatersystems.com/products/softpro-elite-water-softener</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/1-x-18-stainless-steel-quick-connect-lines-for-softpro-r-elite-models" target="_blank">https://softprowatersystems.com/products/1-x-18-stainless-steel-quick-connect-li…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/uv-20-lamp-sleeve-note-does-not-need-replacement-unless-broken" target="_blank">https://softprowatersystems.com/products/uv-20-lamp-sleeve-note-does-not-need-re…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td><strong>AggregateRating</strong> (type missing)<br>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/5-micron-replacement-filters-for-pura-uv-20-systems-part-33003033" target="_blank">https://softprowatersystems.com/products/5-micron-replacement-filters-for-pura-u…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/reverse-osmosis-system-bottom-3-replacement-filters-plus-taste-and-odor" target="_blank">https://softprowatersystems.com/products/reverse-osmosis-system-bottom-3-replace…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/premium-high-capacity-water-softener-cross-link-resin-1-cu-ft-bag-10-resin-media" target="_blank">https://softprowatersystems.com/products/premium-high-capacity-water-softener-cr…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/iron-master-iron-filter-for-well-water" target="_blank">https://softprowatersystems.com/products/iron-master-iron-filter-for-well-water</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/softpro-elite-water-softener-for-well-water" target="_blank">https://softprowatersystems.com/products/softpro-elite-water-softener-for-well-w…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/softpro-calcite-filter-raise-the-ph-of-water" target="_blank">https://softprowatersystems.com/products/softpro-calcite-filter-raise-the-ph-of-…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter" target="_blank">https://softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-fil…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/softpro-whole-house-carbon-filter-well-water" target="_blank">https://softprowatersystems.com/products/softpro-whole-house-carbon-filter-well-…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/softpro-commercial-water-softener" target="_blank">https://softprowatersystems.com/products/softpro-commercial-water-softener</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/pura-uv-20-three-stage-ultra-violet-light-system" target="_blank">https://softprowatersystems.com/products/pura-uv-20-three-stage-ultra-violet-lig…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td>Product: aggregateRating</td></tr>
+<tr><td><a href="https://softprowatersystems.com/products/pura-uv-20-two-stage-ultraviolet-light-system-_pos-2-_sid-2baba162d-_ss-r" target="_blank">https://softprowatersystems.com/products/pura-uv-20-two-stage-ultraviolet-light-…</a></td><td><span class="badge product">Product Page</span></td><td>Product, Offer, AggregateRating</td><td><strong>AggregateRating</strong> (type missing)<br>Product: aggregateRating</td></tr>
+</tbody></table>
+<h2>Shopify Theme Fix Instructions</h2>
+<details><summary>Add <code>AggregateRating</code> schema — product-template.liquid (or sections/main-product.liquid)</summary><div class="fix-block"><p class="sub">Paste this Liquid snippet into <code>product-template.liquid (or sections/main-product.liquid)</code> inside the <code>&lt;head&gt;</code> or near the page content:</p><pre>{% comment %} Inside Product aggregateRating — requires reviews app {% endcomment %}
+&quot;aggregateRating&quot;: {
+  &quot;@type&quot;: &quot;AggregateRating&quot;,
+  &quot;ratingValue&quot;: &quot;{{ product.metafields.reviews.rating }}&quot;,
+  &quot;reviewCount&quot;: &quot;{{ product.metafields.reviews.count }}&quot;,
+  &quot;bestRating&quot;: &quot;5&quot;
+}</pre></div></details>
+<details><summary>Add <code>Product</code> schema — product-template.liquid (or sections/main-product.liquid)</summary><div class="fix-block"><p class="sub">Paste this Liquid snippet into <code>product-template.liquid (or sections/main-product.liquid)</code> inside the <code>&lt;head&gt;</code> or near the page content:</p><pre>{% comment %} Add to product-template.liquid / sections/main-product.liquid {% endcomment %}
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Product&quot;,
+  &quot;name&quot;: {{ product.title | json }},
+  &quot;image&quot;: [{{ product.featured_image | image_url: width: 1200 | prepend: &#x27;https:&#x27; | json }}],
+  &quot;description&quot;: {{ product.description | strip_html | truncate: 200 | json }},
+  &quot;brand&quot;: { &quot;@type&quot;: &quot;Brand&quot;, &quot;name&quot;: {{ product.vendor | json }} },
+  &quot;offers&quot;: {
+    &quot;@type&quot;: &quot;Offer&quot;,
+    &quot;price&quot;: {{ product.price | money_without_currency | json }},
+    &quot;priceCurrency&quot;: {{ cart.currency.iso_code | json }},
+    &quot;availability&quot;: &quot;https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}&quot;,
+    &quot;url&quot;: {{ shop.url | append: product.url | json }}
+  },
+  &quot;aggregateRating&quot;: {
+    &quot;@type&quot;: &quot;AggregateRating&quot;,
+    &quot;ratingValue&quot;: &quot;{{ product.metafields.reviews.rating }}&quot;,
+    &quot;reviewCount&quot;: &quot;{{ product.metafields.reviews.count }}&quot;,
+    &quot;bestRating&quot;: &quot;5&quot;
+  }
+}
+&lt;/script&gt;</pre></div></details>
+<details><summary>Add <code>Organization</code> schema — theme.liquid (layout) and index.liquid / sections/main-banner.liquid</summary><div class="fix-block"><p class="sub">Paste this Liquid snippet into <code>theme.liquid (layout) and index.liquid / sections/main-banner.liquid</code> inside the <code>&lt;head&gt;</code> or near the page content:</p><pre>{% comment %} Add to theme.liquid layout (head) for homepage {% endcomment %}
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: {{ shop.name | json }},
+  &quot;url&quot;: {{ shop.url | json }},
+  &quot;logo&quot;: {{ shop.brand.logo | image_url: width: 600 | prepend: &#x27;https:&#x27; | json }},
+  &quot;sameAs&quot;: [{{ settings.social_twitter_link | json }}, {{ settings.social_facebook_link | json }}, {{ settings.social_instagram_link | json }}]
+}
+&lt;/script&gt;</pre></div></details>
+<h2>Schema Fix Priority Ranking</h2>
+<div>
+<div class="priority"><span class="rank">1</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/uv-20-lamp-sleeve-note-does-n<br><span class="sub">Missing: AggregateRating</span></span></div>
+<div class="priority"><span class="rank">2</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/pura-uv-20-two-stage-ultravio<br><span class="sub">Missing: AggregateRating</span></span></div>
+<div class="priority"><span class="rank">3</span><span class="impact-high">HIGH</span><span><strong>Homepage</strong> — https://softprowatersystems.com/<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">4</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/softpro-elite-water-softener<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">5</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/1-x-18-stainless-steel-quick-<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">6</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/5-micron-replacement-filters-<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">7</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/reverse-osmosis-system-bottom<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">8</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/premium-high-capacity-water-s<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">9</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/iron-master-iron-filter-for-w<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">10</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/softpro-elite-water-softener-<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">11</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/softpro-calcite-filter-raise-<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">12</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/whole-house-upflow-catalytic-<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">13</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/softpro-whole-house-carbon-fi<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">14</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/softpro-commercial-water-soft<br><span class="sub">Missing: properties only</span></span></div>
+<div class="priority"><span class="rank">15</span><span class="impact-high">HIGH</span><span><strong>Product Page</strong> — https://softprowatersystems.com/products/pura-uv-20-three-stage-ultra-<br><span class="sub">Missing: properties only</span></span></div>
+</div>
+
+<div class="footer">Generated by shopify_schema_auditor.py · 2026-09-09 23:27 UTC · noindex/nofollow</div>
+</div>
+</body>
+</html>
