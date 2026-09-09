@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lost Backlink Recovery Report: culligan.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  a { color: #0066cc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .generated {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
+
+  /* Summary cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .summary-card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .summary-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .summary-value {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  /* SVG chart */
+  .chart-container {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 36px;
+    overflow-x: auto;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 36px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #ffffff;
+  }
+  thead th {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #1a1a1a;
+  }
+  tr.high-value {
+    background: #fff8e1;
+  }
+  tr.high-value td {
+    border-bottom: 1px solid #ffe082;
+  }
+  tr:hover td { background: #f8f9fa; }
+  tr.high-value:hover td { background: #fff3c4; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.domain { font-weight: 600; }
+  td.url-cell { max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  td.anchor { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #555; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-recoverable { background: #e3f2fd; color: #1565c0; }
+  .badge-unrecoverable { background: #fbe9e7; color: #c62828; }
+
+  /* Details/expandable */
+  .details-toggle {
+    cursor: pointer;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+  }
+  .details-toggle:hover { text-decoration: underline; }
+  .section-toggle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .detail-content {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  .email-template {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    white-space: pre-wrap;
+    margin-top: 8px;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    color: #1a1a1a;
+  }
+
+  /* Recommendation cards */
+  .rec-card {
+    display: flex;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .rec-rank {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0066cc;
+    min-width: 40px;
+  }
+  .rec-body { flex: 1; }
+  .rec-domain {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+  .rec-meta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  .rec-anchor {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .rec-url {
+    font-size: 13px;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #999;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Lost Backlink Recovery Report</h1>
+<div class="subtitle">Domain: <strong>culligan.com</strong>
+ · Competitor: <strong>aquasana.com</strong></div>
+<div class="generated">Generated: 2026-09-08 21:24</div>
+
+<h2 class="section-title">Summary</h2>
+<div class="cards">
+    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total Lost Backlinks</div>
+      <div class="summary-value" style="color:#e74c3c;">355</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total New Backlinks</div>
+      <div class="summary-value" style="color:#27ae60;">1,915</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Net Change</div>
+      <div class="summary-value" style="color:#27ae60;">+1,560</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Recovery Opportunities</div>
+      <div class="summary-value" style="color:#f39c12;">18</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">High-Value Lost Links</div>
+      <div class="summary-value" style="color:#0066cc;">21</div>
+    </div>
+</div>
+
+<h2 class="section-title">Backlink Timeline (New vs Lost)</h2>
+<div class="chart-container">
+<svg width="900" height="300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+<rect width="900" height="300" fill="#ffffff"/>
+<line x1="60" y1="250" x2="780" y2="250" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="254" text-anchor="end" font-size="12" fill="#666">0</text>
+<line x1="60" y1="192" x2="780" y2="192" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="196" text-anchor="end" font-size="12" fill="#666">2288</text>
+<line x1="60" y1="135" x2="780" y2="135" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="139" text-anchor="end" font-size="12" fill="#666">4576</text>
+<line x1="60" y1="78" x2="780" y2="78" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="82" text-anchor="end" font-size="12" fill="#666">6864</text>
+<line x1="60" y1="20" x2="780" y2="20" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="24" text-anchor="end" font-size="12" fill="#666">9152</text>
+<text x="292" y="270" text-anchor="middle" font-size="11" fill="#666">2026-06</text>
+<rect x="336" y="209" width="40" height="41" fill="#27ae60" rx="2"><title>New: 1642 on 2026-07-31</title></rect>
+<text x="376" y="270" text-anchor="middle" font-size="11" fill="#666">2026-07</text>
+<rect x="460" y="241" width="40" height="9" fill="#e74c3c" rx="2"><title>Lost: 355 on 2026-08-31</title></rect>
+<text x="460" y="270" text-anchor="middle" font-size="11" fill="#666">2026-08</text>
+<rect x="504" y="243" width="40" height="7" fill="#27ae60" rx="2"><title>New: 273 on 2026-09-30</title></rect>
+<text x="544" y="270" text-anchor="middle" font-size="11" fill="#666">2026-09</text>
+<polyline points="292,250 376,250 460,20 544,250" fill="none" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"><title>Competitor lost backlinks</title></polyline>
+<line x1="60" y1="20" x2="60" y2="250" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="250" x2="780" y2="250" stroke="#333" stroke-width="1.5"/>
+<rect x="790" y="25" width="14" height="14" fill="#27ae60" rx="2"/>
+<text x="810" y="37" font-size="13" fill="#333">New Backlinks</text>
+<rect x="790" y="47" width="14" height="14" fill="#e74c3c" rx="2"/>
+<text x="810" y="59" font-size="13" fill="#333">Lost Backlinks</text>
+<line x1="790" y1="74" x2="804" y2="74" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="810" y="78" font-size="13" fill="#333">Competitor Lost</text>
+</svg>
+</div>
+
+
+    <h2 class="section-title">Competitor Comparison: culligan.com vs aquasana.com</h2>
+    <div class="cards">    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com Lost</div>
+      <div class="summary-value" style="color:#e74c3c;">9,152</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com New</div>
+      <div class="summary-value" style="color:#27ae60;">11,444</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com Net</div>
+      <div class="summary-value" style="color:#27ae60;">+2,292</div>
+    </div></div>
+    <details open>
+      <summary class="details-toggle section-toggle">Timeline Comparison Table</summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>culligan.com Backlinks</th>
+              <th>culligan.com New</th>
+              <th>culligan.com Lost</th>
+              <th>aquasana.com Backlinks</th>
+              <th>aquasana.com New</th>
+              <th>aquasana.com Lost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-06-30</td>
+              <td class="num">117,065</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+              <td class="num">80,633</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>2026-07-31</td>
+              <td class="num">118,707</td>
+              <td class="num">1,642</td>
+              <td class="num">0</td>
+              <td class="num">91,979</td>
+              <td class="num">11,346</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>2026-08-31</td>
+              <td class="num">118,352</td>
+              <td class="num">0</td>
+              <td class="num">355</td>
+              <td class="num">82,827</td>
+              <td class="num">0</td>
+              <td class="num">9,152</td>
+            </tr>
+            <tr>
+              <td>2026-09-30</td>
+              <td class="num">118,625</td>
+              <td class="num">273</td>
+              <td class="num">0</td>
+              <td class="num">82,925</td>
+              <td class="num">98</td>
+              <td class="num">0</td>
+            </tr></tbody>
+        </table>
+      </div>
+    </details>
+
+<h2 class="section-title">Lost Backlinks (21 total)</h2>
+<details open>
+  <summary class="details-toggle section-toggle">Show/Hide Lost Backlinks Table</summary>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Domain</th>
+          <th>Source URL</th>
+          <th>Anchor Text</th>
+          <th>Domain Strength</th>
+          <th>Lost Date</th>
+          <th>Reason</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="high-value">
+          <td class="num">1</td>
+          <td class="domain">
+            <a href="https://www.bbb.org" target="_blank" rel="noopener noindex nofollow">www.bbb.org</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://www.bbb.org/us/oh/blue-ash/profile/water-treatment-equipment/culligan-of-cincinnati-0292-704" target="_blank" rel="noopener noindex nofollow">https://www.bbb.org/us/oh/blue-ash/profile/water-treatment-equipment/culligan-of</a>
+          </td>
+          <td class="anchor">culligan.com/en-us/d/news...</td>
+          <td class="num">725</td>
+          <td class="num">2026-08-17</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/en-us/d/news/blog/) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/en-us/d/news/blog/" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/en-us/d/news/blog/</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (www.bbb.org) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/en-us/d/news/blog/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;culligan.com/en-us/d/news...&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">2</td>
+          <td class="domain">
+            <a href="https://runsignup.com" target="_blank" rel="noopener noindex nofollow">runsignup.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://runsignup.com/Race/55183/Sponsor/223078" target="_blank" rel="noopener noindex nofollow">https://runsignup.com/Race/55183/Sponsor/223078</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">594</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator/rochester-mn/22550) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator/rochester-mn/22550" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator/rochester-mn/22550</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (runsignup.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator/rochester-mn/22550
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">3</td>
+          <td class="domain">
+            <a href="https://runsignup.com" target="_blank" rel="noopener noindex nofollow">runsignup.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://runsignup.com/Race/MN/Rochester/EarthDayRun2020" target="_blank" rel="noopener noindex nofollow">https://runsignup.com/Race/MN/Rochester/EarthDayRun2020</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">594</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator/rochester-mn/22550) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator/rochester-mn/22550" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator/rochester-mn/22550</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (runsignup.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator/rochester-mn/22550
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">4</td>
+          <td class="domain">
+            <a href="https://raceroster.com" target="_blank" rel="noopener noindex nofollow">raceroster.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/leaderboards" target="_blank" rel="noopener noindex nofollow">https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/leaderboar</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">546</td>
+          <td class="num">2026-08-30</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealers/brantford-on/) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealers/brantford-on/" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealers/brantford-on/</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (raceroster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealers/brantford-on/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">5</td>
+          <td class="domain">
+            <a href="https://raceroster.com" target="_blank" rel="noopener noindex nofollow">raceroster.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/confirm" target="_blank" rel="noopener noindex nofollow">https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/confirm</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">546</td>
+          <td class="num">2026-08-30</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealers/brantford-on/) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealers/brantford-on/" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealers/brantford-on/</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (raceroster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealers/brantford-on/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">6</td>
+          <td class="domain">
+            <a href="https://raceroster.com" target="_blank" rel="noopener noindex nofollow">raceroster.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021" target="_blank" rel="noopener noindex nofollow">https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">545</td>
+          <td class="num">2026-08-13</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealers/brantford-on/) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealers/brantford-on/" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealers/brantford-on/</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (raceroster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealers/brantford-on/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">7</td>
+          <td class="domain">
+            <a href="https://forum.mobilehomeuniversity.com" target="_blank" rel="noopener noindex nofollow">forum.mobilehomeuniversity.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://forum.mobilehomeuniversity.com/t/whole-house-water-filter-system-help/19339" target="_blank" rel="noopener noindex nofollow">https://forum.mobilehomeuniversity.com/t/whole-house-water-filter-system-help/19</a>
+          </td>
+          <td class="anchor">https://www.culligan.com/home/solution-center/reso</td>
+          <td class="num">537</td>
+          <td class="num">2026-08-31</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-water-and-reduce-the-rotten-eg) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-water-and-reduce-the-rotten-eg" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-wate</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (forum.mobilehomeuniversity.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-water-and-reduce-the-rotten-eg
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-water-and-reduce-the-rotten-eg&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">8</td>
+          <td class="domain">
+            <a href="https://knoxcountychamber.chambermaster.com" target="_blank" rel="noopener noindex nofollow">knoxcountychamber.chambermaster.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="http://knoxcountychamber.chambermaster.com/list/member/culligan-water-213.htm" target="_blank" rel="noopener noindex nofollow">http://knoxcountychamber.chambermaster.com/list/member/culligan-water-213.htm</a>
+          </td>
+          <td class="anchor">Visit Website</td>
+          <td class="num">526</td>
+          <td class="num">2026-08-20</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator/vincennes-in/13910) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator/vincennes-in/13910" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator/vincennes-in/13910</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (knoxcountychamber.chambermaster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator/vincennes-in/13910
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Visit Website&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">9</td>
+          <td class="domain">
+            <a href="https://thebuildermarket.com" target="_blank" rel="noopener noindex nofollow">thebuildermarket.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://thebuildermarket.com/us/nj/glassboro/water-treatment-system" target="_blank" rel="noopener noindex nofollow">https://thebuildermarket.com/us/nj/glassboro/water-treatment-system</a>
+          </td>
+          <td class="anchor">Website</td>
+          <td class="num">507</td>
+          <td class="num">2026-08-20</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/en-us/d/appointment/dealer-results/?zipcode=08094) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/en-us/d/appointment/dealer-results/?zipcode=08094" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/en-us/d/appointment/dealer-results/?zipcode=08094</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (thebuildermarket.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/en-us/d/appointment/dealer-results/?zipcode=08094
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Website&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">10</td>
+          <td class="domain">
+            <a href="https://www.acciyo.com" target="_blank" rel="noopener noindex nofollow">www.acciyo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://www.acciyo.com/countrysidefuel-com-review/" target="_blank" rel="noopener noindex nofollow">https://www.acciyo.com/countrysidefuel-com-review/</a>
+          </td>
+          <td class="anchor">Culligan</td>
+          <td class="num">471</td>
+          <td class="num">2026-08-29</td>
+          <td><span class="badge badge-unrecoverable">Domain Expired / Unreachable</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Could not reach www.acciyo.com. Domain may have expired or server is down.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/s?k=whole+home+water+filtration" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/s?k=whole+home+water+filtration</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> No</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (www.acciyo.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/s?k=whole+home+water+filtration
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Culligan&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">11</td>
+          <td class="domain">
+            <a href="https://community.goodsam.com" target="_blank" rel="noopener noindex nofollow">community.goodsam.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://community.goodsam.com/discussions/fifthwheelforum-board/simple-chuck/3013784" target="_blank" rel="noopener noindex nofollow">https://community.goodsam.com/discussions/fifthwheelforum-board/simple-chuck/301</a>
+          </td>
+          <td class="anchor">Culligan</td>
+          <td class="num">470</td>
+          <td class="num">2026-08-27</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/commercial/products-and-solutions/deionization-solutions/automatic-water-deionization) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/commercial/products-and-solutions/deionization-solutions/automatic-water-deionization" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/commercial/products-and-solutions/deionization-solution</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (community.goodsam.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/commercial/products-and-solutions/deionization-solutions/automatic-water-deionization
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Culligan&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">12</td>
+          <td class="domain">
+            <a href="https://www.datainsightsmarket.com" target="_blank" rel="noopener noindex nofollow">www.datainsightsmarket.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://www.datainsightsmarket.com/reports/water-purifiers-59788" target="_blank" rel="noopener noindex nofollow">https://www.datainsightsmarket.com/reports/water-purifiers-59788</a>
+          </td>
+          <td class="anchor">Culligan Water Launches New Disinfection System</td>
+          <td class="num">468</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/news-room/culligan-water-launches-new-disinfection-system-for-large-buildings/) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/news-room/culligan-water-launches-new-disinfection-system-for-large-buildings/" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/news-room/culligan-water-launches-new-disinfection-syst</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (www.datainsightsmarket.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/news-room/culligan-water-launches-new-disinfection-system-for-large-buildings/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Culligan Water Launches New Disinfection System&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">13</td>
+          <td class="domain">
+            <a href="https://www.freedoniagroup.com" target="_blank" rel="noopener noindex nofollow">www.freedoniagroup.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://www.freedoniagroup.com/blog/smart-tech-trends-reinvigorating-the-consumer-water-treatment-systems-market" target="_blank" rel="noopener noindex nofollow">https://www.freedoniagroup.com/blog/smart-tech-trends-reinvigorating-the-consume</a>
+          </td>
+          <td class="anchor">ClearLink PRO</td>
+          <td class="num">428</td>
+          <td class="num">2026-08-29</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/home/water-filtration/drinking-water-systems/clearlink-pro) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/home/water-filtration/drinking-water-systems/clearlink-pro" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/home/water-filtration/drinking-water-systems/clearlink-</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (www.freedoniagroup.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/home/water-filtration/drinking-water-systems/clearlink-pro
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;ClearLink PRO&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">14</td>
+          <td class="domain">
+            <a href="https://stylebyemilyhenderson.com" target="_blank" rel="noopener noindex nofollow">stylebyemilyhenderson.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://stylebyemilyhenderson.com/backyard-summer-snow-cone-soiree" target="_blank" rel="noopener noindex nofollow">https://stylebyemilyhenderson.com/backyard-summer-snow-cone-soiree</a>
+          </td>
+          <td class="anchor">Culligan’s High-Efficiency Water Softening System </td>
+          <td class="num">413</td>
+          <td class="num">2026-08-27</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/home/water-softening/water-softeners) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/home/water-softening/water-softeners" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/home/water-softening/water-softeners</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (stylebyemilyhenderson.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/home/water-softening/water-softeners
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Culligan’s High-Efficiency Water Softening System and Reverse Osmosis&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">15</td>
+          <td class="domain">
+            <a href="https://991thewhale.com" target="_blank" rel="noopener noindex nofollow">991thewhale.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://991thewhale.com/5-reasons-culligan/" target="_blank" rel="noopener noindex nofollow">https://991thewhale.com/5-reasons-culligan/</a>
+          </td>
+          <td class="anchor">bottleless coolers</td>
+          <td class="num">288</td>
+          <td class="num">2026-08-18</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/product/bottle-free-water-cooler-systems) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/product/bottle-free-water-cooler-systems" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/product/bottle-free-water-cooler-systems</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (991thewhale.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/product/bottle-free-water-cooler-systems
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;bottleless coolers&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">16</td>
+          <td class="domain">
+            <a href="https://quenchwater.com" target="_blank" rel="noopener noindex nofollow">quenchwater.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://quenchwater.com/press-release/nearly-80-percent-working-americans-say-dont-drink-enough-water-quench-survey" target="_blank" rel="noopener noindex nofollow">https://quenchwater.com/press-release/nearly-80-percent-working-americans-say-do</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">279</td>
+          <td class="num">2026-08-29</td>
+          <td><span class="badge badge-unrecoverable">Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page returns 404. The page containing the link no longer exists.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://quench.culligan.com/press-release/nearly-80-percent-working-americans-say-dont-drink-enough-water-quench-survey" target="_blank" rel="noopener noindex nofollow">https://quench.culligan.com/press-release/nearly-80-percent-working-americans-sa</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> No</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (quenchwater.com) is no longer working. The link previously pointed to:
+
+https://quench.culligan.com/press-release/nearly-80-percent-working-americans-say-dont-drink-enough-water-quench-survey
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">17</td>
+          <td class="domain">
+            <a href="https://quenchwater.com" target="_blank" rel="noopener noindex nofollow">quenchwater.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://quenchwater.com/lp/ppc/office-water-cooler-rental-v5/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=search-water-cst&amp;utm_term=office%252520water%252520coolers&amp;countrycode=us&amp;device=c&amp;_bt=552896916668&amp;_bk=office%252520water%252520coolers&amp;_bm=b&amp;_bn=g&amp;_bg=118988578965&amp;gclid=CjwKCAiAm7OMBhAQEiwArvGi3F3QNzViPf5Zf5qoYaHTgjnPlSIgEbp9C8Hm5ADKsbodl2InvsgIsRoC81oQAvD_BwE" target="_blank" rel="noopener noindex nofollow">https://quenchwater.com/lp/ppc/office-water-cooler-rental-v5/?utm_source=google&amp;</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">279</td>
+          <td class="num">2026-08-17</td>
+          <td><span class="badge badge-unrecoverable">Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page returns 404. The page containing the link no longer exists.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://quench.culligan.com/lp/ppc/office-water-cooler-rental-v5/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=search-water-cst&amp;utm_term=office%252520water%252520coolers&amp;countrycode=us&amp;device=c&amp;_bt=552896916668&amp;_bk=office%252520water%252520coolers&amp;_bm=b&amp;_bn=g&amp;_bg=118988578965&amp;gclid=CjwKCAiAm7OMBhAQEiwArvGi3F3QNzViPf5Zf5qoYaHTgjnPlSIgEbp9C8Hm5ADKsbodl2InvsgIsRoC81oQAvD_BwE" target="_blank" rel="noopener noindex nofollow">https://quench.culligan.com/lp/ppc/office-water-cooler-rental-v5/?utm_source=goo</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> No</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (quenchwater.com) is no longer working. The link previously pointed to:
+
+https://quench.culligan.com/lp/ppc/office-water-cooler-rental-v5/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=search-water-cst&amp;utm_term=office%252520water%252520coolers&amp;countrycode=us&amp;device=c&amp;_bt=552896916668&amp;_bk=office%252520water%252520coolers&amp;_bm=b&amp;_bn=g&amp;_bg=118988578965&amp;gclid=CjwKCAiAm7OMBhAQEiwArvGi3F3QNzViPf5Zf5qoYaHTgjnPlSIgEbp9C8Hm5ADKsbodl2InvsgIsRoC81oQAvD_BwE
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">18</td>
+          <td class="domain">
+            <a href="https://culliganfrontroyal.com" target="_blank" rel="noopener noindex nofollow">culliganfrontroyal.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://culliganfrontroyal.com/thank-you/" target="_blank" rel="noopener noindex nofollow">https://culliganfrontroyal.com/thank-you/</a>
+          </td>
+          <td class="anchor">www.culligan.com</td>
+          <td class="num">276</td>
+          <td class="num">2026-08-23</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (culliganfrontroyal.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;www.culligan.com&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">19</td>
+          <td class="domain">
+            <a href="https://culliganfrontroyal.com" target="_blank" rel="noopener noindex nofollow">culliganfrontroyal.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://culliganfrontroyal.com/contact-us/" target="_blank" rel="noopener noindex nofollow">https://culliganfrontroyal.com/contact-us/</a>
+          </td>
+          <td class="anchor">www.culligan.com</td>
+          <td class="num">276</td>
+          <td class="num">2026-08-23</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (culliganfrontroyal.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;www.culligan.com&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">20</td>
+          <td class="domain">
+            <a href="https://culliganfrontroyal.com" target="_blank" rel="noopener noindex nofollow">culliganfrontroyal.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://culliganfrontroyal.com/membership/" target="_blank" rel="noopener noindex nofollow">https://culliganfrontroyal.com/membership/</a>
+          </td>
+          <td class="anchor">www.culligan.com</td>
+          <td class="num">276</td>
+          <td class="num">2026-08-23</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (culliganfrontroyal.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;www.culligan.com&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">21</td>
+          <td class="domain">
+            <a href="https://culliganfrontroyal.com" target="_blank" rel="noopener noindex nofollow">culliganfrontroyal.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://culliganfrontroyal.com/" target="_blank" rel="noopener noindex nofollow">https://culliganfrontroyal.com/</a>
+          </td>
+          <td class="anchor">www.culligan.com</td>
+          <td class="num">276</td>
+          <td class="num">2026-08-23</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.culligan.com/dealer-locator) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.culligan.com/dealer-locator" target="_blank" rel="noopener noindex nofollow">https://www.culligan.com/dealer-locator</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (culliganfrontroyal.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;www.culligan.com&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<h2 class="section-title">Recovery Recommendations</h2>
+
+        <div class="rec-card">
+          <div class="rec-rank">#1</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://www.bbb.org" target="_blank" rel="noopener noindex nofollow">www.bbb.org</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>725</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-17</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;culligan.com/en-us/d/news...&quot;</div>
+            <div class="rec-url"><a href="https://www.bbb.org/us/oh/blue-ash/profile/water-treatment-equipment/culligan-of-cincinnati-0292-704" target="_blank" rel="noopener noindex nofollow">https://www.bbb.org/us/oh/blue-ash/profile/water-treatment-equipment/culligan-of-cincinnati-0292-704</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (www.bbb.org) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/en-us/d/news/blog/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;culligan.com/en-us/d/news...&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#2</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://runsignup.com" target="_blank" rel="noopener noindex nofollow">runsignup.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>594</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://runsignup.com/Race/55183/Sponsor/223078" target="_blank" rel="noopener noindex nofollow">https://runsignup.com/Race/55183/Sponsor/223078</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (runsignup.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator/rochester-mn/22550
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#3</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://runsignup.com" target="_blank" rel="noopener noindex nofollow">runsignup.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>594</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://runsignup.com/Race/MN/Rochester/EarthDayRun2020" target="_blank" rel="noopener noindex nofollow">https://runsignup.com/Race/MN/Rochester/EarthDayRun2020</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (runsignup.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator/rochester-mn/22550
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#4</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://raceroster.com" target="_blank" rel="noopener noindex nofollow">raceroster.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>546</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-30</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/leaderboards" target="_blank" rel="noopener noindex nofollow">https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/leaderboards</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (raceroster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealers/brantford-on/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#5</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://raceroster.com" target="_blank" rel="noopener noindex nofollow">raceroster.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>546</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-30</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/confirm" target="_blank" rel="noopener noindex nofollow">https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021/confirm</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (raceroster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealers/brantford-on/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#6</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://raceroster.com" target="_blank" rel="noopener noindex nofollow">raceroster.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>545</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-13</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021" target="_blank" rel="noopener noindex nofollow">https://raceroster.com/events/2021/37850/charity-motorcycle-ride-2021</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (raceroster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealers/brantford-on/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#7</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://forum.mobilehomeuniversity.com" target="_blank" rel="noopener noindex nofollow">forum.mobilehomeuniversity.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>537</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-31</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-wate&quot;</div>
+            <div class="rec-url"><a href="https://forum.mobilehomeuniversity.com/t/whole-house-water-filter-system-help/19339" target="_blank" rel="noopener noindex nofollow">https://forum.mobilehomeuniversity.com/t/whole-house-water-filter-system-help/19339</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (forum.mobilehomeuniversity.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-water-and-reduce-the-rotten-eg
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;https://www.culligan.com/home/solution-center/resources/how-to-treat-sulfur-water-and-reduce-the-rotten-eg&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#8</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://knoxcountychamber.chambermaster.com" target="_blank" rel="noopener noindex nofollow">knoxcountychamber.chambermaster.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>526</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-20</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Visit Website&quot;</div>
+            <div class="rec-url"><a href="http://knoxcountychamber.chambermaster.com/list/member/culligan-water-213.htm" target="_blank" rel="noopener noindex nofollow">http://knoxcountychamber.chambermaster.com/list/member/culligan-water-213.htm</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (knoxcountychamber.chambermaster.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/dealer-locator/vincennes-in/13910
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Visit Website&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#9</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://thebuildermarket.com" target="_blank" rel="noopener noindex nofollow">thebuildermarket.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>507</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-20</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Website&quot;</div>
+            <div class="rec-url"><a href="https://thebuildermarket.com/us/nj/glassboro/water-treatment-system" target="_blank" rel="noopener noindex nofollow">https://thebuildermarket.com/us/nj/glassboro/water-treatment-system</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (thebuildermarket.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/en-us/d/appointment/dealer-results/?zipcode=08094
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Website&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#10</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://community.goodsam.com" target="_blank" rel="noopener noindex nofollow">community.goodsam.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>470</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-27</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Culligan&quot;</div>
+            <div class="rec-url"><a href="https://community.goodsam.com/discussions/fifthwheelforum-board/simple-chuck/3013784" target="_blank" rel="noopener noindex nofollow">https://community.goodsam.com/discussions/fifthwheelforum-board/simple-chuck/3013784</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to culligan.com on your site
+
+Hi there,
+
+I noticed that the link to culligan.com on your page (community.goodsam.com) is no longer working. The link previously pointed to:
+
+https://www.culligan.com/commercial/products-and-solutions/deionization-solutions/automatic-water-deionization
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Culligan&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+
+<div class="footer">
+  <p>Report generated by Zenfusion Lost Backlink Recovery Tool</p>
+  <p>Data source: DataForSEO Backlinks API · Generated: 2026-09-08 21:24</p>
+</div>
+
+</body>
+</html>

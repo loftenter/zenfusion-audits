@@ -1,0 +1,3524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lost Backlink Recovery Report: softprowatersystems.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  a { color: #0066cc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .generated {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
+
+  /* Summary cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .summary-card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .summary-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .summary-value {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  /* SVG chart */
+  .chart-container {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 36px;
+    overflow-x: auto;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 36px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #ffffff;
+  }
+  thead th {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #1a1a1a;
+  }
+  tr.high-value {
+    background: #fff8e1;
+  }
+  tr.high-value td {
+    border-bottom: 1px solid #ffe082;
+  }
+  tr:hover td { background: #f8f9fa; }
+  tr.high-value:hover td { background: #fff3c4; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.domain { font-weight: 600; }
+  td.url-cell { max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  td.anchor { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #555; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-recoverable { background: #e3f2fd; color: #1565c0; }
+  .badge-unrecoverable { background: #fbe9e7; color: #c62828; }
+
+  /* Details/expandable */
+  .details-toggle {
+    cursor: pointer;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+  }
+  .details-toggle:hover { text-decoration: underline; }
+  .section-toggle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .detail-content {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  .email-template {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    white-space: pre-wrap;
+    margin-top: 8px;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    color: #1a1a1a;
+  }
+
+  /* Recommendation cards */
+  .rec-card {
+    display: flex;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .rec-rank {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0066cc;
+    min-width: 40px;
+  }
+  .rec-body { flex: 1; }
+  .rec-domain {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+  .rec-meta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  .rec-anchor {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .rec-url {
+    font-size: 13px;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #999;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Lost Backlink Recovery Report</h1>
+<div class="subtitle">Domain: <strong>softprowatersystems.com</strong>
+ · Competitor: <strong>aquasana.com</strong></div>
+<div class="generated">Generated: 2026-09-08 21:22</div>
+
+<h2 class="section-title">Summary</h2>
+<div class="cards">
+    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total Lost Backlinks</div>
+      <div class="summary-value" style="color:#e74c3c;">0</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total New Backlinks</div>
+      <div class="summary-value" style="color:#27ae60;">53,513</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Net Change</div>
+      <div class="summary-value" style="color:#27ae60;">+53,513</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Recovery Opportunities</div>
+      <div class="summary-value" style="color:#f39c12;">59</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">High-Value Lost Links</div>
+      <div class="summary-value" style="color:#0066cc;">62</div>
+    </div>
+</div>
+
+<h2 class="section-title">Backlink Timeline (New vs Lost)</h2>
+<div class="chart-container">
+<svg width="900" height="300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+<rect width="900" height="300" fill="#ffffff"/>
+<line x1="60" y1="250" x2="780" y2="250" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="254" text-anchor="end" font-size="12" fill="#666">0</text>
+<line x1="60" y1="192" x2="780" y2="192" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="196" text-anchor="end" font-size="12" fill="#666">9286</text>
+<line x1="60" y1="135" x2="780" y2="135" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="139" text-anchor="end" font-size="12" fill="#666">18573</text>
+<line x1="60" y1="78" x2="780" y2="78" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="82" text-anchor="end" font-size="12" fill="#666">27860</text>
+<line x1="60" y1="20" x2="780" y2="20" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="24" text-anchor="end" font-size="12" fill="#666">37147</text>
+<text x="292" y="270" text-anchor="middle" font-size="11" fill="#666">2026-06</text>
+<rect x="336" y="158" width="40" height="92" fill="#27ae60" rx="2"><title>New: 14889 on 2026-07-31</title></rect>
+<text x="376" y="270" text-anchor="middle" font-size="11" fill="#666">2026-07</text>
+<rect x="420" y="20" width="40" height="230" fill="#27ae60" rx="2"><title>New: 37147 on 2026-08-31</title></rect>
+<text x="460" y="270" text-anchor="middle" font-size="11" fill="#666">2026-08</text>
+<rect x="504" y="241" width="40" height="9" fill="#27ae60" rx="2"><title>New: 1477 on 2026-09-30</title></rect>
+<text x="544" y="270" text-anchor="middle" font-size="11" fill="#666">2026-09</text>
+<polyline points="292,250 376,250 460,193 544,250" fill="none" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"><title>Competitor lost backlinks</title></polyline>
+<line x1="60" y1="20" x2="60" y2="250" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="250" x2="780" y2="250" stroke="#333" stroke-width="1.5"/>
+<rect x="790" y="25" width="14" height="14" fill="#27ae60" rx="2"/>
+<text x="810" y="37" font-size="13" fill="#333">New Backlinks</text>
+<rect x="790" y="47" width="14" height="14" fill="#e74c3c" rx="2"/>
+<text x="810" y="59" font-size="13" fill="#333">Lost Backlinks</text>
+<line x1="790" y1="74" x2="804" y2="74" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="810" y="78" font-size="13" fill="#333">Competitor Lost</text>
+</svg>
+</div>
+
+
+    <h2 class="section-title">Competitor Comparison: softprowatersystems.com vs aquasana.com</h2>
+    <div class="cards">    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com Lost</div>
+      <div class="summary-value" style="color:#e74c3c;">9,152</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com New</div>
+      <div class="summary-value" style="color:#27ae60;">11,444</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com Net</div>
+      <div class="summary-value" style="color:#27ae60;">+2,292</div>
+    </div></div>
+    <details open>
+      <summary class="details-toggle section-toggle">Timeline Comparison Table</summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>softprowatersystems.com Backlinks</th>
+              <th>softprowatersystems.com New</th>
+              <th>softprowatersystems.com Lost</th>
+              <th>aquasana.com Backlinks</th>
+              <th>aquasana.com New</th>
+              <th>aquasana.com Lost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-06-30</td>
+              <td class="num">34,037</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+              <td class="num">80,633</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>2026-07-31</td>
+              <td class="num">48,926</td>
+              <td class="num">14,889</td>
+              <td class="num">0</td>
+              <td class="num">91,979</td>
+              <td class="num">11,346</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>2026-08-31</td>
+              <td class="num">86,073</td>
+              <td class="num">37,147</td>
+              <td class="num">0</td>
+              <td class="num">82,827</td>
+              <td class="num">0</td>
+              <td class="num">9,152</td>
+            </tr>
+            <tr>
+              <td>2026-09-30</td>
+              <td class="num">87,550</td>
+              <td class="num">1,477</td>
+              <td class="num">0</td>
+              <td class="num">82,925</td>
+              <td class="num">98</td>
+              <td class="num">0</td>
+            </tr></tbody>
+        </table>
+      </div>
+    </details>
+
+<h2 class="section-title">Lost Backlinks (62 total)</h2>
+<details open>
+  <summary class="details-toggle section-toggle">Show/Hide Lost Backlinks Table</summary>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Domain</th>
+          <th>Source URL</th>
+          <th>Anchor Text</th>
+          <th>Domain Strength</th>
+          <th>Lost Date</th>
+          <th>Reason</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="high-value">
+          <td class="num">1</td>
+          <td class="domain">
+            <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://daltonpecs754.lowescouponn.com/softpro-catalytic-bone-char-carbon-filter-review-3" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-catalytic-bone-char-carbon-filter</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">2</td>
+          <td class="domain">
+            <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://daltonpecs754.lowescouponn.com/whole-house-catalytic-bone-char-carbon-filter-review-real-results-1" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/whole-house-catalytic-bone-char-carbon-fi</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">3</td>
+          <td class="domain">
+            <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://daltonpecs754.lowescouponn.com/softpro-eco-city-water-softener-review-real-performance-test-2" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-eco-city-water-softener-review-re</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">4</td>
+          <td class="domain">
+            <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://daltonpecs754.lowescouponn.com/softpro-bone-char-carbon-filter-review-real-homeowner-results" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-bone-char-carbon-filter-review-re</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">5</td>
+          <td class="domain">
+            <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://daltonpecs754.lowescouponn.com/softpro-whole-house-catalytic-bone-char-carbon-filter-review-6" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-whole-house-catalytic-bone-char-c</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">6</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-bone-char-carbon-filter-review-real-results-15" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-bone-char-carbon-filter-</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">7</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-review-real-user-experience-9" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-revi</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">8</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-filter-review-23" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carb</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">9</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-30-day-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-30-day-rea</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">10</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-water-filter-review-27" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carb</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">11</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-well-water-results-after-1-month" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-well-</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">12</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filter-review-real-user-1" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filt</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">13</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-review-real-results-2" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-revi</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">14</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/my-honest-softpro-eco-water-softener-review-after-8-months" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/my-honest-softpro-eco-water-softener</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">15</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-whole-house-carbon-filter-review-real-installation" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-whole-house-carbon-filter-re</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">16</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-iron-master-aio-iron-filter-review-removes-77-ppm" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-iron-master-aio-iron-filter-</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">17</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-results-for-well-water-problems" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-resul</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">18</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filter-honest-review-3" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filt</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">19</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-my-well-water-transformation-1" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-my-we</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">20</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-tampa-homeowner-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-ta</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">21</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-well-water-filter-review-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-well-water-filter-review</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">22</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-aio-iron-filter-review-real-performance-results" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-aio-iron-filter-review-r</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">23</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-real-results-from-california-user" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-real-</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">24</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-real-results-from-la" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-re</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">25</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-elite-water-softener-well-water-review-real-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-elite-water-softener-well-wa</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">26</td>
+          <td class="domain">
+            <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-filter-review-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-filter-rev</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">27</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-water-filter-review-3" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-water-fi</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">28</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-user-experience-27" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-use</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">29</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/softpro-iron-master-filter-review-real-results-after-6-months" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-iron-master-filter-review-real-results-</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">30</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/honest-softpro-catalytic-bone-char-carbon-water-filter-review" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/honest-softpro-catalytic-bone-char-carbon-water</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">31</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/softpro-elite-water-softener-review-20-years-of-smelly-water-fixed" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-elite-water-softener-review-20-years-of</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">32</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-user-experience-19" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-use</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">33</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-user-experience-14" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-use</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">34</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-review-32" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-r</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">35</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/softpro-eco-water-softener-review-real-oregon-homeowner" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-water-softener-review-real-oregon-h</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">36</td>
+          <td class="domain">
+            <a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-review-41" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-r</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (kameronjbxe299.wpsuo.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">37</td>
+          <td class="domain">
+            <a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://deanffrg528.huicopper.com/whole-house-bone-char-carbon-filter-review-real-results-3" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/whole-house-bone-char-carbon-filter-review-rea</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (deanffrg528.huicopper.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">38</td>
+          <td class="domain">
+            <a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://deanffrg528.huicopper.com/softpro-eco-city-water-softener-review-real-results-from-indiana" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/softpro-eco-city-water-softener-review-real-re</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (deanffrg528.huicopper.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">39</td>
+          <td class="domain">
+            <a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://deanffrg528.huicopper.com/whole-house-catalytic-bone-char-carbon-filter-review-26" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/whole-house-catalytic-bone-char-carbon-filter-</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (deanffrg528.huicopper.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">40</td>
+          <td class="domain">
+            <a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://deanffrg528.huicopper.com/iron-master-filter-review-real-results-for-well-water-problems" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/iron-master-filter-review-real-results-for-wel</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td class="num">2026-08-10</td>
+          <td><span class="badge badge-recoverable">Broken Backlink</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Backlink flagged as broken. Page status: 403, target status: 403.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (deanffrg528.huicopper.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">41</td>
+          <td class="domain">
+            <a href="https://gogs.unicraft.org" target="_blank" rel="noopener noindex nofollow">gogs.unicraft.org</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://gogs.unicraft.org/cristinamccray/softpro-water-systems2226/wiki/My+SoftPro+Elite+HE+Review+Honest+City+Water+Results" target="_blank" rel="noopener noindex nofollow">https://gogs.unicraft.org/cristinamccray/softpro-water-systems2226/wiki/My+SoftP</a>
+          </td>
+          <td class="anchor">—</td>
+          <td class="num">364</td>
+          <td class="num">2026-08-24</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (gogs.unicraft.org) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;—&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">42</td>
+          <td class="domain">
+            <a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://milisto.com/read-blog/51881_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/51881_my-softpro-elite-he-review-honest-city-water</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">336</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (milisto.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">43</td>
+          <td class="domain">
+            <a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://milisto.com/read-blog/51896_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/51896_my-softpro-elite-he-review-honest-city-water</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">336</td>
+          <td class="num">2026-08-26</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (milisto.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">44</td>
+          <td class="domain">
+            <a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://qualitywatertreatment.com/products/softpro-eco-well-water-softener" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/products/softpro-eco-well-water-softener</a>
+          </td>
+          <td class="anchor">use calculator</td>
+          <td class="num">326</td>
+          <td class="num">2026-08-30</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (qualitywatertreatment.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;use calculator&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">45</td>
+          <td class="domain">
+            <a href="https://africa2063.iambrandsdev.com" target="_blank" rel="noopener noindex nofollow">africa2063.iambrandsdev.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="http://africa2063.iambrandsdev.com/read-blog/21738_my-brutal-softpro-elite-he-water-softener-review-6-months-later.html" target="_blank" rel="noopener noindex nofollow">http://africa2063.iambrandsdev.com/read-blog/21738_my-brutal-softpro-elite-he-wa</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">271</td>
+          <td class="num">2026-08-31</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (africa2063.iambrandsdev.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">46</td>
+          <td class="domain">
+            <a href="https://africa2063.iambrandsdev.com" target="_blank" rel="noopener noindex nofollow">africa2063.iambrandsdev.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="http://africa2063.iambrandsdev.com/read-blog/21750_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">http://africa2063.iambrandsdev.com/read-blog/21750_my-softpro-elite-he-review-ho</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">271</td>
+          <td class="num">2026-08-31</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (africa2063.iambrandsdev.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">47</td>
+          <td class="domain">
+            <a href="https://socialpoint.ch" target="_blank" rel="noopener noindex nofollow">socialpoint.ch</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://socialpoint.ch/read-blog/6588_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://socialpoint.ch/read-blog/6588_my-softpro-elite-he-review-honest-city-wat</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">271</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-unrecoverable">Domain Expired / Unreachable</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Could not reach socialpoint.ch. Domain may have expired or server is down.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> No</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (socialpoint.ch) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">48</td>
+          <td class="domain">
+            <a href="https://africa2063.iambrandsdev.com" target="_blank" rel="noopener noindex nofollow">africa2063.iambrandsdev.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="http://africa2063.iambrandsdev.com/read-blog/21648_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">http://africa2063.iambrandsdev.com/read-blog/21648_my-softpro-elite-he-review-ho</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">270</td>
+          <td class="num">2026-08-18</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link to your site is no longer present. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (africa2063.iambrandsdev.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">49</td>
+          <td class="domain">
+            <a href="https://socialpoint.ch" target="_blank" rel="noopener noindex nofollow">socialpoint.ch</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://socialpoint.ch/read-blog/6429_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://socialpoint.ch/read-blog/6429_my-softpro-elite-he-review-honest-city-wat</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">269</td>
+          <td class="num">2026-08-26</td>
+          <td><span class="badge badge-unrecoverable">Domain Expired / Unreachable</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Could not reach socialpoint.ch. Domain may have expired or server is down.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> No</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (socialpoint.ch) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">50</td>
+          <td class="domain">
+            <a href="https://socialpoint.ch" target="_blank" rel="noopener noindex nofollow">socialpoint.ch</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://socialpoint.ch/read-blog/6444_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://socialpoint.ch/read-blog/6444_my-softpro-elite-he-review-honest-city-wat</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">269</td>
+          <td class="num">2026-08-26</td>
+          <td><span class="badge badge-unrecoverable">Domain Expired / Unreachable</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Could not reach socialpoint.ch. Domain may have expired or server is down.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> No</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (socialpoint.ch) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">51</td>
+          <td class="domain">
+            <a href="https://socialpoint.ch" target="_blank" rel="noopener noindex nofollow">socialpoint.ch</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://socialpoint.ch/read-blog/6449_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://socialpoint.ch/read-blog/6449_my-softpro-elite-he-review-honest-city-wat</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">265</td>
+          <td class="num">2026-08-16</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (socialpoint.ch) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">52</td>
+          <td class="domain">
+            <a href="https://networking.dnake.ma" target="_blank" rel="noopener noindex nofollow">networking.dnake.ma</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://networking.dnake.ma/read-blog/26982_softpro-elite-he-water-softener-review-my-city-water-solution.html" target="_blank" rel="noopener noindex nofollow">https://networking.dnake.ma/read-blog/26982_softpro-elite-he-water-softener-revi</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">242</td>
+          <td class="num">2026-08-14</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (networking.dnake.ma) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">53</td>
+          <td class="domain">
+            <a href="https://wiki.mpsav.com" target="_blank" rel="noopener noindex nofollow">wiki.mpsav.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://wiki.mpsav.com/MorganohKatescu" target="_blank" rel="noopener noindex nofollow">https://wiki.mpsav.com/MorganohKatescu</a>
+          </td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/best-flu</td>
+          <td class="num">206</td>
+          <td class="num">2026-09-03</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.softprowatersystems.com/pages/best-fluoride-filters-for) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.softprowatersystems.com/pages/best-fluoride-filters-for" target="_blank" rel="noopener noindex nofollow">https://www.softprowatersystems.com/pages/best-fluoride-filters-for</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (wiki.mpsav.com) is no longer working. The link previously pointed to:
+
+https://www.softprowatersystems.com/pages/best-fluoride-filters-for
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;https://www.softprowatersystems.com/pages/best-fluoride-filters-for&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">54</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/64_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/64_my-softpro-elite-he-review-honest-city-water-re</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">55</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/47_i-installed-this-softpro-elite-he-system-and-was-blown-away-review.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/47_i-installed-this-softpro-elite-he-system-and-wa</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">56</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/49_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/49_my-softpro-elite-he-review-honest-city-water-re</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">57</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/38_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/38_my-softpro-elite-he-review-honest-city-water-re</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">58</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/70_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/70_my-softpro-elite-he-review-honest-city-water-re</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">59</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/32_softpro-elite-he-water-softener-review-what-18-months-really-taught-me.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/32_softpro-elite-he-water-softener-review-what-18-</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">60</td>
+          <td class="domain">
+            <a href="https://payctro.com" target="_blank" rel="noopener noindex nofollow">payctro.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://payctro.com/read-blog/23_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://payctro.com/read-blog/23_my-softpro-elite-he-review-honest-city-water-re</a>
+          </td>
+          <td class="anchor">&gt;</td>
+          <td class="num">195</td>
+          <td class="num">2026-08-15</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;ut</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (payctro.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;&gt;&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">61</td>
+          <td class="domain">
+            <a href="https://fnnnews.in" target="_blank" rel="noopener noindex nofollow">fnnnews.in</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://fnnnews.in/sports/new-zealand-register/" target="_blank" rel="noopener noindex nofollow">https://fnnnews.in/sports/new-zealand-register/</a>
+          </td>
+          <td class="anchor">Houston McMurray</td>
+          <td class="num">150</td>
+          <td class="num">2026-09-08</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.softprowatersystems.com/pages/reverse-osmosis-fluoride-filtration-truth-revealedd) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.softprowatersystems.com/pages/reverse-osmosis-fluoride-filtration-truth-revealedd" target="_blank" rel="noopener noindex nofollow">https://www.softprowatersystems.com/pages/reverse-osmosis-fluoride-filtration-tr</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (fnnnews.in) is no longer working. The link previously pointed to:
+
+https://www.softprowatersystems.com/pages/reverse-osmosis-fluoride-filtration-truth-revealedd
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Houston McMurray&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">62</td>
+          <td class="domain">
+            <a href="https://myhomewaterfilter.com" target="_blank" rel="noopener noindex nofollow">myhomewaterfilter.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://myhomewaterfilter.com/pages/sitemap/whole-house-water-filter" target="_blank" rel="noopener noindex nofollow">https://myhomewaterfilter.com/pages/sitemap/whole-house-water-filter</a>
+          </td>
+          <td class="anchor">Size Your Softener</td>
+          <td class="num">126</td>
+          <td class="num">2026-09-04</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Referring page is live (200 OK) but the link is broken. Link may have been removed. Outreach recommended.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://calc.softprowatersystems.com/" target="_blank" rel="noopener noindex nofollow">https://calc.softprowatersystems.com/</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (myhomewaterfilter.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Size Your Softener&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<h2 class="section-title">Recovery Recommendations</h2>
+
+        <div class="rec-card">
+          <div class="rec-rank">#1</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>525</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://daltonpecs754.lowescouponn.com/softpro-catalytic-bone-char-carbon-filter-review-3" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-catalytic-bone-char-carbon-filter-review-3</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#2</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>525</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://daltonpecs754.lowescouponn.com/whole-house-catalytic-bone-char-carbon-filter-review-real-results-1" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/whole-house-catalytic-bone-char-carbon-filter-review-real-results-1</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#3</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>525</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://daltonpecs754.lowescouponn.com/softpro-eco-city-water-softener-review-real-performance-test-2" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-eco-city-water-softener-review-real-performance-test-2</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#4</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>525</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://daltonpecs754.lowescouponn.com/softpro-bone-char-carbon-filter-review-real-homeowner-results" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-bone-char-carbon-filter-review-real-homeowner-results</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#5</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>525</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://daltonpecs754.lowescouponn.com/softpro-whole-house-catalytic-bone-char-carbon-filter-review-6" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-whole-house-catalytic-bone-char-carbon-filter-review-6</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (daltonpecs754.lowescouponn.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#6</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>524</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-bone-char-carbon-filter-review-real-results-15" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-bone-char-carbon-filter-review-real-results-15</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#7</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>524</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-review-real-user-experience-9" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-review-real-user-experience-9</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#8</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>524</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-filter-review-23" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-filter-review-23</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#9</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>524</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-30-day-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-30-day-real-user-experience</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#10</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>524</strong> ·
+              Reason: <strong>Broken Backlink</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;N/A&quot;</div>
+            <div class="rec-url"><a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-water-filter-review-27" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-water-filter-review-27</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to softprowatersystems.com on your site
+
+Hi there,
+
+I noticed that the link to softprowatersystems.com on your page (mylesgawi614.raidersfanteamshop.com) is no longer working. The link previously pointed to:
+
+https://calc.softprowatersystems.com/?utm_source=website&amp;utm_medium=page-post&amp;utm_campaign=meme&amp;utm_id=in-content
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;N/A&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+
+<div class="footer">
+  <p>Report generated by Zenfusion Lost Backlink Recovery Tool</p>
+  <p>Data source: DataForSEO Backlinks API · Generated: 2026-09-08 21:22</p>
+</div>
+
+</body>
+</html>

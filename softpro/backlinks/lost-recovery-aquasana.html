@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lost Backlink Recovery Report: aquasana.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  a { color: #0066cc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .generated {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
+
+  /* Summary cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .summary-card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .summary-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .summary-value {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  /* SVG chart */
+  .chart-container {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 36px;
+    overflow-x: auto;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 36px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #ffffff;
+  }
+  thead th {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #1a1a1a;
+  }
+  tr.high-value {
+    background: #fff8e1;
+  }
+  tr.high-value td {
+    border-bottom: 1px solid #ffe082;
+  }
+  tr:hover td { background: #f8f9fa; }
+  tr.high-value:hover td { background: #fff3c4; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.domain { font-weight: 600; }
+  td.url-cell { max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  td.anchor { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #555; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-recoverable { background: #e3f2fd; color: #1565c0; }
+  .badge-unrecoverable { background: #fbe9e7; color: #c62828; }
+
+  /* Details/expandable */
+  .details-toggle {
+    cursor: pointer;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+  }
+  .details-toggle:hover { text-decoration: underline; }
+  .section-toggle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .detail-content {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  .email-template {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    white-space: pre-wrap;
+    margin-top: 8px;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    color: #1a1a1a;
+  }
+
+  /* Recommendation cards */
+  .rec-card {
+    display: flex;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .rec-rank {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0066cc;
+    min-width: 40px;
+  }
+  .rec-body { flex: 1; }
+  .rec-domain {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+  .rec-meta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  .rec-anchor {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .rec-url {
+    font-size: 13px;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #999;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Lost Backlink Recovery Report</h1>
+<div class="subtitle">Domain: <strong>aquasana.com</strong>
+ · Competitor: <strong>aquasana.com</strong></div>
+<div class="generated">Generated: 2026-09-08 21:23</div>
+
+<h2 class="section-title">Summary</h2>
+<div class="cards">
+    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total Lost Backlinks</div>
+      <div class="summary-value" style="color:#e74c3c;">9,152</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total New Backlinks</div>
+      <div class="summary-value" style="color:#27ae60;">11,444</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Net Change</div>
+      <div class="summary-value" style="color:#27ae60;">+2,292</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Recovery Opportunities</div>
+      <div class="summary-value" style="color:#f39c12;">5</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">High-Value Lost Links</div>
+      <div class="summary-value" style="color:#0066cc;">5</div>
+    </div>
+</div>
+
+<h2 class="section-title">Backlink Timeline (New vs Lost)</h2>
+<div class="chart-container">
+<svg width="900" height="300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+<rect width="900" height="300" fill="#ffffff"/>
+<line x1="60" y1="250" x2="780" y2="250" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="254" text-anchor="end" font-size="12" fill="#666">0</text>
+<line x1="60" y1="192" x2="780" y2="192" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="196" text-anchor="end" font-size="12" fill="#666">2836</text>
+<line x1="60" y1="135" x2="780" y2="135" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="139" text-anchor="end" font-size="12" fill="#666">5673</text>
+<line x1="60" y1="78" x2="780" y2="78" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="82" text-anchor="end" font-size="12" fill="#666">8509</text>
+<line x1="60" y1="20" x2="780" y2="20" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="24" text-anchor="end" font-size="12" fill="#666">11346</text>
+<text x="292" y="270" text-anchor="middle" font-size="11" fill="#666">2026-06</text>
+<rect x="336" y="20" width="40" height="230" fill="#27ae60" rx="2"><title>New: 11346 on 2026-07-31</title></rect>
+<text x="376" y="270" text-anchor="middle" font-size="11" fill="#666">2026-07</text>
+<rect x="460" y="64" width="40" height="186" fill="#e74c3c" rx="2"><title>Lost: 9152 on 2026-08-31</title></rect>
+<text x="460" y="270" text-anchor="middle" font-size="11" fill="#666">2026-08</text>
+<rect x="504" y="248" width="40" height="2" fill="#27ae60" rx="2"><title>New: 98 on 2026-09-30</title></rect>
+<text x="544" y="270" text-anchor="middle" font-size="11" fill="#666">2026-09</text>
+<polyline points="292,250 376,250 460,64 544,250" fill="none" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"><title>Competitor lost backlinks</title></polyline>
+<line x1="60" y1="20" x2="60" y2="250" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="250" x2="780" y2="250" stroke="#333" stroke-width="1.5"/>
+<rect x="790" y="25" width="14" height="14" fill="#27ae60" rx="2"/>
+<text x="810" y="37" font-size="13" fill="#333">New Backlinks</text>
+<rect x="790" y="47" width="14" height="14" fill="#e74c3c" rx="2"/>
+<text x="810" y="59" font-size="13" fill="#333">Lost Backlinks</text>
+<line x1="790" y1="74" x2="804" y2="74" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="810" y="78" font-size="13" fill="#333">Competitor Lost</text>
+</svg>
+</div>
+
+
+    <h2 class="section-title">Competitor Comparison: aquasana.com vs aquasana.com</h2>
+    <div class="cards">    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com Lost</div>
+      <div class="summary-value" style="color:#e74c3c;">9,152</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com New</div>
+      <div class="summary-value" style="color:#27ae60;">11,444</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">aquasana.com Net</div>
+      <div class="summary-value" style="color:#27ae60;">+2,292</div>
+    </div></div>
+    <details open>
+      <summary class="details-toggle section-toggle">Timeline Comparison Table</summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>aquasana.com Backlinks</th>
+              <th>aquasana.com New</th>
+              <th>aquasana.com Lost</th>
+              <th>aquasana.com Backlinks</th>
+              <th>aquasana.com New</th>
+              <th>aquasana.com Lost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-06-30</td>
+              <td class="num">80,633</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+              <td class="num">80,633</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>2026-07-31</td>
+              <td class="num">91,979</td>
+              <td class="num">11,346</td>
+              <td class="num">0</td>
+              <td class="num">91,979</td>
+              <td class="num">11,346</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>2026-08-31</td>
+              <td class="num">82,827</td>
+              <td class="num">0</td>
+              <td class="num">9,152</td>
+              <td class="num">82,827</td>
+              <td class="num">0</td>
+              <td class="num">9,152</td>
+            </tr>
+            <tr>
+              <td>2026-09-30</td>
+              <td class="num">82,925</td>
+              <td class="num">98</td>
+              <td class="num">0</td>
+              <td class="num">82,925</td>
+              <td class="num">98</td>
+              <td class="num">0</td>
+            </tr></tbody>
+        </table>
+      </div>
+    </details>
+
+<h2 class="section-title">Lost Backlinks (5 total)</h2>
+<details open>
+  <summary class="details-toggle section-toggle">Show/Hide Lost Backlinks Table</summary>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Domain</th>
+          <th>Source URL</th>
+          <th>Anchor Text</th>
+          <th>Domain Strength</th>
+          <th>Lost Date</th>
+          <th>Reason</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="high-value">
+          <td class="num">1</td>
+          <td class="domain">
+            <a href="https://www.bestadvisers.co.uk" target="_blank" rel="noopener noindex nofollow">www.bestadvisers.co.uk</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://www.bestadvisers.co.uk/glass-water-bottles" target="_blank" rel="noopener noindex nofollow">https://www.bestadvisers.co.uk/glass-water-bottles</a>
+          </td>
+          <td class="anchor">The Benefits of Glass Water Bottles</td>
+          <td class="num">399</td>
+          <td class="num">2026-08-17</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.aquasana.com/education/the-benefits-of-glass-water-bottles) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.aquasana.com/education/the-benefits-of-glass-water-bottles" target="_blank" rel="noopener noindex nofollow">https://www.aquasana.com/education/the-benefits-of-glass-water-bottles</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (www.bestadvisers.co.uk) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/education/the-benefits-of-glass-water-bottles
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;The Benefits of Glass Water Bottles&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">2</td>
+          <td class="domain">
+            <a href="https://nichem.solutions" target="_blank" rel="noopener noindex nofollow">nichem.solutions</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://nichem.solutions/understanding-tds-whats-in-your-water/" target="_blank" rel="noopener noindex nofollow">https://nichem.solutions/understanding-tds-whats-in-your-water/</a>
+          </td>
+          <td class="anchor">Some methods for removal of dissolved solids from </td>
+          <td class="num">267</td>
+          <td class="num">2026-09-09</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.aquasana.com/info/does-reverse-osmosis-remove-minerals-pd.html%23:~:text=But%20because%20reverse%20osmosis%20is,minerals%20from%20your%20water%20too.) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.aquasana.com/info/does-reverse-osmosis-remove-minerals-pd.html%23:~:text=But%20because%20reverse%20osmosis%20is,minerals%20from%20your%20water%20too." target="_blank" rel="noopener noindex nofollow">https://www.aquasana.com/info/does-reverse-osmosis-remove-minerals-pd.html%23:~:</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> DoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (nichem.solutions) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/info/does-reverse-osmosis-remove-minerals-pd.html%23:~:text=But%20because%20reverse%20osmosis%20is,minerals%20from%20your%20water%20too.
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Some methods for removal of dissolved solids from water are as follows:&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">3</td>
+          <td class="domain">
+            <a href="https://dailygenius.com" target="_blank" rel="noopener noindex nofollow">dailygenius.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://dailygenius.com/home-improvement/best-water-filters-2026/" target="_blank" rel="noopener noindex nofollow">https://dailygenius.com/home-improvement/best-water-filters-2026/</a>
+          </td>
+          <td class="anchor">Aquasana AQ-5200</td>
+          <td class="num">247</td>
+          <td class="num">2026-09-03</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.aquasana.com/under-counter-water-filters) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.aquasana.com/under-counter-water-filters" target="_blank" rel="noopener noindex nofollow">https://www.aquasana.com/under-counter-water-filters</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (dailygenius.com) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/under-counter-water-filters
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Aquasana AQ-5200&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">4</td>
+          <td class="domain">
+            <a href="https://qualia-bio.com" target="_blank" rel="noopener noindex nofollow">qualia-bio.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://qualia-bio.com/pl/blog/hepa-filter-replacement-in-biosafety-isolators/" target="_blank" rel="noopener noindex nofollow">https://qualia-bio.com/pl/blog/hepa-filter-replacement-in-biosafety-isolators/</a>
+          </td>
+          <td class="anchor">Wymienne filtry do wody - Aquasana</td>
+          <td class="num">217</td>
+          <td class="num">2026-09-09</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.aquasana.com/replacement-filters) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.aquasana.com/replacement-filters" target="_blank" rel="noopener noindex nofollow">https://www.aquasana.com/replacement-filters</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (qualia-bio.com) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/replacement-filters
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Wymienne filtry do wody - Aquasana&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">5</td>
+          <td class="domain">
+            <a href="https://qualia-bio.com" target="_blank" rel="noopener noindex nofollow">qualia-bio.com</a>
+            ⭐
+          </td>
+          <td class="url-cell">
+            <a href="https://qualia-bio.com/blog/hepa-filter-replacement-in-biosafety-isolators/" target="_blank" rel="noopener noindex nofollow">https://qualia-bio.com/blog/hepa-filter-replacement-in-biosafety-isolators/</a>
+          </td>
+          <td class="anchor">Replacement Water Filters – Aquasana</td>
+          <td class="num">217</td>
+          <td class="num">2026-08-28</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+          <td>
+            <details>
+              <summary class="details-toggle">Details</summary>
+              <div class="detail-content">
+                <p style="margin:8px 0;font-size:14px;color:#555;">Your page (https://www.aquasana.com/replacement-filters) returns 404. Fix the page or set up a redirect to recover the link.</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Target URL:</strong> <a href="https://www.aquasana.com/replacement-filters" target="_blank" rel="noopener noindex nofollow">https://www.aquasana.com/replacement-filters</a></p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Link Type:</strong> NoFollow</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Recoverable:</strong> Yes</p>
+                <details>
+                  <summary class="details-toggle" style="margin-top:8px;">Email Template</summary>
+                  <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (qualia-bio.com) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/replacement-filters
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Replacement Water Filters – Aquasana&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+                </details>
+              </div>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<h2 class="section-title">Recovery Recommendations</h2>
+
+        <div class="rec-card">
+          <div class="rec-rank">#1</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://www.bestadvisers.co.uk" target="_blank" rel="noopener noindex nofollow">www.bestadvisers.co.uk</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>399</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-17</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;The Benefits of Glass Water Bottles&quot;</div>
+            <div class="rec-url"><a href="https://www.bestadvisers.co.uk/glass-water-bottles" target="_blank" rel="noopener noindex nofollow">https://www.bestadvisers.co.uk/glass-water-bottles</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (www.bestadvisers.co.uk) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/education/the-benefits-of-glass-water-bottles
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;The Benefits of Glass Water Bottles&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#2</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://nichem.solutions" target="_blank" rel="noopener noindex nofollow">nichem.solutions</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>267</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-09-09</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Some methods for removal of dissolved solids from water are as follows:&quot;</div>
+            <div class="rec-url"><a href="https://nichem.solutions/understanding-tds-whats-in-your-water/" target="_blank" rel="noopener noindex nofollow">https://nichem.solutions/understanding-tds-whats-in-your-water/</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (nichem.solutions) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/info/does-reverse-osmosis-remove-minerals-pd.html%23:~:text=But%20because%20reverse%20osmosis%20is,minerals%20from%20your%20water%20too.
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Some methods for removal of dissolved solids from water are as follows:&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#3</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://dailygenius.com" target="_blank" rel="noopener noindex nofollow">dailygenius.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>247</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-09-03</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Aquasana AQ-5200&quot;</div>
+            <div class="rec-url"><a href="https://dailygenius.com/home-improvement/best-water-filters-2026/" target="_blank" rel="noopener noindex nofollow">https://dailygenius.com/home-improvement/best-water-filters-2026/</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (dailygenius.com) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/under-counter-water-filters
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Aquasana AQ-5200&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#4</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://qualia-bio.com" target="_blank" rel="noopener noindex nofollow">qualia-bio.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>217</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-09-09</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Wymienne filtry do wody - Aquasana&quot;</div>
+            <div class="rec-url"><a href="https://qualia-bio.com/pl/blog/hepa-filter-replacement-in-biosafety-isolators/" target="_blank" rel="noopener noindex nofollow">https://qualia-bio.com/pl/blog/hepa-filter-replacement-in-biosafety-isolators/</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (qualia-bio.com) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/replacement-filters
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Wymienne filtry do wody - Aquasana&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-rank">#5</div>
+          <div class="rec-body">
+            <div class="rec-domain">
+              <a href="https://qualia-bio.com" target="_blank" rel="noopener noindex nofollow">qualia-bio.com</a>
+              ⭐ High Value
+            </div>
+            <div class="rec-meta">
+              Domain Strength: <strong>217</strong> ·
+              Reason: <strong>Target Page Removed (404)</strong> ·
+              Lost Date: <strong>2026-08-28</strong>
+            </div>
+            <div class="rec-anchor">Anchor: &quot;Replacement Water Filters – Aquasana&quot;</div>
+            <div class="rec-url"><a href="https://qualia-bio.com/blog/hepa-filter-replacement-in-biosafety-isolators/" target="_blank" rel="noopener noindex nofollow">https://qualia-bio.com/blog/hepa-filter-replacement-in-biosafety-isolators/</a></div>
+            <details>
+              <summary class="details-toggle">Outreach Email Template</summary>
+              <pre class="email-template">Subject: Quick question about the link to aquasana.com on your site
+
+Hi there,
+
+I noticed that the link to aquasana.com on your page (qualia-bio.com) is no longer working. The link previously pointed to:
+
+https://www.aquasana.com/replacement-filters
+
+It looks like the page on our end may have been moved or removed. I&#x27;d be happy to help you find the right replacement page so your readers aren&#x27;t sent to a broken link.
+
+The original anchor text was: &quot;Replacement Water Filters – Aquasana&quot;
+
+Could you let me know if you&#x27;d like the updated URL? I can also provide a redirect if that&#x27;s easier.
+
+Thanks for your time,
+[Your Name]
+[Your Brand]</pre>
+            </details>
+          </div>
+        </div>
+
+<div class="footer">
+  <p>Report generated by Zenfusion Lost Backlink Recovery Tool</p>
+  <p>Data source: DataForSEO Backlinks API · Generated: 2026-09-08 21:23</p>
+</div>
+
+</body>
+</html>
