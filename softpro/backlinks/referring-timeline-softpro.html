@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Referring Domains Timeline — softprowatersystems.com</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #fff; line-height: 1.6; padding: 20px 40px; max-width: 1200px; margin: 0 auto; }
+a { color: #4A90D9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+h2 { color: #4A90D9; font-size: 20px; margin: 36px 0 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
+h3 { color: #b0b8c8; font-size: 16px; margin: 20px 0 10px; }
+.subtitle { color: #8892a6; font-size: 14px; margin-bottom: 8px; }
+.generated { color: #5c6578; font-size: 12px; margin-bottom: 30px; }
+
+/* Summary cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.card { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; }
+.card-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #8892a6; margin-bottom: 8px; }
+.card-value { font-size: 28px; font-weight: 700; color: #fff; }
+.card-sub { font-size: 13px; color: #5c6578; margin-top: 4px; }
+.card-value.pos { color: #27ae60; }
+.card-value.neg { color: #e74c3c; }
+
+/* SVG chart */
+.chart-container { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; margin-bottom: 36px; overflow-x: auto; }
+.chart-title { font-size: 14px; color: #8892a6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+th { text-align: left; padding: 10px 12px; background: #1a1d28; color: #8892a6; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #2a3142; }
+td { padding: 8px 12px; border-bottom: 1px solid #1e2230; font-size: 13px; }
+td.rank { color: #5c6578; font-weight: 700; width: 30px; }
+td.num { text-align: right; color: #4A90D9; font-weight: 600; }
+td.cumulative { text-align: right; color: #27ae60; font-weight: 700; }
+td.domain { font-weight: 600; }
+td.anchor { color: #b0b8c8; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+td.notable { color: #b0b8c8; font-size: 12px; max-width: 300px; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+.badge.df { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.nf { background: rgba(127,140,141,0.15); color: #7f8c8d; }
+.badge.burst { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.steady { background: rgba(74,144,217,0.15); color: #4A90D9; }
+.badge.decline { background: rgba(231,76,60,0.15); color: #e74c3c; }
+
+/* Phase cards */
+.phase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.phase-card { background: #1a1d28; border: 1px solid #2a3142; border-radius: 8px; padding: 14px 18px; }
+.phase-card .phase-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.phase-card .phase-detail { font-size: 12px; color: #8892a6; }
+.phase-card .phase-avg { font-size: 13px; color: #4A90D9; font-weight: 600; margin-top: 4px; }
+
+/* Recommendations */
+.recommendation { background: #1a1d28; border: 1px solid #2a3142; border-left: 4px solid #4A90D9; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+.recommendation .rec-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.recommendation .rec-body { font-size: 13px; color: #b0b8c8; }
+
+/* Expandable */
+.expandable { display: none; }
+.expandable.show { display: block; }
+.expand-toggle { color: #4A90D9; cursor: pointer; font-size: 14px; font-weight: 600; margin-bottom: 12px; display: inline-block; }
+.expand-toggle:hover { text-decoration: underline; }
+
+.empty { color: #5c6578; font-size: 13px; padding: 12px; text-align: center; }
+.footer { text-align: center; margin-top: 40px; color: #5c6578; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
+</style>
+<script>
+function toggleExpand(id) {
+  var el = document.getElementById(id);
+  el.classList.toggle('show');
+  var toggle = el.previousElementSibling;
+  if (el.classList.contains('show')) {
+    toggle.textContent = toggle.textContent.replace('Show', 'Hide');
+  } else {
+    toggle.textContent = toggle.textContent.replace('Hide', 'Show');
+  }
+}
+</script>
+</head>
+<body>
+
+<h1>📅 Referring Domains Timeline: softprowatersystems.com</h1>
+<p class="subtitle">When each referring domain first linked — link acquisition history</p>
+<p class="generated">Generated 2026-09-08 21:00 · DataForSEO Backlinks API</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Earliest Link Date</div>
+    <div class="card-value">2024-05-24</div>
+    <div class="card-sub">First referring domain discovered</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Total Referring Domains</div>
+    <div class="card-value">390</div>
+    <div class="card-sub">Unique domains linking to target</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Avg Domains / Month</div>
+    <div class="card-value">19.5</div>
+    <div class="card-sub">Overall acquisition rate</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Peak Month</div>
+    <div class="card-value">2026-08</div>
+    <div class="card-sub">88 new domains acquired</div>
+  </div>
+</div>
+
+<h2>📈 Timeline Chart: Referring Domains Acquired Per Month</h2>
+<div class="chart-container">
+  <p class="chart-title">Monthly New Referring Domains Over Time</p>
+  <svg width="920" height="360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+  <rect width="920" height="360" fill="#0f1117" rx="8"/>
+  <text x="42" y="314.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">0</text><line x1="50" y1="310.0" x2="890" y2="310.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="241.5" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">22</text><line x1="50" y1="237.5" x2="890" y2="237.5" stroke="#1e2230" stroke-width="1"/><text x="42" y="169.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">44</text><line x1="50" y1="165.0" x2="890" y2="165.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="96.5" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">66</text><line x1="50" y1="92.5" x2="890" y2="92.5" stroke="#1e2230" stroke-width="1"/><text x="42" y="24.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">88</text><line x1="50" y1="20.0" x2="890" y2="20.0" stroke="#1e2230" stroke-width="1"/>
+  <rect x="51.0" y="306.7" width="40.0" height="3.3" fill="rgb(37,72,108)" rx="2"/><text x="71.0" y="302.7" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="93.0" y="306.7" width="40.0" height="3.3" fill="rgb(38,75,114)" rx="2"/><text x="113.0" y="302.7" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="135.0" y="306.7" width="40.0" height="3.3" fill="rgb(40,79,119)" rx="2"/><text x="155.0" y="302.7" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="177.0" y="296.8" width="40.0" height="13.2" fill="rgb(42,83,125)" rx="2"/><text x="197.0" y="292.8" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="219.0" y="286.9" width="40.0" height="23.1" fill="rgb(44,87,131)" rx="2"/><text x="239.0" y="282.9" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">7</text><rect x="261.0" y="277.0" width="40.0" height="33.0" fill="rgb(46,90,137)" rx="2"/><text x="281.0" y="273.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">10</text><rect x="303.0" y="303.4" width="40.0" height="6.6" fill="rgb(48,94,142)" rx="2"/><text x="323.0" y="299.4" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="345.0" y="306.7" width="40.0" height="3.3" fill="rgb(50,98,148)" rx="2"/><text x="365.0" y="302.7" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="387.0" y="263.9" width="40.0" height="46.1" fill="rgb(52,102,154)" rx="2"/><text x="407.0" y="259.9" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">14</text><rect x="429.0" y="115.6" width="40.0" height="194.4" fill="rgb(54,106,159)" rx="2"/><text x="449.0" y="111.6" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">59</text><rect x="471.0" y="148.5" width="40.0" height="161.5" fill="rgb(56,109,165)" rx="2"/><text x="491.0" y="144.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">49</text><rect x="513.0" y="178.2" width="40.0" height="131.8" fill="rgb(58,113,171)" rx="2"/><text x="533.0" y="174.2" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">40</text><rect x="555.0" y="244.1" width="40.0" height="65.9" fill="rgb(60,117,177)" rx="2"/><text x="575.0" y="240.1" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">20</text><rect x="597.0" y="277.0" width="40.0" height="33.0" fill="rgb(62,121,182)" rx="2"/><text x="617.0" y="273.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">10</text><rect x="639.0" y="267.2" width="40.0" height="42.8" fill="rgb(64,125,188)" rx="2"/><text x="659.0" y="263.2" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">13</text><rect x="681.0" y="244.1" width="40.0" height="65.9" fill="rgb(66,128,194)" rx="2"/><text x="701.0" y="240.1" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">20</text><rect x="723.0" y="267.2" width="40.0" height="42.8" fill="rgb(68,132,199)" rx="2"/><text x="743.0" y="263.2" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">13</text><rect x="765.0" y="194.7" width="40.0" height="115.3" fill="rgb(70,136,205)" rx="2"/><text x="785.0" y="190.7" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">35</text><rect x="807.0" y="20.0" width="40.0" height="290.0" fill="rgb(72,140,211)" rx="2"/><text x="827.0" y="16.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">88</text><rect x="849.0" y="303.4" width="40.0" height="6.6" fill="rgb(74,144,217)" rx="2"/><text x="869.0" y="299.4" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text>
+  <line x1="50" y1="310" x2="890" y2="310" stroke="#2a3142" stroke-width="1.5"/>
+  <text x="71.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 71.0 325.0)">2024-05</text><text x="113.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 113.0 325.0)">2024-10</text><text x="155.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 155.0 325.0)">2025-03</text><text x="197.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 197.0 325.0)">2025-04</text><text x="239.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 239.0 325.0)">2025-05</text><text x="281.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 281.0 325.0)">2025-06</text><text x="323.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 323.0 325.0)">2025-07</text><text x="365.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 365.0 325.0)">2025-08</text><text x="407.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 407.0 325.0)">2025-10</text><text x="449.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 449.0 325.0)">2025-11</text><text x="491.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 491.0 325.0)">2025-12</text><text x="533.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 533.0 325.0)">2026-01</text><text x="575.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 575.0 325.0)">2026-02</text><text x="617.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 617.0 325.0)">2026-03</text><text x="659.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 659.0 325.0)">2026-04</text><text x="701.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 701.0 325.0)">2026-05</text><text x="743.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 743.0 325.0)">2026-06</text><text x="785.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 785.0 325.0)">2026-07</text><text x="827.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 827.0 325.0)">2026-08</text><text x="869.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 869.0 325.0)">2026-09</text>
+  <text x="50" y="14" fill="#8892a6" font-size="11" font-family="sans-serif">New Referring Domains</text>
+</svg>
+</div>
+
+<h2>📋 Monthly Breakdown</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th class="num">New Domains</th>
+      <th class="num">Cumulative Total</th>
+      <th>Notable Domains Acquired</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td><strong>2024-05</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">1</td>
+  <td class="notable">ironfilterforwellwater.weebly.com</td>
+</tr><tr>
+  <td><strong>2024-10</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">2</td>
+  <td class="notable">watersoftenersizing.com</td>
+</tr><tr>
+  <td><strong>2025-03</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">3</td>
+  <td class="notable">bizratesurveys.com</td>
+</tr><tr>
+  <td><strong>2025-04</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">7</td>
+  <td class="notable">outlandos.net, ecole-dosnon.com, coxaudio.com +1 more</td>
+</tr><tr>
+  <td><strong>2025-05</strong></td>
+  <td class="num">7</td>
+  <td class="cumulative">14</td>
+  <td class="notable">telegra.ph, caidenvshf583.bearsfanteamshop.com, messiahdjoi487.theglensecret.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-06</strong></td>
+  <td class="num">10</td>
+  <td class="cumulative">24</td>
+  <td class="notable">s3.us-central-1.wasabisys.com, sos-de-fra-1.exo.io, cashltdw656.lowescouponn.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-07</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">26</td>
+  <td class="notable">cl2r0.upcloudobjects.com, lg-cloud-stack.s3.fr-par.scw.cloud</td>
+</tr><tr>
+  <td><strong>2025-08</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">27</td>
+  <td class="notable">lg-cloud-stack-projectslinkgraphios-projects.vercel.app</td>
+</tr><tr>
+  <td><strong>2025-10</strong></td>
+  <td class="num">14</td>
+  <td class="cumulative">41</td>
+  <td class="notable">cutmist42.werite.net, cancerboat61.werite.net, spacebrian8.werite.net +2 more</td>
+</tr><tr>
+  <td><strong>2025-11</strong></td>
+  <td class="num">59</td>
+  <td class="cumulative">100</td>
+  <td class="notable">socialmediainuk.com, ztndz.com, opensocialfactory.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-12</strong></td>
+  <td class="num">49</td>
+  <td class="cumulative">149</td>
+  <td class="notable">af.uppromote.com, fernandojpxh515.cavandoragh.org, daltonpecs754.lowescouponn.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-01</strong></td>
+  <td class="num">40</td>
+  <td class="cumulative">189</td>
+  <td class="notable">claytonelax570.yousher.com, arthurzcgc984.huicopper.com, gorillasocialwork.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-02</strong></td>
+  <td class="num">20</td>
+  <td class="cumulative">209</td>
+  <td class="notable">bookmarkfavors.com, hylistings.com, eternalbookmarks.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-03</strong></td>
+  <td class="num">10</td>
+  <td class="cumulative">219</td>
+  <td class="notable">checkbookmarks.com, socialnetworkadsinfo.com, tetrabookmarks.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-04</strong></td>
+  <td class="num">13</td>
+  <td class="cumulative">232</td>
+  <td class="notable">jaidenicxp888.huicopper.com, gratisafhalen.be, bookmarkbirth.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-05</strong></td>
+  <td class="num">20</td>
+  <td class="cumulative">252</td>
+  <td class="notable">emilianobpfe628.raidersfanteamshop.com, bookmarkworm.com, growthbookmarks.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-06</strong></td>
+  <td class="num">13</td>
+  <td class="cumulative">265</td>
+  <td class="notable">links.gtanet.com.br, seobookmarkpro.com, explorebookmarks.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-07</strong></td>
+  <td class="num">35</td>
+  <td class="cumulative">300</td>
+  <td class="notable">newsroom.xpr.media, mylinks.fan, siit.co +2 more</td>
+</tr><tr>
+  <td><strong>2026-08</strong></td>
+  <td class="num">88</td>
+  <td class="cumulative">388</td>
+  <td class="notable">kameronjbxe299.wpsuo.com, mylesgawi614.raidersfanteamshop.com, deanffrg528.huicopper.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-09</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">390</td>
+  <td class="notable">directoryio.com, teanurture.online</td>
+</tr>
+  </tbody>
+</table>
+
+<h2>🏆 Top Referring Domains</h2>
+<span class="expand-toggle" onclick="toggleExpand('top-domains-table')">Show Top 50 Referring Domains</span>
+<div id="top-domains-table" class="expandable">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>First Seen</th>
+        <th class="num">Domain Strength</th>
+        <th>Type</th>
+        <th>Anchor Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td class="rank">1</td>
+  <td class="domain"><a href="https://newsroom.xpr.media" target="_blank" rel="noopener noindex nofollow">newsroom.xpr.media</a></td>
+  <td>2026-07-31</td>
+  <td class="num">716</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">SoftPro Elite Water Softener for City Water</td>
+</tr><tr>
+  <td class="rank">2</td>
+  <td class="domain"><a href="https://ironfilterforwellwater.weebly.com" target="_blank" rel="noopener noindex nofollow">ironfilterforwellwater.weebly.com</a></td>
+  <td>2024-05-24</td>
+  <td class="num">677</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">SoftPro Iron Filter for Well Water</td>
+</tr><tr>
+  <td class="rank">3</td>
+  <td class="domain"><a href="https://af.uppromote.com" target="_blank" rel="noopener noindex nofollow">af.uppromote.com</a></td>
+  <td>2025-12-27</td>
+  <td class="num">661</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">4</td>
+  <td class="domain"><a href="https://telegra.ph" target="_blank" rel="noopener noindex nofollow">telegra.ph</a></td>
+  <td>2025-05-27</td>
+  <td class="num">644</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">5</td>
+  <td class="domain"><a href="https://s3.us-central-1.wasabisys.com" target="_blank" rel="noopener noindex nofollow">s3.us-central-1.wasabisys.com</a></td>
+  <td>2025-06-24</td>
+  <td class="num">613</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">SoftPro Water Systems</td>
+</tr><tr>
+  <td class="rank">6</td>
+  <td class="domain"><a href="https://bizratesurveys.com" target="_blank" rel="noopener noindex nofollow">bizratesurveys.com</a></td>
+  <td>2025-03-31</td>
+  <td class="num">602</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">7</td>
+  <td class="domain"><a href="https://cutmist42.werite.net" target="_blank" rel="noopener noindex nofollow">cutmist42.werite.net</a></td>
+  <td>2025-10-11</td>
+  <td class="num">546</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/</td>
+</tr><tr>
+  <td class="rank">8</td>
+  <td class="domain"><a href="https://cancerboat61.werite.net" target="_blank" rel="noopener noindex nofollow">cancerboat61.werite.net</a></td>
+  <td>2025-10-12</td>
+  <td class="num">546</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/</td>
+</tr><tr>
+  <td class="rank">9</td>
+  <td class="domain"><a href="https://spacebrian8.werite.net" target="_blank" rel="noopener noindex nofollow">spacebrian8.werite.net</a></td>
+  <td>2025-10-12</td>
+  <td class="num">546</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/</td>
+</tr><tr>
+  <td class="rank">10</td>
+  <td class="domain"><a href="https://mylinks.fan" target="_blank" rel="noopener noindex nofollow">mylinks.fan</a></td>
+  <td>2026-07-01</td>
+  <td class="num">533</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">click through the up coming internet page</td>
+</tr><tr>
+  <td class="rank">11</td>
+  <td class="domain"><a href="https://caidenvshf583.bearsfanteamshop.com" target="_blank" rel="noopener noindex nofollow">caidenvshf583.bearsfanteamshop.com</a></td>
+  <td>2025-05-26</td>
+  <td class="num">527</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">12</td>
+  <td class="domain"><a href="https://messiahdjoi487.theglensecret.com" target="_blank" rel="noopener noindex nofollow">messiahdjoi487.theglensecret.com</a></td>
+  <td>2025-05-29</td>
+  <td class="num">526</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">13</td>
+  <td class="domain"><a href="https://jaredkfic263.iamarrows.com" target="_blank" rel="noopener noindex nofollow">jaredkfic263.iamarrows.com</a></td>
+  <td>2025-10-09</td>
+  <td class="num">526</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">14</td>
+  <td class="domain"><a href="https://rylankjwb162.wpsuo.com" target="_blank" rel="noopener noindex nofollow">rylankjwb162.wpsuo.com</a></td>
+  <td>2025-05-23</td>
+  <td class="num">525</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">15</td>
+  <td class="domain"><a href="https://sos-de-fra-1.exo.io" target="_blank" rel="noopener noindex nofollow">sos-de-fra-1.exo.io</a></td>
+  <td>2025-06-24</td>
+  <td class="num">525</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">SoftPro Water Systems</td>
+</tr><tr>
+  <td class="rank">16</td>
+  <td class="domain"><a href="https://cashltdw656.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">cashltdw656.lowescouponn.com</a></td>
+  <td>2025-06-24</td>
+  <td class="num">524</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">17</td>
+  <td class="domain"><a href="https://tysonpunt213.image-perth.org" target="_blank" rel="noopener noindex nofollow">tysonpunt213.image-perth.org</a></td>
+  <td>2025-10-17</td>
+  <td class="num">524</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">18</td>
+  <td class="domain"><a href="https://jaredocwp693.lucialpiazzale.com" target="_blank" rel="noopener noindex nofollow">jaredocwp693.lucialpiazzale.com</a></td>
+  <td>2025-10-23</td>
+  <td class="num">524</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">19</td>
+  <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a></td>
+  <td>2026-08-10</td>
+  <td class="num">524</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">20</td>
+  <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a></td>
+  <td>2026-08-28</td>
+  <td class="num">524</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Discover more</td>
+</tr><tr>
+  <td class="rank">21</td>
+  <td class="domain"><a href="https://jaredttsx107.yousher.com" target="_blank" rel="noopener noindex nofollow">jaredttsx107.yousher.com</a></td>
+  <td>2025-06-27</td>
+  <td class="num">523</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">22</td>
+  <td class="domain"><a href="https://griffinznnm168.tearosediner.net" target="_blank" rel="noopener noindex nofollow">griffinznnm168.tearosediner.net</a></td>
+  <td>2025-10-10</td>
+  <td class="num">523</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">23</td>
+  <td class="domain"><a href="https://fernandojpxh515.cavandoragh.org" target="_blank" rel="noopener noindex nofollow">fernandojpxh515.cavandoragh.org</a></td>
+  <td>2025-12-26</td>
+  <td class="num">523</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">24</td>
+  <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a></td>
+  <td>2025-12-28</td>
+  <td class="num">523</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Fluoride Filter</td>
+</tr><tr>
+  <td class="rank">25</td>
+  <td class="domain"><a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a></td>
+  <td>2026-08-10</td>
+  <td class="num">523</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Fluoride Filtration</td>
+</tr><tr>
+  <td class="rank">26</td>
+  <td class="domain"><a href="https://archerfrto042.huicopper.com" target="_blank" rel="noopener noindex nofollow">archerfrto042.huicopper.com</a></td>
+  <td>2025-05-23</td>
+  <td class="num">522</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">27</td>
+  <td class="domain"><a href="https://rowanbzuc549.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">rowanbzuc549.raidersfanteamshop.com</a></td>
+  <td>2025-05-23</td>
+  <td class="num">522</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">28</td>
+  <td class="domain"><a href="https://connerilqg221.trexgame.net" target="_blank" rel="noopener noindex nofollow">connerilqg221.trexgame.net</a></td>
+  <td>2025-06-09</td>
+  <td class="num">522</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">29</td>
+  <td class="domain"><a href="https://remingtonwlzt836.almoheet-travel.com" target="_blank" rel="noopener noindex nofollow">remingtonwlzt836.almoheet-travel.com</a></td>
+  <td>2025-06-11</td>
+  <td class="num">522</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">30</td>
+  <td class="domain"><a href="https://wayloncbbi506.fotosdefrases.com" target="_blank" rel="noopener noindex nofollow">wayloncbbi506.fotosdefrases.com</a></td>
+  <td>2025-10-02</td>
+  <td class="num">522</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">31</td>
+  <td class="domain"><a href="https://kameroncbcy831.timeforchangecounselling.com" target="_blank" rel="noopener noindex nofollow">kameroncbcy831.timeforchangecounselling.com</a></td>
+  <td>2025-05-23</td>
+  <td class="num">521</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">32</td>
+  <td class="domain"><a href="https://jaidenicxp888.huicopper.com" target="_blank" rel="noopener noindex nofollow">jaidenicxp888.huicopper.com</a></td>
+  <td>2026-04-20</td>
+  <td class="num">521</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Fluoride Filter System</td>
+</tr><tr>
+  <td class="rank">33</td>
+  <td class="domain"><a href="https://emilianobpfe628.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">emilianobpfe628.raidersfanteamshop.com</a></td>
+  <td>2026-05-25</td>
+  <td class="num">520</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">best water softener for home</td>
+</tr><tr>
+  <td class="rank">34</td>
+  <td class="domain"><a href="https://claytonelax570.yousher.com" target="_blank" rel="noopener noindex nofollow">claytonelax570.yousher.com</a></td>
+  <td>2026-01-14</td>
+  <td class="num">514</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/products/softpro-elite-water-softener</td>
+</tr><tr>
+  <td class="rank">35</td>
+  <td class="domain"><a href="https://arthurzcgc984.huicopper.com" target="_blank" rel="noopener noindex nofollow">arthurzcgc984.huicopper.com</a></td>
+  <td>2026-01-14</td>
+  <td class="num">513</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">high performance water softener</td>
+</tr><tr>
+  <td class="rank">36</td>
+  <td class="domain"><a href="https://chancegyan486.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">chancegyan486.lowescouponn.com</a></td>
+  <td>2025-12-31</td>
+  <td class="num">512</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">best water softener</td>
+</tr><tr>
+  <td class="rank">37</td>
+  <td class="domain"><a href="https://jasperbwha991.huicopper.com" target="_blank" rel="noopener noindex nofollow">jasperbwha991.huicopper.com</a></td>
+  <td>2025-12-18</td>
+  <td class="num">510</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/products/whole-house-upflow-catalytic-bone-c</td>
+</tr><tr>
+  <td class="rank">38</td>
+  <td class="domain"><a href="https://daltonnitd321.timeforchangecounselling.com" target="_blank" rel="noopener noindex nofollow">daltonnitd321.timeforchangecounselling.com</a></td>
+  <td>2025-12-18</td>
+  <td class="num">510</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Fluoride Filter System</td>
+</tr><tr>
+  <td class="rank">39</td>
+  <td class="domain"><a href="https://sethztlo570.yousher.com" target="_blank" rel="noopener noindex nofollow">sethztlo570.yousher.com</a></td>
+  <td>2025-12-18</td>
+  <td class="num">510</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Fluoride Filtration</td>
+</tr><tr>
+  <td class="rank">40</td>
+  <td class="domain"><a href="https://zioncenv379.theburnward.com" target="_blank" rel="noopener noindex nofollow">zioncenv379.theburnward.com</a></td>
+  <td>2025-06-18</td>
+  <td class="num">496</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com</td>
+</tr><tr>
+  <td class="rank">41</td>
+  <td class="domain"><a href="https://gratisafhalen.be" target="_blank" rel="noopener noindex nofollow">gratisafhalen.be</a></td>
+  <td>2026-04-12</td>
+  <td class="num">475</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/pages/reverse-osmosis-fluoride-filtration-tr</td>
+</tr><tr>
+  <td class="rank">42</td>
+  <td class="domain"><a href="https://gorillasocialwork.com" target="_blank" rel="noopener noindex nofollow">gorillasocialwork.com</a></td>
+  <td>2026-01-19</td>
+  <td class="num">474</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/pages/how-much-to-expect-spend-replacement-f</td>
+</tr><tr>
+  <td class="rank">43</td>
+  <td class="domain"><a href="https://socialmediainuk.com" target="_blank" rel="noopener noindex nofollow">socialmediainuk.com</a></td>
+  <td>2025-11-19</td>
+  <td class="num">473</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/products/softpro-elite-water-softener-for-we</td>
+</tr><tr>
+  <td class="rank">44</td>
+  <td class="domain"><a href="https://ztndz.com" target="_blank" rel="noopener noindex nofollow">ztndz.com</a></td>
+  <td>2025-11-16</td>
+  <td class="num">472</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/collections/best-water-softener-systems</td>
+</tr><tr>
+  <td class="rank">45</td>
+  <td class="domain"><a href="https://opensocialfactory.com" target="_blank" rel="noopener noindex nofollow">opensocialfactory.com</a></td>
+  <td>2025-11-24</td>
+  <td class="num">472</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/products/softpro-elite-water-softener-for-we</td>
+</tr><tr>
+  <td class="rank">46</td>
+  <td class="domain"><a href="https://socialrus.com" target="_blank" rel="noopener noindex nofollow">socialrus.com</a></td>
+  <td>2025-11-27</td>
+  <td class="num">467</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.softprowatersystems.com/products/softpro-elite-water-softener-for-we</td>
+</tr><tr>
+  <td class="rank">47</td>
+  <td class="domain"><a href="https://cl2r0.upcloudobjects.com" target="_blank" rel="noopener noindex nofollow">cl2r0.upcloudobjects.com</a></td>
+  <td>2025-07-10</td>
+  <td class="num">456</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">SoftPro Water Systems</td>
+</tr><tr>
+  <td class="rank">48</td>
+  <td class="domain"><a href="https://webyourself.eu" target="_blank" rel="noopener noindex nofollow">webyourself.eu</a></td>
+  <td>2026-08-11</td>
+  <td class="num">450</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">best water softener for city water</td>
+</tr><tr>
+  <td class="rank">49</td>
+  <td class="domain"><a href="https://links.gtanet.com.br" target="_blank" rel="noopener noindex nofollow">links.gtanet.com.br</a></td>
+  <td>2026-06-21</td>
+  <td class="num">442</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">click through the next web page</td>
+</tr><tr>
+  <td class="rank">50</td>
+  <td class="domain"><a href="https://siit.co" target="_blank" rel="noopener noindex nofollow">siit.co</a></td>
+  <td>2026-07-26</td>
+  <td class="num">439</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">SoftPro Elite Water Softener</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>📊 Link Building Phases</h2>
+<div class="phase-grid"><div class="phase-card">
+  <div class="phase-name">📉 Decline (2024-05 → 2025-05) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">5 months · 14 domains acquired</div>
+  <div class="phase-avg">Avg: 2.8/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2025-06 → 2025-06) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 10 domains acquired</div>
+  <div class="phase-avg">Avg: 10.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2025-07 → 2025-08) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">2 months · 3 domains acquired</div>
+  <div class="phase-avg">Avg: 1.5/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2025-10 → 2025-10) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 14 domains acquired</div>
+  <div class="phase-avg">Avg: 14.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2025-11 → 2026-01) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">3 months · 148 domains acquired</div>
+  <div class="phase-avg">Avg: 49.33/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2026-02 → 2026-06) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">5 months · 76 domains acquired</div>
+  <div class="phase-avg">Avg: 15.2/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2026-07 → 2026-08) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">2 months · 123 domains acquired</div>
+  <div class="phase-avg">Avg: 61.5/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2026-09 → 2026-09) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 2 domains acquired</div>
+  <div class="phase-avg">Avg: 2.0/month</div>
+</div></div>
+
+<h2>💡 Recommendations</h2>
+<div class="recommendation">
+  <div class="rec-title">✅ Strong Backlink Profile (390 domains)</div>
+  <div class="rec-body">softprowatersystems.com has a well-established link profile. Maintain link velocity through consistent content publication and brand monitoring. Look for high-authority domains and build topical authority through cluster campaigns.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🔥 Significant Link Spike in 2026-08</div>
+  <div class="rec-body">A peak of 88 new domains was detected, which is 4.5× the monthly average. Investigate what drove this spike (viral content, PR campaign, guest posting push) and replicate the strategy.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📉 Link Building Decline Detected</div>
+  <div class="rec-body">A decline phase was identified (2026-09 to 2026-09) with only 2.0 domains/month. If this is recent, reinvigorate outreach efforts. If historical, the site may have had a period of inactivity.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🚀 Burst Phase Identified (2025-11 to 2026-01)</div>
+  <div class="rec-body">During this period, 148 domains were acquired at 49.33/month. Analyze the content and campaigns from this period to understand what drove accelerated link acquisition and recreate similar conditions.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📅 Maintain Consistent Link Acquisition</div>
+  <div class="rec-body">The overall average is 19.5 domains/month. Search engines reward consistent, natural link growth. Set a target of at least 19 new referring domains per month through a mix of content marketing, digital PR, and relationship building.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🔗 Low Dofollow Ratio (0%)</div>
+  <div class="rec-body">Only 0% of links are dofollow. While a natural mix is healthy, consider prioritizing dofollow links in outreach to pass more link equity. Target editorial placements and guest posts on authoritative sites.</div>
+</div>
+
+<div class="footer">
+  Referring Domains Timeline Report — softprowatersystems.com · Generated by Zenfusion SEO · 2026-09-08 21:00
+</div>
+
+</body>
+</html>

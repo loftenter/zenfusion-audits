@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Referring Domains Timeline — culligan.com</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #fff; line-height: 1.6; padding: 20px 40px; max-width: 1200px; margin: 0 auto; }
+a { color: #4A90D9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+h2 { color: #4A90D9; font-size: 20px; margin: 36px 0 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
+h3 { color: #b0b8c8; font-size: 16px; margin: 20px 0 10px; }
+.subtitle { color: #8892a6; font-size: 14px; margin-bottom: 8px; }
+.generated { color: #5c6578; font-size: 12px; margin-bottom: 30px; }
+
+/* Summary cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.card { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; }
+.card-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #8892a6; margin-bottom: 8px; }
+.card-value { font-size: 28px; font-weight: 700; color: #fff; }
+.card-sub { font-size: 13px; color: #5c6578; margin-top: 4px; }
+.card-value.pos { color: #27ae60; }
+.card-value.neg { color: #e74c3c; }
+
+/* SVG chart */
+.chart-container { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; margin-bottom: 36px; overflow-x: auto; }
+.chart-title { font-size: 14px; color: #8892a6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+th { text-align: left; padding: 10px 12px; background: #1a1d28; color: #8892a6; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #2a3142; }
+td { padding: 8px 12px; border-bottom: 1px solid #1e2230; font-size: 13px; }
+td.rank { color: #5c6578; font-weight: 700; width: 30px; }
+td.num { text-align: right; color: #4A90D9; font-weight: 600; }
+td.cumulative { text-align: right; color: #27ae60; font-weight: 700; }
+td.domain { font-weight: 600; }
+td.anchor { color: #b0b8c8; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+td.notable { color: #b0b8c8; font-size: 12px; max-width: 300px; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+.badge.df { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.nf { background: rgba(127,140,141,0.15); color: #7f8c8d; }
+.badge.burst { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.steady { background: rgba(74,144,217,0.15); color: #4A90D9; }
+.badge.decline { background: rgba(231,76,60,0.15); color: #e74c3c; }
+
+/* Phase cards */
+.phase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.phase-card { background: #1a1d28; border: 1px solid #2a3142; border-radius: 8px; padding: 14px 18px; }
+.phase-card .phase-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.phase-card .phase-detail { font-size: 12px; color: #8892a6; }
+.phase-card .phase-avg { font-size: 13px; color: #4A90D9; font-weight: 600; margin-top: 4px; }
+
+/* Recommendations */
+.recommendation { background: #1a1d28; border: 1px solid #2a3142; border-left: 4px solid #4A90D9; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+.recommendation .rec-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.recommendation .rec-body { font-size: 13px; color: #b0b8c8; }
+
+/* Expandable */
+.expandable { display: none; }
+.expandable.show { display: block; }
+.expand-toggle { color: #4A90D9; cursor: pointer; font-size: 14px; font-weight: 600; margin-bottom: 12px; display: inline-block; }
+.expand-toggle:hover { text-decoration: underline; }
+
+.empty { color: #5c6578; font-size: 13px; padding: 12px; text-align: center; }
+.footer { text-align: center; margin-top: 40px; color: #5c6578; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
+</style>
+<script>
+function toggleExpand(id) {
+  var el = document.getElementById(id);
+  el.classList.toggle('show');
+  var toggle = el.previousElementSibling;
+  if (el.classList.contains('show')) {
+    toggle.textContent = toggle.textContent.replace('Show', 'Hide');
+  } else {
+    toggle.textContent = toggle.textContent.replace('Hide', 'Show');
+  }
+}
+</script>
+</head>
+<body>
+
+<h1>📅 Referring Domains Timeline: culligan.com</h1>
+<p class="subtitle">When each referring domain first linked — link acquisition history</p>
+<p class="generated">Generated 2026-09-08 21:01 · DataForSEO Backlinks API</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Earliest Link Date</div>
+    <div class="card-value">2019-01-17</div>
+    <div class="card-sub">First referring domain discovered</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Total Referring Domains</div>
+    <div class="card-value">263</div>
+    <div class="card-sub">Unique domains linking to target</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Avg Domains / Month</div>
+    <div class="card-value">3.93</div>
+    <div class="card-sub">Overall acquisition rate</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Peak Month</div>
+    <div class="card-value">2026-08</div>
+    <div class="card-sub">20 new domains acquired</div>
+  </div>
+</div>
+
+<h2>📈 Timeline Chart: Referring Domains Acquired Per Month</h2>
+<div class="chart-container">
+  <p class="chart-title">Monthly New Referring Domains Over Time</p>
+  <svg width="920" height="360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+  <rect width="920" height="360" fill="#0f1117" rx="8"/>
+  <text x="42" y="314.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">0</text><line x1="50" y1="310.0" x2="890" y2="310.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="241.5" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">5</text><line x1="50" y1="237.5" x2="890" y2="237.5" stroke="#1e2230" stroke-width="1"/><text x="42" y="169.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">10</text><line x1="50" y1="165.0" x2="890" y2="165.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="96.5" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">15</text><line x1="50" y1="92.5" x2="890" y2="92.5" stroke="#1e2230" stroke-width="1"/><text x="42" y="24.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">20</text><line x1="50" y1="20.0" x2="890" y2="20.0" stroke="#1e2230" stroke-width="1"/>
+  <rect x="51.0" y="78.0" width="10.5" height="232.0" fill="rgb(37,72,108)" rx="2"/><text x="56.3" y="74.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">16</text><rect x="63.5" y="252.0" width="10.5" height="58.0" fill="rgb(37,73,110)" rx="2"/><text x="68.8" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="76.1" y="295.5" width="10.5" height="14.5" fill="rgb(38,74,111)" rx="2"/><text x="81.3" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="88.6" y="266.5" width="10.5" height="43.5" fill="rgb(38,75,113)" rx="2"/><text x="93.9" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="101.1" y="281.0" width="10.5" height="29.0" fill="rgb(39,76,115)" rx="2"/><text x="106.4" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="113.7" y="295.5" width="10.5" height="14.5" fill="rgb(39,77,116)" rx="2"/><text x="119.0" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="126.2" y="281.0" width="10.5" height="29.0" fill="rgb(40,78,118)" rx="2"/><text x="131.5" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="138.8" y="295.5" width="10.5" height="14.5" fill="rgb(40,79,120)" rx="2"/><text x="144.0" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="151.3" y="295.5" width="10.5" height="14.5" fill="rgb(41,80,121)" rx="2"/><text x="156.6" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="163.8" y="281.0" width="10.5" height="29.0" fill="rgb(42,81,123)" rx="2"/><text x="169.1" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="176.4" y="295.5" width="10.5" height="14.5" fill="rgb(42,82,124)" rx="2"/><text x="181.6" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="188.9" y="252.0" width="10.5" height="58.0" fill="rgb(43,84,126)" rx="2"/><text x="194.2" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="201.4" y="295.5" width="10.5" height="14.5" fill="rgb(43,85,128)" rx="2"/><text x="206.7" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="214.0" y="281.0" width="10.5" height="29.0" fill="rgb(44,86,129)" rx="2"/><text x="219.3" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="226.5" y="281.0" width="10.5" height="29.0" fill="rgb(44,87,131)" rx="2"/><text x="231.8" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="239.1" y="281.0" width="10.5" height="29.0" fill="rgb(45,88,133)" rx="2"/><text x="244.3" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="251.6" y="295.5" width="10.5" height="14.5" fill="rgb(45,89,134)" rx="2"/><text x="256.9" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="264.1" y="266.5" width="10.5" height="43.5" fill="rgb(46,90,136)" rx="2"/><text x="269.4" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="276.7" y="295.5" width="10.5" height="14.5" fill="rgb(47,91,138)" rx="2"/><text x="281.9" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="289.2" y="252.0" width="10.5" height="58.0" fill="rgb(47,92,139)" rx="2"/><text x="294.5" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="301.7" y="281.0" width="10.5" height="29.0" fill="rgb(48,93,141)" rx="2"/><text x="307.0" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="314.3" y="281.0" width="10.5" height="29.0" fill="rgb(48,94,143)" rx="2"/><text x="319.6" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="326.8" y="281.0" width="10.5" height="29.0" fill="rgb(49,96,144)" rx="2"/><text x="332.1" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="339.4" y="281.0" width="10.5" height="29.0" fill="rgb(49,97,146)" rx="2"/><text x="344.6" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="351.9" y="295.5" width="10.5" height="14.5" fill="rgb(50,98,147)" rx="2"/><text x="357.2" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="364.4" y="295.5" width="10.5" height="14.5" fill="rgb(51,99,149)" rx="2"/><text x="369.7" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="377.0" y="179.5" width="10.5" height="130.5" fill="rgb(51,100,151)" rx="2"/><text x="382.2" y="175.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">9</text><rect x="389.5" y="295.5" width="10.5" height="14.5" fill="rgb(52,101,152)" rx="2"/><text x="394.8" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="402.0" y="295.5" width="10.5" height="14.5" fill="rgb(52,102,154)" rx="2"/><text x="407.3" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="414.6" y="295.5" width="10.5" height="14.5" fill="rgb(53,103,156)" rx="2"/><text x="419.9" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="427.1" y="295.5" width="10.5" height="14.5" fill="rgb(53,104,157)" rx="2"/><text x="432.4" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="439.7" y="295.5" width="10.5" height="14.5" fill="rgb(54,105,159)" rx="2"/><text x="444.9" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="452.2" y="295.5" width="10.5" height="14.5" fill="rgb(54,106,161)" rx="2"/><text x="457.5" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="464.7" y="252.0" width="10.5" height="58.0" fill="rgb(55,108,162)" rx="2"/><text x="470.0" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="477.3" y="252.0" width="10.5" height="58.0" fill="rgb(56,109,164)" rx="2"/><text x="482.5" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="489.8" y="266.5" width="10.5" height="43.5" fill="rgb(56,110,166)" rx="2"/><text x="495.1" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="502.3" y="295.5" width="10.5" height="14.5" fill="rgb(57,111,167)" rx="2"/><text x="507.6" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="514.9" y="295.5" width="10.5" height="14.5" fill="rgb(57,112,169)" rx="2"/><text x="520.1" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="527.4" y="266.5" width="10.5" height="43.5" fill="rgb(58,113,170)" rx="2"/><text x="532.7" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="540.0" y="252.0" width="10.5" height="58.0" fill="rgb(58,114,172)" rx="2"/><text x="545.2" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="552.5" y="237.5" width="10.5" height="72.5" fill="rgb(59,115,174)" rx="2"/><text x="557.8" y="233.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">5</text><rect x="565.0" y="281.0" width="10.5" height="29.0" fill="rgb(59,116,175)" rx="2"/><text x="570.3" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="577.6" y="295.5" width="10.5" height="14.5" fill="rgb(60,117,177)" rx="2"/><text x="582.8" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text><rect x="590.1" y="266.5" width="10.5" height="43.5" fill="rgb(61,118,179)" rx="2"/><text x="595.4" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="602.6" y="281.0" width="10.5" height="29.0" fill="rgb(61,119,180)" rx="2"/><text x="607.9" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="615.2" y="237.5" width="10.5" height="72.5" fill="rgb(62,121,182)" rx="2"/><text x="620.4" y="233.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">5</text><rect x="627.7" y="281.0" width="10.5" height="29.0" fill="rgb(62,122,184)" rx="2"/><text x="633.0" y="277.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">2</text><rect x="640.3" y="223.0" width="10.5" height="87.0" fill="rgb(63,123,185)" rx="2"/><text x="645.5" y="219.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">6</text><rect x="652.8" y="194.0" width="10.5" height="116.0" fill="rgb(63,124,187)" rx="2"/><text x="658.1" y="190.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">8</text><rect x="665.3" y="266.5" width="10.5" height="43.5" fill="rgb(64,125,189)" rx="2"/><text x="670.6" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="677.9" y="223.0" width="10.5" height="87.0" fill="rgb(65,126,190)" rx="2"/><text x="683.1" y="219.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">6</text><rect x="690.4" y="252.0" width="10.5" height="58.0" fill="rgb(65,127,192)" rx="2"/><text x="695.7" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="702.9" y="252.0" width="10.5" height="58.0" fill="rgb(66,128,193)" rx="2"/><text x="708.2" y="248.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">4</text><rect x="715.5" y="223.0" width="10.5" height="87.0" fill="rgb(66,129,195)" rx="2"/><text x="720.7" y="219.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">6</text><rect x="728.0" y="194.0" width="10.5" height="116.0" fill="rgb(67,130,197)" rx="2"/><text x="733.3" y="190.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">8</text><rect x="740.6" y="223.0" width="10.5" height="87.0" fill="rgb(67,132,198)" rx="2"/><text x="745.8" y="219.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">6</text><rect x="753.1" y="194.0" width="10.5" height="116.0" fill="rgb(68,133,200)" rx="2"/><text x="758.4" y="190.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">8</text><rect x="765.6" y="208.5" width="10.5" height="101.5" fill="rgb(68,134,202)" rx="2"/><text x="770.9" y="204.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">7</text><rect x="778.2" y="237.5" width="10.5" height="72.5" fill="rgb(69,135,203)" rx="2"/><text x="783.4" y="233.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">5</text><rect x="790.7" y="266.5" width="10.5" height="43.5" fill="rgb(70,136,205)" rx="2"/><text x="796.0" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="803.2" y="165.0" width="10.5" height="145.0" fill="rgb(70,137,207)" rx="2"/><text x="808.5" y="161.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">10</text><rect x="815.8" y="179.5" width="10.5" height="130.5" fill="rgb(71,138,208)" rx="2"/><text x="821.0" y="175.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">9</text><rect x="828.3" y="92.5" width="10.5" height="217.5" fill="rgb(71,139,210)" rx="2"/><text x="833.6" y="88.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">15</text><rect x="840.9" y="266.5" width="10.5" height="43.5" fill="rgb(72,140,212)" rx="2"/><text x="846.1" y="262.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">3</text><rect x="853.4" y="136.0" width="10.5" height="174.0" fill="rgb(72,141,213)" rx="2"/><text x="858.7" y="132.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">12</text><rect x="865.9" y="20.0" width="10.5" height="290.0" fill="rgb(73,142,215)" rx="2"/><text x="871.2" y="16.0" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">20</text><rect x="878.5" y="295.5" width="10.5" height="14.5" fill="rgb(74,144,217)" rx="2"/><text x="883.7" y="291.5" fill="#b0b8c8" font-size="9" text-anchor="middle" font-family="sans-serif">1</text>
+  <line x1="50" y1="310" x2="890" y2="310" stroke="#2a3142" stroke-width="1.5"/>
+  <text x="56.3" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 56.3 325.0)">2019-01</text><text x="119.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 119.0 325.0)">2019-08</text><text x="181.6" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 181.6 325.0)">2020-08</text><text x="244.3" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 244.3 325.0)">2021-07</text><text x="307.0" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 307.0 325.0)">2021-12</text><text x="369.7" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 369.7 325.0)">2022-05</text><text x="432.4" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 432.4 325.0)">2023-02</text><text x="495.1" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 495.1 325.0)">2023-12</text><text x="557.8" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 557.8 325.0)">2024-06</text><text x="620.4" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 620.4 325.0)">2024-12</text><text x="683.1" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 683.1 325.0)">2025-05</text><text x="745.8" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 745.8 325.0)">2025-10</text><text x="808.5" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 808.5 325.0)">2026-03</text><text x="871.2" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 871.2 325.0)">2026-08</text><text x="883.7" y="325.0" fill="#5c6578" font-size="9" text-anchor="middle" font-family="sans-serif" transform="rotate(-45 883.7 325.0)">2026-09</text>
+  <text x="50" y="14" fill="#8892a6" font-size="11" font-family="sans-serif">New Referring Domains</text>
+</svg>
+</div>
+
+<h2>📋 Monthly Breakdown</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th class="num">New Domains</th>
+      <th class="num">Cumulative Total</th>
+      <th>Notable Domains Acquired</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td><strong>2019-01</strong></td>
+  <td class="num">16</td>
+  <td class="cumulative">16</td>
+  <td class="notable">quenchwater.com, eculligan.com, qualitywaterpr.com +2 more</td>
+</tr><tr>
+  <td><strong>2019-02</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">20</td>
+  <td class="notable">waterlogic.com, hidrostandarts.lv, culliganhudsonvalley.com +1 more</td>
+</tr><tr>
+  <td><strong>2019-03</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">21</td>
+  <td class="notable">homeconstructionimprovement.com</td>
+</tr><tr>
+  <td><strong>2019-04</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">24</td>
+  <td class="notable">weareculligan.com, bluline.com, carolinapure.com</td>
+</tr><tr>
+  <td><strong>2019-05</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">26</td>
+  <td class="notable">culliganphilly.com, culligansoutheastmi.com</td>
+</tr><tr>
+  <td><strong>2019-08</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">27</td>
+  <td class="notable">culliganzanesville.com</td>
+</tr><tr>
+  <td><strong>2019-09</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">29</td>
+  <td class="notable">goldcountrywater.com, rivernewsnow.com</td>
+</tr><tr>
+  <td><strong>2019-11</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">30</td>
+  <td class="notable">nndb.com</td>
+</tr><tr>
+  <td><strong>2020-01</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">31</td>
+  <td class="notable">mobileculligan.com</td>
+</tr><tr>
+  <td><strong>2020-02</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">33</td>
+  <td class="notable">stonybrookwater.com, culligansaskatoon.com</td>
+</tr><tr>
+  <td><strong>2020-08</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">34</td>
+  <td class="notable">culligansouthgeorgia.com</td>
+</tr><tr>
+  <td><strong>2020-10</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">38</td>
+  <td class="notable">qwater.ca, culligancleveland.com, culliganky.com +1 more</td>
+</tr><tr>
+  <td><strong>2021-02</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">39</td>
+  <td class="notable">zipwater.com</td>
+</tr><tr>
+  <td><strong>2021-03</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">41</td>
+  <td class="notable">zipwater.co.uk, zenithwater.co.nz</td>
+</tr><tr>
+  <td><strong>2021-06</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">43</td>
+  <td class="notable">drinkculligan.com, curbappealmagazine.ca</td>
+</tr><tr>
+  <td><strong>2021-07</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">45</td>
+  <td class="notable">webflex.biz, vtiff.org</td>
+</tr><tr>
+  <td><strong>2021-08</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">46</td>
+  <td class="notable">winemakerscookoff.com</td>
+</tr><tr>
+  <td><strong>2021-09</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">49</td>
+  <td class="notable">trusource.ca, aquafallswaterco.com, easternpure.com</td>
+</tr><tr>
+  <td><strong>2021-10</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">50</td>
+  <td class="notable">claimbo.com</td>
+</tr><tr>
+  <td><strong>2021-11</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">54</td>
+  <td class="notable">hallswater.com, culligandiy.com, quenchwater.ca +1 more</td>
+</tr><tr>
+  <td><strong>2021-12</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">56</td>
+  <td class="notable">callupcontact.com, onlinebiller.com</td>
+</tr><tr>
+  <td><strong>2022-01</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">58</td>
+  <td class="notable">blog.gourmandisesdecamille.com, culliganh2o.com</td>
+</tr><tr>
+  <td><strong>2022-02</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">60</td>
+  <td class="notable">torontolife.com, sr.studiostack.com</td>
+</tr><tr>
+  <td><strong>2022-03</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">62</td>
+  <td class="notable">finalstretch.com, globalwaterinc.com</td>
+</tr><tr>
+  <td><strong>2022-04</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">63</td>
+  <td class="notable">runsignup.com</td>
+</tr><tr>
+  <td><strong>2022-05</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">64</td>
+  <td class="notable">medcitymarathonmn.com</td>
+</tr><tr>
+  <td><strong>2022-07</strong></td>
+  <td class="num">9</td>
+  <td class="cumulative">73</td>
+  <td class="notable">culliganofwestbranch.com, culliganiowa.com, culligannc.com +2 more</td>
+</tr><tr>
+  <td><strong>2022-09</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">74</td>
+  <td class="notable">thenolimitnetwork.com</td>
+</tr><tr>
+  <td><strong>2022-10</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">75</td>
+  <td class="notable">purezzawater.ca</td>
+</tr><tr>
+  <td><strong>2022-11</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">76</td>
+  <td class="notable">waterev.com</td>
+</tr><tr>
+  <td><strong>2023-02</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">77</td>
+  <td class="notable">business.traverseconnect.ledigital.dev</td>
+</tr><tr>
+  <td><strong>2023-03</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">78</td>
+  <td class="notable">midwatertech.com.eg</td>
+</tr><tr>
+  <td><strong>2023-06</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">79</td>
+  <td class="notable">ceowatermandate.org</td>
+</tr><tr>
+  <td><strong>2023-10</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">83</td>
+  <td class="notable">organizedmom.net, culliganventura.com, culliganstjoseph.com +1 more</td>
+</tr><tr>
+  <td><strong>2023-11</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">87</td>
+  <td class="notable">fall50.com, lhrr.com, beyondbody.net +1 more</td>
+</tr><tr>
+  <td><strong>2023-12</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">90</td>
+  <td class="notable">culligankansascity.com, theadrenalinezone.com, culligancovina.com</td>
+</tr><tr>
+  <td><strong>2024-01</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">91</td>
+  <td class="notable">promotionalmugs.co.uk</td>
+</tr><tr>
+  <td><strong>2024-02</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">92</td>
+  <td class="notable">betterwatersolution.com</td>
+</tr><tr>
+  <td><strong>2024-04</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">95</td>
+  <td class="notable">culligan-83ia.careerplug.com, app.careerplug.com, culliganredwing.com</td>
+</tr><tr>
+  <td><strong>2024-05</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">99</td>
+  <td class="notable">culligan-67md.careerplug.com, rockvalleyculligan.com, balboaparents.org +1 more</td>
+</tr><tr>
+  <td><strong>2024-06</strong></td>
+  <td class="num">5</td>
+  <td class="cumulative">104</td>
+  <td class="notable">business.monmouthilchamber.com, culligancentraltexas.com, westernreservewater.com +2 more</td>
+</tr><tr>
+  <td><strong>2024-07</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">106</td>
+  <td class="notable">monmouthareachamberofcommerce.growthzoneapp.com, aquasafetyplus.com</td>
+</tr><tr>
+  <td><strong>2024-08</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">107</td>
+  <td class="notable">amamedicalgroup.com</td>
+</tr><tr>
+  <td><strong>2024-10</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">110</td>
+  <td class="notable">interfuse.com, harveywatersofteners.co.uk, culligantexas.com</td>
+</tr><tr>
+  <td><strong>2024-11</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">112</td>
+  <td class="notable">culliganquench.com, fairfieldiowa.us</td>
+</tr><tr>
+  <td><strong>2024-12</strong></td>
+  <td class="num">5</td>
+  <td class="cumulative">117</td>
+  <td class="notable">webtwodirectory.com, uaeresults.com, dallasculligan.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-01</strong></td>
+  <td class="num">2</td>
+  <td class="cumulative">119</td>
+  <td class="notable">culliganswpa.com, filtersfound.com</td>
+</tr><tr>
+  <td><strong>2025-02</strong></td>
+  <td class="num">6</td>
+  <td class="cumulative">125</td>
+  <td class="notable">quenchwater--careers.multiscreensite.com, opplehouse.com, culligansanantonio.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-03</strong></td>
+  <td class="num">8</td>
+  <td class="cumulative">133</td>
+  <td class="notable">promarketreports.com, siouxfallsculligan.com, elizabethstreet.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-04</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">136</td>
+  <td class="notable">crumbsandchaos.net, surowater.com, farmapilucabarrau.es</td>
+</tr><tr>
+  <td><strong>2025-05</strong></td>
+  <td class="num">6</td>
+  <td class="cumulative">142</td>
+  <td class="notable">clientsbee.com, asouthernfairytale.com, ecotipshop.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-06</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">146</td>
+  <td class="notable">handsdown.ai, homeshowcenter.com, biznessuae.com +1 more</td>
+</tr><tr>
+  <td><strong>2025-07</strong></td>
+  <td class="num">4</td>
+  <td class="cumulative">150</td>
+  <td class="notable">zerowater.com, ecobusinesslinks.com, capacitydemo.ai +1 more</td>
+</tr><tr>
+  <td><strong>2025-08</strong></td>
+  <td class="num">6</td>
+  <td class="cumulative">156</td>
+  <td class="notable">culligancares.org, hometriangle.com, wefranch.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-09</strong></td>
+  <td class="num">8</td>
+  <td class="cumulative">164</td>
+  <td class="notable">stratviewresearch.com, thejobnetwork.com, megabiteevents.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-10</strong></td>
+  <td class="num">6</td>
+  <td class="cumulative">170</td>
+  <td class="notable">jobs.lever.co, thebestcalgary.com, bbs.powerapple.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-11</strong></td>
+  <td class="num">8</td>
+  <td class="cumulative">178</td>
+  <td class="notable">client.culligan.fr, marinh2o.com, inbloon.com +2 more</td>
+</tr><tr>
+  <td><strong>2025-12</strong></td>
+  <td class="num">7</td>
+  <td class="cumulative">185</td>
+  <td class="notable">manuzoid.com, members.bta.org, us.zipwater.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-01</strong></td>
+  <td class="num">5</td>
+  <td class="cumulative">190</td>
+  <td class="notable">culliganreno.com, pa.usindex.app, wi.usindex.app +2 more</td>
+</tr><tr>
+  <td><strong>2026-02</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">193</td>
+  <td class="notable">marketresearchfuture.com, genesiscanada.com, reach.dog</td>
+</tr><tr>
+  <td><strong>2026-03</strong></td>
+  <td class="num">10</td>
+  <td class="cumulative">203</td>
+  <td class="notable">total.reviews, bitcreature.com, open-secrets.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-04</strong></td>
+  <td class="num">9</td>
+  <td class="cumulative">212</td>
+  <td class="notable">ca.zipwater.com, culliganwater.com, waterlogic.de +2 more</td>
+</tr><tr>
+  <td><strong>2026-05</strong></td>
+  <td class="num">15</td>
+  <td class="cumulative">227</td>
+  <td class="notable">greenecountychamber.com, shop.culligan.es, authority.dejan.ai +2 more</td>
+</tr><tr>
+  <td><strong>2026-06</strong></td>
+  <td class="num">3</td>
+  <td class="cumulative">230</td>
+  <td class="notable">indexo.dev, promizi.com, findastorage4u.com</td>
+</tr><tr>
+  <td><strong>2026-07</strong></td>
+  <td class="num">12</td>
+  <td class="cumulative">242</td>
+  <td class="notable">seemless.link, versaillesky.secure.abscorp.com, culliganfrontroyal.com +2 more</td>
+</tr><tr>
+  <td><strong>2026-08</strong></td>
+  <td class="num">20</td>
+  <td class="cumulative">262</td>
+  <td class="notable">storeboard.com, donorofdoneer.com, iemiller.net +2 more</td>
+</tr><tr>
+  <td><strong>2026-09</strong></td>
+  <td class="num">1</td>
+  <td class="cumulative">263</td>
+  <td class="notable">traversecity.com</td>
+</tr>
+  </tbody>
+</table>
+
+<h2>🏆 Top Referring Domains</h2>
+<span class="expand-toggle" onclick="toggleExpand('top-domains-table')">Show Top 50 Referring Domains</span>
+<div id="top-domains-table" class="expandable">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>First Seen</th>
+        <th class="num">Domain Strength</th>
+        <th>Type</th>
+        <th>Anchor Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td class="rank">1</td>
+  <td class="domain"><a href="https://jobs.lever.co" target="_blank" rel="noopener noindex nofollow">jobs.lever.co</a></td>
+  <td>2025-10-01</td>
+  <td class="num">618</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">www.culligan.com</td>
+</tr><tr>
+  <td class="rank">2</td>
+  <td class="domain"><a href="https://marketresearchfuture.com" target="_blank" rel="noopener noindex nofollow">marketresearchfuture.com</a></td>
+  <td>2026-02-06</td>
+  <td class="num">594</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan</td>
+</tr><tr>
+  <td class="rank">3</td>
+  <td class="domain"><a href="https://runsignup.com" target="_blank" rel="noopener noindex nofollow">runsignup.com</a></td>
+  <td>2022-04-10</td>
+  <td class="num">591</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">4</td>
+  <td class="domain"><a href="https://monmouthareachamberofcommerce.growthzoneapp.com" target="_blank" rel="noopener noindex nofollow">monmouthareachamberofcommerce.growthzoneapp.com</a></td>
+  <td>2024-07-02</td>
+  <td class="num">565</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Visit Website</td>
+</tr><tr>
+  <td class="rank">5</td>
+  <td class="domain"><a href="https://manuzoid.com" target="_blank" rel="noopener noindex nofollow">manuzoid.com</a></td>
+  <td>2025-12-09</td>
+  <td class="num">564</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">6</td>
+  <td class="domain"><a href="https://culligan-83ia.careerplug.com" target="_blank" rel="noopener noindex nofollow">culligan-83ia.careerplug.com</a></td>
+  <td>2024-04-07</td>
+  <td class="num">545</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">www.culligan.com</td>
+</tr><tr>
+  <td class="rank">7</td>
+  <td class="domain"><a href="https://app.careerplug.com" target="_blank" rel="noopener noindex nofollow">app.careerplug.com</a></td>
+  <td>2024-04-15</td>
+  <td class="num">545</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">www.culligan.com</td>
+</tr><tr>
+  <td class="rank">8</td>
+  <td class="domain"><a href="https://culligan-67md.careerplug.com" target="_blank" rel="noopener noindex nofollow">culligan-67md.careerplug.com</a></td>
+  <td>2024-05-13</td>
+  <td class="num">544</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">www.culligan.com</td>
+</tr><tr>
+  <td class="rank">9</td>
+  <td class="domain"><a href="https://quenchwater--careers.multiscreensite.com" target="_blank" rel="noopener noindex nofollow">quenchwater--careers.multiscreensite.com</a></td>
+  <td>2025-02-26</td>
+  <td class="num">517</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Terms of Use</td>
+</tr><tr>
+  <td class="rank">10</td>
+  <td class="domain"><a href="https://webtwodirectory.com" target="_blank" rel="noopener noindex nofollow">webtwodirectory.com</a></td>
+  <td>2024-12-19</td>
+  <td class="num">490</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">http://CULLIGAN.COM</td>
+</tr><tr>
+  <td class="rank">11</td>
+  <td class="domain"><a href="https://callupcontact.com" target="_blank" rel="noopener noindex nofollow">callupcontact.com</a></td>
+  <td>2021-12-01</td>
+  <td class="num">470</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://quenchwater.com/local/dallas-water-cooler-service/</td>
+</tr><tr>
+  <td class="rank">12</td>
+  <td class="domain"><a href="https://promarketreports.com" target="_blank" rel="noopener noindex nofollow">promarketreports.com</a></td>
+  <td>2025-03-25</td>
+  <td class="num">465</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan International</td>
+</tr><tr>
+  <td class="rank">13</td>
+  <td class="domain"><a href="https://storeboard.com" target="_blank" rel="noopener noindex nofollow">storeboard.com</a></td>
+  <td>2026-08-20</td>
+  <td class="num">459</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">http://culligandover.com</td>
+</tr><tr>
+  <td class="rank">14</td>
+  <td class="domain"><a href="https://clientsbee.com" target="_blank" rel="noopener noindex nofollow">clientsbee.com</a></td>
+  <td>2025-05-12</td>
+  <td class="num">449</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Visit</td>
+</tr><tr>
+  <td class="rank">15</td>
+  <td class="domain"><a href="https://stratviewresearch.com" target="_blank" rel="noopener noindex nofollow">stratviewresearch.com</a></td>
+  <td>2025-09-23</td>
+  <td class="num">440</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan International Company</td>
+</tr><tr>
+  <td class="rank">16</td>
+  <td class="domain"><a href="https://indexo.dev" target="_blank" rel="noopener noindex nofollow">indexo.dev</a></td>
+  <td>2026-06-21</td>
+  <td class="num">432</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">17</td>
+  <td class="domain"><a href="https://members.bta.org" target="_blank" rel="noopener noindex nofollow">members.bta.org</a></td>
+  <td>2025-12-19</td>
+  <td class="num">429</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">18</td>
+  <td class="domain"><a href="https://ceowatermandate.org" target="_blank" rel="noopener noindex nofollow">ceowatermandate.org</a></td>
+  <td>2023-06-15</td>
+  <td class="num">420</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">19</td>
+  <td class="domain"><a href="https://onlinebiller.com" target="_blank" rel="noopener noindex nofollow">onlinebiller.com</a></td>
+  <td>2021-12-23</td>
+  <td class="num">417</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Privacy Statement</td>
+</tr><tr>
+  <td class="rank">20</td>
+  <td class="domain"><a href="https://torontolife.com" target="_blank" rel="noopener noindex nofollow">torontolife.com</a></td>
+  <td>2022-02-13</td>
+  <td class="num">414</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan</td>
+</tr><tr>
+  <td class="rank">21</td>
+  <td class="domain"><a href="https://donorofdoneer.com" target="_blank" rel="noopener noindex nofollow">donorofdoneer.com</a></td>
+  <td>2026-08-31</td>
+  <td class="num">412</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan</td>
+</tr><tr>
+  <td class="rank">22</td>
+  <td class="domain"><a href="https://nndb.com" target="_blank" rel="noopener noindex nofollow">nndb.com</a></td>
+  <td>2019-11-15</td>
+  <td class="num">410</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">http://www.culligan.com/</td>
+</tr><tr>
+  <td class="rank">23</td>
+  <td class="domain"><a href="https://iemiller.net" target="_blank" rel="noopener noindex nofollow">iemiller.net</a></td>
+  <td>2026-08-06</td>
+  <td class="num">407</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan</td>
+</tr><tr>
+  <td class="rank">24</td>
+  <td class="domain"><a href="https://traversecity.com" target="_blank" rel="noopener noindex nofollow">traversecity.com</a></td>
+  <td>2026-09-01</td>
+  <td class="num">406</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">25</td>
+  <td class="domain"><a href="https://thebestcalgary.com" target="_blank" rel="noopener noindex nofollow">thebestcalgary.com</a></td>
+  <td>2025-10-15</td>
+  <td class="num">402</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">https://www.culligan.com/</td>
+</tr><tr>
+  <td class="rank">26</td>
+  <td class="domain"><a href="https://interfuse.com" target="_blank" rel="noopener noindex nofollow">interfuse.com</a></td>
+  <td>2024-10-22</td>
+  <td class="num">398</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Everything You Need to Know about Home Water Filtration Systems</td>
+</tr><tr>
+  <td class="rank">27</td>
+  <td class="domain"><a href="https://sr.studiostack.com" target="_blank" rel="noopener noindex nofollow">sr.studiostack.com</a></td>
+  <td>2022-02-11</td>
+  <td class="num">394</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">28</td>
+  <td class="domain"><a href="https://thejobnetwork.com" target="_blank" rel="noopener noindex nofollow">thejobnetwork.com</a></td>
+  <td>2025-09-12</td>
+  <td class="num">372</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">www.corporate.culligan.com</td>
+</tr><tr>
+  <td class="rank">29</td>
+  <td class="domain"><a href="https://homeconstructionimprovement.com" target="_blank" rel="noopener noindex nofollow">homeconstructionimprovement.com</a></td>
+  <td>2019-03-22</td>
+  <td class="num">359</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">whole house water filters</td>
+</tr><tr>
+  <td class="rank">30</td>
+  <td class="domain"><a href="https://us.zipwater.com" target="_blank" rel="noopener noindex nofollow">us.zipwater.com</a></td>
+  <td>2025-12-19</td>
+  <td class="num">359</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">31</td>
+  <td class="domain"><a href="https://zipwater.com" target="_blank" rel="noopener noindex nofollow">zipwater.com</a></td>
+  <td>2021-02-25</td>
+  <td class="num">358</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">32</td>
+  <td class="domain"><a href="https://ca.zipwater.com" target="_blank" rel="noopener noindex nofollow">ca.zipwater.com</a></td>
+  <td>2026-04-29</td>
+  <td class="num">358</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">33</td>
+  <td class="domain"><a href="https://culligancares.org" target="_blank" rel="noopener noindex nofollow">culligancares.org</a></td>
+  <td>2025-08-02</td>
+  <td class="num">357</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">www.culligan.com</td>
+</tr><tr>
+  <td class="rank">34</td>
+  <td class="domain"><a href="https://webflex.biz" target="_blank" rel="noopener noindex nofollow">webflex.biz</a></td>
+  <td>2021-07-19</td>
+  <td class="num">349</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">35</td>
+  <td class="domain"><a href="https://opplehouse.com" target="_blank" rel="noopener noindex nofollow">opplehouse.com</a></td>
+  <td>2025-02-13</td>
+  <td class="num">339</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">find solutions to hard water</td>
+</tr><tr>
+  <td class="rank">36</td>
+  <td class="domain"><a href="https://finalstretch.com" target="_blank" rel="noopener noindex nofollow">finalstretch.com</a></td>
+  <td>2022-03-13</td>
+  <td class="num">332</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">37</td>
+  <td class="domain"><a href="https://handsdown.ai" target="_blank" rel="noopener noindex nofollow">handsdown.ai</a></td>
+  <td>2025-06-28</td>
+  <td class="num">332</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Visit Website</td>
+</tr><tr>
+  <td class="rank">38</td>
+  <td class="domain"><a href="https://client.culligan.fr" target="_blank" rel="noopener noindex nofollow">client.culligan.fr</a></td>
+  <td>2025-11-17</td>
+  <td class="num">329</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan International</td>
+</tr><tr>
+  <td class="rank">39</td>
+  <td class="domain"><a href="https://medcitymarathonmn.com" target="_blank" rel="noopener noindex nofollow">medcitymarathonmn.com</a></td>
+  <td>2022-05-31</td>
+  <td class="num">328</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">40</td>
+  <td class="domain"><a href="https://culliganwater.com" target="_blank" rel="noopener noindex nofollow">culliganwater.com</a></td>
+  <td>2026-04-10</td>
+  <td class="num">326</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Start My Water Delivery</td>
+</tr><tr>
+  <td class="rank">41</td>
+  <td class="domain"><a href="https://greenecountychamber.com" target="_blank" rel="noopener noindex nofollow">greenecountychamber.com</a></td>
+  <td>2026-05-22</td>
+  <td class="num">326</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">42</td>
+  <td class="domain"><a href="https://zipwater.co.uk" target="_blank" rel="noopener noindex nofollow">zipwater.co.uk</a></td>
+  <td>2021-03-03</td>
+  <td class="num">324</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">43</td>
+  <td class="domain"><a href="https://zenithwater.co.nz" target="_blank" rel="noopener noindex nofollow">zenithwater.co.nz</a></td>
+  <td>2021-03-03</td>
+  <td class="num">321</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">—</td>
+</tr><tr>
+  <td class="rank">44</td>
+  <td class="domain"><a href="https://seemless.link" target="_blank" rel="noopener noindex nofollow">seemless.link</a></td>
+  <td>2026-07-27</td>
+  <td class="num">321</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">website</td>
+</tr><tr>
+  <td class="rank">45</td>
+  <td class="domain"><a href="https://business.monmouthilchamber.com" target="_blank" rel="noopener noindex nofollow">business.monmouthilchamber.com</a></td>
+  <td>2024-06-21</td>
+  <td class="num">317</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Visit Website</td>
+</tr><tr>
+  <td class="rank">46</td>
+  <td class="domain"><a href="https://shop.culligan.es" target="_blank" rel="noopener noindex nofollow">shop.culligan.es</a></td>
+  <td>2026-05-30</td>
+  <td class="num">315</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Grupo Culligan International</td>
+</tr><tr>
+  <td class="rank">47</td>
+  <td class="domain"><a href="https://authority.dejan.ai" target="_blank" rel="noopener noindex nofollow">authority.dejan.ai</a></td>
+  <td>2026-05-01</td>
+  <td class="num">312</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">culligan.com</td>
+</tr><tr>
+  <td class="rank">48</td>
+  <td class="domain"><a href="https://hallswater.com" target="_blank" rel="noopener noindex nofollow">hallswater.com</a></td>
+  <td>2021-11-27</td>
+  <td class="num">311</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Culligan of Cleveland
+                                    Brooklyn Heights, OH</td>
+</tr><tr>
+  <td class="rank">49</td>
+  <td class="domain"><a href="https://versaillesky.secure.abscorp.com" target="_blank" rel="noopener noindex nofollow">versaillesky.secure.abscorp.com</a></td>
+  <td>2026-07-15</td>
+  <td class="num">308</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">Return to dealer&#x27;s site</td>
+</tr><tr>
+  <td class="rank">50</td>
+  <td class="domain"><a href="https://designrelated.com" target="_blank" rel="noopener noindex nofollow">designrelated.com</a></td>
+  <td>2025-12-19</td>
+  <td class="num">307</td>
+  <td><span class="badge nf">NF</span></td>
+  <td class="anchor">hard water solutions for your home</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>📊 Link Building Phases</h2>
+<div class="phase-grid"><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2019-01 → 2019-01) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">1 months · 16 domains acquired</div>
+  <div class="phase-avg">Avg: 16.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2019-02 → 2019-02) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 4 domains acquired</div>
+  <div class="phase-avg">Avg: 4.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2019-03 → 2019-03) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2019-04 → 2019-05) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">2 months · 5 domains acquired</div>
+  <div class="phase-avg">Avg: 2.5/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2019-08 → 2019-08) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2019-09 → 2019-09) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 2 domains acquired</div>
+  <div class="phase-avg">Avg: 2.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2019-11 → 2020-01) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">2 months · 2 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2020-02 → 2020-02) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 2 domains acquired</div>
+  <div class="phase-avg">Avg: 2.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2020-08 → 2020-08) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2020-10 → 2020-10) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 4 domains acquired</div>
+  <div class="phase-avg">Avg: 4.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2021-02 → 2021-02) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2021-03 → 2021-07) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">3 months · 6 domains acquired</div>
+  <div class="phase-avg">Avg: 2.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2021-08 → 2021-08) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2021-09 → 2021-09) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 3 domains acquired</div>
+  <div class="phase-avg">Avg: 3.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2021-10 → 2021-10) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2021-11 → 2022-03) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">5 months · 12 domains acquired</div>
+  <div class="phase-avg">Avg: 2.4/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2022-04 → 2022-05) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">2 months · 2 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2022-07 → 2022-07) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">1 months · 9 domains acquired</div>
+  <div class="phase-avg">Avg: 9.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2022-09 → 2023-06) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">6 months · 6 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2023-10 → 2023-12) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">3 months · 11 domains acquired</div>
+  <div class="phase-avg">Avg: 3.67/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2024-01 → 2024-02) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">2 months · 2 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2024-04 → 2024-07) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">4 months · 14 domains acquired</div>
+  <div class="phase-avg">Avg: 3.5/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2024-08 → 2024-08) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2024-10 → 2025-01) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">4 months · 12 domains acquired</div>
+  <div class="phase-avg">Avg: 3.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2025-02 → 2025-03) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">2 months · 14 domains acquired</div>
+  <div class="phase-avg">Avg: 7.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2025-04 → 2025-04) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 3 domains acquired</div>
+  <div class="phase-avg">Avg: 3.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2025-05 → 2025-05) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">1 months · 6 domains acquired</div>
+  <div class="phase-avg">Avg: 6.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2025-06 → 2025-07) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">2 months · 8 domains acquired</div>
+  <div class="phase-avg">Avg: 4.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2025-08 → 2025-12) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">5 months · 35 domains acquired</div>
+  <div class="phase-avg">Avg: 7.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2026-01 → 2026-02) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">2 months · 8 domains acquired</div>
+  <div class="phase-avg">Avg: 4.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2026-03 → 2026-05) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">3 months · 34 domains acquired</div>
+  <div class="phase-avg">Avg: 11.33/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📈 Steady (2026-06 → 2026-06) <span class="badge steady">steady</span></div>
+  <div class="phase-detail">1 months · 3 domains acquired</div>
+  <div class="phase-avg">Avg: 3.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">🔥 Burst (2026-07 → 2026-08) <span class="badge burst">burst</span></div>
+  <div class="phase-detail">2 months · 32 domains acquired</div>
+  <div class="phase-avg">Avg: 16.0/month</div>
+</div><div class="phase-card">
+  <div class="phase-name">📉 Decline (2026-09 → 2026-09) <span class="badge decline">decline</span></div>
+  <div class="phase-detail">1 months · 1 domains acquired</div>
+  <div class="phase-avg">Avg: 1.0/month</div>
+</div></div>
+
+<h2>💡 Recommendations</h2>
+<div class="recommendation">
+  <div class="rec-title">✅ Strong Backlink Profile (263 domains)</div>
+  <div class="rec-body">culligan.com has a well-established link profile. Maintain link velocity through consistent content publication and brand monitoring. Look for high-authority domains and build topical authority through cluster campaigns.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🔥 Significant Link Spike in 2026-08</div>
+  <div class="rec-body">A peak of 20 new domains was detected, which is 5.1× the monthly average. Investigate what drove this spike (viral content, PR campaign, guest posting push) and replicate the strategy.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📉 Link Building Decline Detected</div>
+  <div class="rec-body">A decline phase was identified (2026-09 to 2026-09) with only 1.0 domains/month. If this is recent, reinvigorate outreach efforts. If historical, the site may have had a period of inactivity.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🚀 Burst Phase Identified (2019-01 to 2019-01)</div>
+  <div class="rec-body">During this period, 16 domains were acquired at 16.0/month. Analyze the content and campaigns from this period to understand what drove accelerated link acquisition and recreate similar conditions.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📅 Maintain Consistent Link Acquisition</div>
+  <div class="rec-body">The overall average is 3.93 domains/month. Search engines reward consistent, natural link growth. Set a target of at least 3 new referring domains per month through a mix of content marketing, digital PR, and relationship building.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🔗 Low Dofollow Ratio (0%)</div>
+  <div class="rec-body">Only 0% of links are dofollow. While a natural mix is healthy, consider prioritizing dofollow links in outreach to pass more link equity. Target editorial placements and guest posts on authoritative sites.</div>
+</div>
+
+<div class="footer">
+  Referring Domains Timeline Report — culligan.com · Generated by Zenfusion SEO · 2026-09-08 21:01
+</div>
+
+</body>
+</html>
