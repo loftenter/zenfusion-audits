@@ -1,0 +1,2842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Backlink Alert Report — softprowatersystems.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  a { color: #0066cc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .generated {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
+
+  /* Summary cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .summary-card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .summary-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .summary-value {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  /* SVG chart */
+  .chart-container {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 36px;
+    overflow-x: auto;
+  }
+  .chart-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 36px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #ffffff;
+  }
+  thead th {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #1a1a1a;
+  }
+  tr.high-value { background: #fff8e1; }
+  tr.high-value td { border-bottom: 1px solid #ffe082; }
+  tr:hover td { background: #f8f9fa; }
+  tr.high-value:hover td { background: #fff3c4; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.domain { font-weight: 600; }
+  td.url-cell { max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  td.anchor { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #555; }
+  td.event-date { font-weight: 600; white-space: nowrap; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-surge { background: #e8f5e9; color: #2e7d32; }
+  .badge-drop { background: #fbe9e7; color: #c62828; }
+  .badge-gain { background: #e3f2fd; color: #1565c0; }
+  .badge-loss { background: #fce4ec; color: #c62828; }
+  .badge-df { background: #e8f5e9; color: #2e7d32; }
+  .badge-nf { background: #f5f5f5; color: #757575; }
+  .badge-recoverable { background: #e3f2fd; color: #1565c0; }
+  .badge-unrecoverable { background: #fbe9e7; color: #c62828; }
+
+  /* Details/expandable */
+  .details-toggle {
+    cursor: pointer;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+  }
+  .details-toggle:hover { text-decoration: underline; }
+  .section-toggle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  /* Recommendation cards */
+  .rec-card {
+    display: flex;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .rec-rank {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0066cc;
+    min-width: 40px;
+  }
+  .rec-body { flex: 1; }
+  .rec-domain {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+  .rec-body-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-size: 13px;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #999;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<h1>🚨 Backlink Alert Report</h1>
+<div class="subtitle">Domain: <strong>softprowatersystems.com</strong></div>
+<div class="generated">Generated: 2026-09-09 12:56</div>
+
+<h2 class="section-title">Alert Summary</h2>
+<div class="cards">
+    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total New Backlinks (30d)</div>
+      <div class="summary-value" style="color:#27ae60;">50</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Total Lost Backlinks (30d)</div>
+      <div class="summary-value" style="color:#e74c3c;">100</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Net Change</div>
+      <div class="summary-value" style="color:#e74c3c;">-50</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">Notable Events</div>
+      <div class="summary-value" style="color:#f39c12;">150</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">High-Authority New Links</div>
+      <div class="summary-value" style="color:#0066cc;">50</div>
+    </div>    <div class="summary-card" style="background:#ffffff;border:1px solid #e0e0e0;">
+      <div class="summary-label">High-Authority Lost Links</div>
+      <div class="summary-value" style="color:#c62828;">100</div>
+    </div>
+</div>
+
+<h2 class="section-title">Backlink Activity Timeline</h2>
+<div class="chart-container">
+  <div class="chart-title">Daily New vs Lost Backlinks — Last 30 Days with Notable Events Marked</div>
+  <svg width="940" height="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+<rect width="940" height="320" fill="#ffffff"/>
+<line x1="60" y1="270" x2="800" y2="270" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="274" text-anchor="end" font-size="12" fill="#666">0</text>
+<line x1="60" y1="208" x2="800" y2="208" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="212" text-anchor="end" font-size="12" fill="#666">12</text>
+<line x1="60" y1="145" x2="800" y2="145" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="149" text-anchor="end" font-size="12" fill="#666">25</text>
+<line x1="60" y1="82" x2="800" y2="82" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="86" text-anchor="end" font-size="12" fill="#666">37</text>
+<line x1="60" y1="20" x2="800" y2="20" stroke="#e0e0e0" stroke-width="1"/>
+<text x="52" y="24" text-anchor="end" font-size="12" fill="#666">50</text>
+<rect x="118" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2025-12-29</title></rect>
+<text x="116" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="116" y="290" text-anchor="middle" font-size="11" fill="#666">12-29</text>
+<rect x="135" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-01-05</title></rect>
+<text x="133" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="153" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-01-26</title></rect>
+<text x="151" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="170" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-01-28</title></rect>
+<text x="168" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="168" y="290" text-anchor="middle" font-size="11" fill="#666">01-28</text>
+<rect x="187" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-01-29</title></rect>
+<text x="185" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="205" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-02-04</title></rect>
+<text x="203" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="222" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-02-11</title></rect>
+<text x="220" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="220" y="290" text-anchor="middle" font-size="11" fill="#666">02-11</text>
+<rect x="239" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-04-12</title></rect>
+<text x="237" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="257" y="260" width="7" height="10" fill="#e74c3c" rx="2"><title>Lost: 2 on 2026-04-13</title></rect>
+<text x="255" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="274" y="245" width="7" height="25" fill="#e74c3c" rx="2"><title>Lost: 5 on 2026-04-20</title></rect>
+<text x="272" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="272" y="290" text-anchor="middle" font-size="11" fill="#666">04-20</text>
+<rect x="291" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-04-23</title></rect>
+<text x="289" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="309" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-04-28</title></rect>
+<text x="307" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="326" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-05-14</title></rect>
+<text x="324" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="324" y="290" text-anchor="middle" font-size="11" fill="#666">05-14</text>
+<rect x="343" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-06-01</title></rect>
+<text x="341" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="361" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-06-06</title></rect>
+<text x="359" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="378" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-06-24</title></rect>
+<text x="376" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="376" y="290" text-anchor="middle" font-size="11" fill="#666">06-24</text>
+<rect x="395" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-06-26</title></rect>
+<text x="393" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="413" y="260" width="7" height="10" fill="#e74c3c" rx="2"><title>Lost: 2 on 2026-07-01</title></rect>
+<text x="411" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="430" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-07-02</title></rect>
+<text x="428" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="428" y="290" text-anchor="middle" font-size="11" fill="#666">07-02</text>
+<rect x="447" y="235" width="7" height="35" fill="#e74c3c" rx="2"><title>Lost: 7 on 2026-07-07</title></rect>
+<text x="445" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="465" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-07-08</title></rect>
+<text x="463" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="482" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-07-11</title></rect>
+<text x="480" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="480" y="290" text-anchor="middle" font-size="11" fill="#666">07-11</text>
+<rect x="499" y="240" width="7" height="30" fill="#e74c3c" rx="2"><title>Lost: 6 on 2026-07-12</title></rect>
+<text x="497" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="517" y="255" width="7" height="15" fill="#e74c3c" rx="2"><title>Lost: 3 on 2026-07-15</title></rect>
+<text x="515" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="534" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-07-16</title></rect>
+<text x="532" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="532" y="290" text-anchor="middle" font-size="11" fill="#666">07-16</text>
+<rect x="551" y="255" width="7" height="15" fill="#e74c3c" rx="2"><title>Lost: 3 on 2026-07-20</title></rect>
+<text x="549" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="569" y="260" width="7" height="10" fill="#e74c3c" rx="2"><title>Lost: 2 on 2026-07-23</title></rect>
+<text x="567" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="586" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-07-24</title></rect>
+<text x="584" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="584" y="290" text-anchor="middle" font-size="11" fill="#666">07-24</text>
+<rect x="603" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-08-01</title></rect>
+<text x="601" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="621" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-08-04</title></rect>
+<text x="619" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="638" y="250" width="7" height="20" fill="#e74c3c" rx="2"><title>Lost: 4 on 2026-08-09</title></rect>
+<text x="636" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="636" y="290" text-anchor="middle" font-size="11" fill="#666">08-09</text>
+<rect x="655" y="200" width="7" height="70" fill="#e74c3c" rx="2"><title>Lost: 14 on 2026-08-10</title></rect>
+<text x="653" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="673" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-08-24</title></rect>
+<text x="671" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="690" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-08-26</title></rect>
+<text x="688" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="688" y="290" text-anchor="middle" font-size="11" fill="#666">08-26</text>
+<rect x="707" y="135" width="7" height="135" fill="#e74c3c" rx="2"><title>Lost: 27 on 2026-08-28</title></rect>
+<text x="705" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="725" y="265" width="7" height="5" fill="#e74c3c" rx="2"><title>Lost: 1 on 2026-08-30</title></rect>
+<text x="723" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<rect x="733" y="20" width="7" height="250" fill="#27ae60" rx="2"><title>New: 50 on 2026-09-09</title></rect>
+<text x="740" y="18" text-anchor="middle" font-size="14" fill="#f39c12">&#9888;</text>
+<text x="740" y="290" text-anchor="middle" font-size="11" fill="#666">09-09</text>
+<line x1="60" y1="20" x2="60" y2="270" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="270" x2="800" y2="270" stroke="#333" stroke-width="1.5"/>
+<rect x="810" y="25" width="14" height="14" fill="#27ae60" rx="2"/>
+<text x="830" y="37" font-size="13" fill="#333">New Backlinks</text>
+<rect x="810" y="47" width="14" height="14" fill="#e74c3c" rx="2"/>
+<text x="830" y="59" font-size="13" fill="#333">Lost Backlinks</text>
+<text x="817" y="77" font-size="16" fill="#f39c12">&#9888;</text>
+<text x="830" y="77" font-size="13" fill="#333">Notable Event</text>
+</svg>
+</div>
+
+<h2 class="section-title">Notable Events (150)</h2>
+<div class="table-wrap">
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Magnitude</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="num">1</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">196</td>
+          <td>High-authority link gained: www.ssdmart.com (DR 196) anchor: &quot;best rated water softener&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">289</td>
+          <td>High-authority link gained: www.waterfilteradvisor.com (DR 289) anchor: &quot;SoftPro Water Systems on refrigerator fi&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">6</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">192</td>
+          <td>High-authority link gained: short.adsenseseller.in (DR 192) anchor: &quot;SoftPro Catalytic Carbon and Bone Char F&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;Whole House Water Filter by SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;click through the following website page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;home water filter fluoride&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">11</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">12</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">13</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;Whole House Water Filter by SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">14</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;visit the following internet site&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">15</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;click for source&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">16</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;Read the Full Write-up&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">17</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">18</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">19</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">20</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">21</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">388</td>
+          <td>High-authority link gained: directory-farm.com (DR 388) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">22</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">23</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">24</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">25</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">26</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;at home water filter that filters out fl&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">27</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;reference&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">28</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">192</td>
+          <td>High-authority link gained: brandin.co (DR 192) anchor: &quot;Taunya Protas&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">29</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">192</td>
+          <td>High-authority link gained: brandin.co (DR 192) anchor: &quot;Judith Casarz&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">30</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;linked site&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">31</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;SoftPro Catalytic Carbon and Bone Char F&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">32</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;sneak a peek at these guys&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">33</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;SoftPro Catalytic Carbon and Bone Char F&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">34</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;on the main page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">35</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;i was reading this&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">36</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">371</td>
+          <td>High-authority link gained: studom.at (DR 371) anchor: &quot;SoftPro Whole Home Chlorine Filter&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">37</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">424</td>
+          <td>High-authority link gained: eoglaszamy.pl (DR 424) anchor: &quot;SoftPro Whole Home Chlorine Filter&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">38</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;www.softprowatersystems.com explains&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">39</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;best whole home water filter system&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">40</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;water filter that will remove fluoride&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">41</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;SoftPro Fluoride Removal System&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">42</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;how to filter fluoride out of water&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">43</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;filter fluoride out of tap water&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">44</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;hop over to this website&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">45</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">261</td>
+          <td>High-authority link gained: www.cherylnunn.com (DR 261) anchor: &quot;Best Price for SoftPro Fluoride and Chlo&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">46</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;simply click the up coming document&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">47</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;SoftPro Whole House Fluoride Filter&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">48</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">319</td>
+          <td>High-authority link gained: teanurture.online (DR 319) anchor: &quot;charcoal filter fluoride removal&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">49</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;► SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">50</td>
+          <td class="event-date">2026-09-09</td>
+          <td><span class="badge badge-gain">HIGH-AUTH GAIN</span></td>
+          <td class="num">326</td>
+          <td>High-authority link gained: qualitywatertreatment.com (DR 326) anchor: &quot;►  SoftPro&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">51</td>
+          <td class="event-date">2026-08-30</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">326</td>
+          <td>High-authority link lost: qualitywatertreatment.com (DR 326) — Link Removed anchor: &quot;use calculator&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">52</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">525</td>
+          <td>High-authority link lost: daltonpecs754.lowescouponn.com (DR 525) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">53</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">525</td>
+          <td>High-authority link lost: daltonpecs754.lowescouponn.com (DR 525) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">54</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">525</td>
+          <td>High-authority link lost: daltonpecs754.lowescouponn.com (DR 525) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">55</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">525</td>
+          <td>High-authority link lost: daltonpecs754.lowescouponn.com (DR 525) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">56</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">525</td>
+          <td>High-authority link lost: daltonpecs754.lowescouponn.com (DR 525) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">57</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">58</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">59</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">60</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">61</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">62</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">63</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">64</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">65</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">66</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">67</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">68</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">69</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">70</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">71</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">72</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">73</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">74</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">75</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">76</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">77</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: mylesgawi614.raidersfanteamshop.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">78</td>
+          <td class="event-date">2026-08-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">336</td>
+          <td>High-authority link lost: milisto.com (DR 336) — Link Removed anchor: &quot;&gt;&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">79</td>
+          <td class="event-date">2026-08-26</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">336</td>
+          <td>High-authority link lost: milisto.com (DR 336) — Link Removed anchor: &quot;&gt;&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">80</td>
+          <td class="event-date">2026-08-24</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">364</td>
+          <td>High-authority link lost: gogs.unicraft.org (DR 364) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">81</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">82</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">83</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">84</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">85</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">86</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">87</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">88</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">89</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">90</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">524</td>
+          <td>High-authority link lost: kameronjbxe299.wpsuo.com (DR 524) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">91</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">523</td>
+          <td>High-authority link lost: deanffrg528.huicopper.com (DR 523) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">92</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">523</td>
+          <td>High-authority link lost: deanffrg528.huicopper.com (DR 523) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">93</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">523</td>
+          <td>High-authority link lost: deanffrg528.huicopper.com (DR 523) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">94</td>
+          <td class="event-date">2026-08-10</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">523</td>
+          <td>High-authority link lost: deanffrg528.huicopper.com (DR 523) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">95</td>
+          <td class="event-date">2026-08-09</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">428</td>
+          <td>High-authority link lost: adhe.com.br (DR 428) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">96</td>
+          <td class="event-date">2026-08-09</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">428</td>
+          <td>High-authority link lost: adhe.com.br (DR 428) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">97</td>
+          <td class="event-date">2026-08-09</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">428</td>
+          <td>High-authority link lost: adhe.com.br (DR 428) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">98</td>
+          <td class="event-date">2026-08-09</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">386</td>
+          <td>High-authority link lost: www.cars.bookmarking.site (DR 386) — Target Page Removed (404)</td>
+        </tr>
+        <tr>
+          <td class="num">99</td>
+          <td class="event-date">2026-08-04</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">392</td>
+          <td>High-authority link lost: shopwebdirectory.com (DR 392) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">100</td>
+          <td class="event-date">2026-08-01</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">342</td>
+          <td>High-authority link lost: milisto.com (DR 342) — Link Removed anchor: &quot;&gt;&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">101</td>
+          <td class="event-date">2026-07-24</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">340</td>
+          <td>High-authority link lost: milisto.com (DR 340) — Link Removed anchor: &quot;&gt;&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">102</td>
+          <td class="event-date">2026-07-23</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">402</td>
+          <td>High-authority link lost: www.lescoconsdubassin.fr (DR 402) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">103</td>
+          <td class="event-date">2026-07-23</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">402</td>
+          <td>High-authority link lost: www.lescoconsdubassin.fr (DR 402) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">104</td>
+          <td class="event-date">2026-07-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">420</td>
+          <td>High-authority link lost: adhe.com.br (DR 420) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">105</td>
+          <td class="event-date">2026-07-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">420</td>
+          <td>High-authority link lost: adhe.com.br (DR 420) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">106</td>
+          <td class="event-date">2026-07-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">420</td>
+          <td>High-authority link lost: adhe.com.br (DR 420) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">107</td>
+          <td class="event-date">2026-07-16</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">343</td>
+          <td>High-authority link lost: stayclose.social (DR 343) — Target Page Removed (404) anchor: &quot;charcoal filter fluoride&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">108</td>
+          <td class="event-date">2026-07-15</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">425</td>
+          <td>High-authority link lost: bookmarkbirth.com (DR 425) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">109</td>
+          <td class="event-date">2026-07-15</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">418</td>
+          <td>High-authority link lost: www.garagesale.es (DR 418) — Target Page Removed (404) anchor: &quot;SoftPro Bone Char Carbon Water Filter fo&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">110</td>
+          <td class="event-date">2026-07-15</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">343</td>
+          <td>High-authority link lost: stayclose.social (DR 343) — Target Page Removed (404) anchor: &quot;SoftPro Bone Char Carbon Water Filter fo&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">111</td>
+          <td class="event-date">2026-07-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">416</td>
+          <td>High-authority link lost: mail.adhe.com.br (DR 416) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">112</td>
+          <td class="event-date">2026-07-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">416</td>
+          <td>High-authority link lost: mail.adhe.com.br (DR 416) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">113</td>
+          <td class="event-date">2026-07-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">416</td>
+          <td>High-authority link lost: mail.adhe.com.br (DR 416) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">114</td>
+          <td class="event-date">2026-07-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">416</td>
+          <td>High-authority link lost: mail.adhe.com.br (DR 416) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">115</td>
+          <td class="event-date">2026-07-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">416</td>
+          <td>High-authority link lost: mail.adhe.com.br (DR 416) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">116</td>
+          <td class="event-date">2026-07-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">391</td>
+          <td>High-authority link lost: usanetdirectory.com (DR 391) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">117</td>
+          <td class="event-date">2026-07-11</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">416</td>
+          <td>High-authority link lost: mail.adhe.com.br (DR 416) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">118</td>
+          <td class="event-date">2026-07-08</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">338</td>
+          <td>High-authority link lost: milisto.com (DR 338) — Link Removed anchor: &quot;&gt;&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">119</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">387</td>
+          <td>High-authority link lost: www.e-tracking-system.bookmarking.site (DR 387) — Target Page Removed (404)</td>
+        </tr>
+        <tr>
+          <td class="num">120</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">121</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">122</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">123</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">124</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">125</td>
+          <td class="event-date">2026-07-07</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">126</td>
+          <td class="event-date">2026-07-02</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">304</td>
+          <td>High-authority link lost: malucarestaurant.ca (DR 304) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">127</td>
+          <td class="event-date">2026-07-01</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">335</td>
+          <td>High-authority link lost: vacantes.pepmendoza.com.ar (DR 335) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">128</td>
+          <td class="event-date">2026-07-01</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">335</td>
+          <td>High-authority link lost: vacantes.pepmendoza.com.ar (DR 335) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">129</td>
+          <td class="event-date">2026-06-26</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">372</td>
+          <td>High-authority link lost: studom.at (DR 372) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">130</td>
+          <td class="event-date">2026-06-24</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">320</td>
+          <td>High-authority link lost: vacantes.pepmendoza.com.ar (DR 320) — Link Removed anchor: &quot;&lt;img src=&quot;https://images.loox.io/uploads&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">131</td>
+          <td class="event-date">2026-06-06</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">396</td>
+          <td>High-authority link lost: directoryhand.com (DR 396) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">132</td>
+          <td class="event-date">2026-06-01</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">395</td>
+          <td>High-authority link lost: directory4web.com (DR 395) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">133</td>
+          <td class="event-date">2026-05-14</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">475</td>
+          <td>High-authority link lost: gratisafhalen.be (DR 475) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">134</td>
+          <td class="event-date">2026-04-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">318</td>
+          <td>High-authority link lost: qualitywatertreatment.com (DR 318) — Link Removed anchor: &quot;use calculator&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">135</td>
+          <td class="event-date">2026-04-23</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">396</td>
+          <td>High-authority link lost: weballdirectorys.com (DR 396) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">136</td>
+          <td class="event-date">2026-04-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">521</td>
+          <td>High-authority link lost: jaidenicxp888.huicopper.com (DR 521) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">137</td>
+          <td class="event-date">2026-04-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">521</td>
+          <td>High-authority link lost: jaidenicxp888.huicopper.com (DR 521) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">138</td>
+          <td class="event-date">2026-04-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">521</td>
+          <td>High-authority link lost: jaidenicxp888.huicopper.com (DR 521) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">139</td>
+          <td class="event-date">2026-04-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">521</td>
+          <td>High-authority link lost: jaidenicxp888.huicopper.com (DR 521) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">140</td>
+          <td class="event-date">2026-04-20</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">521</td>
+          <td>High-authority link lost: jaidenicxp888.huicopper.com (DR 521) — Link Removed</td>
+        </tr>
+        <tr>
+          <td class="num">141</td>
+          <td class="event-date">2026-04-13</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">394</td>
+          <td>High-authority link lost: directory4web.com (DR 394) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">142</td>
+          <td class="event-date">2026-04-13</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">394</td>
+          <td>High-authority link lost: 123-directory.com (DR 394) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">143</td>
+          <td class="event-date">2026-04-12</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">366</td>
+          <td>High-authority link lost: www.cookies.dofollowlinks.org (DR 366) — Target Page Removed (404)</td>
+        </tr>
+        <tr>
+          <td class="num">144</td>
+          <td class="event-date">2026-02-11</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">334</td>
+          <td>High-authority link lost: www.almanacar.com (DR 334) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">145</td>
+          <td class="event-date">2026-02-04</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">400</td>
+          <td>High-authority link lost: feeldirectory.com (DR 400) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">146</td>
+          <td class="event-date">2026-01-29</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">368</td>
+          <td>High-authority link lost: classedads.com (DR 368) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">147</td>
+          <td class="event-date">2026-01-28</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">309</td>
+          <td>High-authority link lost: qualitywatertreatment.com (DR 309) — Target Page Removed (404) anchor: &quot;SoftPro AIO Iron Master&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">148</td>
+          <td class="event-date">2026-01-26</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">399</td>
+          <td>High-authority link lost: directory-2020.com (DR 399) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">149</td>
+          <td class="event-date">2026-01-05</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">399</td>
+          <td>High-authority link lost: heliskidirectory.com (DR 399) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+        <tr>
+          <td class="num">150</td>
+          <td class="event-date">2025-12-29</td>
+          <td><span class="badge badge-loss">HIGH-AUTH LOSS</span></td>
+          <td class="num">397</td>
+          <td>High-authority link lost: directorypixels.com (DR 397) — Target Page Removed (404) anchor: &quot;https://www.softprowatersystems.com/page&quot;</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<h2 class="section-title">New Backlinks (50 found)</h2>
+
+    <details>
+      <summary class="details-toggle section-toggle">Show/Hide New Backlinks (50 total)</summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Domain</th>
+              <th>URL</th>
+              <th>Anchor Text</th>
+              <th>Domain Strength</th>
+              <th>First Seen</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+
+        <tr class="high-value">
+          <td class="num">1</td>
+          <td class="domain"><a href="https://www.ssdmart.com" target="_blank" rel="noopener noindex nofollow">www.ssdmart.com</a> ⭐</td>
+          <td class="url-cell"><a href="http://www.ssdmart.com/write_blocker_market/71784" target="_blank" rel="noopener noindex nofollow">http://www.ssdmart.com/write_blocker_market/71784</a></td>
+          <td class="anchor">best rated water softener</td>
+          <td class="num">196</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">2</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/nolensville-college-grove-ud-water-company-tennessee" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/nolensville-college-grove-ud-water-compa</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">3</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/nolensville-college-grove-ud-water-company-tennessee" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/nolensville-college-grove-ud-water-compa</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">4</td>
+          <td class="domain"><a href="https://www.waterfilteradvisor.com" target="_blank" rel="noopener noindex nofollow">www.waterfilteradvisor.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://www.waterfilteradvisor.com/advice/page/8/" target="_blank" rel="noopener noindex nofollow">https://www.waterfilteradvisor.com/advice/page/8/</a></td>
+          <td class="anchor">SoftPro Water Systems on refrigerator filters and fluoride</td>
+          <td class="num">289</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">5</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-of-williston-water-company-north-dakota" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-of-williston-water-company-north-da</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">6</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-of-williston-water-company-north-dakota" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-of-williston-water-company-north-da</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">7</td>
+          <td class="domain"><a href="https://short.adsenseseller.in" target="_blank" rel="noopener noindex nofollow">short.adsenseseller.in</a> ⭐</td>
+          <td class="url-cell"><a href="https://short.adsenseseller.in/fluoridefilter" target="_blank" rel="noopener noindex nofollow">https://short.adsenseseller.in/fluoridefilter</a></td>
+          <td class="anchor">SoftPro Catalytic Carbon and Bone Char Filter</td>
+          <td class="num">192</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">8</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/top-7-best-fluoride-filters-in-2026-that-will-change-your-water-forever-why-softpro-water-systems-dominate-the-field-%F0%9F%8F%86/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/top-7-best-fluoride-filters-in-2026-that-will-change-y</a></td>
+          <td class="anchor">Whole House Water Filter by SoftPro</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">9</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/top-7-must-have-fluoride-filters-for-homeowners-in-2026-discover-why-softpro-leads-the-pack-%F0%9F%8F%86/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/top-7-must-have-fluoride-filters-for-homeowners-in-202</a></td>
+          <td class="anchor">click through the following website page</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">10</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-stunning-reasons-the-softpro-fluoride-filter-is-the-ultimate-water-safety-upgrade-for-2026-%F0%9F%8F%86/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-stunning-reasons-the-softpro-fluoride-filter-is-the-</a></td>
+          <td class="anchor">home water filter fluoride</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">11</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/blogs/water-company?page=3" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/blogs/water-company?page=3</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">12</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/blogs/water-company?page=3" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/blogs/water-company?page=3</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">13</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-the-top-7-must-have-fluoride-filters-for-healthy-homes-in-2026-why-softpro-dominates-the-field-%F0%9F%8F%86-5/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-the-top-7-must-have-fluoride-filters-for-heal</a></td>
+          <td class="anchor">Whole House Water Filter by SoftPro</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">14</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-11-jaw-dropping-reasons-softpro-fluoride-filter-dominates-whole-house-water-filtration-in-2026-%F0%9F%8F%86-3/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-11-jaw-dropping-reasons-softpro-fluoride-filt</a></td>
+          <td class="anchor">visit the following internet site</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">15</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-7-reasons-why-softpro-fluoride-filter-dominates-2026-award-winning-whole-house-filtration-for-health-conscious-homes-%F0%9F%9A%B0/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-7-reasons-why-softpro-fluoride-filter-dominat</a></td>
+          <td class="anchor">click for source</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">16</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-game-changing-reasons-softpro-fluoride-filter-dominates-water-filtration-in-2026-%F0%9F%9A%B0-3/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-game-changing-reasons-softpro-fluoride-filter-domina</a></td>
+          <td class="anchor">Read the Full Write-up</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">17</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/blogs/water-company?page=2" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/blogs/water-company?page=2</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">18</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/blogs/water-company?page=2" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/blogs/water-company?page=2</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">19</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/blogs/water-company?page=6" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/blogs/water-company?page=6</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">20</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/blogs/water-company?page=6" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/blogs/water-company?page=6</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">21</td>
+          <td class="domain"><a href="https://directory-farm.com" target="_blank" rel="noopener noindex nofollow">directory-farm.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://directory-farm.com/listings13673603/eliminating-your-supply" target="_blank" rel="noopener noindex nofollow">https://directory-farm.com/listings13673603/eliminating-your-supply</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/how-much-to-spend-</td>
+          <td class="num">388</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">22</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-of-dickinson-water-company-north-dakota" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-of-dickinson-water-company-north-da</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">23</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-of-dickinson-water-company-north-dakota" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-of-dickinson-water-company-north-da</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">24</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/tennessee-american-water-water-company-tennessee" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/tennessee-american-water-water-company-t</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">25</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/tennessee-american-water-water-company-tennessee" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/tennessee-american-water-water-company-t</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">26</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/10-powerful-reasons-softpro-fluoride-filter-is-the-ultimate-2026-game-changer-for-home-water-safety-%F0%9F%9A%B0-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/10-powerful-reasons-softpro-fluoride-filter-is-the-ult</a></td>
+          <td class="anchor">at home water filter that filters out fluoride</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">27</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/top-7-best-fluoride-filters-in-2026-why-softpro-dominates-water-purification-for-homeowners-health-advocates-and-diyers-%F0%9F%9A%B0/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/top-7-best-fluoride-filters-in-2026-why-softpro-domina</a></td>
+          <td class="anchor">reference</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">28</td>
+          <td class="domain"><a href="https://brandin.co" target="_blank" rel="noopener noindex nofollow">brandin.co</a> ⭐</td>
+          <td class="url-cell"><a href="https://brandin.co/2017/01/14/working-from-your-home/" target="_blank" rel="noopener noindex nofollow">https://brandin.co/2017/01/14/working-from-your-home/</a></td>
+          <td class="anchor">Taunya Protas</td>
+          <td class="num">192</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">29</td>
+          <td class="domain"><a href="https://brandin.co" target="_blank" rel="noopener noindex nofollow">brandin.co</a> ⭐</td>
+          <td class="url-cell"><a href="https://brandin.co/2017/01/08/trust-your-intuition/" target="_blank" rel="noopener noindex nofollow">https://brandin.co/2017/01/08/trust-your-intuition/</a></td>
+          <td class="anchor">Judith Casarz</td>
+          <td class="num">192</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">30</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/unveiling-the-top-7-best-fluoride-filters-of-2026-why-softpro-reigns-supreme-for-pure-healthy-water-%F0%9F%9A%B0/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/unveiling-the-top-7-best-fluoride-filters-of-2026-why-</a></td>
+          <td class="anchor">linked site</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">31</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-powerful-reasons-the-softpro-fluoride-filter-2026-is-the-ultimate-water-purification-solution-for-modern-homes-and-health-conscious-families-%F0%9F%9A%B0-3/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-powerful-reasons-the-softpro-fluoride-filter-2026-is</a></td>
+          <td class="anchor">SoftPro Catalytic Carbon and Bone Char Filter</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">32</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-11-jaw-dropping-reasons-softpro-fluoride-filter-dominates-whole-house-water-filtration-in-2026-%F0%9F%8F%86-4/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-11-jaw-dropping-reasons-softpro-fluoride-filt</a></td>
+          <td class="anchor">sneak a peek at these guys</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">33</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-the-9-best-fluoride-filters-of-2026-unveil-why-softpro-dominates-for-pure-water-homes-%F0%9F%8F%86-3/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-the-9-best-fluoride-filters-of-2026-unveil-wh</a></td>
+          <td class="anchor">SoftPro Catalytic Carbon and Bone Char Filter</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">34</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/unlock-the-top-11-reasons-the-softpro-fluoride-filter-dominates-water-filtration-in-2026-expert-guide-for-homeowners-and-health-conscious-families-%F0%9F%8F%86/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/unlock-the-top-11-reasons-the-softpro-fluoride-filter-</a></td>
+          <td class="anchor">on the main page</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">35</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-7-reasons-why-softpro-fluoride-filter-dominates-2026-award-winning-whole-house-filtration-for-health-conscious-homes-%F0%9F%9A%B0-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-7-reasons-why-softpro-fluoride-filter-dominat</a></td>
+          <td class="anchor">i was reading this</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">36</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/masongaskins1" target="_blank" rel="noopener noindex nofollow">https://studom.at/masongaskins1</a></td>
+          <td class="anchor">SoftPro Whole Home Chlorine Filter</td>
+          <td class="num">371</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">37</td>
+          <td class="domain"><a href="https://eoglaszamy.pl" target="_blank" rel="noopener noindex nofollow">eoglaszamy.pl</a> ⭐</td>
+          <td class="url-cell"><a href="https://eoglaszamy.pl/profile/davismmo913267" target="_blank" rel="noopener noindex nofollow">https://eoglaszamy.pl/profile/davismmo913267</a></td>
+          <td class="anchor">SoftPro Whole Home Chlorine Filter</td>
+          <td class="num">424</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">38</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-jaw-dropping-reasons-softpro-fluoride-filter-is-the-ultimate-water-upgrade-for-2026-%F0%9F%8F%86-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-jaw-dropping-reasons-softpro-fluoride-filter-is-the-</a></td>
+          <td class="anchor">www.softprowatersystems.com explains</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">39</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-reasons-the-softpro-elite-is-the-best-whole-home-water-filter-system-in-2026/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-reasons-the-softpro-elite-is-the-best-whole-home-wat</a></td>
+          <td class="anchor">best whole home water filter system</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">40</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-mind-blowing-reasons-softpro-fluoride-filter-dominates-water-purification-in-2026-%F0%9F%9A%B0-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-mind-blowing-reasons-softpro-fluoride-filter-dominat</a></td>
+          <td class="anchor">water filter that will remove fluoride</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">41</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/10-jaw-dropping-reasons-why-the-softpro-fluoride-filter-dominates-2026-water-filtration-for-health-conscious-homes-%F0%9F%94%A5/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/10-jaw-dropping-reasons-why-the-softpro-fluoride-filte</a></td>
+          <td class="anchor">SoftPro Fluoride Removal System</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">42</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/7-eye-opening-reasons-the-softpro-fluoride-filter-is-the-ultimate-water-filtration-powerhouse-in-2026-%F0%9F%9A%B0/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/7-eye-opening-reasons-the-softpro-fluoride-filter-is-t</a></td>
+          <td class="anchor">how to filter fluoride out of water</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">43</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/top-7-must-have-fluoride-filters-for-safe-water-in-2026-why-softpro-beats-all-major-brands-%F0%9F%8F%86-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/top-7-must-have-fluoride-filters-for-safe-water-in-202</a></td>
+          <td class="anchor">filter fluoride out of tap water</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">44</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-the-top-7-best-fluoride-filters-of-2026-unbeatable-whole-house-filtration-water-quality-expert-insights-%F0%9F%9A%B0-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-the-top-7-best-fluoride-filters-of-2026-unbea</a></td>
+          <td class="anchor">hop over to this website</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">45</td>
+          <td class="domain"><a href="https://www.cherylnunn.com" target="_blank" rel="noopener noindex nofollow">www.cherylnunn.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://www.cherylnunn.com/7-jaw-dropping-reasons-softpro-fluoride-filter-2026-crushes-fluoride-removal-for-health-conscious-homeowners-%F0%9F%8F%86/" target="_blank" rel="noopener noindex nofollow">https://www.cherylnunn.com/7-jaw-dropping-reasons-softpro-fluoride-filter-2026-c</a></td>
+          <td class="anchor">Best Price for SoftPro Fluoride and Chlorine Filter</td>
+          <td class="num">261</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">46</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/unlock-pure-water-bliss-in-2026-11-reasons-softpro-fluoride-filter-dominates-whole-house-water-filtration-%F0%9F%9A%B0-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/unlock-pure-water-bliss-in-2026-11-reasons-softpro-flu</a></td>
+          <td class="anchor">simply click the up coming document</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">47</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-the-top-7-must-have-fluoride-filters-for-healthy-homes-in-2026-why-softpro-dominates-the-field-%F0%9F%8F%86-6/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-the-top-7-must-have-fluoride-filters-for-heal</a></td>
+          <td class="anchor">SoftPro Whole House Fluoride Filter</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">48</td>
+          <td class="domain"><a href="https://teanurture.online" target="_blank" rel="noopener noindex nofollow">teanurture.online</a> ⭐</td>
+          <td class="url-cell"><a href="https://teanurture.online/discover-the-top-11-reasons-why-the-softpro-fluoride-filter-dominates-in-2026-unrivaled-performance-award-winning-technology-and-life-changing-water-quality-%F0%9F%9A%B0-2/" target="_blank" rel="noopener noindex nofollow">https://teanurture.online/discover-the-top-11-reasons-why-the-softpro-fluoride-f</a></td>
+          <td class="anchor">charcoal filter fluoride removal</td>
+          <td class="num">319</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">49</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-of-cedar-hill-water-company-texas" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-of-cedar-hill-water-company-texas</a></td>
+          <td class="anchor">► SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">50</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-of-cedar-hill-water-company-texas" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-of-cedar-hill-water-company-texas</a></td>
+          <td class="anchor">►  SoftPro</td>
+          <td class="num">326</td>
+          <td>2026-09-09</td>
+          <td><span class="badge badge-nf">NF</span></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+<h2 class="section-title">Lost Backlinks (100 found)</h2>
+
+    <details>
+      <summary class="details-toggle section-toggle">Show/Hide Lost Backlinks (100 total)</summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Domain</th>
+              <th>URL</th>
+              <th>Anchor Text</th>
+              <th>Domain Strength</th>
+              <th>Lost Date</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+
+        <tr class="high-value">
+          <td class="num">1</td>
+          <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://daltonpecs754.lowescouponn.com/softpro-catalytic-bone-char-carbon-filter-review-3" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-catalytic-bone-char-carbon-filter</a></td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">2</td>
+          <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://daltonpecs754.lowescouponn.com/whole-house-catalytic-bone-char-carbon-filter-review-real-results-1" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/whole-house-catalytic-bone-char-carbon-fi</a></td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">3</td>
+          <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://daltonpecs754.lowescouponn.com/softpro-eco-city-water-softener-review-real-performance-test-2" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-eco-city-water-softener-review-re</a></td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">4</td>
+          <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://daltonpecs754.lowescouponn.com/softpro-bone-char-carbon-filter-review-real-homeowner-results" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-bone-char-carbon-filter-review-re</a></td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">5</td>
+          <td class="domain"><a href="https://daltonpecs754.lowescouponn.com" target="_blank" rel="noopener noindex nofollow">daltonpecs754.lowescouponn.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://daltonpecs754.lowescouponn.com/softpro-whole-house-catalytic-bone-char-carbon-filter-review-6" target="_blank" rel="noopener noindex nofollow">https://daltonpecs754.lowescouponn.com/softpro-whole-house-catalytic-bone-char-c</a></td>
+          <td class="anchor">—</td>
+          <td class="num">525</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">6</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-bone-char-carbon-filter-review-real-results-15" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-bone-char-carbon-filter-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">7</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-review-real-user-experience-9" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-revi</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">8</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-filter-review-23" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carb</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">9</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-30-day-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-30-day-rea</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">10</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carbon-water-filter-review-27" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/whole-house-catalytic-bone-char-carb</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">11</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-well-water-results-after-1-month" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-well-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">12</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filter-review-real-user-1" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filt</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">13</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-review-real-results-2" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-city-water-softener-revi</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">14</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/my-honest-softpro-eco-water-softener-review-after-8-months" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/my-honest-softpro-eco-water-softener</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">15</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-whole-house-carbon-filter-review-real-installation" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-whole-house-carbon-filter-re</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">16</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-iron-master-aio-iron-filter-review-removes-77-ppm" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-iron-master-aio-iron-filter-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">17</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-results-for-well-water-problems" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-filter-review-real-resul</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">18</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filter-honest-review-3" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-super-filt</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">19</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-my-well-water-transformation-1" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-my-we</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">20</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-tampa-homeowner-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-ta</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">21</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-well-water-filter-review-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-well-water-filter-review</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">22</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-aio-iron-filter-review-real-performance-results" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-aio-iron-filter-review-r</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">23</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-real-results-from-california-user" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/iron-master-iron-filter-review-real-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">24</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-real-results-from-la" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-eco-water-softener-review-re</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">25</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-elite-water-softener-well-water-review-real-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-elite-water-softener-well-wa</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">26</td>
+          <td class="domain"><a href="https://mylesgawi614.raidersfanteamshop.com" target="_blank" rel="noopener noindex nofollow">mylesgawi614.raidersfanteamshop.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-filter-review-real-user-experience" target="_blank" rel="noopener noindex nofollow">https://mylesgawi614.raidersfanteamshop.com/softpro-fluoride-chlorine-filter-rev</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">27</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-water-filter-review-3" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-water-fi</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">28</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-user-experience-27" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-use</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">29</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/softpro-iron-master-filter-review-real-results-after-6-months" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-iron-master-filter-review-real-results-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">30</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/honest-softpro-catalytic-bone-char-carbon-water-filter-review" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/honest-softpro-catalytic-bone-char-carbon-water</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">31</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/softpro-elite-water-softener-review-20-years-of-smelly-water-fixed" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-elite-water-softener-review-20-years-of</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">32</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-user-experience-19" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-use</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">33</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-user-experience-14" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-city-water-softener-review-real-use</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">34</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-review-32" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-r</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">35</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/softpro-eco-water-softener-review-real-oregon-homeowner" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/softpro-eco-water-softener-review-real-oregon-h</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">36</td>
+          <td class="domain"><a href="https://kameronjbxe299.wpsuo.com" target="_blank" rel="noopener noindex nofollow">kameronjbxe299.wpsuo.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-review-41" target="_blank" rel="noopener noindex nofollow">https://kameronjbxe299.wpsuo.com/whole-house-catalytic-bone-char-carbon-filter-r</a></td>
+          <td class="anchor">—</td>
+          <td class="num">524</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">37</td>
+          <td class="domain"><a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://deanffrg528.huicopper.com/whole-house-bone-char-carbon-filter-review-real-results-3" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/whole-house-bone-char-carbon-filter-review-rea</a></td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">38</td>
+          <td class="domain"><a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://deanffrg528.huicopper.com/softpro-eco-city-water-softener-review-real-results-from-indiana" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/softpro-eco-city-water-softener-review-real-re</a></td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">39</td>
+          <td class="domain"><a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://deanffrg528.huicopper.com/whole-house-catalytic-bone-char-carbon-filter-review-26" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/whole-house-catalytic-bone-char-carbon-filter-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">40</td>
+          <td class="domain"><a href="https://deanffrg528.huicopper.com" target="_blank" rel="noopener noindex nofollow">deanffrg528.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://deanffrg528.huicopper.com/iron-master-filter-review-real-results-for-well-water-problems" target="_blank" rel="noopener noindex nofollow">https://deanffrg528.huicopper.com/iron-master-filter-review-real-results-for-wel</a></td>
+          <td class="anchor">—</td>
+          <td class="num">523</td>
+          <td>2026-08-10</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">41</td>
+          <td class="domain"><a href="https://jaidenicxp888.huicopper.com" target="_blank" rel="noopener noindex nofollow">jaidenicxp888.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://jaidenicxp888.huicopper.com/softpro-eco-city-water-softener-review-real-experience-1" target="_blank" rel="noopener noindex nofollow">https://jaidenicxp888.huicopper.com/softpro-eco-city-water-softener-review-real-</a></td>
+          <td class="anchor">—</td>
+          <td class="num">521</td>
+          <td>2026-04-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">42</td>
+          <td class="domain"><a href="https://jaidenicxp888.huicopper.com" target="_blank" rel="noopener noindex nofollow">jaidenicxp888.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-my-6-month-experience" target="_blank" rel="noopener noindex nofollow">https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-my-6-month</a></td>
+          <td class="anchor">—</td>
+          <td class="num">521</td>
+          <td>2026-04-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">43</td>
+          <td class="domain"><a href="https://jaidenicxp888.huicopper.com" target="_blank" rel="noopener noindex nofollow">jaidenicxp888.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-real-detroit-homeowner" target="_blank" rel="noopener noindex nofollow">https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-real-detro</a></td>
+          <td class="anchor">—</td>
+          <td class="num">521</td>
+          <td>2026-04-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">44</td>
+          <td class="domain"><a href="https://jaidenicxp888.huicopper.com" target="_blank" rel="noopener noindex nofollow">jaidenicxp888.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-my-wisconsin-experience" target="_blank" rel="noopener noindex nofollow">https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-my-wiscons</a></td>
+          <td class="anchor">—</td>
+          <td class="num">521</td>
+          <td>2026-04-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">45</td>
+          <td class="domain"><a href="https://jaidenicxp888.huicopper.com" target="_blank" rel="noopener noindex nofollow">jaidenicxp888.huicopper.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-real-georgia-homeowner-results" target="_blank" rel="noopener noindex nofollow">https://jaidenicxp888.huicopper.com/softpro-eco-water-softener-review-real-georg</a></td>
+          <td class="anchor">—</td>
+          <td class="num">521</td>
+          <td>2026-04-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">46</td>
+          <td class="domain"><a href="https://gratisafhalen.be" target="_blank" rel="noopener noindex nofollow">gratisafhalen.be</a> ⭐</td>
+          <td class="url-cell"><a href="https://gratisafhalen.be/author/bradymahon1/" target="_blank" rel="noopener noindex nofollow">https://gratisafhalen.be/author/bradymahon1/</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/reverse-osmosis-fl</td>
+          <td class="num">475</td>
+          <td>2026-05-14</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">47</td>
+          <td class="domain"><a href="https://adhe.com.br" target="_blank" rel="noopener noindex nofollow">adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="http://adhe.com.br/companies/trustpilot-16/" target="_blank" rel="noopener noindex nofollow">http://adhe.com.br/companies/trustpilot-16/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">428</td>
+          <td>2026-08-09</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">48</td>
+          <td class="domain"><a href="https://adhe.com.br" target="_blank" rel="noopener noindex nofollow">adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="http://adhe.com.br/companies/trustpilot-6/" target="_blank" rel="noopener noindex nofollow">http://adhe.com.br/companies/trustpilot-6/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">428</td>
+          <td>2026-08-09</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">49</td>
+          <td class="domain"><a href="https://adhe.com.br" target="_blank" rel="noopener noindex nofollow">adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="http://adhe.com.br/companies/trustpilot-7/" target="_blank" rel="noopener noindex nofollow">http://adhe.com.br/companies/trustpilot-7/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">428</td>
+          <td>2026-08-09</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">50</td>
+          <td class="domain"><a href="https://bookmarkbirth.com" target="_blank" rel="noopener noindex nofollow">bookmarkbirth.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://bookmarkbirth.com/story22336700/the-best-water-softener-systems-for-your-home" target="_blank" rel="noopener noindex nofollow">https://bookmarkbirth.com/story22336700/the-best-water-softener-systems-for-your</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">425</td>
+          <td>2026-07-15</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">51</td>
+          <td class="domain"><a href="https://adhe.com.br" target="_blank" rel="noopener noindex nofollow">adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="https://adhe.com.br/companies/trustpilot-16/" target="_blank" rel="noopener noindex nofollow">https://adhe.com.br/companies/trustpilot-16/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">420</td>
+          <td>2026-07-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">52</td>
+          <td class="domain"><a href="https://adhe.com.br" target="_blank" rel="noopener noindex nofollow">adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="https://adhe.com.br/companies/trustpilot-7/" target="_blank" rel="noopener noindex nofollow">https://adhe.com.br/companies/trustpilot-7/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">420</td>
+          <td>2026-07-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">53</td>
+          <td class="domain"><a href="https://adhe.com.br" target="_blank" rel="noopener noindex nofollow">adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="https://adhe.com.br/companies/trustpilot-6/" target="_blank" rel="noopener noindex nofollow">https://adhe.com.br/companies/trustpilot-6/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">420</td>
+          <td>2026-07-20</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">54</td>
+          <td class="domain"><a href="https://www.garagesale.es" target="_blank" rel="noopener noindex nofollow">www.garagesale.es</a> ⭐</td>
+          <td class="url-cell"><a href="https://www.garagesale.es/author/terrancelee/" target="_blank" rel="noopener noindex nofollow">https://www.garagesale.es/author/terrancelee/</a></td>
+          <td class="anchor">SoftPro Bone Char Carbon Water Filter for Fluoride</td>
+          <td class="num">418</td>
+          <td>2026-07-15</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">55</td>
+          <td class="domain"><a href="https://mail.adhe.com.br" target="_blank" rel="noopener noindex nofollow">mail.adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="https://mail.adhe.com.br/companies/trustpilot-16/" target="_blank" rel="noopener noindex nofollow">https://mail.adhe.com.br/companies/trustpilot-16/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">416</td>
+          <td>2026-07-12</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">56</td>
+          <td class="domain"><a href="https://mail.adhe.com.br" target="_blank" rel="noopener noindex nofollow">mail.adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="https://mail.adhe.com.br/companies/trustpilot-6/" target="_blank" rel="noopener noindex nofollow">https://mail.adhe.com.br/companies/trustpilot-6/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">416</td>
+          <td>2026-07-12</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">57</td>
+          <td class="domain"><a href="https://mail.adhe.com.br" target="_blank" rel="noopener noindex nofollow">mail.adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="https://mail.adhe.com.br/companies/trustpilot-7/" target="_blank" rel="noopener noindex nofollow">https://mail.adhe.com.br/companies/trustpilot-7/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">416</td>
+          <td>2026-07-12</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">58</td>
+          <td class="domain"><a href="https://mail.adhe.com.br" target="_blank" rel="noopener noindex nofollow">mail.adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="http://mail.adhe.com.br/companies/trustpilot-6/" target="_blank" rel="noopener noindex nofollow">http://mail.adhe.com.br/companies/trustpilot-6/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">416</td>
+          <td>2026-07-12</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">59</td>
+          <td class="domain"><a href="https://mail.adhe.com.br" target="_blank" rel="noopener noindex nofollow">mail.adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="http://mail.adhe.com.br/companies/trustpilot-16/" target="_blank" rel="noopener noindex nofollow">http://mail.adhe.com.br/companies/trustpilot-16/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">416</td>
+          <td>2026-07-12</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">60</td>
+          <td class="domain"><a href="https://mail.adhe.com.br" target="_blank" rel="noopener noindex nofollow">mail.adhe.com.br</a> ⭐</td>
+          <td class="url-cell"><a href="http://mail.adhe.com.br/companies/trustpilot-7/" target="_blank" rel="noopener noindex nofollow">http://mail.adhe.com.br/companies/trustpilot-7/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">416</td>
+          <td>2026-07-11</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">61</td>
+          <td class="domain"><a href="https://www.lescoconsdubassin.fr" target="_blank" rel="noopener noindex nofollow">www.lescoconsdubassin.fr</a> ⭐</td>
+          <td class="url-cell"><a href="https://www.lescoconsdubassin.fr/agent/bettinasweeney/" target="_blank" rel="noopener noindex nofollow">https://www.lescoconsdubassin.fr/agent/bettinasweeney/</a></td>
+          <td class="anchor">—</td>
+          <td class="num">402</td>
+          <td>2026-07-23</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">62</td>
+          <td class="domain"><a href="https://www.lescoconsdubassin.fr" target="_blank" rel="noopener noindex nofollow">www.lescoconsdubassin.fr</a> ⭐</td>
+          <td class="url-cell"><a href="https://www.lescoconsdubassin.fr/agent/wandamuncy6291/" target="_blank" rel="noopener noindex nofollow">https://www.lescoconsdubassin.fr/agent/wandamuncy6291/</a></td>
+          <td class="anchor">—</td>
+          <td class="num">402</td>
+          <td>2026-07-23</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">63</td>
+          <td class="domain"><a href="https://feeldirectory.com" target="_blank" rel="noopener noindex nofollow">feeldirectory.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://feeldirectory.com/listings13446153/best-guide-to-the-most-popular-soft-water-systems-in-2023" target="_blank" rel="noopener noindex nofollow">https://feeldirectory.com/listings13446153/best-guide-to-the-most-popular-soft-w</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">400</td>
+          <td>2026-02-04</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">64</td>
+          <td class="domain"><a href="https://directory-2020.com" target="_blank" rel="noopener noindex nofollow">directory-2020.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://directory-2020.com/listings985812/top-guide-to-the-most-popular-soft-water-systems-in-2023" target="_blank" rel="noopener noindex nofollow">https://directory-2020.com/listings985812/top-guide-to-the-most-popular-soft-wat</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">399</td>
+          <td>2026-01-26</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">65</td>
+          <td class="domain"><a href="https://heliskidirectory.com" target="_blank" rel="noopener noindex nofollow">heliskidirectory.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://heliskidirectory.com/listings13478078/top-guide-to-the-exceptional-soft-water-systems-in-2023" target="_blank" rel="noopener noindex nofollow">https://heliskidirectory.com/listings13478078/top-guide-to-the-exceptional-soft-</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">399</td>
+          <td>2026-01-05</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">66</td>
+          <td class="domain"><a href="https://directorypixels.com" target="_blank" rel="noopener noindex nofollow">directorypixels.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://directorypixels.com/listings13475947/ultimate-guide-to-the-exceptional-soft-water-systems-in-2023" target="_blank" rel="noopener noindex nofollow">https://directorypixels.com/listings13475947/ultimate-guide-to-the-exceptional-s</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">397</td>
+          <td>2025-12-29</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">67</td>
+          <td class="domain"><a href="https://directoryhand.com" target="_blank" rel="noopener noindex nofollow">directoryhand.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://directoryhand.com/listings13582023/ideal-soft-water-device-our-picks" target="_blank" rel="noopener noindex nofollow">https://directoryhand.com/listings13582023/ideal-soft-water-device-our-picks</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">396</td>
+          <td>2026-06-06</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">68</td>
+          <td class="domain"><a href="https://weballdirectorys.com" target="_blank" rel="noopener noindex nofollow">weballdirectorys.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://weballdirectorys.com/listings1075800/ideal-water-conditioning-solution-recommended-choices" target="_blank" rel="noopener noindex nofollow">https://weballdirectorys.com/listings1075800/ideal-water-conditioning-solution-r</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">396</td>
+          <td>2026-04-23</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">69</td>
+          <td class="domain"><a href="https://directory4web.com" target="_blank" rel="noopener noindex nofollow">directory4web.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://directory4web.com/listings13603495/best-soft-water-system-our-picks" target="_blank" rel="noopener noindex nofollow">https://directory4web.com/listings13603495/best-soft-water-system-our-picks</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">395</td>
+          <td>2026-06-01</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">70</td>
+          <td class="domain"><a href="https://directory4web.com" target="_blank" rel="noopener noindex nofollow">directory4web.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://directory4web.com/listings13549363/ideal-water-softening-solution-recommended-reviews" target="_blank" rel="noopener noindex nofollow">https://directory4web.com/listings13549363/ideal-water-softening-solution-recomm</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">394</td>
+          <td>2026-04-13</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">71</td>
+          <td class="domain"><a href="https://123-directory.com" target="_blank" rel="noopener noindex nofollow">123-directory.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://123-directory.com/listings13546956/ideal-water-softening-system-top-selections" target="_blank" rel="noopener noindex nofollow">https://123-directory.com/listings13546956/ideal-water-softening-system-top-sele</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">394</td>
+          <td>2026-04-13</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">72</td>
+          <td class="domain"><a href="https://shopwebdirectory.com" target="_blank" rel="noopener noindex nofollow">shopwebdirectory.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://shopwebdirectory.com/listings13627967/the-best-water-softener-systems-for-your-home" target="_blank" rel="noopener noindex nofollow">https://shopwebdirectory.com/listings13627967/the-best-water-softener-systems-fo</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">392</td>
+          <td>2026-08-04</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">73</td>
+          <td class="domain"><a href="https://usanetdirectory.com" target="_blank" rel="noopener noindex nofollow">usanetdirectory.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://usanetdirectory.com/listings13645385/the-best-water-softener-systems-for-your-home" target="_blank" rel="noopener noindex nofollow">https://usanetdirectory.com/listings13645385/the-best-water-softener-systems-for</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/commercial-water-s</td>
+          <td class="num">391</td>
+          <td>2026-07-12</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">74</td>
+          <td class="domain"><a href="https://www.e-tracking-system.bookmarking.site" target="_blank" rel="noopener noindex nofollow">www.e-tracking-system.bookmarking.site</a> ⭐</td>
+          <td class="url-cell"><a href="http://www.e-tracking-system.bookmarking.site/out/fluoride-filter-358/" target="_blank" rel="noopener noindex nofollow">http://www.e-tracking-system.bookmarking.site/out/fluoride-filter-358/</a></td>
+          <td class="anchor">—</td>
+          <td class="num">387</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">75</td>
+          <td class="domain"><a href="https://www.cars.bookmarking.site" target="_blank" rel="noopener noindex nofollow">www.cars.bookmarking.site</a> ⭐</td>
+          <td class="url-cell"><a href="http://www.cars.bookmarking.site/out/fluoride-filter-454/" target="_blank" rel="noopener noindex nofollow">http://www.cars.bookmarking.site/out/fluoride-filter-454/</a></td>
+          <td class="anchor">—</td>
+          <td class="num">386</td>
+          <td>2026-08-09</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">76</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/stantonhaywort" target="_blank" rel="noopener noindex nofollow">https://studom.at/stantonhaywort</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">77</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/magdalenaharcu" target="_blank" rel="noopener noindex nofollow">https://studom.at/magdalenaharcu</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">78</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/elidacolleano" target="_blank" rel="noopener noindex nofollow">https://studom.at/elidacolleano</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">79</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/triciathigpen0" target="_blank" rel="noopener noindex nofollow">https://studom.at/triciathigpen0</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">80</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/jacintomonk347" target="_blank" rel="noopener noindex nofollow">https://studom.at/jacintomonk347</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">81</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/marianariemer" target="_blank" rel="noopener noindex nofollow">https://studom.at/marianariemer</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-07-07</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">82</td>
+          <td class="domain"><a href="https://studom.at" target="_blank" rel="noopener noindex nofollow">studom.at</a> ⭐</td>
+          <td class="url-cell"><a href="https://studom.at/eugenio66f6293" target="_blank" rel="noopener noindex nofollow">https://studom.at/eugenio66f6293</a></td>
+          <td class="anchor">—</td>
+          <td class="num">372</td>
+          <td>2026-06-26</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">83</td>
+          <td class="domain"><a href="https://classedads.com" target="_blank" rel="noopener noindex nofollow">classedads.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://classedads.com/index.php?page=user&amp;action=pub_profile&amp;id=34627&amp;item_type=active&amp;per_page=16" target="_blank" rel="noopener noindex nofollow">https://classedads.com/index.php?page=user&amp;action=pub_profile&amp;id=34627&a</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/the-hidden-truth-a</td>
+          <td class="num">368</td>
+          <td>2026-01-29</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">84</td>
+          <td class="domain"><a href="https://www.cookies.dofollowlinks.org" target="_blank" rel="noopener noindex nofollow">www.cookies.dofollowlinks.org</a> ⭐</td>
+          <td class="url-cell"><a href="http://www.cookies.dofollowlinks.org/out/fluoride-filter-173/" target="_blank" rel="noopener noindex nofollow">http://www.cookies.dofollowlinks.org/out/fluoride-filter-173/</a></td>
+          <td class="anchor">—</td>
+          <td class="num">366</td>
+          <td>2026-04-12</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">85</td>
+          <td class="domain"><a href="https://gogs.unicraft.org" target="_blank" rel="noopener noindex nofollow">gogs.unicraft.org</a> ⭐</td>
+          <td class="url-cell"><a href="https://gogs.unicraft.org/cristinamccray/softpro-water-systems2226/wiki/My+SoftPro+Elite+HE+Review+Honest+City+Water+Results" target="_blank" rel="noopener noindex nofollow">https://gogs.unicraft.org/cristinamccray/softpro-water-systems2226/wiki/My+SoftP</a></td>
+          <td class="anchor">—</td>
+          <td class="num">364</td>
+          <td>2026-08-24</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">86</td>
+          <td class="domain"><a href="https://stayclose.social" target="_blank" rel="noopener noindex nofollow">stayclose.social</a> ⭐</td>
+          <td class="url-cell"><a href="https://stayclose.social/blog/73663/10-powerful-reasons-softpro-fluoride-filter-is-the-ultimate-2026-game-chang/" target="_blank" rel="noopener noindex nofollow">https://stayclose.social/blog/73663/10-powerful-reasons-softpro-fluoride-filter-</a></td>
+          <td class="anchor">charcoal filter fluoride</td>
+          <td class="num">343</td>
+          <td>2026-07-16</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">87</td>
+          <td class="domain"><a href="https://stayclose.social" target="_blank" rel="noopener noindex nofollow">stayclose.social</a> ⭐</td>
+          <td class="url-cell"><a href="https://stayclose.social/blog/57063/unveiling-the-top-7-best-fluoride-filters-of-2026-why-softpro-reigns-suprem/" target="_blank" rel="noopener noindex nofollow">https://stayclose.social/blog/57063/unveiling-the-top-7-best-fluoride-filters-of</a></td>
+          <td class="anchor">SoftPro Bone Char Carbon Water Filter for Fluoride</td>
+          <td class="num">343</td>
+          <td>2026-07-15</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">88</td>
+          <td class="domain"><a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://milisto.com/read-blog/52439_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/52439_my-softpro-elite-he-review-honest-city-water</a></td>
+          <td class="anchor">&gt;</td>
+          <td class="num">342</td>
+          <td>2026-08-01</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">89</td>
+          <td class="domain"><a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://milisto.com/read-blog/52014_warning-what-i-wish-i-knew-about-softpro-elite-he-review.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/52014_warning-what-i-wish-i-knew-about-softpro-eli</a></td>
+          <td class="anchor">&gt;</td>
+          <td class="num">340</td>
+          <td>2026-07-24</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">90</td>
+          <td class="domain"><a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://milisto.com/read-blog/52018_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/52018_my-softpro-elite-he-review-honest-city-water</a></td>
+          <td class="anchor">&gt;</td>
+          <td class="num">338</td>
+          <td>2026-07-08</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">91</td>
+          <td class="domain"><a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://milisto.com/read-blog/51881_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/51881_my-softpro-elite-he-review-honest-city-water</a></td>
+          <td class="anchor">&gt;</td>
+          <td class="num">336</td>
+          <td>2026-08-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">92</td>
+          <td class="domain"><a href="https://milisto.com" target="_blank" rel="noopener noindex nofollow">milisto.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://milisto.com/read-blog/51896_my-softpro-elite-he-review-honest-city-water-results.html" target="_blank" rel="noopener noindex nofollow">https://milisto.com/read-blog/51896_my-softpro-elite-he-review-honest-city-water</a></td>
+          <td class="anchor">&gt;</td>
+          <td class="num">336</td>
+          <td>2026-08-26</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">93</td>
+          <td class="domain"><a href="https://vacantes.pepmendoza.com.ar" target="_blank" rel="noopener noindex nofollow">vacantes.pepmendoza.com.ar</a> ⭐</td>
+          <td class="url-cell"><a href="https://vacantes.pepmendoza.com.ar/companies/trustpilot-8/" target="_blank" rel="noopener noindex nofollow">https://vacantes.pepmendoza.com.ar/companies/trustpilot-8/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">335</td>
+          <td>2026-07-01</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">94</td>
+          <td class="domain"><a href="https://vacantes.pepmendoza.com.ar" target="_blank" rel="noopener noindex nofollow">vacantes.pepmendoza.com.ar</a> ⭐</td>
+          <td class="url-cell"><a href="https://vacantes.pepmendoza.com.ar/companies/trustpilot-11/" target="_blank" rel="noopener noindex nofollow">https://vacantes.pepmendoza.com.ar/companies/trustpilot-11/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/22/gR1SoXvjD</td>
+          <td class="num">335</td>
+          <td>2026-07-01</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">95</td>
+          <td class="domain"><a href="https://www.almanacar.com" target="_blank" rel="noopener noindex nofollow">www.almanacar.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://www.almanacar.com/profile/NevaGarvin" target="_blank" rel="noopener noindex nofollow">https://www.almanacar.com/profile/NevaGarvin</a></td>
+          <td class="anchor">https://www.softprowatersystems.com/pages/</td>
+          <td class="num">334</td>
+          <td>2026-02-11</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">96</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/products/softpro-eco-well-water-softener" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/products/softpro-eco-well-water-softener</a></td>
+          <td class="anchor">use calculator</td>
+          <td class="num">326</td>
+          <td>2026-08-30</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">97</td>
+          <td class="domain"><a href="https://vacantes.pepmendoza.com.ar" target="_blank" rel="noopener noindex nofollow">vacantes.pepmendoza.com.ar</a> ⭐</td>
+          <td class="url-cell"><a href="https://vacantes.pepmendoza.com.ar/companies/trustpilot/" target="_blank" rel="noopener noindex nofollow">https://vacantes.pepmendoza.com.ar/companies/trustpilot/</a></td>
+          <td class="anchor">&lt;img src=&quot;https://images.loox.io/uploads/2026/1/6/LLciqaPGW.</td>
+          <td class="num">320</td>
+          <td>2026-06-24</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">98</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/products/softpro-eco-water-softener" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/products/softpro-eco-water-softener</a></td>
+          <td class="anchor">use calculator</td>
+          <td class="num">318</td>
+          <td>2026-04-28</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">99</td>
+          <td class="domain"><a href="https://qualitywatertreatment.com" target="_blank" rel="noopener noindex nofollow">qualitywatertreatment.com</a> ⭐</td>
+          <td class="url-cell"><a href="https://qualitywatertreatment.com/pages/city-water-softener-troubleshooting-guide" target="_blank" rel="noopener noindex nofollow">https://qualitywatertreatment.com/pages/city-water-softener-troubleshooting-guid</a></td>
+          <td class="anchor">SoftPro AIO Iron Master</td>
+          <td class="num">309</td>
+          <td>2026-01-28</td>
+          <td><span class="badge badge-recoverable">Target Page Removed (404)</span></td>
+        </tr>
+        <tr class="high-value">
+          <td class="num">100</td>
+          <td class="domain"><a href="https://malucarestaurant.ca" target="_blank" rel="noopener noindex nofollow">malucarestaurant.ca</a> ⭐</td>
+          <td class="url-cell"><a href="https://malucarestaurant.ca/claudettedesja" target="_blank" rel="noopener noindex nofollow">https://malucarestaurant.ca/claudettedesja</a></td>
+          <td class="anchor">—</td>
+          <td class="num">304</td>
+          <td>2026-07-02</td>
+          <td><span class="badge badge-recoverable">Link Removed</span></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+<h2 class="section-title">Recommendations</h2>
+
+    <div class="rec-card">
+      <div class="rec-rank">1</div>
+      <div class="rec-body">
+        <div class="rec-domain">Nurture High-Authority New Links (50 found)</div>
+        <div class="rec-body-text">These newly gained high-authority links (DR &gt; 50) are valuable.
+        Consider reaching out to build a relationship, explore co-marketing opportunities, or request additional links.</div>
+        <ul style="margin:8px 0 0 20px;font-size:14px;"><li><strong>www.ssdmart.com</strong> (DR 196) — anchor: "best rated water softener"</li><li><strong>qualitywatertreatment.com</strong> (DR 326) — anchor: "►  SoftPro"</li><li><strong>qualitywatertreatment.com</strong> (DR 326) — anchor: "► SoftPro"</li><li><strong>www.waterfilteradvisor.com</strong> (DR 289) — anchor: "SoftPro Water Systems on refrigerator filters and "</li><li><strong>qualitywatertreatment.com</strong> (DR 326) — anchor: "►  SoftPro"</li></ul>
+      </div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-rank">2</div>
+      <div class="rec-body">
+        <div class="rec-domain">Recover High-Authority Lost Links (100 found)</div>
+        <div class="rec-body-text">These lost high-authority links should be prioritized for recovery outreach.
+        Run <code>python3 ~/.hermes/scripts/lost_backlink_recovery.py --domain softprowatersystems.com</code>
+        for detailed recovery recommendations with outreach email templates.</div>
+        <ul style="margin:8px 0 0 20px;font-size:14px;"><li><strong>daltonpecs754.lowescouponn.com</strong> (DR 525) — Link Removed</li><li><strong>daltonpecs754.lowescouponn.com</strong> (DR 525) — Link Removed</li><li><strong>daltonpecs754.lowescouponn.com</strong> (DR 525) — Link Removed</li><li><strong>daltonpecs754.lowescouponn.com</strong> (DR 525) — Link Removed</li><li><strong>daltonpecs754.lowescouponn.com</strong> (DR 525) — Link Removed</li></ul>
+      </div>
+    </div>
+
+<div class="footer">
+  <p>Report generated by Zenfusion Backlink Alert Report</p>
+  <p>Data source: DataForSEO Backlinks API · Generated: 2026-09-09 12:56 · noindex, nofollow</p>
+</div>
+
+</body>
+</html>

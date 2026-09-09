@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Toxic Link Report — softprowatersystems.com</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #f8fafc; color: #1e293b; padding: 24px; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; }
+  h2 { font-size: 1.3rem; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 20px 0; }
+  .card { background: #fff; border-radius: 12px; padding: 24px; text-align: center;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+  .card-num { font-size: 2.2rem; font-weight: 700; }
+  .card-label { font-size: 0.85rem; color: #64748b; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-toxic .card-num { color: #e74c3c; }
+  .card-suspicious .card-num { color: #f39c12; }
+  .card-clean .card-num { color: #27ae60; }
+  .chart-container { background: #fff; border-radius: 12px; padding: 24px; text-align: center;
+                     box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+  .data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px;
+                overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 12px 0; }
+  .data-table th { background: #f1f5f9; padding: 10px 12px; text-align: left; font-size: 0.85rem;
+                    text-transform: uppercase; letter-spacing: 0.5px; color: #475569; }
+  .data-table td { padding: 10px 12px; border-top: 1px solid #e2e8f0; font-size: 0.9rem; }
+  .data-table tbody tr:hover { background: #f8fafc; }
+  .expand-btn { background: #2563eb; color: #fff; border: none; padding: 8px 16px; border-radius: 6px;
+                 cursor: pointer; font-size: 0.85rem; margin: 8px 0; }
+  .expand-btn:hover { background: #1d4ed8; }
+  .code-block { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px;
+                font-family: 'Courier New', monospace; font-size: 0.85rem; overflow-x: auto;
+                max-height: 400px; overflow-y: auto; white-space: pre-wrap; position: relative; }
+  .copy-btn { position: absolute; top: 8px; right: 8px; background: #475569; color: #fff;
+              border: none; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+  .copy-btn:hover { background: #64748b; }
+  .recommendations { background: #fff; border-radius: 12px; padding: 24px; margin-top: 12px;
+                      box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+  .recommendations ul { list-style: none; padding-left: 0; }
+  .recommendations li { padding: 8px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; }
+  .recommendations li:last-child { border-bottom: none; }
+  .anchor-analysis { background: #fff; border-radius: 12px; padding: 20px; margin-top: 12px;
+                      box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+  .stat-line { font-size: 1.1rem; margin: 8px 0; }
+  .stat-line strong { color: #2563eb; }
+  .section { margin-bottom: 32px; }
+  footer { margin-top: 40px; text-align: center; color: #94a3b8; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<h1>🔗 Toxic Link Detector Report</h1>
+<div class="meta">Domain: <strong>softprowatersystems.com</strong> &nbsp;|&nbsp; Generated: 2026-09-09 12:54:35 &nbsp;|&nbsp; Backlinks analyzed: 1000</div>
+
+<h2>📊 Summary</h2>
+
+    <div class="card-grid">
+      <div class="card"><div class="card-num">1000</div><div class="card-label">Total Backlinks</div></div>
+      <div class="card card-toxic"><div class="card-num">7</div><div class="card-label">Toxic</div></div>
+      <div class="card card-suspicious"><div class="card-num">140</div><div class="card-label">Suspicious</div></div>
+      <div class="card card-clean"><div class="card-num">853</div><div class="card-label">Clean</div></div>
+      <div class="card"><div class="card-num">0.0</div><div class="card-label">Avg Spam Score</div></div>
+    </div>
+    
+
+<h2>📈 Toxicity Distribution</h2>
+<div class="chart-container">
+<svg width="340" height="260" viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+<path d="M 110,110 L 110.0,30.0 A 80,80 0 0 1 113.5,30.1 Z" fill="#e74c3c" stroke="#fff" stroke-width="2"/>
+<path d="M 110,110 L 113.5,30.1 A 80,80 0 0 1 173.8,61.8 Z" fill="#f39c12" stroke="#fff" stroke-width="2"/>
+<path d="M 110,110 L 173.8,61.8 A 80,80 0 1 1 110.0,30.0 Z" fill="#27ae60" stroke="#fff" stroke-width="2"/>
+<circle cx="110" cy="110" r="35" fill="#fff"/>
+<text x="110" y="108" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">1000</text>
+<text x="110" y="124" text-anchor="middle" font-size="10" fill="#999">Backlinks</text>
+<rect x="220" y="20" width="14" height="14" fill="#e74c3c" rx="2"/>
+<text x="240" y="32" font-size="13" fill="#555">Toxic: 7 (0.7%)</text>
+<rect x="220" y="44" width="14" height="14" fill="#f39c12" rx="2"/>
+<text x="240" y="56" font-size="13" fill="#555">Suspicious: 140 (14.0%)</text>
+<rect x="220" y="68" width="14" height="14" fill="#27ae60" rx="2"/>
+<text x="240" y="80" font-size="13" fill="#555">Clean: 853 (85.3%)</text>
+</svg>
+</div>
+
+<h2>☠️ Toxic Backlinks (7)</h2>
+<div class="section">
+
+        <table class="data-table" id="toxic-table">
+          <thead>
+        <tr><th>Domain</th><th>URL</th><th>Anchor Text</th><th>Spam Score</th><th>Domain Strength</th><th>Reason Flagged</th></tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>machonemodels.com</td>
+              <td><a href="https://machonemodels.com/should-i-try-softpro-water-systems/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://machonemodels.com/should-i-try-softpro-water-systems/</a></td>
+              <td>SoftPro Water Systems</td>
+              <td>0</td>
+              <td>0</td>
+              <td>High spam score (0) or very low domain strength (0)</td>
+            </tr>
+            <tr>
+              <td>calebmroberts.com</td>
+              <td><a href="https://calebmroberts.com/best-salt-free-water-conditioners-what-actually-works/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://calebmroberts.com/best-salt-free-water-conditioners-what-actually-works/</a></td>
+              <td>softprowatersystems.com</td>
+              <td>0</td>
+              <td>0</td>
+              <td>High spam score (0) or very low domain strength (0)</td>
+            </tr>
+            <tr>
+              <td>thriveonwords.com</td>
+              <td><a href="https://thriveonwords.com/culligan-vs-softpro-water-systems-which-is-actually-better/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://thriveonwords.com/culligan-vs-softpro-water-systems-which-is-actually-be</a></td>
+              <td>softprowatersystems.com</td>
+              <td>0</td>
+              <td>0</td>
+              <td>High spam score (0) or very low domain strength (0)</td>
+            </tr>
+            <tr>
+              <td>deploytantra.com</td>
+              <td><a href="https://deploytantra.com/best-whole-house-water-filters-ranked-2026/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://deploytantra.com/best-whole-house-water-filters-ranked-2026/</a></td>
+              <td>softprowatersystems.com</td>
+              <td>0</td>
+              <td>0</td>
+              <td>High spam score (0) or very low domain strength (0)</td>
+            </tr>
+            <tr>
+              <td>smallbizbudz.com</td>
+              <td><a href="https://www.smallbizbudz.com/top-commercial-water-softeners-under-3000/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://www.smallbizbudz.com/top-commercial-water-softeners-under-3000/</a></td>
+              <td>softprowatersystems.com</td>
+              <td>0</td>
+              <td>3</td>
+              <td>High spam score (0) or very low domain strength (3)</td>
+            </tr>
+            <tr>
+              <td>case-boxofemotions.com</td>
+              <td><a href="https://case-boxofemotions.com/best-water-softeners-for-well-water-compared/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://case-boxofemotions.com/best-water-softeners-for-well-water-compared/</a></td>
+              <td>softprowatersystems.com</td>
+              <td>0</td>
+              <td>0</td>
+              <td>High spam score (0) or very low domain strength (0)</td>
+            </tr>
+            <tr>
+              <td>base-directory.com</td>
+              <td><a href="https://base-directory.com/listings13632902/the-best-water-softener-systems-for-your-home" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://base-directory.com/listings13632902/the-best-water-softener-systems-for-</a></td>
+              <td>https://www.softprowatersystems.com/pages/water-softening-sy</td>
+              <td>0</td>
+              <td>391</td>
+              <td>Link from gambling-related site (keyword: &#x27;bet&#x27;)</td>
+            </tr></tbody>
+        </table>
+        <button class="expand-btn" onclick="toggleTable('toxic-table')">Show/Hide 7 rows</button>
+        
+</div>
+
+<h2>⚠️ Suspicious Backlinks (140)</h2>
+<div class="section">
+
+        <table class="data-table" id="suspicious-table">
+          <thead>
+        <tr><th>Domain</th><th>URL</th><th>Anchor Text</th><th>Spam Score</th><th>Domain Strength</th><th>Reason Flagged</th></tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>chancegyan486.lowescouponn.com</td>
+              <td><a href="https://chancegyan486.lowescouponn.com/best-water-softener-system-for-modern-homes-softpro-elite" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://chancegyan486.lowescouponn.com/best-water-softener-system-for-modern-hom</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>512</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>litberlin.info</td>
+              <td><a href="http://litberlin.info/messages/93777.html" target="_blank" rel="nofollow noopener" style="color:#2563eb;">http://litberlin.info/messages/93777.html</a></td>
+              <td>https://www.softprowatersystems.com/pages/softpro-elite-wate</td>
+              <td>0</td>
+              <td>157</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/softpro-elite-water-softener-review-czech-user-experience&quot;</td>
+            </tr>
+            <tr>
+              <td>foundersclick.com</td>
+              <td><a href="https://www.foundersclick.com/blogs/41339/Best-Softener-Water-for-Bradenton-FL" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://www.foundersclick.com/blogs/41339/Best-Softener-Water-for-Bradenton-FL</a></td>
+              <td>best softener water</td>
+              <td>0</td>
+              <td>259</td>
+              <td>Exact-match commercial anchor: &quot;best softener water&quot;</td>
+            </tr>
+            <tr>
+              <td>webyourself.eu</td>
+              <td><a href="https://webyourself.eu/blogs/2073366/Getting-Rust-and-Rotten-Egg-Smells-Out-of-Palm-Bay" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://webyourself.eu/blogs/2073366/Getting-Rust-and-Rotten-Egg-Smells-Out-of-P</a></td>
+              <td>best iron filter for well water</td>
+              <td>0</td>
+              <td>450</td>
+              <td>Exact-match commercial anchor: &quot;best iron filter for well water&quot;</td>
+            </tr>
+            <tr>
+              <td>webyourself.eu</td>
+              <td><a href="https://webyourself.eu/blogs/2056878/Managing-Hard-Municipal-Water-Challenges-in-Georgetown" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://webyourself.eu/blogs/2056878/Managing-Hard-Municipal-Water-Challenges-in</a></td>
+              <td>best water softener for city water</td>
+              <td>0</td>
+              <td>450</td>
+              <td>Exact-match commercial anchor: &quot;best water softener for city water&quot;</td>
+            </tr>
+            <tr>
+              <td>siit.co</td>
+              <td><a href="https://siit.co/guestposts/best-water-softener-for-city-water-in-austin-tx-a-local-expert-review-of-softpro-elite/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://siit.co/guestposts/best-water-softener-for-city-water-in-austin-tx-a-loc</a></td>
+              <td>best water softener for city water in Austin</td>
+              <td>0</td>
+              <td>439</td>
+              <td>Exact-match commercial anchor: &quot;best water softener for city water in Austin&quot;</td>
+            </tr>
+            <tr>
+              <td>siit.co</td>
+              <td><a href="https://siit.co/guestposts/best-water-softener-for-phoenix-az/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://siit.co/guestposts/best-water-softener-for-phoenix-az/</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>439</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>siit.co</td>
+              <td><a href="https://siit.co/guestposts/best-water-softener-for-city-water-with-chlorine-resistance-explained/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://siit.co/guestposts/best-water-softener-for-city-water-with-chlorine-resi</a></td>
+              <td>best ion exchange water softener for municipal water</td>
+              <td>0</td>
+              <td>439</td>
+              <td>Exact-match commercial anchor: &quot;best ion exchange water softener for municipal water&quot;</td>
+            </tr>
+            <tr>
+              <td>timebusinessnews.com</td>
+              <td><a href="https://timebusinessnews.com/expert-review-best-well-water-softener-for-fort-wayne-in/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://timebusinessnews.com/expert-review-best-well-water-softener-for-fort-way</a></td>
+              <td>best well water softener</td>
+              <td>0</td>
+              <td>408</td>
+              <td>Exact-match commercial anchor: &quot;best well water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>siit.co</td>
+              <td><a href="https://siit.co/guestposts/what-san-antonio-homeowners-discovered-when-looking-for-the-best-water-softener/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://siit.co/guestposts/what-san-antonio-homeowners-discovered-when-looking-f</a></td>
+              <td>best water softener in San Antonio, TX</td>
+              <td>0</td>
+              <td>439</td>
+              <td>Exact-match commercial anchor: &quot;best water softener in San Antonio, TX&quot;</td>
+            </tr>
+            <tr>
+              <td>leftbrainblogging.com</td>
+              <td><a href="https://leftbrainblogging.com/salt-vs-salt-free-best-water-conditioners-ranked/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://leftbrainblogging.com/salt-vs-salt-free-best-water-conditioners-ranked/</a></td>
+              <td>softprowatersystems.com</td>
+              <td>0</td>
+              <td>7</td>
+              <td>Moderate spam score (0) or low domain strength (7)</td>
+            </tr>
+            <tr>
+              <td>timebusinessnews.com</td>
+              <td><a href="https://timebusinessnews.com/best-water-softener-for-georgetown-tx/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://timebusinessnews.com/best-water-softener-for-georgetown-tx/</a></td>
+              <td>best water softener for Georgetown TX</td>
+              <td>0</td>
+              <td>407</td>
+              <td>Exact-match commercial anchor: &quot;best water softener for Georgetown TX&quot;</td>
+            </tr>
+            <tr>
+              <td>timebusinessnews.com</td>
+              <td><a href="https://timebusinessnews.com/how-to-choose-the-best-water-softener-for-hard-municipal-water/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://timebusinessnews.com/how-to-choose-the-best-water-softener-for-hard-muni</a></td>
+              <td>best water softener for city water</td>
+              <td>0</td>
+              <td>407</td>
+              <td>Exact-match commercial anchor: &quot;best water softener for city water&quot;</td>
+            </tr>
+            <tr>
+              <td>stayclose.social</td>
+              <td><a href="https://stayclose.social/BettyCortez135674/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://stayclose.social/BettyCortez135674/</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-fluoride-filt</td>
+              <td>0</td>
+              <td>343</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-fluoride-filters-for-home-use-health&quot;</td>
+            </tr>
+            <tr>
+              <td>stayclose.social</td>
+              <td><a href="https://stayclose.social/ElyseSchurr94875/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://stayclose.social/ElyseSchurr94875/</a></td>
+              <td>https://www.softprowatersystems.com/pages/top-secret-local-f</td>
+              <td>0</td>
+              <td>343</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/top-secret-local-fluoride-filter-services-revealed&quot;</td>
+            </tr>
+            <tr>
+              <td>stayclose.social</td>
+              <td><a href="https://stayclose.social/BettyCortez135674" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://stayclose.social/BettyCortez135674</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-fluoride-filt</td>
+              <td>0</td>
+              <td>343</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-fluoride-filters-for-home-use-health&quot;</td>
+            </tr>
+            <tr>
+              <td>stayclose.social</td>
+              <td><a href="https://stayclose.social/ElyseSchurr94875" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://stayclose.social/ElyseSchurr94875</a></td>
+              <td>https://www.softprowatersystems.com/pages/top-secret-local-f</td>
+              <td>0</td>
+              <td>343</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/top-secret-local-fluoride-filter-services-revealed&quot;</td>
+            </tr>
+            <tr>
+              <td>timebusinessnews.com</td>
+              <td><a href="https://timebusinessnews.com/what-houston-homeowners-discovered-when-looking-for-the-best-water-softener/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://timebusinessnews.com/what-houston-homeowners-discovered-when-looking-for</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>407</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>exit.si</td>
+              <td><a href="https://exit.si/jeanabousquet" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://exit.si/jeanabousquet</a></td>
+              <td>SoftPro Whole Home Filter Reviews</td>
+              <td>0</td>
+              <td>291</td>
+              <td>Exact-match commercial anchor: &quot;SoftPro Whole Home Filter Reviews&quot;</td>
+            </tr>
+            <tr>
+              <td>emilianobpfe628.raidersfanteamshop.com</td>
+              <td><a href="https://emilianobpfe628.raidersfanteamshop.com/best-water-softener-system-for-hard-water-regions-softpro-elite-review" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://emilianobpfe628.raidersfanteamshop.com/best-water-softener-system-for-ha</a></td>
+              <td>best water softener for home</td>
+              <td>0</td>
+              <td>520</td>
+              <td>Exact-match commercial anchor: &quot;best water softener for home&quot;</td>
+            </tr>
+            <tr>
+              <td>emilianobpfe628.raidersfanteamshop.com</td>
+              <td><a href="https://emilianobpfe628.raidersfanteamshop.com/why-homeowners-call-softpro-elite-the-best-water-softener-for-reliability" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://emilianobpfe628.raidersfanteamshop.com/why-homeowners-call-softpro-elite</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>520</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>emilianobpfe628.raidersfanteamshop.com</td>
+              <td><a href="https://emilianobpfe628.raidersfanteamshop.com/softpro-elite-water-softener-best-water-softener-for-spotless-glassware" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://emilianobpfe628.raidersfanteamshop.com/softpro-elite-water-softener-best</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>520</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>emilianobpfe628.raidersfanteamshop.com</td>
+              <td><a href="https://emilianobpfe628.raidersfanteamshop.com/top-home-comfort-benefits-of-softpro-elite-water-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://emilianobpfe628.raidersfanteamshop.com/top-home-comfort-benefits-of-soft</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>520</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>chancegyan486.lowescouponn.com</td>
+              <td><a href="https://chancegyan486.lowescouponn.com/why-the-softpro-elite-water-softener-is-the-best-water-softener-for-modern-homes" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://chancegyan486.lowescouponn.com/why-the-softpro-elite-water-softener-is-t</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>517</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>arthurzcgc984.huicopper.com</td>
+              <td><a href="https://arthurzcgc984.huicopper.com/softpro-elite-water-softener-system-how-it-works-and-why-it-matters" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://arthurzcgc984.huicopper.com/softpro-elite-water-softener-system-how-it-w</a></td>
+              <td>best water softener systems</td>
+              <td>0</td>
+              <td>513</td>
+              <td>Exact-match commercial anchor: &quot;best water softener systems&quot;</td>
+            </tr>
+            <tr>
+              <td>arthurzcgc984.huicopper.com</td>
+              <td><a href="https://arthurzcgc984.huicopper.com/the-ultimate-guide-to-choosing-the-best-water-softener-spotlight-on-softpro-elite" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://arthurzcgc984.huicopper.com/the-ultimate-guide-to-choosing-the-best-wate</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>513</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>arthurzcgc984.huicopper.com</td>
+              <td><a href="https://arthurzcgc984.huicopper.com/softpro-elite-water-softener-a-step-by-step-buyer-s-guide" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://arthurzcgc984.huicopper.com/softpro-elite-water-softener-a-step-by-step-</a></td>
+              <td>best water softener</td>
+              <td>0</td>
+              <td>513</td>
+              <td>Exact-match commercial anchor: &quot;best water softener&quot;</td>
+            </tr>
+            <tr>
+              <td>daltonnitd321.timeforchangecounselling.com</td>
+              <td><a href="https://daltonnitd321.timeforchangecounselling.com/troubleshooting-water-pressure-issues-with-softpro-fluoride-filters" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://daltonnitd321.timeforchangecounselling.com/troubleshooting-water-pressur</a></td>
+              <td>fluoride filter reviews and comparisons</td>
+              <td>0</td>
+              <td>510</td>
+              <td>Exact-match commercial anchor: &quot;fluoride filter reviews and comparisons&quot;</td>
+            </tr>
+            <tr>
+              <td>madesocials.com</td>
+              <td><a href="https://madesocials.com/story6122892/top-rated-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://madesocials.com/story6122892/top-rated-water-softeners-for-perfectly-cle</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>431</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>totalbookmarking.com</td>
+              <td><a href="https://totalbookmarking.com/story20649095/best-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://totalbookmarking.com/story20649095/best-water-softeners-for-sparkling-cl</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>socialwebconsult.com</td>
+              <td><a href="https://socialwebconsult.com/story6346205/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialwebconsult.com/story6346205/fluoride-removal-your-water-your-choic</a></td>
+              <td>https://www.softprowatersystems.com/pages/before-you-buy-flu</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/before-you-buy-fluoride-water-filter-online-essential&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkplaces.com</td>
+              <td><a href="https://bookmarkplaces.com/story20537105/top-rated-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkplaces.com/story20537105/top-rated-water-softeners-for-perfectly</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkplaces.com</td>
+              <td><a href="https://bookmarkplaces.com/story21652697/premier-sodium-free-water-conditioners-of-this-year" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkplaces.com/story21652697/premier-sodium-free-water-conditioners-</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>socialbuzzmaster.com</td>
+              <td><a href="https://socialbuzzmaster.com/story7466791/premier-ion-exchange-free-liquid-conditioners-of-this-year" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialbuzzmaster.com/story7466791/premier-ion-exchange-free-liquid-condi</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>421</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-for-hard-water&quot;</td>
+            </tr>
+            <tr>
+              <td>tealbookmarks.com</td>
+              <td><a href="https://tealbookmarks.com/story21636528/softpro-water-softeners-the-ultimate-guide-to-clean-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://tealbookmarks.com/story21636528/softpro-water-softeners-the-ultimate-gui</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>classifylist.com</td>
+              <td><a href="https://classifylist.com/story23728082/leading-sodium-free-h2o-softeners-of-this-year" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://classifylist.com/story23728082/leading-sodium-free-h2o-softeners-of-this</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>419</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-health&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkbooth.com</td>
+              <td><a href="https://bookmarkbooth.com/story21688135/softpro-water-softeners-the-ultimate-resource-to-pure-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkbooth.com/story21688135/softpro-water-softeners-the-ultimate-res</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>419</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkshq.com</td>
+              <td><a href="https://bookmarkshq.com/story23522916/softpro-water-softeners-the-ultimate-guide-to-pristine-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkshq.com/story23522916/softpro-water-softeners-the-ultimate-guide</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>monobookmarks.com</td>
+              <td><a href="https://monobookmarks.com/story21556705/softpro-water-softeners-the-ultimate-guide-to-pristine-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://monobookmarks.com/story21556705/softpro-water-softeners-the-ultimate-gui</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>singnalsocial.com</td>
+              <td><a href="https://singnalsocial.com/story6680610/softpro-water-softeners-the-ultimate-guide-to-pristine-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://singnalsocial.com/story6680610/softpro-water-softeners-the-ultimate-guid</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>businessbookmark.com</td>
+              <td><a href="https://businessbookmark.com/story7255540/softpro-water-softeners-the-ultimate-guide-to-clean-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://businessbookmark.com/story7255540/softpro-water-softeners-the-ultimate-g</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>421</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkproduct.com</td>
+              <td><a href="https://bookmarkproduct.com/story21779707/softpro-water-softeners-the-ultimate-guide-to-clean-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkproduct.com/story21779707/softpro-water-softeners-the-ultimate-g</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>socialmarkz.com</td>
+              <td><a href="https://socialmarkz.com/story12340462/softpro-water-softeners-the-ultimate-guide-to-clean-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialmarkz.com/story12340462/softpro-water-softeners-the-ultimate-guide</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>421</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarksea.com</td>
+              <td><a href="https://bookmarksea.com/story21619259/softpro-water-softeners-the-ultimate-guide-to-clean-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarksea.com/story21619259/softpro-water-softeners-the-ultimate-guide</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>royalbookmarking.com</td>
+              <td><a href="https://royalbookmarking.com/story21633886/softpro-water-softeners-the-ultimate-guide-to-pure-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://royalbookmarking.com/story21633886/softpro-water-softeners-the-ultimate-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>420</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkquotes.com</td>
+              <td><a href="https://bookmarkquotes.com/story21251709/finding-the-ideal-water-softener-size" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkquotes.com/story21251709/finding-the-ideal-water-softener-size</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-to-calculate-i</td>
+              <td>0</td>
+              <td>425</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-to-calculate-ideal-water-softener-size&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarknap.com</td>
+              <td><a href="https://bookmarknap.com/story11650268/determining-the-perfect-water-softener-size" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarknap.com/story11650268/determining-the-perfect-water-softener-siz</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-to-calculate-i</td>
+              <td>0</td>
+              <td>426</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-to-calculate-ideal-water-softener-size&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkingalpha.com</td>
+              <td><a href="https://bookmarkingalpha.com/story21138400/selecting-the-ideal-water-softener-capacity" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkingalpha.com/story21138400/selecting-the-ideal-water-softener-ca</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-to-calculate-i</td>
+              <td>0</td>
+              <td>425</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-to-calculate-ideal-water-softener-size&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkedblog.com</td>
+              <td><a href="https://bookmarkedblog.com/story4315/finding-the-perfect-water-softener-volume" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkedblog.com/story4315/finding-the-perfect-water-softener-volume</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-to-calculate-i</td>
+              <td>0</td>
+              <td>426</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-to-calculate-ideal-water-softener-size&quot;</td>
+            </tr>
+            <tr>
+              <td>total-bookmark.com</td>
+              <td><a href="https://total-bookmark.com/story20911417/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://total-bookmark.com/story20911417/ultimate-guide-to-salt-free-water-softe</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-waste&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkforce.com</td>
+              <td><a href="https://bookmarkforce.com/story21099246/ultimate-resource-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkforce.com/story21099246/ultimate-resource-to-salt-free-water-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-for-well-water&quot;</td>
+            </tr>
+            <tr>
+              <td>rankuppages.com</td>
+              <td><a href="https://rankuppages.com/story6091268/ultimate-resource-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://rankuppages.com/story6091268/ultimate-resource-to-salt-free-water-soften</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>businessbookmark.com</td>
+              <td><a href="https://businessbookmark.com/story6543640/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://businessbookmark.com/story6543640/ultimate-guide-to-salt-free-water-soft</a></td>
+              <td>https://www.softprowatersystems.com/pages/why-homeowners-cho</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/why-homeowners-choose-salt-free-water-softeners&quot;</td>
+            </tr>
+            <tr>
+              <td>businessbookmark.com</td>
+              <td><a href="https://businessbookmark.com/story6541519/banish-hard-water-woes-with-the-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://businessbookmark.com/story6541519/banish-hard-water-woes-with-the-best-s</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-changing&quot;</td>
+            </tr>
+            <tr>
+              <td>hypebookmarking.com</td>
+              <td><a href="https://hypebookmarking.com/story20789190/ultimate-resource-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://hypebookmarking.com/story20789190/ultimate-resource-to-salt-free-water-s</a></td>
+              <td>https://www.softprowatersystems.com/pages/why-homeowners-cho</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/why-homeowners-choose-salt-free-water-softeners&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarklethq.com</td>
+              <td><a href="https://bookmarklethq.com/story20975247/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarklethq.com/story20975247/ultimate-overview-to-salt-free-water-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-vs-ion-exchange&quot;</td>
+            </tr>
+            <tr>
+              <td>guidemysocial.com</td>
+              <td><a href="https://guidemysocial.com/story6475737/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://guidemysocial.com/story6475737/ultimate-guide-to-salt-free-water-softene</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-for-hard-water&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkilo.com</td>
+              <td><a href="https://bookmarkilo.com/story20878524/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkilo.com/story20878524/ultimate-overview-to-salt-free-water-softe</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>socialnetworkadsinfo.com</td>
+              <td><a href="https://socialnetworkadsinfo.com/story22607147/ultimate-resource-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialnetworkadsinfo.com/story22607147/ultimate-resource-to-salt-free-wa</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>432</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-vs-ion-exchange&quot;</td>
+            </tr>
+            <tr>
+              <td>health-lists.com</td>
+              <td><a href="https://health-lists.com/story21760829/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://health-lists.com/story21760829/ultimate-overview-to-salt-free-water-soft</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmark-rss.com</td>
+              <td><a href="https://bookmark-rss.com/story20843528/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmark-rss.com/story20843528/ultimate-overview-to-salt-free-water-soft</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-protection&quot;</td>
+            </tr>
+            <tr>
+              <td>webcastlist.com</td>
+              <td><a href="https://webcastlist.com/story22436508/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://webcastlist.com/story22436508/ultimate-guide-to-salt-free-water-softener</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-health&quot;</td>
+            </tr>
+            <tr>
+              <td>singnalsocial.com</td>
+              <td><a href="https://singnalsocial.com/story5998578/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://singnalsocial.com/story5998578/ultimate-guide-to-salt-free-water-softene</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-for-hard-water&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkrange.com</td>
+              <td><a href="https://bookmarkrange.com/story22824462/ultimate-resource-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkrange.com/story22824462/ultimate-resource-to-salt-free-water-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-for-hard-water&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkchamp.com</td>
+              <td><a href="https://bookmarkchamp.com/story20952581/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkchamp.com/story20952581/ultimate-overview-to-salt-free-water-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkilo.com</td>
+              <td><a href="https://bookmarkilo.com/story20704521/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkilo.com/story20704521/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/the-shocking-reaso</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/the-shocking-reason-people-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>hylistings.com</td>
+              <td><a href="https://hylistings.com/story22109438/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://hylistings.com/story22109438/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-time-to-buy-f</td>
+              <td>0</td>
+              <td>431</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-time-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>madbookmarks.com</td>
+              <td><a href="https://madbookmarks.com/story21068190/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://madbookmarks.com/story21068190/ultimate-guide-to-salt-free-water-softene</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-why&quot;</td>
+            </tr>
+            <tr>
+              <td>checkbookmarks.com</td>
+              <td><a href="https://checkbookmarks.com/story6705998/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://checkbookmarks.com/story6705998/ultimate-overview-to-salt-free-water-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>432</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-vs-ion-exchange&quot;</td>
+            </tr>
+            <tr>
+              <td>socialrus.com</td>
+              <td><a href="https://socialrus.com/story23663886/ultimate-overview-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialrus.com/story23663886/ultimate-overview-to-salt-free-water-softene</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>474</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-protection&quot;</td>
+            </tr>
+            <tr>
+              <td>eternalbookmarks.com</td>
+              <td><a href="https://eternalbookmarks.com/story20882509/ultimate-guide-to-salt-free-water-softeners" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://eternalbookmarks.com/story20882509/ultimate-guide-to-salt-free-water-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>430</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-why&quot;</td>
+            </tr>
+            <tr>
+              <td>social-galaxy.com</td>
+              <td><a href="https://social-galaxy.com/story6355850/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://social-galaxy.com/story6355850/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/why-we-decided-to-</td>
+              <td>0</td>
+              <td>432</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/why-we-decided-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>hylistings.com</td>
+              <td><a href="https://hylistings.com/story21868612/leading-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://hylistings.com/story21868612/leading-water-softeners-for-perfectly-clean</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>430</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>7prbookmarks.com</td>
+              <td><a href="https://7prbookmarks.com/story21050595/banish-hard-water-woes-with-your-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://7prbookmarks.com/story21050595/banish-hard-water-woes-with-your-best-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-winner&quot;</td>
+            </tr>
+            <tr>
+              <td>iwanttobookmark.com</td>
+              <td><a href="https://iwanttobookmark.com/story21134974/banish-hard-water-woes-with-a-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://iwanttobookmark.com/story21134974/banish-hard-water-woes-with-a-best-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-guide&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkfame.com</td>
+              <td><a href="https://bookmarkfame.com/story20851467/banish-hard-water-woes-with-a-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkfame.com/story20851467/banish-hard-water-woes-with-a-best-soften</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-secret&quot;</td>
+            </tr>
+            <tr>
+              <td>meshbookmarks.com</td>
+              <td><a href="https://meshbookmarks.com/story21084077/banish-hard-water-woes-with-the-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://meshbookmarks.com/story21084077/banish-hard-water-woes-with-the-best-sof</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-winner&quot;</td>
+            </tr>
+            <tr>
+              <td>mylittlebookmark.com</td>
+              <td><a href="https://mylittlebookmark.com/story6740744/banish-hard-water-woes-with-your-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://mylittlebookmark.com/story6740744/banish-hard-water-woes-with-your-best-</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>431</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-changing&quot;</td>
+            </tr>
+            <tr>
+              <td>socialbraintech.com</td>
+              <td><a href="https://socialbraintech.com/story5985729/banish-hard-water-woes-with-the-best-softener" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialbraintech.com/story5985729/banish-hard-water-woes-with-the-best-so</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-softene</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-softener-for-hard-water-winner&quot;</td>
+            </tr>
+            <tr>
+              <td>keybookmarks.com</td>
+              <td><a href="https://keybookmarks.com/story20639241/best-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://keybookmarks.com/story20639241/best-water-softeners-for-perfectly-clean-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>linkedbookmarker.com</td>
+              <td><a href="https://linkedbookmarker.com/story6462393/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://linkedbookmarker.com/story6462393/fluoride-removal-your-water-your-choic</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-much-should-i-</td>
+              <td>0</td>
+              <td>430</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-much-should-i-expect-to-spend-on-replacement-filters-for-fluoride-systems-prices&quot;</td>
+            </tr>
+            <tr>
+              <td>fatallisto.com</td>
+              <td><a href="https://fatallisto.com/story10860616/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://fatallisto.com/story10860616/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-much-should-i-</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-much-should-i-expect-to-spend-on-replacement-filters-for-fluoride-systems-prices&quot;</td>
+            </tr>
+            <tr>
+              <td>trackbookmark.com</td>
+              <td><a href="https://trackbookmark.com/story22587922/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://trackbookmark.com/story22587922/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/buy-fluoride-water</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/buy-fluoride-water-filter-online-results&quot;</td>
+            </tr>
+            <tr>
+              <td>adsbookmark.com</td>
+              <td><a href="https://adsbookmark.com/story20685195/leading-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://adsbookmark.com/story20685195/leading-water-softeners-for-sparkling-clea</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>lingeriebookmark.com</td>
+              <td><a href="https://lingeriebookmark.com/story10801361/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://lingeriebookmark.com/story10801361/fluoride-removal-your-water-your-choi</a></td>
+              <td>https://www.softprowatersystems.com/pages/why-we-decided-to-</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/why-we-decided-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>socialdummies.com</td>
+              <td><a href="https://socialdummies.com/story5553431/leading-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialdummies.com/story5553431/leading-water-softeners-for-sparkling-cle</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>socialmediainuk.com</td>
+              <td><a href="https://socialmediainuk.com/story25164580/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialmediainuk.com/story25164580/fluoride-removal-your-water-your-choic</a></td>
+              <td>https://www.softprowatersystems.com/pages/real-customers-buy</td>
+              <td>0</td>
+              <td>474</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/real-customers-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>allkindsofsocial.com</td>
+              <td><a href="https://allkindsofsocial.com/story6191039/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://allkindsofsocial.com/story6191039/fluoride-removal-your-water-your-choic</a></td>
+              <td>https://www.softprowatersystems.com/pages/before-you-buy-flu</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/before-you-buy-fluoride-water-filter-online-essential&quot;</td>
+            </tr>
+            <tr>
+              <td>natural-bookmark.com</td>
+              <td><a href="https://natural-bookmark.com/story20788874/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://natural-bookmark.com/story20788874/fluoride-removal-your-water-your-choi</a></td>
+              <td>https://www.softprowatersystems.com/pages/should-you-buy-flu</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/should-you-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>ztndz.com</td>
+              <td><a href="https://ztndz.com/story26151720/best-water-softeners-for-exceptionally-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://ztndz.com/story26151720/best-water-softeners-for-exceptionally-clean-res</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>472</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkboom.com</td>
+              <td><a href="https://bookmarkboom.com/story20586133/leading-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkboom.com/story20586133/leading-water-softeners-for-perfectly-cle</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>artybookmarks.com</td>
+              <td><a href="https://artybookmarks.com/story20425130/best-water-softeners-for-exceptionally-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://artybookmarks.com/story20425130/best-water-softeners-for-exceptionally-c</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>eternalbookmarks.com</td>
+              <td><a href="https://eternalbookmarks.com/story20435604/best-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://eternalbookmarks.com/story20435604/best-water-softeners-for-sparkling-cl</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>rankuppages.com</td>
+              <td><a href="https://rankuppages.com/story5913523/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://rankuppages.com/story5913523/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/buy-fluoride-water</td>
+              <td>0</td>
+              <td>426</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/buy-fluoride-water-filter-online-results&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarks4seo.com</td>
+              <td><a href="https://bookmarks4seo.com/story20612906/top-rated-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarks4seo.com/story20612906/top-rated-water-softeners-for-sparkling-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>enrollbookmarks.com</td>
+              <td><a href="https://enrollbookmarks.com/story20547593/leading-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://enrollbookmarks.com/story20547593/leading-water-softeners-for-sparkling-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>cyberbookmarking.com</td>
+              <td><a href="https://cyberbookmarking.com/story20532593/best-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://cyberbookmarking.com/story20532593/best-water-softeners-for-perfectly-cl</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>hindibookmark.com</td>
+              <td><a href="https://hindibookmark.com/story22551948/top-rated-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://hindibookmark.com/story22551948/top-rated-water-softeners-for-perfectly-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>430</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>sites2000.com</td>
+              <td><a href="https://sites2000.com/story10369493/best-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://sites2000.com/story10369493/best-water-softeners-for-perfectly-clean-res</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>binksites.com</td>
+              <td><a href="https://binksites.com/story10724847/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://binksites.com/story10724847/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/before-you-buy-flu</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/before-you-buy-fluoride-water-filter-online-essential&quot;</td>
+            </tr>
+            <tr>
+              <td>keybookmarks.com</td>
+              <td><a href="https://keybookmarks.com/story20911083/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://keybookmarks.com/story20911083/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-time-to-buy-f</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-time-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>ledbookmark.com</td>
+              <td><a href="https://ledbookmark.com/story6620540/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://ledbookmark.com/story6620540/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-much-should-i-</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-much-should-i-expect-to-spend-on-replacement-filters-for-fluoride-systems-prices&quot;</td>
+            </tr>
+            <tr>
+              <td>admiralbookmarks.com</td>
+              <td><a href="https://admiralbookmarks.com/story20932874/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://admiralbookmarks.com/story20932874/fluoride-removal-your-water-your-choi</a></td>
+              <td>https://www.softprowatersystems.com/pages/warning-budget-fri</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/warning-budget-friendly-fluoride-filters-effective-removal-cheap&quot;</td>
+            </tr>
+            <tr>
+              <td>thesocialdelight.com</td>
+              <td><a href="https://thesocialdelight.com/story6460466/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://thesocialdelight.com/story6460466/fluoride-removal-your-water-your-choic</a></td>
+              <td>https://www.softprowatersystems.com/pages/before-you-buy-flu</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/before-you-buy-fluoride-water-filter-online-essential&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkswing.com</td>
+              <td><a href="https://bookmarkswing.com/story22576029/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkswing.com/story22576029/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/buy-fluoride-water</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/buy-fluoride-water-filter-online-results&quot;</td>
+            </tr>
+            <tr>
+              <td>mysocialfeeder.com</td>
+              <td><a href="https://mysocialfeeder.com/story5771302/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://mysocialfeeder.com/story5771302/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/real-customers-buy</td>
+              <td>0</td>
+              <td>424</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/real-customers-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>directmysocial.com</td>
+              <td><a href="https://directmysocial.com/story5616675/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directmysocial.com/story5616675/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-time-to-buy-f</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-time-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkprobe.com</td>
+              <td><a href="https://bookmarkprobe.com/story21144729/fluoride-removal-your-water-your-choice" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkprobe.com/story21144729/fluoride-removal-your-water-your-choice</a></td>
+              <td>https://www.softprowatersystems.com/pages/warning-budget-fri</td>
+              <td>0</td>
+              <td>426</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/warning-budget-friendly-fluoride-filters-effective-removal-cheap&quot;</td>
+            </tr>
+            <tr>
+              <td>thekiwisocial.com</td>
+              <td><a href="https://thekiwisocial.com/story6142693/best-water-softeners-for-sparkling-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://thekiwisocial.com/story6142693/best-water-softeners-for-sparkling-clean-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>430</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>yourbookmarklist.com</td>
+              <td><a href="https://yourbookmarklist.com/story20795517/leading-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://yourbookmarklist.com/story20795517/leading-water-softeners-for-perfectly</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>wildbookmarks.com</td>
+              <td><a href="https://wildbookmarks.com/story20784224/top-rated-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://wildbookmarks.com/story20784224/top-rated-water-softeners-for-perfectly-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>426</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>freebookmarkpost.com</td>
+              <td><a href="https://freebookmarkpost.com/story20468660/leading-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://freebookmarkpost.com/story20468660/leading-water-softeners-for-perfectly</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>extrabookmarking.com</td>
+              <td><a href="https://extrabookmarking.com/story20617551/best-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://extrabookmarking.com/story20617551/best-water-softeners-for-perfectly-cl</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>428</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>getsocialnetwork.com</td>
+              <td><a href="https://getsocialnetwork.com/story6145772/leading-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://getsocialnetwork.com/story6145772/leading-water-softeners-for-perfectly-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>hypebookmarking.com</td>
+              <td><a href="https://hypebookmarking.com/story20387392/leading-water-softeners-for-exceptionally-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://hypebookmarking.com/story20387392/leading-water-softeners-for-exceptiona</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>sociallweb.com</td>
+              <td><a href="https://sociallweb.com/story6113880/leading-water-softeners-for-perfectly-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://sociallweb.com/story6113880/leading-water-softeners-for-perfectly-clean-</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>429</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>socialmediastore.net</td>
+              <td><a href="https://socialmediastore.net/story21597793/best-water-softeners-for-exceptionally-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://socialmediastore.net/story21597793/best-water-softeners-for-exceptionall</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>435</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkingbay.com</td>
+              <td><a href="https://bookmarkingbay.com/story20587787/top-rated-water-softeners-for-exceptionally-clean-results" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkingbay.com/story20587787/top-rated-water-softeners-for-exception</a></td>
+              <td>https://www.softprowatersystems.com/collections/best-water-s</td>
+              <td>0</td>
+              <td>427</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/collections/best-water-softener-systems&quot;</td>
+            </tr>
+            <tr>
+              <td>gratisafhalen.be</td>
+              <td><a href="https://gratisafhalen.be/author/derickwarri/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://gratisafhalen.be/author/derickwarri/</a></td>
+              <td>https://www.softprowatersystems.com/pages/buy-fluoride-water</td>
+              <td>0</td>
+              <td>481</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>snoopydirectory.com</td>
+              <td><a href="https://snoopydirectory.com/listings997638/top-guide-to-the-leading-soft-water-systems-in-2023" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://snoopydirectory.com/listings997638/top-guide-to-the-leading-soft-water-s</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-water-filters</td>
+              <td>0</td>
+              <td>397</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-water-filters-and-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>teanurture.online</td>
+              <td><a href="https://teanurture.online/7-powerhouse-reasons-softpro-fluoride-filter-is-the-ultimate-2026-solution-for-clean-water-enthusiasts-%F0%9F%9A%B0/" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://teanurture.online/7-powerhouse-reasons-softpro-fluoride-filter-is-the-ul</a></td>
+              <td>top article</td>
+              <td>0</td>
+              <td>319</td>
+              <td>Exact-match commercial anchor: &quot;top article&quot;</td>
+            </tr>
+            <tr>
+              <td>directoryio.com</td>
+              <td><a href="https://directoryio.com/listings2060142/eliminating-drinking-supply" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directoryio.com/listings2060142/eliminating-drinking-supply</a></td>
+              <td>https://www.softprowatersystems.com/pages/should-you-buy-flu</td>
+              <td>0</td>
+              <td>402</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/should-you-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>ohyesdirectory.com</td>
+              <td><a href="https://ohyesdirectory.com/listings1214034/selecting-the-ideal-water-softener-for-well-water-premier-picks-reviews" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://ohyesdirectory.com/listings1214034/selecting-the-ideal-water-softener-fo</a></td>
+              <td>https://www.softprowatersystems.com/pages/the-shocking-truth</td>
+              <td>0</td>
+              <td>392</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/the-shocking-truth-about-best-softener-for-well-water-revealed&quot;</td>
+            </tr>
+            <tr>
+              <td>directorytome.com</td>
+              <td><a href="https://directorytome.com/listings13697140/getting-rid-of-your-h2o" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directorytome.com/listings13697140/getting-rid-of-your-h2o</a></td>
+              <td>https://www.softprowatersystems.com/pages/warning-budget-fri</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/warning-budget-friendly-fluoride-filters-effective-removal-cheap&quot;</td>
+            </tr>
+            <tr>
+              <td>victordirectory.com</td>
+              <td><a href="https://victordirectory.com/listings1213246/choosing-the-ideal-water-softener-for-well-water-premier-picks-evaluations" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://victordirectory.com/listings1213246/choosing-the-ideal-water-softener-fo</a></td>
+              <td>https://www.softprowatersystems.com/pages/what-makes-the-bes</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/what-makes-the-best-softener-for-well-water-powerful&quot;</td>
+            </tr>
+            <tr>
+              <td>forum-directory.com</td>
+              <td><a href="https://forum-directory.com/listings13673981/removing-fluoride-your-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://forum-directory.com/listings13673981/removing-fluoride-your-water</a></td>
+              <td>https://www.softprowatersystems.com/pages/how-much-should-i-</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/how-much-should-i-expect-to-spend-on-replacement-filters-for-fluoride-systems-prices&quot;</td>
+            </tr>
+            <tr>
+              <td>pulsardirectory.com</td>
+              <td><a href="https://pulsardirectory.com/listings13697598/eliminating-the-h2o" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://pulsardirectory.com/listings13697598/eliminating-the-h2o</a></td>
+              <td>https://www.softprowatersystems.com/pages/the-shocking-reaso</td>
+              <td>0</td>
+              <td>392</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/the-shocking-reason-people-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>isitedirectory.com</td>
+              <td><a href="https://isitedirectory.com/listings13696321/eliminating-the-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://isitedirectory.com/listings13696321/eliminating-the-water</a></td>
+              <td>https://www.softprowatersystems.com/pages/real-customers-buy</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/real-customers-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>pulsardirectory.com</td>
+              <td><a href="https://pulsardirectory.com/listings13695482/getting-rid-of-drinking-supply" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://pulsardirectory.com/listings13695482/getting-rid-of-drinking-supply</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-time-to-buy-f</td>
+              <td>0</td>
+              <td>392</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-time-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>directoryprice.com</td>
+              <td><a href="https://directoryprice.com/listings1203238/getting-rid-of-the-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directoryprice.com/listings1203238/getting-rid-of-the-water</a></td>
+              <td>https://www.softprowatersystems.com/pages/the-shocking-reaso</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/the-shocking-reason-people-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>directoryforrank.com</td>
+              <td><a href="https://directoryforrank.com/listings13683833/removing-fluoride-drinking-h2o" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directoryforrank.com/listings13683833/removing-fluoride-drinking-h2o</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-time-to-buy-f</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-time-to-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>directory-daddy.com</td>
+              <td><a href="https://directory-daddy.com/listings13681459/eliminating-your-water" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directory-daddy.com/listings13681459/eliminating-your-water</a></td>
+              <td>https://www.softprowatersystems.com/pages/should-you-buy-flu</td>
+              <td>0</td>
+              <td>392</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/should-you-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>directoryprice.com</td>
+              <td><a href="https://directoryprice.com/listings1202743/removing-fluoride-your-h2o" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://directoryprice.com/listings1202743/removing-fluoride-your-h2o</a></td>
+              <td>https://www.softprowatersystems.com/pages/before-you-buy-flu</td>
+              <td>0</td>
+              <td>393</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/before-you-buy-fluoride-water-filter-online-showdown&quot;</td>
+            </tr>
+            <tr>
+              <td>problogdirectory.com</td>
+              <td><a href="https://problogdirectory.com/listings13683307/removing-fluoride-your-supply" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://problogdirectory.com/listings13683307/removing-fluoride-your-supply</a></td>
+              <td>https://www.softprowatersystems.com/pages/the-shocking-reaso</td>
+              <td>0</td>
+              <td>392</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/the-shocking-reason-people-buy-fluoride-water-filter-online&quot;</td>
+            </tr>
+            <tr>
+              <td>robustdirectory.com</td>
+              <td><a href="https://robustdirectory.com/listings2003734/selecting-the-perfect-water-softener-for-well-water-top-picks-assessments" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://robustdirectory.com/listings2003734/selecting-the-perfect-water-softener</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-local-well-wa</td>
+              <td>0</td>
+              <td>399</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-local-well-water-softener-services-ranked&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkingalpha.com</td>
+              <td><a href="https://bookmarkingalpha.com/story21738099/top-sodium-free-liquid-softeners-of-2024" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkingalpha.com/story21738099/top-sodium-free-liquid-softeners-of-2</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>418</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-now&quot;</td>
+            </tr>
+            <tr>
+              <td>bookmarkfame.com</td>
+              <td><a href="https://bookmarkfame.com/story21575070/best-salt-free-h2o-softeners-of-2024" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://bookmarkfame.com/story21575070/best-salt-free-h2o-softeners-of-2024</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>418</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-protection&quot;</td>
+            </tr>
+            <tr>
+              <td>yxzbookmarks.com</td>
+              <td><a href="https://yxzbookmarks.com/story21743751/best-salt-free-liquid-softeners-of-2024" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://yxzbookmarks.com/story21743751/best-salt-free-liquid-softeners-of-2024</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>418</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-with-carbon-filters&quot;</td>
+            </tr>
+            <tr>
+              <td>lifesdirectory.com</td>
+              <td><a href="https://lifesdirectory.com/listings13659340/choosing-the-perfect-water-softener-for-private-water-premier-picks-reviews" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://lifesdirectory.com/listings13659340/choosing-the-perfect-water-softener-</a></td>
+              <td>https://www.softprowatersystems.com/pages/uncover-best-softe</td>
+              <td>0</td>
+              <td>391</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/uncover-best-softener-for-well-water&quot;</td>
+            </tr>
+            <tr>
+              <td>admiralbookmarks.com</td>
+              <td><a href="https://admiralbookmarks.com/story21818792/leading-sodium-free-water-purifiers-of-the-year" target="_blank" rel="nofollow noopener" style="color:#2563eb;">https://admiralbookmarks.com/story21818792/leading-sodium-free-water-purifiers-o</a></td>
+              <td>https://www.softprowatersystems.com/pages/best-salt-free-wat</td>
+              <td>0</td>
+              <td>419</td>
+              <td>Exact-match commercial anchor: &quot;https://www.softprowatersystems.com/pages/best-salt-free-water-softeners-for-hard-water&quot;</td>
+            </tr></tbody>
+        </table>
+        <button class="expand-btn" onclick="toggleTable('suspicious-table')">Show/Hide 140 rows</button>
+        
+</div>
+
+<h2>🔝 Top Toxic Domains</h2>
+<div class="section">
+
+        <table class="data-table">
+          <thead><tr><th>Domain</th><th>Toxic Link Count</th></tr></thead>
+          <tbody><tr><td>machonemodels.com</td><td>1</td></tr><tr><td>calebmroberts.com</td><td>1</td></tr><tr><td>thriveonwords.com</td><td>1</td></tr><tr><td>deploytantra.com</td><td>1</td></tr><tr><td>smallbizbudz.com</td><td>1</td></tr><tr><td>case-boxofemotions.com</td><td>1</td></tr><tr><td>base-directory.com</td><td>1</td></tr></tbody>
+        </table>
+        
+</div>
+
+<h2>📝 Anchor Text Analysis (Toxic Links)</h2>
+<div class="anchor-analysis">
+  <div class="stat-line">Total toxic anchors analyzed: <strong>7</strong></div>
+  <div class="stat-line">Exact-match commercial anchors: <strong>0</strong></div>
+  <div class="stat-line">Exact-match percentage among toxic: <strong>0.0%</strong></div>
+</div>
+
+<h2>📋 Disavow File Preview (7 domains)</h2>
+<div class="code-block" id="disavow-code"># Google Disavow File — Generated 2026-09-09 12:54
+# Toxic backlinks detected by toxic_link_detector.py
+# Total domains to disavow: 7
+
+domain:base-directory.com
+domain:calebmroberts.com
+domain:case-boxofemotions.com
+domain:deploytantra.com
+domain:machonemodels.com
+domain:smallbizbudz.com
+domain:thriveonwords.com
+
+<button class="copy-btn" onclick="copyDisavow()">Copy</button></div>
+
+<h2>💡 Recommendations</h2>
+<div class="recommendations">
+  <ul>
+    <li>🔴 <strong>Disavow:</strong> Disavow all toxic links from low-quality or spammy domains listed above.</li>
+    <li>🟡 <strong>Monitor:</strong> Monitor the 140 suspicious links — re-evaluate in 30-60 days.</li>
+    <li>🟢 <strong>Leave alone:</strong> Leave the 853 clean links alone — they contribute positively to your profile.</li>
+    
+    <li>📄 Download the disavow file and submit via <a href="https://search.google.com/search-console/disavow-links" target="_blank" rel="nofollow noopener">Google Search Console Disavow Tool</a>.</li>
+  </ul>
+</div>
+
+<footer>Generated by toxic_link_detector.py &nbsp;|&nbsp; DataForSEO Backlinks API &nbsp;|&nbsp; noindex,nofollow</footer>
+
+<script>
+function toggleTable(id) {
+  var table = document.getElementById(id);
+  if (table.style.display === 'none' || table.style.display === '') {
+    table.style.display = 'table';
+  } else {
+    table.style.display = 'none';
+  }
+}
+function copyDisavow() {
+  var code = document.getElementById('disavow-code');
+  var text = code.innerText.replace('Copy', '').trim();
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Disavow content copied to clipboard!');
+  });
+}
+</script>
+</body>
+</html>
