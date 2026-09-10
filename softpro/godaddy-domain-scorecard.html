@@ -1,400 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Scorecard — ZenfusionSEO Domain Hunter</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            color: #111827;
-            padding: 32px 24px;
-        }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 {
-            font-size: 1.75rem;
-            color: #111827;
-            margin-bottom: 4px;
-        }
-        .subtitle {
-            color: #6b7280;
-            font-size: 0.9rem;
-            margin-bottom: 32px;
-        }
-        .accent-bar {
-            width: 48px; height: 4px; background: #4f46e5;
-            border-radius: 2px; margin-bottom: 24px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        thead th {
-            background: #f9fafb;
-            padding: 12px;
-            text-align: left;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #374151;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        tbody td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #f3f4f6;
-            font-size: 0.9rem;
-        }
-        tbody tr:hover { background: #f9fafb; }
-        .footer {
-            margin-top: 24px;
-            font-size: 0.8rem;
-            color: #9ca3af;
-        }
-        .legend {
-            display: flex; gap: 16px; margin-bottom: 16px; font-size: 0.8rem;
-        }
-        .legend-item { display: flex; align-items: center; gap: 6px; }
-        .legend-dot {
-            width: 10px; height: 10px; border-radius: 50%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GoDaddy Auction Domains — Scored with Prices</title>
+<style>
+:root {
+  --bg: #f6f8fc; --card: #fff; --border: #e8ecf1; --text: #1a1a2e;
+  --muted: #6b7280; --accent: #4f46e5; --green: #10b981; --red: #ef4444;
+  --orange: #f59e0b; --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+h1 { font-size: 24px; margin-bottom: 4px; color: var(--accent); }
+.sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+th { background: var(--accent); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
+tr:hover { background: #f8f9ff; }
+.score { font-weight: 700; font-size: 16px; }
+.score-high { color: var(--green); }
+.score-mid { color: var(--orange); }
+.score-low { color: var(--red); }
+.price { font-weight: 700; color: var(--accent); font-size: 16px; }
+.btn-buy { display: inline-block; padding: 6px 14px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; text-decoration: none; font-weight: 500; }
+.btn-buy:hover { background: #4338ca; }
+.btn-restore { display: inline-block; padding: 6px 14px; background: var(--green); color: white; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500; margin-left: 6px; }
+.btn-restore:hover { background: #059669; }
+.btn-restore:disabled { background: var(--muted); cursor: not-allowed; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.badge-yes { background: #ecfdf5; color: var(--green); }
+.badge-no { background: #fef2f2; color: var(--red); }
+footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); text-align: center; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="accent-bar"></div>
-        <h1>Domain Scorecard</h1>
-        <p class="subtitle">ZenfusionSEO Domain Hunter — Expired Domain Scoring Report</p>
-
-        <div class="legend">
-            <div class="legend-item"><span class="legend-dot" style="background:#4f46e5;"></span> Excellent (70+)</div>
-            <div class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span> Fair (40-69)</div>
-            <div class="legend-item"><span class="legend-dot" style="background:#dc2626;"></span> Poor (&lt;40)</div>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th style="padding:12px;">Domain</th>
-                    <th style="padding:12px;text-align:center;">Score</th>
-                    <th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Backlinks</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Authority</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Majestic</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Google Idx</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Wayback</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Age</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Niche</th><th style='padding:8px 12px;text-align:center;font-size:0.8em;'>Spam</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-        <tr>
-            <td style="font-weight:600;">casagrandewatersofteners.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#f59e0b;">42.4</td>
-            <td style="text-align:center;color:#4f46e5;font-weight:600;">75.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 47, backlinks: 49, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 100 | Age: creation_date: 2010-07-08t22:04:15z, age_years: 16.2 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">water.info</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#f59e0b;">41.3</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">66.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">49</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 41, backlinks: 59, backlinks_spam_score: 51 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 100 | Age: creation_date: 2001-06-26, age_years: 25.2 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 51
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">drinkingwatertreatment.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#f59e0b;">41.1</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">65.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">50</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 40, backlinks: 45, backlinks_spam_score: 50 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 100 | Age: creation_date: 2003-08-12t18:18:09z, age_years: 23.1 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 50
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">watertreatmentplants.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#f59e0b;">40.3</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">63.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">45</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 39, backlinks: 41, backlinks_spam_score: 55 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 100 | Age: creation_date: 2003-10-16t18:16:08z, age_years: 22.9 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 55
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">ozonewatertreatment.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#f59e0b;">40.2</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">63.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 39, backlinks: 43, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 100 | Age: creation_date: 2002-10-29t21:34:40z, age_years: 23.9 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">plumbingrobos.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">39.2</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">51.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">96.8</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">12.5</td><td style="text-align:center;color:#f59e0b;font-weight:600;">43</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 53, backlinks: 56, backlinks_spam_score: 57 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 48 | Age: creation_date: 2015-06-14t16:45:19z, age_years: 11.2 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: ['plumbing'] | Spam: backlinks_spam_score: 57
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">albertawatertreatment.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">37.8</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">50.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 50, backlinks: 52, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 78 | Age: creation_date: 2007-01-06t07:34:29z, age_years: 19.7 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">waterchestnut.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">37.7</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">50.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">43</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 30, backlinks: 30, backlinks_spam_score: 57 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 100 | Age: creation_date: 1998-12-03t05:00:00z, age_years: 27.8 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 57
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">coolidgesaltfreesofteners.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">33.5</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">63.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 39, backlinks: 42, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 15 | Age: creation_date: 2014-11-04t20:56:07z, age_years: 11.8 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">hvacwarriors.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">31.7</td>
-            <td style="text-align:center;color:#4f46e5;font-weight:600;">74.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">28.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">66.3</td><td style="text-align:center;color:#dc2626;font-weight:600;">12.5</td><td style="text-align:center;color:#f59e0b;font-weight:600;">42</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 46, backlinks: 47, backlinks_spam_score: 58 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 5 | Age: creation_date: 2020-01-22t19:02:01z, age_years: 6.6 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: ['hvac'] | Spam: backlinks_spam_score: 58
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">thebestwaterfilter.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">30.1</td>
-            <td style="text-align:center;color:#4f46e5;font-weight:600;">74.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 46, backlinks: 50, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2006-01-03t20:40:45z, age_years: 20.7 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">ahwatukeewatersofteners.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">29.8</td>
-            <td style="text-align:center;color:#4f46e5;font-weight:600;">71.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">46</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 44, backlinks: 47, backlinks_spam_score: 54 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2010-07-08t22:04:15z, age_years: 16.2 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 54
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">texaswatertreatment.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">29.8</td>
-            <td style="text-align:center;color:#4f46e5;font-weight:600;">71.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">46</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 44, backlinks: 46, backlinks_spam_score: 54 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2015-11-10t03:21:36z, age_years: 10.8 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 54
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">watersoftenertempe.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">29.1</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">66.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">47</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 41, backlinks: 45, backlinks_spam_score: 53 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2011-03-21t03:48:16z, age_years: 15.5 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 53
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">sinkwaterfilter.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">29.0</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">68.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 42, backlinks: 44, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2008-07-22t17:13:40z, age_years: 18.1 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">eloysaltfreesoftener.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">28.8</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">66.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 41, backlinks: 42, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2014-11-04t20:56:07z, age_years: 11.8 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">coolidgesaltfreesoftener.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">28.3</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">63.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">45</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 39, backlinks: 41, backlinks_spam_score: 55 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2014-11-04t20:56:07z, age_years: 11.8 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 55
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">waterfiltersale.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">28.3</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">63.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">45</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 39, backlinks: 39, backlinks_spam_score: 55 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2011-02-26t04:22:33z, age_years: 15.5 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 55
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">pinalsaltfreesoftener.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">27.6</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">60.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">43</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 37, backlinks: 40, backlinks_spam_score: 57 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2014-11-04t20:56:07z, age_years: 11.8 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 57
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">water-softeners.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">27.2</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">63.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">89.1</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">45</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 39, backlinks: 40, backlinks_spam_score: 55 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2017-10-11t18:37:47z, age_years: 8.9 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 55
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">watersoftenerinstallation.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">26.8</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">59.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">93.2</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">45</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 36, backlinks: 36, backlinks_spam_score: 55 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2017-05-14t18:51:37z, age_years: 9.3 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 55
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">waterfiltercheck.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">26.3</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">65.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">77.3</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">45</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 40, backlinks: 41, backlinks_spam_score: 55 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2018-12-15t19:14:59z, age_years: 7.7 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 55
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">calgarywatersoftener.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">25.7</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">50.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">43</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 50, backlinks: 50, backlinks_spam_score: 57 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2005-03-08t00:43:29z, age_years: 21.5 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 57
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">plumbingcertificate.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">24.1</td>
-            <td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">12.5</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: error: no result, raw_status: Ok. | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 1985-01-01, age_years: 41.7 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: ['plumbing'] | Spam: backlinks_spam_score: 0
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">softener.org</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">23.8</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">60.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">60.6</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 37, backlinks: 38, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2020-08-18t14:59:25z, age_years: 6.1 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">plumbingfirm.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">23.7</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">50.3</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#f59e0b;font-weight:600;">48.8</td><td style="text-align:center;color:#dc2626;font-weight:600;">2.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">12.5</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 51, backlinks: 52, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 18 | Age: creation_date: 2026-06-08t18:15:36z, age_years: 0.3 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: ['plumbing'] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">nosaltwatersofteners.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">22.4</td>
-            <td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#4f46e5;font-weight:600;">100</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: error: no result, raw_status: Ok. | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 1985-01-01, age_years: 41.7 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 0
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">vitalwaterfilter.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">22.0</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">53.0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">56.3</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">44</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 32, backlinks: 33, backlinks_spam_score: 56 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2021-01-21t03:01:33z, age_years: 5.6 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 56
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">waterfrost.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">21.9</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">57.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">48.7</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">43</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 35, backlinks: 38, backlinks_spam_score: 57 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2021-10-28t07:06:19z, age_years: 4.9 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 57
-            </td>
-        </tr>
-        <tr>
-            <td style="font-weight:600;">lgwaterfilter.com</td>
-            <td style="text-align:center;font-size:1.2em;font-weight:700;color:#dc2626;">19.1</td>
-            <td style="text-align:center;color:#f59e0b;font-weight:600;">51.5</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">30</td><td style="text-align:center;color:#dc2626;font-weight:600;">0</td><td style="text-align:center;color:#dc2626;font-weight:600;">32.4</td><td style="text-align:center;color:#dc2626;font-weight:600;">0.0</td><td style="text-align:center;color:#f59e0b;font-weight:600;">42</td>
-        </tr>
-        <tr>
-            <td colspan="10" style="font-size:0.8em;color:#6b7280;padding:4px 12px 12px;border-bottom:2px solid #e5e7eb;">
-                Backlinks: referring_domains: 31, backlinks: 31, backlinks_spam_score: 58 | Authority: visibility: 0, etv: 0, rank: 0 | Majestic: in_index: False, rank: None | Google Idx: indexed: likely | Wayback: has_snapshot: False, snapshot_count: 0 | Age: creation_date: 2023-06-15t09:34:44z, age_years: 3.2 | Niche: keywords: ['plumbing', 'hvac', 'plumber', 'heating', 'cooling', 'water softener', 'water filter', 'water treatment'], matched: [] | Spam: backlinks_spam_score: 58
-            </td>
-        </tr>
-            </tbody>
-        </table>
-
-        <p class="footer">
-            Generated 2026-09-10 13:59:39 ·
-            Scoring: Backlinks 18% · Authority 18% · Niche 14% · Wayback 12% ·
-            Majestic 10% · Age 10% · Spam 10% · Google Index 8%
-        </p>
-    </div>
+<div class="container">
+  <h1>GoDaddy Auction Domains — Scored</h1>
+  <div class="sub">8 recommended domains with prices + one-click Wayback restore to Cloudflare</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Score</th>
+        <th>Backlinks</th>
+        <th>Wayback</th>
+        <th>Age</th>
+        <th>Buy Now Price</th>
+        <th>Auction Ends</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>casagrandewatersofteners.com</strong></td>
+        <td><span class="score score-high">42.4</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (76)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$500</span></td>
+        <td>10d 19h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=casagrandewatersofteners.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('casagrandewatersofteners.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>water.info</strong></td>
+        <td><span class="score score-high">41.3</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (66)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$5,000</span></td>
+        <td>14d 19h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=water.info" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('water.info')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>drinkingwatertreatment.com</strong></td>
+        <td><span class="score score-high">41.1</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (65)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$9,888</span></td>
+        <td>12d 19h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=drinkingwatertreatment.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('drinkingwatertreatment.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>watertreatmentplants.com</strong></td>
+        <td><span class="score score-high">40.3</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (64)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$4,499</span></td>
+        <td>10d 20h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=watertreatmentplants.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('watertreatmentplants.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>ozonewatertreatment.com</strong></td>
+        <td><span class="score score-high">40.2</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (64)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$2,499</span></td>
+        <td>10d 20h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=ozonewatertreatment.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('ozonewatertreatment.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>plumbingrobos.com</strong></td>
+        <td><span class="score score-high">39.2</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (51)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (97)</td>
+        <td>100</td>
+        <td><span class="price">$1,500</span></td>
+        <td>11d 19h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=plumbingrobos.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('plumbingrobos.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>albertawatertreatment.com</strong></td>
+        <td><span class="score score-high">37.8</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (50)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$250</span></td>
+        <td>12d 19h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=albertawatertreatment.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('albertawatertreatment.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>waterchestnut.com</strong></td>
+        <td><span class="score score-high">37.7</span></td>
+        <td><span class="badge badge-yes">✅ Yes</span> (50)</td>
+        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td>100</td>
+        <td><span class="price">$9,999</span></td>
+        <td>10d 20h</td>
+        <td>
+          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=waterchestnut.com" target="_blank">View on GoDaddy</a>
+          <button class="btn-restore" onclick="restoreDomain('waterchestnut.com')">⚡ Restore from Wayback</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <footer>
+    Generated by ZenfusionSEO Domain Hunter · DataForSEO + Wayback Machine + GoDaddy Auctions
+  </footer>
+</div>
+<script>
+function restoreDomain(domain) {
+  if (!confirm('Restore ' + domain + ' from Wayback Machine and deploy to Cloudflare Pages?\n\nThis will:\n1. Find the best Wayback Machine snapshot\n2. Download and clean the archived site\n3. Deploy to Cloudflare Pages\n\nContinue?')) return;
+  
+  var btn = event.target;
+  btn.disabled = true;
+  btn.textContent = 'Restoring...';
+  
+  fetch('http://localhost:8080/api/run/domain-restorer', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({domain: domain})
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.job_id) {
+      btn.textContent = 'Restore Started!';
+      btn.style.background = '#10b981';
+      // Poll for completion
+      var pollInterval = setInterval(function() {
+        fetch('http://localhost:8080/api/job/' + data.job_id)
+          .then(r => r.json())
+          .then(job => {
+            if (job.status === 'done') {
+              clearInterval(pollInterval);
+              btn.textContent = '✓ Deployed!';
+              btn.style.background = '#10b981';
+              var reportLink = '<br><a href="http://localhost:8080/api/report/' + data.job_id + '" target="_blank" style="color:#4f46e5;font-weight:600;">View Restore Report</a>';
+              btn.parentElement.innerHTML += reportLink;
+            } else if (job.status === 'error') {
+              clearInterval(pollInterval);
+              btn.textContent = '✗ Failed';
+              btn.style.background = '#ef4444';
+              alert('Restore failed: ' + (job.stderr || 'Unknown error'));
+              btn.disabled = false;
+              btn.textContent = '⚡ Restore from Wayback';
+            }
+          });
+      }, 5000);
+    } else {
+      alert('Error: ' + (data.error || 'Unknown'));
+      btn.disabled = false;
+      btn.textContent = '⚡ Restore from Wayback';
+    }
+  })
+  .catch(err => {
+    alert('Error: ' + err);
+    btn.disabled = false;
+    btn.textContent = '⚡ Restore from Wayback';
+  });
+}
+</script>
 </body>
 </html>
