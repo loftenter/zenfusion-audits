@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>DropCatch Domain Auctions — Niche Matches Scored</title>
+<title>DropCatch Domain Auctions — Sortable</title>
 <style>
 :root { --bg: #f6f8fc; --card: #fff; --border: #e8ecf1; --text: #1a1a2e; --muted: #6b7280; --accent: #4f46e5; --green: #10b981; --red: #ef4444; --orange: #f59e0b; --shadow: 0 1px 3px rgba(0,0,0,0.06); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,7 +15,10 @@ h1 { font-size: 24px; margin-bottom: 4px; color: var(--accent); }
 .info-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; font-size: 13px; color: var(--muted); }
 .info-box b { color: var(--text); }
 table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
-th { background: var(--accent); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+th { background: var(--accent); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; text-transform: uppercase; cursor: pointer; user-select: none; }
+th:hover { background: #4338ca; }
+th.sort-asc::after { content: ' ▲'; }
+th.sort-desc::after { content: ' ▼'; }
 td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
 tr:hover { background: #f8f9ff; }
 .age-old { color: var(--green); font-weight: 700; }
@@ -24,522 +27,96 @@ tr:hover { background: #f8f9ff; }
 .bl-high { color: var(--green); font-weight: 700; }
 .bl-mid { color: var(--orange); font-weight: 700; }
 .btn-restore { padding: 6px 14px; background: var(--green); color: white; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-.badge-drop { background: #fef2f2; color: var(--red); }
 footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>DropCatch Domain Auctions — Niche Matches</h1>
-  <div class="sub">49 domains with Wayback age + backlinks — sorted by referring domains</div>
+  <div class="sub">49 domains with Wayback age + backlinks — click column headers to sort</div>
   <div class="info-box">
-    <b>Source:</b> DropCatch AllAuctions 2026-09-10 (34,228 total domains) → 722 niche keyword matches → 49 with history<br>
+    <b>Source:</b> DropCatch AllAuctions 2026-09-10 (34,228 total) → 722 niche matches → 49 with history<br>
     <b>Niches:</b> Plumbing, HVAC, Water Treatment, Roofing, Electrical, Pest Control, Landscaping, Home Services, Snow<br>
-    <b>Age:</b> Calculated from oldest Wayback Machine snapshot (proxy for domain age)<br>
-    <b>BL:</b> Referring domains from DataForSEO backlinks API
+    <b>Click any column header to sort</b> — click again to reverse direction
   </div>
-  <table>
+  <table id="domainTable">
     <thead><tr>
-      <th>Domain</th><th>Niche</th><th>Age (Years)</th><th>First Archived</th>
-      <th>Referring Domains</th><th>Auction Ends</th><th>Type</th><th>Action</th>
+      <th data-key="domain" onclick="sortBy('domain')">Domain</th>
+      <th data-key="niche" onclick="sortBy('niche')">Niche</th>
+      <th data-key="age_years" onclick="sortBy('age_years')">Age (Years)</th>
+      <th data-key="oldest" onclick="sortBy('oldest')">First Archived</th>
+      <th data-key="referring_domains" onclick="sortBy('referring_domains')">Referring Domains</th>
+      <th data-key="end_date" onclick="sortBy('end_date')">Auction Ends</th>
+      <th data-key="type" onclick="sortBy('type')">Type</th>
+      <th>Action</th>
     </tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>tempestinateapot.net</strong></td>
-        <td>pest control</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-high">171</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('tempestinateapot.net')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>inmanheatingandcooling.com</strong></td>
-        <td>hvac</td>
-        <td><span class="age-old">17.0 years</span></td>
-        <td>2009-09-29</td>
-        <td><span class="bl-high">94</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('inmanheatingandcooling.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>roofinglasvegas.org</strong></td>
-        <td>roofing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-high">77</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('roofinglasvegas.org')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>prozonepestcontrol.com</strong></td>
-        <td>pest control</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-high">64</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('prozonepestcontrol.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>concretecontractorsrichmond.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-high">57</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('concretecontractorsrichmond.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>coloradoguttercleaning.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-old">13.3 years</span></td>
-        <td>2013-05-28</td>
-        <td><span class="bl-high">53</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('coloradoguttercleaning.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>dynamicroofers.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-old">15.3 years</span></td>
-        <td>2011-05-20</td>
-        <td><span class="bl-high">53</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('dynamicroofers.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>climbroofing.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-high">52</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('climbroofing.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>remodelsanantoniotx.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-high">52</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('remodelsanantoniotx.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>extraplumbing.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-mid">8.1 years</span></td>
-        <td>2018-08-07</td>
-        <td><span class="bl-high">50</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('extraplumbing.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>heatinghomes.net</strong></td>
-        <td>hvac</td>
-        <td><span class="age-old">15.8 years</span></td>
-        <td>2010-12-30</td>
-        <td><span class="bl-mid">49</span></td>
-        <td>2026-09-11</td>
-        <td>Dropped</td>
-        <td><button class="btn-restore" onclick="restoreDomain('heatinghomes.net')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>acelectriccoinc.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">48</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('acelectriccoinc.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>axpertroofing.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">48</span></td>
-        <td>2026-09-11</td>
-        <td>Dropped</td>
-        <td><button class="btn-restore" onclick="restoreDomain('axpertroofing.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricianauto.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">45</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricianauto.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>modernelectrician.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-mid">8.1 years</span></td>
-        <td>2018-08-06</td>
-        <td><span class="bl-mid">44</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('modernelectrician.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>contractorsremodeling.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">44</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('contractorsremodeling.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricvirus.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-old">13.3 years</span></td>
-        <td>2013-05-31</td>
-        <td><span class="bl-mid">43</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricvirus.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>landscapermountairy.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">43</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('landscapermountairy.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>watersoftenerteam.com</strong></td>
-        <td>water treatment</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">43</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('watersoftenerteam.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>comfort-heating.com</strong></td>
-        <td>hvac</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">42</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('comfort-heating.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>sewerrecovery.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-mid">4.8 years</span></td>
-        <td>2021-12-24</td>
-        <td><span class="bl-mid">42</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('sewerrecovery.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>navarrolandscape.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-old">15.6 years</span></td>
-        <td>2011-02-07</td>
-        <td><span class="bl-mid">40</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('navarrolandscape.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricvehicleappliance.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-new">1.2 years</span></td>
-        <td>2025-07-11</td>
-        <td><span class="bl-mid">40</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricvehicleappliance.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>sanjoseroofs.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-old">15.6 years</span></td>
-        <td>2011-02-08</td>
-        <td><span class="bl-mid">39</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('sanjoseroofs.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>niceremodel.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-old">16.5 years</span></td>
-        <td>2010-03-30</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('niceremodel.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>finestplumbers.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('finestplumbers.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>cleancuttlandscaping.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-old">13.2 years</span></td>
-        <td>2013-06-05</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('cleancuttlandscaping.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricvehiclehouseholdaccessory.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-new">1.2 years</span></td>
-        <td>2025-07-11</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricvehiclehouseholdaccessory.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>nadrainfo.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('nadrainfo.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>ajbplumbing.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('ajbplumbing.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>roofssolar.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-old">13.1 years</span></td>
-        <td>2013-08-28</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('roofssolar.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>roofingandcoatings.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-old">22.0 years</span></td>
-        <td>2004-09-02</td>
-        <td><span class="bl-mid">38</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('roofingandcoatings.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricnibbler.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-old">13.3 years</span></td>
-        <td>2013-05-26</td>
-        <td><span class="bl-mid">37</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricnibbler.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricvehiclehouseholdappliance.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">37</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricvehiclehouseholdappliance.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>quickhandymanservices.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-old">13.2 years</span></td>
-        <td>2013-06-14</td>
-        <td><span class="bl-mid">36</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('quickhandymanservices.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>waterproofdogcoat.com</strong></td>
-        <td>water treatment</td>
-        <td><span class="age-old">17.3 years</span></td>
-        <td>2009-05-22</td>
-        <td><span class="bl-mid">35</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('waterproofdogcoat.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>alldayplumbers.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-mid">4.8 years</span></td>
-        <td>2021-11-25</td>
-        <td><span class="bl-mid">35</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('alldayplumbers.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>rapidsewercleaners.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-old">15.6 years</span></td>
-        <td>2011-02-02</td>
-        <td><span class="bl-mid">34</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('rapidsewercleaners.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>remodelbrothers.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">34</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('remodelbrothers.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>siouxfallsroofer.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">33</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('siouxfallsroofer.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>electricitedhome.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-mid">8.3 years</span></td>
-        <td>2018-05-04</td>
-        <td><span class="bl-mid">33</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('electricitedhome.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>towerelectricity.com</strong></td>
-        <td>electrical</td>
-        <td><span class="age-mid">8.1 years</span></td>
-        <td>2018-08-04</td>
-        <td><span class="bl-mid">28</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('towerelectricity.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>fenroof.com</strong></td>
-        <td>roofing</td>
-        <td><span class="age-new">2.2 years</span></td>
-        <td>2024-06-01</td>
-        <td><span class="bl-mid">26</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('fenroof.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>ziplandscaper.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">20</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('ziplandscaper.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>ziplandscape.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">19</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('ziplandscape.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>sanantoniolawncareservices.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-new">0.9 years</span></td>
-        <td>2025-10-29</td>
-        <td><span class="bl-mid">18</span></td>
-        <td>2026-09-11</td>
-        <td>PrivateSeller</td>
-        <td><button class="btn-restore" onclick="restoreDomain('sanantoniolawncareservices.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>zipalandscaper.com</strong></td>
-        <td>landscaping</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">17</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('zipalandscaper.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>zipaplumber.com</strong></td>
-        <td>plumbing</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">16</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('zipaplumber.com')">⚡ Restore</button></td>
-      </tr>
-      <tr>
-        <td><strong>zipahandyman.com</strong></td>
-        <td>home services</td>
-        <td><span class="age-new">0.0 years</span></td>
-        <td>?</td>
-        <td><span class="bl-mid">16</span></td>
-        <td>2026-09-11</td>
-        <td>PreRelease</td>
-        <td><button class="btn-restore" onclick="restoreDomain('zipahandyman.com')">⚡ Restore</button></td>
-      </tr>
-    </tbody>
+    <tbody id="tableBody"></tbody>
   </table>
   <footer>DropCatch + DataForSEO + Wayback Machine · ZenfusionSEO Domain Hunter · 09/10/2026</footer>
 </div>
 <script>
-function restoreDomain(d){if(!confirm('Restore '+d+' from Wayback Machine and deploy to Cloudflare Pages?'))return;var b=event.target;b.disabled=true;b.textContent='...';fetch('http://localhost:8080/api/run/domain-restorer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({domain:d})}).then(r=>r.json()).then(data=>{if(data.job_id){b.textContent='✓ Started!';b.style.background='#10b981';}else{b.disabled=false;b.textContent='⚡ Restore';}}).catch(()=>{b.disabled=false;b.textContent='⚡ Restore';});}
+const DATA = [{"domain": "tempestinateapot.net", "niche": "pest control", "age_years": 0, "oldest": "?", "referring_domains": 171, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "inmanheatingandcooling.com", "niche": "hvac", "age_years": 17.0, "oldest": "2009-09-29", "referring_domains": 94, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "roofinglasvegas.org", "niche": "roofing", "age_years": 0, "oldest": "?", "referring_domains": 77, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "prozonepestcontrol.com", "niche": "pest control", "age_years": 0, "oldest": "?", "referring_domains": 64, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "concretecontractorsrichmond.com", "niche": "home services", "age_years": 0, "oldest": "?", "referring_domains": 57, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "coloradoguttercleaning.com", "niche": "roofing", "age_years": 13.3, "oldest": "2013-05-28", "referring_domains": 53, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "dynamicroofers.com", "niche": "roofing", "age_years": 15.3, "oldest": "2011-05-20", "referring_domains": 53, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "climbroofing.com", "niche": "roofing", "age_years": 0, "oldest": "?", "referring_domains": 52, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "remodelsanantoniotx.com", "niche": "home services", "age_years": 0, "oldest": "?", "referring_domains": 52, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "extraplumbing.com", "niche": "plumbing", "age_years": 8.1, "oldest": "2018-08-07", "referring_domains": 50, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "heatinghomes.net", "niche": "hvac", "age_years": 15.8, "oldest": "2010-12-30", "referring_domains": 49, "end_date": "2026-09-11", "type": "Dropped"}, {"domain": "acelectriccoinc.com", "niche": "electrical", "age_years": 0, "oldest": "?", "referring_domains": 48, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "axpertroofing.com", "niche": "roofing", "age_years": 0, "oldest": "?", "referring_domains": 48, "end_date": "2026-09-11", "type": "Dropped"}, {"domain": "electricianauto.com", "niche": "electrical", "age_years": 0, "oldest": "?", "referring_domains": 45, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "modernelectrician.com", "niche": "electrical", "age_years": 8.1, "oldest": "2018-08-06", "referring_domains": 44, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "contractorsremodeling.com", "niche": "home services", "age_years": 0, "oldest": "?", "referring_domains": 44, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "electricvirus.com", "niche": "electrical", "age_years": 13.3, "oldest": "2013-05-31", "referring_domains": 43, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "landscapermountairy.com", "niche": "landscaping", "age_years": 0, "oldest": "?", "referring_domains": 43, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "watersoftenerteam.com", "niche": "water treatment", "age_years": 0, "oldest": "?", "referring_domains": 43, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "comfort-heating.com", "niche": "hvac", "age_years": 0, "oldest": "?", "referring_domains": 42, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "sewerrecovery.com", "niche": "plumbing", "age_years": 4.8, "oldest": "2021-12-24", "referring_domains": 42, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "navarrolandscape.com", "niche": "landscaping", "age_years": 15.6, "oldest": "2011-02-07", "referring_domains": 40, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "electricvehicleappliance.com", "niche": "electrical", "age_years": 1.2, "oldest": "2025-07-11", "referring_domains": 40, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "sanjoseroofs.com", "niche": "roofing", "age_years": 15.6, "oldest": "2011-02-08", "referring_domains": 39, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "niceremodel.com", "niche": "home services", "age_years": 16.5, "oldest": "2010-03-30", "referring_domains": 38, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "finestplumbers.com", "niche": "plumbing", "age_years": 0, "oldest": "?", "referring_domains": 38, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "cleancuttlandscaping.com", "niche": "landscaping", "age_years": 13.2, "oldest": "2013-06-05", "referring_domains": 38, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "electricvehiclehouseholdaccessory.com", "niche": "electrical", "age_years": 1.2, "oldest": "2025-07-11", "referring_domains": 38, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "nadrainfo.com", "niche": "plumbing", "age_years": 0, "oldest": "?", "referring_domains": 38, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "ajbplumbing.com", "niche": "plumbing", "age_years": 0, "oldest": "?", "referring_domains": 38, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "roofssolar.com", "niche": "roofing", "age_years": 13.1, "oldest": "2013-08-28", "referring_domains": 38, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "roofingandcoatings.com", "niche": "roofing", "age_years": 22.0, "oldest": "2004-09-02", "referring_domains": 38, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "electricnibbler.com", "niche": "electrical", "age_years": 13.3, "oldest": "2013-05-26", "referring_domains": 37, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "electricvehiclehouseholdappliance.com", "niche": "electrical", "age_years": 0, "oldest": "?", "referring_domains": 37, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "quickhandymanservices.com", "niche": "home services", "age_years": 13.2, "oldest": "2013-06-14", "referring_domains": 36, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "waterproofdogcoat.com", "niche": "water treatment", "age_years": 17.3, "oldest": "2009-05-22", "referring_domains": 35, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "alldayplumbers.com", "niche": "plumbing", "age_years": 4.8, "oldest": "2021-11-25", "referring_domains": 35, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "rapidsewercleaners.com", "niche": "plumbing", "age_years": 15.6, "oldest": "2011-02-02", "referring_domains": 34, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "remodelbrothers.com", "niche": "home services", "age_years": 0, "oldest": "?", "referring_domains": 34, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "siouxfallsroofer.com", "niche": "roofing", "age_years": 0, "oldest": "?", "referring_domains": 33, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "electricitedhome.com", "niche": "electrical", "age_years": 8.3, "oldest": "2018-05-04", "referring_domains": 33, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "towerelectricity.com", "niche": "electrical", "age_years": 8.1, "oldest": "2018-08-04", "referring_domains": 28, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "fenroof.com", "niche": "roofing", "age_years": 2.2, "oldest": "2024-06-01", "referring_domains": 26, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "ziplandscaper.com", "niche": "landscaping", "age_years": 0, "oldest": "?", "referring_domains": 20, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "ziplandscape.com", "niche": "landscaping", "age_years": 0, "oldest": "?", "referring_domains": 19, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "sanantoniolawncareservices.com", "niche": "landscaping", "age_years": 0.9, "oldest": "2025-10-29", "referring_domains": 18, "end_date": "2026-09-11", "type": "PrivateSeller"}, {"domain": "zipalandscaper.com", "niche": "landscaping", "age_years": 0, "oldest": "?", "referring_domains": 17, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "zipaplumber.com", "niche": "plumbing", "age_years": 0, "oldest": "?", "referring_domains": 16, "end_date": "2026-09-11", "type": "PreRelease"}, {"domain": "zipahandyman.com", "niche": "home services", "age_years": 0, "oldest": "?", "referring_domains": 16, "end_date": "2026-09-11", "type": "PreRelease"}];
+let sortKey = 'referring_domains';
+let sortDir = -1; // -1 = desc, 1 = asc
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  let html = '';
+  for (const d of DATA) {
+    const ageCls = d.age_years >= 10 ? 'age-old' : d.age_years >= 3 ? 'age-mid' : 'age-new';
+    const blCls = d.referring_domains >= 50 ? 'bl-high' : 'bl-mid';
+    html += '<tr>' +
+      '<td><strong>' + d.domain + '</strong></td>' +
+      '<td>' + d.niche + '</td>' +
+      '<td><span class="' + ageCls + '">' + d.age_years.toFixed(1) + ' years</span></td>' +
+      '<td>' + d.oldest + '</td>' +
+      '<td><span class="' + blCls + '">' + d.referring_domains + '</span></td>' +
+      '<td>' + d.end_date + '</td>' +
+      '<td>' + d.type + '</td>' +
+      '<td><button class="btn-restore" onclick="restoreDomain(\'' + d.domain + '\')">⚡ Restore</button></td>' +
+      '</tr>';
+  }
+  tbody.innerHTML = html;
+  
+  // Update header sort indicators
+  document.querySelectorAll('th').forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.dataset.key === sortKey) {
+      th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+    }
+  });
+}
+
+function sortBy(key) {
+  if (sortKey === key) {
+    sortDir = -sortDir; // Toggle direction
+  } else {
+    sortKey = key;
+    sortDir = key === 'domain' || key === 'niche' || key === 'oldest' || key === 'end_date' || key === 'type' ? 1 : -1;
+  }
+  DATA.sort((a, b) => {
+    let av = a[sortKey], bv = b[sortKey];
+    if (typeof av === 'string') {
+      return av.localeCompare(bv) * sortDir;
+    }
+    return (av - bv) * sortDir;
+  });
+  renderTable();
+}
+
+function restoreDomain(d) {
+  if (!confirm('Restore ' + d + ' from Wayback Machine and deploy to Cloudflare Pages?')) return;
+  var b = event.target;
+  b.disabled = true; b.textContent = '...';
+  fetch('http://localhost:8080/api/run/domain-restorer', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({domain:d})})
+    .then(r => r.json()).then(data => {
+      if (data.job_id) { b.textContent = '✓ Started!'; b.style.background = '#10b981'; }
+      else { b.disabled = false; b.textContent = '⚡ Restore'; }
+    }).catch(() => { b.disabled = false; b.textContent = '⚡ Restore'; });
+}
+
+// Initial sort by referring domains (desc)
+DATA.sort((a, b) => b.referring_domains - a.referring_domains);
+renderTable();
 </script>
 </body></html>
