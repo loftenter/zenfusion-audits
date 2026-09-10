@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Dead Domain Monitor — Expiration Tracking</title>
+<style>
+:root { --bg: #f6f8fc; --card: #fff; --border: #e8ecf1; --text: #1a1a2e; --muted: #6b7280; --accent: #4f46e5; --green: #10b981; --red: #ef4444; --orange: #f59e0b; --shadow: 0 1px 3px rgba(0,0,0,0.06); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); font-size: 15px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+h1 { font-size: 24px; margin-bottom: 4px; color: var(--accent); }
+.sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+th { background: var(--accent); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
+tr:hover { background: #f8f9ff; }
+.exp-soon { color: var(--red); font-weight: 700; }
+.exp-mid { color: var(--orange); font-weight: 700; }
+.exp-far { color: var(--green); font-weight: 700; }
+.bl-high { color: var(--green); font-weight: 700; }
+.bl-mid { color: var(--orange); font-weight: 700; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.badge-dead { background: #fef2f2; color: var(--red); }
+.btn-restore { padding: 6px 14px; background: var(--green); color: white; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500; }
+.info-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.info-box b { color: var(--text); }
+footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Dead Domain Monitor</h1>
+  <div class="sub">Dead local business domains with backlinks — sorted by expiration date (soonest first)</div>
+  <div class="info-box">
+    <b>📡 Cron Monitor:</b> Running every 6 hours. When any domain drops, you'll be alerted and registration attempted via Namecheap API.<br>
+    <b>🎣 DropCatch:</b> Account (MarcOva3) — auction verification pending (up to 72h).<br>
+    <b>🏛 GoDaddy Auctions:</b> API whitelist request emailed. Browser scraping works (1,237 domains found).<br>
+    <b>❌ expireddomains.net:</b> Account permanently deleted (no bots allowed).
+  </div>
+  <table>
+    <thead><tr>
+      <th>Domain</th><th>Niche</th><th>Age (Yrs)</th><th>Referring Domains</th><th>Wayback</th>
+      <th>Original Business</th><th>Registrar</th><th>Expiry Date</th><th>Days Until Expiry</th><th>Status</th><th>Action</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>onehourheatandair.com</strong></td>
+        <td>HVAC</td>
+        <td>20.9</td>
+        <td><span class="bl-high">4,043</span></td>
+        <td>1,320</td>
+        <td>One Hour Heating and Air Conditioning HVAC Services</td>
+        <td>GoDaddy.com, LLC</td>
+        <td>2026-10-05</td>
+        <td><span class="exp-soon">24 days ⚠️</span></td>
+        <td><span class="badge badge-dead">Dead Site</span></td>
+        <td><button class="btn-restore" onclick="restoreDomain('onehourheatandair.com')">⚡ Restore</button></td>
+      </tr>
+      <tr>
+        <td><strong>gopaschal.com</strong></td>
+        <td>HVAC</td>
+        <td>6.6</td>
+        <td><span class="bl-high">1,030</span></td>
+        <td>0</td>
+        <td>—</td>
+        <td>GoDaddy.com, LLC</td>
+        <td>2027-01-24</td>
+        <td><span class="exp-mid">135 days</span></td>
+        <td><span class="badge badge-dead">Dead Site</span></td>
+        <td><button class="btn-restore" onclick="restoreDomain('gopaschal.com')">⚡ Restore</button></td>
+      </tr>
+      <tr>
+        <td><strong>amwater.com</strong></td>
+        <td>Water Treatment</td>
+        <td>30.4</td>
+        <td><span class="bl-high">5,726</span></td>
+        <td>3,263</td>
+        <td>—</td>
+        <td>Amazon Registrar, Inc.</td>
+        <td>2027-05-04</td>
+        <td><span class="exp-far">235 days</span></td>
+        <td><span class="badge badge-dead">Dead Site</span></td>
+        <td><button class="btn-restore" onclick="restoreDomain('amwater.com')">⚡ Restore</button></td>
+      </tr>
+      <tr>
+        <td><strong>cmac.ws</strong></td>
+        <td>Water Treatment</td>
+        <td>20.3</td>
+        <td><span class="bl-high">6,471</span></td>
+        <td>0</td>
+        <td>CMac.ws Web Directory</td>
+        <td>GoDaddy.com</td>
+        <td>2027-05-16</td>
+        <td><span class="exp-far">247 days</span></td>
+        <td><span class="badge badge-dead">Dead Site</span></td>
+        <td><button class="btn-restore" onclick="restoreDomain('cmac.ws')">⚡ Restore</button></td>
+      </tr>
+      <tr>
+        <td><strong>authoritypay.com</strong></td>
+        <td>Water Treatment</td>
+        <td>14.2</td>
+        <td><span class="bl-mid">770</span></td>
+        <td>41</td>
+        <td>Index of /</td>
+        <td>easyDNS Technologies Inc.</td>
+        <td>2027-06-15</td>
+        <td><span class="exp-far">277 days</span></td>
+        <td><span class="badge badge-dead">Dead Site</span></td>
+        <td><button class="btn-restore" onclick="restoreDomain('authoritypay.com')">⚡ Restore</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <footer>Generated by ZenfusionSEO Domain Hunter · Cron monitor runs every 6h · DataForSEO + WHOIS + Wayback Machine</footer>
+</div>
+<script>
+function restoreDomain(d){if(!confirm('Restore '+d+' from Wayback Machine?'))return;var b=event.target;b.disabled=true;b.textContent='...';fetch('http://localhost:8080/api/run/domain-restorer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({domain:d})}).then(r=>r.json()).then(data=>{if(data.job_id){b.textContent='✓ Started!';b.style.background='#10b981';}else{b.disabled=false;b.textContent='⚡ Restore';}}).catch(()=>{b.disabled=false;b.textContent='⚡ Restore';});}
+</script>
+</body></html>
