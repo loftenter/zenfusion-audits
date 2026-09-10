@@ -4,217 +4,132 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>GoDaddy Auction Domains — Scored with Prices</title>
+<title>GoDaddy Auction Domains</title>
 <style>
-:root {
-  --bg: #f6f8fc; --card: #fff; --border: #e8ecf1; --text: #1a1a2e;
-  --muted: #6b7280; --accent: #4f46e5; --green: #10b981; --red: #ef4444;
-  --orange: #f59e0b; --shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
+:root { --bg: #f6f8fc; --card: #fff; --border: #e8ecf1; --text: #1a1a2e; --muted: #6b7280; --accent: #4f46e5; --green: #10b981; --red: #ef4444; --orange: #f59e0b; --shadow: 0 1px 3px rgba(0,0,0,0.06); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; }
 .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
 h1 { font-size: 24px; margin-bottom: 4px; color: var(--accent); }
 .sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
 table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
-th { background: var(--accent); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+th { background: var(--accent); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; text-transform: uppercase; }
 td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
 tr:hover { background: #f8f9ff; }
-.score { font-weight: 700; font-size: 16px; }
-.score-high { color: var(--green); }
-.score-mid { color: var(--orange); }
-.score-low { color: var(--red); }
 .price { font-weight: 700; color: var(--accent); font-size: 16px; }
+.age { font-weight: 700; font-size: 16px; }
+.age-old { color: var(--green); }
+.age-mid { color: var(--orange); }
+.age-new { color: var(--red); }
 .btn-buy { display: inline-block; padding: 6px 14px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; text-decoration: none; font-weight: 500; }
-.btn-buy:hover { background: #4338ca; }
 .btn-restore { display: inline-block; padding: 6px 14px; background: var(--green); color: white; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500; margin-left: 6px; }
-.btn-restore:hover { background: #059669; }
-.btn-restore:disabled { background: var(--muted); cursor: not-allowed; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-.badge-yes { background: #ecfdf5; color: var(--green); }
-.badge-no { background: #fef2f2; color: var(--red); }
-footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); text-align: center; }
+footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>GoDaddy Auction Domains — Scored</h1>
-  <div class="sub">8 recommended domains with prices + one-click Wayback restore to Cloudflare</div>
+  <h1>GoDaddy Auction Domains</h1>
+  <div class="sub">8 domains with real age in years + backlinks + Wayback history</div>
   <table>
-    <thead>
-      <tr>
-        <th>Domain</th>
-        <th>Score</th>
-        <th>Backlinks</th>
-        <th>Wayback</th>
-        <th>Age</th>
-        <th>Buy Now Price</th>
-        <th>Auction Ends</th>
-        <th>Action</th>
-      </tr>
-    </thead>
+    <thead><tr>
+      <th>Domain</th><th>Age (Years)</th><th>First Archived</th>
+      <th>Referring Domains</th><th>Wayback Snapshots</th>
+      <th>Buy Now</th><th>Ends</th><th>Action</th>
+    </tr></thead>
     <tbody>
       <tr>
         <td><strong>casagrandewatersofteners.com</strong></td>
-        <td><span class="score score-high">42.4</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (76)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-new">0.0 years</span></td>
+        <td>?</td>
+        <td>75</td>
         <td>100</td>
         <td><span class="price">$500</span></td>
         <td>10d 19h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=casagrandewatersofteners.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('casagrandewatersofteners.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=casagrandewatersofteners.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('casagrandewatersofteners.com')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>water.info</strong></td>
-        <td><span class="score score-high">41.3</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (66)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-old">24.6 years</span></td>
+        <td>2002-02-15</td>
+        <td>66</td>
         <td>100</td>
         <td><span class="price">$5,000</span></td>
         <td>14d 19h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=water.info" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('water.info')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=water.info" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('water.info')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>drinkingwatertreatment.com</strong></td>
-        <td><span class="score score-high">41.1</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (65)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-new">0.0 years</span></td>
+        <td>?</td>
+        <td>65</td>
         <td>100</td>
         <td><span class="price">$9,888</span></td>
         <td>12d 19h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=drinkingwatertreatment.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('drinkingwatertreatment.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=drinkingwatertreatment.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('drinkingwatertreatment.com')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>watertreatmentplants.com</strong></td>
-        <td><span class="score score-high">40.3</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (64)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-old">22.9 years</span></td>
+        <td>2003-10-31</td>
+        <td>63</td>
         <td>100</td>
         <td><span class="price">$4,499</span></td>
         <td>10d 20h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=watertreatmentplants.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('watertreatmentplants.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=watertreatmentplants.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('watertreatmentplants.com')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>ozonewatertreatment.com</strong></td>
-        <td><span class="score score-high">40.2</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (64)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-old">25.5 years</span></td>
+        <td>2001-03-02</td>
+        <td>63</td>
         <td>100</td>
         <td><span class="price">$2,499</span></td>
         <td>10d 20h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=ozonewatertreatment.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('ozonewatertreatment.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=ozonewatertreatment.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('ozonewatertreatment.com')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>plumbingrobos.com</strong></td>
-        <td><span class="score score-high">39.2</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (51)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (97)</td>
-        <td>100</td>
+        <td><span class="age age-mid">8.1 years</span></td>
+        <td>2018-08-05</td>
+        <td>51</td>
+        <td>96</td>
         <td><span class="price">$1,500</span></td>
         <td>11d 19h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=plumbingrobos.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('plumbingrobos.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=plumbingrobos.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('plumbingrobos.com')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>albertawatertreatment.com</strong></td>
-        <td><span class="score score-high">37.8</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (50)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-old">15.6 years</span></td>
+        <td>2011-02-03</td>
+        <td>50</td>
         <td>100</td>
         <td><span class="price">$250</span></td>
         <td>12d 19h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=albertawatertreatment.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('albertawatertreatment.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=albertawatertreatment.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('albertawatertreatment.com')">⚡ Restore</button></td>
       </tr>
       <tr>
         <td><strong>waterchestnut.com</strong></td>
-        <td><span class="score score-high">37.7</span></td>
-        <td><span class="badge badge-yes">✅ Yes</span> (50)</td>
-        <td><span class="badge badge-yes">✅ Yes</span> (100)</td>
+        <td><span class="age age-new">0.0 years</span></td>
+        <td>?</td>
+        <td>50</td>
         <td>100</td>
         <td><span class="price">$9,999</span></td>
         <td>10d 20h</td>
-        <td>
-          <a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=waterchestnut.com" target="_blank">View on GoDaddy</a>
-          <button class="btn-restore" onclick="restoreDomain('waterchestnut.com')">⚡ Restore from Wayback</button>
-        </td>
+        <td><a class="btn-buy" href="https://auctions.godaddy.com/search?keyword=waterchestnut.com" target="_blank">View</a>
+        <button class="btn-restore" onclick="restoreDomain('waterchestnut.com')">⚡ Restore</button></td>
       </tr>
     </tbody>
   </table>
-  <footer>
-    Generated by ZenfusionSEO Domain Hunter · DataForSEO + Wayback Machine + GoDaddy Auctions
-  </footer>
+  <footer>Age calculated from oldest Wayback Machine snapshot · ZenfusionSEO Domain Hunter</footer>
 </div>
 <script>
-function restoreDomain(domain) {
-  if (!confirm('Restore ' + domain + ' from Wayback Machine and deploy to Cloudflare Pages?\n\nThis will:\n1. Find the best Wayback Machine snapshot\n2. Download and clean the archived site\n3. Deploy to Cloudflare Pages\n\nContinue?')) return;
-  
-  var btn = event.target;
-  btn.disabled = true;
-  btn.textContent = 'Restoring...';
-  
-  fetch('http://localhost:8080/api/run/domain-restorer', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({domain: domain})
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.job_id) {
-      btn.textContent = 'Restore Started!';
-      btn.style.background = '#10b981';
-      // Poll for completion
-      var pollInterval = setInterval(function() {
-        fetch('http://localhost:8080/api/job/' + data.job_id)
-          .then(r => r.json())
-          .then(job => {
-            if (job.status === 'done') {
-              clearInterval(pollInterval);
-              btn.textContent = '✓ Deployed!';
-              btn.style.background = '#10b981';
-              var reportLink = '<br><a href="http://localhost:8080/api/report/' + data.job_id + '" target="_blank" style="color:#4f46e5;font-weight:600;">View Restore Report</a>';
-              btn.parentElement.innerHTML += reportLink;
-            } else if (job.status === 'error') {
-              clearInterval(pollInterval);
-              btn.textContent = '✗ Failed';
-              btn.style.background = '#ef4444';
-              alert('Restore failed: ' + (job.stderr || 'Unknown error'));
-              btn.disabled = false;
-              btn.textContent = '⚡ Restore from Wayback';
-            }
-          });
-      }, 5000);
-    } else {
-      alert('Error: ' + (data.error || 'Unknown'));
-      btn.disabled = false;
-      btn.textContent = '⚡ Restore from Wayback';
-    }
-  })
-  .catch(err => {
-    alert('Error: ' + err);
-    btn.disabled = false;
-    btn.textContent = '⚡ Restore from Wayback';
-  });
-}
+function restoreDomain(d){if(!confirm('Restore '+d+' from Wayback?'))return;var b=event.target;b.disabled=true;b.textContent='...';fetch('http://localhost:8080/api/run/domain-restorer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({domain:d})}).then(r=>r.json()).then(data=>{if(data.job_id){b.textContent='✓ Started!';b.style.background='#10b981';}else{b.disabled=false;b.textContent='⚡ Restore';}}).catch(()=>{b.disabled=false;b.textContent='⚡ Restore';});}
 </script>
-</body>
-</html>
+</body></html>
