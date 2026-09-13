@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backlink Analysis - Fluoride Filter Articles Batch 2 - PSAM</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #ffffff; padding: 40px 20px; max-width: 1400px; margin: 0 auto; font-size: 16px; }
+a { color: #4A90D9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+.subtitle { color: #ffffff; opacity: 0.85; font-size: 16px; margin-bottom: 24px; }
+.back-link { color: #4A90D9; text-decoration: none; font-size: 13px; margin-bottom: 20px; display: inline-block; }
+.dashboard-link { background: #4A90D9; color: white; padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+.export-bar { margin-bottom: 20px; }
+
+/* Summary Cards */
+.summary-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 30px; }
+.card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 20px; text-align: center; }
+.card .value { font-size: 28px; font-weight: 700; color: #4A90D9; }
+.card .label { font-size: 11px; color: #ffffff; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+
+/* Section */
+.section { margin-bottom: 30px; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
+.section-title { color: #4A90D9; font-size: 18px; }
+
+/* Top 10 Cards */
+.top-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.top-card { background: #1a1f2e; border: 1px solid #2a3142; border-radius: 10px; padding: 16px; display: flex; gap: 12px; }
+.top-card:hover { border-color: #4A90D9; }
+.top-rank { font-size: 24px; font-weight: 700; color: #4A90D9; min-width: 40px; }
+.top-content { flex: 1; }
+.top-domain a { color: #4A90D9; font-size: 14px; font-weight: 600; }
+.top-title { color: #ffffff; opacity: 0.85; font-size: 12px; margin: 4px 0 8px; }
+.top-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+.metric { font-size: 12px; color: #ffffff; opacity: 0.85; }
+.metric strong { color: #4A90D9; }
+
+/* Tier colors */
+.tier-high { color: #27ae60; }
+.tier-medium { color: #4A90D9; }
+.tier-low { color: #f39c12; }
+.tier-label { font-size: 10px; opacity: 0.7; }
+
+/* Copy buttons */
+.copy-btn { background: rgba(74,144,217,0.15); color: #4A90D9; border: 1px solid rgba(74,144,217,0.3); padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; }
+.copy-btn:hover { background: rgba(74,144,217,0.25); }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { background: #0066cc; color: #ffffff; padding: 10px 8px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; position: sticky; top: 0; }
+th:hover { background: #0052a3; }
+th .sort-arrow { font-size: 10px; opacity: 0.5; margin-left: 4px; }
+td { padding: 8px; border-bottom: 1px solid #2a3142; }
+tr:hover { background: rgba(74,144,217,0.05); }
+.title-cell { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Footer */
+.footer { text-align: center; margin-top: 40px; color: #ffffff; opacity: 0.4; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
+
+/* Print */
+@media print {
+  .no-print, #export-container, .copy-btn, .dashboard-link { display: none !important; }
+  body { background: white; color: black; }
+  table { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<a href="/zenfusion-audits/portal.html" class="dashboard-link">Go to Dashboard</a>
+<a href="/zenfusion-audits/plumbingsupplyandmore/index.html" class="back-link">&larr; Back to PSAM</a>
+
+<h1>Backlink Analysis - Fluoride Filter Articles Batch 2</h1>
+<p class="subtitle">PSAM - 22 URLs - Sep 13, 2026</p>
+
+<!-- Export Bar -->
+<script src="/zenfusion-audits/scripts/export.js"></script>
+<div id="export-container"></div>
+<script>
+ZenfusionExport.createExportBar({
+  container: '#export-container',
+  type: 'data',
+  reportName: 'Backlink Analysis - Fluoride Filter Articles Batch 2',
+  brandName: 'PSAM',
+  filename: 'psam-backlink-analysis-fluoride-batch-2'
+});
+</script>
+
+<!-- Summary Cards -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">Summary</div>
+    <button class="copy-btn" onclick="copySection('summary')">Copy Section</button>
+  </div>
+  <div class="summary-cards">
+    <div class="card"><div class="value">22</div><div class="label">Total Links</div></div>
+    <div class="card"><div class="value">16 (73%)</div><div class="label">In Majestic</div></div>
+    <div class="card"><div class="value">21 (95%)</div><div class="label">Indexed</div></div>
+    <div class="card"><div class="value">77.5</div><div class="label">Avg Score</div></div>
+    <div class="card"><div class="value">22</div><div class="label">Dofollow</div></div>
+  </div>
+</div>
+
+<!-- Top 10 Strongest Links -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">Top 10 Strongest Links</div>
+    <button class="copy-btn" onclick="copySection('top10')">Copy Section</button>
+  </div>
+  <div class="top-cards">
+
+      <div class="top-card" data-score="95">
+        <div class="top-rank">#1</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://padlet.com/canhmongthuen7463/best-fluoride-filter-for-ponder-tx-s023igf22lv5b5fwc3rp" target="_blank">padlet.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Ponder, TX</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#957</strong></span>
+            <span class="metric">ETV Rank: <strong>575</strong></span>
+            <span class="metric">Ref Domains: <strong>154.5K</strong></span>
+            <span class="metric tier-high">Score: <strong>95</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://padlet.com/canhmongthuen7463/best-fluoride-filter-for-ponder-tx-s023igf22lv5b5fwc3rp')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="95">
+        <div class="top-rank">#2</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://medium.com/@mn9419677/best-fluoride-filter-for-bow-nh-b671461f02b3" target="_blank">medium.com</a></div>
+          <div class="top-title">(untitled)</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#64</strong></span>
+            <span class="metric">ETV Rank: <strong>742</strong></span>
+            <span class="metric">Ref Domains: <strong>1.5M</strong></span>
+            <span class="metric tier-high">Score: <strong>95</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://medium.com/@mn9419677/best-fluoride-filter-for-bow-nh-b671461f02b3')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="95">
+        <div class="top-rank">#3</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://www.patreon.com/SeoAkash/posts/best-fluoride-nh-169348432?utm_medium=clipboard_copy&amp;utm_source=copyLink&amp;utm_campaign=postshare_creator&amp;utm_content=join_link" target="_blank">patreon.com</a></div>
+          <div class="top-title">(untitled)</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#340</strong></span>
+            <span class="metric">ETV Rank: <strong>750</strong></span>
+            <span class="metric">Ref Domains: <strong>353.0K</strong></span>
+            <span class="metric tier-high">Score: <strong>95</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://www.patreon.com/SeoAkash/posts/best-fluoride-nh-169348432?utm_medium=clipboard_copy&amp;utm_source=copyLink&amp;utm_campaign=postshare_creator&amp;utm_content=join_link')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="90">
+        <div class="top-rank">#4</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://forums.delphiforums.com/nomoredebt/messages/24839/1" target="_blank">forums.delphiforums.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Mooresville NC</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#11876</strong></span>
+            <span class="metric">ETV Rank: <strong>419</strong></span>
+            <span class="metric">Ref Domains: <strong>8.9K</strong></span>
+            <span class="metric tier-high">Score: <strong>90</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://forums.delphiforums.com/nomoredebt/messages/24839/1')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="90">
+        <div class="top-rank">#5</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://Macdailynews.com/author/Best-Fluoride-Filter-for-Neenah-WI" target="_blank">macdailynews.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Neenah WI</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#34502</strong></span>
+            <span class="metric">ETV Rank: <strong>400</strong></span>
+            <span class="metric">Ref Domains: <strong>7.2K</strong></span>
+            <span class="metric tier-high">Score: <strong>90</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://Macdailynews.com/author/Best-Fluoride-Filter-for-Neenah-WI')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="90">
+        <div class="top-rank">#6</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://Mangalorean.com/author/Best-Fluoride-Filter-for-Branford-FL" target="_blank">mangalorean.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Branford FL</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#98499</strong></span>
+            <span class="metric">ETV Rank: <strong>321</strong></span>
+            <span class="metric">Ref Domains: <strong>5.6K</strong></span>
+            <span class="metric tier-high">Score: <strong>90</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://Mangalorean.com/author/Best-Fluoride-Filter-for-Branford-FL')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="90">
+        <div class="top-rank">#7</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://workflowy.com/s/best-fluoride-filter/SXKDMNDFfxkSQBu3" target="_blank">workflowy.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Middleburg FL</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#28167</strong></span>
+            <span class="metric">ETV Rank: <strong>459</strong></span>
+            <span class="metric">Ref Domains: <strong>7.9K</strong></span>
+            <span class="metric tier-high">Score: <strong>90</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://workflowy.com/s/best-fluoride-filter/SXKDMNDFfxkSQBu3')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="90">
+        <div class="top-rank">#8</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://Blog.apaonline.org/author/Best-Fluoride-Filter-for-Sutter-Creek-CA" target="_blank">blog.apaonline.org</a></div>
+          <div class="top-title">Best Fluoride Filter for Sutter Creek, CA</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#27308</strong></span>
+            <span class="metric">ETV Rank: <strong>341</strong></span>
+            <span class="metric">Ref Domains: <strong>6.9K</strong></span>
+            <span class="metric tier-high">Score: <strong>90</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://Blog.apaonline.org/author/Best-Fluoride-Filter-for-Sutter-Creek-CA')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="85">
+        <div class="top-rank">#9</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://www.ganjingworld.com/article/1ir8v0bb8cr62LBz96GClOEki1vt1c/best-fluoride-filter-for-sacramento-ca" target="_blank">ganjingworld.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Sacramento, CA</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#26696</strong></span>
+            <span class="metric">ETV Rank: <strong>578</strong></span>
+            <span class="metric">Ref Domains: <strong>20.3K</strong></span>
+            <span class="metric tier-high">Score: <strong>85</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://www.ganjingworld.com/article/1ir8v0bb8cr62LBz96GClOEki1vt1c/best-fluoride-filter-for-sacramento-ca')">Copy URL</button>
+        </div>
+      </div>
+      <div class="top-card" data-score="85">
+        <div class="top-rank">#10</div>
+        <div class="top-content">
+          <div class="top-domain"><a href="https://Myconfinedspace.com/author/bestfluoridefilterforsmyertx" target="_blank">myconfinedspace.com</a></div>
+          <div class="top-title">Best Fluoride Filter for Smyer TX</div>
+          <div class="top-meta">
+            <span class="metric">Majestic: <strong>#72930</strong></span>
+            <span class="metric">ETV Rank: <strong>522</strong></span>
+            <span class="metric">Ref Domains: <strong>6.0K</strong></span>
+            <span class="metric tier-high">Score: <strong>85</strong></span>
+            <span class="metric">Index: <strong>✅ Yes</strong></span>
+          </div>
+          <button class="copy-btn" onclick="copyToClipboard('https://Myconfinedspace.com/author/bestfluoridefilterforsmyertx')">Copy URL</button>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- All Links Table -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">All Links (22)</div>
+    <button class="copy-btn" onclick="copySection('all-links')">Copy Section</button>
+  </div>
+  <table id="backlinks-table">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">#</th>
+        <th onclick="sortTable(1)">URL</th>
+        <th onclick="sortTable(2)">Domain</th>
+        <th onclick="sortTable(3)">Title</th>
+        <th onclick="sortTable(4)">Majestic Rank <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(5)">ETV Rank <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(6)">Score <span class="sort-arrow">↕</span></th>
+        <th onclick="sortTable(7)">Index Status</th>
+        <th onclick="sortTable(8)">Live</th>
+        <th class="no-print">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>1</td>
+        <td><a href="https://forums.delphiforums.com/nomoredebt/messages/24839/1" target="_blank">https://forums.delphiforums.com/nomoredebt/message...</a></td>
+        <td><strong>forums.delphiforums.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Mooresville NC">Best Fluoride Filter for Mooresville NC</td>
+        <td data-sort="11876">#11876</td>
+        <td data-sort="419">419</td>
+        <td data-sort="90" class="tier-high"><strong>90</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://forums.delphiforums.com/nomoredebt/messages/24839/1')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><a href="https://www.ganjingworld.com/article/1ir8v0bb8cr62LBz96GClOEki1vt1c/best-fluoride-filter-for-sacramento-ca" target="_blank">https://www.ganjingworld.com/article/1ir8v0bb8cr62...</a></td>
+        <td><strong>ganjingworld.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Sacramento, CA">Best Fluoride Filter for Sacramento, CA</td>
+        <td data-sort="26696">#26696</td>
+        <td data-sort="578">578</td>
+        <td data-sort="85" class="tier-high"><strong>85</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://www.ganjingworld.com/article/1ir8v0bb8cr62LBz96GClOEki1vt1c/best-fluoride-filter-for-sacramento-ca')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><a href="https://erikastravels.com/author/Best-Fluoride-Filter-for-Waynesboro" target="_blank">https://erikastravels.com/author/Best-Fluoride-Fil...</a></td>
+        <td><strong>erikastravels.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Waynesboro, VA">Best Fluoride Filter for Waynesboro, VA</td>
+        <td data-sort="701128">#701128</td>
+        <td data-sort="276">276</td>
+        <td data-sort="70" class="tier-medium"><strong>70</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>❌ No</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://erikastravels.com/author/Best-Fluoride-Filter-for-Waynesboro')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><a href="https://Cookswellwithothers.com/author/Best-Fluoride-Filter-for-Wayzata-MN" target="_blank">https://Cookswellwithothers.com/author/Best-Fluori...</a></td>
+        <td><strong>cookswellwithothers.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Wayzata MN">Best Fluoride Filter for Wayzata MN</td>
+        <td data-sort="650548">#650548</td>
+        <td data-sort="284">284</td>
+        <td data-sort="70" class="tier-medium"><strong>70</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Cookswellwithothers.com/author/Best-Fluoride-Filter-for-Wayzata-MN')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><a href="https://Macdailynews.com/author/Best-Fluoride-Filter-for-Neenah-WI" target="_blank">https://Macdailynews.com/author/Best-Fluoride-Filt...</a></td>
+        <td><strong>macdailynews.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Neenah WI">Best Fluoride Filter for Neenah WI</td>
+        <td data-sort="34502">#34502</td>
+        <td data-sort="400">400</td>
+        <td data-sort="90" class="tier-high"><strong>90</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Macdailynews.com/author/Best-Fluoride-Filter-for-Neenah-WI')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><a href="https://Mangalorean.com/author/Best-Fluoride-Filter-for-Branford-FL" target="_blank">https://Mangalorean.com/author/Best-Fluoride-Filte...</a></td>
+        <td><strong>mangalorean.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Branford FL">Best Fluoride Filter for Branford FL</td>
+        <td data-sort="98499">#98499</td>
+        <td data-sort="321">321</td>
+        <td data-sort="90" class="tier-high"><strong>90</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Mangalorean.com/author/Best-Fluoride-Filter-for-Branford-FL')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><a href="https://Exploretarponsprings.com/author/Best-Fluoride-Filter-for-Amarillo-TX" target="_blank">https://Exploretarponsprings.com/author/Best-Fluor...</a></td>
+        <td><strong>exploretarponsprings.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Amarillo TX">Best Fluoride Filter for Amarillo TX</td>
+        <td data-sort="999999999">Not listed</td>
+        <td data-sort="266">266</td>
+        <td data-sort="60" class="tier-medium"><strong>60</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Exploretarponsprings.com/author/Best-Fluoride-Filter-for-Amarillo-TX')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><a href="https://nindtr.com/best-fluoride-filter-for-canyon-lake-tx/" target="_blank">https://nindtr.com/best-fluoride-filter-for-canyon...</a></td>
+        <td><strong>nindtr.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Canyon Lake TX">Best Fluoride Filter for Canyon Lake TX</td>
+        <td data-sort="999999999">Not listed</td>
+        <td data-sort="288">288</td>
+        <td data-sort="60" class="tier-medium"><strong>60</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://nindtr.com/best-fluoride-filter-for-canyon-lake-tx/')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><a href="https://Awsurplusauction.com/author/Best-Fluoride-Filter-for-Kalamazoo-MI" target="_blank">https://Awsurplusauction.com/author/Best-Fluoride-...</a></td>
+        <td><strong>awsurplusauction.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Kalamazoo MI">Best Fluoride Filter for Kalamazoo MI</td>
+        <td data-sort="999999999">Not listed</td>
+        <td data-sort="158">158</td>
+        <td data-sort="60" class="tier-medium"><strong>60</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Awsurplusauction.com/author/Best-Fluoride-Filter-for-Kalamazoo-MI')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><a href="https://Neverlikeditanyway.com/author/Best-Fluoride-Filter-for-Phippsburg-ME" target="_blank">https://Neverlikeditanyway.com/author/Best-Fluorid...</a></td>
+        <td><strong>neverlikeditanyway.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Phippsburg ME">Best Fluoride Filter for Phippsburg ME</td>
+        <td data-sort="675061">#675061</td>
+        <td data-sort="236">236</td>
+        <td data-sort="70" class="tier-medium"><strong>70</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Neverlikeditanyway.com/author/Best-Fluoride-Filter-for-Phippsburg-ME')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td><a href="https://Myconfinedspace.com/author/bestfluoridefilterforsmyertx" target="_blank">https://Myconfinedspace.com/author/bestfluoridefil...</a></td>
+        <td><strong>myconfinedspace.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Smyer TX">Best Fluoride Filter for Smyer TX</td>
+        <td data-sort="72930">#72930</td>
+        <td data-sort="522">522</td>
+        <td data-sort="85" class="tier-high"><strong>85</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Myconfinedspace.com/author/bestfluoridefilterforsmyertx')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td><a href="https://workflowy.com/s/best-fluoride-filter/SXKDMNDFfxkSQBu3" target="_blank">https://workflowy.com/s/best-fluoride-filter/SXKDM...</a></td>
+        <td><strong>workflowy.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Middleburg FL">Best Fluoride Filter for Middleburg FL</td>
+        <td data-sort="28167">#28167</td>
+        <td data-sort="459">459</td>
+        <td data-sort="90" class="tier-high"><strong>90</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>❌</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://workflowy.com/s/best-fluoride-filter/SXKDMNDFfxkSQBu3')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td><a href="https://padlet.com/canhmongthuen7463/best-fluoride-filter-for-ponder-tx-s023igf22lv5b5fwc3rp" target="_blank">https://padlet.com/canhmongthuen7463/best-fluoride...</a></td>
+        <td><strong>padlet.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Ponder, TX">Best Fluoride Filter for Ponder, TX</td>
+        <td data-sort="957">#957</td>
+        <td data-sort="575">575</td>
+        <td data-sort="95" class="tier-high"><strong>95</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>❌</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://padlet.com/canhmongthuen7463/best-fluoride-filter-for-ponder-tx-s023igf22lv5b5fwc3rp')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td><a href="https://theshaheen.org/best-fluoride-filter-for-fort-bragg-ca/" target="_blank">https://theshaheen.org/best-fluoride-filter-for-fo...</a></td>
+        <td><strong>theshaheen.org</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Fort Bragg, CA">Best Fluoride Filter for Fort Bragg, CA</td>
+        <td data-sort="999999999">Not listed</td>
+        <td data-sort="297">297</td>
+        <td data-sort="60" class="tier-medium"><strong>60</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://theshaheen.org/best-fluoride-filter-for-fort-bragg-ca/')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td><a href="https://xuzpost.com/best-fluoride-filter-for-boerne-tx/" target="_blank">https://xuzpost.com/best-fluoride-filter-for-boern...</a></td>
+        <td><strong>xuzpost.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Boerne, TX">Best Fluoride Filter for Boerne, TX</td>
+        <td data-sort="390479">#390479</td>
+        <td data-sort="326">326</td>
+        <td data-sort="80" class="tier-high"><strong>80</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://xuzpost.com/best-fluoride-filter-for-boerne-tx/')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td><a href="https://Blog.apaonline.org/author/Best-Fluoride-Filter-for-Sutter-Creek-CA" target="_blank">https://Blog.apaonline.org/author/Best-Fluoride-Fi...</a></td>
+        <td><strong>blog.apaonline.org</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Sutter Creek, CA">Best Fluoride Filter for Sutter Creek, CA</td>
+        <td data-sort="27308">#27308</td>
+        <td data-sort="341">341</td>
+        <td data-sort="90" class="tier-high"><strong>90</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Blog.apaonline.org/author/Best-Fluoride-Filter-for-Sutter-Creek-CA')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td><a href="https://Radrounds.com/author/Best-Fluoride-Filter-for-Sequim-WA" target="_blank">https://Radrounds.com/author/Best-Fluoride-Filter-...</a></td>
+        <td><strong>radrounds.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Sequim, WA">Best Fluoride Filter for Sequim, WA</td>
+        <td data-sort="346176">#346176</td>
+        <td data-sort="296">296</td>
+        <td data-sort="80" class="tier-high"><strong>80</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Radrounds.com/author/Best-Fluoride-Filter-for-Sequim-WA')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td><a href="https://Kyinsider.com/author/Best-Fluoride-Filter-for-South-Lyon-MI" target="_blank">https://Kyinsider.com/author/Best-Fluoride-Filter-...</a></td>
+        <td><strong>kyinsider.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for South Lyon, MI">Best Fluoride Filter for South Lyon, MI</td>
+        <td data-sort="691692">#691692</td>
+        <td data-sort="206">206</td>
+        <td data-sort="70" class="tier-medium"><strong>70</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Kyinsider.com/author/Best-Fluoride-Filter-for-South-Lyon-MI')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td><a href="https://Spartanshadows.com/author/Best-Fluoride-Filter-for-Livingston-LA" target="_blank">https://Spartanshadows.com/author/Best-Fluoride-Fi...</a></td>
+        <td><strong>spartanshadows.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Livingston, LA">Best Fluoride Filter for Livingston, LA</td>
+        <td data-sort="999999999">Not listed</td>
+        <td data-sort="230">230</td>
+        <td data-sort="60" class="tier-medium"><strong>60</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Spartanshadows.com/author/Best-Fluoride-Filter-for-Livingston-LA')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td><a href="https://Baiienatalquran.com/author/Best-Fluoride-Filter-for-Bow-NH" target="_blank">https://Baiienatalquran.com/author/Best-Fluoride-F...</a></td>
+        <td><strong>baiienatalquran.com</strong></td>
+        <td class="title-cell" title="Best Fluoride Filter for Bow, NH">Best Fluoride Filter for Bow, NH</td>
+        <td data-sort="999999999">Not listed</td>
+        <td data-sort="160">160</td>
+        <td data-sort="60" class="tier-medium"><strong>60</strong> <span class="tier-label">T1-Medium</span></td>
+        <td>✅ Yes</td>
+        <td>✅</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://Baiienatalquran.com/author/Best-Fluoride-Filter-for-Bow-NH')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td><a href="https://medium.com/@mn9419677/best-fluoride-filter-for-bow-nh-b671461f02b3" target="_blank">https://medium.com/@mn9419677/best-fluoride-filter...</a></td>
+        <td><strong>medium.com</strong></td>
+        <td class="title-cell" title="(untitled)">(untitled)</td>
+        <td data-sort="64">#64</td>
+        <td data-sort="742">742</td>
+        <td data-sort="95" class="tier-high"><strong>95</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>❌</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://medium.com/@mn9419677/best-fluoride-filter-for-bow-nh-b671461f02b3')">Copy</button></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td><a href="https://www.patreon.com/SeoAkash/posts/best-fluoride-nh-169348432?utm_medium=clipboard_copy&amp;utm_source=copyLink&amp;utm_campaign=postshare_creator&amp;utm_content=join_link" target="_blank">https://www.patreon.com/SeoAkash/posts/best-fluori...</a></td>
+        <td><strong>patreon.com</strong></td>
+        <td class="title-cell" title="(untitled)">(untitled)</td>
+        <td data-sort="340">#340</td>
+        <td data-sort="750">750</td>
+        <td data-sort="95" class="tier-high"><strong>95</strong> <span class="tier-label">T1-Strong</span></td>
+        <td>✅ Yes</td>
+        <td>❌</td>
+        <td><button class="copy-btn" onclick="copyToClipboard('https://www.patreon.com/SeoAkash/posts/best-fluoride-nh-169348432?utm_medium=clipboard_copy&amp;utm_source=copyLink&amp;utm_campaign=postshare_creator&amp;utm_content=join_link')">Copy</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">Zenfusion Audit System - PSAM - Fluoride Filter Articles Batch 2 - Sep 13, 2026 - noindex nofollow</div>
+
+<script>
+// Copy to clipboard
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = event.target;
+    var original = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'rgba(39,174,96,0.15)';
+    btn.style.color = '#27ae60';
+    setTimeout(function() {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 1500);
+  });
+}
+
+// Copy section to clipboard
+function copySection(sectionId) {
+  var sections = {
+    'summary': 'Summary: Total=22, In Majestic=16 (73%), Indexed=21 (95%), Avg Score=77.5, Dofollow=22',
+    'top10': 'Top 10 links by score',
+    'all-links': 'All 22 links table'
+  };
+  var text = sections[sectionId] || '';
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = event.target;
+    var original = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(function() { btn.textContent = original; }, 1500);
+  });
+}
+
+// Sortable table
+var sortDirections = {};
+function sortTable(colIndex) {
+  var table = document.getElementById('backlinks-table');
+  var tbody = table.querySelector('tbody');
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  sortDirections[colIndex] = !sortDirections[colIndex];
+  rows.sort(function(a, b) {
+    var aCell = a.cells[colIndex];
+    var bCell = b.cells[colIndex];
+    var aSort = aCell.getAttribute('data-sort');
+    var bSort = bCell.getAttribute('data-sort');
+    if (aSort !== null && bSort !== null) {
+      var aVal = parseFloat(aSort);
+      var bVal = parseFloat(bSort);
+      return sortDirections[colIndex] ? bVal - aVal : aVal - bVal;
+    }
+    var aText = aCell.textContent.trim().toLowerCase();
+    var bText = bCell.textContent.trim().toLowerCase();
+    if (sortDirections[colIndex]) {
+      return bText.localeCompare(aText);
+    }
+    return aText.localeCompare(bText);
+  });
+  rows.forEach(function(row) { tbody.appendChild(row); });
+}
+</script>
+</body>
+</html>
