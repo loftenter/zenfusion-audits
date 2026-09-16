@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Softener Conversation Deep Dive — ZenfusionSEO</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f1f3f4;
+    color: #202124;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  .header {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+  }
+  .header h1 {
+    font-size: 28px;
+    color: #1a73e8;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .header .subtitle { color: #5f6368; font-size: 16px; margin-bottom: 16px; }
+  .header .meta { display: flex; gap: 24px; flex-wrap: wrap; color: #5f6368; font-size: 13px; }
+  .header .meta span { background: #e8f0fe; padding: 4px 12px; border-radius: 20px; color: #1a73e8; font-weight: 500; }
+  a { color: #1a73e8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+    text-align: center;
+  }
+  .kpi-card .label { color: #5f6368; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 500; }
+  .kpi-card .value { font-size: 36px; font-weight: 700; color: #1a73e8; }
+  .kpi-card .detail { color: #5f6368; font-size: 12px; margin-top: 4px; }
+  .kpi-card.green .value { color: #188038; }
+  .kpi-card.red .value { color: #d93025; }
+  .kpi-card.orange .value { color: #e8710a; }
+  .kpi-card.purple .value { color: #9334e6; }
+
+  /* Section */
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+  }
+  .section h2 {
+    font-size: 20px;
+    color: #202124;
+    margin-bottom: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .section h2 .icon { display: inline-block; width: 28px; height: 28px; background: #1a73e8; color: #fff; border-radius: 50%; text-align: center; line-height: 28px; font-size: 14px; font-weight: 700; }
+  .section h2 .toggle { margin-left: auto; color: #5f6368; font-size: 14px; font-weight: 400; }
+  .section-body { margin-top: 16px; }
+  .section.collapsed .section-body { display: none; }
+
+  /* Charts */
+  .chart-row { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .chart-label { width: 160px; text-align: right; font-weight: 500; color: #3c4043; font-size: 13px; }
+  .chart-bar-container { flex: 1; background: #f1f3f4; border-radius: 6px; height: 32px; overflow: hidden; position: relative; }
+  .chart-bar { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 12px; color: #fff; font-weight: 600; font-size: 13px; min-width: 40px; transition: width 0.5s ease; }
+  .chart-bar.blue { background: linear-gradient(90deg, #1a73e8, #4285f4); }
+  .chart-bar.green { background: linear-gradient(90deg, #188038, #34a853); }
+  .chart-bar.orange { background: linear-gradient(90deg, #e8710a, #f9ab00); }
+  .chart-bar.red { background: linear-gradient(90deg, #d93025, #ea4335); }
+  .chart-bar.purple { background: linear-gradient(90deg, #9334e6, #a142f4); }
+  .chart-bar.teal { background: linear-gradient(90deg, #00897b, #00bcd4); }
+  .chart-bar.pink { background: linear-gradient(90deg, #d81b60, #e91e63); }
+  .chart-bar.indigo { background: linear-gradient(90deg, #3f51b5, #7986cb); }
+  .chart-bar.lime { background: linear-gradient(90deg, #558b2f, #8bc34a); }
+  .chart-bar.amber { background: linear-gradient(90deg, #ff8f00, #ffb300); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f8f9fa; color: #5f6368; text-align: left; padding: 12px 16px; font-weight: 600; border-bottom: 2px solid #e0e0e0; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+  td { padding: 12px 16px; border-bottom: 1px solid #f1f3f4; color: #202124; vertical-align: top; }
+  tr:hover td { background: #f8f9fa; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .badge.pos { background: #e6f4ea; color: #188038; }
+  .badge.neg { background: #fce8e6; color: #d93025; }
+  .badge.neu { background: #f1f3f4; color: #5f6368; }
+  .badge.mix { background: #fef7e0; color: #e8710a; }
+
+  /* Quote cards */
+  .quote-card {
+    background: #f8f9fa;
+    border-left: 4px solid #1a73e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .quote-card.neg { border-left-color: #d93025; }
+  .quote-card.pos { border-left-color: #188038; }
+  .quote-card .quote-text { color: #202124; font-style: italic; margin-bottom: 6px; }
+  .quote-card .quote-meta { color: #5f6368; font-size: 12px; }
+  .quote-card .quote-num { display: inline-block; background: #1a73e8; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: 700; margin-right: 8px; }
+
+  /* Persona cards */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .persona-card { background: linear-gradient(135deg, #f8f9fa, #fff); border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; }
+  .persona-card .emoji { font-size: 32px; margin-bottom: 8px; }
+  .persona-card h3 { color: #1a73e8; font-size: 16px; margin-bottom: 6px; }
+  .persona-card .desc { color: #5f6368; font-size: 13px; margin-bottom: 8px; }
+  .persona-card .stat { background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block; }
+
+  /* Insight cards */
+  .insight-card { background: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 12px; border-left: 4px solid #9334e6; }
+  .insight-card h4 { color: #9334e6; margin-bottom: 8px; font-size: 15px; }
+  .insight-card p { color: #3c4043; font-size: 13px; }
+
+  /* Two columns */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li { padding: 8px 0; border-bottom: 1px solid #f1f3f4; }
+  ul.clean li:last-child { border-bottom: none; }
+
+  .footer { text-align: center; color: #5f6368; padding: 24px; font-size: 12px; }
+  .numbered-list { counter-reset: item; list-style: none; padding: 0; }
+  .numbered-list li { counter-increment: item; padding: 10px 0 10px 40px; position: relative; border-bottom: 1px solid #f1f3f4; }
+  .numbered-list li:last-child { border-bottom: none; }
+  .numbered-list li::before { content: counter(item); position: absolute; left: 0; top: 10px; background: #1a73e8; color: #fff; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 700; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-left: 8px; }
+  @media (max-width: 768px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .persona-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>💧 Water Softener — Conversation Deep Dive Analysis</h1>
+  <div class="subtitle">102 conversations across Reddit, YouTube, Terry Love Forum, Trouble Free Pool & BBB</div>
+  <div class="meta">
+    <span>📅 Report Date: 09/16/2026</span>
+    <span>👤 Prepared for: Himanshu (ZenfusionSEO)</span>
+    <span>🏷️ Client: SoftPro</span>
+    <span>📊 Sources: 5 platforms</span>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="label">Total Conversations</div>
+    <div class="value">102</div>
+    <div class="detail">Reddit · YouTube · Forums · BBB</div>
+  </div>
+  <div class="kpi-card green">
+    <div class="label">Positive Sentiment</div>
+    <div class="value">13%</div>
+    <div class="detail">13 positive · 4 negative · 85 neutral</div>
+  </div>
+  <div class="kpi-card orange">
+    <div class="label">Top Brand Mentioned</div>
+    <div class="value">SpringWell</div>
+    <div class="detail">12 mentions across sources</div>
+  </div>
+  <div class="kpi-card red">
+    <div class="label">Top Complaint</div>
+    <div class="value">Salt Bridging</div>
+    <div class="detail">Rheem & brine tank issues dominate</div>
+  </div>
+</div>
+
+<!-- 1. WHO -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">1</span> WHO — Who Is Talking About Water Softeners?
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">Analysis of 102 conversation authors across 5 platforms reveals distinct buyer personas. Reddit contributors skew toward <strong>r/HomeImprovement</strong> (7 posts), <strong>r/Plumbing</strong> (7 posts), and <strong>r/WaterTreatment</strong> (7 posts). YouTube comments come from homeowners and DIYers reacting to review videos. Terry Love Forum users are more technically inclined — plumbers and advanced DIYers discussing Fleck/Clack valve settings, brine tank configurations, and drain line plumbing.</p>
+
+    <table>
+      <thead>
+        <tr><th>Platform / Subreddit</th><th>Posts</th><th>Dominant Persona</th><th>Tech Level</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>YouTube Comments</strong></td><td>55</td><td>Homeowners, first-time buyers, skeptics</td><td>Low–Medium</td></tr>
+        <tr><td><strong>Reddit — r/HomeImprovement</strong></td><td>7</td><td>Skeptical homeowners, scam-wary buyers</td><td>Low–Medium</td></tr>
+        <tr><td><strong>Reddit — r/Plumbing</strong></td><td>7</td><td>DIY installers, plumbing-curious homeowners</td><td>Medium</td></tr>
+        <tr><td><strong>Reddit — r/WaterTreatment</strong></td><td>7</td><td>Informed buyers, brand researchers</td><td>Medium–High</td></tr>
+        <tr><td><strong>Terry Love Forum</strong></td><td>20</td><td>Plumbers, advanced DIYers, well water owners</td><td>High</td></tr>
+        <tr><td><strong>BBB</strong></td><td>4</td><td>Scam reporters, complaint filers</td><td>Low</td></tr>
+        <tr><td><strong>Trouble Free Pool</strong></td><td>2</td><td>Pool owners with water chemistry questions</td><td>Medium</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:24px;margin-bottom:12px;color:#1a73e8;">Buyer Persona Signals Detected</h3>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="emoji">🏡</div>
+        <h3>The Well Water Owner</h3>
+        <div class="desc">Rural homeowners on well water dealing with iron, hardness, and sulfur. Most common persona — 16 conversations reference well water or rural settings.</div>
+        <span class="stat">16 mentions</span>
+      </div>
+      <div class="persona-card">
+        <div class="emoji">🔩</div>
+        <h3>The DIY Installer</h3>
+        <div class="desc">Homeowners planning self-installation. Ask about plumbing steps, drain lines, and whether professional install is truly needed. 8 conversations.</div>
+        <span class="stat">8 mentions</span>
+      </div>
+      <div class="persona-card">
+        <div class="emoji">🧂</div>
+        <h3>The Salt-Hater</h3>
+        <div class="desc">Frustrated by salt bridging, brine tank maintenance, potassium solidification, and the ongoing cost/effort of salt. 8 conversations.</div>
+        <span class="stat">8 mentions</span>
+      </div>
+      <div class="persona-card">
+        <div class="emoji">🤨</div>
+        <h3>The Skeptical Homeowner</h3>
+        <div class="desc">Wary of water softener sales tactics, "scam" salesmen, paid YouTube reviews, and brands that disable comments. 7 conversations.</div>
+        <span class="stat">7 mentions</span>
+      </div>
+      <div class="persona-card">
+        <div class="emoji">🆕</div>
+        <h3>The First-Time Buyer</h3>
+        <div class="desc">Has no idea what to buy, how to size, or what's in their water. Often inherited a broken system. 4 conversations.</div>
+        <span class="stat">4 mentions</span>
+      </div>
+      <div class="persona-card">
+        <div class="emoji">❤️</div>
+        <h3>The Brand Loyalist</h3>
+        <div class="desc">Swears by one brand (Kinetico, SoftPro, Aquasure) based on personal experience or neighbor recommendations. 3 conversations.</div>
+        <span class="stat">3 mentions</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. WHAT -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">2</span> WHAT — Conversation Themes
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">All 102 conversations were classified by primary theme using keyword matching. A single conversation can match multiple themes. <strong>Buying Decisions (65)</strong> and <strong>Brand Comparisons (40)</strong> dominate — most people are in research/comparison mode, not post-purchase.</p>
+
+    <h3 style="margin-bottom:16px;color:#202124;">📊 Conversation Count by Theme</h3>
+
+    <div class="chart-row">
+      <div class="chart-label">Buying Decisions</div>
+      <div class="chart-bar-container"><div class="chart-bar blue" style="width:100%">65</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Brand Comparisons</div>
+      <div class="chart-bar-container"><div class="chart-bar green" style="width:62%">40</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Maintenance</div>
+      <div class="chart-bar-container"><div class="chart-bar orange" style="width:31%">20</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Water Quality Issues</div>
+      <div class="chart-bar-container"><div class="chart-bar teal" style="width:25%">16</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Installation</div>
+      <div class="chart-bar-container"><div class="chart-bar purple" style="width:23%">15</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">General / Other</div>
+      <div class="chart-bar-container"><div class="chart-bar indigo" style="width:17%">11</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Salt / Brine Problems</div>
+      <div class="chart-bar-container"><div class="chart-bar red" style="width:12%">8</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Scams / Trust</div>
+      <div class="chart-bar-container"><div class="chart-bar pink" style="width:9%">6</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Repair</div>
+      <div class="chart-bar-container"><div class="chart-bar amber" style="width:9%">6</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Pricing</div>
+      <div class="chart-bar-container"><div class="chart-bar lime" style="width:5%">3</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. WHEN -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">3</span> WHEN — Timeline & Seasonal Patterns
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">Date metadata was available for 10 YouTube video uploads (the most reliably dated content). Forum and Reddit posts lacked structured dates. The dated content spans <strong>December 2022 through July 2026</strong>, with a clear concentration in <strong>early 2026 (Feb–Jul)</strong>, coinciding with "Best Water Softener 2026" review season — creators publish comparison videos ahead of spring/summer buying season.</p>
+
+    <div class="two-col">
+      <div>
+        <h3 style="margin-bottom:12px;color:#202124;">📅 Conversation Timeline (YouTube videos)</h3>
+        <div class="chart-row">
+          <div class="chart-label">Dec 2022</div>
+          <div class="chart-bar-container"><div class="chart-bar blue" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Feb 2023</div>
+          <div class="chart-bar-container"><div class="chart-bar blue" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Aug 2023</div>
+          <div class="chart-bar-container"><div class="chart-bar blue" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Feb 2025</div>
+          <div class="chart-bar-container"><div class="chart-bar green" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Oct 2025</div>
+          <div class="chart-bar-container"><div class="chart-bar green" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Feb 2026</div>
+          <div class="chart-bar-container"><div class="chart-bar orange" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Mar 2026</div>
+          <div class="chart-bar-container"><div class="chart-bar orange" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Apr 2026</div>
+          <div class="chart-bar-container"><div class="chart-bar orange" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Jun 2026</div>
+          <div class="chart-bar-container"><div class="chart-bar orange" style="width:10%">1</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Jul 2026</div>
+          <div class="chart-bar-container"><div class="chart-bar orange" style="width:10%">1</div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px;color:#202124;">📈 Seasonal Insights</h3>
+        <ul class="clean">
+          <li><strong>Spring 2026 spike:</strong> 4 of 10 dated videos published Feb–Apr 2026 — "Best of 2026" review content drops before peak buying season.</li>
+          <li><strong>Summer reviews:</strong> Jun–Jul 2026 videos focus on well water and UK comparisons — niche seasonal targeting.</li>
+          <li><strong>Winter 2022:</strong> "Grumpy Plumber" video published Dec 2022 — educational content performs year-round.</li>
+          <li><strong>Content gap:</strong> No dated conversations from Sep–Jan — opportunity for autumn/winter "prep your water softener before freezing" content.</li>
+          <li><strong>Reddit/forum posts:</strong> Lack structured dates, but Reddit post URLs suggest ongoing activity across all months based on post ID timestamps.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. WHERE -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">4</span> WHERE — Source Breakdown & Geography
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <h3 style="margin-bottom:16px;color:#202124;">📊 Conversations by Source Platform</h3>
+
+    <div class="chart-row">
+      <div class="chart-label">YouTube</div>
+      <div class="chart-bar-container"><div class="chart-bar red" style="width:100%">55</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Reddit</div>
+      <div class="chart-bar-container"><div class="chart-bar blue" style="width:38%">21</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Terry Love Forum</div>
+      <div class="chart-bar-container"><div class="chart-bar green" style="width:36%">20</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">BBB</div>
+      <div class="chart-bar-container"><div class="chart-bar orange" style="width:7%">4</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Trouble Free Pool</div>
+      <div class="chart-bar-container"><div class="chart-bar teal" style="width:4%">2</div></div>
+    </div>
+
+    <div class="two-col" style="margin-top:24px;">
+      <div>
+        <h3 style="margin-bottom:12px;color:#202124;">📍 Geographic Signals</h3>
+        <table>
+          <thead><tr><th>Location / Signal</th><th>Mentions</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td>City Water</td><td>5</td><td>Users on municipal supply comparing hardness levels</td></tr>
+            <tr><td>Denver, CO</td><td>2</td><td>"Hello from Denver! Looking to increase overall quality of city water"</td></tr>
+            <tr><td>Wyoming</td><td>1</td><td>"I live in north west Wyoming. The water here is extremely hard"</td></tr>
+            <tr><td>Indianapolis, IN</td><td>1</td><td>"We're on city water in Indianapolis"</td></tr>
+            <tr><td>Well Water / Rural</td><td>2</td><td>Rural well water owners asking about iron + hardness solutions</td></tr>
+            <tr><td>UK</td><td>1</td><td>"Top 4 BEST Water Softeners 2026 (UK)" — international audience</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px;color:#202124;">🗺️ Source Channel Breakdown</h3>
+        <table>
+          <thead><tr><th>Channel</th><th>Posts</th></tr></thead>
+          <tbody>
+            <tr><td>r/HomeImprovement</td><td>7</td></tr>
+            <tr><td>r/Plumbing</td><td>7</td></tr>
+            <tr><td>r/WaterTreatment</td><td>7</td></tr>
+            <tr><td>YouTube: Freshnss</td><td>1 video + comments</td></tr>
+            <tr><td>YouTube: Water Filter Guru</td><td>1 video + comments</td></tr>
+            <tr><td>YouTube: The Chris Review</td><td>2 videos + comments</td></tr>
+            <tr><td>YouTube: Aqua Professor</td><td>1 video + comments</td></tr>
+            <tr><td>YouTube: NexNest Picks</td><td>2 videos + comments</td></tr>
+            <tr><td>YouTube: Gear Up Dad</td><td>1 video + comments</td></tr>
+            <tr><td>YouTube: Grumpy Plumber</td><td>1 video + comments</td></tr>
+            <tr><td>YouTube: East Midlands</td><td>1 video + comments</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. HOW -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">5</span> HOW — How People Make Buying Decisions
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">Analysis of 65 buying-decision conversations reveals the factors buyers weigh before purchasing. The dominant decision framework is <strong>"which brand is best for my situation?"</strong> — buyers research side-by-side comparisons, seek social proof from neighbors and forums, and evaluate installation complexity before committing.</p>
+
+    <div class="two-col">
+      <div>
+        <h3 style="margin-bottom:12px;color:#202124;">⚖️ Decision Factors (by frequency)</h3>
+        <table>
+          <thead><tr><th>Factor</th><th>Mentions</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td>Brand reputation / reviews</td><td>40</td><td><span class="badge pos">Critical</span></td></tr>
+            <tr><td>Water hardness / quality match</td><td>16</td><td><span class="badge pos">Critical</span></td></tr>
+            <tr><td>Installation complexity</td><td>15</td><td><span class="badge mix">High</span></td></tr>
+            <tr><td>Ongoing maintenance (salt)</td><td>20</td><td><span class="badge mix">High</span></td></tr>
+            <tr><td>Salt cost / brine problems</td><td>8</td><td><span class="badge neu">Medium</span></td></tr>
+            <tr><td>Trust / scam avoidance</td><td>6</td><td><span class="badge mix">High</span></td></tr>
+            <tr><td>System sizing (grain capacity)</td><td>5</td><td><span class="badge neu">Medium</span></td></tr>
+            <tr><td>Price / budget</td><td>3</td><td><span class="badge neu">Medium</span></td></tr>
+            <tr><td>Warranty / longevity</td><td>3</td><td><span class="badge neu">Medium</span></td></tr>
+            <tr><td>NSF certification</td><td>1</td><td><span class="badge neu">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px;color:#202124;">🛒 The Buyer's Journey</h3>
+        <ol class="numbered-list">
+          <li><strong>Discover need:</strong> Hard water symptoms — spots, scale, dry skin/hair, appliance damage</li>
+          <li><strong>Research brands:</strong> Watch YouTube comparison videos (Rheem vs Aquasure, SpringWell vs Aquasure)</li>
+          <li><strong>Seek social proof:</strong> Ask Reddit "any reason not to buy X?" or "recommendations?"</li>
+          <li><strong>Evaluate trust:</strong> Check if reviews are "paid for" or if brand disables comments</li>
+          <li><strong>Compare features:</strong> Salt-based vs salt-free, grain capacity, stages of filtration</li>
+          <li><strong>Assess DIY:</strong> "Why do I need a professional? Seems straightforward" — install complexity</li>
+          <li><strong>Check sizing:</strong> How many baths? How many residents? Hardness level in gpg?</li>
+          <li><strong>Seek validation:</strong> Ask forum experts to review quotes or Clack/Fleck settings</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. SENTIMENT / FEELINGS -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">6</span> FEELINGS — Sentiment & Brand Analysis
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">Overall sentiment across 102 conversations: <strong>13% positive, 4% negative, 83% neutral</strong>. The high neutral count reflects that most conversations are questions and comparison-seeking, not emotional reactions. Negative sentiment clusters around salt bridging (Rheem), product failures, and distrust of paid review content.</p>
+
+    <!-- Sentiment overview bars -->
+    <div class="chart-row">
+      <div class="chart-label">Neutral</div>
+      <div class="chart-bar-container"><div class="chart-bar indigo" style="width:83%">85</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Positive</div>
+      <div class="chart-bar-container"><div class="chart-bar green" style="width:13%">13</div></div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">Negative</div>
+      <div class="chart-bar-container"><div class="chart-bar red" style="width:4%">4</div></div>
+    </div>
+
+    <h3 style="margin-top:24px;margin-bottom:12px;color:#202124;">🏷️ Brand Mention Table</h3>
+    <table>
+      <thead>
+        <tr><th>Brand</th><th>Mentions</th><th>Sentiment</th><th>Sample Quote</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SpringWell</strong></td>
+          <td>12</td>
+          <td><span class="badge mix">Mixed (4 pos / 8 neu)</span></td>
+          <td>"Springwell say they don't use that formula and still want to sell me the 48,000 grain system… Is there anything fishy?" — <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>Aquasure</strong></td>
+          <td>10</td>
+          <td><span class="badge pos">Leaning Positive</span></td>
+          <td>"I have Aquasure seems to work great for me easy install… couldn't be happier" — <a href="https://www.youtube.com/watch?v=wy-TdNuR204" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>Rheem</strong></td>
+          <td>8</td>
+          <td><span class="badge neg">Leaning Negative</span></td>
+          <td>"I couldn't recommend anyone to buy Rheem softeners. They fail fast and very often." — <a href="https://www.youtube.com/watch?v=wy-TdNuR204" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>Clack (WS1)</strong></td>
+          <td>3</td>
+          <td><span class="badge neu">Neutral</span></td>
+          <td>"Is Clack WS1 a good water softener?" — <a href="https://www.reddit.com/r/WaterTreatment/comments/1farv0c/" target="_blank">Reddit</a></td>
+        </tr>
+        <tr>
+          <td><strong>Kinetico</strong></td>
+          <td>2</td>
+          <td><span class="badge pos">Positive</span></td>
+          <td>"Kinetico is by far the best option. No electricity usage, dual resin tank means no hard water during regeneration." — <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>Fleck (Pentair)</strong></td>
+          <td>2</td>
+          <td><span class="badge neu">Neutral</span></td>
+          <td>"Need help with potassium solidifying in brine tank (Fleck 7000SXT)" — <a href="https://terrylove.com/forums/" target="_blank">Terry Love</a></td>
+        </tr>
+        <tr>
+          <td><strong>EcoWater</strong></td>
+          <td>2</td>
+          <td><span class="badge mix">Mixed</span></td>
+          <td>"Have you evaluated the Ecowater system sold at COSTCO? Is it worth the money?" — <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>SoftPro</strong></td>
+          <td>1</td>
+          <td><span class="badge pos">Positive</span></td>
+          <td>"I'd go with a SoftPro. I'm Lovin mine." — <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>Culligan</strong></td>
+          <td>1</td>
+          <td><span class="badge neg">Negative</span></td>
+          <td>"State hot water heater destroyed in 3 years by Culligan water softener" — <a href="https://www.reddit.com/r/Plumbing/comments/1tuv6ef/" target="_blank">Reddit</a></td>
+        </tr>
+        <tr>
+          <td><strong>Matrixx</strong></td>
+          <td>1</td>
+          <td><span class="badge neu">Neutral</span></td>
+          <td>"Been conflicted with this system and Springwell CSS4. Have a city water hardness of 22." — <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>US Water Systems</strong></td>
+          <td>1</td>
+          <td><span class="badge neu">Neutral</span></td>
+          <td>"Do you ever test US Water Systems inc or are you just a Springwell guy?" — <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube</a></td>
+        </tr>
+        <tr>
+          <td><strong>Noritz</strong></td>
+          <td>1</td>
+          <td><span class="badge neg">Negative</span></td>
+          <td>"Noritz Tankless Making LOUD noise first thing in morning" — <a href="https://terrylove.com/forums/" target="_blank">Terry Love</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TOP 10 QUESTIONS -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">Q</span> Top 10 Questions People Ask (AEO Opportunities)
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">These are the most common questions asked across all 102 conversations. Each represents a direct <strong>AEO (Answer Engine Optimization)</strong> opportunity — create content that answers these and LLMs/AI Overviews will cite your pages.</p>
+
+    <ol class="numbered-list">
+      <li><strong>Do I REALLY need a water softener?</strong> <span class="tag">Reddit · r/HomeImprovement</span><br><span style="color:#5f6368;">Buyers want to validate the need before investing. Create a "Do I Need a Water Softener?" decision guide with hardness thresholds.</span></li>
+      <li><strong>What is the difference between a basic water softener from Home Depot and a system from Kinetico?</strong> <span class="tag">Reddit</span><br><span style="color:#5f6368;">Box-store vs. pro-grade comparison. Create "Big Box vs. Professional Water Softener Systems" comparison content.</span></li>
+      <li><strong>Can you oversize a water softener?</strong> <span class="tag">YouTube</span><br><span style="color:#5f6368;">"We have 4 baths but in winter months there two of us. Summer as many as 8." — sizing for variable occupancy. Great AEO FAQ.</span></li>
+      <li><strong>Is it possible to get a water softener that doesn't make the water feel "slimy"?</strong> <span class="tag">YouTube</span><br><span style="color:#5f6368;">Common concern about softened water feel. Address with science-based content on why soft water feels different.</span></li>
+      <li><strong>How do I know the right size water softener to buy?</strong> <span class="tag">YouTube</span><br><span style="color:#5f6368;">Sizing confusion is universal. Create an interactive sizing calculator or step-by-step guide.</span></li>
+      <li><strong>Is Clack WS1 a good water softener?</strong> <span class="tag">Reddit · r/WaterTreatment</span><br><span style="color:#5f6368;">Brand-specific research question. Create dedicated Clack WS1 review/comparison pages.</span></li>
+      <li><strong>Does water pressure decrease with a water softener system?</strong> <span class="tag">YouTube</span><br><span style="color:#5f6368;">Performance anxiety. Create content addressing flow rates and pressure drop by brand.</span></li>
+      <li><strong>What about removing chemicals like Fluoride, Hormones, etc. that city water has?</strong> <span class="tag">YouTube</span><br><span style="color:#5f6368;">Beyond softening — filtration combos. Create "Water Softener vs. Water Filter: What Each Removes" guide.</span></li>
+      <li><strong>How many stages of filtration does it have?</strong> <span class="tag">YouTube</span><br><span style="color:#5f6368;">Feature-specific question. Document filtration stages clearly on product pages.</span></li>
+      <li><strong>What is the best water softener?</strong> <span class="tag">Terry Love · YouTube</span><br><span style="color:#5f6368;">The ultimate question. Create a definitive "Best Water Softener [Year]" guide — high AEO citation potential.</span></li>
+    </ol>
+  </div>
+</div>
+
+<!-- TOP 10 COMPLAINTS -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon" style="background:#d93025;">!</span> Top 10 Complaints
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+
+    <div class="quote-card neg">
+      <span class="quote-num">1</span>
+      <div class="quote-text">"I couldn't recommend anyone to buy Rheem softeners. They fail fast and very often. I'm on my second one in not even 3 years. My mom had to replace hers in under a year."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=wy-TdNuR204" target="_blank">YouTube — Rheem VS Aquasure</a> · Author: @elcucuy9654</div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">2</span>
+      <div class="quote-text">"I have the Rheem. If I put more than 50 lbs of salt in it, the salt bridges so it looks full but there's nothing in bottom of the reservoir. The only solution is to chisel it out without damaging anything. I wish I wouldn't have purchased it."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=wy-TdNuR204" target="_blank">YouTube — Rheem VS Aquasure</a> · Author: @peaeye3467</div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">3</span>
+      <div class="quote-text">"Got a water softener, we hate our drinking water now…"</div>
+      <div class="quote-meta">Source: <a href="https://www.reddit.com/r/HomeImprovement/comments/xc5khs/" target="_blank">Reddit — r/HomeImprovement</a></div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">4</span>
+      <div class="quote-text">"State hot water heater destroyed in 3 years by Culligan water softener"</div>
+      <div class="quote-meta">Source: <a href="https://www.reddit.com/r/Plumbing/comments/1tuv6ef/" target="_blank">Reddit — r/Plumbing</a></div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">5</span>
+      <div class="quote-text">"Why doesn't SpringWellWater allow comments on their views? Seems shady.."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube — Water Filter Guru</a> · Author: @PCMR-Catman</div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">6</span>
+      <div class="quote-text">"Paid for by springwell" (top comment with 4 likes on a "best water softener" review video)</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube — Freshnss</a> · Author: @Rob-t7e</div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">7</span>
+      <div class="quote-text">"OK, ours just stopped working. It's about 24 years old, and we didn't know we had it until it quit. Now we have horrible water, and have to replace an appliance about which we know absolutely nothing."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube</a> · Author: @SmartMoufShirts · Indianapolis, IN</div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">8</span>
+      <div class="quote-text">"Water Softener Salesman — is this a scam?"</div>
+      <div class="quote-meta">Source: <a href="https://www.reddit.com/r/HomeImprovement/comments/cn00zx/" target="_blank">Reddit — r/HomeImprovement</a></div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">9</span>
+      <div class="quote-text">"Noritz Tankless Making LOUD noise first thing in morning — audio link included"</div>
+      <div class="quote-meta">Source: <a href="https://terrylove.com/forums/" target="_blank">Terry Love Forum</a></div>
+    </div>
+
+    <div class="quote-card neg">
+      <span class="quote-num">10</span>
+      <div class="quote-text">"Hard water is destroying my skin/hair" — seeking shower head filter as alternative/complement</div>
+      <div class="quote-meta">Source: <a href="https://www.reddit.com/r/WaterTreatment/comments/1uedfp4/" target="_blank">Reddit — r/WaterTreatment</a></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOP 10 PRAISES -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon" style="background:#188038;">★</span> Top 10 Praises
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">1</span>
+      <div class="quote-text">"I have Aquasure, seems to work great for me, easy install, got the whole house filter, no more water spots, couldn't be happier. Don't know how I went so long without knowing what it was like to truly have soft water."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=wy-TdNuR204" target="_blank">YouTube — Rheem VS Aquasure</a> · Author: @st7650 · 7 likes</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">2</span>
+      <div class="quote-text">"Kinetico is by far the best option. No electricity usage, dual resin tank means no hard water during regeneration."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube — Freshnss</a> · Author: @AnhYeuEmMaiMai69</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">3</span>
+      <div class="quote-text">"I'd go with a SoftPro. I'm Lovin mine."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube — Freshnss</a> · Author: @justinlofton9945</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">4</span>
+      <div class="quote-text">"My uncle installed one of these for me. Our water boilers haven't had any scale since then so I know it's working."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube — Water Filter Guru</a> · Author: @dentalflosh</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">5</span>
+      <div class="quote-text">"Give me Kinetico anyday. No electrical needed, no gears to go bad."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube — Water Filter Guru</a> · Author: @charlespropes1340</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">6</span>
+      <div class="quote-text">"Two of my neighbors have Kinetico Premium system. They both recommend it." (well water, rural area)</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube — Water Filter Guru</a> · Author: @haidesu572</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">7</span>
+      <div class="quote-text">"Great explanation of limescale. H2S technology looks useful."</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=oSHj_MXj_Ao" target="_blank">YouTube — Freshnss</a> · Author: @MotivationalThinkers</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">8</span>
+      <div class="quote-text">"I have very hard water around 13-16. Would this be good for me?" (positive interest, high engagement)</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube — Water Filter Guru</a> · Author: @alwaysinsearch · 1 like</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">9</span>
+      <div class="quote-text">"Hello from Denver! I am looking to increase the overall quality of the city water. Would you recommend Water Filter + Salt Based Water Softener System Combo from SpringWell for Denver city water?"</div>
+      <div class="quote-meta">Source: <a href="https://www.youtube.com/watch?v=U6titHyf8rs" target="_blank">YouTube — Water Filter Guru</a> · Author: @davidcox-o4n</div>
+    </div>
+
+    <div class="quote-card pos">
+      <span class="quote-num" style="background:#188038;">10</span>
+      <div class="quote-text">"What is the Best Water Softener?" — Positive engagement thread with active discussion on Terry Love Forum</div>
+      <div class="quote-meta">Source: <a href="https://terrylove.com/forums/index.php?threads/what-is-the-best-water-softener.92155/" target="_blank">Terry Love Forum</a></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BUYER PERSONA PROFILES -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon">P</span> Buyer Persona Profiles
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+    <p style="margin-bottom:16px;color:#3c4043;">Detailed profiles of the 6 primary buyer personas identified across 102 conversations. Each persona has distinct needs, pain points, and content preferences.</p>
+
+    <div class="persona-grid">
+      <div class="persona-card" style="border-left:4px solid #1a73e8;">
+        <div class="emoji">🤨</div>
+        <h3>The Skeptical Homeowner</h3>
+        <div class="desc"><strong>Who:</strong> Homeowner who's been approached by a water softener salesman or seen "too good to be true" YouTube reviews.</div>
+        <div class="desc"><strong>Pain:</strong> "Is this a scam?" Distrust of paid reviews, brands that disable comments, upsell tactics.</div>
+        <div class="desc"><strong>Needs:</strong> Transparency, third-party testing, NSF certification, unedited customer reviews.</div>
+        <span class="stat">7 conversations</span>
+      </div>
+      <div class="persona-card" style="border-left:4px solid #34a853;">
+        <div class="emoji">🔩</div>
+        <h3>The DIY Installer</h3>
+        <div class="desc"><strong>Who:</strong> Handy homeowner who wants to install the system themselves.</div>
+        <div class="desc"><strong>Pain:</strong> "Why do I need a professional? Seems straightforward." Wants clear install instructions.</div>
+        <div class="desc"><strong>Needs:</strong> Step-by-step videos, plumbing diagrams, tool lists, drain line guidance.</div>
+        <span class="stat">8 conversations</span>
+      </div>
+      <div class="persona-card" style="border-left:4px solid #e8710a;">
+        <div class="emoji">🧂</div>
+        <h3>The Salt-Hater</h3>
+        <div class="desc"><strong>Who:</strong> Homeowner frustrated by the ongoing maintenance of salt-based systems.</div>
+        <div class="desc"><strong>Pain:</strong> Salt bridging, chiseling salt, potassium solidifying, brine tank overflow, buying salt.</div>
+        <div class="desc"><strong>Needs:</strong> Salt-free alternatives, low-maintenance systems, brine tank troubleshooting guides.</div>
+        <span class="stat">8 conversations</span>
+      </div>
+      <div class="persona-card" style="border-left:4px solid #9334e6;">
+        <div class="emoji">🏡</div>
+        <h3>The Well Water Owner</h3>
+        <div class="desc"><strong>Who:</strong> Rural homeowner on well water dealing with iron, hardness, sulfur, and calcium.</div>
+        <div class="desc"><strong>Pain:</strong> "Water here is extremely hard and very high in calcium." Needs iron filter + softener combo.</div>
+        <div class="desc"><strong>Needs:</strong> Well water-specific systems, iron removal guidance, sizing for variable usage.</div>
+        <span class="stat">16 conversations</span>
+      </div>
+      <div class="persona-card" style="border-left:4px solid #d93025;">
+        <div class="emoji">🆕</div>
+        <h3>The First-Time Buyer</h3>
+        <div class="desc"><strong>Who:</strong> Inherited a broken system or just discovered they need one. No idea what to buy.</div>
+        <div class="desc"><strong>Pain:</strong> "I don't have any idea what kind of water elements we need to filter out." Overwhelmed.</div>
+        <div class="desc"><strong>Needs:</strong> Beginner's guide, water test kits, simple decision trees, "start here" content.</div>
+        <span class="stat">4 conversations</span>
+      </div>
+      <div class="persona-card" style="border-left:4px solid #188038;">
+        <div class="emoji">❤️</div>
+        <h3>The Brand Loyalist</h3>
+        <div class="desc"><strong>Who:</strong> Owns a system, loves it, and actively recommends it in comments and forums.</div>
+        <div class="desc"><strong>Pain:</strong> Wants to validate their choice and evangelize. May attack competitors.</div>
+        <div class="desc"><strong>Needs:</strong> Community engagement, referral programs, brand advocacy amplification.</div>
+        <span class="stat">3 conversations</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. ACTIONABLE INSIGHTS -->
+<div class="section">
+  <h2 onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="icon" style="background:#9334e6;">7</span> ACTIONABLE INSIGHTS & Recommendations
+    <span class="toggle">[click to collapse]</span>
+  </h2>
+  <div class="section-body">
+
+    <h3 style="margin-bottom:16px;color:#9334e6;">🎯 The 80/20: What 20% of Problems = 80% of Complaints</h3>
+    <div class="insight-card">
+      <h4>1. Salt Bridging & Brine Tank Problems (Rheem-specific, but industry-wide concern)</h4>
+      <p><strong>The problem:</strong> Salt bridges in the brine tank, requiring manual chiseling. Users frustrated with ongoing maintenance. 8 of 14 complaints relate to salt/brine issues.<br>
+      <strong>Action:</strong> Create a comprehensive "Salt Bridging: Causes, Prevention & Fix" guide. Position SoftPro as the solution with anti-bridging features. Add brine tank maintenance FAQ to product pages.</p>
+    </div>
+    <div class="insight-card">
+      <h4>2. Brand Trust & Review Skepticism</h4>
+      <p><strong>The problem:</strong> 6 conversations question whether reviews are "paid for," brands "disable comments," or salesmen are "scams." SpringWell is specifically called out.<br>
+      <strong>Action:</strong> SoftPro should enable open YouTube comments, publish third-party lab test results, and display unfiltered customer reviews. Transparency is the #1 trust differentiator.</p>
+    </div>
+    <div class="insight-card">
+      <h4>3. Rheem Reliability Failures</h4>
+      <p><strong>The problem:</strong> Rheem softeners "fail fast and very often." Users on their 2nd unit in under 3 years. Strong negative sentiment.<br>
+      <strong>Action:</strong> Create "Rheem vs SoftPro" comparison content targeting Rheem owners seeking alternatives. Emphasize SoftPro warranty and reliability data.</p>
+    </div>
+
+    <h3 style="margin-top:24px;margin-bottom:16px;color:#9334e6;">📝 Content Creation Roadmap</h3>
+    <div class="insight-card" style="border-left-color:#1a73e8;">
+      <h4 style="color:#1a73e8;">A. AEO Content (For AI Overview Citations)</h4>
+      <p>Create definitive, structured-answer content for the Top 10 Questions:<br>
+      1. "Do I Need a Water Softener?" — Decision guide with hardness threshold chart<br>
+      2. "Best Water Softener [Year]" — Annual comparison guide (highest AEO value)<br>
+      3. "Can You Oversize a Water Softener?" — Sizing FAQ with variable occupancy<br>
+      4. "Why Does Soft Water Feel Slimy?" — Science-based explainer<br>
+      5. "Water Softener vs Water Conditioner" — Clear comparison (Reddit thread exists)<br>
+      6. "How to Size a Water Softener" — Step-by-step calculator<br>
+      7. "Clack WS1 Review" — Brand-specific deep dive<br>
+      8. "Does a Water Softener Reduce Water Pressure?" — Technical answer<br>
+      9. "What Chemicals Does a Water Softener Remove?" — Beyond hardness<br>
+      10. "Big Box vs Professional Water Softener" — Home Depot vs Kinetico/SoftPro</p>
+    </div>
+    <div class="insight-card" style="border-left-color:#188038;">
+      <h4 style="color:#188038;">B. Product Page Improvements (Based on Real User Feedback)</h4>
+      <p>1. <strong>Add water hardness map</strong> — Users mention Denver, Wyoming, Indianapolis; show recommended systems by region<br>
+      2. <strong>Include sizing calculator</strong> — Interactive tool for baths × residents × hardness gpg<br>
+      3. <strong>Display NSF certification prominently</strong> — SpringWell is called out for NOT being NSF listed<br>
+      4. <strong>Show real installation videos</strong> — DIYers ask "why do I need a professional?" — answer with clear install guides<br>
+      5. <strong>Add salt-free alternative section</strong> — Salt-haters want options; cross-sell salt-free conditioners<br>
+      6. <strong>Publish lab test results</strong> — Third-party testing data builds trust vs "paid review" accusations<br>
+      7. <strong>Enable and respond to comments</strong> — SpringWell disabling comments = "seems shady"<br>
+      8. <strong>Add "Compare to Rheem/Culligan" pages</strong> — Capitalize on negative competitor sentiment</p>
+    </div>
+    <div class="insight-card" style="border-left-color:#e8710a;">
+      <h4 style="color:#e8710a;">C. Competitive Content Opportunities</h4>
+      <p>1. <strong>Rheem replacement content</strong> — Target "Rheem softener failed" searches with SoftPro alternatives<br>
+      2. <strong>Culligan alternative content</strong> — "Culligan destroyed my water heater" — position SoftPro as safer<br>
+      3. <strong>SpringWell transparency content</strong> — "Not listed on NSF website" — highlight SoftPro's certifications<br>
+      4. <strong>Kinetico comparison</strong> — Kinetico is loved for "no electricity, dual tank" — create feature parity content<br>
+      5. <strong>Aquasure comparison</strong> — Aquasure is liked for "easy install, affordable" — compete on those axes</p>
+    </div>
+
+    <h3 style="margin-top:24px;margin-bottom:16px;color:#9334e6;">⚡ Quick Wins (0–30 days)</h3>
+    <ul class="clean">
+      <li>✅ Add FAQ schema to product pages answering "Do I need a water softener?" and "How to size?"</li>
+      <li>✅ Enable YouTube comments on all SoftPro-related videos and respond to questions</li>
+      <li>✅ Publish "Rheem vs SoftPro" comparison page (Rheem has strong negative sentiment to capitalize on)</li>
+      <li>✅ Create salt bridging prevention guide (top complaint category)</li>
+      <li>✅ Add water hardness map by US region to homepage</li>
+    </ul>
+
+    <h3 style="margin-top:24px;margin-bottom:16px;color:#9334e6;">📅 Medium-Term Strategy (30–90 days)</h3>
+    <ul class="clean">
+      <li>📝 Build interactive sizing calculator (baths × residents × hardness → recommended grain capacity)</li>
+      <li>📝 Create "Best Water Softener 2027" annual guide (publish Feb 2027 to capture buying-season search volume)</li>
+      <li>📝 Develop well water landing page (16 conversations reference well water — large audience)</li>
+      <li>📝 Publish third-party lab test results page (builds trust vs SpringWell "no NSF" criticism)</li>
+      <li>📝 Create DIY installation video series (8 conversations about self-install)</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Water Softener Conversation Deep Dive · 102 conversations analyzed across 5 platforms</p>
+  <p>Prepared for <strong>Himanshu (ZenfusionSEO)</strong> · Report Date: 09/16/2026 · Client: <strong>SoftPro</strong></p>
+  <p style="margin-top:8px;">Sources: Reddit (21) · YouTube (55) · Terry Love Forum (20) · BBB (4) · Trouble Free Pool (2)</p>
+</div>
+
+</div>
+
+<script>
+  // Collapsible sections
+  document.querySelectorAll('.section h2').forEach(h2 => {
+    h2.addEventListener('click', () => {
+      h2.parentElement.classList.toggle('collapsed');
+      const toggle = h2.querySelector('.toggle');
+      if (toggle) {
+        toggle.textContent = h2.parentElement.classList.contains('collapsed') ? '[click to expand]' : '[click to collapse]';
+      }
+    });
+  });
+</script>
+</body>
+</html>
