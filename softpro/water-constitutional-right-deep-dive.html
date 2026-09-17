@@ -13,86 +13,81 @@
     background: #ffffff;
     color: #1a1a1a;
     line-height: 1.75;
-    font-size: 18px;
+    font-size: 17px;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: #1d6fa5; text-decoration: underline; text-underline-offset: 2px; }
-  a:hover { color: #134a6e; }
-  sup a { text-decoration: none; font-weight: 600; font-size: 0.75em; }
 
-  /* Container */
-  .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+  /* Single-column container ~720px */
+  .container { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
 
   /* Breadcrumb */
-  .breadcrumb {
-    padding: 24px 0 0;
-    font-size: 14px;
-    color: #6b6b6b;
-  }
-  .breadcrumb a { color: #6b6b6b; text-decoration: none; }
-  .breadcrumb a:hover { color: #1a1a1a; }
-  .breadcrumb span { margin: 0 6px; color: #ccc; }
+  .breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 40px; }
+  .breadcrumb a { color: #6b7280; text-decoration: none; }
+  .breadcrumb a:hover { color: #1a1a1a; text-decoration: underline; }
+  .breadcrumb span { margin: 0 6px; color: #d1d5db; }
 
-  /* Category label */
+  /* Category label (small, gray, uppercase, letter-spaced) */
   .category-label {
-    margin-top: 28px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #2a7d4f;
+    color: #6b7280;
+    margin-bottom: 14px;
   }
 
-  /* Title */
+  /* Title — large serif H1 */
   h1.article-title {
-    font-size: clamp(32px, 5vw, 44px);
-    line-height: 1.15;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(30px, 5vw, 40px);
+    line-height: 1.2;
     font-weight: 700;
-    margin: 12px 0 16px;
+    margin-bottom: 16px;
     letter-spacing: -0.01em;
     color: #1a1a1a;
   }
 
-  /* Date */
-  .article-date {
-    font-size: 15px;
-    color: #6b6b6b;
-    margin-bottom: 32px;
-  }
+  /* Date — gray */
+  .article-date { font-size: 14px; color: #6b7280; margin-bottom: 28px; }
 
-  /* Intro paragraph */
+  /* Intro/deck paragraph */
   .article-intro {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.6;
-    color: #3d3d3d;
-    margin-bottom: 36px;
+    color: #374151;
+    margin-bottom: 40px;
     font-weight: 400;
   }
 
-  /* Key Takeaways box */
+  /* Inline links */
+  a { color: #2563eb; text-decoration: none; text-underline-offset: 2px; }
+  a:hover { text-decoration: underline; }
+  sup a { font-weight: 600; font-size: 0.72em; color: #2563eb; text-decoration: none; }
+  sup a:hover { text-decoration: underline; }
+
+  /* Key Takeaways — light gray/blue-tinted box */
   .key-takeaways {
-    background: #f7f7f7;
-    border: 1px solid #e3e3e3;
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
     border-radius: 8px;
-    padding: 24px 28px;
+    padding: 24px 24px;
     margin: 0 0 40px;
   }
   .key-takeaways h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 14px;
     color: #1a1a1a;
-    text-transform: none;
-    letter-spacing: 0;
   }
   .key-takeaways ul { list-style: none; padding: 0; }
   .key-takeaways li {
     padding-left: 26px;
     position: relative;
-    margin-bottom: 12px;
-    font-size: 16px;
+    margin-bottom: 10px;
+    font-size: 15px;
     line-height: 1.6;
-    color: #3d3d3d;
+    color: #374151;
   }
   .key-takeaways li:last-child { margin-bottom: 0; }
   .key-takeaways li::before {
@@ -100,34 +95,44 @@
     position: absolute;
     left: 0;
     top: 0;
-    color: #2a7d4f;
+    color: #1d4ed8;
     font-weight: 700;
   }
 
-  /* Table of contents (inline box) */
+  /* Table of contents — inline, numbered, blue links */
   .toc-box {
-    background: #f0f7fa;
-    border: 1px solid #cfe3ee;
+    background: #f0f7ff;
+    border: 1px solid #dbeafe;
     border-radius: 8px;
-    padding: 24px 28px;
-    margin: 0 0 44px;
+    padding: 24px;
+    margin: 0 0 48px;
   }
   .toc-box h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 14px;
-    color: #134a6e;
-    text-transform: none;
-    letter-spacing: 0;
+    color: #1a1a1a;
   }
-  .toc-box ol { padding-left: 22px; }
-  .toc-box li { margin-bottom: 8px; font-size: 15px; }
-  .toc-box a { color: #1d6fa5; text-decoration: none; }
+  .toc-box ol { padding-left: 22px; counter-reset: toc; list-style: none; }
+  .toc-box li {
+    counter-increment: toc;
+    margin-bottom: 8px;
+    font-size: 15px;
+    padding-left: 4px;
+  }
+  .toc-box li::before {
+    content: counter(toc) ". ";
+    color: #6b7280;
+    font-weight: 600;
+  }
+  .toc-box a { color: #2563eb; }
   .toc-box a:hover { text-decoration: underline; }
 
-  /* Section headings */
+  /* Article body */
   article h2 {
-    font-size: 28px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
     line-height: 1.25;
     font-weight: 700;
     margin: 48px 0 18px;
@@ -135,197 +140,194 @@
     scroll-margin-top: 24px;
   }
   article h3 {
-    font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 19px;
     line-height: 1.3;
     font-weight: 700;
     margin: 32px 0 12px;
     color: #1a1a1a;
   }
-  article p { margin-bottom: 20px; font-size: 18px; line-height: 1.75; color: #3d3d3d; }
-  article p, article li { font-size: 18px; line-height: 1.75; color: #3d3d3d; }
-  article ul, article ol { margin: 0 0 20px 24px; }
-  article li { margin-bottom: 10px; }
+  article p { margin-bottom: 22px; font-size: 17px; line-height: 1.75; color: #1f2937; }
+  article ul, article ol { margin: 0 0 22px 24px; }
+  article li { margin-bottom: 10px; font-size: 17px; line-height: 1.7; color: #1f2937; }
   article strong { color: #1a1a1a; font-weight: 700; }
   article em { font-style: italic; }
   article section { scroll-margin-top: 24px; }
 
-  /* Blockquote */
+  /* Blockquote — left border, italic */
   blockquote {
     margin: 32px 0;
-    padding: 20px 24px;
-    border-left: 4px solid #1d6fa5;
-    background: #f0f7fa;
-    border-radius: 0 6px 6px 0;
-    font-size: 18px;
+    padding: 8px 0 8px 24px;
+    border-left: 3px solid #e5e7eb;
+    font-size: 19px;
     line-height: 1.6;
     font-style: italic;
-    color: #1a1a1a;
+    color: #374151;
   }
   blockquote cite {
     display: block;
     margin-top: 12px;
     font-size: 14px;
-    color: #6b6b6b;
+    color: #6b7280;
     font-style: normal;
   }
 
   /* Info box */
   .info-box {
-    background: #f7f7f7;
-    border: 1px solid #e3e3e3;
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-left: 3px solid #1d4ed8;
     border-radius: 8px;
     padding: 20px 24px;
     margin: 32px 0;
   }
   .info-box .label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #134a6e;
+    color: #1d4ed8;
     margin-bottom: 8px;
   }
-  .info-box p { font-size: 16px; margin-bottom: 8px; }
+  .info-box p { font-size: 15px; margin-bottom: 8px; color: #374151; line-height: 1.65; }
   .info-box p:last-child { margin-bottom: 0; }
 
-  /* Tables */
+  /* Tables — clean, simple */
   .table-wrap {
     margin: 32px 0;
     overflow-x: auto;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #e5e7eb;
     border-radius: 8px;
   }
   .table-wrap .caption {
     padding: 12px 16px;
-    background: #f7f7f7;
-    border-bottom: 1px solid #e3e3e3;
-    font-size: 14px;
-    color: #6b6b6b;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 13px;
+    color: #6b7280;
     font-style: italic;
   }
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 15px;
+    font-size: 14px;
     background: #fff;
   }
   thead th {
-    background: #1a1a1a;
-    color: #fff;
+    background: #f8f9fa;
+    color: #1a1a1a;
     text-align: left;
-    padding: 12px 14px;
+    padding: 10px 14px;
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
+    border-bottom: 1px solid #e5e7eb;
   }
   tbody td {
-    padding: 12px 14px;
-    border-top: 1px solid #efefef;
+    padding: 10px 14px;
+    border-top: 1px solid #e5e7eb;
     vertical-align: top;
-    color: #3d3d3d;
+    color: #374151;
   }
-  tbody tr:nth-child(even) { background: #fafafa; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
   tbody td:first-child { font-weight: 600; color: #1a1a1a; }
   .pill {
     display: inline-block;
     padding: 2px 9px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
   }
-  .pill.yes { background: #e3f4ec; color: #2a7d4f; }
-  .pill.no  { background: #fde9e3; color: #8a2412; }
-  .pill.some { background: #fff4e0; color: #a6630a; }
+  .pill.yes { background: #dcfce7; color: #166534; }
+  .pill.no  { background: #fee2e2; color: #991b1b; }
+  .pill.some { background: #fef3c7; color: #92400e; }
 
-  /* Author block */
+  /* Author block — clean, avatar + text, no card */
   .author-block {
-    margin: 56px 0 40px;
-    padding: 32px;
-    background: #f7f7f7;
-    border-radius: 10px;
+    margin: 64px 0 40px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e7eb;
     display: flex;
-    gap: 24px;
+    gap: 18px;
     align-items: flex-start;
     flex-wrap: wrap;
   }
   .author-photo {
-    width: 80px;
-    height: 80px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background: #1d6fa5;
+    background: #6b7280;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .author-info h3 {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 4px;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+  .author-info { flex: 1; min-width: 220px; }
+  .author-info h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
     color: #1a1a1a;
   }
   .author-info .author-title {
-    font-size: 15px;
-    color: #6b6b6b;
-    margin-bottom: 12px;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 10px;
   }
   .author-info p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.65;
-    color: #3d3d3d;
+    color: #374151;
     margin-bottom: 0;
   }
 
-  /* Related articles */
+  /* Related articles — simple section */
   .related {
     margin: 0 0 48px;
     padding-top: 32px;
-    border-top: 1px solid #e3e3e3;
+    border-top: 1px solid #e5e7eb;
   }
   .related h2 {
-    font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #1a1a1a;
   }
-  .related-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 600px) { .related-list { grid-template-columns: 1fr; } }
+  .related-list { display: flex; flex-direction: column; gap: 20px; }
   .related-item {
     display: block;
-    padding: 16px 18px;
-    border: 1px solid #e3e3e3;
-    border-radius: 8px;
     text-decoration: none;
-    background: #fff;
   }
-  .related-item:hover { border-color: #1d6fa5; }
   .related-item .cat {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #2a7d4f;
-    margin-bottom: 6px;
+    color: #6b7280;
+    margin-bottom: 4px;
   }
   .related-item .ttl {
     font-size: 16px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #2563eb;
     line-height: 1.4;
   }
+  .related-item:hover .ttl { text-decoration: underline; }
 
-  /* References */
+  /* References — numbered list, 14px */
   .references {
     margin-top: 48px;
     padding-top: 28px;
-    border-top: 1px solid #e3e3e3;
+    border-top: 1px solid #e5e7eb;
   }
   .references h2 {
-    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #1a1a1a;
@@ -337,29 +339,32 @@
   }
   .references li {
     counter-increment: ref;
-    padding: 10px 0 10px 36px;
-    border-bottom: 1px solid #efefef;
-    font-size: 15px;
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
     line-height: 1.6;
     position: relative;
-    color: #3d3d3d;
+    color: #374151;
   }
+  .references li:last-child { border-bottom: none; }
   .references li::before {
     content: counter(ref) ".";
     position: absolute;
     left: 0;
     top: 10px;
     font-weight: 700;
-    color: #1d6fa5;
-    font-size: 15px;
+    color: #6b7280;
+    font-size: 14px;
   }
-  .references li a { word-break: break-word; font-size: 14px; }
+  .references li a { word-break: break-word; color: #2563eb; }
 
   @media (max-width: 600px) {
-    body { font-size: 17px; }
-    .container { padding: 0 16px; }
-    .key-takeaways, .toc-box { padding: 20px; }
-    .author-block { padding: 20px; }
+    body { font-size: 16px; }
+    .container { padding: 32px 16px 64px; }
+    .key-takeaways, .toc-box, .info-box { padding: 20px; }
+    .author-block { gap: 14px; }
+    article h2 { font-size: 23px; }
+    h1.article-title { font-size: 28px; }
   }
 </style>
 </head>
@@ -630,12 +635,12 @@
 
   </article>
 
-  <!-- Author block -->
+  <!-- Author block — clean, avatar + text, no card -->
   <div class="author-block">
     <div class="author-photo">CP</div>
     <div class="author-info">
       <h3>Craig "The Water Guy" Phillips</h3>
-      <div class="author-title">Water Treatment Expert & Lead Writer, SoftPro Water Systems</div>
+      <div class="author-title">Water Treatment Expert &amp; Lead Writer, SoftPro Water Systems</div>
       <p>Craig Phillips has spent over 15 years in the water filtration industry, helping homeowners and communities understand what's in their water and how to protect themselves. As Lead Writer at SoftPro Water Systems, he covers water quality, treatment technology, and the legal and policy issues that shape access to safe drinking water. His work draws on hands-on field experience and a deep commitment to making complex water science accessible to the people who need it most.</p>
     </div>
   </div>
@@ -646,7 +651,7 @@
     <div class="related-list">
       <a class="related-item" href="https://loftenter.github.io/zenfusion-audits/softpro/conversation-deep-dive-water-softener.html">
         <div class="cat">Water Filtration</div>
-        <div class="ttl">Deep Dive: Water Softener Conversations & What Homeowners Really Want</div>
+        <div class="ttl">Deep Dive: Water Softener Conversations &amp; What Homeowners Really Want</div>
       </a>
       <a class="related-item" href="https://loftenter.github.io/zenfusion-audits/softpro/conversation-finder-water-softener.html">
         <div class="cat">Water Filtration</div>
@@ -655,11 +660,11 @@
     </div>
   </div>
 
-  <!-- References -->
+  <!-- References — numbered list -->
   <section id="references" class="references">
     <h2>References</h2>
     <ol>
-      <li id="ref-guardian">Lavin, T. & Pierre, F. "Mississippi residents lose case over constitutional right to clean water." <em>The Guardian</em>, Sept. 8, 2026. <a href="https://www.theguardian.com/us-news/2026/sep/08/mississippi-clean-water-case-constitutional-right" target="_blank" rel="noopener">theguardian.com</a></li>
+      <li id="ref-guardian">Lavin, T. &amp; Pierre, F. "Mississippi residents lose case over constitutional right to clean water." <em>The Guardian</em>, Sept. 8, 2026. <a href="https://www.theguardian.com/us-news/2026/sep/08/mississippi-clean-water-case-constitutional-right" target="_blank" rel="noopener">theguardian.com</a></li>
       <li id="ref-usatoday">USA Today. "Court rules Constitution does not guarantee right to clean water." Sept. 7, 2026. <a href="https://www.usatoday.com/story/news/nation/2026/09/07/court-constitution-right-clean-water/91649488007/" target="_blank" rel="noopener">usatoday.com</a></li>
       <li id="ref-bloomberg">Bloomberg Law. "Jackson Residents Lose Bid to Revive Water Contamination Claims." Sept. 2026. <a href="https://news.bloomberglaw.com/us-law-week/jackson-residents-lose-bid-to-revive-water-contamination-claims" target="_blank" rel="noopener">news.bloomberglaw.com</a></li>
       <li id="ref-opinion">U.S. Court of Appeals for the Fifth Circuit. <em>Sterling v. City of Jackson, Mississippi</em>, No. 24-60370 (en banc, Sept. 4, 2026). <a href="https://www.ca5.uscourts.gov/opinions/pub/24/24-60370-CV1.pdf" target="_blank" rel="noopener">ca5.uscourts.gov</a></li>
