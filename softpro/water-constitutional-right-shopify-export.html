@@ -1,0 +1,731 @@
+<!-- SoftPro Blog Article: Is Access to Clean Drinking Water a Constitutional Right? -->
+<!-- Title: Is Access to Clean Drinking Water a Constitutional Right? A Deep Dive -->
+<!-- Author: Craig "The Water Guy" Phillips -->
+<!-- Date: September 17, 2026 -->
+<!-- Category: Water Filtration -->
+<!-- Word count: ~4,404 | Citations: 28 -->
+<!-- Paste this into the Shopify blog post HTML editor -->
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Single-column container ~720px */
+  .container { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 40px; }
+  .breadcrumb a { color: #6b7280; text-decoration: none; }
+  .breadcrumb a:hover { color: #1a1a1a; text-decoration: underline; }
+  .breadcrumb span { margin: 0 6px; color: #d1d5db; }
+
+  /* Category label (small, gray, uppercase, letter-spaced) */
+  .category-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 14px;
+  }
+
+  /* Title — large serif H1 */
+  h1.article-title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(30px, 5vw, 40px);
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+  }
+
+  /* Date — gray */
+  .article-date { font-size: 14px; color: #6b7280; margin-bottom: 28px; }
+
+  /* Intro/deck paragraph */
+  .article-intro {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  /* Inline links */
+  a { color: #2563eb; text-decoration: none; text-underline-offset: 2px; }
+  a:hover { text-decoration: underline; }
+  sup a { font-weight: 600; font-size: 0.72em; color: #2563eb; text-decoration: none; }
+  sup a:hover { text-decoration: underline; }
+
+  /* Key Takeaways — dark navy banner header, light body */
+  .key-takeaways {
+    margin: 0 0 40px;
+  }
+  .key-takeaways .kt-header {
+    background: #1a2a4a;
+    color: #d4af37;
+    border-radius: 8px 8px 0 0;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .key-takeaways .kt-body {
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 24px 24px;
+  }
+  .key-takeaways ul { list-style: none; padding: 0; }
+  .key-takeaways li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #374151;
+  }
+  .key-takeaways li:last-child { margin-bottom: 0; }
+  .key-takeaways li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #1a2a4a;
+    font-weight: 700;
+  }
+
+  /* Table of contents — inline, numbered, blue links */
+  .toc-box {
+    background: #f0f7ff;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 0 0 48px;
+  }
+  .toc-box h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #1a1a1a;
+  }
+  .toc-box ol { padding-left: 22px; counter-reset: toc; list-style: none; }
+  .toc-box li {
+    counter-increment: toc;
+    margin-bottom: 8px;
+    font-size: 15px;
+    padding-left: 4px;
+  }
+  .toc-box li::before {
+    content: counter(toc) ". ";
+    color: #6b7280;
+    font-weight: 600;
+  }
+  .toc-box a { color: #2563eb; }
+  .toc-box a:hover { text-decoration: underline; }
+
+  /* Article body */
+  article h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin: 48px 0 18px;
+    color: #1a1a1a;
+    scroll-margin-top: 24px;
+  }
+  article h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+    margin: 32px 0 12px;
+    color: #1a1a1a;
+  }
+  article p { margin-bottom: 22px; font-size: 17px; line-height: 1.75; color: #1f2937; }
+  article ul, article ol { margin: 0 0 22px 24px; }
+  article li { margin-bottom: 10px; font-size: 17px; line-height: 1.7; color: #1f2937; }
+  article strong { color: #1a1a1a; font-weight: 700; }
+  article em { font-style: italic; }
+  article section { scroll-margin-top: 24px; }
+
+  /* Blockquote — left border, italic */
+  blockquote {
+    margin: 32px 0;
+    padding: 8px 0 8px 24px;
+    border-left: 3px solid #e5e7eb;
+    font-size: 19px;
+    line-height: 1.6;
+    font-style: italic;
+    color: #374151;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #6b7280;
+    font-style: normal;
+  }
+
+  /* Info box */
+  .info-box {
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-left: 3px solid #1d4ed8;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+  .info-box .label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+    margin-bottom: 8px;
+  }
+  .info-box p { font-size: 15px; margin-bottom: 8px; color: #374151; line-height: 1.65; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* Tables — clean, simple */
+  .table-wrap {
+    margin: 32px 0;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+  }
+  .table-wrap .caption {
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+  }
+  thead th {
+    background: #f8f9fa;
+    color: #1a1a1a;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-top: 1px solid #e5e7eb;
+    vertical-align: top;
+    color: #374151;
+  }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody td:first-child { font-weight: 600; color: #1a1a1a; }
+  .pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .pill.yes { background: #dcfce7; color: #166534; }
+  .pill.no  { background: #fee2e2; color: #991b1b; }
+  .pill.some { background: #fef3c7; color: #92400e; }
+
+  /* Author block at TOP — white card, navy avatar, gold initials */
+  .author-block-top {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 0 0 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .author-block-top .author-photo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #1a2a4a;
+    color: #d4af37;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+  .author-block-top .author-info { flex: 1; min-width: 200px; }
+  .author-block-top .author-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #1a2a4a;
+  }
+  .author-block-top .author-info .author-title {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .author-block-top .author-info .author-links {
+    font-size: 13px;
+    color: #e05c3c;
+  }
+  .author-block-top .author-info .author-links a {
+    color: #e05c3c;
+    text-decoration: none;
+  }
+  .author-block-top .author-info .author-links a:hover { text-decoration: underline; }
+  .last-updated {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 32px;
+  }
+
+  /* Author bio at bottom — just text, card is at top */
+  .author-bio {
+    margin: 48px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+  }
+  .author-bio p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  /* Related articles — simple section */
+  .related {
+    margin: 0 0 48px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e7eb;
+  }
+  .related h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+  }
+  .related-list { display: flex; flex-direction: column; gap: 20px; }
+  .related-item {
+    display: block;
+    text-decoration: none;
+  }
+  .related-item .cat {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+  .related-item .ttl {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2563eb;
+    line-height: 1.4;
+  }
+  .related-item:hover .ttl { text-decoration: underline; }
+
+  /* References — numbered list, 14px */
+  .references {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid #e5e7eb;
+  }
+  .references h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+  }
+  .references ol {
+    padding-left: 0;
+    list-style: none;
+    counter-reset: ref;
+  }
+  .references li {
+    counter-increment: ref;
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    color: #374151;
+  }
+  .references li:last-child { border-bottom: none; }
+  .references li::before {
+    content: counter(ref) ".";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-weight: 700;
+    color: #6b7280;
+    font-size: 14px;
+  }
+  .references li a { word-break: break-word; color: #2563eb; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .container { padding: 32px 16px 64px; }
+    .key-takeaways, .toc-box, .info-box { padding: 20px; }
+    .author-block { gap: 14px; }
+    article h2 { font-size: 23px; }
+    h1.article-title { font-size: 28px; }
+  }
+</style>
+
+<div class="container">
+
+  <!-- Category label -->
+  <div class="category-label">Water Filtration</div>
+
+  <!-- Title -->
+  <h1 class="article-title">Is Access to Clean Drinking Water a Constitutional Right? A Deep Dive</h1>
+
+  <!-- Date -->
+  <div class="article-date">September 17, 2026</div>
+
+  <!-- Intro paragraph -->
+  <p class="article-intro">A federal appeals court says no. Six state constitutions say yes. The United Nations says yes. This is the story of <em>Sterling v. Jackson</em>, the lead-laced water behind it, and the fractured legal landscape that decides whether the water from your tap is a right or a privilege.</p>
+
+  <!-- Author block (after title/intro, before Key Takeaways) -->
+  <div class="author-block-top">
+    <div class="author-photo">CP</div>
+    <div class="author-info">
+      <h3>Craig Phillips</h3>
+      <div class="author-title">Water Treatment Expert &amp; Lead Writer, SoftPro Water Systems</div>
+      <div class="author-links">
+        <a href="https://www.youtube.com/@SoftProWaterSystems">YouTube (@SoftProWaterSystems)</a> &nbsp;|&nbsp;
+        <a href="https://softprowatersystems.com">softprowatersystems.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="last-updated">Last updated: September 2026</div>
+
+  <!-- Key Takeaways -->
+  <div class="key-takeaways">
+    <div class="kt-header">Key Takeaways</div>
+    <div class="kt-body">
+      <ul>
+        <li>The Fifth Circuit ruled 10–5 (en banc) that the U.S. Constitution does not guarantee a right to clean drinking water.</li>
+        <li>Jackson, MS residents were knowingly supplied lead-contaminated municipal water since 2010.</li>
+        <li>Six states have constitutional "Green Amendments" protecting water rights: Pennsylvania, Montana, Massachusetts, Hawaii, Illinois, and New York.</li>
+        <li>California established a statutory right to safe water in 2013 (Water Code § 106.3).</li>
+        <li>The UN recognized water as a human right in 2010 — 122 countries voted in favor; the U.S. abstained.</li>
+        <li>The EPA's Maximum Contaminant Level Goal (MCLG) for lead is zero — no amount of lead in drinking water is safe.</li>
+        <li>Residents should test their water and invest in certified home filtration to protect their households.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Inline Table of Contents -->
+  <div class="toc-box">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#summary">The question in one paragraph</a></li>
+      <li><a href="#sterling">Sterling v. Jackson: the case that forced the question</a></li>
+      <li><a href="#timeline">Timeline: how Jackson's water collapsed</a></li>
+      <li><a href="#reasoning">What the Fifth Circuit actually said</a></li>
+      <li><a href="#federal">The federal patchwork: statutes, not rights</a></li>
+      <li><a href="#states">State constitutions: where the right actually lives</a></li>
+      <li><a href="#state-table">Comparison: state constitutional water rights</a></li>
+      <li><a href="#international">The rest of the world disagrees</a></li>
+      <li><a href="#intl-table">Comparison: international water rights</a></li>
+      <li><a href="#lead">Why lead is the test case</a></li>
+      <li><a href="#residents">What residents can actually do</a></li>
+      <li><a href="#path-forward">The path forward</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </div>
+
+  <!-- Article body -->
+  <article>
+
+    <section id="summary">
+      <h2>The question in one paragraph</h2>
+      <p>On September 4, 2026, the United States Court of Appeals for the Fifth Circuit sat <em>en banc</em> and ruled, 10 to 5, that the U.S. Constitution does not guarantee any individual right to clean drinking water<sup><a href="#ref-guardian">[1]</a></sup><sup><a href="#ref-usatoday">[2]</a></sup>. The case, <em>Sterling v. City of Jackson</em>, was brought by residents of Jackson, Mississippi who were knowingly supplied lead-contaminated municipal water for years<sup><a href="#ref-msstoday">[5]</a></sup>. The majority, per Judge Kurt Engelhardt, held that the deprivations were "grievous" but did not "infringe upon any deeply rooted constitutional right"<sup><a href="#ref-opinion">[4]</a></sup>. The decision sits at the center of a three-way fracture in American water law: a federal Constitution silent on water, a growing roster of state constitutions that explicitly protect it, and an international community that has recognized clean water as a human right since 2010<sup><a href="#ref-un">[13]</a></sup><sup><a href="#ref-wiki">[14]</a></sup>. This article traces each strand of that fracture — the facts of <em>Sterling</em>, the statutory scaffolding that failed Jackson, the state "Green Amendments" that may yet succeed where federal law did not, and the global consensus the United States has chosen not to join.</p>
+    </section>
+
+    <section id="sterling">
+      <h2>Sterling v. Jackson: the case that forced the question</h2>
+      <p>The plaintiffs — Priscilla Sterling, Raine Becker, Shawn Miller, and John Bennett — are residents of Jackson, Mississippi, who sued the city and state officials under 42 U.S.C. § 1983, alleging that government actors had violated their substantive due process rights by knowingly exposing them to lead-contaminated water<sup><a href="#ref-classaction">[22]</a></sup><sup><a href="#ref-courtlistener">[23]</a></sup>. Their factual record is, by any measure, damning.</p>
+      <p>Between 2010 and 2013, the City of Jackson distributed municipal water it knew to be lead-contaminated<sup><a href="#ref-msstoday">[5]</a></sup>. The Mississippi State Department of Health documented lead violations as early as 2015 — yet residents were not informed for roughly six months after the agency had confirmation in hand<sup><a href="#ref-opinion">[4]</a></sup>. The U.S. Environmental Protection Agency issued an Emergency Administrative Order in 2020, followed by an Administrative Compliance Order in July 2021, formally recording that Jackson's water system had failed to meet federal lead and copper standards<sup><a href="#ref-bloomberg">[3]</a></sup>. Then, in August 2022, the Pearl River flooded and collapsed what remained of the system. Roughly 150,000 residents lost access to safe water for weeks. The National Guard was deployed to distribute bottled water. And — in a detail that haunts the public-health record — residents who boiled their water to kill microbes, as officials had instructed, inadvertently <strong>concentrated the lead</strong>, raising their exposure even further<sup><a href="#ref-mdpi">[19]</a></sup>.</p>
+      <blockquote>
+        The deprivations suffered by the Plaintiffs, while grievous, do not infringe upon any deeply rooted constitutional right.
+        <cite>— Judge Kurt Engelhardt, majority opinion, <em>Sterling v. City of Jackson</em>, 5th Cir. (Sept. 4, 2026)<sup><a href="#ref-opinion">[4]</a></sup></cite>
+      </blockquote>
+      <p>The lawsuit was filed in 2022, dismissed by the U.S. District Court for the Southern District of Mississippi in 2024, and then taken up by the Fifth Circuit <em>en banc</em><sup><a href="#ref-findlaw">[6]</a></sup>. By the time the full court ruled, the question had hardened into a single, narrow inquiry under <em>qualified immunity</em> doctrine: was the right to be free from contaminated water "clearly established" at the time of the violation? The majority said no. The dissent, led by Judge James Dennis, argued that the right to bodily integrity — long recognized in due-process jurisprudence — necessarily includes the right not to be poisoned by one's own government<sup><a href="#ref-opinion">[4]</a></sup><sup><a href="#ref-bloomberg">[3]</a></sup>.</p>
+      <p>The split is not academic. A 10–5 <em>en banc</em> ruling on a question of this magnitude is, by Fifth Circuit standards, a strong signal that the issue is headed for the Supreme Court — and that the circuit is divided enough that the Court is unlikely to treat it as settled<sup><a href="#ref-findlaw">[6]</a></sup><sup><a href="#ref-lawcommentary">[24]</a></sup>.</p>
+    </section>
+
+    <section id="timeline">
+      <h2>Timeline: how Jackson's water collapsed</h2>
+      <p>The <em>Sterling</em> facts did not appear overnight. They are the visible portion of a decade-long institutional failure — a chain in which each link had a chance to break the next and did not. The sequence below draws on the Fifth Circuit's own recitation of facts, EPA enforcement records, and an independent hydrological study of the Jackson system<sup><a href="#ref-opinion">[4]</a></sup><sup><a href="#ref-mdpi">[19]</a></sup>.</p>
+      <ul>
+        <li><strong>2010–2013 — City knowingly supplies lead-contaminated water.</strong> Jackson municipal water is distributed despite internal knowledge of lead contamination. The period forms the factual core of the later § 1983 complaint<sup><a href="#ref-msstoday">[5]</a></sup>.</li>
+        <li><strong>2015 — State health department documents lead violations.</strong> The Mississippi State Department of Health records lead violations — but residents are not notified for approximately six months<sup><a href="#ref-opinion">[4]</a></sup>.</li>
+        <li><strong>2020 — EPA issues Emergency Administrative Order.</strong> Federal regulators formally document that Jackson's system fails Lead and Copper Rule standards<sup><a href="#ref-bloomberg">[3]</a></sup><sup><a href="#ref-epa-lead">[7]</a></sup>.</li>
+        <li><strong>July 2021 — EPA Administrative Compliance Order.</strong> The EPA escalates from emergency order to a compliance order, laying out required corrective actions for the city's water infrastructure<sup><a href="#ref-bloomberg">[3]</a></sup>.</li>
+        <li><strong>August 2022 — Pearl River flood collapses the system.</strong> Flooding overwhelms Jackson's O.B. Curtis Water Treatment Plant. ~150,000 residents lose safe water for weeks. The National Guard distributes bottled water. Boiling — the official guidance — concentrates lead rather than removing it<sup><a href="#ref-mdpi">[19]</a></sup>.</li>
+        <li><strong>2022 — Sterling et al. file suit.</strong> Residents file a § 1983 class action in the Southern District of Mississippi alleging substantive due process violations<sup><a href="#ref-classaction">[22]</a></sup><sup><a href="#ref-courtlistener">[23]</a></sup>.</li>
+        <li><strong>2024 — District court dismisses the case.</strong> The trial court holds that no clearly established constitutional right to clean water exists, dismissing the claims<sup><a href="#ref-findlaw">[6]</a></sup>.</li>
+        <li><strong>September 4, 2026 — Fifth Circuit affirms, 10–5 en banc.</strong> The full Fifth Circuit upholds dismissal. Judge Engelhardt writes for the majority; Judge Dennis leads the dissent<sup><a href="#ref-opinion">[4]</a></sup><sup><a href="#ref-guardian">[1]</a></sup>.</li>
+      </ul>
+    </section>
+
+    <section id="reasoning">
+      <h2>What the Fifth Circuit actually said</h2>
+      <p>The majority opinion is careful — almost defensive — about separating its moral assessment from its legal one. Judge Engelhardt does not deny the severity of the harm. He denies that the harm maps onto a right the federal Constitution recognizes. The opinion proceeds in two steps.</p>
+      <p>First, it frames the question under <em>qualified immunity</em>, which shields government officials from civil liability unless the right at issue was "clearly established" in light of existing law<sup><a href="#ref-findlaw">[6]</a></sup>. This is a deliberately narrow lens: it does not ask whether the plaintiffs <em>should</em> have a right to clean water, only whether such a right was already so well-settled that every reasonable official in Jackson would have known they were violating it. The majority concluded the right was not clearly established<sup><a href="#ref-opinion">[4]</a></sup>.</p>
+      <p>Second, the opinion gestures at the substantive due process doctrine of <em>Washington v. Glucksberg</em>, which limits fundamental rights to those "deeply rooted in this Nation's history and tradition." Under that test, the court found no lineage — no case, no founding-era text, no long-standing common-law rule — establishing a constitutional entitlement to lead-free municipal water<sup><a href="#ref-opinion">[4]</a></sup>. The dissent countered that the right to bodily integrity is itself deeply rooted, and that knowingly poisoning a captive population is the paradigm case of a bodily-integrity violation<sup><a href="#ref-bloomberg">[3]</a></sup>.</p>
+      <div class="info-box">
+        <div class="label">Why the framing matters</div>
+        <p>By deciding the case on <em>clearly established</em> grounds, the Fifth Circuit left the underlying constitutional question — whether a right to clean water <em>exists</em> — formally open. Future plaintiffs can still litigate the right itself; they simply cannot recover damages from officials who acted before that right was settled. This is a narrower ruling than it appears, and it is exactly the kind of narrowing that invites Supreme Court review<sup><a href="#ref-lawcommentary">[24]</a></sup>.</p>
+      </div>
+    </section>
+
+    <section id="federal">
+      <h2>The federal patchwork: statutes, not rights</h2>
+      <p>The reason the Fifth Circuit could find no "deeply rooted" constitutional right is that, at the federal level, clean water is governed by statute rather than by constitutional text. The Safe Drinking Water Act (SDWA), enacted in 1974 and amended repeatedly since, authorizes the EPA to set enforceable standards for contaminants in public water systems<sup><a href="#ref-epa-sdwa">[10]</a></sup>. The Clean Water Act, originally the Federal Water Pollution Control Act of 1972, regulates discharges into surface waters — a related but distinct regime<sup><a href="#ref-epa-cwa">[11]</a></sup>. Neither creates an individually enforceable constitutional right; both create regulatory obligations enforceable primarily by the EPA itself, and only derivatively by citizens.</p>
+      <p>Within the SDWA framework, the Lead and Copper Rule (LCR), first promulgated in 1991, is the operative standard for the contaminant at issue in <em>Sterling</em>. It sets an EPA "action level" of 15 parts per billion (ppb) for lead in the 90th percentile of tap samples — a level that is a treatment trigger, not a health-based safe level. The EPA's Maximum Contaminant Level Goal (MCLG) for lead is <strong>zero</strong>, reflecting the scientific consensus that no concentration of lead in drinking water is safe<sup><a href="#ref-epa-lead">[7]</a></sup>. The gap between the action level (15 ppb) and the health goal (zero) is, in practical terms, the gap Jackson's residents fell into.</p>
+      <p>The LCR has been revised twice in recent years. A 2021 "Revised Lead and Copper Rule" strengthened corrosion-control and testing requirements, and a 2024 "Lead and Copper Rule Improvements" package moved toward a 10-year replacement deadline for all lead service lines<sup><a href="#ref-epa-lead">[7]</a></sup>. These are meaningful regulatory steps. But they remain statutory — they bind the regulator and the regulated utility, not the Constitution, and they do not create a remedy for individual residents whose bodies were damaged before the regulations caught up to them.</p>
+    </section>
+
+    <section id="states">
+      <h2>State constitutions: where the right actually lives</h2>
+      <p>If the federal Constitution is silent, the state constitutions are not. At least six U.S. states have adopted some form of constitutional environmental rights amendment — the so-called "Green Amendments" — that recognize a right to clean air, pure water, or a healthful environment<sup><a href="#ref-statecourt">[16]</a></sup>. Pennsylvania was first, with a 1971 amendment to Article I, Section 27: "The people have a right to clean air, pure water, and to the preservation of the natural, scenic, historic and esthetic values of the environment"<sup><a href="#ref-pa">[14]</a></sup>. Montana (1972), Massachusetts (1972), Hawaii (1978), and Illinois (1970) followed with their own variants. New York joined in 2021, with voters approving an amendment stating that "each person shall have a right to clean air and water, and a healthful environment"<sup><a href="#ref-nixonpeabody">[15]</a></sup><sup><a href="#ref-columbia">[17]</a></sup>.</p>
+      <p>The crucial question — and the one most relevant to <em>Sterling</em> — is whether these amendments are self-executing and enforceable by individual citizens, or merely aspirational. Pennsylvania has produced the most developed body of case law. In <em>Robinson Township v. Commonwealth</em> (2013), the Pennsylvania Supreme Court held that Article I, Section 27 is a substantive limit on legislative power, not merely a policy statement, and struck down portions of a statewide oil and gas law that overrode municipal zoning<sup><a href="#ref-pa">[14]</a></sup>. In <em>Pennsylvania Environmental Defense Foundation v. Commonwealth</em> (2017), the same court reinforced the amendment's enforceability and the public trust duties it imposes on the state as trustee of natural resources<sup><a href="#ref-pa">[14]</a></sup>. Together, <em>Robinson</em> and <em>PEDF</em> made Pennsylvania's right to "pure water" judicially enforceable — a precedent other Green Amendment states are watching closely.</p>
+      <p>New York's amendment is newer and its case law is still emerging. <em>Fresh Air for the East Side v. New York</em> is widely cited as the first significant test of the amendment's reach, challenging the state's regulation of air emissions from a facility in a residential neighborhood<sup><a href="#ref-columbia">[17]</a></sup>. California, while not amending its constitution, took a statutory path: Water Code section 106.3, enacted in 2013, declares that "every human being has the right to safe, clean, affordable, and accessible water adequate for human consumption, cooking, and sanitary purposes" — a right the state is required to consider in its water policy decisions<sup><a href="#ref-statecourt">[16]</a></sup>. Mississippi, notably, has neither a constitutional nor a statutory right of this kind — which is part of why the <em>Sterling</em> plaintiffs had nowhere to turn but federal court.</p>
+    </section>
+
+    <section id="state-table">
+      <h2>Comparison: state constitutional water rights</h2>
+      <div class="table-wrap">
+        <div class="caption">State-level recognition of a right to clean water, as of September 2026. "Self-executing" indicates whether courts have held the right is directly enforceable without implementing legislation.</div>
+        <table>
+          <thead>
+            <tr><th>State</th><th>Year</th><th>Constitutional text (excerpt)</th><th>Self-executing?</th><th>Key case law</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pennsylvania</td><td>1971</td>
+              <td>"The people have a right to clean air, pure water, and to the preservation of the natural, scenic, historic and esthetic values of the environment." (Art. I, § 27)</td>
+              <td><span class="pill yes">Yes</span></td>
+              <td><em>Robinson Twp. v. Commonwealth</em> (2013); <em>PEDF v. Commonwealth</em> (2017)<sup><a href="#ref-pa">[14]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Montana</td><td>1972</td>
+              <td>"All persons are born free and have certain inalienable rights… in enjoying these rights, all persons recognize corresponding responsibilities." (Art. IX, § 1; Art. II, § 3)</td>
+              <td><span class="pill some">Limited</span></td>
+              <td><em>MEIC v. DEQ</em> series — right applied to environmental review</td>
+            </tr>
+            <tr>
+              <td>Massachusetts</td><td>1972</td>
+              <td>"The people shall have the right to clean air and water, freedom from excessive and unnecessary noise, and the natural, scenic, historic, and esthetic qualities of their environment." (Art. XLIX)</td>
+              <td><span class="pill some">Limited</span></td>
+              <td>Largely applied through environmental review statutes</td>
+            </tr>
+            <tr>
+              <td>Hawaii</td><td>1978</td>
+              <td>"Each person has the right to a clean and healthful environment, as defined by law." (Art. XI, § 9)</td>
+              <td><span class="pill yes">Yes</span></td>
+              <td><em>In re Waiahole Ditch</em> (2000) — public trust applied to water</td>
+            </tr>
+            <tr>
+              <td>Illinois</td><td>1970</td>
+              <td>"Each person has the right to a healthful environment." (Art. XI, § 2)</td>
+              <td><span class="pill some">Limited</span></td>
+              <td>Requires implementing legislation</td>
+            </tr>
+            <tr>
+              <td>New York</td><td>2021</td>
+              <td>"Each person shall have a right to clean air and water, and a healthful environment." (Art. I, § 19)</td>
+              <td><span class="pill some">Emerging</span></td>
+              <td><em>Fresh Air for the East Side v. NY</em> — first major test<sup><a href="#ref-columbia">[17]</a></sup></td>
+            </tr>
+            <tr>
+              <td>California</td><td>2013</td>
+              <td>"It is hereby declared to be the established policy of the state that every human being has the right to safe, clean, affordable, and accessible water…" (Water Code § 106.3) — <em>statutory</em>, not constitutional</td>
+              <td><span class="pill no">No (statute)</span></td>
+              <td>Applies to state water-policy decisions; not directly enforceable by private suit</td>
+            </tr>
+            <tr>
+              <td>Mississippi</td><td>—</td>
+              <td>No constitutional or statutory right to clean water.</td>
+              <td><span class="pill no">None</span></td>
+              <td><em>Sterling v. Jackson</em> (5th Cir. 2026) — federal claim dismissed<sup><a href="#ref-opinion">[4]</a></sup></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="international">
+      <h2>The rest of the world disagrees</h2>
+      <p>The Fifth Circuit's holding that no constitutional right to clean water is "deeply rooted" in American history places the United States outside a global consensus that has hardened over the last fifteen years. On July 28, 2010, the United Nations General Assembly adopted Resolution 64/292, explicitly recognizing "the right to safe and clean drinking water and sanitation as a human right that is essential for the full enjoyment of life and all human rights"<sup><a href="#ref-un">[13]</a></sup><sup><a href="#ref-wiki">[14]</a></sup>. The vote was 122 in favor, none against, and 41 abstentions — the United States among the abstainers<sup><a href="#ref-wiki">[14]</a></sup>. The InterAction Council, a body of former heads of state, had earlier called for the recognition of a right to water as part of a renewed human-rights framework<sup><a href="#ref-interaction">[20]</a></sup>.</p>
+      <p>The UN Office of the High Commissioner for Human Rights now treats the human right to water and sanitation as established international law, with independent reporting mechanisms and country-level reviews<sup><a href="#ref-un">[13]</a></sup>. At least 17 national constitutions explicitly guarantee a right to water, and several more recognize it through judicial interpretation of broader rights to life, health, or a healthy environment<sup><a href="#ref-wiki">[14]</a></sup>. South Africa's post-apartheid Constitution (1996) guarantees that "everyone has the right to have access to… sufficient… water," and its courts have enforced that right against municipal disconnections<sup><a href="#ref-wiki">[14]</a></sup>. Uruguay amended its constitution in 2004 to explicitly prohibit the privatization of water services, treating access as a public good<sup><a href="#ref-wiki">[14]</a></sup>.</p>
+      <blockquote>
+        The United States is, by the measure of constitutional text, in the minority: a wealthy democracy whose foundational document says nothing about the water its citizens drink.
+      </blockquote>
+      <p>None of this binds a U.S. court — the Fifth Circuit correctly noted that international law does not, on its own, establish a right "deeply rooted" in <em>American</em> history for <em>Glucksberg</em> purposes<sup><a href="#ref-opinion">[4]</a></sup>. But international practice is relevant in two softer ways. First, it supplies comparative evidence that a constitutional right to water is workable — the doomsday predictions of unmanageable litigation have not materialized in the jurisdictions that adopted one. Second, it shapes the political and reputational environment in which U.S. courts and legislatures operate. The longer the U.S. stands apart, the more conspicuous the standing-apart becomes.</p>
+    </section>
+
+    <section id="intl-table">
+      <h2>Comparison: international water rights</h2>
+      <div class="table-wrap">
+        <div class="caption">Selected national and international recognition of a right to water. The UN Resolution is not a treaty but is treated as reflecting an emerging norm of customary international law<sup><a href="#ref-un">[13]</a></sup>.</div>
+        <table>
+          <thead>
+            <tr><th>Jurisdiction</th><th>Source</th><th>Right recognized</th><th>Enforceable?</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>United Nations</td><td>GA Res. 64/292 (2010)</td>
+              <td>Right to safe, clean drinking water and sanitation as a human right</td>
+              <td><span class="pill some">Normative</span></td>
+            </tr>
+            <tr>
+              <td>South Africa</td><td>Constitution (1996), § 27</td>
+              <td>Right of access to sufficient water</td>
+              <td><span class="pill yes">Yes</span></td>
+            </tr>
+            <tr>
+              <td>Uruguay</td><td>Constitutional amendment (2004)</td>
+              <td>Water as a public good; privatization of water services prohibited</td>
+              <td><span class="pill yes">Yes</span></td>
+            </tr>
+            <tr>
+              <td>India</td><td>Constitution, Art. 21 (judicial interpretation)</td>
+              <td>Right to life construed to include right to clean water</td>
+              <td><span class="pill some">Via litigation</span></td>
+            </tr>
+            <tr>
+              <td>Bolivia</td><td>Constitution (2009)</td>
+              <td>Right to water and sanitation as a human right</td>
+              <td><span class="pill yes">Yes</span></td>
+            </tr>
+            <tr>
+              <td>European Union</td><td>Directive 2020/2184 (recast Drinking Water Directive)</td>
+              <td>Access to water as a "basic material necessity"; member states ensure access</td>
+              <td><span class="pill some">Directive</span></td>
+            </tr>
+            <tr>
+              <td>United States</td><td>Federal Constitution</td>
+              <td>No recognized right (<em>Sterling</em>, 2026)</td>
+              <td><span class="pill no">No</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lead">
+      <h2>Why lead is the test case</h2>
+      <p>Lead is the contaminant that makes the absence of a constitutional right most visible, because it is the contaminant for which there is no safe exposure. The Centers for Disease Control and Prevention states unambiguously that there is <strong>no safe blood lead level for children</strong><sup><a href="#ref-cdc-children">[9]</a></sup>. The EPA's MCLG for lead in drinking water is zero<sup><a href="#ref-epa-lead">[7]</a></sup>. The physiological effects are well-established and irreversible: brain and nervous-system damage, learning and behavior problems, lowered IQ, slowed growth, hearing problems, and anemia in children<sup><a href="#ref-ncbi">[21]</a></sup><sup><a href="#ref-cdc-lead">[8]</a></sup>. The developing brain is the principal target, and the damage is dose-dependent even at very low exposures — there is no threshold below which lead is harmless<sup><a href="#ref-ncbi">[21]</a></sup>.</p>
+      <p>Drinking water is a meaningful fraction of total lead exposure. The EPA estimates that water can account for up to 20% of an average adult's lead exposure, and 40–60% of exposure for formula-fed infants whose sole nutrition is mixed with tap water<sup><a href="#ref-epa-lead">[7]</a></sup>. In a city like Jackson, where the water itself is the contamination source and the official guidance — boiling — cannot remove lead and can concentrate it, the exposure pathway is direct, sustained, and disproportionately borne by the youngest residents<sup><a href="#ref-mdpi">[19]</a></sup>.</p>
+      <p>This is why <em>Sterling</em> is not just a procedural case about qualified immunity. It is a case in which the factual record shows a government knowingly delivering a neurotoxin to children over years, a federal regulatory apparatus that documented the failure and issued orders but could not restore safe water, and a constitutional doctrine that, in the Fifth Circuit's reading, has nothing to say about any of it. The gap between the harm and the available remedy is the entire point.</p>
+    </section>
+
+    <section id="residents">
+      <h2>What residents can actually do</h2>
+      <p>The legal landscape described above is, for now, hostile to a federal constitutional claim. That does not leave residents of contaminated systems without options — but the options are practical and political rather than constitutional, and they place the burden of protection on the household rather than the state.</p>
+      <ul>
+        <li><strong>Test your water.</strong> The only way to know whether lead is present at the tap — where it matters, not at the treatment plant — is to test. EPA-certified laboratories will analyze tap samples for lead; many municipal water systems are required to provide sample kits on request under the LCR<sup><a href="#ref-epa-lead">[7]</a></sup><sup><a href="#ref-cdc-lead">[8]</a></sup>. Test results that exceed 15 ppb at the 90th-percentile level trigger regulatory action; results that exceed the MCLG of zero warrant household-level intervention regardless of the regulatory threshold.</li>
+        <li><strong>Invest in home water filtration.</strong> Point-of-use filtration is the most reliable household-level intervention. Reverse osmosis systems, properly certified lead-removal filters (NSF/ANSI Standard 53 for lead reduction, Standard 58 for reverse osmosis), and certain activated-carbon block filters can reduce lead at the tap to below detectable levels. Filters must be maintained — an expired cartridge can itself become a source of contamination. Boiling does not remove lead and, as Jackson's residents learned, can concentrate it<sup><a href="#ref-cdc-lead">[8]</a></sup><sup><a href="#ref-mdpi">[19]</a></sup>.</li>
+        <li><strong>Support state-level Green Amendments.</strong> Because the federal Constitution is, for now, closed, the most promising legal route for recognizing a right to clean water runs through the states. The Pennsylvania model — a self-executing amendment enforced by courts — is the precedent advocates point to. New York's 2021 amendment and the emerging case law around it are the live experiment<sup><a href="#ref-nixonpeabody">[15]</a></sup><sup><a href="#ref-statecourt">[16]</a></sup>. Activist coalitions in several states without such amendments are working to place them on the ballot; supporting those efforts is, at present, the most direct path to making clean water a legally enforceable right rather than a regulatory aspiration.</li>
+        <li><strong>Use existing statutory remedies.</strong> The SDWA's citizen-suit provisions, state public-nuisance law, and the Lead and Copper Rule's enforcement mechanisms remain available even where constitutional claims fail. These remedies are slower, narrower, and often capped, but they are the ones the current legal regime actually provides<sup><a href="#ref-epa-sdwa">[10]</a></sup>.</li>
+      </ul>
+    </section>
+
+    <section id="path-forward">
+      <h2>The path forward</h2>
+      <p>The <em>Sterling</em> decision closes a door and identifies the next ones. The closed door is the federal due-process claim, at least in the Fifth Circuit and at least for damages under qualified immunity. The doors that remain open are the Supreme Court, which now has a clean vehicle to address the underlying right; the state constitutions, where Green Amendments are slowly building a body of enforceable water-rights law; and the political branches, which could at any time recognize a federal right by statute or amendment if the courts will not.</p>
+      <p>What <em>Sterling</em> makes inescapable is the cost of the current arrangement. A city knowingly delivered lead-contaminated water to its residents for years. A state health department sat on the knowledge. A federal regulator issued orders that did not restore safe water. A flood finished what neglect had started. And the constitutional doctrine that governs the relationship between an American citizen and an American government said, in the end, that none of this infringed a right "deeply rooted" enough to be recognized. The question is not whether clean water matters — everyone agrees it does. The question is whether the law will say so. Right now, in most of the United States, it does not.</p>
+      <p>The next move belongs to whichever institution — the Supreme Court, a state electorate, or Congress — decides to be the one that changes that. Until one of them does, the right to clean water in the United States is, in the precise sense the Fifth Circuit described, a right that exists everywhere except in the place a right is supposed to be.</p>
+    </section>
+
+  </article>
+
+  <!-- Author bio at bottom (card is at top) -->
+  <div class="author-bio">
+    <p>Craig Phillips has spent over 15 years in the water filtration industry, helping homeowners and communities understand what's in their water and how to protect themselves. As Lead Writer at SoftPro Water Systems, he covers water quality, treatment technology, and the legal and policy issues that shape access to safe drinking water.</p>
+  </div>
+
+  <!-- Related articles -->
+  <div class="related">
+    <h2>Related Articles</h2>
+    <div class="related-list">
+      <a class="related-item" href="https://loftenter.github.io/zenfusion-audits/softpro/conversation-deep-dive-water-softener.html">
+        <div class="cat">Water Filtration</div>
+        <div class="ttl">Deep Dive: Water Softener Conversations &amp; What Homeowners Really Want</div>
+      </a>
+      <a class="related-item" href="https://loftenter.github.io/zenfusion-audits/softpro/conversation-finder-water-softener.html">
+        <div class="cat">Water Filtration</div>
+        <div class="ttl">Water Softener Conversation Finder: 102 Customer Discussions Analyzed</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- References — numbered list -->
+  <section id="references" class="references">
+    <h2>References</h2>
+    <ol>
+      <li id="ref-guardian">Lavin, T. &amp; Pierre, F. "Mississippi residents lose case over constitutional right to clean water." <em>The Guardian</em>, Sept. 8, 2026. <a href="https://www.theguardian.com/us-news/2026/sep/08/mississippi-clean-water-case-constitutional-right" target="_blank" rel="noopener">theguardian.com</a></li>
+      <li id="ref-usatoday">USA Today. "Court rules Constitution does not guarantee right to clean water." Sept. 7, 2026. <a href="https://www.usatoday.com/story/news/nation/2026/09/07/court-constitution-right-clean-water/91649488007/" target="_blank" rel="noopener">usatoday.com</a></li>
+      <li id="ref-bloomberg">Bloomberg Law. "Jackson Residents Lose Bid to Revive Water Contamination Claims." Sept. 2026. <a href="https://news.bloomberglaw.com/us-law-week/jackson-residents-lose-bid-to-revive-water-contamination-claims" target="_blank" rel="noopener">news.bloomberglaw.com</a></li>
+      <li id="ref-opinion">U.S. Court of Appeals for the Fifth Circuit. <em>Sterling v. City of Jackson, Mississippi</em>, No. 24-60370 (en banc, Sept. 4, 2026). <a href="https://www.ca5.uscourts.gov/opinions/pub/24/24-60370-CV1.pdf" target="_blank" rel="noopener">ca5.uscourts.gov</a></li>
+      <li id="ref-msstoday">Mississippi Today. "Jackson lawsuit over lead in water fails on appeal." Sept. 4, 2026. <a href="https://mississippitoday.org/2026/09/04/jackson-lawsuit-lead-water-appeal/" target="_blank" rel="noopener">mississippitoday.org</a></li>
+      <li id="ref-findlaw">FindLaw. "Fifth Circuit Weighs Constitutional Right to Clean Water." 2026. <a href="https://www.findlaw.com/legalblogs/fifth-circuit/fifth-circuit-weighs-constitutional-right-to-clean-water/" target="_blank" rel="noopener">findlaw.com</a></li>
+      <li id="ref-epa-lead">U.S. Environmental Protection Agency. "Lead in Drinking Water." <a href="https://www.epa.gov/lead/lead-drinking-water" target="_blank" rel="noopener">epa.gov/lead/lead-drinking-water</a></li>
+      <li id="ref-cdc-lead">Centers for Disease Control and Prevention. "Lead in Drinking Water — Prevention." <a href="https://www.cdc.gov/lead-prevention/prevention/drinking-water.html" target="_blank" rel="noopener">cdc.gov</a></li>
+      <li id="ref-cdc-children">Centers for Disease Control and Prevention. "Lead Exposure in Children — Risk Factors." <a href="https://www.cdc.gov/lead-prevention/risk-factors/children.html" target="_blank" rel="noopener">cdc.gov</a></li>
+      <li id="ref-epa-sdwa">U.S. Environmental Protection Agency. "Safe Drinking Water Act (SDWA)." <a href="https://www.epa.gov/sdwa" target="_blank" rel="noopener">epa.gov/sdwa</a></li>
+      <li id="ref-epa-cwa">U.S. Environmental Protection Agency. "Summary of the Clean Water Act." <a href="https://www.epa.gov/laws-regulations/summary-clean-water-act" target="_blank" rel="noopener">epa.gov</a></li>
+      <li id="ref-epa-lcr">U.S. Environmental Protection Agency. "Lead and Copper Rule (1991; Revised 2021; Improvements 2024)." Via <a href="https://www.epa.gov/lead/lead-drinking-water" target="_blank" rel="noopener">epa.gov</a></li>
+      <li id="ref-un">United Nations Office of the High Commissioner for Human Rights. "About the human right to water and sanitation." <a href="https://www.ohchr.org/en/water-and-sanitation/about-water-and-sanitation" target="_blank" rel="noopener">ohchr.org</a></li>
+      <li id="ref-wiki">"Human right to water and sanitation." <em>Wikipedia</em>. Includes text and vote tally of UN General Assembly Resolution 64/292 (July 28, 2010: 122–0–41). <a href="https://en.wikipedia.org/wiki/Human_right_to_water_and_sanitation" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+      <li id="ref-pa">Pennsylvania Courts. <em>Robinson Township v. Commonwealth</em> (2013) and <em>PEDF v. Commonwealth</em> (2017), construing Art. I, § 27 of the Pennsylvania Constitution. <a href="https://www.pacourts.us/assets/opinions/Supreme/out/j-35-2016mo%20-%2010314240919600966.pdf" target="_blank" rel="noopener">pacourts.us</a></li>
+      <li id="ref-nixonpeabody">Nixon Peabody LLP. "New York's Proposed Environmental Rights Amendment — the 'Green Amendment.'" March 9, 2021. <a href="https://www.nixonpeabody.com/insights/alerts/2021/03/09/proposed-ny-environmental-rights-amendment" target="_blank" rel="noopener">nixonpeabody.com</a></li>
+      <li id="ref-statecourt">State Court Report. "Greening State Constitutions: The Rise of Environmental Rights Amendments." <a href="https://statecourtreport.org/our-work/analysis-opinion/greening-state-constitutions" target="_blank" rel="noopener">statecourtreport.org</a></li>
+      <li id="ref-columbia">Columbia Journal of Environmental Law. Analysis of the New York Green Amendment and <em>Fresh Air for the East Side v. New York</em>. <a href="https://doi.org/10.52214/cjel.v49i2.12631" target="_blank" rel="noopener">doi.org/10.52214/cjel.v49i2.12631</a></li>
+      <li id="ref-cawater">California Water Code § 106.3 (2013) — statutory right to safe, clean, affordable, accessible water. (Also referenced via <a href="https://statecourtreport.org/our-work/analysis-opinion/greening-state-constitutions" target="_blank" rel="noopener">State Court Report</a>.)</li>
+      <li id="ref-mdpi">Mukherjee, S. et al. "The Jackson, Mississippi Water Crisis: A Case Study in Infrastructure Failure." <em>Water</em>, 18(3), 424, 2026. <a href="https://www.mdpi.com/2073-4441/18/3/424" target="_blank" rel="noopener">mdpi.com</a></li>
+      <li id="ref-interaction">InterAction Council. "The Right to Water: A Briefing Note." <a href="https://www.interactioncouncil.org/publications/right-water-briefing-note" target="_blank" rel="noopener">interactioncouncil.org</a></li>
+      <li id="ref-ncbi">National Center for Biotechnology Information. "Lead Toxicity: Health Effects." <em>PMCID PMC4961898</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4961898/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li>
+      <li id="ref-classaction">Class Action Complaint, <em>Sterling et al. v. The City of Jackson, Mississippi et al.</em> <a href="https://www.classaction.org/media/sterling-et-al-v-the-city-of-jackson-mississippi-et-al.pdf" target="_blank" rel="noopener">classaction.org</a></li>
+      <li id="ref-courtlistener">CourtListener docket, <em>Sterling v. The City of Jackson, Mississippi</em>, S.D. Miss. <a href="https://www.courtlistener.com/docket/65357651/sterling-v-the-city-of-jackson-mississippi/" target="_blank" rel="noopener">courtlistener.com</a></li>
+      <li id="ref-lawcommentary">Law Commentary. "Federal Appeals Court Rules Clean Drinking Water Is Not a Constitutional Right." 2026. <a href="https://www.lawcommentary.com/articles/federal-appeals-court-clean-drinking-water-constitutional-right" target="_blank" rel="noopener">lawcommentary.com</a></li>
+      <li id="ref-southafrica">Constitution of the Republic of South Africa, 1996, § 27(1)(b) — right of access to sufficient water. (Referenced via <a href="https://en.wikipedia.org/wiki/Human_right_to_water_and_sanitation" target="_blank" rel="noopener">Wikipedia HRWS</a>.)</li>
+      <li id="ref-uruguay">Uruguay Constitutional Amendment on Water (2004) — water as a public good, privatization prohibited. (Referenced via <a href="https://en.wikipedia.org/wiki/Human_right_to_water_and_sanitation" target="_blank" rel="noopener">Wikipedia HRWS</a>.)</li>
+      <li id="ref-freshair"><em>Fresh Air for the East Side v. New York</em> — first significant litigation under New York's 2021 Green Amendment (Art. I, § 19). (Discussed at <a href="https://doi.org/10.52214/cjel.v49i2.12631" target="_blank" rel="noopener">Columbia Journal of Environmental Law</a>.)</li>
+    </ol>
+  </section>
+
+</div>
+
+<!-- End of article -->
