@@ -1,0 +1,386 @@
+<!-- SoftPro Blog Article: AIO Iron Filter Technology -->
+<!-- Title: The Chemical-Free Iron Filter That Actually Works: How AIO Technology Solves Your Well Water Nightmares -->
+<!-- Author: Craig "The Water Guy" Phillips -->
+<!-- Date: September 17, 2026 -->
+<!-- Category: Well Water / Iron Filtration -->
+<!-- Word count: ~1,895 | Citations: 11 -->
+<!-- Paste this into the Shopify blog post HTML editor -->
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+
+  .category-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #6b7280; margin-bottom: 14px;
+  }
+  h1.article-title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(28px, 5vw, 38px); line-height: 1.2;
+    font-weight: 700; margin-bottom: 16px; letter-spacing: -0.01em; color: #1a1a1a;
+  }
+  .article-date { font-size: 14px; color: #6b7280; margin-bottom: 28px; }
+  .article-intro {
+    font-size: 19px; line-height: 1.6; color: #374151; margin-bottom: 40px; font-weight: 400;
+  }
+
+  a { color: #2563eb; text-decoration: none; text-underline-offset: 2px; }
+  a:hover { text-decoration: underline; }
+  sup a { font-weight: 600; font-size: 0.72em; color: #2563eb; text-decoration: none; }
+  sup a:hover { text-decoration: underline; }
+
+  /* Author block */
+  .author-block-top {
+    background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;
+    padding: 18px 22px; margin: 0 0 24px;
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .author-block-top .author-photo {
+    width: 52px; height: 52px; border-radius: 50%; background: #1a2a4a; color: #d4af37;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700; flex-shrink: 0; letter-spacing: 0.02em;
+  }
+  .author-block-top .author-info { flex: 1; min-width: 200px; }
+  .author-block-top .author-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; color: #1a2a4a; }
+  .author-block-top .author-info .author-title { font-size: 13px; color: #6b7280; margin-bottom: 6px; }
+  .author-block-top .author-info .author-links { font-size: 13px; color: #e05c3c; }
+  .author-block-top .author-info .author-links a { color: #e05c3c; text-decoration: none; }
+  .author-block-top .author-info .author-links a:hover { text-decoration: underline; }
+  .last-updated { font-size: 13px; color: #6b7280; margin-bottom: 32px; }
+
+  /* Key Takeaways */
+  .key-takeaways { margin: 0 0 40px; }
+  .key-takeaways .kt-header {
+    background: #1a2a4a; color: #d4af37; border-radius: 8px 8px 0 0;
+    padding: 14px 24px; font-size: 15px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; text-align: center;
+  }
+  .key-takeaways .kt-body {
+    background: #f8f9fa; border: 1px solid #e5e7eb; border-top: none;
+    border-radius: 0 0 8px 8px; padding: 24px;
+  }
+  .key-takeaways ul { list-style: none; padding: 0; }
+  .key-takeaways li {
+    padding-left: 26px; position: relative; margin-bottom: 10px;
+    font-size: 15px; line-height: 1.6; color: #374151;
+  }
+  .key-takeaways li:last-child { margin-bottom: 0; }
+  .key-takeaways li::before {
+    content: "\2713"; position: absolute; left: 0; top: 0; color: #1a2a4a; font-weight: 700;
+  }
+
+  /* TOC */
+  .toc-box {
+    background: #f0f7ff; border: 1px solid #dbeafe; border-radius: 8px;
+    padding: 24px; margin: 0 0 48px;
+  }
+  .toc-box h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px; font-weight: 700; margin-bottom: 14px; color: #1a1a1a;
+  }
+  .toc-box ol { padding-left: 22px; counter-reset: toc; list-style: none; }
+  .toc-box li { counter-increment: toc; margin-bottom: 8px; font-size: 15px; padding-left: 4px; }
+  .toc-box li::before { content: counter(toc) ". "; color: #6b7280; font-weight: 600; }
+  .toc-box a { color: #2563eb; }
+
+  /* Article body */
+  article h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px; line-height: 1.25; font-weight: 700; margin: 48px 0 18px; color: #1a1a1a;
+    scroll-margin-top: 24px;
+  }
+  article h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 19px; line-height: 1.3; font-weight: 700; margin: 32px 0 12px; color: #1a1a1a;
+  }
+  article p { margin-bottom: 22px; font-size: 17px; line-height: 1.75; color: #1f2937; }
+  article ul, article ol { margin: 0 0 22px 24px; }
+  article li { margin-bottom: 10px; font-size: 17px; line-height: 1.7; color: #1f2937; }
+  article strong { color: #1a1a1a; font-weight: 700; }
+  article em { font-style: italic; }
+  article section { scroll-margin-top: 24px; }
+
+  blockquote {
+    margin: 32px 0; padding: 8px 0 8px 24px; border-left: 3px solid #e5e7eb;
+    font-size: 19px; line-height: 1.6; font-style: italic; color: #374151;
+  }
+  blockquote cite {
+    display: block; margin-top: 12px; font-size: 14px; color: #6b7280; font-style: normal;
+  }
+
+  .info-box {
+    background: #f8f9fa; border: 1px solid #e5e7eb; border-left: 3px solid #1d4ed8;
+    border-radius: 8px; padding: 20px 24px; margin: 32px 0;
+  }
+  .info-box .label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #1d4ed8; margin-bottom: 8px;
+  }
+  .info-box p { font-size: 15px; margin-bottom: 8px; color: #374151; line-height: 1.65; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  .table-wrap {
+    margin: 32px 0; overflow-x: auto; border: 1px solid #e5e7eb; border-radius: 8px;
+  }
+  .table-wrap .caption {
+    padding: 12px 16px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb;
+    font-size: 13px; color: #6b7280; font-style: italic;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+  thead th {
+    background: #f8f9fa; color: #1a1a1a; text-align: left; padding: 10px 14px;
+    font-size: 13px; font-weight: 600; border-bottom: 1px solid #e5e7eb;
+  }
+  tbody td { padding: 10px 14px; border-top: 1px solid #e5e7eb; vertical-align: top; color: #374151; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody td:first-child { font-weight: 600; color: #1a1a1a; }
+
+  .author-bio { margin: 48px 0 0; padding-top: 24px; border-top: 1px solid #e5e7eb; }
+  .author-bio p { font-size: 14px; line-height: 1.65; color: #6b7280; font-style: italic; }
+
+  .references { margin-top: 48px; padding-top: 28px; border-top: 1px solid #e5e7eb; }
+  .references h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #1a1a1a;
+  }
+  .references ol { padding-left: 0; list-style: none; counter-reset: ref; }
+  .references li {
+    counter-increment: ref; padding: 10px 0 10px 32px; border-bottom: 1px solid #f3f4f6;
+    font-size: 14px; line-height: 1.6; position: relative; color: #374151;
+  }
+  .references li:last-child { border-bottom: none; }
+  .references li::before {
+    content: counter(ref) "."; position: absolute; left: 0; top: 10px;
+    font-weight: 700; color: #6b7280; font-size: 14px;
+  }
+  .references li a { word-break: break-word; color: #2563eb; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .container { padding: 32px 16px 64px; }
+    .key-takeaways .kt-body, .toc-box, .info-box { padding: 20px; }
+    article h2 { font-size: 23px; }
+    h1.article-title { font-size: 26px; }
+  }
+</style>
+
+<div class="container">
+
+  <div class="category-label">Well Water / Iron Filtration</div>
+  <h1 class="article-title">The Chemical-Free Iron Filter That Actually Works: How AIO Technology Solves Your Well Water Nightmares</h1>
+  <div class="article-date">September 17, 2026</div>
+  <p class="article-intro">Rust-stained sinks, metallic-tasting coffee, laundry that comes out looking worse than it went in — if you're on a well, you already know the symptoms. What you may not know is that the cleanest fix doesn't use a single drop of chemicals. It uses air.</p>
+
+  <div class="author-block-top">
+    <div class="author-photo">CP</div>
+    <div class="author-info">
+      <h3>Craig "The Water Guy" Phillips</h3>
+      <div class="author-title">Water Treatment Expert &amp; Lead Writer, SoftPro Water Systems</div>
+      <div class="author-links">
+        <a href="https://www.youtube.com/@SoftProWaterSystems">YouTube (@SoftProWaterSystems)</a> &nbsp;|&nbsp;
+        <a href="https://softprowatersystems.com">softprowatersystems.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="last-updated">Last updated: September 2026</div>
+
+  <div class="key-takeaways">
+    <div class="kt-header">Key Takeaways</div>
+    <div class="kt-body">
+      <ul>
+        <li>AIO (Air Injection Oxidation) uses oxygen drawn from the air itself to convert dissolved ferrous iron (Fe²⁺) into solid ferric iron (Fe³⁺), which is then filtered out — no chemicals required<sup><a href="#ref-maw">[3]</a></sup><sup><a href="#ref-cj">[6]</a></sup>.</li>
+        <li>A single system can remove up to 30 ppm iron, 7 ppm manganese, and 5 ppm hydrogen sulfide, operating at pH as low as 6.0<sup><a href="#ref-softpro-im">[1]</a></sup><sup><a href="#ref-softpro-fe">[9]</a></sup>.</li>
+        <li>Katalox Light&reg; filtration media outperforms Birm, Greensand, and Pyrolox and lasts 6–10 years before replacement<sup><a href="#ref-cws">[7]</a></sup>.</li>
+        <li>AIO eliminates the need for potassium permanganate, chlorine injection, and salt — the messy consumables older iron filters depend on<sup><a href="#ref-qwt">[11]</a></sup>.</li>
+        <li>Ideal for well-water households with pH above 6.0; iron bacteria requires shock chlorination first, and iron above 30 ppm may need chemical oxidation<sup><a href="#ref-wwf">[4]</a></sup>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="toc-box">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#the-problem">The iron problem in well water</a></li>
+      <li><a href="#what-is-aio">What AIO is and how it works</a></li>
+      <li><a href="#chemistry">The chemistry, simplified</a></li>
+      <li><a href="#vs-chemicals">Why AIO beats chemical alternatives</a></li>
+      <li><a href="#katalox">Katalox Light vs. Birm, Greensand &amp; Pyrolox</a></li>
+      <li><a href="#softpro-im">The SoftPro Iron Master AIO</a></li>
+      <li><a href="#who-benefits">Who benefits most</a></li>
+      <li><a href="#install-order">The correct installation order</a></li>
+      <li><a href="#limitations">Where AIO reaches its limit</a></li>
+      <li><a href="#bottom-line">The bottom line</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </div>
+
+  <article>
+
+    <section id="the-problem">
+      <h2>The iron problem in well water</h2>
+      <p>If your water comes from a well, iron is almost guaranteed to be part of the package. Iron is the fourth most abundant element in the earth's crust, and groundwater percolating through iron-rich soil and rock dissolves it by the milligram. The EPA sets no health-based limit for iron in drinking water, but the <em>aesthetic</em> limit is 0.3 mg/L — and most problematic wells carry 2 to 15 mg/L, sometimes far more<sup><a href="#ref-softpro-fe">[9]</a></sup>.</p>
+      <p>The symptoms are unmistakable:</p>
+      <ul>
+        <li><strong>Orange and brown rust stains</strong> on sinks, toilets, tubs, and dishware — the calling card of ferric iron precipitating out of solution.</li>
+        <li><strong>Metallic taste and odor</strong> that ruins coffee, tea, and anything cooked in the water.</li>
+        <li><strong>Hydrogen sulfide (H₂S)</strong> — the infamous "rotten egg" smell — which often accompanies iron-reducing conditions in the aquifer and can make showers unbearable<sup><a href="#ref-maw">[3]</a></sup>.</li>
+        <li><strong>Black manganese staining</strong> on fixtures and laundry. Manganese frequently co-occurs with iron in well water and leaves a dark, nearly impossible-to-remove residue<sup><a href="#ref-softpro-fe">[9]</a></sup>.</li>
+      </ul>
+      <p>Beyond the cosmetic misery, iron and manganese can clog pipes, coat the inside of water heaters, reduce appliance lifespan, and foul downstream water softener resin. The standard response for decades was chemical treatment — and most of those chemical regimens are expensive, messy, and high-maintenance. AIO changes that calculus<sup><a href="#ref-qwt">[11]</a></sup>.</p>
+    </section>
+
+    <section id="what-is-aio">
+      <h2>What AIO is and how it works</h2>
+      <p>AIO stands for <strong>Air Injection Oxidation</strong>. The concept is elegant: instead of dosing your water with chlorine or potassium permanganate to oxidize dissolved iron, AIO draws in plain atmospheric air and uses the oxygen in it to do the same job — naturally<sup><a href="#ref-bwhw">[5]</a></sup>.</p>
+      <p>The system runs through four stages during every service cycle:</p>
+      <h3>1. Air draw (Venturi nozzle)</h3>
+      <p>As water flows through the control valve, it passes through a Venturi injector — a constricted throat that creates a pressure drop. That negative pressure sucks a measured volume of air into the water stream, forming fine bubbles that saturate the incoming water with dissolved oxygen<sup><a href="#ref-nelsen">[10]</a></sup>. At the start of each service cycle the tank also contains a pressurized air pocket at the top, established during the previous backwash.</p>
+      <h3>2. Oxidation</h3>
+      <p>Inside the tank, oxygen-rich water meets the air pocket. Dissolved ferrous iron (Fe²⁺), manganese (Mn²⁺), and hydrogen sulfide (H₂S) react with oxygen and precipitate into solid, insoluble particles — ferric iron (Fe³⁺), manganese dioxide, and elemental sulfur respectively<sup><a href="#ref-cj">[6]</a></sup>.</p>
+      <h3>3. Filtration (Katalox Light&reg;)</h3>
+      <p>The freshly oxidized solid particles are caught by the Katalox Light filtration media bed below. Katalox Light is a high-purity manganese-dioxide-coated zeolite that acts as both a physical filter and a catalytic surface, accelerating the oxidation reaction so the process completes in a single pass<sup><a href="#ref-cws">[7]</a></sup>.</p>
+      <h3>4. Automatic backwash</h3>
+      <p>On a timed schedule — typically every few days — the control valve reverses flow, lifting and expanding the media bed to flush the accumulated iron, manganese, and sulfur particles to drain. The bed re-settles, the air pocket recharges, and the system returns to service<sup><a href="#ref-nelsen">[10]</a></sup>. No chemicals, no regenerate solution to mix, no permanganate tanks to tend.</p>
+    </section>
+
+    <section id="chemistry">
+      <h2>The chemistry, simplified</h2>
+      <div class="info-box">
+        <div class="label">The Reaction</div>
+        <p>Dissolved ferrous iron (Fe²⁺) is clear and invisible in water — which is why your well water looks fine straight from the tap but turns orange after it sits. On contact with oxygen, each Fe²⁺ ion gives up an electron and becomes ferric iron (Fe³⁺), which is essentially rust and is completely insoluble. It drops out of solution as a solid particle the filter can physically capture<sup><a href="#ref-cj">[6]</a></sup>.</p>
+        <p>The same oxidation handles manganese (Mn²⁺ → Mn⁴⁺ as manganese dioxide) and hydrogen sulfide (H₂S → elemental sulfur). All three contaminants are converted from dissolved-and-invisible to solid-and-filterable in a single reaction chamber<sup><a href="#ref-maw">[3]</a></sup>.</p>
+      </div>
+      <p>That single-air-pocket chamber is the heart of the system. The air pocket stays pressurized at the top of the tank between backwashes, and incoming water sprayed through it provides continuous oxidation contact. This is why AIO systems need no chemical feed pump, no solution tank, and no daily maintenance — the oxidant is literally the air your family breathes<sup><a href="#ref-wwf">[4]</a></sup>.</p>
+    </section>
+
+    <section id="vs-chemicals">
+      <h2>Why AIO beats chemical alternatives</h2>
+      <p>Traditional iron filtration has long relied on chemical regenerants. Greensand filters require regular feed of <strong>potassium permanganate</strong> — a powerful purple oxidizer that is expensive, stains everything it touches, and is increasingly restricted in some states. Chlorine injection systems need a chemical feed pump, a solution tank, daily monitoring of chlorine residual, and a carbon filter downstream to strip the chlorine back out<sup><a href="#ref-qwt">[11]</a></sup>.</p>
+      <p>AIO eliminates all of it:</p>
+      <ul>
+        <li><strong>No potassium permanganate</strong> — the air pocket is the oxidant, regenerated free with every backwash<sup><a href="#ref-cj">[6]</a></sup>.</li>
+        <li><strong>No chlorine injection</strong> — no feed pump, no solution tank, no chemical handling<sup><a href="#ref-bwhw">[5]</a></sup>.</li>
+        <li><strong>No salt</strong> — AIO is a filter, not a softener, so it consumes zero salt.</li>
+        <li><strong>No messy chemicals</strong> — nothing to mix, spill, store, or safely dispose of.</li>
+      </ul>
+      <blockquote>
+        Air injection oxidation is one of the most maintenance-free iron removal methods available — the system draws air during backwash and uses it as the oxidant, so there are no chemicals to buy, mix, or handle.
+        <cite>— Mid Atlantic Water<sup><a href="#ref-maw">[3]</a></sup></cite>
+      </blockquote>
+      <p>The practical payoff is significant. No permanganate means no purple staining on concrete or skin. No chlorine means no chemical odor, no disinfection byproducts, and no carbon replacement cost downstream. For households tired of the chemical treadmill, AIO is a genuinely different approach<sup><a href="#ref-wwf">[4]</a></sup>.</p>
+    </section>
+
+    <section id="katalox">
+      <h2>Katalox Light&reg; vs. Birm, Greensand &amp; Pyrolox</h2>
+      <p>The filtration media is the other half of the equation. AIO systems use <strong>Katalox Light</strong>, a manganese-dioxide-coated zeolite engineered for high surface area and catalytic activity. It has become the media of choice for AIO because it tolerates a wider range of conditions than any older media<sup><a href="#ref-cws">[7]</a></sup>.</p>
+      <div class="table-wrap">
+        <div class="caption">Filtration media comparison — Katalox Light versus legacy iron-filter media.</div>
+        <table>
+          <thead>
+            <tr><th>Property</th><th>Katalox Light&reg;</th><th>Birm</th><th>Greensand</th><th>Pyrolox</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Max iron removal</td><td>30 ppm<sup><a href="#ref-softpro-im">[1]</a></sup></td><td>~10 ppm</td><td>~15 ppm</td><td>~10–15 ppm</td></tr>
+            <tr><td>Max manganese</td><td>7 ppm</td><td>Limited</td><td>~3 ppm</td><td>Limited</td></tr>
+            <tr><td>H₂S removal</td><td>Up to 5 ppm<sup><a href="#ref-softpro-im">[1]</a></sup></td><td>No</td><td>Limited</td><td>Limited</td></tr>
+            <tr><td>Min pH</td><td>6.0<sup><a href="#ref-softpro-fe">[9]</a></sup></td><td>6.8</td><td>7.0</td><td>6.5</td></tr>
+            <tr><td>Chemical regenerant</td><td>None (air)</td><td>None</td><td>Potassium permanganate</td><td>None</td></tr>
+            <tr><td>Media life</td><td>6–10 years<sup><a href="#ref-cws">[7]</a></sup></td><td>5–8 years</td><td>5–7 years</td><td>8–10 years</td></tr>
+            <tr><td>Backwash requirement</td><td>Moderate</td><td>Low</td><td>Moderate</td><td>High (heavy media)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Birm is cheap and chemical-free but taps out at lower iron levels and refuses to work below pH 6.8. Greensand handles more iron but ties you to potassium permanganate. Pyrolox is durable but dense — it requires high backwash flow rates that many residential wells can't deliver<sup><a href="#ref-cws">[7]</a></sup>. Katalox Light threads the needle: higher capacity, lower pH tolerance, hydrogen sulfide removal, no chemical regenerant, and a reasonable backwash requirement. For a detailed walkthrough, this comparison video covers the trade-offs in practice<sup><a href="#ref-yt">[8]</a></sup>.</p>
+    </section>
+
+    <section id="softpro-im">
+      <h2>The SoftPro Iron Master AIO</h2>
+      <p>The SoftPro Iron Master packages the full AIO system — Venturi air injection, Katalox Light media bed, and automatic backwash control — into a residential unit built for the realities of well water. The published specifications<sup><a href="#ref-softpro-im">[1]</a></sup>:</p>
+      <ul>
+        <li><strong>Iron removal:</strong> up to 30 ppm (most wells run 2–15 ppm).</li>
+        <li><strong>Manganese removal:</strong> up to 7 ppm.</li>
+        <li>Hydrogen sulfide (rotten egg smell) removal, up to 5 ppm.</li>
+        <li>Katalox Light&reg; media — chemical-free, air-regenerated.</li>
+        <li>Minimum pH 6.0, no chemical pre-conditioning required above that threshold<sup><a href="#ref-softpro-fe">[9]</a></sup>.</li>
+        <li>Automatic backwash valve programmable for households of any size.</li>
+      </ul>
+      <p>Because the Iron Master handles iron, manganese, and H₂S in a single tank, many well-water households can replace a multi-unit chemical stack with one filter — and then add a water softener downstream for hardness without the iron fouling the resin<sup><a href="#ref-softpro-col">[2]</a></sup>.</p>
+    </section>
+
+    <section id="who-benefits">
+      <h2>Who benefits most</h2>
+      <p>AIO is not the answer for every water problem, but for a specific set of conditions it is the cleanest, lowest-maintenance option available:</p>
+      <ul>
+        <li><strong>Well water households</strong> — AIO is designed for private wells; municipal supplies rarely need it.</li>
+        <li><strong>Moderate to high iron</strong> — systems like the Iron Master handle up to 30 ppm; most wells fall comfortably within range<sup><a href="#ref-softpro-im">[1]</a></sup>.</li>
+        <li><strong>Sulfur smell (H₂S)</strong> — if your water smells like rotten eggs, AIO is one of the few chemical-free ways to strip hydrogen sulfide<sup><a href="#ref-maw">[3]</a></sup>.</li>
+        <li><strong>pH above 6.0</strong> — below that, the oxidation reaction slows and you may need a pH correction feed first. Above 6.0, AIO works unassisted<sup><a href="#ref-softpro-fe">[9]</a></sup>.</li>
+        <li><strong>Homeowners who hate handling chemicals</strong> — no permanganate, no chlorine, no salt, no solution tanks<sup><a href="#ref-qwt">[11]</a></sup>.</li>
+      </ul>
+    </section>
+
+    <section id="install-order">
+      <h2>The correct installation order</h2>
+      <p>Sequence matters. Get it wrong and iron fouls everything downstream. The correct whole-house treatment train for well water with iron and hardness is:</p>
+      <ol>
+        <li><strong>Sediment filter</strong> — a 5-to-20-micron pre-filter catches sand, silt, and debris that would otherwise clog the AIO media bed.</li>
+        <li><strong>AIO iron filter</strong> — removes iron, manganese, and H₂S before they can foul the softener resin<sup><a href="#ref-wwf">[4]</a></sup>.</li>
+        <li><strong>Water softener</strong> — now sees iron-free water, so resin stays clean and salt efficiency holds<sup><a href="#ref-softpro-fe">[9]</a></sup>.</li>
+        <li><strong>Reverse osmosis (RO)</strong> at the kitchen sink for drinking water polishing — reduced iron loading extends RO membrane life significantly.</li>
+      </ol>
+      <p>Putting the softener before the iron filter is the single most common installation mistake. Iron coats softener resin rapidly, slashing capacity and forcing frequent, expensive resin replacement. AIO first, softener second<sup><a href="#ref-qwt">[11]</a></sup>.</p>
+    </section>
+
+    <section id="limitations">
+      <h2>Where AIO reaches its limit</h2>
+      <p>AIO is excellent but it is not magic. Three situations need attention before you commit:</p>
+      <h3>Iron bacteria</h3>
+      <p>Iron-reducing bacteria create a slimy biofilm that coats media and blocks filtration. If your well has iron bacteria — often signaled by a swampy, musty smell and gelatinous deposits in the toilet tank — AIO alone will not solve it. The standard protocol is <strong>shock chlorination</strong> of the well first, followed by AIO to handle residual iron and manganese<sup><a href="#ref-wwf">[4]</a></sup>.</p>
+      <h3>Very high iron (above 30 ppm)</h3>
+      <p>AIO systems are rated to 30 ppm iron. Above that, the oxidation chamber and media bed can be overwhelmed. In those rare cases, a chemical oxidation stage — chlorine injection followed by a retention tank and filter — is typically added ahead of the AIO<sup><a href="#ref-qwt">[11]</a></sup>.</p>
+      <h3>Low backwash flow</h3>
+      <p>Katalox Light must be lifted and expanded during backwash to flush trapped particles. If your well pump can't deliver the backwash flow rate specified for the tank size (often 8–12 gpm for residential units), the bed won't clean properly and channeling will reduce capacity<sup><a href="#ref-nelsen">[10]</a></sup>. Always verify pump output before sizing the system.</p>
+    </section>
+
+    <section id="bottom-line">
+      <h2>The bottom line</h2>
+      <p>AIO is not a new idea — air has been oxidizing iron since the first well was dug — but the combination of Venturi air injection, Katalox Light media, and automatic backwash turns that natural chemistry into a zero-chemical, low-maintenance residential filter. If you're on well water with iron below 30 ppm, manganese below 7 ppm, hydrogen sulfide below 5 ppm, and pH above 6.0, an AIO system like the SoftPro Iron Master can replace a chemical-heavy treatment stack with a single, set-and-forget unit<sup><a href="#ref-softpro-im">[1]</a></sup>.</p>
+      <p>No permanganate. No chlorine. No salt. No hauling. Just air, a well-engineered media bed, and the chemistry that's been happening underground for millions of years — now happening in a tank in your basement, on your terms.</p>
+    </section>
+
+  </article>
+
+  <div class="author-bio">
+    <p>Craig "The Water Guy" Phillips has spent over 15 years in the water filtration industry, helping homeowners and communities understand what's in their water and how to protect themselves. As Lead Writer at SoftPro Water Systems, he covers well water treatment, iron and sulfur filtration, and the science behind chemical-free water conditioning.</p>
+  </div>
+
+  <section id="references" class="references">
+    <h2>References</h2>
+    <ol>
+      <li id="ref-softpro-im">SoftPro Water Systems. "SoftPro Iron Master Iron Filter for Well Water — Product Specifications." <a href="https://www.softprowatersystems.com/products/iron-master-iron-filter-for-well-water" target="_blank" rel="noopener">softprowatersystems.com</a></li>
+      <li id="ref-softpro-col">SoftPro Water Systems. "Iron Well Water Filters — Collection." <a href="https://softprowatersystems.com/collections/iron-well-water-filters" target="_blank" rel="noopener">softprowatersystems.com</a></li>
+      <li id="ref-maw">Mid Atlantic Water. "How Does an Iron Filter Work? — AIO Explained." <a href="https://midatlanticwater.net/blogs/faqs/how-does-an-iron-filter-work" target="_blank" rel="noopener">midatlanticwater.net</a></li>
+      <li id="ref-wwf">Well Water Fix. "Air Injection Iron Filter for Well Water: Complete Guide." <a href="https://wellwaterfix.com/air-injection-iron-filter-well-water/" target="_blank" rel="noopener">wellwaterfix.com</a></li>
+      <li id="ref-bwhw">Best Whole House Water Filters. "Air Injection Oxidation for Iron Removal." <a href="https://bestwholehousewaterfilters.com/air-injection-oxidation-for-iron-removal/" target="_blank" rel="noopener">bestwholehousewaterfilters.com</a></li>
+      <li id="ref-cj">C and J Water. "Air Injection Oxidation (AIO)." <a href="https://candjwater.com/air-injection-oxidation-aio/" target="_blank" rel="noopener">candjwater.com</a></li>
+      <li id="ref-cws">Clean Water Store. "Birm, Greensand, and MangOX Iron Filters: A Primer." <a href="https://www.cleanwaterstore.com/blog/birm-greensand-and-mangox-iron-filters-a-primer" target="_blank" rel="noopener">cleanwaterstore.com</a></li>
+      <li id="ref-yt">YouTube. "Birm vs. Katalox vs. Greensand — Iron Filter Media Comparison." <a href="https://www.youtube.com/watch?v=62WURaqShH4" target="_blank" rel="noopener">youtube.com</a></li>
+      <li id="ref-softpro-fe">SoftPro Water Systems. "Iron and Manganese Filtration Guide." <a href="https://softprowatersystems.com/pages/iron-and-manganese-filtration" target="_blank" rel="noopener">softprowatersystems.com</a></li>
+      <li id="ref-nelsen">Nelsen Water Solutions. "Nelsen AIO System Manual (2510 / 5600 Valve)." PDF. <a href="https://nelsenwatersolutions.com/wp-content/uploads/2022/08/Nelsen-AIO-Manual-2510-5600_0822.pdf" target="_blank" rel="noopener">nelsenwatersolutions.com</a></li>
+      <li id="ref-qwt">Quality Water Treatment. "Iron Filters vs. Alternatives — What You Need." <a href="https://qualitywatertreatment.com/pages/iron-filters-vs-alternatives-need" target="_blank" rel="noopener">qualitywatertreatment.com</a></li>
+    </ol>
+  </section>
+
+</div>
+
+<!-- End of article -->
