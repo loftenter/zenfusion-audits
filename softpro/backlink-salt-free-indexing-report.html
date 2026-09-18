@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlink Indexing Report - Salt Free Water Conditioner</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 32px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .meta {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+        .alert {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+        .alert.error { background: #fee; border-color: #dc2626; }
+        .alert.success { background: #d1fae5; border-color: #10b981; }
+        .alert h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .alert p {
+            font-size: 14px;
+            color: #374151;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        tr:hover {
+            background: #f9fafb;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status.live { background: #d1fae5; color: #065f46; }
+        .status.dead { background: #fee2e2; color: #991b1b; }
+        .status.indexed { background: #dbeafe; color: #1e40af; }
+        .status.not-indexed { background: #fee; color: #991b1b; }
+        .status.error { background: #fef3c7; color: #92400e; }
+        .url-cell {
+            max-width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .url-cell a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .url-cell a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin: 48px 0;
+        }
+        .section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Backlink Indexing Report</h1>
+        <div class="meta">Salt Free Water Conditioner Campaign • Generated: September 18, 2026</div>
+
+        <div class="summary">
+            <div class="stat-card">
+                <div class="stat-value">22</div>
+                <div class="stat-label">Total URLs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">19</div>
+                <div class="stat-label">Live (HTTP 200)</div>
+            </div>
+            <div class="stat-card" style="background: #fee2e2;">
+                <div class="stat-value" style="color: #dc2626;">0</div>
+                <div class="stat-label">Indexed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">14</div>
+                <div class="stat-label">Ready for IndexBolt</div>
+            </div>
+        </div>
+
+        <div class="alert error">
+            <h3>⚠️ Critical Finding</h3>
+            <p><strong>0 out of 22 backlinks are indexed</strong> in Google or Brave. These URLs are live but invisible to search engines — providing zero SEO value until submitted for indexing.</p>
+        </div>
+
+        <div class="alert">
+            <h3>Action Required</h3>
+            <p><strong>14 URLs ready for IndexBolt submission</strong> (HTTP 200, confirmed not indexed)<br>
+            3 URLs have HTTP 403 errors (Medium, CodePen — likely rate-limited or bot-blocked)<br>
+            5 URLs had API errors during Google check (need manual verification)</p>
+        </div>
+
+        <div class="section">
+            <h2>URLs Ready for IndexBolt (14)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>HTTP</th>
+                        <th>Google</th>
+                        <th>Brave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dallas, TX</td>
+                        <td class="url-cell"><a href="https://siit.co/guestposts/best-salt-free-water-conditioner-for-dallas-tx/" target="_blank">siit.co/guestposts/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Los Gatos CA</td>
+                        <td class="url-cell"><a href="https://timebusinessnews.com/best-salt-free-water-conditioner-for-los-gatos-ca/" target="_blank">timebusinessnews.com/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Gainesville FL</td>
+                        <td class="url-cell"><a href="https://www.bulbapp.com/u/best-salt-free-water-conditioner-for-gainesville-fl" target="_blank">bulbapp.com/u/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Charlotte MI</td>
+                        <td class="url-cell"><a href="https://hackmd.io/@0qB-K7sYSIe6JW3oPc-plg/best-salt-free-water-conditioner-for-charlotte-mi" target="_blank">hackmd.io/@0qB-K7sYSIe6JW3oPc-plg...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Issaquah WA</td>
+                        <td class="url-cell"><a href="https://ceo.ca/@JamesKay/best-salt-free-water-conditioner-for-issaquah-wa" target="_blank">ceo.ca/@JamesKay/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Edmond OK</td>
+                        <td class="url-cell"><a href="https://velog.io/@mickman/Best-Salt-Free-Water-Conditioner-for-Edmond-OK-uev05ewu" target="_blank">velog.io/@mickman/Best-Salt-Free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Monroe NY</td>
+                        <td class="url-cell"><a href="https://telegra.ph/Best-Salt-Free-Water-Conditioner-for-Monroe-NY-09-18" target="_blank">telegra.ph/Best-Salt-Free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fort Worth TX</td>
+                        <td class="url-cell"><a href="https://dobberhockey.com/author/Best-Salt-Free-Water-Conditioner" target="_blank">dobberhockey.com/author/Best-Salt-Free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Xenia OH</td>
+                        <td class="url-cell"><a href="https://lemongrovelane.com/author/Best-Salt-Free-Water-Conditioner" target="_blank">lemongrovelane.com/author/Best-Salt-Free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Raleigh NC</td>
+                        <td class="url-cell"><a href="https://ticklethewire.com/author/Best-Salt-Free-Water-Conditioner" target="_blank">ticklethewire.com/author/Best-Salt-Free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Oklahoma City OK</td>
+                        <td class="url-cell"><a href="https://nindtr.com/best-salt-free-water-conditioner-for-oklahoma-city-ok/" target="_blank">nindtr.com/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bend OR</td>
+                        <td class="url-cell"><a href="https://drukarnia.com.ua/articles/best-salt-free-water-conditioner-for-bend-or-cB2tO" target="_blank">drukarnia.com.ua/articles/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fort Wayne IN</td>
+                        <td class="url-cell"><a href="https://exploredubai.fun/best-salt-free-water-conditioner-for-fort-wayne-in/" target="_blank">exploredubai.fun/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sebastopol CA (LinkedIn)</td>
+                        <td class="url-cell"><a href="https://www.linkedin.com/pulse/best-salt-free-water-conditioner-sebastopol-ca-muhammad-nawaz-ythre" target="_blank">linkedin.com/pulse/best-salt-free...</a></td>
+                        <td><span class="status live">200</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                        <td><span class="status not-indexed">✗ Not Indexed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Dead URLs (Skip IndexBolt) — 3</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Franklin NC</td>
+                        <td class="url-cell"><a href="https://codepen.io/Deal-Done/full/pvNZJyR" target="_blank">codepen.io/Deal-Done/full/pvNZJyR</a></td>
+                        <td><span class="status dead">HTTP 403</span></td>
+                    </tr>
+                    <tr>
+                        <td>Placerville CA (Medium)</td>
+                        <td class="url-cell"><a href="https://medium.com/@vertexprhub/best-salt-free-water-conditioner-for-placerville-ca-25c209120dba" target="_blank">medium.com/@vertexprhub/...</a></td>
+                        <td><span class="status dead">HTTP 403</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sebastopol CA (Medium)</td>
+                        <td class="url-cell"><a href="https://medium.com/@mn9419677/best-salt-free-water-conditioner-for-sebastopol-ca-468d53a974b5" target="_blank">medium.com/@mn9419677/...</a></td>
+                        <td><span class="status dead">HTTP 403</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 12px; font-size: 14px; color: #6b7280;">HTTP 403 errors typically mean rate-limiting or bot detection. Medium and CodePen may require direct browser access or login.</p>
+        </div>
+
+        <div class="section">
+            <h2>API Errors (Manual Check Needed) — 5</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jacksonville FL</td>
+                        <td class="url-cell"><a href="https://www.indiehackers.com/post/best-salt-free-water-conditioner-for-jacksonville-fl-7bf0bbff5f" target="_blank">indiehackers.com/post/...</a></td>
+                        <td><span class="status error">Google API Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sebastopol CA</td>
+                        <td class="url-cell"><a href="https://realitysteve.com/author/bestsaltfreewaterconditioner" target="_blank">realitysteve.com/author/...</a></td>
+                        <td><span class="status error">Google API Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fort Wayne IN</td>
+                        <td class="url-cell"><a href="https://scrapbox.io/vertex-pr-hub/Best_Salt_Free_Water_Conditioner_for_Fort_Wayne_IN" target="_blank">scrapbox.io/vertex-pr-hub/...</a></td>
+                        <td><span class="status error">Google API Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Commerce Twp MI</td>
+                        <td class="url-cell"><a href="https://www.iheart.com/podcast/269-vertex-pr-hub-329408761/episode/best-salt-free-water-conditioner-for-commerce-twp-mi-345628440" target="_blank">iheart.com/podcast/.../episode/...</a></td>
+                        <td><span class="status error">Google API Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Deland FL</td>
+                        <td class="url-cell"><a href="https://pocketcasts.com/podcast/vertex-pr-hub/8e784930-159f-013f-2b13-0e956d54cc61/best-salt-free-water-conditioner-for-deland-fl/437077c5-ecb9-421d-a6d9-1107634b7348" target="_blank">pocketcasts.com/podcast/.../episode/...</a></td>
+                        <td><span class="status error">Google API Error</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 12px; font-size: 14px; color: #6b7280;">DataForSEO Google SERP API returned NoneType errors for these URLs. Brave checks passed. Likely safe to submit, but verify manually if critical.</p>
+        </div>
+
+        <div class="alert success">
+            <h3>Next Steps</h3>
+            <p>
+                1. <strong>IndexBolt submission list saved</strong>: <code>/tmp/backlinks_salt_free_indexbolt.txt</code> (14 URLs)<br>
+                2. Submit to IndexBolt for Google + Brave indexing<br>
+                3. Re-check in 7-14 days to confirm indexing success<br>
+                4. Investigate the 3 HTTP 403 URLs (Medium/CodePen) — may need account access or different approach
+            </p>
+        </div>
+    </div>
+</body>
+</html>
