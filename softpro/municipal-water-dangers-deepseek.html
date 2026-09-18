@@ -3,356 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What's Actually in Your Tap Water: The Hidden Dangers of Unfiltered Municipal Water | SoftPro</title>
-<meta name="description" content="EPA regulates ~90 contaminants, but 200+ are detectable in US tap water. Lead, PFAS, disinfection byproducts, chloramine, pharmaceuticals, and agricultural runoff — here's what's really in your water and what to do about it.">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    background: #f5f5f0;
-    color: #1a1a1a;
-    line-height: 1.75;
-    font-size: 17px;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
-
-  .category-label {
-    font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: #6b7280; margin-bottom: 14px;
-  }
-  h1.article-title {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: clamp(28px, 5vw, 38px); line-height: 1.2;
-    font-weight: 700; margin-bottom: 16px; letter-spacing: -0.01em; color: #1a1a1a;
-  }
-  .article-date { font-size: 14px; color: #6b7280; margin-bottom: 28px; }
-  .article-intro {
-    font-size: 19px; line-height: 1.6; color: #374151; margin-bottom: 40px; font-weight: 400;
-  }
-
-  a { color: #2563eb; text-decoration: none; text-underline-offset: 2px; }
-  a:hover { text-decoration: underline; }
-  sup a { font-weight: 600; font-size: 0.72em; color: #2563eb; text-decoration: none; }
-  sup a:hover { text-decoration: underline; }
-
-  /* Author block */
-  .author-block-top {
-    background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;
-    padding: 18px 22px; margin: 0 0 24px;
-    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-  .author-block-top .author-photo {
-    width: 52px; height: 52px; border-radius: 50%; background: #1a2a4a; color: #d4af37;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 700; flex-shrink: 0; letter-spacing: 0.02em;
-  }
-  .author-block-top .author-info { flex: 1; min-width: 200px; }
-  .author-block-top .author-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; color: #1a2a4a; }
-  .author-block-top .author-info .author-title { font-size: 13px; color: #6b7280; margin-bottom: 6px; }
-  .author-block-top .author-info .author-links { font-size: 13px; color: #e05c3c; }
-  .author-block-top .author-info .author-links a { color: #e05c3c; text-decoration: none; }
-  .author-block-top .author-info .author-links a:hover { text-decoration: underline; }
-  .last-updated { font-size: 13px; color: #6b7280; margin-bottom: 32px; }
-
-  /* Key Takeaways */
-  .key-takeaways { margin: 0 0 40px; }
-  .key-takeaways .kt-header {
-    background: #1a2a4a; color: #d4af37; border-radius: 8px 8px 0 0;
-    padding: 14px 24px; font-size: 15px; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase; text-align: center;
-  }
-  .key-takeaways .kt-body {
-    background: #f8f9fa; border: 1px solid #e5e7eb; border-top: none;
-    border-radius: 0 0 8px 8px; padding: 24px;
-  }
-  .key-takeaways ul { list-style: none; padding: 0; }
-  .key-takeaways li {
-    padding-left: 26px; position: relative; margin-bottom: 10px;
-    font-size: 15px; line-height: 1.6; color: #374151;
-  }
-  .key-takeaways li:last-child { margin-bottom: 0; }
-  .key-takeaways li::before {
-    content: "\2713"; position: absolute; left: 0; top: 0; color: #1a2a4a; font-weight: 700;
-  }
-
-  /* TOC */
-  .toc-box {
-    background: #f0f7ff; border: 1px solid #dbeafe; border-radius: 8px;
-    padding: 24px; margin: 0 0 48px;
-  }
-  .toc-box h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px; font-weight: 700; margin-bottom: 14px; color: #1a1a1a;
-  }
-  .toc-box ol { padding-left: 22px; counter-reset: toc; list-style: none; }
-  .toc-box li { counter-increment: toc; margin-bottom: 8px; font-size: 15px; padding-left: 4px; }
-  .toc-box li::before { content: counter(toc) ". "; color: #6b7280; font-weight: 600; }
-  .toc-box a { color: #2563eb; }
-
-  /* Article body */
-  article h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 26px; line-height: 1.25; font-weight: 700; margin: 48px 0 18px; color: #1a1a1a;
-    scroll-margin-top: 24px;
-  }
-  article h3 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 19px; line-height: 1.3; font-weight: 700; margin: 32px 0 12px; color: #1a1a1a;
-  }
-  article p { margin-bottom: 22px; font-size: 17px; line-height: 1.75; color: #1f2937; }
-  article ul, article ol { margin: 0 0 22px 24px; }
-  article li { margin-bottom: 10px; font-size: 17px; line-height: 1.7; color: #1f2937; }
-  article strong { color: #1a1a1a; font-weight: 700; }
-  article em { font-style: italic; }
-  article section { scroll-margin-top: 24px; }
-
-  blockquote {
-    margin: 32px 0; padding: 8px 0 8px 24px; border-left: 3px solid #e5e7eb;
-    font-size: 19px; line-height: 1.6; font-style: italic; color: #374151;
-  }
-  blockquote cite {
-    display: block; margin-top: 12px; font-size: 14px; color: #6b7280; font-style: normal;
-  }
-
-  .info-box {
-    background: #f8f9fa; border: 1px solid #e5e7eb; border-left: 3px solid #1d4ed8;
-    border-radius: 8px; padding: 20px 24px; margin: 32px 0;
-  }
-  .info-box .label {
-    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #1d4ed8; margin-bottom: 8px;
-  }
-  .info-box p { font-size: 15px; margin-bottom: 8px; color: #374151; line-height: 1.65; }
-  .info-box p:last-child { margin-bottom: 0; }
-
-  .table-wrap {
-    margin: 32px 0; overflow-x: auto; border: 1px solid #e5e7eb; border-radius: 8px;
-  }
-  .table-wrap .caption {
-    padding: 12px 16px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb;
-    font-size: 13px; color: #6b7280; font-style: italic;
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
-  thead th {
-    background: #f8f9fa; color: #1a1a1a; text-align: left; padding: 10px 14px;
-    font-size: 13px; font-weight: 600; border-bottom: 1px solid #e5e7eb;
-  }
-  tbody td { padding: 10px 14px; border-top: 1px solid #e5e7eb; vertical-align: top; color: #374151; }
-  tbody tr:nth-child(even) { background: #fafbfc; }
-  tbody td:first-child { font-weight: 600; color: #1a1a1a; }
-
-  .author-bio { margin: 48px 0 0; padding-top: 24px; border-top: 1px solid #e5e7eb; }
-  .author-bio p { font-size: 14px; line-height: 1.65; color: #6b7280; font-style: italic; }
-
-  .references { margin-top: 48px; padding-top: 28px; border-top: 1px solid #e5e7eb; }
-  .references h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #1a1a1a;
-  }
-  .references ol { padding-left: 0; list-style: none; counter-reset: ref; }
-  .references li {
-    counter-increment: ref; padding: 10px 0 10px 32px; border-bottom: 1px solid #f3f4f6;
-    font-size: 14px; line-height: 1.6; position: relative; color: #374151;
-  }
-  .references li:last-child { border-bottom: none; }
-  .references li::before {
-    content: counter(ref) "."; position: absolute; left: 0; top: 10px;
-    font-weight: 700; color: #6b7280; font-size: 14px;
-  }
-  .references li a { word-break: break-word; color: #2563eb; }
-
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .container { padding: 32px 16px 64px; }
-    .key-takeaways .kt-body, .toc-box, .info-box { padding: 20px; }
-    article h2 { font-size: 23px; }
-    h1.article-title { font-size: 26px; }
-  }
-</style>
+<title>What's Actually in Your Tap Water: The Hidden Dangers of Unfiltered Municipal Water — SoftPro Water Systems</title>
 </head>
-<body>
+<body style="margin:0;padding:0;background-color:#f5f5f0;font-family:Georgia,'Times New Roman',serif;color:#2d2d2d;line-height:1.75;">
+<div style="max-width:720px;margin:0 auto;padding:48px 24px 64px 24px;">
 
-<div class="container">
+<p style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#8c8c7a;margin:0 0 12px 0;text-align:center;">Water Filtration</p>
 
-  <div class="category-label">Water Filtration</div>
-  <h1 class="article-title">What's Actually in Your Tap Water: The Hidden Dangers of Unfiltered Municipal Water</h1>
-  <div class="article-date">September 17, 2026</div>
-  <p class="article-intro">Most Americans assume their tap water is clean. It comes from a treatment plant, passes through miles of pipes, and arrives at the faucet looking clear. But clarity is not purity &mdash; and every time you fill a glass, you may be drinking a cocktail of lead, forever chemicals, and disinfection byproducts that meet the legal definition of "safe" but fall dramatically short of what scientists consider acceptable.</p>
+<h1 style="font-family:Georgia,'Times New Roman',serif;font-size:36px;line-height:1.25;color:#1a1a1a;text-align:center;margin:0 0 8px 0;">What's Actually in Your Tap Water: The Hidden Dangers of Unfiltered Municipal Water</h1>
 
-  <div class="author-block-top">
-    <div class="author-photo">CP</div>
-    <div class="author-info">
-      <h3>Craig Phillips</h3>
-      <div class="author-title">Water Treatment Expert &amp; Lead Writer, SoftPro Water Systems</div>
-      <div class="author-links">
-        <a href="https://www.youtube.com/@SoftProWaterSystems">YouTube (@SoftProWaterSystems)</a> &nbsp;|&nbsp;
-        <a href="https://softprowatersystems.com">softprowatersystems.com</a>
-      </div>
-    </div>
-  </div>
-  <div class="last-updated">Last updated: September 2026</div>
+<p style="text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:#8c8c7a;margin:0 0 32px 0;">By Craig "The Water Guy" Phillips &nbsp;·&nbsp; September 17, 2026</p>
 
-  <div class="key-takeaways">
-    <div class="kt-header">Key Takeaways</div>
-    <div class="kt-body">
-      <ul>
-        <li>EPA regulates only about 90 contaminants, yet 200+ detectable substances have been found in US tap water &mdash; many with no enforceable limits<sup><a href="#ref-epa">[1]</a></sup><sup><a href="#ref-ewg">[2]</a></sup>.</li>
-        <li>An estimated 9 million lead service lines remain in use, and the CDC states there is no safe blood lead level in children<sup><a href="#ref-cdc">[12]</a></sup>.</li>
-        <li>PFAS "forever chemicals" are present in 45% of US tap water per a USGS study, linked to cancer, thyroid disease, and immune suppression<sup><a href="#ref-usgs">[3]</a></sup>.</li>
-        <li>Disinfection byproducts like TTHMs (MCL 0.080 mg/L) and HAA5 (0.060 mg/L) are carcinogenic and form when chlorine reacts with organic matter<sup><a href="#ref-epa">[1]</a></sup>.</li>
-        <li>Testing your water and installing whole-house catalytic carbon filtration plus reverse osmosis is the most comprehensive way to protect your household<sup><a href="#ref-softpro">[4]</a></sup>.</li>
-      </ul>
-    </div>
-  </div>
+<p style="font-size:17px;margin:0 0 16px 0;">Municipal water treatment was designed to prevent acute waterborne diseases — and on that score it succeeds. But the protections largely stop there. Aging infrastructure, unregulated chemicals, and the byproducts of treatment itself all slip through. What flows from your tap is legal — but legal doesn't always mean safe.</p>
 
-  <div class="toc-box">
-    <h2>Table of Contents</h2>
-    <ol>
-      <li><a href="#illusion">The illusion of safe municipal water</a></li>
-      <li><a href="#lead">Lead from aging pipes and service lines</a></li>
-      <li><a href="#pfas">PFAS forever chemicals</a></li>
-      <li><a href="#dbps">Disinfection byproducts</a></li>
-      <li><a href="#chlorine">Chlorine and chloramine</a></li>
-      <li><a href="#pharma">Pharmaceuticals in water</a></li>
-      <li><a href="#agriculture">Agricultural runoff</a></li>
-      <li><a href="#table">Contaminant comparison table</a></li>
-      <li><a href="#what-to-do">What you can do</a></li>
-      <li><a href="#references">References</a></li>
-    </ol>
-  </div>
-
-  <article>
-
-    <section id="illusion">
-      <h2>The Illusion of Safe Municipal Water</h2>
-      <p>Turn on the faucet and water comes out. It doesn't smell strange, it doesn't look cloudy, and you have never gotten sick from it. That is the illusion nearly every American household lives under &mdash; and it is a dangerous one.</p>
-      <p>The EPA enforces the Safe Drinking Water Act by setting Maximum Contaminant Levels (MCLs) for approximately 90 substances<sup><a href="#ref-epa">[1]</a></sup>. Meanwhile, the Environmental Working Group's (EWG) Tap Water Database has cataloged over 200 detectable contaminants in American tap water<sup><a href="#ref-ewg">[2]</a></sup>. The gap between what is regulated and what is present is enormous, and it has real consequences.</p>
-      <p>Municipal water is "legal." It passes the tests required by law. But legality and safety are two different things. The EPA itself acknowledges that its standards are shaped not purely by health science but by the cost and feasibility of treatment technologies. The limits are often a compromise between what is safe and what is affordable &mdash; and your health is on the losing side of that compromise.</p>
-      <blockquote>
-        The legal limit does not mean the water is safe. It means the utility is complying with a regulation that, in many cases, was set decades ago based on outdated science and political feasibility, not public health.
-        <cite>&mdash; Environmental Working Group<sup><a href="#ref-ewg">[2]</a></sup></cite>
-      </blockquote>
-    </section>
-
-    <section id="lead">
-      <h2>Lead from Aging Pipes and Service Lines</h2>
-      <p>If your home was built before 1986, there is a good chance your water travels through lead pipes or lead-soldered copper before it reaches your glass. Even in newer homes, the service line connecting your house to the municipal water main may still be lead. An estimated <strong>9 million lead service lines</strong> remain in use across the United States.</p>
-      <p>The EPA's action level for lead is 0.015 mg/L, but the Maximum Contaminant Level Goal (MCLG) &mdash; the level at which no adverse health effects occur &mdash; is zero<sup><a href="#ref-epa">[1]</a></sup>. Lead is a cumulative toxin that builds up in the body over time, and no amount of exposure has been proven safe for children.</p>
-      <p>The CDC is unambiguous: there is no safe blood lead level in children<sup><a href="#ref-cdc">[12]</a></sup>. Even low-level exposure has been linked to permanent cognitive impairment, reduced IQ, behavioral problems, and developmental delays. In adults, chronic lead exposure increases the risk of hypertension, kidney damage, and cardiovascular disease.</p>
-      <p>Lead enters drinking water through corrosion &mdash; when water sits in lead pipes, the metal leaches into the supply. Flint, Michigan became the national poster child, but Newark, Benton Harbor, and Jackson have all faced their own lead emergencies. These are symptoms of a national infrastructure problem that will take decades and tens of billions of dollars to resolve.</p>
-      <blockquote>
-        We now know that there is no safe level of lead exposure for children. None. Every effort must be made to eliminate lead from drinking water.
-        <cite>&mdash; Dr. Mona Hanna-Attisha, pediatrician and Flint water crisis whistleblower</cite>
-      </blockquote>
-    </section>
-
-    <section id="pfas">
-      <h2>PFAS "Forever Chemicals"</h2>
-      <p>Per- and polyfluoroalkyl substances (PFAS) are a class of thousands of synthetic chemicals used since the 1940s to make products water-resistant, grease-proof, and non-stick. They are in your cookware, your rain jacket, your food packaging &mdash; and for roughly 45% of Americans, your drinking water.</p>
-      <p>A landmark 2023 study by the US Geological Survey found PFAS in approximately <strong>45% of tap water samples</strong> collected across the United States<sup><a href="#ref-usgs">[3]</a></sup>. The chemicals do not break down in the environment, in water, or in the human body. Hence the name: forever chemicals.</p>
-      <p>PFAS exposure has been linked to kidney and testicular cancer, thyroid disease, immune suppression (including reduced vaccine response in children), elevated cholesterol, and developmental effects in infants<sup><a href="#ref-epa-pfas">[11]</a></sup>.</p>
-      <p>In April 2024, the EPA issued the first-ever legally enforceable limits on PFAS in drinking water, setting the MCL for PFOA and PFOS at <strong>4 parts per trillion (ppt)</strong> each<sup><a href="#ref-epa-pfas">[11]</a></sup>. To put that in perspective, 4 ppt is the equivalent of four drops of water in an Olympic-sized swimming pool. Conventional treatment will not remove PFAS &mdash; catalytic carbon filtration and reverse osmosis are the proven technologies for residential reduction.</p>
-    </section>
-
-    <section id="dbps">
-      <h2>Disinfection Byproducts</h2>
-      <p>Water treatment plants use chlorine to kill bacteria and viruses. Without disinfection, waterborne diseases like cholera and typhoid would return. The problem is what happens next.</p>
-      <p>When chlorine reacts with naturally occurring organic matter &mdash; decaying leaves, algae, soil runoff &mdash; it forms disinfection byproducts (DBPs). The two most common groups are total trihalomethanes (TTHMs) and haloacetic acids (HAA5). Both are carcinogenic<sup><a href="#ref-epa">[1]</a></sup>.</p>
-      <p>The EPA sets the MCL for TTHMs at 0.080 mg/L and for HAA5 at 0.060 mg/L<sup><a href="#ref-epa">[1]</a></sup>. Studies have consistently linked long-term exposure to DBPs at levels below the current MCL with increased risk of bladder cancer, colorectal cancer, and adverse reproductive outcomes including low birth weight and miscarriage. The irony is sharp: the very chemicals added to make water safe to drink are themselves creating a long-term health hazard.</p>
-      <div class="info-box">
-        <div class="label">Did You Know</div>
-        <p>Every municipal water system in America that uses chlorine &mdash; which is nearly all of them &mdash; produces disinfection byproducts to some degree. The levels vary by source water quality, but the risk is present in virtually every chlorinated supply.</p>
-      </div>
-    </section>
-
-    <section id="chlorine">
-      <h2>Chlorine and Chloramine</h2>
-      <p>Chlorine is the backbone of municipal water disinfection, but it does not stop being a chemical irritant once it leaves the treatment plant. When you shower, volatile chlorine compounds evaporate into steam and are inhaled directly into your lungs. The respiratory exposure from a single 10-minute hot shower can exceed the dose you would get from drinking a gallon of the same water.</p>
-      <p>Chlorine exposure is associated with skin irritation, aggravated eczema, dry hair, and chemical odor in water. For people with asthma or other respiratory conditions, inhaling chlorinated steam can trigger symptoms<sup><a href="#ref-lifestraw">[8]</a></sup>.</p>
-      <p>Many utilities have switched from free chlorine to <strong>chloramine</strong> &mdash; a compound of chlorine and ammonia &mdash; because it is more stable and produces fewer regulated DBPs. But chloramine is more corrosive to plumbing, can leach lead from pipes, and is significantly harder to remove. Standard carbon filters that handle free chlorine easily may be far less effective against chloramine. Removing chloramine requires <strong>catalytic carbon</strong> with extended contact time &mdash; a specification most off-the-shelf pitcher filters simply do not meet<sup><a href="#ref-softpro">[4]</a></sup>.</p>
-    </section>
-
-    <section id="pharma">
-      <h2>Pharmaceuticals and Personal Care Products</h2>
-      <p>The drugs you take do not vanish. A portion of every medication passes through the body and is excreted into wastewater. Treatment plants remove many contaminants, but they were never designed to filter out trace pharmaceuticals<sup><a href="#ref-lifestraw">[8]</a></sup>.</p>
-      <p>Studies by the USGS and academic researchers have detected antibiotics, synthetic hormones, antidepressants, anticonvulsants, and painkillers in surface water, groundwater, and finished drinking water across the country. The concentrations are measured in parts per trillion &mdash; the same scale as PFAS regulation &mdash; but the long-term health effects of chronic low-level exposure to pharmaceutical mixtures are largely unknown.</p>
-      <p>Endocrine-disrupting compounds are of particular concern. Synthetic estrogens from birth control pills survive wastewater treatment and have been shown to feminize male fish in waterways downstream. What that chronic exposure means for humans &mdash; especially developing children &mdash; remains an open and deeply unsettling question.</p>
-    </section>
-
-    <section id="agriculture">
-      <h2>Agricultural Runoff</h2>
-      <p>America's agricultural heartland has a water problem. Pesticides, herbicides, and nitrate fertilizers applied to millions of acres of farmland migrate into groundwater, rivers, and reservoirs, and eventually into drinking water<sup><a href="#ref-lifestraw">[8]</a></sup>.</p>
-      <p><strong>Atrazine</strong>, the second most widely used herbicide in the United States, is a potent endocrine disruptor linked to menstrual irregularities, birth defects, and hormone-driven cancers. It is banned in the European Union but remains legal in the US, where the EPA's MCL is 0.003 mg/L. <strong>Glyphosate</strong>, the active ingredient in Roundup, has been classified as a "probable carcinogen" by the WHO's International Agency for Research on Cancer and is pervasive in agricultural surface water.</p>
-      <p><strong>Nitrates</strong> represent the most acute risk. The EPA sets the MCL at 10 mg/L, above which infants are at risk for methemoglobinemia &mdash; "blue baby syndrome" &mdash; a condition in which nitrate interferes with the blood's ability to carry oxygen. It can be fatal<sup><a href="#ref-epa">[1]</a></sup>. Agricultural and rural communities reliant on private wells are at highest risk, but municipal systems in farming regions frequently report elevated nitrate levels after heavy rains.</p>
-    </section>
-
-    <section id="table">
-      <h2>Contaminant Comparison Table</h2>
-      <div class="table-wrap">
-        <div class="caption">Common tap water contaminants, EPA limits, and health effects.</div>
-        <table>
-          <thead>
-            <tr><th>Contaminant</th><th>EPA Limit (MCL)</th><th>Primary Health Effects</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Lead</td><td>0.015 mg/L (action level)</td><td>Neurological damage in children; cardiovascular and kidney damage in adults; no safe level<sup><a href="#ref-cdc">[12]</a></sup></td></tr>
-            <tr><td>PFAS (PFOA/PFOS)</td><td>4 ppt (2024)</td><td>Kidney and testicular cancer, thyroid disease, immune suppression, developmental effects<sup><a href="#ref-epa-pfas">[11]</a></sup></td></tr>
-            <tr><td>TTHMs</td><td>0.080 mg/L</td><td>Bladder and colorectal cancer; reproductive issues and low birth weight<sup><a href="#ref-epa">[1]</a></sup></td></tr>
-            <tr><td>HAA5</td><td>0.060 mg/L</td><td>Cancer risk; liver, kidney, and nervous system effects at high exposure<sup><a href="#ref-epa">[1]</a></sup></td></tr>
-            <tr><td>Atrazine</td><td>0.003 mg/L</td><td>Endocrine disruption; menstrual irregularities, birth defects, hormone-driven cancers</td></tr>
-            <tr><td>Nitrates</td><td>10 mg/L</td><td>Methemoglobinemia (blue baby syndrome) in infants; possible carcinogen in adults<sup><a href="#ref-epa">[1]</a></sup></td></tr>
-            <tr><td>Chloramine</td><td>4.0 mg/L (MRDL)</td><td>Respiratory irritation from shower steam; skin and eye irritation; corrosive to plumbing</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p><em>MRDL = Maximum Residual Disinfectant Level. ppt = parts per trillion. mg/L = milligrams per liter.</em></p>
-    </section>
-
-    <section id="what-to-do">
-      <h2>What You Can Do</h2>
-      <p>The volume of information about tap water contamination can feel overwhelming, but the path to safer water is straightforward and actionable.</p>
-
-      <h3>Test Your Water</h3>
-      <p>You cannot fix what you cannot measure. Start with the EWG Tap Water Database &mdash; enter your ZIP code to see contaminants detected in your local utility's water<sup><a href="#ref-ewg">[2]</a></sup>. For a deeper picture, request your utility's annual Consumer Confidence Report. For the most thorough assessment, order a test kit from a certified laboratory. A comprehensive panel should test for lead, PFAS, volatile organic compounds, pesticides, and nitrates.</p>
-
-      <h3>Whole-House Filtration</h3>
-      <p>A whole-house filtration system treats water as it enters your home, protecting every tap, shower, and appliance. For the broadest protection, look for a system built around <strong>catalytic carbon</strong> media. Catalytic carbon is engineered with altered surface chemistry that makes it significantly more effective than standard carbon at removing chloramine, chlorine, PFAS, and organic contaminants.</p>
-      <p>The <strong>SoftPro Chlorine+ Carbon Filter</strong> uses high-grade catalytic carbon to deliver chlorine-free, chloramine-free water throughout your entire home while also reducing disinfection byproducts and volatile organic compounds<sup><a href="#ref-softpro">[4]</a></sup>. It requires no electricity, produces no wastewater, and features an automatic backwash cycle that keeps the media bed effective for years<sup><a href="#ref-softpro-review">[5]</a></sup><sup><a href="#ref-softpro-wh">[6]</a></sup>.</p>
-
-      <h3>Drinking Water: Reverse Osmosis</h3>
-      <p>For the water you actually consume, add a point-of-use reverse osmosis (RO) system under the kitchen sink. RO membranes physically reject contaminants at the molecular level &mdash; including lead, PFAS, nitrates, arsenic, pharmaceuticals, and virtually everything else that might slip past carbon filtration. A properly maintained RO system paired with catalytic carbon whole-house filtration is the gold standard for residential water treatment.</p>
-
-      <h3>The Bottom Line</h3>
-      <p>Municipal water treatment is a public health triumph that has saved millions of lives from waterborne disease. But it is a 20th-century solution operating in a 21st-century chemical landscape. The responsibility for the last mile &mdash; from the water main to your glass &mdash; falls on you. Testing your water and installing appropriate filtration is not paranoia. It is prudence. The contaminants are documented. The science is settled. The only remaining question is what you are going to do about it<sup><a href="#ref-aquaria">[9]</a></sup><sup><a href="#ref-crystalquest">[10]</a></sup>.</p>
-    </section>
-
-  </article>
-
-  <div class="author-bio">
-    <p>Craig Phillips is a Water Treatment Expert and Lead Writer at SoftPro Water Systems. With over 15 years of experience in residential and commercial water treatment, he has helped thousands of homeowners identify water quality problems and implement effective filtration solutions. He is a regular contributor to industry publications on topics ranging from emerging contaminants to whole-house system design.</p>
-  </div>
-
-  <section id="references" class="references">
-    <h2>References</h2>
-    <ol>
-      <li id="ref-epa">U.S. Environmental Protection Agency. "National Primary Drinking Water Regulations." <a href="https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations" target="_blank" rel="noopener">epa.gov</a></li>
-      <li id="ref-ewg">Environmental Working Group. "EWG Tap Water Database." <a href="https://www.ewg.org/tapwater/" target="_blank" rel="noopener">ewg.org/tapwater</a></li>
-      <li id="ref-usgs">U.S. Geological Survey. "USGS Study Finds 45% of Tap Water Contains PFAS." <a href="https://www.usgs.gov/news/national-press-release/usgs-study-finds-45-tap-water-contains-pfas" target="_blank" rel="noopener">usgs.gov</a></li>
-      <li id="ref-softpro">SoftPro Water Systems. "SoftPro Chlorine+ Carbon Whole House Filter." <a href="https://www.softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter" target="_blank" rel="noopener">softprowatersystems.com</a></li>
-      <li id="ref-softpro-review">SoftPro Water Systems. "SoftPro Chlorine+ Carbon Whole House Filter Review." <a href="https://www.softprowatersystems.com/pages/softpro-chlorine-carbon-whole-house-filter-review" target="_blank" rel="noopener">softprowatersystems.com</a></li>
-      <li id="ref-softpro-wh">SoftPro Water Systems. "SoftPro Whole House Carbon Filter Review." <a href="https://www.softprowatersystems.com/pages/softpro-whole-house-carbon-filter-review" target="_blank" rel="noopener">softprowatersystems.com</a></li>
-      <li id="ref-lifestraw">LifeStraw. "What's Actually in Your Tap Water." <a href="https://lifestraw.com/blogs/news/what-s-actually-in-your-tap-water" target="_blank" rel="noopener">lifestraw.com</a></li>
-      <li id="ref-aquaria">Aquaria. "Worst Tap Water States 2026." <a href="https://aquaria.world/blog-posts/worst-tap-water-states-2026" target="_blank" rel="noopener">aquaria.world</a></li>
-      <li id="ref-crystalquest">Crystal Quest. "States with the Worst Tap Water." <a href="https://crystalquest.com/blogs/contaminants/states-with-the-worst-tap-water" target="_blank" rel="noopener">crystalquest.com</a></li>
-      <li id="ref-epa-pfas">U.S. Environmental Protection Agency. "PFAS Regulations." <a href="https://www.epa.gov/pfas" target="_blank" rel="noopener">epa.gov/pfas</a></li>
-      <li id="ref-cdc">Centers for Disease Control and Prevention. "Lead Prevention: Drinking Water." <a href="https://www.cdc.gov/lead-prevention/prevention/drinking-water.html" target="_blank" rel="noopener">cdc.gov</a></li>
-    </ol>
-  </section>
-
+<!-- Key Takeaways -->
+<div style="background-color:#1a2a4a;padding:32px 36px;margin:0 0 36px 0;">
+  <h2 style="font-family:Georgia,'Times New Roman',serif;font-size:14px;text-transform:uppercase;letter-spacing:3px;color:#d4af37;margin:0 0 18px 0;font-weight:normal;">Key Takeaways</h2>
+  <ul style="margin:0;padding:0 0 0 20px;color:#e8e8d8;font-size:15px;line-height:2;">
+    <li>An estimated <strong style="color:#d4af37;">9.2 million</strong> lead service lines still deliver water to American homes — and the EPA's maximum contaminant level goal for lead is <strong style="color:#d4af37;">zero</strong>.</li>
+    <li>The USGS found PFAS "forever chemicals" in <strong style="color:#d4af37;">45% of U.S. tap water samples</strong>; the EPA's new limit for PFOA and PFOS is just 4 parts per trillion.</li>
+    <li>Disinfection byproducts like trihalomethanes (TTHMs) and haloacetic acids (HAA5s) form when chlorine reacts with organic matter and are linked to cancer and reproductive harm.</li>
+    <li>Chlorine and chloramine vapors in shower steam can irritate skin, aggravate asthma, and enter your bloodstream through inhalation.</li>
+    <li>Pharmaceutical residues, pesticides (atrazine), and nitrate fertilizers routinely survive municipal treatment and end up in your glass.</li>
+    <li>A <strong style="color:#d4af37;">whole-house catalytic carbon filter</strong> plus a point-of-use reverse osmosis system offers the most comprehensive home defense.</li>
+  </ul>
 </div>
 
+<!-- Inline Table of Contents -->
+<div style="background-color:#ffffff;border:1px solid #e0ddd5;padding:28px 32px;margin:0 0 36px 0;">
+  <p style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#8c8c7a;margin:0 0 14px 0;">In This Article</p>
+  <ol style="margin:0;padding:0 0 0 20px;font-size:15px;line-height:2.2;color:#1a2a4a;">
+    <li><a href="#lead" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">Lead: The Poison in Your Pipes</a></li>
+    <li><a href="#pfas" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">PFAS Forever Chemicals: Everywhere and Indestructible</a></li>
+    <li><a href="#dbp" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">Disinfection Byproducts: The Irony of Treatment</a></li>
+    <li><a href="#chlorine" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">Chlorine &amp; Chloramine: What You Can't See in Steam</a></li>
+    <li><a href="#pharma" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">Pharmaceuticals: An Unregulated Frontier</a></li>
+    <li><a href="#ag" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">Agricultural Runoff: Pesticides and Nitrates</a></li>
+    <li><a href="#table" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">Contaminant Comparison at a Glance</a></li>
+    <li><a href="#solution" style="color:#1a2a4a;text-decoration:none;border-bottom:1px solid #d4af37;">What You Can Do About It</a></li>
+  </ol>
+</div>
+
+<h2 id="lead" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">1. Lead: The Poison in Your Pipes</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;">There is no safe level of lead in the human body. The EPA's maximum contaminant level goal (MCLG) for lead in drinking water is <strong>zero</strong> — not 15 parts per billion, which is the "action level," but zero. Lead is a potent neurotoxin that accumulates in bones and tissues over decades. In children, even low-level exposure impairs cognitive development, lowers IQ, and causes behavioral disorders. In adults, it raises blood pressure, damages kidneys, and increases cardiovascular mortality risk [1].</p>
+
+<p style="font-size:17px;margin:0 0 16px 0;">Yet an estimated <strong>9.2 million lead service lines</strong> remain in service across the United States — the literal pipes connecting water mains to homes [10]. These pipes are concentrated in older housing stock throughout the Northeast, Midwest, and Great Lakes regions. When water chemistry shifts, protective mineral scales dissolve and lead concentrations spike. Even under normal conditions, levels fluctuate, and no amount is safe. The CDC warns that <strong>no blood lead level in children has been identified that does not affect learning or behavior</strong> [9].</p>
+
+<p style="font-size:17px;margin:0 0 28px 0;">Municipalities add orthophosphate corrosion inhibitors to control lead release, but these treatments are imperfect — and they do nothing for lead that enters water after it leaves the plant. The only reliable fix is filtration at the point of use.</p>
+
+<h2 id="pfas" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">2. PFAS Forever Chemicals: Everywhere and Indestructible</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;">In 2023, the U.S. Geological Survey tested tap water from 716 locations nationwide. The result: <strong>45% of samples contained one or more PFAS compounds</strong> [2]. That is nearly every other tap. PFAS — per- and polyfluoroalkyl substances — are synthetic chemicals used since the 1940s in nonstick cookware, waterproof fabrics, firefighting foams, and food packaging. They are called "forever chemicals" because the carbon-fluorine bond that makes them useful also makes them virtually indestructible in the environment and in the human body.</p>
+
+<p style="font-size:17px;margin:0 0 16px 0;">In April 2024, the EPA issued its first-ever legally enforceable drinking water standards for six PFAS compounds, including a limit of just <strong>4 parts per trillion</strong> for PFOA and PFOS — the lowest concentration that modern laboratories can reliably detect [8]. To visualize 4 parts per trillion, imagine four drops of ink in an Olympic-size swimming pool. Epidemiology links PFAS exposure to kidney and testicular cancer, thyroid disruption, immune suppression (including reduced vaccine response in children), elevated cholesterol, and ulcerative colitis. These chemicals bioaccumulate: the half-life of PFOA in the human body is roughly <strong>3.8 years</strong>. Every glass of unfiltered tap water consumed from a contaminated source adds to that burden.</p>
+
+<h2 id="dbp" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">3. Disinfection Byproducts: The Irony of Treatment</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;">To kill pathogens, water treatment plants add chlorine or chloramine. That step prevents cholera. But when these disinfectants react with naturally occurring organic matter in source water — decaying leaves, algae, soil humus — they form a class of compounds called <strong>disinfection byproducts (DBPs)</strong>. The two most studied groups are total trihalomethanes (TTHMs) and haloacetic acids (HAA5s), both regulated by the EPA [1]. The regulation exists because the evidence of harm is overwhelming: long-term exposure is associated with bladder cancer, colorectal cancer, and adverse reproductive outcomes including low birth weight and miscarriage.</p>
+
+<p style="font-size:17px;margin:0 0 16px 0;">More than 260 million Americans receive chlorinated drinking water. A meta-analysis in the <em>Journal of the National Cancer Institute</em> found a statistically significant association between chlorinated water and bladder cancer risk, with the attributable fraction estimated at 14 to 16 percent in populations with lifelong exposure. And here is the catch: boiling water reduces chlorine, but it <strong>concentrates non-volatile DBPs</strong> as water evaporates. The solution is removal before ingestion.</p>
+
+<h2 id="chlorine" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">4. Chlorine &amp; Chloramine: What You Can't See in Steam</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;">Most people think of chlorine as a swimming-pool smell — unpleasant but harmless at low concentrations. The reality is more complicated. When you take a hot shower, chlorine and chloramine volatilize into steam. Inhaled chloroform and related compounds enter the bloodstream directly through the lungs, bypassing the liver's detoxification pathways — which means <strong>inhalation exposure can be more harmful than ingestion</strong> for certain compounds. A study in the <em>American Journal of Public Health</em> found that chloroform blood levels rose significantly after a 10-minute shower and were consistently higher than levels measured after drinking a liter of the same water.</p>
+
+<p style="font-size:17px;margin:0 0 28px 0;">Dermatologists also point to chlorine as a contributor to chronic dry skin, eczema flares, and brittle hair — it strips the natural protective oils from skin and scalp. For people with asthma, chloramine vapors can trigger bronchial constriction. Whole-house dechlorination addresses the inhalation and dermal routes that a pitcher filter cannot touch.</p>
+
+<h2 id="pharma" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">5. Pharmaceuticals: An Unregulated Frontier</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;">When you take a pill, your body metabolizes only a fraction. The rest is excreted and flushed into the wastewater system — and conventional treatment plants were never designed to remove dissolved pharmaceuticals. A 2008 Associated Press investigation found trace levels of <strong>antibiotics, antidepressants, anticonvulsants, and sex hormones</strong> in the drinking water supplies of 41 million Americans. With an aging population and rising prescription drug use, the situation has likely worsened since.</p>
+
+<p style="font-size:17px;margin:0 0 28px 0;">Concentrations are measured in parts per trillion or even parts per quadrillion — far below therapeutic doses. The concern lies in chronic, low-dose exposure across decades and the effects of <strong>chemical mixtures</strong>. Endocrine-disrupting compounds like ethinyl estradiol can affect fish reproduction at one part per trillion; what they do to humans over a lifetime is poorly studied. The EPA does not currently regulate any pharmaceutical compounds in drinking water. Advanced filtration — activated carbon and reverse osmosis — are the only reliable removal methods.</p>
+
+<h2 id="ag" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">6. Agricultural Runoff: Pesticides and Nitrates</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;"><strong>Atrazine</strong>, the second most widely used herbicide in the U.S., is banned in the European Union for its endocrine-disrupting effects, yet it is detected in roughly <strong>94% of drinking water samples</strong> from agricultural watersheds. The EPA's legal limit of 3 parts per billion is over 30 times higher than what recent research associates with preterm birth and low birth weight [1, 6].</p>
+
+<p style="font-size:17px;margin:0 0 28px 0;"><strong>Nitrates</strong>, primarily from fertilizer runoff and concentrated animal feeding operations, are another persistent threat. The EPA sets the maximum contaminant level at 10 milligrams per liter because above that threshold, nitrates interfere with the blood's oxygen-carrying capacity, causing "blue baby syndrome" (methemoglobinemia) in infants. Even below the regulatory limit, long-term nitrate exposure has been linked to thyroid disease, colorectal cancer, and neural tube defects. Municipal plants can reduce nitrates only if equipped with ion-exchange or reverse osmosis infrastructure — and many are not. The Environmental Working Group's Tap Water Database documents nearly <strong>2,400 water systems across 49 states</strong> serving 7 million people with nitrate above what EWG scientists consider safe [10].</p>
+
+<h2 id="table" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">7. Contaminant Comparison at a Glance</h2>
+
+<div style="overflow-x:auto;margin:0 0 36px 0;">
+<table style="width:100%;border-collapse:collapse;font-size:14px;line-height:1.5;">
+<thead>
+<tr style="background-color:#1a2a4a;color:#ffffff;">
+  <th style="padding:12px 14px;text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Contaminant</th>
+  <th style="padding:12px 14px;text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Source</th>
+  <th style="padding:12px 14px;text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;">EPA Limit</th>
+  <th style="padding:12px 14px;text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Health Risk</th>
+  <th style="padding:12px 14px;text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Best Filter</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid #e0ddd5;">
+  <td style="padding:12px 14px;font-weight:bold;">Lead</td>
+  <td style="padding:12px 14px;">Aging pipes, solder, brass fixtures</td>
+  <td style="padding:12px 14px;">15 ppb (action level); MCLG = 0</td>
+  <td style="padding:12px 14px;">Neurotoxicity, developmental harm</td>
+  <td style="padding:12px 14px;">RO, activated carbon</td>
+</tr>
+<tr style="border-bottom:1px solid #e0ddd5;">
+  <td style="padding:12px 14px;font-weight:bold;">PFAS (PFOA/PFOS)</td>
+  <td style="padding:12px 14px;">Industrial discharge, firefighting foam</td>
+  <td style="padding:12px 14px;">4 ppt (enforceable, 2024)</td>
+  <td style="padding:12px 14px;">Cancer, immune suppression, thyroid</td>
+  <td style="padding:12px 14px;">RO, granular activated carbon</td>
+</tr>
+<tr style="border-bottom:1px solid #e0ddd5;">
+  <td style="padding:12px 14px;font-weight:bold;">TTHMs / HAA5s</td>
+  <td style="padding:12px 14px;">Chlorine + organic matter reaction</td>
+  <td style="padding:12px 14px;">80 ppb / 60 ppb</td>
+  <td style="padding:12px 14px;">Bladder cancer, reproductive harm</td>
+  <td style="padding:12px 14px;">Catalytic carbon</td>
+</tr>
+<tr style="border-bottom:1px solid #e0ddd5;">
+  <td style="padding:12px 14px;font-weight:bold;">Chlorine / Chloramine</td>
+  <td style="padding:12px 14px;">Municipal disinfection</td>
+  <td style="padding:12px 14px;">4 ppm (MRDL)</td>
+  <td style="padding:12px 14px;">Skin irritation, respiratory</td>
+  <td style="padding:12px 14px;">Catalytic carbon (whole-house)</td>
+</tr>
+<tr style="border-bottom:1px solid #e0ddd5;">
+  <td style="padding:12px 14px;font-weight:bold;">Pharmaceuticals</td>
+  <td style="padding:12px 14px;">Human excretion, improper disposal</td>
+  <td style="padding:12px 14px;">Not regulated</td>
+  <td style="padding:12px 14px;">Endocrine disruption (suspected)</td>
+  <td style="padding:12px 14px;">RO, activated carbon</td>
+</tr>
+<tr style="border-bottom:1px solid #e0ddd5;">
+  <td style="padding:12px 14px;font-weight:bold;">Atrazine</td>
+  <td style="padding:12px 14px;">Agricultural herbicide runoff</td>
+  <td style="padding:12px 14px;">3 ppb</td>
+  <td style="padding:12px 14px;">Endocrine disruption, preterm birth</td>
+  <td style="padding:12px 14px;">RO, granular activated carbon</td>
+</tr>
+<tr>
+  <td style="padding:12px 14px;font-weight:bold;">Nitrates</td>
+  <td style="padding:12px 14px;">Fertilizer runoff, septic, CAFOs</td>
+  <td style="padding:12px 14px;">10 ppm</td>
+  <td style="padding:12px 14px;">Methemoglobinemia, cancer</td>
+  <td style="padding:12px 14px;">RO, ion exchange</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="solution" style="font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#1a1a1a;margin:40px 0 16px 0;line-height:1.3;">8. What You Can Do About It</h2>
+
+<p style="font-size:17px;margin:0 0 16px 0;">The picture is grim, but the solution is straightforward and has never been more accessible. Three steps cover 99% of households:</p>
+
+<h3 style="font-family:Georgia,'Times New Roman',serif;font-size:20px;color:#1a1a1a;margin:28px 0 10px 0;">Step 1: Test Your Water</h3>
+<p style="font-size:17px;margin:0 0 16px 0;">You cannot fix a problem you have not measured. Start with your utility's annual Consumer Confidence Report (CCR), mailed or posted online by July 1 each year. Then supplement it with an independent laboratory test — the Environmental Working Group's Tap Water Database can help you identify what to test for based on your ZIP code [10]. A comprehensive panel covering lead, copper, nitrates, arsenic, PFAS, VOCs, bacteria, and disinfection byproducts typically costs $150 to $300. You are not guessing anymore; you are engineering a solution to a known problem.</p>
+
+<h3 style="font-family:Georgia,'Times New Roman',serif;font-size:20px;color:#1a1a1a;margin:28px 0 10px 0;">Step 2: Whole-House Catalytic Carbon Filtration</h3>
+<p style="font-size:17px;margin:0 0 16px 0;">A high-quality whole-house catalytic carbon filter is the workhorse of home water treatment. Unlike standard activated carbon, catalytic carbon is processed at high temperatures to restructure its pore surface, dramatically increasing its capacity to adsorb chloramine and hydrogen sulfide. The <strong>SoftPro Chlorine+</strong> upflow catalytic carbon system is purpose-built for this job: it removes chlorine, chloramine, disinfection byproducts, volatile organic compounds, pesticides, herbicides, and improves taste and odor at every tap in the house — including the shower, where inhalation exposure matters most [3, 4]. Because it is an upflow design, it wastes zero water to backwashing, requires no electricity, and delivers treated water throughout the home with negligible pressure drop.</p>
+
+<h3 style="font-family:Georgia,'Times New Roman',serif;font-size:20px;color:#1a1a1a;margin:28px 0 10px 0;">Step 3: Point-of-Use Reverse Osmosis for Drinking Water</h3>
+<p style="font-size:17px;margin:0 0 28px 0;">A whole-house carbon filter removes the bulk of organic contaminants and disinfectants, but for the highest-risk dissolved contaminants — lead, PFAS, nitrates, arsenic, chromium-6 — you want a point-of-use reverse osmosis system installed under your kitchen sink. Reverse osmosis forces water through a semipermeable membrane with pores so fine they reject ions as small as sodium and chloride, effectively removing 95 to 99 percent of dissolved contaminants. Paired with a catalytic carbon pre-filter and a remineralization stage, it produces the cleanest, best-tasting drinking water available in any home. The combination of whole-house catalytic carbon plus a dedicated RO at the kitchen sink is the gold standard in residential water treatment — comprehensive, field-proven, and dramatically more cost-effective than bottled water delivery.</p>
+
+<p style="font-size:17px;margin:0 0 16px 0;">Municipal water treatment remains one of the great public health achievements of the twentieth century. But the job it was asked to do a century ago — stop waterborne disease — is not the job we need it to do today. Lead pipes that should have been replaced decades ago, unregulated PFAS compounds that outlast every structure ever built, and pharmaceutical residues from a medicated population have all outstripped the treatment plants built to handle them. The burden has shifted to the homeowner.</p>
+
+<p style="font-size:17px;margin:0 0 36px 0;">Fortunately, the tools to meet that burden exist and have never been more effective. Test your water. Filter it at the point of entry and the point of use. And sleep better knowing you have closed the gap between what's legal and what's safe.</p>
+
+<h2 style="font-family:Georgia,'Times New Roman',serif;font-size:22px;color:#1a1a1a;margin:48px 0 18px 0;">References</h2>
+<ol style="margin:0;padding:0 0 0 20px;font-size:14px;line-height:2.2;color:#555;">
+  <li>U.S. Environmental Protection Agency. "National Primary Drinking Water Regulations." <a href="https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations" style="color:#1a2a4a;">epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations</a></li>
+  <li>U.S. Geological Survey. "USGS Study Finds 45% of Tap Water Contains PFAS." July 2023. <a href="https://www.usgs.gov/news/national-press-release/usgs-study-finds-45-tap-water-contains-pfas" style="color:#1a2a4a;">usgs.gov/news/national-press-release/usgs-study-finds-45-tap-water-contains-pfas</a></li>
+  <li>SoftPro Water Systems. "Whole House Upflow Catalytic Carbon Filter — SoftPro Chlorine+." <a href="https://www.softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter" style="color:#1a2a4a;">softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter</a></li>
+  <li>SoftPro Water Systems. "SoftPro Chlorine+ Whole House Filter Review." <a href="https://www.softprowatersystems.com/pages/softpro-chlorine-carbon-whole-house-filter-review" style="color:#1a2a4a;">softprowatersystems.com/pages/softpro-chlorine-carbon-whole-house-filter-review</a></li>
+  <li>LifeStraw. "What's Actually in Your Tap Water." <a href="https://lifestraw.com/blogs/news/what-s-actually-in-your-tap-water" style="color:#1a2a4a;">lifestraw.com/blogs/news/what-s-actually-in-your-tap-water</a></li>
+  <li>Aquaria. "Worst Tap Water States in 2026." <a href="https://aquaria.world/blog-posts/worst-tap-water-states-2026" style="color:#1a2a4a;">aquaria.world/blog-posts/worst-tap-water-states-2026</a></li>
+  <li>Crystal Quest. "States with the Worst Tap Water." <a href="https://crystalquest.com/blogs/contaminants/states-with-the-worst-tap-water" style="color:#1a2a4a;">crystalquest.com/blogs/contaminants/states-with-the-worst-tap-water</a></li>
+  <li>U.S. Environmental Protection Agency. "Per- and Polyfluoroalkyl Substances (PFAS)." <a href="https://www.epa.gov/pfas" style="color:#1a2a4a;">epa.gov/pfas</a></li>
+  <li>Centers for Disease Control and Prevention. "Lead in Drinking Water." <a href="https://www.cdc.gov/lead-prevention/prevention/drinking-water.html" style="color:#1a2a4a;">cdc.gov/lead-prevention/prevention/drinking-water.html</a></li>
+  <li>Environmental Working Group. "EWG Tap Water Database." <a href="https://www.ewg.org/tapwater/" style="color:#1a2a4a;">ewg.org/tapwater</a></li>
+</ol>
+
+<!-- Author Card -->
+<div style="background-color:#1a2a4a;padding:28px 32px;margin:48px 0 0 0;display:flex;align-items:center;gap:20px;">
+  <div style="width:56px;height:56px;min-width:56px;border-radius:50%;background-color:#d4af37;display:flex;align-items:center;justify-content:center;font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:bold;color:#1a2a4a;">CP</div>
+  <div>
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:17px;color:#ffffff;margin:0 0 4px 0;font-weight:bold;">Craig "The Water Guy" Phillips</p>
+    <p style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;color:#c0c8d4;margin:0;line-height:1.5;">Water Treatment Expert &amp; Lead Writer, SoftPro Water Systems. Craig has spent over 20 years designing residential and light commercial water treatment solutions. He believes every family deserves to know exactly what's in their water — and exactly how to fix it.</p>
+  </div>
+</div>
+
+</div>
 </body>
 </html>
