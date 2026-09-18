@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Under-Sink Filter Is Leaving You Exposed: Why Water Treatment Only Works at the Point of Entry</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f5f0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 2px;
+        }
+        .category {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #16a34a;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        .meta {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 32px;
+        }
+        .author-card {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 0 0 16px;
+        }
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #1a2a4a;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+            letter-spacing: 0.02em;
+        }
+        .author-info { flex: 1; min-width: 220px; }
+        .author-info h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a2a4a;
+            margin-bottom: 2px;
+        }
+        .author-title {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .author-links a {
+            font-size: 14px;
+            color: #e05c3c;
+            text-decoration: none;
+        }
+        .author-links a:hover { text-decoration: underline; }
+        .author-links .sep {
+            color: #d1d5db;
+            margin: 0 6px;
+        }
+        .last-updated {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+        .kt-header {
+            background: #1a2a4a;
+            color: #d4af37;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 14px 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .key-takeaways {
+            background: #f8f9fa;
+            border-left: 4px solid #1a2a4a;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .key-takeaways li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .toc {
+            background: #f0f9ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+        .toc-title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 16px;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 48px 0 20px;
+            line-height: 1.3;
+        }
+        h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 32px 0 16px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        ul, ol {
+            margin: 20px 0 20px 32px;
+        }
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 15px;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .cta-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+        .cta-box p:last-child {
+            margin-bottom: 0;
+        }
+        .references {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .references h2 {
+            font-size: 22px;
+            margin-top: 0;
+        }
+        .references ol {
+            margin-left: 24px;
+        }
+        .references li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .references a {
+            color: #2563eb;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="category">WATER FILTRATION</div>
+        
+        <h1>Your Under-Sink Filter Is Leaving You Exposed: Why Water Treatment Only Works at the Point of Entry</h1>
+        
+        <div class="meta">September 17, 2026 · 7 min read</div>
+        
+        <p class="article-intro">You installed an under-sink filter, changed the cartridge on schedule, and assumed your household was protected. Then one day you noticed your skin felt dry after showers. Your child developed a rash. The dishwasher started leaving spots on glasses. And you realized the uncomfortable truth: that filter under your kitchen sink isn't protecting 99% of the water your family actually uses.</p>
+
+        <div class="author-card">
+            <div class="author-avatar">CP</div>
+            <div class="author-info">
+                <h3>Craig Phillips</h3>
+                <div class="author-title">Water Treatment Expert &amp; Lead Writer, SoftPro Water Systems</div>
+                <div class="author-links">
+                    <a href="https://www.youtube.com/@SoftProWaterSystems">YouTube @SoftProWaterSystems</a>
+                    <span class="sep">·</span>
+                    <a href="https://softprowatersystems.com">softprowatersystems.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="last-updated">Last updated: September 2026</div>
+
+        <div class="kt-header">KEY TAKEAWAYS</div>
+
+        <div class="key-takeaways">
+            <ul>
+                <li>The average household uses only 1% of water for drinking and cooking—the other 99% touches your skin, hair, clothes, and appliances.</li>
+                <li>Chlorine and PFAS are absorbed through your skin during showers and inhaled in steam—a 10-minute shower can equal drinking 2 liters of contaminated water.</li>
+                <li>Under-sink (point-of-use) filters protect one tap only—they cannot treat shower water, laundry, or appliances.</li>
+                <li>Point-of-entry (whole house) filters treat all water the moment it enters your home, protecting every tap and fixture.</li>
+                <li>The most effective strategy combines POE carbon filtration for house-wide protection plus POU reverse osmosis at the kitchen sink for drinking water purity.</li>
+                <li>Installing multiple under-sink filters costs more over time than a single whole-house system and still leaves shower exposure unaddressed.</li>
+                <li>Test your water first, then install a POE system like SoftPro's Chlorine+ Carbon Filter, followed by an RO unit for drinking water if needed.</li>
+            </ul>
+        </div>
+
+        <div class="toc">
+            <div class="toc-title">Table of Contents</div>
+            <ul>
+                <li><a href="#1-percent-myth">1. The 1% Myth: Where Your Water Actually Goes</a></li>
+                <li><a href="#exposure-routes">2. The Exposure Routes You're Missing</a></li>
+                <li><a href="#under-sink-limitations">3. Why Under-Sink Filters Can't Protect Your Household</a></li>
+                <li><a href="#poe-vs-pou">4. Point of Entry vs. Point of Use: Understanding the Difference</a></li>
+                <li><a href="#combination-approach">5. The Combination Approach That Actually Works</a></li>
+                <li><a href="#softpro-solution">6. The SoftPro Whole House Solution</a></li>
+                <li><a href="#cost-comparison">7. The Real Cost Comparison</a></li>
+                <li><a href="#action-steps">8. What You Should Do Right Now</a></li>
+            </ul>
+        </div>
+
+        <h2 id="1-percent-myth">The 1% Myth: Where Your Water Actually Goes</h2>
+
+        <p>Here's a statistic that should change how you think about water filtration: <strong>you and your family use approximately 1% of household water for drinking and cooking.</strong> The remaining 99% flows through showers, baths, washing machines, dishwashers, and toilets.<sup>1</sup></p>
+
+        <p>An average American household uses 300 gallons of water per day. Of that, roughly 3 gallons go into bodies as drinking water. The other 297 gallons touch skin, wash clothes, clean dishes, and flush away.</p>
+
+        <p>That under-sink filter? It treats the 3 gallons. The 297 gallons that contact your body's largest organ—your skin—flow through completely untreated.</p>
+
+        <h2 id="exposure-routes">The Exposure Routes You're Missing</h2>
+
+        <p>Water contamination doesn't only matter when you swallow it. <strong>Your skin is highly permeable</strong>, and the heat and duration of a typical shower create ideal conditions for chemical absorption and inhalation.</p>
+
+        <h3>Dermal Absorption</h3>
+
+        <p>Research published by the European Commission's Science Hub demonstrates that <strong>PFAS compounds (forever chemicals) are readily absorbed through human skin</strong>, particularly during prolonged water contact like showering and bathing.<sup>2</sup> A single 10-minute shower can result in dermal and inhalation exposure equivalent to drinking 2 liters of the same contaminated water.<sup>3</sup></p>
+
+        <p>Chlorine—the most common municipal water treatment chemical—is also absorbed dermally. While drinking chlorinated water exposes you to a controlled dose, showering in it means your entire body surface is absorbing chlorine for 5-15 minutes daily.</p>
+
+        <h3>Inhalation in Shower Steam</h3>
+
+        <p>When water heats up in your shower, volatile contaminants evaporate into the air you breathe. Chlorine becomes chlorine gas. Volatile organic compounds (VOCs) like trihalomethanes—cancer-linked disinfection byproducts formed when chlorine reacts with organic matter—vaporize and concentrate in enclosed bathroom air.<sup>4</sup></p>
+
+        <p>The American Journal of Public Health documented that you can absorb more chlorine and related compounds from a 10-minute shower than from drinking eight glasses of the same water.<sup>5</sup></p>
+
+        <p><strong>Under-sink filters do nothing to address this exposure.</strong> While you carefully filter what goes into your glass, your family is breathing and absorbing the same contaminants every time they shower.</p>
+
+        <h2 id="under-sink-limitations">Why Under-Sink Filters Can't Protect Your Household</h2>
+
+        <p>Point-of-use (POU) filtration—filters installed at a single tap—serves an important purpose, but it's fundamentally limited by physics: water that never passes through the filter never gets filtered.</p>
+
+        <p>Here's what an under-sink filter <strong>cannot</strong> do:</p>
+
+        <ul>
+            <li><strong>Treat shower or bath water</strong> — Dermal and inhalation exposure continues unaddressed</li>
+            <li><strong>Protect your laundry</strong> — Chlorine and hard minerals continue damaging fabrics and fading colors</li>
+            <li><strong>Extend appliance life</strong> — Sediment, chlorine, and minerals continue degrading water heaters, dishwashers, and washing machines</li>
+            <li><strong>Protect secondary taps</strong> — Bathroom sinks, utility sinks, and outdoor faucets remain untreated</li>
+            <li><strong>Prevent pipe corrosion</strong> — Aggressive water chemistry continues wearing down plumbing throughout the house</li>
+        </ul>
+
+        <p>Consumer Reports puts it plainly: "If your goal is to have filtered water for drinking and cooking, an under-sink water filter is probably all you need. [But] you probably don't need filtered toilet water" if that's your <em>only</em> concern.<sup>6</sup> The publication acknowledges whole-house systems are necessary when water quality affects the entire household—which it does in the majority of American homes dealing with chlorinated municipal water or well water issues.</p>
+
+        <h2 id="poe-vs-pou">Point of Entry vs. Point of Use: Understanding the Difference</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Point of Entry (Whole House)</th>
+                    <th>Point of Use (Under-Sink)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Installation Point</strong></td>
+                    <td>Main water line before branching</td>
+                    <td>Under one sink (usually kitchen)</td>
+                </tr>
+                <tr>
+                    <td><strong>Coverage</strong></td>
+                    <td>Every tap, shower, appliance</td>
+                    <td>One faucet only</td>
+                </tr>
+                <tr>
+                    <td><strong>Protects From</strong></td>
+                    <td>Chlorine, sediment, taste/odor at ALL fixtures</td>
+                    <td>Contaminants at ONE tap</td>
+                </tr>
+                <tr>
+                    <td><strong>Dermal/Inhalation Protection</strong></td>
+                    <td>Yes—treats shower water</td>
+                    <td>No—shower water untreated</td>
+                </tr>
+                <tr>
+                    <td><strong>Appliance Protection</strong></td>
+                    <td>Yes—extends water heater, dishwasher, washer life</td>
+                    <td>No—appliances receive untreated water</td>
+                </tr>
+                <tr>
+                    <td><strong>Best Use Case</strong></td>
+                    <td>Household-wide water issues, chlorine exposure, well water</td>
+                    <td>Targeted drinking water purification (lead, PFAS)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Point of Entry (POE)</strong> systems install on your main water line immediately after the meter, before water branches to individual fixtures. Every drop entering your home passes through the filter first. This is where whole-house carbon filters, sediment filters, and combination systems live.<sup>7</sup></p>
+
+        <p><strong>Point of Use (POU)</strong> systems install at individual fixtures—most commonly under the kitchen sink. They treat only the water coming from that specific tap. Reverse osmosis (RO) systems are typically POU because they're slow, produce reject water, and would be impractical for a whole-house application.<sup>8</sup></p>
+
+        <h2 id="combination-approach">The Combination Approach That Actually Works</h2>
+
+        <p>The most effective residential water treatment strategy <strong>isn't POE vs. POU—it's POE <em>plus</em> POU.</strong></p>
+
+        <p>Here's why: POE and POU systems solve different problems with different technologies.</p>
+
+        <h3>What POE Carbon Filtration Does Best</h3>
+
+        <ul>
+            <li>Removes chlorine and chloramine throughout the entire home (NSF-certified systems achieve 97%+ reduction<sup>9</sup>)</li>
+            <li>Reduces disinfection byproducts (trihalomethanes, haloacetic acids)</li>
+            <li>Eliminates taste and odor issues at every tap</li>
+            <li>Removes sediment and particulates before they damage fixtures and appliances</li>
+            <li>Protects skin and hair from chlorine exposure during bathing</li>
+        </ul>
+
+        <p><strong>What it doesn't do:</strong> POE carbon systems don't remove dissolved minerals (hardness), heavy metals to the same certified levels as RO, or contaminants like nitrates and fluoride.</p>
+
+        <h3>What POU Reverse Osmosis Does Best</h3>
+
+        <ul>
+            <li>Removes 90-99% of dissolved solids, including sodium, calcium, and sulfate<sup>10</sup></li>
+            <li>Certified removal of lead, arsenic, chromium-6, and other heavy metals</li>
+            <li>Removes PFAS (forever chemicals) to below detectable limits</li>
+            <li>Eliminates nitrates from agricultural runoff</li>
+            <li>Removes fluoride (if that's a concern for your household)</li>
+        </ul>
+
+        <p><strong>What it doesn't do:</strong> RO systems are slow, waste 3-4 gallons per gallon produced, and only treat one tap.</p>
+
+        <h3>The Strategic Combination</h3>
+
+        <p>Install POE carbon filtration to handle the 99% of water that touches your body, clothes, and appliances. Then install POU reverse osmosis at your kitchen sink to achieve drinking-water purity for the 1% you ingest.<sup>11</sup></p>
+
+        <p>This isn't redundant—it's targeted. The POE system handles exposure protection and infrastructure protection. The RO system handles ingestion protection. And because the POE filter removes chlorine before water reaches the RO membrane, your RO system lasts significantly longer.</p>
+
+        <div class="cta-box">
+            <p><strong>Example:</strong> Mid-Atlantic Water, a 32-year water treatment company, recommends this exact approach for city water customers. Their advice: "Follow your test results. If your water shows lead, PFAS, nitrates, or elevated dissolved solids, buy the under-sink RO first: it protects what you ingest, which is the higher-stakes exposure. If your water tests clean but chlorine is making showers unpleasant and drying out your skin, the whole house carbon filter is the one doing the daily work."<sup>12</sup></p>
+        </div>
+
+        <h2 id="softpro-solution">The SoftPro Whole House Solution</h2>
+
+        <p>SoftPro's <strong>Chlorine+ Upflow Carbon Filter</strong> is purpose-built for point-of-entry whole-house treatment. Unlike traditional downflow carbon tanks that require backwashing, drain lines, and electricity, SoftPro's upflow design is maintenance-light and highly effective.</p>
+
+        <p><strong>Key features:</strong></p>
+
+        <ul>
+            <li>Catalytic carbon media removes chlorine, chloramine, taste, odor, and VOCs</li>
+            <li>Upflow design prevents channeling and extends media life</li>
+            <li>No drain line, no electricity, no backwash cycle required</li>
+            <li>10×54 or 13×54 tank sizes (1.5 or 2.5 cubic feet of media)</li>
+            <li>Treats the entire home—every shower, every faucet, every appliance</li>
+            <li>Carbon bed lifespan: approximately 5 years before media replacement</li>
+        </ul>
+
+        <p>This sits on your main line after the water meter, treating every drop before it branches to fixtures. Pair it with SoftPro's under-sink reverse osmosis system at your kitchen tap, and you have comprehensive household protection.<sup>13</sup></p>
+
+        <h2 id="cost-comparison">The Real Cost Comparison</h2>
+
+        <p>At first glance, a $200 under-sink filter seems more affordable than a $1,500-$1,700 whole-house system. But when you run the actual numbers for comprehensive protection, POE wins on cost.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Approach</th>
+                    <th>Upfront Cost</th>
+                    <th>Annual Maintenance</th>
+                    <th>Coverage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Single under-sink filter</td>
+                    <td>$200-$400</td>
+                    <td>$60-$120 (cartridges)</td>
+                    <td>One tap only</td>
+                </tr>
+                <tr>
+                    <td>Multi-tap approach (kitchen + 2 baths)</td>
+                    <td>$600-$1,200</td>
+                    <td>$180-$360</td>
+                    <td>3 taps—no showers</td>
+                </tr>
+                <tr>
+                    <td>Whole house POE carbon filter</td>
+                    <td>$1,495-$1,695</td>
+                    <td>~$0 (media replacement every 5 years)</td>
+                    <td>Every fixture + all appliances</td>
+                </tr>
+                <tr>
+                    <td>POE + kitchen RO (recommended)</td>
+                    <td>$1,770-$1,970</td>
+                    <td>$50 (RO filters annual)</td>
+                    <td>Complete household + drinking purity</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>The multi-tap approach—trying to cover kitchen and bathrooms with individual filters—costs nearly as much as a whole-house system upfront and <strong>still doesn't filter shower water</strong>, where chlorine exposure is highest. Over 10 years, the ongoing cartridge costs add up to more than a POE system's one-time media replacement.</p>
+
+        <p>And that's before accounting for extended appliance life, reduced plumbing corrosion, and softer water's effect on laundry and fixtures—real but difficult-to-quantify savings that POE systems deliver.<sup>14</sup></p>
+
+        <h2 id="action-steps">What You Should Do Right Now</h2>
+
+        <p>If you're relying only on an under-sink filter, here's the honest path forward:</p>
+
+        <ol>
+            <li><strong>Test your water.</strong> You can't treat what you don't measure. Get a comprehensive water test ($30-$200 depending on parameters) that includes chlorine, lead, PFAS, VOCs, hardness, and pH. If you're on well water, include bacteria, nitrates, and iron.</li>
+            <li><strong>Install point-of-entry filtration first</strong> if your test shows chlorine/chloramine (city water) or broad contaminant issues. This addresses the 99% of water touching your skin and protecting your home's infrastructure.</li>
+            <li><strong>Add point-of-use RO at your kitchen sink</strong> if testing revealed lead, PFAS, nitrates, arsenic, or elevated TDS. This gives you drinking-water purity beyond what POE carbon alone provides.</li>
+            <li><strong>Replace your under-sink filter with an RO system</strong> if you already have POE treatment but want maximum drinking water protection. The carbon filter upstream will extend your RO membrane's life significantly.</li>
+            <li><strong>Maintain both systems.</strong> POE carbon media lasts ~5 years. RO pre/post filters need annual replacement; membranes last 2-3 years. Follow the manufacturer's schedule.</li>
+        </ol>
+
+        <p>The uncomfortable truth is this: <strong>if you're only filtering at the kitchen sink, you're protecting about 1% of your family's water exposure.</strong> The other 99% is still carrying chlorine, PFAS, and whatever else your municipality or well delivers—straight into your showers, your washing machine, and ultimately, your body.</p>
+
+        <p>Point-of-entry treatment isn't a luxury. When you understand the exposure routes and run the real numbers, it's the only approach that actually protects your household.</p>
+
+        <div class="references">
+            <h2>References</h2>
+            <ol>
+                <li>U.S. Environmental Protection Agency. "Water Use Statistics." WaterSense, EPA. <a href="https://www.epa.gov/watersense/statistics-and-facts" target="_blank">https://www.epa.gov/watersense/statistics-and-facts</a></li>
+                <li>European Commission Joint Research Centre. "PFAS skin absorption study." European Commission Science Hub, 2024. <a href="https://joint-research-centre.ec.europa.eu/jrc-news-and-updates" target="_blank">https://joint-research-centre.ec.europa.eu/jrc-news-and-updates</a></li>
+                <li>Mam Nature. "Whole-House vs. Under-Sink Filter: Which First?" 2026. <a href="https://www.mam-nature.com/compare/whole-house-vs-under-sink" target="_blank">https://www.mam-nature.com/compare/whole-house-vs-under-sink</a></li>
+                <li>National Cancer Institute. "Disinfection By-Products in Drinking Water and Cancer." NIH. <a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/substances/disinfection-byproducts" target="_blank">https://www.cancer.gov/about-cancer/causes-prevention/risk/substances/disinfection-byproducts</a></li>
+                <li>American Journal of Public Health. "Exposure to Chloroform and Trihalomethanes During Showering." AJPH, April 1984. <a href="https://ajph.aphapublications.org/doi/abs/10.2105/AJPH.74.4.479" target="_blank">https://ajph.aphapublications.org/doi/abs/10.2105/AJPH.74.4.479</a></li>
+                <li>Consumer Reports. "What's Best: A Whole-House or Under-Sink Water Filter?" 2026. <a href="https://www.consumerreports.org/home-garden/water-filters/whole-house-water-filter-vs-undersink-water-filter-a8037894665/" target="_blank">https://www.consumerreports.org/home-garden/water-filters/whole-house-water-filter-vs-undersink-water-filter-a8037894665/</a></li>
+                <li>Culligan Water. "Point of Entry Water Treatment vs. Point of Use Water Treatment Systems." Culligan Blog. <a href="https://www.culligan.com/blog/point-of-entry-water-treatment-vs-point-of-use-water-treatment-systems" target="_blank">https://www.culligan.com/blog/point-of-entry-water-treatment-vs-point-of-use-water-treatment-systems</a></li>
+                <li>NSF International. "Home Water Treatment." Consumer Resources. <a href="https://www.nsf.org/consumer-resources/articles/home-water-treatment" target="_blank">https://www.nsf.org/consumer-resources/articles/home-water-treatment</a></li>
+                <li>Hart Water UK. "Under-Sink vs Whole House Water Filter: Which is Right For You?" Hart Water Blog, 2025. <a href="https://www.hartwater.co.uk/blog/under-sink-vs-whole-house-water-filter/" target="_blank">https://www.hartwater.co.uk/blog/under-sink-vs-whole-house-water-filter/</a></li>
+                <li>Centers for Disease Control and Prevention. "Reverse Osmosis Systems." Water Treatment Systems, CDC. <a href="https://www.cdc.gov/healthywater/drinking/home-water-treatment/water-treatment-systems/reverse-osmosis.html" target="_blank">https://www.cdc.gov/healthywater/drinking/home-water-treatment/water-treatment-systems/reverse-osmosis.html</a></li>
+                <li>Water Filter Advisor. "Whole House vs Under Sink Water Filter: Your 2026 Guide." 2026. <a href="https://www.waterfilteradvisor.com/whole-house-vs-under-sink-water-filter/" target="_blank">https://www.waterfilteradvisor.com/whole-house-vs-under-sink-water-filter/</a></li>
+                <li>Mid Atlantic Water. "Whole House vs Under-Sink vs Reverse Osmosis (2026)." <a href="https://midatlanticwater.net/blogs/faqs/whole-house-vs-under-sink-vs-reverse-osmosis" target="_blank">https://midatlanticwater.net/blogs/faqs/whole-house-vs-under-sink-vs-reverse-osmosis</a></li>
+                <li>SoftPro Water Systems. "Whole House Upflow Catalytic Carbon Filter (Chlorine+)." Product Page. <a href="https://www.softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter" target="_blank">https://www.softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter</a></li>
+                <li>Plumbing Tools Review. "Whole-House vs Under-Sink Water Filter (2026)." <a href="https://www.plumbingtoolsreview.com/whole-house-vs-under-sink-water-filter/" target="_blank">https://www.plumbingtoolsreview.com/whole-house-vs-under-sink-water-filter/</a></li>
+            </ol>
+        </div>
+
+    </div>
+</body>
+</html>
