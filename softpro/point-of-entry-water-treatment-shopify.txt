@@ -1,0 +1,126 @@
+Title: Your Under-Sink Filter Is Leaving You Exposed: Why Water Treatment Only Works at the Point of Entry
+Author: Craig "The Water Guy" Phillips
+Author Bio: Water Treatment Expert & Lead Writer, SoftPro Water Systems
+Category: Water Filtration
+Published: September 17, 2026
+Tags: whole house water filter, point of entry water treatment, POE vs POU, under sink filter, water filtration, chlorine removal, PFAS removal, SoftPro Chlorine+, city water filter, home water treatment
+
+---
+
+Your Under-Sink Filter Is Leaving You Exposed: Why Water Treatment Only Works at the Point of Entry
+
+You bought an under-sink filter, changed the cartridge on schedule, and felt good about providing clean water for your family. But here's the uncomfortable truth the water-filter industry doesn't advertise: that filter only protects the water you drink, while the other 99 percent of the water entering your home — the water you shower in, wash your clothes with, and clean your dishes with — is still raw, untreated tap water.
+
+Key Takeaways:
+- Only about 1% of the water entering your home is used for drinking; the other 99% touches your skin, hair, appliances, and plumbing.
+- Chlorine and chloramine are absorbed through skin during showers and inhaled as steam — exposure that can equal or exceed what you get from drinking unfiltered water.
+- An under-sink filter protects one tap. It does nothing for your shower, your washing machine, your dishwasher, or your water heater.
+- A point-of-entry (whole house) filter treats every drop entering your home. Pair it with a point-of-use RO system at the kitchen tap for the best of both worlds.
+- The SoftPro Chlorine+ Carbon whole house filter removes chlorine, chloramine, PFAS, and pesticides from every fixture in your home.
+- One POE system is cheaper and far less maintenance than installing separate under-sink filters at every tap.
+
+1. The 1% Myth: What You Actually Use Water For
+
+When most homeowners think about water treatment, they imagine drinking water — a glass at the kitchen sink, a pitcher in the fridge, water for coffee and tea. It makes sense: we're told to drink eight glasses a day, so the water we ingest seems like the obvious priority.
+
+But here's what the numbers actually say. According to a fact sheet published by Kinetico and the Water Quality Association, only about 1 percent of the water entering a typical home is used for drinking. The remaining 99% — aptly called "working water" — flows through your showers, baths, washing machine, dishwasher, faucets where you brush your teeth, outdoor spigots, and toilet tanks.
+
+That 99% touches your skin every morning in the shower. It runs through your clothes in the laundry. It circulates through your water heater, your dishwasher, and your coffee maker. And when you only treat the drinking tap, that 99% is still carrying everything your municipal utility adds — and fails to remove — into your home.
+
+2. Three Exposure Routes Your Filter Isn't Blocking
+
+This is where the gap in point-of-use (POU) protection becomes genuinely concerning. Drinking water ingestion is only one of three major routes by which waterborne contaminants enter your body — and for some contaminants, it may not even be the largest.
+
+Dermal Absorption in the Shower: Your skin is your largest organ, and hot showers open your pores and thin the stratum corneum, dramatically increasing transdermal absorption. Municipal chlorine — added at levels between 1.0 and 4.0 parts per million as a disinfectant — is readily absorbed through skin. A study published in the American Journal of Public Health found that dermal absorption of chlorine during showering accounted for a substantial portion of total daily chlorine exposure, in some models exceeding the contribution from drinking water.
+
+Chloramine (chlorine + ammonia), which many municipal utilities now use because it is more stable than free chlorine, is even more problematic. It is lipophilic, meaning it dissolves into the skin's natural sebum layer and disrupts the acid mantle that protects against pathogens. And unlike free chlorine, chloramine does not evaporate at hot-water temperatures — you are exposed for the entire duration of your shower.
+
+Inhalation of Volatile Compounds in Steam: Perhaps the most overlooked exposure route is inhalation. When hot water hits the shower floor, chlorine and chloramine react with organic matter to form trihalomethanes (THMs) — volatile compounds that include chloroform, a probable human carcinogen classified by the EPA. Research published in Environmental Health Perspectives by Weisel and Jo found that inhalation during a 10-minute shower can account for more THM exposure than drinking 2 litres of the same water every day.
+
+The lungs are far more efficient at absorbing volatile compounds into the bloodstream than the digestive system is at processing ingested ones. Every hot shower becomes a de facto chemical exposure event when the water is untreated.
+
+PFAS Dermal Absorption: PFAS — per- and polyfluoroalkyl substances, known as "forever chemicals" — have been detected in water supplies across the country. Consumer Reports has found that reverse osmosis systems certified to NSF/ANSI 58 are effective at removing PFAS from drinking water. However, PFAS compounds are also absorbed dermally. Whole-house catalytic carbon filtration can reduce PFAS from every tap and every shower, not just the kitchen sink. The SoftPro Chlorine+ filter targets PFAS at the point of entry, protecting the entire household from all three exposure routes simultaneously.
+
+3. Why Under-Sink Filters Can't Protect Showers, Laundry, or Appliances
+
+An under-sink filter is a point-of-use device. It is installed on the cold-water line under the kitchen sink and treats only the water coming out of that single faucet. It does not — and physically cannot — treat water that goes to: your shower or bath (leaving your skin and lungs exposed to chlorine, chloramine, and THMs every time you bathe); your washing machine (chlorine continues to fade colors and degrade fabric fibers); your dishwasher (chemical deposits and sediment still accumulate on dishes and internal components); or your water heater (untreated water shortens its lifespan by up to 50%).
+
+The NSF notes that whole-house systems address "all the water in your home" while POU systems cover only specific areas such as the kitchen faucet. If you install an under-sink filter and call it a day, the vast majority of your home's water is still untreated.
+
+4. POE vs. POU: A Simple Framework
+
+Understanding the difference between point-of-entry and point-of-use treatment is the single most important decision you will make about home water filtration.
+
+Comparison Table:
+- Installation Location: POE = Main water line where water enters the home. POU = At a single fixture (usually under kitchen sink).
+- Water Treated: POE = Every drop in the entire house. POU = One faucet only.
+- Protects Showers: POE = Yes. POU = No.
+- Protects Appliances: POE = Yes. POU = No.
+- Protects Laundry: POE = Yes. POU = No.
+- Contaminants Targeted: POE = Chlorine, chloramine, sediment, PFAS, VOCs. POU = Lead, PFAS, TDS, nitrates.
+- Maintenance: POE = Media change every 5+ years. POU = Cartridges every 6-12 months.
+- Upfront Cost: POE = $600-$1,500. POU = $100-$600.
+
+5. The Combination Approach: POE Carbon + POU RO
+
+The smartest water-treatment strategy isn't either/or — it's both. A whole-house carbon filter at the point of entry handles the broad-stroke contaminants that affect your entire home: chlorine, chloramine, sediment, PFAS, and pesticides. Then a dedicated reverse osmosis system under the kitchen sink polishes your drinking water to the highest standard.
+
+Mid Atlantic Water, with over 30 years in the industry, recommends exactly this approach: "The whole house column wins every row about coverage, and the RO column wins every row about depth. Neither one beats the other at its own job."
+
+This combination is the industry standard for a reason. Consumer Reports suggests pairing "a basic, less expensive whole-house water filter with an NSF/ANSI-certified point-of-use water filter for the water you ingest."
+
+6. The SoftPro Chlorine+ Carbon Whole House Filter
+
+For homeowners ready to make the leap to point-of-entry protection, the SoftPro Chlorine+ Carbon Whole House Water Filter is designed specifically for city water. It uses upflow catalytic carbon technology to remove chlorine, chloramine, PFAS, pesticides, and VOCs from every drop of water entering your home.
+
+Key features: Upflow catalytic carbon media (more efficient than standard GAC with less pressure drop); PFAS reduction at the point of entry; chlorine and chloramine removal eliminating the "pool smell" in showers; municipal pesticide and VOC reduction; 10-year warranty and free shipping with over 8,000 verified customer reviews.
+
+Priced at $1,097, the SoftPro Chlorine+ represents the sweet spot in whole-house carbon filtration.
+
+7. Cost Comparison: Multiple Under-Sink Filters vs. One POE System
+
+Covering your whole home with under-sink filters:
+- Kitchen sink: $150-$400 upfront + $50-$120/year cartridges
+- Bathroom sink (master): $100-$300 + $40-$100/year
+- Bathroom sink (guest): $100-$300 + $40-$100/year
+- Laundry room sink: $100-$300 + $40-$100/year
+- Total upfront: $450-$1,300
+- Annual cartridge cost: $170-$420/year
+- This still doesn't cover the shower (another $40-$100 each for showerhead filters).
+
+With SoftPro Chlorine+ POE:
+- Upfront cost: $1,097
+- Installation (plumber one-time): $150-$300
+- Media replacement: Every 5-10 years (~$200)
+- Total first-year cost: ~$1,300-$1,400
+- 10-year total cost: ~$1,500-$1,800
+
+Installing under-sink filters at every tap totals $2,000-$5,500 over 10 years and still leaves your shower and laundry unprotected. A single POE system costs less and covers everything.
+
+8. What to Do: Test, Install, Complete
+
+Step 1: Test Your Water. Before buying any filtration equipment, test your water. Your utility provides an annual Consumer Confidence Report (CCR). The EPA recommends testing for lead if you live in an older home with lead pipes.
+
+Step 2: Install a POE Filter First. Your highest-impact investment is a whole-house carbon filter at the main water line. The SoftPro Chlorine+ treats the 99% of water that touches your skin, hair, appliances, and plumbing.
+
+Step 3: Add a POU RO System at the Kitchen Tap. Once your whole house is protected, add an under-sink RO system for the water you drink and cook with — the ultimate combination: POE for broad protection, POU for final polish.
+
+References:
+1. Kinetico / Water Quality Association - https://www.kinetico.com/media/1941/lifestyle.pdf
+2. Xu et al., Journal of Toxicology and Environmental Health, 2004 - Cited at nordiskrenhet.com
+3. American Journal of Public Health - Dermal chlorine absorption
+4. International Journal of Dermatology - Chloramine skin barrier disruption
+5. U.S. EPA Integrated Risk Information System - https://www.epa.gov/iris
+6. Weisel & Jo, Environmental Health Perspectives, 1996
+7. Consumer Reports - Under-Sink Water Filter Ratings 2026 - https://www.consumerreports.org/products/water-filters-32980/under-sink-water-filters-200314/view2/
+8. Battelle / WQRF - Appliance efficiency study - Cited at puronics.com
+9. NSF Home Water Treatment - https://www.nsf.org/consumer-resources/articles/home-water-treatment
+10. Culligan POE vs POU - https://www.culligan.com/blog/point-of-entry-water-treatment-vs-point-of-use-water-treatment-systems
+11. WaterCare POE vs POU - https://www.watercare.com/about-us/blog/39926-point-of-entry-vs-point-of-use-water-treatment-systems.html
+12. Mid Atlantic Water - https://midatlanticwater.net/blogs/faqs/whole-house-vs-under-sink-vs-reverse-osmosis
+13. Consumer Reports Whole-House vs Under-Sink - https://www.consumerreports.org/home-garden/water-filters/whole-house-water-filter-vs-undersink-water-filter-a8037894665
+14. SoftPro Chlorine+ - https://www.softprowatersystems.com/products/whole-house-upflow-catalytic-carbon-filter
+15. Nordisk Renhet - https://nordiskrenhet.com/en/blogs/shower-water-insights/chlorine-in-shower-water-the-hidden-health-risk
+16. PlumbingToolsReview - https://www.plumbingtoolsreview.com/whole-house-vs-under-sink-water-filter/
+17. NSF Consumer Confidence Reports - https://www.nsf.org/consumer-resources/articles/consumer-confidence-reports
+18. EPA Lead in Drinking Water - https://www.epa.gov/lead/lead-drinking-water
