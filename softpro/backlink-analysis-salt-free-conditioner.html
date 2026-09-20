@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backlink Analysis — Salt-Free Water Conditioner Articles</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0f1117; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; font-size: 16px; line-height: 1.6; padding: 30px; }
+.container { max-width: 1400px; margin: 0 auto; }
+h1 { font-size: 28px; color: #fff; margin-bottom: 8px; }
+h2 { font-size: 18px; color: #4A90D9; margin: 30px 0 15px; border-bottom: 1px solid #2a2d35; padding-bottom: 8px; }
+.subtitle { color: #888; font-size: 14px; margin-bottom: 30px; }
+a { color: #4A90D9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Summary cards */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px; }
+.summary-card { background: #1a1d26; border-radius: 10px; padding: 20px; text-align: center; border: 1px solid #2a2d35; }
+.summary-card .value { font-size: 32px; font-weight: 700; color: #fff; }
+.summary-card .label { font-size: 13px; color: #888; margin-top: 5px; }
+.summary-card .value.high { color: #4CAF50; }
+.summary-card .value.mid { color: #FFC107; }
+
+/* Top 10 Cards */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-bottom: 30px; }
+.card { background: #1a1d26; border-radius: 10px; padding: 16px; border: 1px solid #2a2d35; position: relative; }
+.card-rank { position: absolute; top: 8px; right: 10px; font-size: 11px; color: #555; font-weight: 700; }
+.card-score { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.card-score.high { color: #4CAF50; }
+.card-score.mid { color: #FFC107; }
+.card-score.low { color: #FF7043; }
+.card-score.none { color: #666; }
+.card-domain { font-size: 14px; color: #4A90D9; margin-bottom: 4px; font-weight: 600; word-break: break-all; }
+.card-title { font-size: 12px; color: #aaa; margin-bottom: 8px; line-height: 1.4; }
+.card-meta { font-size: 11px; color: #777; display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; }
+.card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.tag.t1 { background: #1a3a4a; color: #4A90D9; }
+.tag.dof { background: #1a3a1a; color: #4CAF50; }
+
+/* Table */
+.table-wrapper { overflow-x: auto; margin-bottom: 30px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+thead th { background: #0066cc; color: #fff; padding: 10px 8px; text-align: left; font-weight: 600; white-space: nowrap; }
+thead th.sortable { cursor: pointer; }
+thead th.sortable:hover { background: #0052a3; }
+thead th.sortable::after { content: ' ↕'; opacity: 0.5; font-size: 12px; }
+tbody tr { border-bottom: 1px solid #2a2d35; }
+tbody tr:hover { background: #1e212a; }
+tbody td { padding: 8px; vertical-align: top; }
+tbody td:first-child { max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tbody td:nth-child(3) { max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.score-badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-weight: 600; font-size: 13px; }
+.score-badge.high { background: #1a3a1a; color: #4CAF50; }
+.score-badge.mid { background: #3a3a1a; color: #FFC107; }
+.score-badge.low { background: #3a1a1a; color: #FF7043; }
+.score-badge.none { background: #2a2a2a; color: #666; }
+
+/* Copy button */
+.copy-btn { float: right; background: #2a2d35; border: 1px solid #3a3d45; color: #aaa; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.copy-btn:hover { background: #3a3d45; color: #fff; }
+
+/* Export */
+.export-btn { float: right; background: #2a2d35; border: 1px solid #3a3d45; color: #aaa; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-right: 8px; }
+.export-btn:hover { background: #3a3d45; color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Backlink Analysis — Salt-Free Water Conditioner Articles</h1>
+<p class="subtitle">Generated: 2026-09-20 10:42:39 | 22 links analyzed</p>
+
+<!-- Copy All -->
+<button class="copy-btn" onclick="copySection('summary-section')">📋 Copy Summary</button>
+<h2>Summary</h2>
+<div id="summary-section">
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="value">22</div>
+    <div class="label">Total Links</div>
+  </div>
+  <div class="summary-card">
+    <div class="value mid">15/22</div>
+    <div class="label">In Majestic Million</div>
+  </div>
+  <div class="summary-card">
+    <div class="value none">1/22</div>
+    <div class="label">Indexed in Google</div>
+  </div>
+  <div class="summary-card">
+    <div class="value mid">63.0</div>
+    <div class="label">Average Score</div>
+  </div>
+  <div class="summary-card">
+    <div class="value">3</div>
+    <div class="label">DoFollow Links</div>
+  </div>
+</div>
+</div>
+
+<button class="export-btn" onclick="exportCSV()">📥 Export CSV</button>
+<button class="copy-btn" onclick="copySection('top10-section')">📋 Copy Top 10</button>
+<h2>Top 10 Strongest Links</h2>
+<div id="top10-section">
+<div class="cards-grid">
+          <div class="card">
+            <div class="card-rank">#1</div>
+            <div class="card-score high">100</div>
+            <div class="card-domain">telegra.ph</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Salinas CA</div>
+            <div class="card-meta">
+              <span>Majestic: #409</span>
+              <span>Rank: 648</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              <span class="tag dof">DoFollow</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#2</div>
+            <div class="card-score high">100</div>
+            <div class="card-domain">medium.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Westport MA</div>
+            <div class="card-meta">
+              <span>Majestic: #64</span>
+              <span>Rank: 744</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              <span class="tag dof">DoFollow</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#3</div>
+            <div class="card-score high">100</div>
+            <div class="card-domain">linkedin.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Westport MA</div>
+            <div class="card-meta">
+              <span>Majestic: #6</span>
+              <span>Rank: 959</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              <span class="tag dof">DoFollow</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#4</div>
+            <div class="card-score high">90</div>
+            <div class="card-domain">padlet.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Pinckney MI</div>
+            <div class="card-meta">
+              <span>Majestic: #957</span>
+              <span>Rank: 575</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#5</div>
+            <div class="card-score high">80</div>
+            <div class="card-domain">steemit.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Los Banos CA</div>
+            <div class="card-meta">
+              <span>Majestic: #2,974</span>
+              <span>Rank: 619</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#6</div>
+            <div class="card-score high">80</div>
+            <div class="card-domain">kaggle.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Winchester VA</div>
+            <div class="card-meta">
+              <span>Majestic: #1,930</span>
+              <span>Rank: 584</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#7</div>
+            <div class="card-score high">80</div>
+            <div class="card-domain">pbase.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Frederick MD</div>
+            <div class="card-meta">
+              <span>Majestic: #1,173</span>
+              <span>Rank: 521</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#8</div>
+            <div class="card-score mid">70</div>
+            <div class="card-domain">scrapbox.io</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Weatherford TX</div>
+            <div class="card-meta">
+              <span>Majestic: #8,307</span>
+              <span>Rank: 597</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#9</div>
+            <div class="card-score mid">70</div>
+            <div class="card-domain">posteezy.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Warrington PA</div>
+            <div class="card-meta">
+              <span>Majestic: #6,145</span>
+              <span>Rank: 565</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-rank">#10</div>
+            <div class="card-score mid">70</div>
+            <div class="card-domain">wefunder.com</div>
+            <div class="card-title">Best Salt Free Water Conditioner for Cable OH</div>
+            <div class="card-meta">
+              <span>Majestic: #5,280</span>
+              <span>Rank: 487</span>
+              <span>❌ Not Indexed</span>
+            </div>
+            <div class="card-tags">
+              <span class="tag t1">T1</span>
+              
+            </div>
+          </div>
+
+</div>
+</div>
+
+<button class="export-btn" onclick="exportTableCSV()">📥 Export Table CSV</button>
+<button class="copy-btn" onclick="copySection('table-section')">📋 Copy Table</button>
+<h2>All Links</h2>
+<div id="table-section">
+<div class="table-wrapper">
+<table id="links-table">
+<thead>
+  <tr>
+    <th class="sortable" onclick="sortTable(0)">URL</th>
+    <th class="sortable" onclick="sortTable(1)">Domain</th>
+    <th class="sortable" onclick="sortTable(2)">Title</th>
+    <th class="sortable" onclick="sortTable(3)">Majestic Rank</th>
+    <th class="sortable" onclick="sortTable(4)">DF Rank</th>
+    <th class="sortable" onclick="sortTable(5)">Score</th>
+    <th class="sortable" onclick="sortTable(6)">Index Status</th>
+  </tr>
+</thead>
+<tbody>
+          <tr class="high">
+            <td><a href="https://telegra.ph/Best-Salt-Free-Water-Conditioner-for-Salinas-CA-09-19" target="_blank" title="https://telegra.ph/Best-Salt-Free-Water-Conditioner-for-Salinas-CA-09-19">https://telegra.ph/Best-Salt-Free-Water-Conditioner-for-Sali…</a></td>
+            <td>telegra.ph</td>
+            <td>Best Salt Free Water Conditioner for Salinas CA</td>
+            <td>#409</td>
+            <td>648</td>
+            <td><span class="score-badge high">100/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="high">
+            <td><a href="https://medium.com/@mn9419677/best-salt-free-water-conditioner-for-westport-ma-52bcfb2c4fcc" target="_blank" title="https://medium.com/@mn9419677/best-salt-free-water-conditioner-for-westport-ma-52bcfb2c4fcc">https://medium.com/@mn9419677/best-salt-free-water-condition…</a></td>
+            <td>medium.com</td>
+            <td>Best Salt Free Water Conditioner for Westport MA</td>
+            <td>#64</td>
+            <td>744</td>
+            <td><span class="score-badge high">100/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="high">
+            <td><a href="https://www.linkedin.com/pulse/best-salt-free-water-conditioner-westport-ma-muhammad-nawaz-nzobf" target="_blank" title="https://www.linkedin.com/pulse/best-salt-free-water-conditioner-westport-ma-muhammad-nawaz-nzobf">https://www.linkedin.com/pulse/best-salt-free-water-conditio…</a></td>
+            <td>linkedin.com</td>
+            <td>Best Salt Free Water Conditioner for Westport MA</td>
+            <td>#6</td>
+            <td>959</td>
+            <td><span class="score-badge high">100/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="high">
+            <td><a href="https://padlet.com/canhmongthuen7463/best-salt-free-water-conditioner-for-pinckney-mi-s023prg3vnhn2kh90rm8" target="_blank" title="https://padlet.com/canhmongthuen7463/best-salt-free-water-conditioner-for-pinckney-mi-s023prg3vnhn2kh90rm8">https://padlet.com/canhmongthuen7463/best-salt-free-water-co…</a></td>
+            <td>padlet.com</td>
+            <td>Best Salt Free Water Conditioner for Pinckney MI</td>
+            <td>#957</td>
+            <td>575</td>
+            <td><span class="score-badge high">90/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="high">
+            <td><a href="https://steemit.com/guestpostz/@donedeal692/best-salt-free-water-conditioner-for-los-banos-ca" target="_blank" title="https://steemit.com/guestpostz/@donedeal692/best-salt-free-water-conditioner-for-los-banos-ca">https://steemit.com/guestpostz/@donedeal692/best-salt-free-w…</a></td>
+            <td>steemit.com</td>
+            <td>Best Salt Free Water Conditioner for Los Banos CA</td>
+            <td>#2,974</td>
+            <td>619</td>
+            <td><span class="score-badge high">80/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="high">
+            <td><a href="https://www.kaggle.com/code/dealdone/best-salt-free-water-conditioner-for-winchester-va" target="_blank" title="https://www.kaggle.com/code/dealdone/best-salt-free-water-conditioner-for-winchester-va">https://www.kaggle.com/code/dealdone/best-salt-free-water-co…</a></td>
+            <td>kaggle.com</td>
+            <td>Best Salt Free Water Conditioner for Winchester VA</td>
+            <td>#1,930</td>
+            <td>584</td>
+            <td><span class="score-badge high">80/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="high">
+            <td><a href="https://pbase.com/gphub/image/176567390" target="_blank" title="https://pbase.com/gphub/image/176567390">https://pbase.com/gphub/image/176567390…</a></td>
+            <td>pbase.com</td>
+            <td>Best Salt Free Water Conditioner for Frederick MD</td>
+            <td>#1,173</td>
+            <td>521</td>
+            <td><span class="score-badge high">80/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://scrapbox.io/vertex-pr-hub/Best_Salt_Free_Water_Conditioner_for_Weatherford_TX" target="_blank" title="https://scrapbox.io/vertex-pr-hub/Best_Salt_Free_Water_Conditioner_for_Weatherford_TX">https://scrapbox.io/vertex-pr-hub/Best_Salt_Free_Water_Condi…</a></td>
+            <td>scrapbox.io</td>
+            <td>Best Salt Free Water Conditioner for Weatherford TX</td>
+            <td>#8,307</td>
+            <td>597</td>
+            <td><span class="score-badge mid">70/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://posteezy.com/best-salt-free-water-conditioner-warrington-pa" target="_blank" title="https://posteezy.com/best-salt-free-water-conditioner-warrington-pa">https://posteezy.com/best-salt-free-water-conditioner-warrin…</a></td>
+            <td>posteezy.com</td>
+            <td>Best Salt Free Water Conditioner for Warrington PA</td>
+            <td>#6,145</td>
+            <td>565</td>
+            <td><span class="score-badge mid">70/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://wefunder.com/feed/390371-best-salt-free-water-conditioner-for-cable-oh" target="_blank" title="https://wefunder.com/feed/390371-best-salt-free-water-conditioner-for-cable-oh">https://wefunder.com/feed/390371-best-salt-free-water-condit…</a></td>
+            <td>wefunder.com</td>
+            <td>Best Salt Free Water Conditioner for Cable OH</td>
+            <td>#5,280</td>
+            <td>487</td>
+            <td><span class="score-badge mid">70/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://bresdel.com/blogs/1650246/Best-Salt-Free-Water-Conditioner-for-South-River-NJ" target="_blank" title="https://bresdel.com/blogs/1650246/Best-Salt-Free-Water-Conditioner-for-South-River-NJ">https://bresdel.com/blogs/1650246/Best-Salt-Free-Water-Condi…</a></td>
+            <td>bresdel.com</td>
+            <td>Best Salt Free Water Conditioner for South River NJ</td>
+            <td>#12,663</td>
+            <td>391</td>
+            <td><span class="score-badge mid">65/100</span></td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://www.houzz.co.nz/hznb/projects/best-salt-free-water-conditioner-for-pasadena-md-pj-vj~7938024" target="_blank" title="https://www.houzz.co.nz/hznb/projects/best-salt-free-water-conditioner-for-pasadena-md-pj-vj~7938024">https://www.houzz.co.nz/hznb/projects/best-salt-free-water-c…</a></td>
+            <td>houzz.co.nz</td>
+            <td>Best Salt Free Water Conditioner for Pasadena MD</td>
+            <td>#387,300</td>
+            <td>519</td>
+            <td><span class="score-badge mid">60/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://www.houzz.jp/hznb/projects/best-salt-free-water-conditioner-for-brighton-mi-pj-vj~7938020" target="_blank" title="https://www.houzz.jp/hznb/projects/best-salt-free-water-conditioner-for-brighton-mi-pj-vj~7938020">https://www.houzz.jp/hznb/projects/best-salt-free-water-cond…</a></td>
+            <td>houzz.jp</td>
+            <td>Best Salt Free Water Conditioner for Brighton MI</td>
+            <td>#236,804</td>
+            <td>537</td>
+            <td><span class="score-badge mid">60/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://www.srujanee.in/view/best-salt-free-water-conditioner-for-kimberly-kxe1RzOB" target="_blank" title="https://www.srujanee.in/view/best-salt-free-water-conditioner-for-kimberly-kxe1RzOB">https://www.srujanee.in/view/best-salt-free-water-conditione…</a></td>
+            <td>srujanee.in</td>
+            <td>Best Salt Free Water Conditioner for Kimberly</td>
+            <td>N/A</td>
+            <td>321</td>
+            <td><span class="score-badge mid">50/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://plaza.rakuten.co.jp/jameskaay/diary/202609190000/" target="_blank" title="https://plaza.rakuten.co.jp/jameskaay/diary/202609190000/">https://plaza.rakuten.co.jp/jameskaay/diary/202609190000/…</a></td>
+            <td>plaza.rakuten.co.jp</td>
+            <td>Best Salt Free Water Conditioner for Linden MI</td>
+            <td>N/A</td>
+            <td>571</td>
+            <td><span class="score-badge mid">50/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://talkmisty.com/best-salt-free-water-conditioner-for-peoria-az/" target="_blank" title="https://talkmisty.com/best-salt-free-water-conditioner-for-peoria-az/">https://talkmisty.com/best-salt-free-water-conditioner-for-p…</a></td>
+            <td>talkmisty.com</td>
+            <td>Best Salt Free Water Conditioner for Peoria AZ</td>
+            <td>N/A</td>
+            <td>217</td>
+            <td><span class="score-badge mid">50/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://share.evernote.com/note/df5a3f63-bda6-9e40-b16a-997f32ee488b" target="_blank" title="https://share.evernote.com/note/df5a3f63-bda6-9e40-b16a-997f32ee488b">https://share.evernote.com/note/df5a3f63-bda6-9e40-b16a-997f…</a></td>
+            <td>share.evernote.com</td>
+            <td>Best Salt Free Water Conditioner for Houston TX</td>
+            <td>N/A</td>
+            <td>473</td>
+            <td><span class="score-badge mid">50/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="mid">
+            <td><a href="https://www.houzz.dk/hznb/projects/best-salt-free-water-conditioner-for-wolverine-lake-mi-pj-vj~7938018" target="_blank" title="https://www.houzz.dk/hznb/projects/best-salt-free-water-conditioner-for-wolverine-lake-mi-pj-vj~7938018">https://www.houzz.dk/hznb/projects/best-salt-free-water-cond…</a></td>
+            <td>houzz.dk</td>
+            <td>Best Salt Free Water Conditioner for Wolverine Lake MI</td>
+            <td>N/A</td>
+            <td>512</td>
+            <td><span class="score-badge mid">50/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="low">
+            <td><a href="https://www.rossoneriblog.com/author/Best-Salt-Free-Water-Conditioner" target="_blank" title="https://www.rossoneriblog.com/author/Best-Salt-Free-Water-Conditioner">https://www.rossoneriblog.com/author/Best-Salt-Free-Water-Co…</a></td>
+            <td>rossoneriblog.com</td>
+            <td>Best Salt Free Water Conditioner for Huntingtown MD</td>
+            <td>#56,166</td>
+            <td>338</td>
+            <td><span class="score-badge low">45/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="low">
+            <td><a href="https://dobberhockey.com/author/Best-Salt-Free-Water-Conditioner-for-Salem-OR" target="_blank" title="https://dobberhockey.com/author/Best-Salt-Free-Water-Conditioner-for-Salem-OR">https://dobberhockey.com/author/Best-Salt-Free-Water-Conditi…</a></td>
+            <td>dobberhockey.com</td>
+            <td>Best Salt Free Water Conditioner for Salem OR</td>
+            <td>#568,928</td>
+            <td>441</td>
+            <td><span class="score-badge low">35/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="low">
+            <td><a href="https://exploretarponsprings.com/author/Best-Salt-Free-Water-Conditioner" target="_blank" title="https://exploretarponsprings.com/author/Best-Salt-Free-Water-Conditioner">https://exploretarponsprings.com/author/Best-Salt-Free-Water…</a></td>
+            <td>exploretarponsprings.com</td>
+            <td>Best Salt Free Water Conditioner for Westport MA</td>
+            <td>N/A</td>
+            <td>265</td>
+            <td><span class="score-badge low">30/100</span></td>
+            <td>❌ No</td>
+          </tr>
+          <tr class="none">
+            <td><a href="https://vertexprhub.bcz.com/2026/09/19/best-salt-free-water-conditioner-for-lubbock-tx/" target="_blank" title="https://vertexprhub.bcz.com/2026/09/19/best-salt-free-water-conditioner-for-lubbock-tx/">https://vertexprhub.bcz.com/2026/09/19/best-salt-free-water-…</a></td>
+            <td>vertexprhub.bcz.com</td>
+            <td>Best Salt Free Water Conditioner for Lubbock TX</td>
+            <td>N/A</td>
+            <td>0</td>
+            <td><span class="score-badge none">0/100</span></td>
+            <td>❌ No</td>
+          </tr>
+
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<script>
+function copySection(id) {
+  const el = document.getElementById(id);
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text.trim()).then(() => {
+    const btn = event.target;
+    const orig = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+
+function sortTable(col) {
+  const table = document.getElementById('links-table');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const dir = table.getAttribute('data-sort-dir') || 'asc';
+  const newDir = dir === 'asc' ? 'desc' : 'asc';
+  table.setAttribute('data-sort-dir', newDir);
+
+  rows.sort((a, b) => {
+    let va = a.cells[col].textContent.trim();
+    let vb = b.cells[col].textContent.trim();
+    if (col === 3 || col === 4 || col === 5) {
+      va = parseInt(va.replace(/[^0-9]/g, '')) || 0;
+      vb = parseInt(vb.replace(/[^0-9]/g, '')) || 0;
+      return newDir === 'asc' ? va - vb : vb - va;
+    }
+    if (col === 6) {
+      return newDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+    }
+    return newDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+  });
+
+  rows.forEach(r => tbody.appendChild(r));
+}
+
+function exportCSV() {
+  let csv = 'Metric,Value\n';
+  csv += `Total Links,22\n`;
+  csv += `In Majestic Million,15\n`;
+  csv += `Indexed in Google,1\n`;
+  csv += `Average Score,63.0\n`;
+  csv += `DoFollow Links,3\n`;
+  downloadCSV(csv, 'backlink-summary-salt-free.csv');
+}
+
+function exportTableCSV() {
+  const table = document.getElementById('links-table');
+  let csv = '';
+  for (const row of table.querySelectorAll('tr')) {
+    const cells = row.querySelectorAll('th, td');
+    csv += Array.from(cells).map(c => '"' + c.textContent.trim().replace(/"/g, '""') + '"').join(',') + '\n';
+  }
+  downloadCSV(csv, 'backlink-detail-salt-free.csv');
+}
+
+function downloadCSV(csv, filename) {
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
