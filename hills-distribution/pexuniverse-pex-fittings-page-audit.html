@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenfusion Page Auditor Report — PEX fittings — https://pexuniverse.com/pex-fittings</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #ffffff; color: #1a1a1a; padding: 40px 20px; max-width: 1000px; margin: 0 auto; font-size: 16px; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+.url-headline { font-size: 20px; color: #0066cc; font-weight: 600; margin-bottom: 10px; word-break: break-all; }
+.keyword-tag { display: inline-block; background: #e7f3ff; border: 1px solid #0066cc; color: #0066cc; padding: 6px 16px; border-radius: 12px; font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+.subtitle { color: #444; font-size: 16px; margin-bottom: 30px; }
+.section { margin-bottom: 30px; }
+.section-title { color: #0066cc; font-size: 20px; margin-bottom: 14px; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; cursor: pointer; }
+.expandable { cursor: pointer; }
+.expandable::after { content: " ▼"; font-size: 14px; color: #0066cc; }
+.expandable.expanded::after { content: " ▲"; }
+.detail { display: none; }
+.detail.show { display: block; }
+.detail p { font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
+.score-gauge { text-align: center; margin-bottom: 30px; padding: 30px; background: #f8f9fa; border-radius: 12px; border: 1px solid #e0e0e0; }
+.score-value { font-size: 64px; font-weight: 700; color: #0066cc; }
+.score-label { font-size: 16px; color: #444; margin-top: 4px; }
+.srs-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+.srs-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; text-align: center; }
+.srs-card .card-title { font-size: 16px; color: #333; margin-bottom: 8px; }
+.srs-card .card-score { font-size: 36px; font-weight: 700; }
+.score-breakdown { display: grid; gap: 10px; }
+.score-bar { display: flex; align-items: center; gap: 10px; }
+.score-bar .name { width: 200px; font-size: 18px; color: #1a1a1a; }
+.score-bar .bar { flex: 1; height: 24px; background: #f8f9fa; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; }
+.score-bar .fill { height: 100%; border-radius: 12px; transition: width 0.5s; }
+.score-bar .num { width: 40px; text-align: right; font-size: 16px; font-weight: 600; color: #1a1a1a; }
+.green-bg { background: #27ae60; }
+.orange-bg { background: #f39c12; }
+.red-bg { background: #e74c3c; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th { background: #0066cc; color: #ffffff; padding: 10px; text-align: left; font-size: 15px; }
+td { padding: 10px; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-size: 15px; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+td.wrap { white-space: normal; max-width: 400px; }
+tr:hover { background: #f8f9fa; }
+.in-range { color: #27ae60; font-weight: 600; }
+.out-of-range { color: #e74c3c; font-weight: 600; }
+.issue-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+.issue-card .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.dot-red { background: #e74c3c; }
+.dot-yellow { background: #f39c12; }
+.dot-green { background: #27ae60; }
+.issue-card .name { font-weight: 600; color: #1a1a1a; font-size: 16px; }
+.issue-card .fix { font-size: 15px; color: #444; margin-top: 4px; }
+.topic-badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.topic-on-track { background: #e8f5e9; color: #1b7a3d; }
+.topic-to-add { background: #fff3e0; color: #b35400; }
+.topic-over-used { background: #fdecea; color: #c0392b; }
+.factor-group { margin-bottom: 12px; }
+.factor-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 16px; }
+.factor-name { color: #333; }
+.factor-value { color: #0066cc; font-weight: 700; }
+.cat-group { margin-bottom: 16px; }
+.cat-group-title { font-size: 18px; font-weight: 600; color: #0066cc; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #e0e0e0; }
+.recommendation { background: #f0f7ff; border-left: 3px solid #0066cc; padding: 14px 18px; margin: 10px 0; border-radius: 6px; font-size: 16px; color: #1a1a1a; line-height: 1.6; }
+.recommendation strong { color: #0066cc; }
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.fix-item { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin-bottom: 6px; font-size: 16px; color: #1a1a1a; }
+.fix-p0 { border-left: 3px solid #e74c3c; }
+.fix-p1 { border-left: 3px solid #f39c12; }
+.fix-p2 { border-left: 3px solid #27ae60; }
+.fix-col-title { font-size: 20px; font-weight: 600; color: #0066cc; margin-bottom: 10px; }
+.fix-priority { font-size: 16px; font-weight: 600; margin: 12px 0 6px; color: #444; }
+.lighthouse-scores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.lh-card { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; text-align: center; }
+.lh-card .lh-title { font-size: 15px; color: #333; margin-bottom: 6px; }
+.lh-card .lh-score { font-size: 28px; font-weight: 700; }
+.cwv-metric { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e0e0e0; font-size: 16px; }
+.ai-status { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+.footer { text-align: center; margin-top: 40px; color: #666; font-size: 15px; border-top: 1px solid #e0e0e0; padding-top: 20px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.entity-badge { display: inline-block; background: #e7f3ff; border: 1px solid #0066cc; color: #0066cc; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.cluster-badge { display: inline-block; background: #e8f5e9; border: 1px solid #27ae60; color: #1b7a3d; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.gap-badge { display: inline-block; background: #fdecea; border: 1px solid #e74c3c; color: #c0392b; padding: 4px 12px; border-radius: 12px; font-size: 15px; margin: 2px; }
+.char-count { color: #0066cc; font-weight: 600; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<h1>Zenfusion Page Auditor Report</h1>
+<div class="url-headline"><a href="https://pexuniverse.com/pex-fittings" target="_blank">https://pexuniverse.com/pex-fittings</a></div>
+<div class="keyword-tag">Keyword: PEX fittings</div>
+
+<!-- 1. SRS Score Gauge + 3 SRS Cards -->
+<div class="section">
+  <div class="score-gauge">
+    <div class="score-value">67</div>
+    <div class="score-label">SRS Composite Score (0-100)</div>
+  </div>
+  <div class="srs-cards">
+    <div class="srs-card">
+      <div class="card-title">Structure</div>
+      <div class="card-score" style="color: #27ae60">84</div>
+    </div>
+    <div class="srs-card">
+      <div class="card-title">Relevance</div>
+      <div class="card-score" style="color: #0066cc">62</div>
+    </div>
+    <div class="srs-card">
+      <div class="card-title">Signal</div>
+      <div class="card-score" style="color: #0066cc">55</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Content Quality (6 Dimensions)</strong></div>
+  <div class="detail show">
+    <div class="score-breakdown">
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Content Hierarchy</div><div class="bar"><div class="fill green-bg" style="width: 95%"></div></div><div class="num" style="font-weight:700">95</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Factuality</div><div class="bar"><div class="fill orange-bg" style="width: 45%"></div></div><div class="num" style="font-weight:700">45</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Information Gain</div><div class="bar"><div class="fill green-bg" style="width: 85%"></div></div><div class="num" style="font-weight:700">85</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Authority E E A T</div><div class="bar"><div class="fill orange-bg" style="width: 40%"></div></div><div class="num" style="font-weight:700">40</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Accuracy Title Alignment</div><div class="bar"><div class="fill orange-bg" style="width: 63%"></div></div><div class="num" style="font-weight:700">63</div></div>
+      <div class="score-bar"><div class="name" style="font-weight:700;font-size:18px;color:#1a1a1a">Content Format</div><div class="bar"><div class="fill green-bg" style="width: 95%"></div></div><div class="num" style="font-weight:700">95</div></div>
+    <div style="margin-top:16px"><div style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:10px">Issues Found (12)</div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">H2 to H4 skip</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> H2 to H4 skip</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Fix heading hierarchy</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No data source references</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No data source references</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add phrases like 'according to' or 'study shows'</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No authority links (.gov/.edu/.org)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No authority links (.gov/.edu/.org)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add 1-3 links to authoritative sources</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No datePublished schema</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No datePublished schema</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add datePublished to JSON-LD</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Short paragraphs</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Short paragraphs</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Expand paragraphs to 3-7 sentences</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#e74c3c"></span><span class="name">No critical schema types</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No critical schema types</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add Article + Organization + Author schema</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Missing schema: Article, Organization, Author</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Missing schema: Article, Organization, Author</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add missing JSON-LD schema</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No author info</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No author info</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add author attribution</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">No About page link</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> No About page link</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add link to About page</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Keyword not in first paragraph</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Keyword not in first paragraph</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add 'PEX fittings' early in content</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Meta description length 162 (target 120-160)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Meta description length 162 (target 120-160)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Adjust meta description</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot" style="background:#f39c12"></span><span class="name">Internal links 222 (target 10-100)</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Internal links 222 (target 10-100)</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Trim low-value internal links</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 12px;">Overall Content Score: <strong style="color: #27ae60">70/100</strong> · Tone: Strong (Positive)</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Technical SEO Issues (13 Categories)</strong></div>
+  <div class="detail show">
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Content relevance (3 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has alt tags with one word</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Some images have alt text that is only one word, which does not provide enough context for accessibility or SEO.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Expand alt text to descriptive phrases (3-7 words) that include relevant keywords and accurately describe the image.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Description is too long</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The meta description exceeds 160 characters, so search engines will truncate it in search results.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Shorten the meta description to 120-160 characters. Keep the most important text and keyword at the beginning.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Text to code ratio < 10%</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The ratio of visible text to HTML code is below 10%, indicating heavy code overhead relative to content.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Reduce HTML bloat by removing inline styles, minimizing JavaScript, and moving CSS to external files. Add more text content.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Links (3 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Has an internal link with no anchor text</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> An internal link on the page has no visible anchor text (empty or image-only link without alt text).</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add descriptive anchor text to all internal links. If using an image link, add alt text to the image.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has less than 10 internal backlinks</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Fewer than 10 OTHER pages on the site link TO this page (inbound internal links, NOT outbound links from this page). This is different from the 'internal_links' factor which counts outbound links FROM this page.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add internal links from related blog posts, collection pages, and other content pages pointing TO this page. Use varied anchor text with the target keyword. Target 10+ inbound links from other pages.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has more than 100 internal links</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page has over 100 internal links, which dilutes link equity and can look spammy to search engines.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Reduce the number of internal links to under 100. Remove unnecessary links, especially from navigation and footer areas.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Page speed (5 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-yellow"></span><span class="name">Avoid excessive DOM size</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-yellow;font-weight:600">Warning</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The page has a large DOM (many elements), which slows down rendering and JavaScript execution.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Reduce DOM elements by simplifying the page structure, removing unnecessary wrappers, and using CSS instead of nested divs.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Add dimensions to images</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Some images do not have width and height attributes, which can cause layout shifts as images load.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add width and height attributes to all <img> tags to prevent Cumulative Layout Shift (CLS).</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Defer offscreen images</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Images below the fold are loaded immediately instead of being lazy-loaded, wasting bandwidth and slowing initial render.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add loading="lazy" attribute to below-the-fold images to defer their loading until the user scrolls to them.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Serve images in next-gen formats</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Images are served in older formats (JPEG, PNG) instead of modern formats (WebP, AVIF) that offer better compression.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Convert images to WebP or AVIF format. Use <picture> tags with fallbacks for older browsers.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Comments in code has more than 1000 symbols</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The HTML contains large code comments (>1000 characters), adding unnecessary page weight.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Remove or minify HTML comments, especially in production. Keep only essential comments.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Security (1 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page contains form with GET method</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> A form on the page uses the GET method, which exposes form data in the URL and can be cached by search engines.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Change the form method to POST for forms that submit sensitive data. GET is fine for search forms.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Code validation (4 issues)</div>
+      <div class="detail show">
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-yellow"></span><span class="name">Page has identical HTML id attributes</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-yellow;font-weight:600">Warning</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Multiple elements on the page share the same id attribute, which is invalid HTML and breaks anchor links.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Make all id attributes unique on the page. Use classes for shared styling instead of duplicate ids.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Headings hierarchy is broken</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> The heading structure skips levels (e.g., H1 → H3 without H2), which confuses search engines about content hierarchy.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Fix heading order: H1 → H2 → H3 → H4. Never skip heading levels. Use CSS for styling, not heading tags.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Table has no caption</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Opportunity</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> A table on the page does not have a <caption> element, which helps screen readers and SEO understand table content.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Add a <caption> element to each table describing its contents.</div>
+        </div>
+      </div>
+      <div class="issue-card expandable" style="cursor:pointer"><span class="dot dot-green"></span><span class="name">Page has tags with style attributes</span> <span style="font-size:14px;color:#999">▼</span>
+        <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Severity:</strong> <span style="color:dot-green;font-weight:600">Notice</span></div>
+          <div style="font-size:15px;color:#333;margin-bottom:6px"><strong>Issue:</strong> Elements on the page use inline style attributes instead of external CSS, which increases page size and reduces maintainability.</div>
+          <div style="font-size:15px;color:#0066cc;margin-bottom:6px"><strong>How to fix:</strong> Move inline styles to external CSS classes. This reduces HTML size and improves caching.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 10px;">Summary: 0 Critical · 2 Warnings · 9 Opportunities · 5 Notices</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Ranking Factors (173+ Factors)</strong></div>
+  <div class="detail">
+    <div class="cat-group">
+      <div class="cat-group-title expandable">On-Page (36 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">title_length</span><span class="factor-value">56</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_position</span><span class="factor-value">0.0</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_at_start</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">title_keyword_density</span><span class="factor-value">0.25</span></div>
+      <div class="factor-row"><span class="factor-name">h1_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h1_length</span><span class="factor-value">24</span></div>
+      <div class="factor-row"><span class="factor-name">h1_keyword_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">h1_keyword_position</span><span class="factor-value">0.5</span></div>
+      <div class="factor-row"><span class="factor-name">h2_count</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">h2_keyword_present</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h2_keyword_in_first</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h3_count</span><span class="factor-value">7</span></div>
+      <div class="factor-row"><span class="factor-name">h4_count</span><span class="factor-value">14</span></div>
+      <div class="factor-row"><span class="factor-name">h5_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">h6_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">word_count</span><span class="factor-value">1617</span></div>
+      <div class="factor-row"><span class="factor-name">char_count</span><span class="factor-value">10550</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_count</span><span class="factor-value">12</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_density</span><span class="factor-value">0.74</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_first_100</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_last_100</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">paragraph_count</span><span class="factor-value">17</span></div>
+      <div class="factor-row"><span class="factor-name">avg_paragraph_length</span><span class="factor-value">13.53</span></div>
+      <div class="factor-row"><span class="factor-name">paragraph_length_variance</span><span class="factor-value">13.58</span></div>
+      <div class="factor-row"><span class="factor-name">sentence_count</span><span class="factor-value">61</span></div>
+      <div class="factor-row"><span class="factor-name">avg_sentence_length</span><span class="factor-value">26.61</span></div>
+      <div class="factor-row"><span class="factor-name">bold_count</span><span class="factor-value">32</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_bold</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ul_count</span><span class="factor-value">9</span></div>
+      <div class="factor-row"><span class="factor-name">ol_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">li_count</span><span class="factor-value">40</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_lists</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">table_count</span><span class="factor-value">9</span></div>
+      <div class="factor-row"><span class="factor-name">table_rows</span><span class="factor-value">21</span></div>
+      <div class="factor-row"><span class="factor-name">keyword_in_tables</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Links (16 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">internal_links</span><span class="factor-value">11</span></div>
+      <div class="factor-row"><span class="factor-name">external_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">total_links</span><span class="factor-value">39</span></div>
+      <div class="factor-row"><span class="factor-name">nofollow_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">exact_match_anchors</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">partial_match_anchors</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">branded_anchors</span><span class="factor-value">12</span></div>
+      <div class="factor-row"><span class="factor-name">external_unique_domains</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">link_density</span><span class="factor-value">2.41</span></div>
+      <div class="factor-row"><span class="factor-name">nav_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">footer_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">body_links</span><span class="factor-value">39</span></div>
+      <div class="factor-row"><span class="factor-name">anchor_diversity_ratio</span><span class="factor-value">1.0</span></div>
+      <div class="factor-row"><span class="factor-name">broken_links</span><span class="factor-value">24</span></div>
+      <div class="factor-row"><span class="factor-name">internal_nofollow</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">external_nofollow</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Technical (27 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">url_length</span><span class="factor-value">36</span></div>
+      <div class="factor-row"><span class="factor-name">url_depth</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_has_keyword</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_hyphens</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_underscores</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">url_https</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">url_www</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">canonical_present</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">canonical_self_referencing</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_present</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_noindex</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">meta_robots_nofollow</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">page_size_kb</span><span class="factor-value">722.3</span></div>
+      <div class="factor-row"><span class="factor-name">html_size_kb</span><span class="factor-value">722.3</span></div>
+      <div class="factor-row"><span class="factor-name">css_count</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">js_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">font_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">dom_total_elements</span><span class="factor-value">2058</span></div>
+      <div class="factor-row"><span class="factor-name">dom_tag_diversity</span><span class="factor-value">57</span></div>
+      <div class="factor-row"><span class="factor-name">dom_max_depth</span><span class="factor-value">20</span></div>
+      <div class="factor-row"><span class="factor-name">og_title</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_description</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_image</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">og_type</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">twitter_card</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">hreflang_present</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">hreflang_count</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Schema (16 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">json_ld_count</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_product_schema</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_review_schema</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_aggregaterating_schema</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_faqpage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_organization_schema</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_breadcrumblist_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_article_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_videoobject_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_itempage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_webpage_schema</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">schema_type_count</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">schema_property_count</span><span class="factor-value">2696</span></div>
+      <div class="factor-row"><span class="factor-name">sameas_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_microdata</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_rdfa</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Semantic (16 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">lsi_term_count</span><span class="factor-value">6</span></div>
+      <div class="factor-row"><span class="factor-name">lsi_coverage_pct</span><span class="factor-value">37.5</span></div>
+      <div class="factor-row"><span class="factor-name">has_faq_section</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">faq_question_count</span><span class="factor-value">8</span></div>
+      <div class="factor-row"><span class="factor-name">has_comparison</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_spec_table</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_howto</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_reviews</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_intro_body_conclusion</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">passage_qa_count</span><span class="factor-value">2</span></div>
+      <div class="factor-row"><span class="factor-name">has_eav_table</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">infr_entity_count</span><span class="factor-value">150</span></div>
+      <div class="factor-row"><span class="factor-name">infr_edge_count</span><span class="factor-value">701</span></div>
+      <div class="factor-row"><span class="factor-name">infr_cluster_count</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">infr_content_gap_count</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">infr_diversity_score</span><span class="factor-value">0.0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Media (12 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">image_count</span><span class="factor-value">12</span></div>
+      <div class="factor-row"><span class="factor-name">images_with_alt</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">images_without_alt</span><span class="factor-value">8</span></div>
+      <div class="factor-row"><span class="factor-name">image_alt_keyword</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">image_to_text_ratio</span><span class="factor-value">0.74</span></div>
+      <div class="factor-row"><span class="factor-name">webp_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">jpg_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">png_images</span><span class="factor-value">4</span></div>
+      <div class="factor-row"><span class="factor-name">svg_images</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">lazy_loading</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">video_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">audio_count</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">AI Overview (10 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">ai_target_mentioned</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_target_cited</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_citation_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">ai_source_diversity</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_overview_length</span><span class="factor-value">1255</span></div>
+      <div class="factor-row"><span class="factor-name">ai_product_count</span><span class="factor-value">12</span></div>
+      <div class="factor-row"><span class="factor-name">ai_competitor_citations</span><span class="factor-value">5</span></div>
+      <div class="factor-row"><span class="factor-name">ai_entity_overlap_pct</span><span class="factor-value">40.8</span></div>
+      <div class="factor-row"><span class="factor-name">ai_has_overview</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">ai_markdown_length</span><span class="factor-value">3124</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Shopify (20 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">shopify_cdn</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_theme</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_section</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">cart_link</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">checkout_link</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">is_product_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_collection_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_blog_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">is_page</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_app</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">liquid_indicator</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">variant_url</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_metafield</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_money_format</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_analytics</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_storefront</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_currency</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">shopify_locale</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">has_buy_button</span><span class="factor-value">1</span></div>
+      <div class="factor-row"><span class="factor-name">has_shopify_reviews</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <div class="cat-group">
+      <div class="cat-group-title expandable">Backlinks (14 factors)</div>
+      <div class="detail">
+      <div class="factor-row"><span class="factor-name">mm_match_count</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_match_rate</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_top_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_avg_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_median_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_ref_domains_checked</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_tier_targets</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_tier_priority_score</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_opportunity_score</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_in_majestic</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_majestic_rank</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_strong_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_medium_links</span><span class="factor-value">0</span></div>
+      <div class="factor-row"><span class="factor-name">mm_weak_links</span><span class="factor-value">0</span></div>
+      </div>
+    </div>
+    <p style="font-size: 15px; color: #1a1a1a; margin-top: 10px;">Total factors extracted: 200</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>SERP Competitors & AI Overview</strong></div>
+  <div class="detail show">
+
+    <style>
+      .serp-result { padding: 12px 0; border-bottom: 1px solid #e0e0e0; }
+      .serp-result:last-child { border-bottom: none; }
+      .serp-favicon { display: inline-block; width: 22px; height: 22px; vertical-align: middle; margin-right: 6px; border-radius: 4px; background: #f0f0f0; text-align: center; font-size: 12px; line-height: 22px; color: #666; }
+      .serp-url-line { font-size: 13px; color: #5f6368; margin-bottom: 2px; }
+      .serp-url-line a { color: #5f6368; text-decoration: none; }
+      .serp-url-line a:hover { text-decoration: underline; }
+      .serp-title { font-size: 18px; margin: 0 0 2px 0; }
+      .serp-title a { color: #1a0dab; text-decoration: none; }
+      .serp-title a:hover { text-decoration: underline; }
+      .serp-desc { font-size: 14px; color: #4d5156; line-height: 1.4; }
+      .serp-badge { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
+      .serp-badge-ours { background: #27ae60; color: white; font-weight: 600; }
+      .serp-badge-ai { background: #0066cc; color: white; font-weight: 600; }
+      .serp-badge-cited { background: #e67e22; color: white; }
+      .serp-ai-box { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; }
+      .serp-ai-box .serp-ai-label { font-size: 14px; color: #0066cc; font-weight: 600; margin-bottom: 8px; }
+      .serp-ai-content { font-size: 14px; color: #1a1a1a; line-height: 1.6; max-height: 300px; overflow-y: auto; white-space: pre-wrap; }
+      .serp-paa { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
+      .serp-paa-q { font-size: 15px; color: #1a0dab; font-weight: 500; cursor: pointer; }
+      .serp-search-bar { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 24px; padding: 10px 20px; margin-bottom: 16px; display: flex; align-items: center; }
+      .serp-search-bar .serp-logo { font-size: 20px; margin-right: 12px; }
+      .serp-search-bar .serp-query { font-size: 16px; color: #1a1a1a; flex: 1; }
+      .serp-meta { font-size: 13px; color: #70757a; margin-bottom: 12px; }
+    </style>
+    <div class="serp-search-bar">
+      <span class="serp-logo">🔍</span>
+      <span class="serp-query">PEX fittings</span>
+    </div>
+    <div class="serp-meta">Page 1 of Google · 93 results total · DataForSEO live SERP</div>
+<div class="serp-ai-box">
+  <div class="serp-ai-label">⚡ AI Overview <span class="serp-badge serp-badge-ai">AI</span></div>
+  <div class="serp-ai-content">![What Type of Fitting for PEX?](https://api.dataforseo.com/cdn/i/10082220-9607-0139-0000-2a08260937aa:4)
+PEX fittings `connect cross-linked polyethylene tubing in potable water and heating systems` , with individual components generally costing $1 to $2 each and complete starter kits ranging from $70 to $140.[[1]](https://plumbingsell.com/collections/pex-a-expansion-fittings)[[2]](https://www.google.com/search?q=product&prds=pvt:hg,productid:18439171983694266432,catalogid:5070097506143505618,gpcid:5000419153489236551,mid:576462861549523286&ibp=oshop)[[3]](https://www.google.com/search?q=product&prds=pvt:hg,productid:9321697585608520375,catalogid:4830227601476160421,gpcid:3797702855630290202,mid:576462890515071735&ibp=oshop)[[4]](https://www.google.com/search?q=product&prds=pvt:hg,productid:7950598245173945401,catalogid:13800921461982589059,gpcid:17088220245557521769,mid:576462829555100147&ibp=oshop)
+
+### Types of PEX Connections
+
+- **Crimp & Clamp:** Uses copper rings or stainless steel cinch clamps compressed over the pipe and fitting with a manual tool.[[1]](https://www.youtube.com/watch?v=5-NBwq3zhYM&t=2)[[2]](https://www.youtube.com/watch?v=6uNezbvSRYQ)[[3]](https://www.lowes.com/pl/pipe-fittings/pex-pipe-fittings-specialty-tools/2726415035)[[4]](https://www.youtube.com/watch?v=h1NRkTjXDq8)
+- **Expansion (PEX-A):** Uses an expander tool to widen the PEX-A pipe and ring before inserting the fitting; the pipe then shrinks back to form a tight seal.[[1]](https://www.youtube.com/watch?v=wJ_52HyMJA8&t=1)[[2]](https://www.youtube.com/watch?v=h1NRkTjXDq8)
+- **Push-to-Connect:** Tool-free push-fit connectors (like SharkBite) that grip the pipe instantly.[[1]](https://www.youtube.com/shorts/pe350ifpQ6o)[[2]](https://www.icrimptools.com/blogs/crimping/what-fittings-are-best-for-pex-pipes)
+- **Press:** Single-piece fittings with an integrated stainless steel sleeve pressed permanently with a dedicated tool.[[1]](https://www.icrimptools.com/blogs/crimping/what-fittings-are...</div>
+  <div style="margin-top:8px;font-size:13px;color:#5f6368">Cited sources: PEX Universe, YouTube, Lowe's, iCrimp Tools, Plumbingsell</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">P</span><a href="https://pexuniverse.com/pex-fittings?srsltid=AU7gw4WhWKaTwlOAfrV1PcT6YrpnICPfaJUViROYiLrqOoOn_wNgBdw4" target="_blank">pexuniverse.com › pex-fittings?srsltid=AU7gw4WhWKaTwlOAfrV1PcT6YrpnICPfaJUViROYiLrqOoOn_wNgBdw4</a><span class="serp-badge serp-badge-ours">YOUR PAGE</span></div>
+  <div class="serp-title"><a href="https://pexuniverse.com/pex-fittings?srsltid=AU7gw4WhWKaTwlOAfrV1PcT6YrpnICPfaJUViROYiLrqOoOn_wNgBdw4" target="_blank"><strong>PEX Fittings, Crimp Style, Lead-Free Brass</strong></a></div>
+  <div class="serp-desc">Crimp-style regular brass and Lead-Free PEX fittings for plumbing and heating applications - elbows, tees, couplings, adapters and others in sizes</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">P</span><a href="https://plumbingsell.com/collections/pex-crimp-fittings?srsltid=AU7gw4XPhQNedPCqmsFm54rB_9cOAllXw1B8QtFLFTCjbvDR43hujf0W" target="_blank">plumbingsell.com › collections</a></div>
+  <div class="serp-title"><a href="https://plumbingsell.com/collections/pex-crimp-fittings?srsltid=AU7gw4XPhQNedPCqmsFm54rB_9cOAllXw1B8QtFLFTCjbvDR43hujf0W" target="_blank">All PEX Brass Crimp Fittings</a></div>
+  <div class="serp-desc">When paired with a PEX tubing system, brass PEX fittings provide a secure connection that stands up to years of use. From hot and cold ... Read more</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">W</span><a href="https://www.aquorwatersystems.com/blogs/news/overview-types-of-pex-and-ways-to-connect?srsltid=AU7gw4XQdF02TigcULVOdRTSqV1JCHMl0uRRKP36KyiCJXVbmGQabbRI" target="_blank">www.aquorwatersystems.com › blogs</a></div>
+  <div class="serp-title"><a href="https://www.aquorwatersystems.com/blogs/news/overview-types-of-pex-and-ways-to-connect?srsltid=AU7gw4XQdF02TigcULVOdRTSqV1JCHMl0uRRKP36KyiCJXVbmGQabbRI" target="_blank">Overview: Types of PEX and Ways to Connect</a></div>
+  <div class="serp-desc">PEX can be connected to existing copper and galvanized steel water supply lines with the use of fittings—small pieces that link the two types of plumbing ...</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">W</span><a href="https://www.homedepot.com/b/Plumbing-Pipe-Fittings-Fittings-PEX-Fittings/N-5yc1vZ1z18i38" target="_blank">www.homedepot.com › b</a></div>
+  <div class="serp-title"><a href="https://www.homedepot.com/b/Plumbing-Pipe-Fittings-Fittings-PEX-Fittings/N-5yc1vZ1z18i38" target="_blank">PEX Fittings</a></div>
+  <div class="serp-desc">The most common feature for PEX Fittings is lead free. There are over 20 special value prices on PEX Fittings. All PEX Fittings can be shipped to you at home.</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">W</span><a href="https://www.amazon.com/stores/SUNGATOR/page/C7DFC1C1-B6F0-4EE1-8CDA-7B8992F21842" target="_blank">www.amazon.com › stores</a></div>
+  <div class="serp-title"><a href="https://www.amazon.com/stores/SUNGATOR/page/C7DFC1C1-B6F0-4EE1-8CDA-7B8992F21842" target="_blank">PEX FITTING - SUNGATOR</a></div>
+  <div class="serp-desc">SUNGATOR PEX Fittings 1/2 Inch, 25-Pack 1/2" PEX Tee Fittings, Brass | Crimp Pipe Fitting for PEX Pipe. 50+ bought in past month. Read more</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">W</span><a href="https://www.sharkbite.com/us/en/resources/videos/how-to-install-pex-a-expansion-fittings" target="_blank">www.sharkbite.com › us</a></div>
+  <div class="serp-title"><a href="https://www.sharkbite.com/us/en/resources/videos/how-to-install-pex-a-expansion-fittings" target="_blank">How To: Install PEX-a Expansion Fittings</a></div>
+  <div class="serp-desc">A step-by-step guide to creating a secure connection on PEX pipe using brass and poly expansion fittings.</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">A</span><a href="https://aquascience.net/products/pumps-tanks-well-components/pex-fittings/stainless-steel-pex?srsltid=AU7gw4XBzRwppjdlucKTkuyJwh4v2sQyzu3UUKYbW-O2npvXz0J_Z2zL" target="_blank">aquascience.net › products</a></div>
+  <div class="serp-title"><a href="https://aquascience.net/products/pumps-tanks-well-components/pex-fittings/stainless-steel-pex?srsltid=AU7gw4XBzRwppjdlucKTkuyJwh4v2sQyzu3UUKYbW-O2npvXz0J_Z2zL" target="_blank">Stainless Steel PEX Fittings</a></div>
+  <div class="serp-desc">Discover high-quality stainless PEX fittings for secure, long-lasting connections. Perfect for plumbing systems needing durability and reliability.</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">W</span><a href="https://www.familyhandyman.com/list/pex-piping-everything-you-need-to-know/" target="_blank">www.familyhandyman.com › list</a></div>
+  <div class="serp-title"><a href="https://www.familyhandyman.com/list/pex-piping-everything-you-need-to-know/" target="_blank">PEX Plumbing Pipe Guide: What to Know About PEX Piping</a></div>
+  <div class="serp-desc">May 20, 2025 — PEX piping is the biggest revolution since the flush toilet. Learn what it is and everything in between with this PEX plumbing guide. Read more</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">W</span><a href="https://www.ferguson.com/category/pipe-fittings/pex-fittings/?srsltid=AU7gw4UR-Y4ebJDCbiWTYbY7LEQqiEQntmpqlBtgGpmyvzkY3qDtSJ2b" target="_blank">www.ferguson.com › category</a></div>
+  <div class="serp-title"><a href="https://www.ferguson.com/category/pipe-fittings/pex-fittings/?srsltid=AU7gw4UR-Y4ebJDCbiWTYbY7LEQqiEQntmpqlBtgGpmyvzkY3qDtSJ2b" target="_blank">PEX Fittings</a></div>
+  <div class="serp-desc">Material: Ferguson stocks a variety of PEX fittings in plastic, brass, copper, and many more durable materials to bolster any piping system. Fitting type: ... Read more</div>
+</div>
+<div class="serp-result">
+  <div class="serp-url-line"><span class="serp-favicon">A</span><a href="https://aquascience.net/products/pumps-tanks-well-components/pex-fittings/stainless-steel-pex?srsltid=AU7gw4Uo08ojEb54l5I9r8i235YYqeeYJ8k3XdY17UXYh_OaRZJ_o76q" target="_blank">aquascience.net › products</a></div>
+  <div class="serp-title"><a href="https://aquascience.net/products/pumps-tanks-well-components/pex-fittings/stainless-steel-pex?srsltid=AU7gw4Uo08ojEb54l5I9r8i235YYqeeYJ8k3XdY17UXYh_OaRZJ_o76q" target="_blank">Stainless Steel PEX Fittings</a></div>
+  <div class="serp-desc">Discover high-quality stainless PEX fittings for secure, long-lasting connections. Perfect for plumbing systems needing durability and reliability.</div>
+</div>
+    <div class="ai-status" style="margin-top: 16px;">
+      <strong style="color: #27ae60;">AI Overview Found</strong><br>
+      <span style="font-size: 15px; color: #1a1a1a;">
+        Citations: 12 · Source Diversity: 5 · Products: 12
+      </span><br>
+      <span style="font-size: 14px; color: #1a1a1a; margin-top: 4px; display: block;">
+        Cited domains: PEX Universe, YouTube, Lowe's, iCrimp Tools, Plumbingsell
+      </span>
+      <div style="margin-top: 8px;"><strong style="font-size: 14px; color: #0066cc;">People Also Ask:</strong><br>        <span style="font-size: 14px; color: #1a1a1a;">• How to tell if fitting is PEX A or B?</span><br>
+        <span style="font-size: 14px; color: #1a1a1a;">• What are the best fittings to use with PEX?</span><br>
+        <span style="font-size: 14px; color: #1a1a1a;">• Is it better to clamp or crimp PEX?</span><br>
+        <span style="font-size: 14px; color: #1a1a1a;">• Are there different types of PEX fittings?</span><br>
+      </div>
+      <div style="margin-top: 8px;"><strong style="font-size: 14px; color: #0066cc;">Special Results:</strong><br>        <span style="font-size: 14px; color: #1a1a1a;">• Video: </span><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Core Web Vitals (Lighthouse)</strong></div>
+  <div class="detail show">
+    <div class="lighthouse-scores">
+      <div class="lh-card"><div class="lh-title">Performance</div><div class="lh-score" style="color: #0066cc">43</div></div>
+      <div class="lh-card"><div class="lh-title">Accessibility</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">Best Practices</div><div class="lh-score" style="color: #e74c3c">0</div></div>
+      <div class="lh-card"><div class="lh-title">SEO</div><div class="lh-score" style="color: #27ae60">92</div></div>
+    </div>
+    <div style="margin-top: 12px;">
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Structure Metrics (with Target Ranges)</strong></div>
+  <div class="detail show">
+    <table>
+      <tr><th>Metric</th><th>Value</th><th>Target</th><th>Status</th></tr>
+      <tr><td>Words</td><td>1617</td><td>900-2500</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Headings 1</td><td>1</td><td>0-1</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Headings 2</td><td>5</td><td>2-20</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Paragraphs</td><td>17</td><td>5-30</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Internal links</td><td>223</td><td>10-100</td><td><span class="out-of-range">✗ Out of range</span></td></tr>
+      <tr><td>External links</td><td>6</td><td>0-20</td><td><span class="in-range">✓ In range</span></td></tr>
+      <tr><td>Citations</td><td>0</td><td>No target</td><td>—</td></tr>
+      <tr><td>Entities</td><td>116</td><td>No target</td><td>—</td></tr>
+      <tr><td>Lists</td><td>10</td><td>No target</td><td>—</td></tr>
+      <tr><td>Tables</td><td>9</td><td>No target</td><td>—</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Schema &amp; Structured Data Analysis (Score: <span style="color:#cc0000">0/100 — Poor</span>)</strong></div>
+  <div class="detail show">
+    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 8px;">JSON-LD blocks: <strong>1</strong> · Schema types found: <strong>21</strong> · Properties: <strong>2696</strong> · Microdata: ✓ · RDFa: ✗</p>
+    
+    <table style="width:100%;border-collapse:collapse;margin-top:10px">
+      <thead><tr style="background:#f0f0f0"><th style="padding:8px;text-align:left;font-size:14px">Schema Type</th><th style="padding:8px;text-align:left;font-size:14px">Status</th><th style="padding:8px;text-align:left;font-size:14px">Priority</th><th style="padding:8px;text-align:left;font-size:14px">SEO Impact</th><th style="padding:8px;text-align:left;font-size:14px">Action</th></tr></thead>
+      <tbody>
+      <tr class="schema-missing"><td><strong>Article</strong></td><td><span style="color:#cc0000;font-weight:600">✗ Missing</span></td><td style="color:#e67e22;font-weight:600">High</td><td style="font-size:14px">Article schema enables Google News inclusion and rich article snippets</td><td style="font-size:14px">Add Article JSON-LD schema — required properties: headline, author, datePublished, image</td></tr>
+      <tr class="schema-missing"><td><strong>Author</strong></td><td><span style="color:#cc0000;font-weight:600">✗ Missing</span></td><td style="color:#0066cc;font-weight:600">Medium</td><td style="font-size:14px">Improves search engine understanding of page content</td><td style="font-size:14px">Add Author JSON-LD schema — required properties: </td></tr>
+      <tr class="schema-missing"><td><strong>BreadcrumbList</strong></td><td><span style="color:#cc0000;font-weight:600">✗ Missing</span></td><td style="color:#e67e22;font-weight:600">High</td><td style="font-size:14px">Breadcrumbs replace URLs in SERPs and improve click-through</td><td style="font-size:14px">Add BreadcrumbList JSON-LD schema — required properties: itemListElement</td></tr>
+      <tr class="schema-missing"><td><strong>FAQPage</strong></td><td><span style="color:#cc0000;font-weight:600">✗ Missing</span></td><td style="color:#e67e22;font-weight:600">High</td><td style="font-size:14px">FAQ rich results expand your SERP footprint and can appear in AI Overviews</td><td style="font-size:14px">Add FAQPage JSON-LD schema — required properties: mainEntity</td></tr>
+      <tr class="schema-missing"><td><strong>Organization</strong></td><td><span style="color:#cc0000;font-weight:600">✗ Missing</span></td><td style="color:#e67e22;font-weight:600">High</td><td style="font-size:14px">Organization schema enables knowledge panel and brand entity recognition</td><td style="font-size:14px">Add Organization JSON-LD schema — required properties: name, url, logo, sameAs</td></tr>
+      <tr class="schema-found"><td><strong>Product</strong></td><td><span style="color:#27ae60;font-weight:600">✓ Present</span></td><td style="color:#cc0000;font-weight:600">Critical</td><td style="font-size:14px">Product schema enables rich results with price, availability, and ratings in SERPs</td><td style="font-size:14px">Maintain — schema is properly implemented</td></tr>
+      <tr class="schema-missing"><td><strong>Review</strong></td><td><span style="color:#cc0000;font-weight:600">✗ Missing</span></td><td style="color:#e67e22;font-weight:600">High</td><td style="font-size:14px">Individual reviews add credibility and can appear in rich results</td><td style="font-size:14px">Add Review JSON-LD schema — required properties: reviewRating, author, datePublished</td></tr>
+      </tbody>
+    </table>
+    
+<div style="margin-top:12px;padding:12px;background:#fff3cd;border:1px solid #ffeaa7;border-radius:8px">
+  <strong style="font-size:15px;color:#856404">⚠ Missing Schema (6 types):</strong>
+  <ul style="margin:8px 0 0 0;font-size:15px;color:#1a1a1a">
+    <li><strong>Article</strong> — Add JSON-LD with: headline, author, datePublished, image</li>
+    <li><strong>Organization</strong> — Add JSON-LD with: name, url, logo, sameAs</li>
+    <li><strong>Author</strong> — Add JSON-LD with: (check schema.org)</li>
+    <li><strong>FAQPage</strong> — Add JSON-LD with: mainEntity</li>
+    <li><strong>Review</strong> — Add JSON-LD with: reviewRating, author, datePublished</li>
+    <li><strong>BreadcrumbList</strong> — Add JSON-LD with: itemListElement</li>
+  </ul>
+</div>
+
+    <div style="margin-top:10px;padding:10px;background:#e8f4fd;border:1px solid #b3d9f2;border-radius:8px;font-size:14px;color:#1a1a1a"><strong>Why schema matters:</strong> Google uses structured data to understand page content, enable rich results (star ratings, FAQ accordions, product pricing), and feed AI Overviews. Pages with proper schema see 15-35% higher CTR. Missing Product/Review schema on product pages is a confirmed negative ranking signal.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Entity & Topical Analysis (InfraNodus)</strong></div>
+  <div class="detail show">
+    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 10px;">Entities: 150 · Edges: 701 · Clusters: 5 · Content Gaps: 4 · Diversity: 0.0</p>
+    <div style="margin-bottom: 12px;"><strong style="font-size: 15px; color: #0066cc;">Top Entities:</strong> <button onclick="copyEntities()" style="background:#0066cc;color:white;border:none;padding:3px 10px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Click to Copy All Entities</button><br>
+      <span class="entity-badge">pex</span>
+      <span class="entity-badge">fitting</span>
+      <span class="entity-badge">crimp</span>
+      <span class="entity-badge">style</span>
+      <span class="entity-badge">lead</span>
+      <span class="entity-badge">free</span>
+      <span class="entity-badge">brass</span>
+      <span class="entity-badge">pexuniverse</span>
+      <span class="entity-badge">shipping</span>
+      <span class="entity-badge">order</span>
+      <span class="entity-badge">ship</span>
+      <span class="entity-badge">fedex</span>
+      <span class="entity-badge">ground</span>
+      <span class="entity-badge">offer</span>
+      <span class="entity-badge">valid</span>
+      <span class="entity-badge">lower</span>
+      <span class="entity-badge">state</span>
+      <span class="entity-badge">freight</span>
+      <span class="entity-badge">additional</span>
+      <span class="entity-badge">surcharge</span>
+    </div>
+    <div style="margin-bottom: 12px;"><strong style="font-size: 15px; color: #27ae60;">Clusters:</strong><br>
+      <span class="cluster-badge">free order shipping</span>
+      <span class="cluster-badge">valve boiler pump</span>
+      <span class="cluster-badge">brass pex fitting</span>
+      <span class="cluster-badge">pipe gas pvc</span>
+      <span class="cluster-badge">product radiant tool</span>
+    </div>
+    <div><strong style="font-size: 15px; color: #0066cc;">Content Gaps: 4 gaps detected</strong> — add missing entities to improve topical coverage.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title expandable"><strong>Topics / Keyword Tracking</strong></div>
+  <div class="detail show">
+    <div style="margin-bottom: 8px;"><strong style="font-size: 15px; color: #27ae60;">On Track:</strong><br>
+      <span class="topic-badge topic-on-track">PEX fittings</span>
+    </div>
+    <div style="margin-bottom: 8px;"><strong style="font-size: 15px; color: #0066cc;">To Add:</strong><br>
+      <span class="topic-badge topic-to-add">+ pexs</span>
+      <span class="topic-badge topic-to-add">+ fitting</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Information Gain Analysis -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Information Gain Analysis (Invisible Authority)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Analyzes top 6 ranking pages for "PEX fittings" to find <strong>consensus</strong> (what most pages say = your coverage floor) 
+        and <strong>unique claims</strong> (what only one page says = your information gain opportunity). 
+        Repetition rate: <strong>0.0%</strong> — lower means more unique content to consolidate.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">6</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Pages Analyzed</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">2</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Total Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Consensus Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color: #0066cc">2</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Unique Claims</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#27ae60;font-size:16px;margin:20px 0 10px">CONSENSUS (Coverage Floor — must cover these)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Claims shared by 2+ ranking pages. Cover these to be a credible answer.</p>
+
+      <h3 style="color: #0066cc;font-size:16px;margin:20px 0 10px">UNIQUE CLAIMS (Information Gain Opportunities)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Claims made by only one page. Consolidate these to carry more info than any single competitor.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Read why we recommend PEX tubing over copper piping. <span style="color: #0066cc;font-size:13px">— www.aquorwatersystems.com (pos 0)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Ultraviolet rays (from the sun) cause PEX to break down quickly, making PEX unsuitable for outdoor use. <span style="color: #0066cc;font-size:13px">— www.aquorwatersystems.com (pos 0)</span></div>
+
+      <h3 style="color:#cc0000;font-size:16px;margin:20px 0 10px">MISSING (White Space — nobody covers these)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Topics no ranking page covers. Own this space with original first-hand content.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">ROI calculation and cost savings analysis</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Environmental impact of salt discharge</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Effect on septic systems</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Water pH impact</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Installation time estimates</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Warranty claim rates and reliability data</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Customer service comparison</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Long-term ownership costs beyond initial purchase</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Impact on drinking water taste</div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Comparison of salt consumption efficiency across models</div>
+
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">Content Brief</h3>
+      <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:16px;font-size:15px;line-height:1.6">
+        <p><strong>1. Cover the consensus</strong> — ensure your page addresses all shared claims above. This is your entry ticket.</p>
+        <p style="margin-top:8px"><strong>2. Consolidate unique claims</strong> — pull together the scattered unique claims from competitors. Your page will carry more information than any single competitor.</p>
+        <p style="margin-top:8px"><strong>3. Fill white space</strong> — add first-hand material on the missing topics. This is where true information gain lives — content that appears nowhere on page 1.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- AI-Generated FAQs -->
+  <div class="section">
+    <div class="section-title expandable"><strong>AI-Generated FAQs (From Information Gain Analysis)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        6 FAQs generated to close white space and consolidate unique claims from competitors. 
+        Each FAQ is factual, brand-relevant, and designed for FAQ schema markup and AI Overview citation.
+        Add these to the page with FAQPage schema for passage optimization.
+      </p>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q1: How much does a PEX fittings cost?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A quality PEX fittings typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q2: What is the ROI of a PEX fittings?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          A PEX fittings typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q3: Do PEX fittingss affect septic systems?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Modern PEX fittingss are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn't harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q4: Can I install a PEX fittings myself or do I need a plumber?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Many modern PEX fittingss are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You'll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q5: How does a PEX fittings affect drinking water taste?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Softened water has a slightly different taste due to the ion exchange process. Most people don't notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water.
+        </div>
+      </div>
+      <div class="issue-card" style="border-left:3px solid #0066cc;margin-bottom:12px">
+        <span class="name" style="font-size:14px;color:#0066cc;font-weight:600">Q6: Can a PEX fittings be installed outside?</span>
+        <div class="detail show" style="font-size:14px;color:#444;margin-top:10px;padding-top:8px;border-top:1px solid #e0e0e0">
+          Yes, PEX fittingss can be installed outdoors in mild climates with proper protection from direct sunlight, freezing temperatures, and heavy rain. A weather-resistant enclosure is recommended. In areas where temperatures drop below freezing, indoor installation in a garage, basement, or utility closet is preferred.
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:16px;background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px">
+        <p style="color:#0066cc;font-size:15px;font-weight:600;margin-bottom:8px">FAQPage Schema (JSON-LD) — paste into page &lt;head&gt;:</p>
+        <button onclick="copySchema(this)" data-schema="{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;mainEntity&quot;: [
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How much does a PEX fittings cost?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A quality PEX fittings typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;What is the ROI of a PEX fittings?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;A PEX fittings typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Do PEX fittingss affect septic systems?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Modern PEX fittingss are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn&#39;t harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can I install a PEX fittings myself or do I need a plumber?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Many modern PEX fittingss are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You&#39;ll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How does a PEX fittings affect drinking water taste?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Softened water has a slightly different taste due to the ion exchange process. Most people don&#39;t notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can a PEX fittings be installed outside?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Yes, PEX fittingss can be installed outdoors in mild climates with proper protection from direct sunlight, freezing temperatures, and heavy rain. A weather-resistant enclosure is recommended. In areas where temperatures drop below freezing, indoor installation in a garage, basement, or utility closet is preferred.&quot;
+      }
+    }
+  ]
+}" style="background:#0066cc;color:white;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;margin-bottom:10px">📋 Copy Schema</button>
+        <code style="font-size:13px;color:#1b7a3d;display:block;white-space:pre-wrap;overflow-x:auto;background:#ffffff;padding:10px;border:1px solid #e0e0e0;border-radius:6px">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a PEX fittings cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A quality PEX fittings typically ranges from $300 to $3,000 depending on type and capacity. High-efficiency systems with advanced metered valves typically run $1,200-$2,000. Installation adds $200-$600 if hiring a plumber, though many modern systems support DIY installation. Annual maintenance costs (salt or alternative) run $100-$300 depending on water hardness and household size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the ROI of a PEX fittings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A PEX fittings typically pays for itself within 2-4 years through reduced appliance replacement costs. Hard water causes scale buildup that shortens appliance lifespans by 30-50%. Softened water also reduces soap and detergent usage by up to 50%, saving $200-$600 per year. Combined with extended appliance lifespans, a $1,500 system can return its investment in under 3 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do PEX fittingss affect septic systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern PEX fittingss are safe for septic systems when properly configured. The salt brine discharge is diluted enough that it doesn't harm the bacterial balance. High-efficiency systems produce less discharge than older models, further reducing any septic impact. If your septic system is undersized or failing, consult a septic professional before installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I install a PEX fittings myself or do I need a plumber?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many modern PEX fittingss are designed for DIY installation with push-to-connect fittings or bypass valves — typically a 2-4 hour job. You'll need access to the main water line, a drain for regeneration discharge, and a nearby electrical outlet. For homes with older plumbing or complex configurations, a licensed plumber is recommended. Improper installation can void your warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a PEX fittings affect drinking water taste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Softened water has a slightly different taste due to the ion exchange process. Most people don't notice the change. The sodium added is minimal: roughly 7.5 mg per 8 oz glass for moderately hard water (10 GPG) — less sodium than a slice of bread. For those sensitive to taste, a bypass valve for the kitchen tap or a reverse osmosis system can provide untreated drinking water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a PEX fittings be installed outside?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, PEX fittingss can be installed outdoors in mild climates with proper protection from direct sunlight, freezing temperatures, and heavy rain. A weather-resistant enclosure is recommended. In areas where temperatures drop below freezing, indoor installation in a garage, basement, or utility closet is preferred."
+      }
+    }
+  ]
+}
+&lt;/script&gt;</code>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- AI-Written Examples -->
+  <div class="section">
+    <div class="section-title expandable"><strong>AI-Written Examples (Click to Expand)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Three click-worthy, keyword-optimized examples each for meta title, meta description,
+        H1, H2, H3, and image ALT text. Swap in your brand and refine for tone.
+      </p>
+      <div class="cat-group">
+        <div class="cat-group-title">Meta Title (under 60 chars, include core keyword)</div>
+        <p style="font-size:15px;color:#444;margin-bottom:6px">Click-worthy, includes core keyword, stays under 60 characters.</p>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best PEX fittings for Crimp (2024 Reviews) <span style="color:#0066cc;font-weight:600">(42 chars)</span> <button onclick="copyText(this)" data-text="Best PEX fittings for Crimp (2024 Reviews)" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Pex Fittings: Top-Rated Systems for Clean Water <span style="color:#0066cc;font-weight:600">(47 chars)</span> <button onclick="copyText(this)" data-text="Pex Fittings: Top-Rated Systems for Clean Water" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best PEX fittings Systems — Expert Buying Guide <span style="color:#0066cc;font-weight:600">(47 chars)</span> <button onclick="copyText(this)" data-text="Best PEX fittings Systems — Expert Buying Guide" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">Meta Description (120-160 chars, compelling)</div>
+        <p style="font-size:15px;color:#444;margin-bottom:6px">Includes keyword, compelling, 120-160 characters.</p>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Looking for the best PEX fittings? Compare top-rated systems for crimp, see real cost data, and find the right fit for your home. Expert reviews & buying guide. <span style="color:#0066cc;font-weight:600">(160 chars)</span> <button onclick="copyText(this)" data-text="Looking for the best PEX fittings? Compare top-rated systems for crimp, see real cost data, and find the right fit for your home. Expert reviews & buying guide." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Discover the best PEX fittings for clean, soft water. We compare features, prices, and certifications to help you choose. Read our 2024 expert guide now. <span style="color:#0066cc;font-weight:600">(153 chars)</span> <button onclick="copyText(this)" data-text="Discover the best PEX fittings for clean, soft water. We compare features, prices, and certifications to help you choose. Read our 2024 expert guide now." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Find your ideal PEX fittings — reviews, installation tips, and cost breakdowns. See which systems rank best for crimp and pex. <span style="color:#0066cc;font-weight:600">(126 chars)</span> <button onclick="copyText(this)" data-text="Find your ideal PEX fittings — reviews, installation tips, and cost breakdowns. See which systems rank best for crimp and pex." style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H1 (include keyword, compelling)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best PEX fittings for Crimp — Expert Reviews & Recommendations <span style="color:#0066cc;font-weight:600">(62 chars)</span> <button onclick="copyText(this)" data-text="Best PEX fittings for Crimp — Expert Reviews & Recommendations" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Pex Fittings Systems: Complete Buyer's Guide for Cleaner Water <span style="color:#0066cc;font-weight:600">(62 chars)</span> <button onclick="copyText(this)" data-text="Pex Fittings Systems: Complete Buyer's Guide for Cleaner Water" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Top PEX fittings Picks — Reviews, Costs & Expert Advice <span style="color:#0066cc;font-weight:600">(55 chars)</span> <button onclick="copyText(this)" data-text="Top PEX fittings Picks — Reviews, Costs & Expert Advice" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H2 (include keyword or secondary keyword)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Best PEX fittings Systems for Crimp <span style="color:#0066cc;font-weight:600">(35 chars)</span> <button onclick="copyText(this)" data-text="Best PEX fittings Systems for Crimp" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Cost & ROI of a PEX fittings <span style="color:#0066cc;font-weight:600">(28 chars)</span> <button onclick="copyText(this)" data-text="Cost & ROI of a PEX fittings" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Pex: What You Need to Know <span style="color:#0066cc;font-weight:600">(26 chars)</span> <button onclick="copyText(this)" data-text="Pex: What You Need to Know" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">H3 (include keyword or entity)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Top-Rated PEX fittings Brands <span style="color:#0066cc;font-weight:600">(29 chars)</span> <button onclick="copyText(this)" data-text="Top-Rated PEX fittings Brands" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">How Pex Fittings Works <span style="color:#0066cc;font-weight:600">(22 chars)</span> <button onclick="copyText(this)" data-text="How Pex Fittings Works" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Installing a PEX fittings in Crimp <span style="color:#0066cc;font-weight:600">(34 chars)</span> <button onclick="copyText(this)" data-text="Installing a PEX fittings in Crimp" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-title">Image ALT text (include keyword, descriptive)</div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Pex Fittings system installed in a home utility room <span style="color:#0066cc;font-weight:600">(52 chars)</span> <button onclick="copyText(this)" data-text="Pex Fittings system installed in a home utility room" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Cross-section diagram of a PEX fittings showing resin tank and control valve <span style="color:#0066cc;font-weight:600">(76 chars)</span> <button onclick="copyText(this)" data-text="Cross-section diagram of a PEX fittings showing resin tank and control valve" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+        <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:15px">Comparison chart of the best PEX fittings models for crimp <span style="color:#0066cc;font-weight:600">(58 chars)</span> <button onclick="copyText(this)" data-text="Comparison chart of the best PEX fittings models for crimp" style="background:#0066cc;color:white;border:none;padding:4px 12px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:8px">📋 Copy</button></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Keywords Everywhere Data -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Keyword Data (Keywords Everywhere — Prepaid)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Search volume, CPC, competition, and 12-month trend for "PEX fittings". 
+        Data from Keywords Everywhere (prepaid credits — saves DataForSEO API costs).
+        KE credits remaining: <strong>369,631</strong>
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">14,800</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Monthly Volume</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">$0.24</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">CPC</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#cc0000">Very High</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Competition (1.00)</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color: #0066cc">10.1%</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Seasonality</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">15,125</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Avg Monthly</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">12-Month Search Trend</h3>
+      <div style="display:flex;align-items:flex-end;gap:4px;height:80px;margin:10px 0;padding:10px;background:#f8f9fa;border-radius:8px">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">12,100</div><div style="width:100%;height:67%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Oct</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Nov</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Dec</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jan</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Feb</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Mar</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Apr</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">18,100</div><div style="width:100%;height:100%;min-height:2px;background:#0066cc;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">May</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">18,100</div><div style="width:100%;height:100%;min-height:2px;background:#0066cc;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jun</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Jul</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Aug</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center"><div style="font-size:9px;color:#aaa;margin-bottom:2px">14,800</div><div style="width:100%;height:82%;min-height:2px;background:#e0e0e0;border-radius:2px"></div><div style="font-size:9px;color:#aaa;margin-top:4px">Sep</div></div>
+      </div>
+
+      <div style="margin-top:16px">
+        <h3 style="color: #0066cc;font-size:14px;margin-bottom:8px">Seasonality Insight</h3>
+        <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#444">
+          <strong>Peak:</strong> May 2026 (18,100) | <strong>Low:</strong> October 2025 (12,100) | <strong>Seasonality:</strong> 10.1% variance
+          <br><em style="font-size:14px">Content should be updated/refreshed before peak season. Low seasonality — consistent year-round demand.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Deep SERP Scan -->
+  <div class="section">
+    <div class="section-title expandable"><strong>Deep SERP Scan — Top 100 Results (Claims, Problems & PAA)</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Scanned top 80 organic results for "PEX fittings". Found
+        <strong>488 unique claims</strong>,
+        <strong>9 industry problems/issues</strong>,
+        <strong>4 People Also Ask questions</strong>, and
+        <strong>0 related searches</strong>.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#0066cc">488</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Claims</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#cc0000">9</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Problems/Issues</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color: #0066cc">4</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">People Also Ask</div>
+        </div>
+        <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:28px;font-weight:700;color:#27ae60">0</div>
+          <div style="font-size:13px;color:#444;text-transform:uppercase;margin-top:4px">Related Searches</div>
+        </div>
+      </div>
+      
+      <h3 style="color:#cc0000;font-size:16px;margin:20px 0 10px">INDUSTRY PROBLEMS & ISSUES</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Common complaints, failures, and concerns from across the top 100 results. Address these to build trust.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">For threaded connections, use PTFE tape or sealant for leak-free installation <span style="color:#cc0000;font-size:13px">— plumbingsell.com (pos 2)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">12 reviews 1/2&quot; inch PEX 304 Stainless Steel Clamp Cinch Rings Crimp Pinch Fitting 30PCS From $6 <span style="color:#cc0000;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Steel PEX Crimp Fittings Crimp style PEX fittings made from 304 stainless steel - for ultimate corrosion resistance <span style="color:#cc0000;font-size:13px">— pexuniverse.com (pos 32)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Corrosion Resistance: PEX fittings have unsettled corrosion confrontation since they are chiefly collected of metal or plastic alloys <span style="color:#cc0000;font-size:13px">— www.metpure.com (pos 33)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">The pliability to corrosion improves the toughness and reliability of your plumbing system <span style="color:#cc0000;font-size:13px">— www.metpure.com (pos 33)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Is there any problem with using copper crimp rings?" A <span style="color:#cc0000;font-size:13px">— www.plumbingsupply.com (pos 40)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Stainless Steel Clamp Rings UC953A Regular price $3 <span style="color:#cc0000;font-size:13px">— www.supplytie.com (pos 47)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Push each Stainless Steel Poly Elbow MPN: UPP248Z5 $15 <span style="color:#cc0000;font-size:13px">— nationalhardwaregroup.com (pos 56)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #cc0000;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">84 NIBCO NP53 Stainless Steel Clamp Tool NIBCO NP53 Stainless Steel Clamp Tool $155 <span style="color:#cc0000;font-size:13px">— www.chavezplumbingandsupply.com (pos 58)</span></div>
+      <h3 style="color: #0066cc;font-size:16px;margin:20px 0 10px">PEOPLE ALSO ASK</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Real questions searchers are asking. Answer these on your page for passage ranking.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">How to tell if fitting is PEX A or B?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">What are the best fittings to use with PEX?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Is it better to clamp or crimp PEX?</div>
+      <div style="background:#f8f9fa;border-left:3px solid #f39c12;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Are there different types of PEX fittings?</div>
+      <h3 style="color:#0066cc;font-size:16px;margin:20px 0 10px">ADDITIONAL CLAIMS (from positions 11-100)</h3>
+      <p style="font-size:15px;color:#444;margin-bottom:10px">Claims found beyond the top 10 results that may not be covered by any page 1 competitor.</p>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">00 Offer is valid for lower 48 states only <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">), we recommend the time-tested and reliable crimp method until there's enough data to confirm the reliability of this method <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">length==1 && shipping" class="free_shipping"> + Free Shipping --> {{ USDFormatter(( (!m <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">quantity_per_mqty }} = 99" class="free_shipping"> + Free Shipping ({{ USDFormatter( (!m <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">pickup_discount ) }} Free Shipping on any qty Discontinued 0 && product <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">discount_price Automatic $123 <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">title" class="img-responsive"> Filter Filter Clear &nbsp;In Stock only &nbsp;Free Shipping Search Filters --> Apply Filter Clear 0 ? ('/' + c <span style="color:#0066cc;font-size:13px">— pexuniverse.com (pos 1)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">00 Product title $99 <span style="color:#0066cc;font-size:13px">— plumbingsell.com (pos 2)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">00 30% Off Lorem ipsum dolor sit amet consectetur adipisicing elit <span style="color:#0066cc;font-size:13px">— plumbingsell.com (pos 2)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">View Details Product Title $99 <span style="color:#0066cc;font-size:13px">— plumbingsell.com (pos 2)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">PEX is utilized in over 60 percent of new construction residential water systems—a notable jump in use since its arrival in the US during the 1980s <span style="color:#0066cc;font-size:13px">— www.aquorwatersystems.com (pos 3)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Read why we recommend PEX tubing over copper piping <span style="color:#0066cc;font-size:13px">— www.aquorwatersystems.com (pos 3)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Definitely recommend you find a YouTube install video for your plumber as these are not particularly common to most plumbers <span style="color:#0066cc;font-size:13px">— www.aquorwatersystems.com (pos 3)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">We recommend adding one, though <span style="color:#0066cc;font-size:13px">— www.familyhandyman.com (pos 8)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">We recommend our users to update the browser <span style="color:#0066cc;font-size:13px">— www.familyhandyman.com (pos 8)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">Price when purchased online 2 Pcs XFITTING Pex A 3/4 Inch x 3/4 Inch x 1/2 Inch Pex A Tee, 201-1-4=2XX From $14 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">10 Add Sponsored $ 10 10 current price $10 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">1 reviews 10 Pcs XFITTING 1 Inch Pex x 1 Inch Female NPT Drop Ear Elbow From $16 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">88 Add Sponsored $ 18 88 current price $18 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">98 Add $ 13 98 current price $13 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">5 reviews 30 PCS 1/2&quot; Brass PEX Fittings 10 Each Elbow, TEE, Couple Reducer $29 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">00 Add $ 29 00 current price $29 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">4 reviews Supply Giant 5-12PPCP Plastic PEX Poly Alloy Straight Coupling Barb Pipe Fitting 1/2 Inch Pack of 5 From $5 <span style="color:#0066cc;font-size:13px">— www.walmart.com (pos 19)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">31 - Original price $0 <span style="color:#0066cc;font-size:13px">— acandb.com (pos 21)</span></div>
+      <div style="background:#f8f9fa;border-left:3px solid #0066cc;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px">31 Original price $0 <span style="color:#0066cc;font-size:13px">— acandb.com (pos 21)</span></div>
+
+    </div>
+  </div>
+
+
+  <!-- Perplexity AEO Citation Test -->
+  <div class="section">
+    <div class="section-title expandable"><strong>AEO Citation Test — Perplexity Sonar AI</strong></div>
+    <div class="detail show">
+      <p style="font-size:15px;color:#444;margin-bottom:16px">
+        Tested whether this page/brand is cited in Perplexity's AI answer for "PEX fittings". <span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:14px;font-weight:600">✅ CITED</span>
+        Cost: $0.0046 | Total citations in answer: 10
+      </p>
+      <h3 style="color:#27ae60;font-size:14px;margin:16px 0 8px">YOUR CITATION URL(s)</h3>
+      <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px"><a href="https://pexuniverse.com/pex-fittings-all-types" target="_blank" style="color:#27ae60">https://pexuniverse.com/pex-fittings-all-types</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #27ae60;padding:8px 12px;margin-bottom:6px;border-radius:0 6px 6px 0;font-size:15px"><a href="https://pexuniverse.com/pex-fittings" target="_blank" style="color:#27ae60">https://pexuniverse.com/pex-fittings</a></div>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">All 10 Citations in AI Answer</h3>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.zoro.com — <a href="https://www.zoro.com/pex-fittings/c/8121/" target="_blank" style="color:#0066cc">https://www.zoro.com/pex-fittings/c/8121/</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">pexuniverse.com — <a href="https://pexuniverse.com/pex-fittings-all-types" target="_blank" style="color:#0066cc">https://pexuniverse.com/pex-fittings-all-types</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.ferguson.com — <a href="https://www.ferguson.com/category/pipe-fittings/pex-fittings/" target="_blank" style="color:#0066cc">https://www.ferguson.com/category/pipe-fittings/pex-fittings</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.zoro.com — <a href="https://www.zoro.com/pex-fittings/c/8121/?fqv:brand=CASH%20ACME" target="_blank" style="color:#0066cc">https://www.zoro.com/pex-fittings/c/8121/?fqv:brand=CASH%20A</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">pexuniverse.com — <a href="https://pexuniverse.com/pex-fittings" target="_blank" style="color:#0066cc">https://pexuniverse.com/pex-fittings</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.rona.ca — <a href="https://www.rona.ca/en/plumbing/fittings-and-pipes/fittings-pex" target="_blank" style="color:#0066cc">https://www.rona.ca/en/plumbing/fittings-and-pipes/fittings-</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.watts.com — <a href="https://www.watts.com/products/plumbing-flow-control-solutions/pex-plumbing-radiant-heating-systems/fittings-for-pex-plumbing-radiant-heating-systems" target="_blank" style="color:#0066cc">https://www.watts.com/products/plumbing-flow-control-solutio</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.acehardware.com — <a href="https://www.acehardware.com/departments/plumbing/pipe-fittings/pex-fittings-near-me" target="_blank" style="color:#0066cc">https://www.acehardware.com/departments/plumbing/pipe-fittin</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.plumbingsupply.com — <a href="https://www.plumbingsupply.com/pex.html" target="_blank" style="color:#0066cc">https://www.plumbingsupply.com/pex.html</a></div>
+      <div style="background:#f8f9fa;border-left:3px solid #e0e0e0;padding:6px 12px;margin-bottom:4px;border-radius:0 6px 6px 0;font-size:14px">www.viega.us — <a href="https://www.viega.us/en/resources/Blog/Master-PEX-Plumbing-Fittings-and-Valves-Explained.html" target="_blank" style="color:#0066cc">https://www.viega.us/en/resources/Blog/Master-PEX-Plumbing-F</a></div>
+      <h3 style="color:#0066cc;font-size:14px;margin:16px 0 8px">AI Answer Preview</h3>
+      <div style="background:#f8f9fa;padding:12px;border-radius:8px;font-size:15px;color:#444;line-height:1.5">PEX fittings connect PEX tubing to other tubing, fixtures, valves, or plumbing components. The best choice depends primarily on the PEX type—PEX-A, PEX-B, or PEX-C—and the installation method.
+
+## Main types
+
+- **Crimp fittings:** Affordable and widely available. Use a barbed brass or polymer fitting with a copper crimp ring and a correctly sized crimp tool. Standard barb-and-crimp fittings generally work with PEX-A, PEX-B, and PEX-C of the same nominal size.[2][5]
+- **Clamp/cinch fittings:** Si...</div>
+    </div>
+  </div>
+
+
+<div class="section">
+  <div class="section-title expandable"><strong>Fix Lists (Developer + SEO Team)</strong></div>
+  <div class="detail show">
+    <div>
+      <div class="fix-col-title">Developer Fix List</div>
+        <div class="fix-priority">P0 — Critical (1)</div>
+        <div class="fix-item fix-p0 expandable" style="cursor:pointer">Critical: Lighthouse performance score below 50 <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P1 — Important (8)</div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Avoid excessive DOM size <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Reduce DOM elements by simplifying the page structure, removing unnecessary wrappers, and using CSS instead of nested divs.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Page has identical HTML id attributes <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Make all id attributes unique on the page. Use classes for shared styling instead of duplicate ids.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Article schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Organization schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Author schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add FAQPage schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add a FAQ section with 5-10 questions and answers related to the target keyword. Add FAQPage JSON-LD schema.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add Review schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add BreadcrumbList schema markup <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P2 — Nice to Have (9)</div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Add dimensions to images <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add width and height attributes to all <img> tags to prevent Cumulative Layout Shift (CLS).</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Defer offscreen images <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add loading="lazy" attribute to below-the-fold images to defer their loading until the user scrolls to them.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Serve images in next-gen formats <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Convert images to WebP or AVIF format. Use <picture> tags with fallbacks for older browsers.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Comments in code has more than 1000 symbols <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Remove or minify HTML comments, especially in production. Keep only essential comments.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has alt tags with one word <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Expand alt text to descriptive phrases (3-7 words) that include relevant keywords and accurately describe the image.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has more than 100 internal links <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Reduce the number of internal links to under 100. Remove unnecessary links, especially from navigation and footer areas.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page contains form with GET method <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Change the form method to POST for forms that submit sensitive data. GET is fine for search forms.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has tags with style attributes <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Move inline styles to external CSS classes. This reduces HTML size and improves caching.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Add hreflang tags for international targeting <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add hreflang tags in the <head> for each language/region version of the page.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <div class="fix-col-title">SEO Team Fix List</div>
+        <div class="fix-priority">P0 — Critical (1)</div>
+        <div class="fix-item fix-p0 expandable" style="cursor:pointer">No critical schema types: Add Article + Organization + Author schema <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P1 — Important (12)</div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">H2 to H4 skip: Fix heading hierarchy <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No data source references: Add phrases like 'according to' or 'study shows' <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No authority links (.gov/.edu/.org): Add 1-3 links to authoritative sources <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add an author name and short bio at the top or bottom of the page. Link to the author's profile page. Example: 'Written by [Name], Water Treatment Specialist with 15+ years experience'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No datePublished schema: Add datePublished to JSON-LD <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Short paragraphs: Expand paragraphs to 3-7 sentences <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Merge short paragraphs into 3-7 sentence blocks with clear topic sentences. Remove one-sentence paragraphs.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Missing schema: Article, Organization, Author: Add missing JSON-LD schema <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add JSON-LD structured data for the page type. For articles: Article schema. For products: Product + Offer schema. For FAQs: FAQPage schema.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No author info: Add author attribution <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add an author name and short bio at the top or bottom of the page. Link to the author's profile page. Example: 'Written by [Name], Water Treatment Specialist with 15+ years experience'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">No About page link: Add link to About page <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Keyword not in first paragraph: Add 'PEX fittings' early in content <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add the target keyword to the first 100 words of the page. Example: 'When looking for the best water softener for city water...'</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Meta description length 162 (target 120-160): Adjust meta description <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Adjust the meta description to 120-160 characters. Include the target keyword near the beginning.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Internal links 222 (target 10-100): Trim low-value internal links <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p1 expandable" style="cursor:pointer">Add alt text to 8 images without alt <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Review the issue and apply standard SEO best practices to fix it.</div>
+          </div>
+        </div>
+        <div class="fix-priority">P2 — Nice to Have (8)</div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Has an internal link with no anchor text <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add descriptive anchor text to all internal links. If using an image link, add alt text to the image.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Page has less than 10 internal backlinks <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add internal links from related blog posts, collection pages, and other content pages pointing TO this page. Use varied anchor text with the target keyword. Target 10+ inbound links from other pages.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Headings hierarchy is broken <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Fix heading order: H1 → H2 → H3 → H4. Never skip heading levels. Use CSS for styling, not heading tags.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Table has no caption <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add a <caption> element to each table describing its contents.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Description is too long <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Shorten the meta description to 120-160 characters. Keep the most important text and keyword at the beginning.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Text to code ratio < 10% <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Reduce HTML bloat by removing inline styles, minimizing JavaScript, and moving CSS to external files. Add more text content.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Increase LSI term coverage (currently 38%) <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add related keywords and entities found in top-ranking pages. Use InfraNodus entities to guide content expansion.</div>
+          </div>
+        </div>
+        <div class="fix-item fix-p2 expandable" style="cursor:pointer">Add FAQ section for passage optimization <span style="font-size:14px;color:#999">▼</span>
+          <div class="detail" style="margin-top:8px;padding:10px;background:#ffffff;border:1px solid #e0e0e0;border-radius:6px">
+            <div style="font-size:15px;color:#333;margin-bottom:4px"><strong>How to fix:</strong> Add a FAQ section with 5-10 questions and answers related to the target keyword. Add FAQPage JSON-LD schema.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Strategic Recommendations</div>
+  <div class="recommendation"><strong>Improvement Needed:</strong> SRS score is moderate. Address P0 and P1 items to reach competitive levels.</div>
+  <div class="recommendation"><strong>Signal:</strong> Boost authority signals: add citations, author schema, trust badges, and improve page speed.</div>
+  <div class="recommendation"><strong>Title-to-Query Alignment:</strong> Update title tag and H1 to include the exact target keyword phrase.</div>
+  <div class="recommendation"><strong>E-E-A-T:</strong> Add author schema, Organization schema, contact info, and trust signals (certifications, guarantees).</div>
+  <div class="recommendation"><strong>Factuality:</strong> Add citations, data sources, and authority outbound links (.gov/.edu/.org).</div>
+  <div class="recommendation"><strong>LSI Coverage:</strong> Only 38% of LSI terms found. Add related terms to strengthen topical relevance.</div>
+  <div class="recommendation"><strong>FAQ Section:</strong> Add an FAQ section to capture passage-based rankings and featured snippets.</div>
+  <div class="recommendation"><strong>AI Overview:</strong> Google AI Overview exists for this keyword with 12 citations. Optimize content to get cited.</div>
+  <div class="recommendation"><strong>Content Gaps:</strong> InfraNodus found 4 content gaps. Add missing entities to improve topical coverage.</div>
+  <div class="recommendation"><strong>SERP Competition:</strong> Analyze top 10 competitors for content length, structure, and schema patterns to match.</div>
+  <div class="recommendation"><strong>Page Speed:</strong> Lighthouse performance is 43/100. Optimize images, reduce JS, and enable lazy loading.</div>
+  <div class="recommendation"><strong>🤖 LLM Citation Opportunity:</strong> No LLM-favorite domain backlinks detected. Targeting LLM citation sources is the highest-leverage off-page strategy for AI search visibility.</div>
+  <div class="recommendation"><strong>🤖 Top LLM Target Platforms (S-Tier):</strong> 🟢 <strong>reddit.com</strong>: Ads + niche subreddit comments + AMAs<br>🟢 <strong>wikipedia.org</strong>: Earn WP:RS coverage first → Wikidata-first strategy<br>🟢 <strong>youtube.com</strong>: Podcast guesting + transcripts + creator sponsorships<br>🟢 <strong>forbes.com</strong>: Tech Council $3,300/yr OR pursue editorial via Qwoted<br>🟢 <strong>businessinsider.com</strong>: Featured.com + Qwoted + BI Reviews samples</div>
+  <div class="recommendation"><strong>🤖 LLM Council Programs (Paid Paths):</strong> &bull; Forbes Councils (standard 1-yr) (forbes.com): $3,300<br>&bull; Forbes Councils Premium (1-yr) (forbes.com): $7,400<br>&bull; Forbes BrandVoice Stories (forbes.com): $50,000 (4 articles, 2-mo)<br>&bull; Forbes BrandVoice Elite (forbes.com): $300,000 min (4-mo @ $75K/mo)<br>&bull; Forbes BrandVoice Special Features (forbes.com): $200,000 min (2-mo @ $100K/mo)<br><em>Note: Council links are typically nofollow but drive LLM citation via brand visibility.</em></div>
+  <div class="recommendation"><strong>🤖 Reddit Strategy:</strong> Target Reddit with niche subreddit engagement. Strategy: Ads + niche subreddit comments + AMAs. Reddit is an S-tier LLM citation source — actively cited by ChatGPT, Claude, and Perplexity.</div>
+  <div class="recommendation"><strong>🤖 Forbes Council:</strong> Pursue Forbes Council at $3,300/yr for LLM citation. S-tier domain heavily cited by LLMs. All Forbes Council links are nofollow, but the brand visibility drives organic citations from LLMs.</div>
+
+<div style="margin-top: 16px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; font-size: 15px;">
+  <strong style="color: #0066cc;">Google Index Status:</strong>
+  <span style="color: #27ae60;">
+    Indexed (3 pages found)
+  </span>
+</div>
+
+<div class="footer">
+  Zenfusion Unified Page Auditor v1.0 &middot; Integrates site_auditor + factor_engine + content_auditor + DataForSEO + InfraNodus &middot; noindex, nofollow
+</div>
+
+<script>
+// Expand/collapse — script is at end of <body> so the DOM is fully parsed;
+// no DOMContentLoaded wrapper needed.
+(function() {
+  document.querySelectorAll('.expandable').forEach(function(el) {
+    // Check nextElementSibling first (section-title pattern)
+    var detail = el.nextElementSibling;
+    if (!detail || !detail.classList.contains('detail')) {
+      // Check first child with .detail class (issue-card pattern)
+      detail = el.querySelector(':scope > .detail');
+    }
+    if (detail && detail.classList.contains('detail')) {
+      // Sync the ▲/▼ indicator with the current open/closed state
+      if (detail.classList.contains('show')) {
+        el.classList.add('expanded');
+      }
+      el.addEventListener('click', function(e) {
+        // Don't toggle if clicking a link or button inside
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+        detail.classList.toggle('show');
+        el.classList.toggle('expanded');
+      });
+    }
+  });
+})();
+function copySchema(btn) {
+  var text = btn.getAttribute('data-schema');
+  // getAttribute auto-decodes HTML entities, so we get the raw JSON back.
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✅ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+    }).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✅ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy Schema'; }, 2000);
+  }
+}
+function copyEntities() {
+  var entities = document.querySelectorAll('.entity-badge');
+  var text = Array.from(entities).map(function(e) { return e.textContent; }).join(', ');
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Entities copied to clipboard!');
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    alert('Entities copied to clipboard!');
+  });
+}
+function copyText(btn) {
+  var text = btn.getAttribute('data-text');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy'; }, 2000);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
