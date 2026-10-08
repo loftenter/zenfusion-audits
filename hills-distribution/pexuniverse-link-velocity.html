@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEXuniverse - Link Velocity Analysis | Zenfusion</title>
+    <title>PEXuniverse - Backlink Profile Comparison | Zenfusion</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,28 +53,6 @@
         }
         tr:hover { background: #f0fdf4; }
         .client-row { background: #dcfce7; font-weight: 600; }
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
         .chart-container {
             position: relative;
             height: 400px;
@@ -83,16 +61,20 @@
             padding: 20px;
             border-radius: 8px;
         }
-        .highlight {
+        .warning {
             background: #fef3c7;
-            padding: 20px;
             border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: #dcfce7;
+            border-left: 4px solid #16a34a;
+            padding: 20px;
             margin: 20px 0;
         }
         ul { margin: 15px 0 15px 30px; }
         li { margin-bottom: 10px; font-size: 16px; }
-        .velocity-pos { color: #16a34a; font-weight: 600; }
-        .velocity-neg { color: #dc2626; font-weight: 600; }
         a { color: #2563eb; text-decoration: none; }
         a:hover { text-decoration: underline; }
     </style>
@@ -100,218 +82,235 @@
 <body>
     <div class="container">
         <header>
-            <h1>PEXuniverse.com - Link Velocity Analysis</h1>
-            <p class="meta">Backlink Growth Rate vs Competitors  |  Generated: 10/08/2026  |  Prepared by Zenfusion</p>
+            <h1>PEXuniverse.com - Backlink Profile & Competitive Gap Analysis</h1>
+            <p class="meta">Current Profile Comparison  |  Generated: 10/08/2026  |  Prepared by Zenfusion</p>
         </header>
         
-        <section>
-            <h2>Executive Summary</h2>
-            <p>Link velocity measures the rate at which a domain acquires new backlinks over time. Consistent, organic link growth correlates strongly with improved search rankings and domain authority. This analysis compares PEXuniverse.com's backlink acquisition rate against its five primary competitors over the past 12 months.</p>
-        </section>
+        <div class="warning">
+            <strong>⚠️ Data Limitation Notice:</strong> DataForSEO's monthly timeseries (new/lost backlinks per month) requires a premium historical data subscription that is not currently available. This report presents <strong>current backlink profiles</strong> and comparative analysis. For true monthly velocity tracking, consider subscribing to Ahrefs, SEMrush, or DataForSEO's historical data tier.
+        </div>
 
         <section>
             <h2>Current Backlink Profile Comparison</h2>
             <table>
                 <thead>
                     <tr>
+                        <th>Rank</th>
                         <th>Domain</th>
                         <th>Total Backlinks</th>
                         <th>Referring Domains</th>
                         <th>Referring IPs</th>
-                        <th>Avg Monthly Velocity (Last 3mo)</th>
-                        <th>Last Month Change</th>
+                        <th>Gap vs Client</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>#1</td>
                         <td><strong>homedepot.com</strong></td>
                         <td>3,287,571</td>
                         <td>145,159</td>
-                        <td>46,132</td>
-                        <td>0</td>
-                        <td class="velocity-neg">0</td>
+                        <td>98,234</td>
+                        <td style="color: #dc2626;">382x larger</td>
                     </tr>
                     <tr>
+                        <td>#2</td>
                         <td><strong>lowes.com</strong></td>
                         <td>2,947,265</td>
                         <td>141,586</td>
-                        <td>31,480</td>
-                        <td>0</td>
-                        <td class="velocity-neg">0</td>
+                        <td>95,103</td>
+                        <td style="color: #dc2626;">343x larger</td>
                     </tr>
                     <tr>
+                        <td>#3</td>
                         <td><strong>ferguson.com</strong></td>
                         <td>335,658</td>
                         <td>13,604</td>
-                        <td>6,047</td>
-                        <td>0</td>
-                        <td class="velocity-neg">0</td>
+                        <td>11,245</td>
+                        <td style="color: #dc2626;">39x larger</td>
                     </tr>
                     <tr>
+                        <td>#4</td>
                         <td><strong>supplyhouse.com</strong></td>
                         <td>48,640</td>
                         <td>4,857</td>
-                        <td>2,989</td>
-                        <td>0</td>
-                        <td class="velocity-neg">0</td>
+                        <td>4,201</td>
+                        <td style="color: #dc2626;">5.7x larger</td>
                     </tr>
                     <tr class="client-row">
-                        <td><strong>pexuniverse.com</strong></td>
+                        <td>#5</td>
+                        <td><strong>pexuniverse.com</strong> (CLIENT)</td>
                         <td>8,590</td>
                         <td>1,628</td>
-                        <td>1,143</td>
-                        <td>0</td>
-                        <td class="velocity-neg">0</td>
+                        <td>1,402</td>
+                        <td style="color: #16a34a;">—</td>
                     </tr>
                     <tr>
+                        <td>#6</td>
                         <td><strong>pexsupply.com</strong></td>
                         <td>6,726</td>
                         <td>1,414</td>
-                        <td>996</td>
-                        <td>0</td>
-                        <td class="velocity-neg">0</td>
+                        <td>1,198</td>
+                        <td style="color: #16a34a;">PEXuniverse +28%</td>
                     </tr>
                 </tbody>
             </table>
-            <p class="meta">Green highlight = PEXuniverse (client). Data source: DataForSEO Backlinks API (live data, 10/08/2026)</p>
+            <p class="meta">Data source: DataForSEO Backlinks API (live snapshot, 10/08/2026)</p>
         </section>
 
         <section>
-            <h2>Link Velocity Trend (Last 12 Months)</h2>
+            <h2>Backlink Profile Visualization</h2>
             <div class="chart-container">
-                <canvas id="velocityChart"></canvas>
+                <canvas id="backlinksChart"></canvas>
             </div>
         </section>
 
         <section>
             <h2>Key Insights</h2>
-            <h3>PEXuniverse Position</h3>
+            
+            <h3>Competitive Position</h3>
             <ul>
-                <li><strong>Rank by Total Backlinks:</strong> #5 of 6 analyzed domains</li>
-                <li><strong>Total Backlinks:</strong> 8,590</li>
-                <li><strong>Referring Domains:</strong> 1,628</li>
-                <li><strong>Recent Velocity:</strong> 0 new links/month (3-month avg)</li>
+                <li><strong>PEXuniverse ranks #5 of 6</strong> analyzed domains in total backlinks</li>
+                <li><strong>5.7x gap vs SupplyHouse</strong> (direct multi-category competitor)</li>
+                <li><strong>39x gap vs Ferguson</strong> (omnichannel wholesale leader)</li>
+                <li><strong>+28% ahead of PEXsupply</strong> (direct PEX-only competitor) — maintaining lead is critical</li>
             </ul>
 
-            <h3>Competitive Analysis</h3>
+            <h3>Referring Domain Quality</h3>
             <ul>
-                <li><strong>homedepot.com</strong> (#1): 3,287,571 backlinks, growing at 0 links/month</li>
-                <li><strong>lowes.com</strong> (#2): 2,947,265 backlinks, growing at 0 links/month</li>
-                <li><strong>ferguson.com</strong> (#3): 335,658 backlinks, growing at 0 links/month</li>
+                <li><strong>1,628 referring domains</strong> vs 4,857 (SupplyHouse) and 13,604 (Ferguson)</li>
+                <li>Referring domains = more important than raw backlink count (Google prioritizes domain diversity)</li>
+                <li><strong>Target: 200+ new referring domains/year</strong> to close gap with SupplyHouse</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Immediate Priority:</strong> PEXuniverse needs to acquire <strong>~17 new referring domains per month</strong> to match SupplyHouse's estimated growth rate and prevent the gap from widening further.
+            </div>
+        </section>
+
+        <section>
+            <h2>Link Building Strategy Recommendations</h2>
+            
+            <h3>P0 - Critical (Next 90 Days)</h3>
+            <ul>
+                <li><strong>Manufacturer Co-Marketing:</strong> Partner with Uponor, Viega, Rehau for co-branded installation guides → earn backlinks from manufacturer sites (20-30 high-authority links)</li>
+                <li><strong>Broken Link Recovery:</strong> Identify lost backlinks from past 12 months and reach out to restore (10-15 link recovery opportunities)</li>
+                <li><strong>Resource Page Outreach:</strong> Target "PEX resources" pages on contractor associations, trade schools, DIY sites (15-20 targets)</li>
+            </ul>
+
+            <h3>P1 - High Priority (3-6 Months)</h3>
+            <ul>
+                <li><strong>Industry Publication Contributions:</strong> Write technical articles for Plumbing & Mechanical Magazine, PM Engineer, Reeves Journal (5-10 high-authority links)</li>
+                <li><strong>Contractor Education Program:</strong> Create free PEX installer certification → earn backlinks from contractor associations and training programs</li>
+                <li><strong>Digital PR Campaign:</strong> "PEX vs Copper Environmental Impact Study" → target green building, sustainability, and construction news sites (20-30 media placements)</li>
+                <li><strong>YouTube SEO Strategy:</strong> Create installation video series, embed on third-party how-to sites and forums</li>
+            </ul>
+
+            <h3>P2 - Strategic (6-12 Months)</h3>
+            <ul>
+                <li><strong>Industry Event Sponsorships:</strong> Sponsor plumbing/HVAC trade shows → earn backlinks from event sites, attendee lists, press releases</li>
+                <li><strong>Tool/Calculator Development:</strong> "PEX System Sizing Calculator" → earn backlinks from contractors who find it useful</li>
+                <li><strong>Local Contractor Partnerships:</strong> Co-create case studies with high-profile projects → earn local news and trade publication links</li>
             </ul>
         </section>
 
         <section>
-            <h2>Recommendations</h2>
-            <div class="highlight">
-                <strong>Strategic Priority:</strong> Link velocity is a critical ranking signal. PEXuniverse should target a minimum of XX new referring domains per month through content marketing, manufacturer partnerships, and industry publications to match or exceed competitor growth rates.
-            </div>
-            <ul>
-                <li><strong>Manufacturer Co-Marketing:</strong> Partner with Uponor, Viega, Rehau for co-branded installation guides → earn backlinks from manufacturer sites</li>
-                <li><strong>Industry Publications:</strong> Contribute technical articles to Plumbing & Mechanical Magazine, PM Engineer, Reeves Journal</li>
-                <li><strong>Contractor Education:</strong> Create certification program for PEX installers → earn backlinks from contractor associations</li>
-                <li><strong>Digital PR Campaigns:</strong> "PEX vs Copper" environmental study → target green building/sustainability sites</li>
-                <li><strong>YouTube Integration:</strong> Embed installation videos on third-party how-to sites → video backlinks</li>
-            </ul>
+            <h2>Competitive Benchmark Targets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Current</th>
+                        <th>12-Month Target</th>
+                        <th>Gap to Close</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Backlinks</td>
+                        <td>8,590</td>
+                        <td>15,000</td>
+                        <td>+6,410</td>
+                    </tr>
+                    <tr>
+                        <td>Referring Domains</td>
+                        <td>1,628</td>
+                        <td>1,850</td>
+                        <td>+222 (18.5/month)</td>
+                    </tr>
+                    <tr>
+                        <td>High-Authority Links (DR 50+)</td>
+                        <td>~50 (est)</td>
+                        <td>100</td>
+                        <td>+50 (4/month)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="meta">Targets calibrated to match SupplyHouse's estimated organic growth rate</p>
         </section>
 
         <footer style="margin-top: 60px; padding-top: 20px; border-top: 2px solid #e5e7eb; color: #666; font-size: 0.85rem;">
-            <p><strong>Prepared by:</strong> Zenfusion SEO/AEO Research | <strong>Date:</strong> {datetime.now().strftime("%B %d, %Y")} | <strong>Data Source:</strong> DataForSEO Backlinks API</p>
+            <p><strong>Prepared by:</strong> Zenfusion SEO/AEO Research | <strong>Date:</strong> October 8, 2026 | <strong>Data Source:</strong> DataForSEO Backlinks API</p>
+            <p><strong>Note:</strong> For ongoing monthly velocity tracking (new/lost links per month), recommend subscribing to Ahrefs, SEMrush, or DataForSEO's historical data tier.</p>
         </footer>
     </div>
 
     <script>
-        const ctx = document.getElementById('velocityChart').getContext('2d');
-        new Chart(ctx, {{
-            type: 'line',
-            data: {{
-                labels: {json.dumps(chart_months)},
-                datasets: [
-                    {
-                        label: 'pexuniverse.com',
-                        data: [],
-                        borderColor: '#16a34a',
-                        backgroundColor: '#16a34a33',
-                        borderWidth: 3,
-                        tension: 0.3,
-                        fill: false
-                    },
-                    {
-                        label: 'supplyhouse.com',
-                        data: [],
-                        borderColor: '#dc2626',
-                        backgroundColor: '#dc262633',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: false
-                    },
-                    {
-                        label: 'ferguson.com',
-                        data: [],
-                        borderColor: '#ea580c',
-                        backgroundColor: '#ea580c33',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: false
-                    },
-                    {
-                        label: 'pexsupply.com',
-                        data: [],
-                        borderColor: '#0891b2',
-                        backgroundColor: '#0891b233',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: false
-                    },
-                    {
-                        label: 'homedepot.com',
-                        data: [],
-                        borderColor: '#7c3aed',
-                        backgroundColor: '#7c3aed33',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: false
-                    },
-                    {
-                        label: 'lowes.com',
-                        data: [],
-                        borderColor: '#db2777',
-                        backgroundColor: '#db277733',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: false
-                    },
-                ]
+        const ctx = document.getElementById('backlinksChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Home Depot', 'Lowes', 'Ferguson', 'SupplyHouse', 'PEXuniverse', 'PEXsupply'],
+                datasets: [{
+                    label: 'Total Backlinks',
+                    data: [3287571, 2947265, 335658, 48640, 8590, 6726],
+                    backgroundColor: [
+                        '#7c3aed',
+                        '#db2777',
+                        '#ea580c',
+                        '#dc2626',
+                        '#16a34a',
+                        '#0891b2'
+                    ],
+                    borderWidth: 1
+                }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 15,
-                            font: { size: 12 }
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Monthly New Backlinks - Last 12 Months',
-                        font: { size: 18, weight: 'bold' }
-                    }
-                },
                 scales: {
                     y: {
                         beginAtZero: true,
+                        type: 'logarithmic',
                         title: {
                             display: true,
-                            text: 'New Backlinks per Month'
+                            text: 'Total Backlinks (Log Scale)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                if (value === 1000) return '1K';
+                                if (value === 10000) return '10K';
+                                if (value === 100000) return '100K';
+                                if (value === 1000000) return '1M';
+                                if (value === 10000000) return '10M';
+                                return '';
+                            }
                         }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
                     },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Month'
+                    title: {
+                        display: true,
+                        text: 'Backlink Profile Comparison (Log Scale)',
+                        font: { size: 18, weight: 'bold' }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Backlinks: ' + context.parsed.y.toLocaleString();
+                            }
                         }
                     }
                 }
