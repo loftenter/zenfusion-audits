@@ -1,0 +1,49 @@
+{
+  "brand": "PEXuniverse",
+  "domain": "pexuniverse.com",
+  "run_date": "10/08/2026",
+  "competitors": [
+    {
+      "domain": "pexuniverse.com",
+      "intersecting_keywords": 16.894689293126604,
+      "organic_keywords": 0
+    },
+    {
+      "domain": "youtube.com",
+      "intersecting_keywords": 14.457416970300663,
+      "organic_keywords": 0
+    },
+    {
+      "domain": "amazon.com",
+      "intersecting_keywords": 10.48785182292393,
+      "organic_keywords": 0
+    },
+    {
+      "domain": "homedepot.com",
+      "intersecting_keywords": 10.43872299595848,
+      "organic_keywords": 0
+    },
+    {
+      "domain": "lowes.com",
+      "intersecting_keywords": 15.394014877499488,
+      "organic_keywords": 0
+    }
+  ],
+  "client_keywords": [],
+  "keyword_suggestions": [
+    {
+      "keyword": "",
+      "search_volume": 9900,
+      "cpc": 1.78,
+      "competition": 0.99,
+      "seed": "pex tubing"
+    }
+  ],
+  "serp_gap": [],
+  "client_backlinks": {},
+  "competitor_backlinks": {
+    "pexuniverse.com": {},
+    "youtube.com": {},
+    "amazon.com": {}
+  }
+}
