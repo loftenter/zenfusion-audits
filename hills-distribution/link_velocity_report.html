@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Link Velocity Report — pexuniverse.com</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #fff; line-height: 1.6; padding: 20px 40px; max-width: 1200px; margin: 0 auto; }
+a { color: #4A90D9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 28px; margin-bottom: 4px; }
+h2 { color: #4A90D9; font-size: 20px; margin: 36px 0 16px; border-bottom: 1px solid #2a3142; padding-bottom: 8px; }
+.subtitle { color: #8892a6; font-size: 14px; margin-bottom: 8px; }
+.generated { color: #5c6578; font-size: 12px; margin-bottom: 30px; }
+
+/* Summary cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.card { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; }
+.card-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #8892a6; margin-bottom: 8px; }
+.card-value { font-size: 28px; font-weight: 700; color: #fff; }
+.card-sub { font-size: 13px; color: #5c6578; margin-top: 4px; }
+.card-value.pos { color: #27ae60; }
+.card-value.neg { color: #e74c3c; }
+
+/* SVG chart */
+.chart-container { background: #1a1d28; border: 1px solid #2a2e3c; border-radius: 10px; padding: 20px; margin-bottom: 36px; overflow-x: auto; }
+.chart-title { font-size: 14px; color: #8892a6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+th { text-align: left; padding: 10px 12px; background: #1a1d28; color: #8892a6; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #2a3142; }
+td { padding: 8px 12px; border-bottom: 1px solid #1e2230; font-size: 13px; }
+td.rank { color: #5c6578; font-weight: 700; width: 30px; }
+td.num { text-align: right; color: #4A90D9; font-weight: 600; }
+td.num.lost { color: #e74c3c; }
+td.net-pos { color: #27ae60; font-weight: 700; }
+td.net-neg { color: #e74c3c; font-weight: 700; }
+td.domain { font-weight: 600; }
+td.anchor { color: #b0b8c8; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tr.client-row { background: rgba(74,144,217,0.08); }
+.comp-pill { font-size: 11px; color: #8892a6; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+.badge.client-badge { background: rgba(74,144,217,0.2); color: #4A90D9; margin-left: 6px; }
+.badge.df { background: rgba(39,174,96,0.15); color: #27ae60; }
+.badge.nf { background: rgba(127,140,141,0.15); color: #7f8c8d; }
+
+/* Speed ranking bars */
+.speed-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1e2230; }
+.speed-rank { color: #5c6578; font-weight: 700; min-width: 30px; font-size: 14px; }
+.speed-domain { min-width: 200px; font-weight: 600; font-size: 14px; }
+.speed-bar-container { flex: 1; background: #1e2230; border-radius: 6px; height: 24px; overflow: hidden; }
+.speed-bar { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
+.speed-bar.bar-pos { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+.speed-bar.bar-neg { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+.speed-value { min-width: 80px; text-align: right; font-weight: 700; font-size: 14px; }
+
+/* Intercept cards */
+.comp-intercept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.comp-intercept-card { background: #1a1d28; border: 1px solid #2a3142; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+.comp-intercept-card .comp-name { font-size: 14px; font-weight: 700; color: #4A90D9; }
+.comp-intercept-card .comp-count { font-size: 13px; color: #27ae60; font-weight: 600; }
+.comp-intercept-card .comp-avg-ds { font-size: 12px; color: #8892a6; }
+
+/* Recommendations */
+.recommendation { background: #1a1d28; border: 1px solid #2a3142; border-left: 4px solid #4A90D9; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+.recommendation .rec-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.recommendation .rec-body { font-size: 13px; color: #b0b8c8; }
+
+/* Expandable */
+.expandable { display: none; }
+.expandable.show { display: block; }
+.expand-toggle { color: #4A90D9; cursor: pointer; font-size: 14px; font-weight: 600; margin-bottom: 12px; display: inline-block; }
+.expand-toggle:hover { text-decoration: underline; }
+
+.empty { color: #5c6578; font-size: 13px; padding: 12px; text-align: center; }
+.footer { text-align: center; margin-top: 40px; color: #5c6578; font-size: 11px; border-top: 1px solid #2a3142; padding-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>📊 Link Velocity Report: pexuniverse.com</h1>
+<p class="subtitle">Competitor comparison over 90 days</p>
+<p class="generated">Generated: 2026-10-08T16:16:41</p>
+
+<!-- Summary Cards -->
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Client Growth Rate</div>
+    <div class="card-value pos">+1.2</div>
+    <div class="card-sub">new links / day</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Top Competitor Growth</div>
+    <div class="card-value pos">+29.0</div>
+    <div class="card-sub">ferguson.com</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Client Net Link Change</div>
+    <div class="card-value pos">+107</div>
+    <div class="card-sub">over 90 days</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Avg Competitor Net Change</div>
+    <div class="card-value neg">-321</div>
+    <div class="card-sub">competitor average</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Link Intercepts</div>
+    <div class="card-value">684</div>
+    <div class="card-sub">outreach opportunities</div>
+  </div>
+</div>
+
+<!-- Velocity Chart -->
+<h2>📈 Link Velocity Comparison</h2>
+<div class="chart-container">
+  <div class="chart-title">New Backlinks Per Day — pexuniverse.com vs Competitors</div>
+  <svg width="900" height="360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+  <rect width="900" height="360" fill="#0f1117" rx="8"/>
+  <text x="42" y="324.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">0</text><line x1="50" y1="320.0" x2="700" y2="320.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="249.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">290</text><line x1="50" y1="245.0" x2="700" y2="245.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="174.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">580</text><line x1="50" y1="170.0" x2="700" y2="170.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="99.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">870</text><line x1="50" y1="95.0" x2="700" y2="95.0" stroke="#1e2230" stroke-width="1"/><text x="42" y="24.0" fill="#5c6578" font-size="11" text-anchor="end" font-family="sans-serif">1160</text><line x1="50" y1="20.0" x2="700" y2="20.0" stroke="#1e2230" stroke-width="1"/>
+  <polyline points="50.0,320.0 57.2,320.0 64.4,320.0 71.7,318.2 78.9,318.7 86.1,317.7 93.3,319.5 100.6,320.0 107.8,319.5 115.0,320.0 122.2,319.5 129.4,319.5 136.7,320.0 143.9,320.0 151.1,320.0 158.3,320.0 165.6,309.7 172.8,319.7 180.0,320.0 187.2,320.0 194.4,320.0 201.7,320.0 208.9,320.0 216.1,320.0 223.3,319.7 230.6,320.0 237.8,320.0 245.0,320.0 252.2,320.0 259.4,320.0 266.7,320.0 273.9,320.0 281.1,320.0 288.3,320.0 295.6,320.0 302.8,320.0 310.0,320.0 317.2,320.0 324.4,320.0 331.7,320.0 338.9,320.0 346.1,320.0 353.3,320.0 360.6,320.0 367.8,320.0 375.0,320.0 382.2,320.0 389.4,318.2 396.7,320.0 403.9,320.0 411.1,319.5 418.3,320.0 425.6,320.0 432.8,319.5 440.0,317.2 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,318.2 497.8,319.7 505.0,319.0 512.2,320.0 519.4,320.0 526.7,320.0 533.9,320.0 541.1,320.0 548.3,320.0 555.6,317.7 562.8,320.0 570.0,318.7 577.2,317.4 584.4,320.0 591.7,319.2 598.9,320.0 606.1,316.1 613.3,315.6 620.6,314.3 627.8,320.0 635.0,315.6 642.2,312.0 649.4,310.4 656.7,310.9 663.9,300.9 671.1,303.7 678.3,294.1 685.6,294.4 692.8,301.6 700.0,298.8" fill="none" stroke="#4A90D9" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,320.0 64.4,320.0 71.7,320.0 78.9,320.0 86.1,320.0 93.3,320.0 100.6,320.0 107.8,315.6 115.0,318.4 122.2,316.6 129.4,314.3 136.7,314.6 143.9,319.0 151.1,303.4 158.3,307.8 165.6,283.5 172.8,315.1 180.0,316.9 187.2,320.0 194.4,320.0 201.7,304.0 208.9,320.0 216.1,320.0 223.3,320.0 230.6,320.0 237.8,320.0 245.0,320.0 252.2,320.0 259.4,320.0 266.7,320.0 273.9,320.0 281.1,320.0 288.3,320.0 295.6,320.0 302.8,320.0 310.0,320.0 317.2,276.8 324.4,320.0 331.7,320.0 338.9,319.5 346.1,320.0 353.3,320.0 360.6,320.0 367.8,320.0 375.0,320.0 382.2,320.0 389.4,320.0 396.7,320.0 403.9,302.9 411.1,314.1 418.3,312.0 425.6,320.0 432.8,316.6 440.0,315.6 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,320.0 497.8,320.0 505.0,317.9 512.2,320.0 519.4,320.0 526.7,320.0 533.9,320.0 541.1,320.0 548.3,320.0 555.6,320.0 562.8,320.0 570.0,319.0 577.2,309.7 584.4,320.0 591.7,320.0 598.9,320.0 606.1,320.0 613.3,306.8 620.6,314.3 627.8,320.0 635.0,320.0 642.2,306.3 649.4,313.5 656.7,242.4 663.9,298.0 671.1,297.8 678.3,275.3 685.6,288.2 692.8,300.3 700.0,287.2" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,213.2 64.4,320.0 71.7,320.0 78.9,320.0 86.1,320.0 93.3,320.0 100.6,320.0 107.8,268.5 115.0,301.9 122.2,306.3 129.4,233.9 136.7,108.4 143.9,64.5 151.1,163.5 158.3,235.9 165.6,189.4 172.8,195.1 180.0,263.9 187.2,320.0 194.4,320.0 201.7,320.0 208.9,313.3 216.1,320.0 223.3,320.0 230.6,320.0 237.8,320.0 245.0,320.0 252.2,320.0 259.4,320.0 266.7,307.6 273.9,320.0 281.1,320.0 288.3,320.0 295.6,320.0 302.8,292.3 310.0,297.5 317.2,289.7 324.4,287.9 331.7,320.0 338.9,320.0 346.1,320.0 353.3,320.0 360.6,301.1 367.8,320.0 375.0,250.9 382.2,236.7 389.4,228.7 396.7,320.0 403.9,137.4 411.1,184.7 418.3,148.5 425.6,141.3 432.8,239.8 440.0,177.5 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,320.0 497.8,267.5 505.0,149.3 512.2,320.0 519.4,320.0 526.7,320.0 533.9,320.0 541.1,320.0 548.3,320.0 555.6,262.3 562.8,163.0 570.0,320.0 577.2,140.0 584.4,162.5 591.7,282.5 598.9,266.7 606.1,294.1 613.3,311.5 620.6,238.0 627.8,239.8 635.0,231.8 642.2,20.0 649.4,146.7 656.7,166.1 663.9,98.4 671.1,320.0 678.3,216.3 685.6,191.2 692.8,164.3 700.0,94.2" fill="none" stroke="#f39c12" stroke-width="2" opacity="0.85"/><polyline points="50.0,320.0 57.2,320.0 64.4,320.0 71.7,320.0 78.9,320.0 86.1,320.0 93.3,320.0 100.6,320.0 107.8,319.7 115.0,320.0 122.2,320.0 129.4,319.5 136.7,320.0 143.9,320.0 151.1,320.0 158.3,320.0 165.6,320.0 172.8,319.2 180.0,320.0 187.2,320.0 194.4,320.0 201.7,320.0 208.9,320.0 216.1,320.0 223.3,319.7 230.6,320.0 237.8,320.0 245.0,320.0 252.2,320.0 259.4,320.0 266.7,319.7 273.9,320.0 281.1,320.0 288.3,320.0 295.6,320.0 302.8,320.0 310.0,320.0 317.2,320.0 324.4,320.0 331.7,319.0 338.9,318.7 346.1,320.0 353.3,320.0 360.6,320.0 367.8,320.0 375.0,320.0 382.2,320.0 389.4,320.0 396.7,319.7 403.9,320.0 411.1,319.2 418.3,318.7 425.6,320.0 432.8,319.7 440.0,316.4 447.2,320.0 454.4,320.0 461.7,320.0 468.9,320.0 476.1,320.0 483.3,320.0 490.6,320.0 497.8,320.0 505.0,319.5 512.2,320.0 519.4,320.0 526.7,320.0 533.9,320.0 541.1,320.0 548.3,319.5 555.6,319.0 562.8,319.5 570.0,319.5 577.2,319.0 584.4,319.7 591.7,320.0 598.9,320.0 606.1,317.2 613.3,315.6 620.6,314.6 627.8,312.2 635.0,314.1 642.2,313.8 649.4,311.5 656.7,312.5 663.9,301.6 671.1,256.4 678.3,295.7 685.6,293.9 692.8,301.4 700.0,299.6" fill="none" stroke="#9b59b6" stroke-width="2" opacity="0.85"/>
+  <line x1="50" y1="320" x2="700" y2="320" stroke="#2a3142" stroke-width="1.5"/>
+  <text x="50.0" y="335" fill="#5c6578" font-size="10" text-anchor="middle" font-family="sans-serif">07-10</text><text x="375.0" y="335" fill="#5c6578" font-size="10" text-anchor="middle" font-family="sans-serif">08-24</text><text x="700.0" y="335" fill="#5c6578" font-size="10" text-anchor="middle" font-family="sans-serif">10-08</text>
+  
+        <rect x="710" y="20" width="12" height="12" fill="#4A90D9" rx="2"/>
+        <text x="728" y="30" fill="#b0b8c8" font-size="12" font-family="sans-serif">pexuniverse.com</text>
+        <rect x="710" y="42" width="12" height="12" fill="#e74c3c" rx="2"/>
+        <text x="728" y="52" fill="#b0b8c8" font-size="12" font-family="sans-serif">supplyhouse.com</text>
+        <rect x="710" y="64" width="12" height="12" fill="#f39c12" rx="2"/>
+        <text x="728" y="74" fill="#b0b8c8" font-size="12" font-family="sans-serif">ferguson.com</text>
+        <rect x="710" y="86" width="12" height="12" fill="#9b59b6" rx="2"/>
+        <text x="728" y="96" fill="#b0b8c8" font-size="12" font-family="sans-serif">pexsupply.com</text>
+</svg>
+</div>
+
+<!-- Velocity Comparison Table -->
+<h2>📋 Velocity Comparison Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Domain</th>
+      <th>New Links</th>
+      <th>Lost Links</th>
+      <th>Net Change</th>
+      <th>New Ref Domains</th>
+      <th>Growth Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+        <tr class="">
+          <td class="rank">🥇</td>
+          <td class="domain">ferguson.com</td>
+          <td class="num">20,083</td>
+          <td class="num lost">17,447</td>
+          <td class="num net-pos">+2,636</td>
+          <td class="num">1,178</td>
+          <td class="num net-pos">+29.0/day</td>
+        </tr>
+        <tr class="">
+          <td class="rank">🥈</td>
+          <td class="domain">pexsupply.com</td>
+          <td class="num">909</td>
+          <td class="num lost">316</td>
+          <td class="num net-pos">+593</td>
+          <td class="num">687</td>
+          <td class="num net-pos">+6.5/day</td>
+        </tr>
+        <tr class="client-row">
+          <td class="rank">🥉</td>
+          <td class="domain">pexuniverse.com <span class="badge client-badge">CLIENT</span></td>
+          <td class="num">795</td>
+          <td class="num lost">688</td>
+          <td class="num net-pos">+107</td>
+          <td class="num">696</td>
+          <td class="num net-pos">+1.2/day</td>
+        </tr>
+        <tr class="">
+          <td class="rank">4</td>
+          <td class="domain">supplyhouse.com</td>
+          <td class="num">1,920</td>
+          <td class="num lost">6,113</td>
+          <td class="num net-neg">-4,193</td>
+          <td class="num">795</td>
+          <td class="num net-neg">-46.1/day</td>
+        </tr>
+  </tbody>
+</table>
+
+<!-- Link Building Speed Ranking -->
+<h2>🏆 Link Building Speed Ranking</h2>
+<div class="chart-container">
+  <div class="chart-title">Who's Building Links Fastest? (net new links per day)</div>
+  
+        <div class="speed-row ">
+          <span class="speed-rank">#1</span>
+          <span class="speed-domain">ferguson.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:100.0%"></div>
+          </div>
+          <span class="speed-value net-pos">+29.0/day</span>
+        </div>
+        <div class="speed-row ">
+          <span class="speed-rank">#2</span>
+          <span class="speed-domain">pexsupply.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:22.5%"></div>
+          </div>
+          <span class="speed-value net-pos">+6.5/day</span>
+        </div>
+        <div class="speed-row client-row">
+          <span class="speed-rank">#3</span>
+          <span class="speed-domain">pexuniverse.com ⭐</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-pos" style="width:4.1%"></div>
+          </div>
+          <span class="speed-value net-pos">+1.2/day</span>
+        </div>
+        <div class="speed-row ">
+          <span class="speed-rank">#4</span>
+          <span class="speed-domain">supplyhouse.com</span>
+          <div class="speed-bar-container">
+            <div class="speed-bar bar-neg" style="width:100.0%"></div>
+          </div>
+          <span class="speed-value net-neg">-46.1/day</span>
+        </div>
+</div>
+
+<!-- Link Intercepts -->
+<h2>🎯 New Link Intercepts</h2>
+<p class="subtitle">Domains linking to competitors in the last 30 days but NOT to pexuniverse.com</p>
+
+
+        <div class="comp-intercept-card">
+          <span class="comp-name">supplyhouse.com</span>
+          <span class="comp-count">398 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 187</span>
+        </div>
+        <div class="comp-intercept-card">
+          <span class="comp-name">ferguson.com</span>
+          <span class="comp-count">136 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 179</span>
+        </div>
+        <div class="comp-intercept-card">
+          <span class="comp-name">pexsupply.com</span>
+          <span class="comp-count">150 intercepts</span>
+          <span class="comp-avg-ds">Avg DS: 60</span>
+        </div>
+
+<span class="expand-toggle" onclick="document.getElementById('intercepts-table').classList.toggle('show')">
+  ▼ Show/Hide 684 Intercept Domains
+</span>
+<div id="intercepts-table" class="expandable">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>Domain Strength</th>
+        <th>Type</th>
+        <th>Anchor Text</th>
+        <th>First Seen</th>
+        <th>Competitor</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="rank">1</td>
+          <td class="domain"><a href="https://doas.isac.cnr.it" target="_blank" rel="noopener noindex nofollow">doas.isac.cnr.it</a></td>
+          <td class="num">600</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">TG @MASSLINKER | SOFTWARE TO PUBLISH BACKLINKS YOURSELF | MA</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td class="domain"><a href="https://locked-on-smu.simplecast.com" target="_blank" rel="noopener noindex nofollow">locked-on-smu.simplecast.com</a></td>
+          <td class="num">586</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://SupplyHouse.com/TM</td>
+          <td>2026-09-27</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td class="domain"><a href="https://bisnow.com" target="_blank" rel="noopener noindex nofollow">bisnow.com</a></td>
+          <td class="num">566</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-21</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td class="domain"><a href="https://traveldestinations.guide" target="_blank" rel="noopener noindex nofollow">traveldestinations.guide</a></td>
+          <td class="num">544</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Site web</td>
+          <td>2026-09-19</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td class="domain"><a href="https://podchaser.com" target="_blank" rel="noopener noindex nofollow">podchaser.com</a></td>
+          <td class="num">539</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://SupplyHouse.com/TM</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td class="domain"><a href="https://jobgether.com" target="_blank" rel="noopener noindex nofollow">jobgether.com</a></td>
+          <td class="num">539</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td class="domain"><a href="https://jobgether.com" target="_blank" rel="noopener noindex nofollow">jobgether.com</a></td>
+          <td class="num">538</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/our-company</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td class="domain"><a href="https://manpowergroup.avature.net" target="_blank" rel="noopener noindex nofollow">manpowergroup.avature.net</a></td>
+          <td class="num">535</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Privacy Policy</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">9</td>
+          <td class="domain"><a href="https://empegbbs.com" target="_blank" rel="noopener noindex nofollow">empegbbs.com</a></td>
+          <td class="num">526</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">this one</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">10</td>
+          <td class="domain"><a href="https://biggerpockets.com" target="_blank" rel="noopener noindex nofollow">biggerpockets.com</a></td>
+          <td class="num">515</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/Tekmar-256-Boiler-Cont...</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">11</td>
+          <td class="domain"><a href="https://jup.ag" target="_blank" rel="noopener noindex nofollow">jup.ag</a></td>
+          <td class="num">501</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">ferguson.com</td>
+          <td>2026-09-26</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">12</td>
+          <td class="domain"><a href="https://onairium.com" target="_blank" rel="noopener noindex nofollow">onairium.com</a></td>
+          <td class="num">496</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Ferguson Enterprises</td>
+          <td>2026-09-29</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">13</td>
+          <td class="domain"><a href="https://remote.com" target="_blank" rel="noopener noindex nofollow">remote.com</a></td>
+          <td class="num">494</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">supplyhouse.com</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">14</td>
+          <td class="domain"><a href="https://remotejobs.com" target="_blank" rel="noopener noindex nofollow">remotejobs.com</a></td>
+          <td class="num">475</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-09-25</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">15</td>
+          <td class="domain"><a href="https://bobvila.com" target="_blank" rel="noopener noindex nofollow">bobvila.com</a></td>
+          <td class="num">474</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Upgrade Pick							
+						
+													
+								
+										</td>
+          <td>2026-09-22</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">16</td>
+          <td class="domain"><a href="https://bebee.com" target="_blank" rel="noopener noindex nofollow">bebee.com</a></td>
+          <td class="num">474</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-09-23</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">17</td>
+          <td class="domain"><a href="https://redlib.private.coffee" target="_blank" rel="noopener noindex nofollow">redlib.private.coffee</a></td>
+          <td class="num">449</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Blanco Sonoma faucet</td>
+          <td>2026-09-19</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">18</td>
+          <td class="domain"><a href="https://tacticlinks.com" target="_blank" rel="noopener noindex nofollow">tacticlinks.com</a></td>
+          <td class="num">448</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">ferguson.com</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">19</td>
+          <td class="domain"><a href="https://jerseyhired.com" target="_blank" rel="noopener noindex nofollow">jerseyhired.com</a></td>
+          <td class="num">448</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-09-23</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">20</td>
+          <td class="domain"><a href="https://fergusonhome.com" target="_blank" rel="noopener noindex nofollow">fergusonhome.com</a></td>
+          <td class="num">446</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-19</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">21</td>
+          <td class="domain"><a href="https://wethrift.com" target="_blank" rel="noopener noindex nofollow">wethrift.com</a></td>
+          <td class="num">422</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">supplyhouse.com</td>
+          <td>2026-09-20</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">22</td>
+          <td class="domain"><a href="https://fibromyalgiauk.co.uk" target="_blank" rel="noopener noindex nofollow">fibromyalgiauk.co.uk</a></td>
+          <td class="num">415</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse</td>
+          <td>2026-09-10</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">23</td>
+          <td class="domain"><a href="https://seamless.ai" target="_blank" rel="noopener noindex nofollow">seamless.ai</a></td>
+          <td class="num">414</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">robertsonsupply.com</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">24</td>
+          <td class="domain"><a href="https://buildersshow.com" target="_blank" rel="noopener noindex nofollow">buildersshow.com</a></td>
+          <td class="num">413</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">25</td>
+          <td class="domain"><a href="https://sysadminjobs.com" target="_blank" rel="noopener noindex nofollow">sysadminjobs.com</a></td>
+          <td class="num">410</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-09-19</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">26</td>
+          <td class="domain"><a href="https://benjaminfranklinplumbing.com" target="_blank" rel="noopener noindex nofollow">benjaminfranklinplumbing.com</a></td>
+          <td class="num">408</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">temperature and pressure (T&amp;P) valve</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">27</td>
+          <td class="domain"><a href="https://directoryvault.com" target="_blank" rel="noopener noindex nofollow">directoryvault.com</a></td>
+          <td class="num">405</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.pexsupply.com/</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">28</td>
+          <td class="domain"><a href="https://old-loja.chamada.com.br" target="_blank" rel="noopener noindex nofollow">old-loja.chamada.com.br</a></td>
+          <td class="num">397</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">29</td>
+          <td class="domain"><a href="https://goodpodcast.net" target="_blank" rel="noopener noindex nofollow">goodpodcast.net</a></td>
+          <td class="num">394</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://SupplyHouse.com/TM</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">30</td>
+          <td class="domain"><a href="https://hvacindustryjobs.com" target="_blank" rel="noopener noindex nofollow">hvacindustryjobs.com</a></td>
+          <td class="num">388</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">31</td>
+          <td class="domain"><a href="https://tedmag.com" target="_blank" rel="noopener noindex nofollow">tedmag.com</a></td>
+          <td class="num">384</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse.com</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">32</td>
+          <td class="domain"><a href="https://kubebath.com" target="_blank" rel="noopener noindex nofollow">kubebath.com</a></td>
+          <td class="num">381</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.ferguson.com/</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">33</td>
+          <td class="domain"><a href="https://robinspost.com" target="_blank" rel="noopener noindex nofollow">robinspost.com</a></td>
+          <td class="num">379</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">34</td>
+          <td class="domain"><a href="https://remoterocketship.com" target="_blank" rel="noopener noindex nofollow">remoterocketship.com</a></td>
+          <td class="num">377</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Website</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">35</td>
+          <td class="domain"><a href="https://mylocalservices.com" target="_blank" rel="noopener noindex nofollow">mylocalservices.com</a></td>
+          <td class="num">376</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.ferguson.com/store/ma/newton/plumbingpvf-1198/</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">36</td>
+          <td class="domain"><a href="https://tv.sinovision.net" target="_blank" rel="noopener noindex nofollow">tv.sinovision.net</a></td>
+          <td class="num">375</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-11</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">37</td>
+          <td class="domain"><a href="https://longbridge.com" target="_blank" rel="noopener noindex nofollow">longbridge.com</a></td>
+          <td class="num">365</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.corporate.ferguson.com</td>
+          <td>2026-09-22</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">38</td>
+          <td class="domain"><a href="https://boss.ms" target="_blank" rel="noopener noindex nofollow">boss.ms</a></td>
+          <td class="num">361</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Website</td>
+          <td>2026-09-23</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">39</td>
+          <td class="domain"><a href="https://wiza.co" target="_blank" rel="noopener noindex nofollow">wiza.co</a></td>
+          <td class="num">356</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">supplyhouse.com</td>
+          <td>2026-09-29</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">40</td>
+          <td class="domain"><a href="https://wiza.co" target="_blank" rel="noopener noindex nofollow">wiza.co</a></td>
+          <td class="num">356</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">ferguson.com</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">41</td>
+          <td class="domain"><a href="https://dreamworkhq.com" target="_blank" rel="noopener noindex nofollow">dreamworkhq.com</a></td>
+          <td class="num">355</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">42</td>
+          <td class="domain"><a href="https://oldwillysforum.com" target="_blank" rel="noopener noindex nofollow">oldwillysforum.com</a></td>
+          <td class="num">353</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/Hercules-45804-Megabubble-Leak-D</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">43</td>
+          <td class="domain"><a href="https://caanet.org" target="_blank" rel="noopener noindex nofollow">caanet.org</a></td>
+          <td class="num">350</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.ferguson.com</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">44</td>
+          <td class="domain"><a href="https://njappa.appa.org" target="_blank" rel="noopener noindex nofollow">njappa.appa.org</a></td>
+          <td class="num">349</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.ferguson.com/</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">45</td>
+          <td class="domain"><a href="https://bandana.com" target="_blank" rel="noopener noindex nofollow">bandana.com</a></td>
+          <td class="num">342</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/our-company</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">46</td>
+          <td class="domain"><a href="https://bandana.com" target="_blank" rel="noopener noindex nofollow">bandana.com</a></td>
+          <td class="num">342</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.ferguson.com</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">47</td>
+          <td class="domain"><a href="https://career.io" target="_blank" rel="noopener noindex nofollow">career.io</a></td>
+          <td class="num">341</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">48</td>
+          <td class="domain"><a href="https://localservice.wholeaustin.com" target="_blank" rel="noopener noindex nofollow">localservice.wholeaustin.com</a></td>
+          <td class="num">336</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.ferguson.com/branch/metropolitan-dr-austin-tx-plumbing &amp;</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">49</td>
+          <td class="domain"><a href="https://ecommerce.wholeaustin.com" target="_blank" rel="noopener noindex nofollow">ecommerce.wholeaustin.com</a></td>
+          <td class="num">336</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.ferguson.com/branch/metropolitan-dr-austin-tx-plumbing &amp;</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">50</td>
+          <td class="domain"><a href="https://forums.woodnet.net" target="_blank" rel="noopener noindex nofollow">forums.woodnet.net</a></td>
+          <td class="num">334</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/Spears-P130-...gItefD_BwE</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">51</td>
+          <td class="domain"><a href="https://bobistheoilguy.com" target="_blank" rel="noopener noindex nofollow">bobistheoilguy.com</a></td>
+          <td class="num">332</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.pexsupply.com/Bradford-White-...-Heater-Nat-Gas</td>
+          <td>2026-09-25</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">52</td>
+          <td class="domain"><a href="https://partnerbase.com" target="_blank" rel="noopener noindex nofollow">partnerbase.com</a></td>
+          <td class="num">326</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">ferguson.com</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">53</td>
+          <td class="domain"><a href="https://parentingadvisor.onlineparentingprograms.com" target="_blank" rel="noopener noindex nofollow">parentingadvisor.onlineparentingprograms.com</a></td>
+          <td class="num">325</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">plumbing fixtures available online</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">54</td>
+          <td class="domain"><a href="https://yafri.ca" target="_blank" rel="noopener noindex nofollow">yafri.ca</a></td>
+          <td class="num">325</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">TG @SEO_LINKK_ORDER –  SEO BACKLINKS, HOMEPAGE LINKS, CROSSL</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">55</td>
+          <td class="domain"><a href="https://forums.mikeholt.com" target="_blank" rel="noopener noindex nofollow">forums.mikeholt.com</a></td>
+          <td class="num">322</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/Carlon-...m0m7gAcr9inG6Nl996H-tw</td>
+          <td>2026-09-17</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">56</td>
+          <td class="domain"><a href="https://h1bvisajobs.com" target="_blank" rel="noopener noindex nofollow">h1bvisajobs.com</a></td>
+          <td class="num">321</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">supplyhouse.com</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">57</td>
+          <td class="domain"><a href="https://sciencemadness.org" target="_blank" rel="noopener noindex nofollow">sciencemadness.org</a></td>
+          <td class="num">317</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.supplyhouse.com/Wirsbo-Uponor-LF2945050-Copper-St</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">58</td>
+          <td class="domain"><a href="https://tufocar.com" target="_blank" rel="noopener noindex nofollow">tufocar.com</a></td>
+          <td class="num">316</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">supplyhouse.com</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">59</td>
+          <td class="domain"><a href="https://community.hubitat.com" target="_blank" rel="noopener noindex nofollow">community.hubitat.com</a></td>
+          <td class="num">315</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/Rusco-3-4-SBV-Z-3-4-Smart-Ball-V</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">60</td>
+          <td class="domain"><a href="https://podscan.fm" target="_blank" rel="noopener noindex nofollow">podscan.fm</a></td>
+          <td class="num">305</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://SupplyHouse.com/TM</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">61</td>
+          <td class="domain"><a href="https://elogic.co" target="_blank" rel="noopener noindex nofollow">elogic.co</a></td>
+          <td class="num">299</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">12. SupplyHouse.com</td>
+          <td>2026-10-02</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">62</td>
+          <td class="domain"><a href="https://stockmarketguides.com" target="_blank" rel="noopener noindex nofollow">stockmarketguides.com</a></td>
+          <td class="num">299</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.corporate.ferguson.com</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">63</td>
+          <td class="domain"><a href="https://alphaspread.com" target="_blank" rel="noopener noindex nofollow">alphaspread.com</a></td>
+          <td class="num">299</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">www.corporate.ferguson.com</td>
+          <td>2026-10-01</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">64</td>
+          <td class="domain"><a href="https://findmyfireplace.com" target="_blank" rel="noopener noindex nofollow">findmyfireplace.com</a></td>
+          <td class="num">294</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Ferguson Enterprises, Inc. - Wasilla</td>
+          <td>2026-09-22</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">65</td>
+          <td class="domain"><a href="https://roic.ai" target="_blank" rel="noopener noindex nofollow">roic.ai</a></td>
+          <td class="num">294</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">corporate.ferguson.com</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">66</td>
+          <td class="domain"><a href="https://pizzamaking.com" target="_blank" rel="noopener noindex nofollow">pizzamaking.com</a></td>
+          <td class="num">292</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://www.supplyhouse.com/Ranco-ETC-112000-000-Single-Stage</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">67</td>
+          <td class="domain"><a href="https://tech-wonders.com" target="_blank" rel="noopener noindex nofollow">tech-wonders.com</a></td>
+          <td class="num">292</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">wide selection of electrical supplies</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">68</td>
+          <td class="domain"><a href="https://onvaxs.com" target="_blank" rel="noopener noindex nofollow">onvaxs.com</a></td>
+          <td class="num">289</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Netw</td>
+          <td>2026-09-21</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">69</td>
+          <td class="domain"><a href="https://sbcontractors.org" target="_blank" rel="noopener noindex nofollow">sbcontractors.org</a></td>
+          <td class="num">285</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-19</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">70</td>
+          <td class="domain"><a href="https://badgermetals.net" target="_blank" rel="noopener noindex nofollow">badgermetals.net</a></td>
+          <td class="num">285</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-27</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">71</td>
+          <td class="domain"><a href="https://geteco.com" target="_blank" rel="noopener noindex nofollow">geteco.com</a></td>
+          <td class="num">281</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Ferguson</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">72</td>
+          <td class="domain"><a href="https://woodcentral.com" target="_blank" rel="noopener noindex nofollow">woodcentral.com</a></td>
+          <td class="num">280</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/Copper-Caps-145000</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">73</td>
+          <td class="domain"><a href="https://heatinghelp.com" target="_blank" rel="noopener noindex nofollow">heatinghelp.com</a></td>
+          <td class="num">278</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse.com</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">74</td>
+          <td class="domain"><a href="https://localblackhills.com" target="_blank" rel="noopener noindex nofollow">localblackhills.com</a></td>
+          <td class="num">278</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Visit Our Website</td>
+          <td>2026-09-25</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">75</td>
+          <td class="domain"><a href="https://elearning.asc.edu.ag" target="_blank" rel="noopener noindex nofollow">elearning.asc.edu.ag</a></td>
+          <td class="num">277</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">76</td>
+          <td class="domain"><a href="https://myvancity.ca" target="_blank" rel="noopener noindex nofollow">myvancity.ca</a></td>
+          <td class="num">277</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">corporate.ferguson.com</td>
+          <td>2026-09-28</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">77</td>
+          <td class="domain"><a href="https://directory.salephpscripts.com" target="_blank" rel="noopener noindex nofollow">directory.salephpscripts.com</a></td>
+          <td class="num">275</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">http://ferguson.com/</td>
+          <td>2026-09-28</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">78</td>
+          <td class="domain"><a href="https://nc4x4.com" target="_blank" rel="noopener noindex nofollow">nc4x4.com</a></td>
+          <td class="num">274</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/GAF-Master-Flow-D-8-8-Damper?utm</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">79</td>
+          <td class="domain"><a href="https://sociallybold.com" target="_blank" rel="noopener noindex nofollow">sociallybold.com</a></td>
+          <td class="num">272</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Visit live site ↗</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">80</td>
+          <td class="domain"><a href="https://caffewerks.com" target="_blank" rel="noopener noindex nofollow">caffewerks.com</a></td>
+          <td class="num">271</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Tempering valve</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">81</td>
+          <td class="domain"><a href="https://faucre.com" target="_blank" rel="noopener noindex nofollow">faucre.com</a></td>
+          <td class="num">271</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">pexsupply</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">82</td>
+          <td class="domain"><a href="https://oilpumpsuppliers.com" target="_blank" rel="noopener noindex nofollow">oilpumpsuppliers.com</a></td>
+          <td class="num">267</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">83</td>
+          <td class="domain"><a href="https://stemvoodoo.com" target="_blank" rel="noopener noindex nofollow">stemvoodoo.com</a></td>
+          <td class="num">263</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">LED bulbs</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">84</td>
+          <td class="domain"><a href="https://cutshort.io" target="_blank" rel="noopener noindex nofollow">cutshort.io</a></td>
+          <td class="num">258</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.supplyhouse.com/our-company</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">85</td>
+          <td class="domain"><a href="https://vetopropac.com" target="_blank" rel="noopener noindex nofollow">vetopropac.com</a></td>
+          <td class="num">257</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">opens in a new window</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">86</td>
+          <td class="domain"><a href="https://georgiapellegrini.com" target="_blank" rel="noopener noindex nofollow">georgiapellegrini.com</a></td>
+          <td class="num">255</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Pex Supply online</td>
+          <td>2026-09-25</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">87</td>
+          <td class="domain"><a href="https://hotfri.com" target="_blank" rel="noopener noindex nofollow">hotfri.com</a></td>
+          <td class="num">255</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">pexsupply</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">88</td>
+          <td class="domain"><a href="https://korky.com" target="_blank" rel="noopener noindex nofollow">korky.com</a></td>
+          <td class="num">254</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">89</td>
+          <td class="domain"><a href="https://ramapowholesalers.com" target="_blank" rel="noopener noindex nofollow">ramapowholesalers.com</a></td>
+          <td class="num">253</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">—</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">90</td>
+          <td class="domain"><a href="https://backlinktime.com" target="_blank" rel="noopener noindex nofollow">backlinktime.com</a></td>
+          <td class="num">253</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">pexsupply</td>
+          <td>2026-09-21</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">91</td>
+          <td class="domain"><a href="https://zomatt.com" target="_blank" rel="noopener noindex nofollow">zomatt.com</a></td>
+          <td class="num">253</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">pexsupply</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">92</td>
+          <td class="domain"><a href="https://ivan.iugo.com.uy" target="_blank" rel="noopener noindex nofollow">ivan.iugo.com.uy</a></td>
+          <td class="num">252</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse</td>
+          <td>2026-09-27</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">93</td>
+          <td class="domain"><a href="https://laloftblog.com" target="_blank" rel="noopener noindex nofollow">laloftblog.com</a></td>
+          <td class="num">252</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">check this out</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">94</td>
+          <td class="domain"><a href="https://ivan.iugo.com.uy" target="_blank" rel="noopener noindex nofollow">ivan.iugo.com.uy</a></td>
+          <td class="num">252</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">major plumbing retailers</td>
+          <td>2026-09-27</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">95</td>
+          <td class="domain"><a href="https://localjobs.com" target="_blank" rel="noopener noindex nofollow">localjobs.com</a></td>
+          <td class="num">252</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">https://www.ferguson.com/content/careers/reasonable-accommod</td>
+          <td>2026-09-27</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">96</td>
+          <td class="domain"><a href="https://covenantairesolutions.com" target="_blank" rel="noopener noindex nofollow">covenantairesolutions.com</a></td>
+          <td class="num">248</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Ferguson on ductless HVAC market growth</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">97</td>
+          <td class="domain"><a href="https://barchasb.net" target="_blank" rel="noopener noindex nofollow">barchasb.net</a></td>
+          <td class="num">245</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">How Americans Try To Fix Clogs</td>
+          <td>2026-09-25</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">98</td>
+          <td class="domain"><a href="https://top5casino.online" target="_blank" rel="noopener noindex nofollow">top5casino.online</a></td>
+          <td class="num">245</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Effective Tiered Link Building for supplyhouse.com to Improv</td>
+          <td>2026-09-27</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">99</td>
+          <td class="domain"><a href="https://tapesearch.com" target="_blank" rel="noopener noindex nofollow">tapesearch.com</a></td>
+          <td class="num">245</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse.com</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">100</td>
+          <td class="domain"><a href="https://designbyremi.com" target="_blank" rel="noopener noindex nofollow">designbyremi.com</a></td>
+          <td class="num">243</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Ferguson Lawrenceville Showroom</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">101</td>
+          <td class="domain"><a href="https://pirdu.com" target="_blank" rel="noopener noindex nofollow">pirdu.com</a></td>
+          <td class="num">242</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">pexsupply</td>
+          <td>2026-09-26</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">102</td>
+          <td class="domain"><a href="https://analyzebacklinks.store" target="_blank" rel="noopener noindex nofollow">analyzebacklinks.store</a></td>
+          <td class="num">236</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">103</td>
+          <td class="domain"><a href="https://skbi.com" target="_blank" rel="noopener noindex nofollow">skbi.com</a></td>
+          <td class="num">236</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Ferguson</td>
+          <td>2026-09-20</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">104</td>
+          <td class="domain"><a href="https://applyall.com" target="_blank" rel="noopener noindex nofollow">applyall.com</a></td>
+          <td class="num">235</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse.com</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">105</td>
+          <td class="domain"><a href="https://applyall.com" target="_blank" rel="noopener noindex nofollow">applyall.com</a></td>
+          <td class="num">235</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Equal Employment Opportunity and Reasonable Accommodation In</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">106</td>
+          <td class="domain"><a href="https://wolseleyhvacdealers.ca" target="_blank" rel="noopener noindex nofollow">wolseleyhvacdealers.ca</a></td>
+          <td class="num">235</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Canada’s Modern Slavery Act Statement</td>
+          <td>2026-09-21</td>
+          <td class="comp-pill">ferguson.com</td>
+        </tr>
+        <tr>
+          <td class="rank">107</td>
+          <td class="domain"><a href="https://freebacklinkgenerator.online" target="_blank" rel="noopener noindex nofollow">freebacklinkgenerator.online</a></td>
+          <td class="num">233</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">108</td>
+          <td class="domain"><a href="https://urlbacklinkgenerator.website" target="_blank" rel="noopener noindex nofollow">urlbacklinkgenerator.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">109</td>
+          <td class="domain"><a href="https://highqualitylinkbuilding.store" target="_blank" rel="noopener noindex nofollow">highqualitylinkbuilding.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">110</td>
+          <td class="domain"><a href="https://automaticbacklinkcreator.store" target="_blank" rel="noopener noindex nofollow">automaticbacklinkcreator.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">111</td>
+          <td class="domain"><a href="https://backlinkanalytics.website" target="_blank" rel="noopener noindex nofollow">backlinkanalytics.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">112</td>
+          <td class="domain"><a href="https://createseobacklinks.space" target="_blank" rel="noopener noindex nofollow">createseobacklinks.space</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">113</td>
+          <td class="domain"><a href="https://stackbacklinks.com" target="_blank" rel="noopener noindex nofollow">stackbacklinks.com</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">114</td>
+          <td class="domain"><a href="https://backlinksseo.space" target="_blank" rel="noopener noindex nofollow">backlinksseo.space</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">115</td>
+          <td class="domain"><a href="https://qualitybacklinksservice.online" target="_blank" rel="noopener noindex nofollow">qualitybacklinksservice.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">116</td>
+          <td class="domain"><a href="https://casinobacklinks.space" target="_blank" rel="noopener noindex nofollow">casinobacklinks.space</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">117</td>
+          <td class="domain"><a href="https://web20submission.store" target="_blank" rel="noopener noindex nofollow">web20submission.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">118</td>
+          <td class="domain"><a href="https://backlinkcompanies.space" target="_blank" rel="noopener noindex nofollow">backlinkcompanies.space</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">119</td>
+          <td class="domain"><a href="https://urlbacklink.website" target="_blank" rel="noopener noindex nofollow">urlbacklink.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">120</td>
+          <td class="domain"><a href="https://backlinksfree.store" target="_blank" rel="noopener noindex nofollow">backlinksfree.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">121</td>
+          <td class="domain"><a href="https://automatedbacklinksubmitter.store" target="_blank" rel="noopener noindex nofollow">automatedbacklinksubmitter.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">122</td>
+          <td class="domain"><a href="https://createwebsitebacklinks.site" target="_blank" rel="noopener noindex nofollow">createwebsitebacklinks.site</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">123</td>
+          <td class="domain"><a href="https://backlinkprovider.website" target="_blank" rel="noopener noindex nofollow">backlinkprovider.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">124</td>
+          <td class="domain"><a href="https://automaticbacklinksgenerator.shop" target="_blank" rel="noopener noindex nofollow">automaticbacklinksgenerator.shop</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">125</td>
+          <td class="domain"><a href="https://backlinkgeneratoronline.online" target="_blank" rel="noopener noindex nofollow">backlinkgeneratoronline.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">126</td>
+          <td class="domain"><a href="https://makebacklink.space" target="_blank" rel="noopener noindex nofollow">makebacklink.space</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">127</td>
+          <td class="domain"><a href="https://linkanalyzer.online" target="_blank" rel="noopener noindex nofollow">linkanalyzer.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">128</td>
+          <td class="domain"><a href="https://buypbnbacklinks.online" target="_blank" rel="noopener noindex nofollow">buypbnbacklinks.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">129</td>
+          <td class="domain"><a href="https://buycheapbacklinks.store" target="_blank" rel="noopener noindex nofollow">buycheapbacklinks.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">130</td>
+          <td class="domain"><a href="https://createbacklinksonline.online" target="_blank" rel="noopener noindex nofollow">createbacklinksonline.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">131</td>
+          <td class="domain"><a href="https://citationbuilding.online" target="_blank" rel="noopener noindex nofollow">citationbuilding.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">132</td>
+          <td class="domain"><a href="https://backlinkagency.website" target="_blank" rel="noopener noindex nofollow">backlinkagency.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">133</td>
+          <td class="domain"><a href="https://backlinkmanagement.store" target="_blank" rel="noopener noindex nofollow">backlinkmanagement.store</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">134</td>
+          <td class="domain"><a href="https://backlinkmaker.site" target="_blank" rel="noopener noindex nofollow">backlinkmaker.site</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">135</td>
+          <td class="domain"><a href="https://createwebsitebacklinks.website" target="_blank" rel="noopener noindex nofollow">createwebsitebacklinks.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">136</td>
+          <td class="domain"><a href="https://backlinkbot.online" target="_blank" rel="noopener noindex nofollow">backlinkbot.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">137</td>
+          <td class="domain"><a href="https://buycheapbacklinks.website" target="_blank" rel="noopener noindex nofollow">buycheapbacklinks.website</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">138</td>
+          <td class="domain"><a href="https://buycheapbacklinks.space" target="_blank" rel="noopener noindex nofollow">buycheapbacklinks.space</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">139</td>
+          <td class="domain"><a href="https://contextualbacklinks.online" target="_blank" rel="noopener noindex nofollow">contextualbacklinks.online</a></td>
+          <td class="num">232</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">140</td>
+          <td class="domain"><a href="https://generatewebsitebacklinks.website" target="_blank" rel="noopener noindex nofollow">generatewebsitebacklinks.website</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">141</td>
+          <td class="domain"><a href="https://generatebacklinksinstantly.space" target="_blank" rel="noopener noindex nofollow">generatebacklinksinstantly.space</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">142</td>
+          <td class="domain"><a href="https://dofollowbacklinks.shop" target="_blank" rel="noopener noindex nofollow">dofollowbacklinks.shop</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">143</td>
+          <td class="domain"><a href="https://seozens.com" target="_blank" rel="noopener noindex nofollow">seozens.com</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">144</td>
+          <td class="domain"><a href="https://freebacklink.website" target="_blank" rel="noopener noindex nofollow">freebacklink.website</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">145</td>
+          <td class="domain"><a href="https://highseoonline.com" target="_blank" rel="noopener noindex nofollow">highseoonline.com</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">146</td>
+          <td class="domain"><a href="https://freebacklinks.space" target="_blank" rel="noopener noindex nofollow">freebacklinks.space</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">147</td>
+          <td class="domain"><a href="https://goodbacklinks.online" target="_blank" rel="noopener noindex nofollow">goodbacklinks.online</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">148</td>
+          <td class="domain"><a href="https://backlinkprovider.online" target="_blank" rel="noopener noindex nofollow">backlinkprovider.online</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">149</td>
+          <td class="domain"><a href="https://backlinksforlocalseo.shop" target="_blank" rel="noopener noindex nofollow">backlinksforlocalseo.shop</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">150</td>
+          <td class="domain"><a href="https://backlinkscompetitor.space" target="_blank" rel="noopener noindex nofollow">backlinkscompetitor.space</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">151</td>
+          <td class="domain"><a href="https://backlinkweb.store" target="_blank" rel="noopener noindex nofollow">backlinkweb.store</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">152</td>
+          <td class="domain"><a href="https://backlinkingstrategies.site" target="_blank" rel="noopener noindex nofollow">backlinkingstrategies.site</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">153</td>
+          <td class="domain"><a href="https://backlinkbuildingtool.site" target="_blank" rel="noopener noindex nofollow">backlinkbuildingtool.site</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">154</td>
+          <td class="domain"><a href="https://backlinksforseo.website" target="_blank" rel="noopener noindex nofollow">backlinksforseo.website</a></td>
+          <td class="num">231</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">155</td>
+          <td class="domain"><a href="https://hctutorial.com" target="_blank" rel="noopener noindex nofollow">hctutorial.com</a></td>
+          <td class="num">229</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">HVAC parts</td>
+          <td>2026-09-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">156</td>
+          <td class="domain"><a href="https://backlinkwizards.info" target="_blank" rel="noopener noindex nofollow">backlinkwizards.info</a></td>
+          <td class="num">229</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-08</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">157</td>
+          <td class="domain"><a href="https://backlinksguide.link" target="_blank" rel="noopener noindex nofollow">backlinksguide.link</a></td>
+          <td class="num">229</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">158</td>
+          <td class="domain"><a href="https://ailinkbuildingtool.shop" target="_blank" rel="noopener noindex nofollow">ailinkbuildingtool.shop</a></td>
+          <td class="num">229</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">159</td>
+          <td class="domain"><a href="https://houseandhammer.com" target="_blank" rel="noopener noindex nofollow">houseandhammer.com</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">SupplyHouse.com</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">160</td>
+          <td class="domain"><a href="https://autobacklinkgenerator.shop" target="_blank" rel="noopener noindex nofollow">autobacklinkgenerator.shop</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">161</td>
+          <td class="domain"><a href="https://backlinkgeneratorbot.store" target="_blank" rel="noopener noindex nofollow">backlinkgeneratorbot.store</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">162</td>
+          <td class="domain"><a href="https://automatedbacklinkbuilder.website" target="_blank" rel="noopener noindex nofollow">automatedbacklinkbuilder.website</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">163</td>
+          <td class="domain"><a href="https://backlinkseoservices.site" target="_blank" rel="noopener noindex nofollow">backlinkseoservices.site</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">164</td>
+          <td class="domain"><a href="https://backlinktools.store" target="_blank" rel="noopener noindex nofollow">backlinktools.store</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">165</td>
+          <td class="domain"><a href="https://backlinkbuildingcompany.store" target="_blank" rel="noopener noindex nofollow">backlinkbuildingcompany.store</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">166</td>
+          <td class="domain"><a href="https://automaticbacklinkbuilder.shop" target="_blank" rel="noopener noindex nofollow">automaticbacklinkbuilder.shop</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">167</td>
+          <td class="domain"><a href="https://backlinksubmissionsite.space" target="_blank" rel="noopener noindex nofollow">backlinksubmissionsite.space</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">168</td>
+          <td class="domain"><a href="https://backlinkmonitoring.shop" target="_blank" rel="noopener noindex nofollow">backlinkmonitoring.shop</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">169</td>
+          <td class="domain"><a href="https://backlinkbuildingservices.online" target="_blank" rel="noopener noindex nofollow">backlinkbuildingservices.online</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">170</td>
+          <td class="domain"><a href="https://backlinkcompany.site" target="_blank" rel="noopener noindex nofollow">backlinkcompany.site</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">171</td>
+          <td class="domain"><a href="https://backlinkmonitor.shop" target="_blank" rel="noopener noindex nofollow">backlinkmonitor.shop</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">172</td>
+          <td class="domain"><a href="https://backlinkbuildingagency.space" target="_blank" rel="noopener noindex nofollow">backlinkbuildingagency.space</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">173</td>
+          <td class="domain"><a href="https://automaticbacklinkgenerator.site" target="_blank" rel="noopener noindex nofollow">automaticbacklinkgenerator.site</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">174</td>
+          <td class="domain"><a href="https://backlinkwebsites.website" target="_blank" rel="noopener noindex nofollow">backlinkwebsites.website</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">175</td>
+          <td class="domain"><a href="https://aibacklinktool.website" target="_blank" rel="noopener noindex nofollow">aibacklinktool.website</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">176</td>
+          <td class="domain"><a href="https://automatedbacklinkmaker.website" target="_blank" rel="noopener noindex nofollow">automatedbacklinkmaker.website</a></td>
+          <td class="num">226</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">177</td>
+          <td class="domain"><a href="https://cloudfree.shop" target="_blank" rel="noopener noindex nofollow">cloudfree.shop</a></td>
+          <td class="num">224</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Carrier brand dongle</td>
+          <td>2026-09-09</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">178</td>
+          <td class="domain"><a href="https://zlutag.com" target="_blank" rel="noopener noindex nofollow">zlutag.com</a></td>
+          <td class="num">224</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">pexsupply</td>
+          <td>2026-09-18</td>
+          <td class="comp-pill">pexsupply.com</td>
+        </tr>
+        <tr>
+          <td class="rank">179</td>
+          <td class="domain"><a href="https://seocompetitorbacklink.shop" target="_blank" rel="noopener noindex nofollow">seocompetitorbacklink.shop</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">180</td>
+          <td class="domain"><a href="https://relevantlink.site" target="_blank" rel="noopener noindex nofollow">relevantlink.site</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">181</td>
+          <td class="domain"><a href="https://backlinksboost.link" target="_blank" rel="noopener noindex nofollow">backlinksboost.link</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">182</td>
+          <td class="domain"><a href="https://seolinkbuildingservices.site" target="_blank" rel="noopener noindex nofollow">seolinkbuildingservices.site</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">183</td>
+          <td class="domain"><a href="https://profilebacklinks.site" target="_blank" rel="noopener noindex nofollow">profilebacklinks.site</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">184</td>
+          <td class="domain"><a href="https://backlinkspace.link" target="_blank" rel="noopener noindex nofollow">backlinkspace.link</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">185</td>
+          <td class="domain"><a href="https://boost-traffic.info" target="_blank" rel="noopener noindex nofollow">boost-traffic.info</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">186</td>
+          <td class="domain"><a href="https://seocompetitor.site" target="_blank" rel="noopener noindex nofollow">seocompetitor.site</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">187</td>
+          <td class="domain"><a href="https://seolinkbuildingcompany.online" target="_blank" rel="noopener noindex nofollow">seolinkbuildingcompany.online</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">188</td>
+          <td class="domain"><a href="https://qualitybacklinkservice.space" target="_blank" rel="noopener noindex nofollow">qualitybacklinkservice.space</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">189</td>
+          <td class="domain"><a href="https://backlinkshome.com" target="_blank" rel="noopener noindex nofollow">backlinkshome.com</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">190</td>
+          <td class="domain"><a href="https://seolinkbuildingcompany.space" target="_blank" rel="noopener noindex nofollow">seolinkbuildingcompany.space</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">191</td>
+          <td class="domain"><a href="https://premiumbacklinks.website" target="_blank" rel="noopener noindex nofollow">premiumbacklinks.website</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">192</td>
+          <td class="domain"><a href="https://blog-backlinks.info" target="_blank" rel="noopener noindex nofollow">blog-backlinks.info</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">193</td>
+          <td class="domain"><a href="https://seoandbacklinks.shop" target="_blank" rel="noopener noindex nofollow">seoandbacklinks.shop</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-05</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">194</td>
+          <td class="domain"><a href="https://seolinkbuildingcompany.website" target="_blank" rel="noopener noindex nofollow">seolinkbuildingcompany.website</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">195</td>
+          <td class="domain"><a href="https://seobacklinkbuildingservices.store" target="_blank" rel="noopener noindex nofollow">seobacklinkbuildingservices.store</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">196</td>
+          <td class="domain"><a href="https://directorylinkbuilding.site" target="_blank" rel="noopener noindex nofollow">directorylinkbuilding.site</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-04</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">197</td>
+          <td class="domain"><a href="https://seodofollow.website" target="_blank" rel="noopener noindex nofollow">seodofollow.website</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">198</td>
+          <td class="domain"><a href="https://seolink.online" target="_blank" rel="noopener noindex nofollow">seolink.online</a></td>
+          <td class="num">223</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-03</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">199</td>
+          <td class="domain"><a href="https://naturalbacklink.website" target="_blank" rel="noopener noindex nofollow">naturalbacklink.website</a></td>
+          <td class="num">222</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-07</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+        <tr>
+          <td class="rank">200</td>
+          <td class="domain"><a href="https://rankingideals.link" target="_blank" rel="noopener noindex nofollow">rankingideals.link</a></td>
+          <td class="num">222</td>
+          <td><span class="badge nf">NF</span></td>
+          <td class="anchor">Build Powerful SEO Authority with Premium Backlinks supplyho</td>
+          <td>2026-10-06</td>
+          <td class="comp-pill">supplyhouse.com</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Recommendations -->
+<h2>💡 Recommendations</h2>
+<div class="recommendation">
+  <div class="rec-title">⚠️ You're #3 in Link Velocity</div>
+  <div class="rec-body">ferguson.com is building links 27.8/day faster than pexuniverse.com. Increase outreach velocity to close the gap. Current rate: +1.2/day vs leader: +29.0/day.</div>
+</div><div class="recommendation">
+  <div class="rec-title">🎯 Target 684 Intercept Domains for Outreach</div>
+  <div class="rec-body">These domains recently started linking to competitors but NOT to pexuniverse.com. Top targets by domain strength: doas.isac.cnr.it, locked-on-smu.simplecast.com, bisnow.com, traveldestinations.guide, podchaser.com. Prioritize dofollow links from high domain strength sites.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: supplyhouse.com's New Linking Domains</div>
+  <div class="rec-body">398 domains linked to supplyhouse.com but not to pexuniverse.com in the last 30 days (avg domain strength: 187). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: pexsupply.com's New Linking Domains</div>
+  <div class="rec-body">150 domains linked to pexsupply.com but not to pexuniverse.com in the last 30 days (avg domain strength: 60). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div><div class="recommendation">
+  <div class="rec-title">📡 Outreach Target: ferguson.com's New Linking Domains</div>
+  <div class="rec-body">136 domains linked to ferguson.com but not to pexuniverse.com in the last 30 days (avg domain strength: 179). These sites are proven linkers in your niche — they've already linked to a competitor, so they're warm prospects.</div>
+</div>
+
+<div class="footer">
+  Generated by Zenfusion Competitive Link Velocity Analyzer | DataForSEO Backlinks API | noindex, nofollow
+</div>
+
+<script>
+// Expandable intercepts table
+</script>
+</body>
+</html>
