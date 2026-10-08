@@ -48,6 +48,19 @@ tr.client-row { background: rgba(74,144,217,0.08); }
 .badge.df { background: rgba(39,174,96,0.15); color: #27ae60; }
 .badge.nf { background: rgba(127,140,141,0.15); color: #7f8c8d; }
 
+/* Print-specific CSS to prevent page breaks inside elements */
+@media print {
+  body { background: white; color: black; }
+  h2 { page-break-after: avoid; page-break-inside: avoid; }
+  .cards { page-break-inside: avoid; }
+  .card { page-break-inside: avoid; }
+  .chart-container { page-break-inside: avoid; }
+  table { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr { page-break-inside: avoid; }
+  .section { page-break-inside: avoid; }
+}
+
 /* Speed ranking bars */
 .speed-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1e2230; }
 .speed-rank { color: #5c6578; font-weight: 700; min-width: 30px; font-size: 14px; }
